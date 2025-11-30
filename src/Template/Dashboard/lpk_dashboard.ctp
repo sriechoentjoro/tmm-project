@@ -1,7 +1,7 @@
 <div class="dashboard lpk-dashboard">
     <div class="row">
         <div class="col-md-12">
-            <h2>LPK Dashboard - <?= h($stats['institutionName']) ?></h2>
+            <h2>LPK Dashboard - <?= h(isset($stats['institutionName']) ? $stats['institutionName'] : 'No Institution') ?></h2>
             <p class="text-muted">Institution-specific candidate management</p>
         </div>
     </div>
@@ -9,21 +9,21 @@
     <div class="row mt-4">
         <div class="col-md-4">
             <div class="stat-card stat-card-primary">
-                <h3><?= number_format($stats['totalCandidates']) ?></h3>
+                <h3><?= number_format(isset($stats['totalCandidates']) ? $stats['totalCandidates'] : 0) ?></h3>
                 <p>Total Candidates</p>
                 <i class="fa fa-users"></i>
             </div>
         </div>
         <div class="col-md-4">
             <div class="stat-card stat-card-warning">
-                <h3><?= number_format($stats['pendingCandidates']) ?></h3>
+                <h3><?= number_format(isset($stats['pendingCandidates']) ? $stats['pendingCandidates'] : 0) ?></h3>
                 <p>Pending Candidates</p>
                 <i class="fa fa-clock-o"></i>
             </div>
         </div>
         <div class="col-md-4">
             <div class="stat-card stat-card-success">
-                <h3><?= number_format($stats['approvedCandidates']) ?></h3>
+                <h3><?= number_format(isset($stats['approvedCandidates']) ? $stats['approvedCandidates'] : 0) ?></h3>
                 <p>Approved Candidates</p>
                 <i class="fa fa-check-circle"></i>
             </div>

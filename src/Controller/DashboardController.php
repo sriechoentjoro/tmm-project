@@ -182,16 +182,24 @@ class DashboardController extends AppController
         
         $user = $this->Auth->user();
         $institutionId = isset($user['institution_id']) ? $user['institution_id'] : null;
+        $institutionType = isset($user['institution_type']) ? $user['institution_type'] : 'vocational_training';
         
         if (!$institutionId) {
             $this->Flash->error('Your account is not linked to any institution. Please contact administrator.');
-            $this->set(['stats' => [], 'recentCandidates' => []]);
+            // Set default stats structure even when no institution
+            $stats = [
+                'institutionName' => 'No Institution',
+                'totalCandidates' => 0,
+                'pendingCandidates' => 0,
+                'approvedCandidates' => 0,
+            ];
+            $this->set(['stats' => $stats, 'recentCandidates' => []]);
             return;
         }
         
         // Institution-specific statistics
         $stats = [
-            'institutionName' => $this->getInstitutionName($institutionId, $user['institution_type']),
+            'institutionName' => $this->getInstitutionName($institutionId, $institutionType),
             'totalCandidates' => $this->getCountByCondition('Candidates', 'cms_lpk_candidates', 
                 ['vocational_training_institution_id' => $institutionId]),
             'pendingCandidates' => $this->getCountByCondition('Candidates', 'cms_lpk_candidates', 
