@@ -203,12 +203,12 @@ $staticAssetsUrl = $protocol . '://' . $host . '/static-assets';
                         </label>
                         <?= $this->Form->control('director_katakana', [
                             'class' => 'form-control katakana-input',
-                            'placeholder' => __('カタカナで名前を入力してください'),
+                            'placeholder' => __('ã‚«ã‚¿ã‚«ãƒŠã§åå‰ã‚’å…¥åŠ›ã—ã¦ãã ã•ã„'),
                             'label' => false,
                             'maxlength' => 256
                         ]) ?>
                         <small class="form-text text-muted">
-                            <i class="fas fa-info-circle"></i> Enter director's name in Katakana (カタカナ). Example: ヤマダ ハナコ
+                            <i class="fas fa-info-circle"></i> Enter director's name in Katakana (ã‚«ã‚¿ã‚«ãƒŠ). Example: ãƒ¤ãƒžãƒ€ ãƒãƒŠã‚³
                         </small>
                     </div>
                     <div class="col-12 mb-3">
@@ -247,7 +247,7 @@ $staticAssetsUrl = $protocol . '://' . $host . '/static-assets';
 </div>
 
 <?php $this->append('script'); ?>
-<?= ->Html->script('image-preview.js') ?>
+<?= $this->Html->script('image-preview.js') ?>
 <script>
     const APP_BASE_URL = "<?= $this->Url->build('/') ?>";
 </script>

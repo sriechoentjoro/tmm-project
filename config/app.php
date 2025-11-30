@@ -73,7 +73,6 @@ return [
         'default' => [
             'className' => 'File',
             'path' => CACHE,
-            'url' => env('CACHE_DEFAULT_URL', null),
         ],
         '_cake_core_' => [
             'className' => 'File',
@@ -81,7 +80,6 @@ return [
             'path' => CACHE . 'persistent/',
             'serialize' => true,
             'duration' => '+1 years',
-            'url' => env('CACHE_CAKECORE_URL', null),
         ],
         '_cake_model_' => [
             'className' => 'File',
@@ -97,7 +95,6 @@ return [
             'path' => CACHE,
             'serialize' => true,
             'duration' => '+1 years',
-            'url' => env('CACHE_CAKEROUTES_URL', null),
         ],
     ],
 
@@ -149,7 +146,7 @@ return [
      * Connection information used by the ORM to connect to your application's datastores.
      * LOADS FROM: config/app_datasources.php (13 CMS database connections)
      */
-    'Datasources' => require CONFIG . 'app_datasources.php',
+    'Datasources' => require __DIR__ . '/app_datasources.php',
 
     /**
      * Configures logging options

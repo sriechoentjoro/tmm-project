@@ -782,6 +782,7 @@ $(document).ready(function() {
         // Allow Enter in textarea for multiline input
         if (e.target.tagName.toLowerCase() === 'textarea') {
             return true;
+        }
         
         // Prevent Enter key from submitting form
         if (e.keyCode === 13 || e.which === 13) {
@@ -792,8 +793,10 @@ $(document).ready(function() {
             var currentIndex = inputs.index(e.target);
             if (currentIndex < inputs.length - 1) {
                 inputs.eq(currentIndex + 1).focus();
+            }
             
             return false;
+        }
     });
     
     // Form validation
@@ -806,21 +809,25 @@ $(document).ready(function() {
                 $(this).addClass('is-invalid');
                 if (!$(this).next('.invalid-feedback').length) {
                     $(this).after('<div class="invalid-feedback">This field is required</div>');
+                }
             } else {
                 $(this).removeClass('is-invalid');
                 $(this).next('.invalid-feedback').remove();
+            }
         });
         
         if (hasError) {
             e.preventDefault();
             alert('Please fill in all required fields');
             return false;
+        }
     });
     
     // Re-enable form if user navigates back
     $(window).on('pageshow', function(event) {
         if (event.originalEvent.persisted) {
             $('.form-overlay').remove();
+        }
     });
 });
 </script>

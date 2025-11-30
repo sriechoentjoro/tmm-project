@@ -334,7 +334,7 @@ $formOptions = $hasFileUpload ? ", ['type' => 'file']" : '';
 </div>
 
 <?php $this->append('script'); ?>
-<?= ->Html->script('image-preview.js') ?>
+<?= $this->Html->script('image-preview.js') ?>
 <script>
 // Enhanced Datepicker with easy year selection
 $(document).ready(function() {

@@ -1361,3 +1361,691 @@ public function view($id = null)
 - This script automatically converts all ID displays to association name/title displays in index and view templates
 - Verify in browser that index and view pages show readable names/titles, not numeric IDs
 - If manual fixes needed, follow patterns in "Complete Association Display Examples" section above
+
+---
+
+## 🚀 Production Deployment Guide
+
+### Overview
+This application is designed to run in **subdirectory mode** under nginx, with support for both domain (https://asahifamily.id/tmm) and IP-based access (http://103.214.112.58/tmm). The deployment requires specific nginx configuration patterns unique to CakePHP subdirectory installations.
+
+### Server Requirements
+
+**Production Environment**:
+- **OS**: Ubuntu 20.04 LTS or higher
+- **Web Server**: nginx 1.18.0+
+- **PHP**: PHP 7.4-FPM (PHP 5.6 for codebase, 7.4 for server)
+- **Database**: MySQL 8.0+ or MariaDB 10.3+
+- **SSL**: Let's Encrypt (certbot for auto-renewal)
+- **Process Manager**: systemd
+- **SSH**: Key-based authentication recommended
+
+**PHP Extensions Required**:
+```bash
+php-fpm php-mysql php-mbstring php-intl php-xml php-curl php-gd php-zip
+```
+
+**Directory Permissions**:
+```bash
+# Application files: root:root or www-data:www-data
+# Writable directories: www-data:www-data 775
+tmp/cache/models/
+tmp/cache/persistent/
+tmp/cache/views/
+tmp/sessions/
+logs/
+webroot/img/uploads/
+webroot/files/uploads/
+```
+
+### Critical nginx Configuration (Subdirectory Mode)
+
+**File**: `/etc/nginx/sites-enabled/ip-projects.conf` or `/etc/nginx/sites-enabled/tmm.conf`
+
+```nginx
+server {
+    listen 80;
+    server_name 103.214.112.58;  # Or your domain
+    root /var/www/html;
+    
+    # CRITICAL: Redirect /tmm to /tmm/ (CakePHP requires trailing slash)
+    location = /tmm {
+        return 301 /tmm/;
+    }
+    
+    # Main TMM location - serves static files
+    location /tmm {
+        alias /var/www/tmm/webroot;
+        index index.php;
+        try_files $uri $uri/ @tmm;
+    }
+    
+    # TMM rewrite handler - passes requests to index.php
+    location @tmm {
+        rewrite /tmm/(.*)$ /tmm/index.php?/$1 last;
+    }
+    
+    # CRITICAL: PHP handler for TMM
+    # Key issue: SCRIPT_NAME must NOT include /tmm prefix
+    location ~ ^/tmm/(.+\.php)$ {
+        alias /var/www/tmm/webroot;
+        fastcgi_pass unix:/run/php/php7.4-fpm.sock;
+        fastcgi_index index.php;
+        
+        # CRITICAL: These parameters prevent double /tmm prefix
+        fastcgi_param SCRIPT_FILENAME /var/www/tmm/webroot/$1;
+        fastcgi_param SCRIPT_NAME /$1;  # NOT /tmm/$1 - CakePHP adds prefix
+        fastcgi_param REQUEST_URI $request_uri;
+        
+        include fastcgi_params;
+    }
+}
+```
+
+**Common nginx Mistakes**:
+❌ `fastcgi_param SCRIPT_NAME /tmm/$1;` → Causes double path: /tmm/tmm/users/login
+✅ `fastcgi_param SCRIPT_NAME /$1;` → Correct: /tmm/users/login
+
+❌ `root /var/www/tmm/webroot;` → Doesn't work in subdirectory
+✅ `alias /var/www/tmm/webroot;` → Correct for subdirectory mode
+
+❌ Missing `location = /tmm { return 301 /tmm/; }` → CakePHP routing fails
+✅ Always redirect /tmm → /tmm/ for proper routing
+
+### SSL Certificate Setup (Let's Encrypt)
+
+```bash
+# Install certbot
+sudo apt update
+sudo apt install certbot python3-certbot-nginx
+
+# Obtain certificate (interactive)
+sudo certbot --nginx -d asahifamily.id -d www.asahifamily.id
+
+# Verify auto-renewal
+sudo systemctl status certbot.timer
+
+# Test renewal process
+sudo certbot renew --dry-run
+
+# Certificate locations
+/etc/letsencrypt/live/asahifamily.id/fullchain.pem
+/etc/letsencrypt/live/asahifamily.id/privkey.pem
+```
+
+**Auto-generated HTTPS configuration** (certbot adds this):
+```nginx
+server {
+    listen 443 ssl;
+    server_name asahifamily.id www.asahifamily.id;
+    
+    ssl_certificate /etc/letsencrypt/live/asahifamily.id/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/asahifamily.id/privkey.pem;
+    include /etc/letsencrypt/options-ssl-nginx.conf;
+    ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem;
+    
+    # Include TMM location blocks here (same as HTTP)
+}
+```
+
+### CakePHP Configuration (Critical Settings)
+
+**File**: `config/app.php`
+
+```php
+return [
+    'debug' => filter_var(env('DEBUG', false), FILTER_VALIDATE_BOOLEAN),  // FALSE in production
+    
+    'App' => [
+        'namespace' => 'App',
+        'encoding' => 'UTF-8',
+        'defaultLocale' => env('APP_DEFAULT_LOCALE', 'en_US'),
+        'defaultTimezone' => 'UTC',
+        'base' => false,  // Auto-detection
+        'dir' => 'src',
+        'webroot' => 'webroot',
+        'wwwRoot' => WWW_ROOT,
+        
+        // CRITICAL: Set to false for subdirectory auto-detection
+        'fullBaseUrl' => false,  // NOT 'http://domain/tmm' - causes double prefix
+        
+        'imageBaseUrl' => 'img/',
+        'cssBaseUrl' => 'css/',
+        'jsBaseUrl' => 'js/',
+        'paths' => [
+            'plugins' => [ROOT . DS . 'plugins' . DS],
+            'templates' => [APP . 'Template' . DS],
+            'locales' => [APP . 'Locale' . DS],
+        ],
+    ],
+    
+    'Cache' => [
+        'default' => [
+            'className' => 'File',
+            'path' => CACHE,
+        ],
+        '_cake_core_' => [
+            'className' => 'File',
+            'prefix' => 'myapp_cake_core_',
+            'path' => CACHE . 'persistent/',
+            'serialize' => true,
+            'duration' => '+1 years',
+        ],
+        '_cake_model_' => [
+            'className' => 'File',
+            'prefix' => 'myapp_cake_model_',
+            'path' => CACHE . 'models/',
+            'serialize' => true,
+            'duration' => '+1 years',
+        ],
+    ],
+    
+    // CRITICAL: Load datasources from separate file
+    'Datasources' => require __DIR__ . '/app_datasources.php',  // NOT CONFIG constant
+];
+```
+
+**File**: `config/app_datasources.php` (13 CMS Databases)
+
+```php
+<?php
+return [
+    'default' => [
+        'className' => 'Cake\Database\Connection',
+        'driver' => 'Cake\Database\Driver\Mysql',
+        'persistent' => false,
+        'host' => 'localhost',
+        'username' => 'root',
+        'password' => 'your_secure_password',
+        'database' => 'cms_masters',
+        'encoding' => 'utf8mb4',
+        'charset' => 'utf8mb4',
+        'collation' => 'utf8mb4_unicode_ci',
+        'prefix' => '',
+        'timezone' => 'UTC',
+        'flags' => [],
+        'cacheMetadata' => true,
+        'log' => false,
+    ],
+    
+    'cms_authentication_authorization' => [ /* ... */ ],
+    'cms_lpk_candidates' => [ /* ... */ ],
+    'cms_tmm_apprentices' => [ /* ... */ ],
+    // ... 10 more connections
+];  // CRITICAL: Must have closing bracket
+```
+
+**File**: `config/app_local.php` (DISABLE IN PRODUCTION)
+
+```bash
+# If app_local.php exists, rename it to prevent override
+cd /var/www/tmm/config
+mv app_local.php app_local.php.disabled
+
+# This file often contains development database settings that override production config
+```
+
+### SSH Key Authentication Setup (Recommended)
+
+**On Local Machine** (Windows PowerShell):
+```powershell
+# Generate RSA 4096-bit key pair
+ssh-keygen -t rsa -b 4096 -C "tmm-deployment" -f $HOME\.ssh\id_rsa
+
+# Copy public key to server
+Get-Content $HOME\.ssh\id_rsa.pub | ssh root@103.214.112.58 "mkdir -p ~/.ssh && cat >> ~/.ssh/authorized_keys"
+
+# Test passwordless connection
+ssh root@103.214.112.58 "echo 'SSH key authentication working'"
+```
+
+**On Server**:
+```bash
+# Set correct permissions
+chmod 700 ~/.ssh
+chmod 600 ~/.ssh/authorized_keys
+
+# Verify key installed
+cat ~/.ssh/authorized_keys
+```
+
+**Benefits**:
+- ✅ No password prompts during deployment
+- ✅ More secure than password authentication
+- ✅ Enables automated deployment scripts
+- ✅ Prevents lockout from failed password attempts
+
+### Deployment Workflow
+
+**Step 1: Pre-deployment Checks**
+```bash
+# On local machine - verify code
+cd d:\xampp\htdocs\tmm
+
+# Check PHP syntax
+php -l config/app.php
+php -l config/app_datasources.php
+
+# Verify BOM issues resolved
+powershell -ExecutionPolicy Bypass -File fix_bom_all_php_files.ps1
+
+# Clear local cache
+bin\cake cache clear_all
+```
+
+**Step 2: File Upload (Safe Method)**
+```powershell
+# WRONG: scp can corrupt files (truncates to 0 bytes)
+# scp config/app.php root@103.214.112.58:/var/www/tmm/config/
+
+# CORRECT: Piped upload method (prevents corruption)
+Get-Content config/app.php -Raw | ssh root@103.214.112.58 'cat > /var/www/tmm/config/app.php'
+
+# For multiple files
+Get-Content config/app_datasources.php -Raw | ssh root@103.214.112.58 'cat > /var/www/tmm/config/app_datasources.php'
+
+# Verify upload integrity
+ssh root@103.214.112.58 "wc -l /var/www/tmm/config/app.php && tail -1 /var/www/tmm/config/app.php"
+# Should show: 178 /var/www/tmm/config/app.php and closing ];
+```
+
+**Why This Matters**: scp can silently fail and truncate files to 0 bytes, causing "Config file did not return an array" errors.
+
+**Step 3: Database Update**
+```bash
+# Export local databases
+powershell -ExecutionPolicy Bypass -File export_all_databases.ps1
+
+# Upload SQL dumps
+scp backups/*.sql root@103.214.112.58:/tmp/
+
+# Import on server
+ssh root@103.214.112.58
+mysql -u root -p < /tmp/cms_masters.sql
+mysql -u root -p < /tmp/cms_authentication_authorization.sql
+# ... import all databases
+```
+
+**Step 4: Set Permissions**
+```bash
+ssh root@103.214.112.58
+
+cd /var/www/tmm
+
+# Set ownership
+chown -R www-data:www-data tmp/ logs/ webroot/img/uploads/ webroot/files/uploads/
+
+# Set permissions
+chmod -R 775 tmp/cache/
+chmod -R 775 logs/
+chmod -R 775 webroot/img/uploads/
+chmod -R 775 webroot/files/uploads/
+
+# Verify
+ls -la tmp/cache/
+```
+
+**Step 5: Clear Cache & Restart Services**
+```bash
+# Clear CakePHP cache
+cd /var/www/tmm
+rm -rf tmp/cache/*
+
+# Restart PHP-FPM
+systemctl restart php7.4-fpm
+
+# Reload nginx (no downtime)
+systemctl reload nginx
+
+# Verify services
+systemctl status php7.4-fpm
+systemctl status nginx
+```
+
+**Step 6: Post-deployment Verification**
+```bash
+# Test endpoints
+curl -I http://103.214.112.58/tmm/
+curl -I http://103.214.112.58/tmm/users/login
+
+# Check error logs
+tail -50 /var/www/tmm/logs/error.log
+tail -50 /var/log/nginx/error.log
+tail -50 /var/log/php7.4-fpm.log
+
+# Test database connections
+cd /var/www/tmm
+bin/cake console
+# In console: use ConnectionManager::get('default');
+```
+
+### Common Deployment Issues & Solutions
+
+#### Issue 1: 404 Not Found - /tmm not working
+**Symptom**: Accessing /tmm returns 404
+
+**Root Causes**:
+1. Missing `location = /tmm` redirect
+2. Wrong nginx root/alias configuration
+3. nginx config not reloaded
+
+**Solution**:
+```bash
+# Verify nginx config
+nginx -t
+
+# Check location blocks exist
+grep -A 5 "location.*tmm" /etc/nginx/sites-enabled/*
+
+# Add missing redirect
+location = /tmm { return 301 /tmm/; }
+
+# Reload nginx
+systemctl reload nginx
+```
+
+#### Issue 2: Unknown database 'my_app'
+**Symptom**: SQLSTATE[HY000] [1049] Unknown database 'my_app'
+
+**Root Causes**:
+1. app_local.php overriding with wrong database
+2. CONFIG constant not working (CakePHP 3.x issue)
+3. app_datasources.php missing closing bracket
+
+**Solution**:
+```bash
+# Disable app_local.php
+cd /var/www/tmm/config
+mv app_local.php app_local.php.disabled
+
+# Fix CONFIG constant
+# In app.php line 152:
+'Datasources' => require __DIR__ . '/app_datasources.php',  # NOT CONFIG constant
+
+# Verify closing bracket
+tail -1 app_datasources.php
+# Should show: ];
+
+# Clear cache
+cd /var/www/tmm
+rm -rf tmp/cache/*
+```
+
+#### Issue 3: Cache not writable warnings
+**Symptom**: "tmp/cache/persistent/ is not writable"
+
+**Root Causes**:
+1. Wrong ownership (root instead of www-data)
+2. Incorrect permissions
+3. PHP opcache caching old permission states
+
+**Solution**:
+```bash
+# Fix ownership
+chown -R www-data:www-data /var/www/tmm/tmp
+
+# Fix permissions
+chmod -R 775 /var/www/tmm/tmp/cache
+
+# Disable opcache (if persistent issue)
+cat > /etc/php/7.4/fpm/conf.d/99-disable-opcache.php <<'EOF'
+<?php
+opcache_reset();
+ini_set('opcache.enable', 0);
+?>
+EOF
+
+# Restart PHP-FPM
+systemctl restart php7.4-fpm
+
+# Verify
+sudo -u www-data touch /var/www/tmm/tmp/cache/test
+```
+
+#### Issue 4: 500 Internal Server Error (No Details)
+**Symptom**: Generic "An Internal Server Error Occurred" without details
+
+**Root Causes**:
+1. Custom error500.ctp template hiding details
+2. Debug mode disabled
+3. Errors not being logged
+
+**Solution**:
+```bash
+# Disable custom error template
+cd /var/www/tmm/src/Template/Error
+mv error500.ctp error500.ctp.disabled
+
+# Enable debug mode temporarily (production only for troubleshooting)
+# In config/app.php:
+'debug' => true,
+
+# Check all error logs
+tail -100 /var/www/tmm/logs/error.log
+tail -100 /var/log/nginx/error.log
+tail -100 /var/log/php7.4-fpm.log
+
+# Test endpoint with curl to see errors
+curl -v http://103.214.112.58/tmm/dashboard
+
+# After fixing, restore:
+'debug' => false,
+mv error500.ctp.disabled error500.ctp
+```
+
+#### Issue 5: Double Path URLs (/tmm/tmm/users/login)
+**Symptom**: URLs contain duplicate /tmm prefix
+
+**Root Cause**: nginx SCRIPT_NAME includes /tmm, CakePHP adds it again
+
+**Solution**:
+```nginx
+# WRONG
+fastcgi_param SCRIPT_NAME /tmm/$1;
+
+# CORRECT
+fastcgi_param SCRIPT_NAME /$1;
+
+# Reload nginx
+systemctl reload nginx
+```
+
+#### Issue 6: File Upload Corruption (0 bytes)
+**Symptom**: Config files become 0 bytes after scp upload
+
+**Root Cause**: scp can silently fail with file truncation
+
+**Solution**:
+```powershell
+# NEVER use:
+# scp config/app.php root@server:/path/
+
+# ALWAYS use piped upload:
+Get-Content config/app.php -Raw | ssh root@server 'cat > /var/www/tmm/config/app.php'
+
+# Verify after upload:
+ssh root@server "wc -l /var/www/tmm/config/app.php && tail -3 /var/www/tmm/config/app.php"
+```
+
+#### Issue 7: Namespace Declaration Error (BOM)
+**Symptom**: "Namespace declaration statement has to be the first statement"
+
+**Root Cause**: UTF-8 BOM (Byte Order Mark) in PHP files
+
+**Solution**:
+```powershell
+# On local machine
+powershell -ExecutionPolicy Bypass -File fix_bom_all_php_files.ps1
+
+# Verify files fixed
+Get-Content -Encoding Byte -TotalCount 3 src/Controller/AppController.php
+# Should NOT show: 239, 187, 191 (BOM bytes)
+
+# Upload fixed files
+Get-Content src/Controller/AppController.php -Raw | ssh root@server 'cat > /var/www/tmm/src/Controller/AppController.php'
+
+# Clear opcache
+ssh root@server "systemctl restart php7.4-fpm"
+```
+
+### Production Best Practices
+
+**Security**:
+- ✅ Set `'debug' => false` in production
+- ✅ Use strong database passwords (not 'root' in production)
+- ✅ Enable HTTPS with valid SSL certificate
+- ✅ Restrict SSH to key-based authentication only
+- ✅ Set proper file permissions (www-data:www-data 775)
+- ✅ Enable PHP-FPM security settings (expose_php = Off)
+- ✅ Use firewall (ufw) to restrict ports: 22, 80, 443
+
+**Performance**:
+- ✅ Enable opcache in production (after deployment)
+- ✅ Use APCu for user cache if available
+- ✅ Set `'cacheMetadata' => true` in database config
+- ✅ Enable gzip compression in nginx
+- ✅ Serve static assets with far-future expires headers
+- ✅ Use MySQL query cache for frequent queries
+
+**Monitoring**:
+- ✅ Monitor error logs daily: `/var/www/tmm/logs/error.log`
+- ✅ Monitor nginx access logs for anomalies
+- ✅ Set up log rotation for all log files
+- ✅ Monitor disk space (logs and uploads can grow)
+- ✅ Monitor database size and query performance
+- ✅ Set up uptime monitoring (e.g., UptimeRobot)
+
+**Backup**:
+- ✅ Daily automated database backups
+- ✅ Weekly full application backups
+- ✅ Test restore procedure quarterly
+- ✅ Store backups off-server (S3, rsync to remote)
+- ✅ Backup uploaded files (`webroot/img/uploads/`, `webroot/files/uploads/`)
+
+### Deployment Automation Scripts
+
+**Local Script**: `deploy_to_production.ps1`
+```powershell
+# Automated deployment script
+param(
+    [string]$ServerIP = "103.214.112.58",
+    [string]$AppPath = "/var/www/tmm"
+)
+
+Write-Host "🚀 Starting TMM Production Deployment..." -ForegroundColor Green
+
+# Step 1: Verify local code
+Write-Host "`n📋 Step 1: Verifying local code..." -ForegroundColor Cyan
+php -l config/app.php
+if ($LASTEXITCODE -ne 0) { exit 1 }
+
+# Step 2: Fix BOM issues
+Write-Host "`n🔧 Step 2: Fixing BOM issues..." -ForegroundColor Cyan
+powershell -ExecutionPolicy Bypass -File fix_bom_all_php_files.ps1
+
+# Step 3: Upload configuration files
+Write-Host "`n📤 Step 3: Uploading configuration..." -ForegroundColor Cyan
+Get-Content config/app.php -Raw | ssh root@$ServerIP "cat > $AppPath/config/app.php"
+Get-Content config/app_datasources.php -Raw | ssh root@$ServerIP "cat > $AppPath/config/app_datasources.php"
+
+# Step 4: Upload application code
+Write-Host "`n📤 Step 4: Uploading application code..." -ForegroundColor Cyan
+scp -r src/* root@${ServerIP}:${AppPath}/src/
+scp -r webroot/* root@${ServerIP}:${AppPath}/webroot/
+
+# Step 5: Set permissions
+Write-Host "`n🔐 Step 5: Setting permissions..." -ForegroundColor Cyan
+ssh root@$ServerIP @"
+cd $AppPath
+chown -R www-data:www-data tmp/ logs/ webroot/img/uploads/ webroot/files/uploads/
+chmod -R 775 tmp/cache/ logs/
+rm -rf tmp/cache/*
+"@
+
+# Step 6: Restart services
+Write-Host "`n♻️ Step 6: Restarting services..." -ForegroundColor Cyan
+ssh root@$ServerIP "systemctl restart php7.4-fpm && systemctl reload nginx"
+
+# Step 7: Verify deployment
+Write-Host "`n✅ Step 7: Verifying deployment..." -ForegroundColor Cyan
+$Response = Invoke-WebRequest -Uri "http://$ServerIP/tmm/" -UseBasicParsing
+if ($Response.StatusCode -eq 200) {
+    Write-Host "✅ Deployment successful! Application is responding." -ForegroundColor Green
+} else {
+    Write-Host "❌ Deployment may have issues. Check logs." -ForegroundColor Red
+}
+
+Write-Host "`n🎉 Deployment complete!" -ForegroundColor Green
+```
+
+**Server Script**: `/var/www/tmm/post-deploy.sh`
+```bash
+#!/bin/bash
+# Post-deployment script on server
+
+set -e
+
+APP_PATH="/var/www/tmm"
+
+echo "🔧 Running post-deployment tasks..."
+
+# Clear cache
+echo "Clearing cache..."
+cd $APP_PATH
+rm -rf tmp/cache/*
+
+# Set permissions
+echo "Setting permissions..."
+chown -R www-data:www-data tmp/ logs/ webroot/img/uploads/ webroot/files/uploads/
+chmod -R 775 tmp/cache/ logs/
+
+# Restart services
+echo "Restarting services..."
+systemctl restart php7.4-fpm
+systemctl reload nginx
+
+# Verify services
+echo "Verifying services..."
+systemctl is-active --quiet php7.4-fpm && echo "✅ PHP-FPM is running" || echo "❌ PHP-FPM is NOT running"
+systemctl is-active --quiet nginx && echo "✅ nginx is running" || echo "❌ nginx is NOT running"
+
+# Check application
+echo "Checking application..."
+curl -s -o /dev/null -w "%{http_code}" http://localhost/tmm/ | grep -q 200 && echo "✅ Application responding" || echo "❌ Application NOT responding"
+
+echo "✅ Post-deployment tasks complete!"
+```
+
+### Quick Reference Commands
+
+**File Upload**:
+```powershell
+Get-Content file.php -Raw | ssh root@server 'cat > /var/www/tmm/file.php'
+```
+
+**Cache Clear**:
+```bash
+ssh root@server "cd /var/www/tmm && rm -rf tmp/cache/*"
+```
+
+**Restart Services**:
+```bash
+ssh root@server "systemctl restart php7.4-fpm && systemctl reload nginx"
+```
+
+**Check Logs**:
+```bash
+ssh root@server "tail -50 /var/www/tmm/logs/error.log"
+```
+
+**Verify Permissions**:
+```bash
+ssh root@server "ls -la /var/www/tmm/tmp/cache/"
+```
+
+**Test Database Connection**:
+```bash
+ssh root@server "cd /var/www/tmm && bin/cake console"
+```
+
+---

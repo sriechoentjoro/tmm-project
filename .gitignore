@@ -6,6 +6,30 @@
 /tmp/*
 /vendor/*
 
+# Production-specific configs (keep local versions only)
+/config/app.php.production
+/config/app_datasources.php.prod
+
+# Uploads (managed separately, too large for Git)
+/webroot/img/uploads/*
+/webroot/files/uploads/*
+# Keep directory structure
+!/webroot/img/uploads/.gitkeep
+!/webroot/files/uploads/.gitkeep
+
+# Database backups
+/backups/*.sql
+/backups/*.sql.gz
+
+# Temporary fix scripts (don't deploy)
+fix_*.py
+fix_*.ps1
+fix_*.sh
+fix_*.txt
+temp_*.txt
+test_*.php
+*_temp.php
+
 # OS generated files #
 ######################
 .DS_Store
