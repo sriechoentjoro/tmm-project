@@ -1,0 +1,336 @@
+/**
+ * Mobile Responsive CSS for CakePHP Forms and Tables
+ * Applied globally via layout
+ * Last updated: 2025-11-05
+ */
+
+@media (max-width: 768px) {
+    /* Remove ALL container margins and padding */
+    .content-wrapper {
+        margin: 0 !important;
+        padding: 0 !important;
+        border-radius: 0 !important;
+    }
+    
+    .container {
+        max-width: 100% !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+    
+    /* Bootstrap grid fixes */
+    .row {
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+    }
+    
+    .col, 
+    .col-md-6, 
+    .col-md-4, 
+    .col-md-3, 
+    .col-md-8,
+    .col-md-9,
+    .col-md-12,
+    [class*="col-"] {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+        width: 100% !important;
+    }
+    
+    /* Card components */
+    .card {
+        margin: 0 !important;
+        border-radius: 0 !important;
+    }
+    
+    .card-body {
+        padding: 5px !important;
+        margin: 0 !important;
+    }
+    
+    /* Forms */
+    fieldset {
+        margin: 0 !important;
+        padding: 10px 5px !important;
+        border: none !important;
+    }
+    
+    .form-control, 
+    .form-select, 
+    input:not([type="checkbox"]):not([type="radio"]), 
+    select, 
+    textarea {
+        font-size: 16px !important; /* Prevents iOS zoom */
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+    }
+    
+    /* Form groups and labels */
+    .form-group, 
+    .mb-3,
+    .form-row {
+        margin-bottom: 10px !important;
+        padding-left: 5px !important;
+        padding-right: 5px !important;
+    }
+    
+    .form-label, 
+    label {
+        font-size: 14px !important;
+        display: block !important;
+        margin-bottom: 5px !important;
+        padding-left: 0 !important;
+    }
+    
+    /* Buttons */
+    button[type="submit"], 
+    .btn {
+        width: 100% !important;
+        margin-bottom: 10px !important;
+        font-size: 16px !important;
+    }
+    
+    /* Content areas */
+    .content {
+        padding: 5px !important;
+        margin: 0 !important;
+        max-width: 100% !important;
+    }
+    
+    .form.content,
+    .index.content,
+    .view.content {
+        max-width: 100% !important;
+        padding: 5px !important;
+        margin: 0 !important;
+    }
+    
+    /* Headers */
+    .content-header {
+        padding: 10px 5px !important;
+        margin: 0 0 5px 0 !important;
+    }
+    
+    h3.content-title,
+    h2.content-title,
+    h1 {
+        font-size: 18px !important;
+        margin: 0 0 10px 0 !important;
+        padding: 0 5px !important;
+    }
+    
+    /* Tables */
+    .table-responsive {
+        margin: 0 !important;
+        padding: 0 !important;
+        border: none !important;
+    }
+    
+    table {
+        font-size: 14px !important;
+    }
+    
+    table thead {
+        font-size: 12px !important;
+    }
+    
+    table td,
+    table th {
+        padding: 8px 4px !important;
+    }
+    
+    /* Actions sidebar */
+    .actions-sidebar {
+        position: fixed !important;
+        top: 60px !important;
+        right: 10px !important;
+        width: 50px !important;
+    }
+    
+    .side-nav {
+        right: 70px !important;
+        width: 250px !important;
+    }
+    
+    /* Pagination */
+    .paginator {
+        padding: 10px 5px !important;
+    }
+    
+    .paginator ul {
+        flex-wrap: wrap !important;
+    }
+    
+    .paginator li {
+        margin: 2px !important;
+    }
+    
+    /* View/Detail pages */
+    .view-content table {
+        width: 100% !important;
+    }
+    
+    .view-content th {
+        width: 40% !important;
+        font-size: 13px !important;
+    }
+    
+    .view-content td {
+        width: 60% !important;
+        font-size: 14px !important;
+    }
+    
+    /* Related records sections */
+    .related {
+        margin: 10px 0 !important;
+        padding: 0 5px !important;
+    }
+    
+    /* Prevent horizontal scroll */
+    body {
+        overflow-x: hidden !important;
+    }
+    
+    /* Images */
+    img {
+        max-width: 100% !important;
+        height: auto !important;
+    }
+    
+    /* File inputs */
+    input[type="file"] {
+        font-size: 14px !important;
+        padding: 8px !important;
+    }
+    
+    /* Select2 or custom selects */
+    .select2-container {
+        width: 100% !important;
+    }
+    
+    /* Date pickers */
+    input[type="date"],
+    input[type="datetime-local"],
+    input[type="time"] {
+        font-size: 16px !important;
+        padding: 10px !important;
+    }
+    
+    /* Checkboxes and radios - keep inline */
+    .checkbox-inline,
+    .radio-inline {
+        display: inline-block !important;
+        margin-right: 10px !important;
+    }
+    
+    /* Error messages */
+    .error-message,
+    .help-block {
+        font-size: 12px !important;
+        padding: 5px !important;
+    }
+}
+
+/* Prevent horizontal scroll on all screen sizes */
+body {
+    overflow-x: hidden;
+}
+
+.content {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+table {
+    table-layout: auto;
+    word-wrap: break-word;
+}
+
+
+/* ===== UPDATED: Smart Submenu Positioning ===== */
+.elegant-submenu {
+    position: absolute;
+    left: 100%;
+    top: 0;
+    min-width: 200px;
+    max-width: 300px;
+    background: white;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+    z-index: 9999;
+    display: none;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.2s ease, visibility 0.2s ease;
+}
+
+.elegant-menu-item:hover > .elegant-submenu {
+    display: block;
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Position variations set by JavaScript */
+.elegant-submenu.position-right {
+    left: 100%;
+    right: auto;
+}
+
+.elegant-submenu.position-left {
+    left: auto;
+    right: 100%;
+}
+
+/* Mobile specific */
+@media (max-width: 768px) {
+    .elegant-submenu {
+        position: relative !important;
+        left: 0 !important;
+        right: auto !important;
+        top: 0 !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        box-shadow: none !important;
+        border-left: 3px solid #00BCD4;
+        margin-left: 15px;
+        padding-left: 10px;
+    }
+    
+    .elegant-menu,
+    .elegant-menu * {
+        max-width: 100vw;
+        overflow-x: hidden;
+    }
+}
+
+/* Desktop: Prevent overflow */
+@media (min-width: 769px) {
+    .elegant-submenu {
+        max-height: 80vh;
+        overflow-y: auto;
+        overflow-x: hidden;
+    }
+}
+
+}
+
+/* Desktop: Side positioning */
+@media (min-width: 769px) {
+    .elegant-menu-item:hover .elegant-submenu {
+        display: block !important;
+    }
+    
+    /* Prevent submenu from going off-screen on the right */
+    .elegant-submenu {
+        max-height: 80vh;
+        overflow-y: auto;
+    }
+    
+    /* If submenu would go off right edge, show on left instead */
+    .elegant-menu-item:last-child .elegant-submenu,
+    .elegant-menu-item.right-edge .elegant-submenu {
+        left: auto !important;
+        right: 100% !important;
+    }
+}
+

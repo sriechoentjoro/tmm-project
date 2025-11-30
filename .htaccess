@@ -1,0 +1,13 @@
+# Redirect semua request ke webroot
+<IfModule mod_rewrite.c>
+   RewriteEngine on
+   RewriteRule    ^$                  webroot/    [L]
+   RewriteRule    ^(\.well-known/.*)$ $1          [L]
+   RewriteRule    ^(.*)$              webroot/$1  [L]
+</IfModule>
+
+# Fallback jika mod_rewrite tidak aktif
+<IfModule !mod_rewrite.c>
+   RedirectMatch 301 ^/project_tmm/$ /project_tmm/webroot/
+   RedirectMatch 301 ^/project_tmm/(.*)$ /project_tmm/webroot/$1
+</IfModule>

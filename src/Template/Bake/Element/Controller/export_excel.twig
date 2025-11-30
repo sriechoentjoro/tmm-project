@@ -1,0 +1,26 @@
+{#
+/**
+ * Export Excel method template
+ */
+#}
+    /**
+     * Export to Excel
+     *
+     * @return \Cake\Http\Response
+     */
+    public function exportExcel()
+    {
+{% set belongsTo = Bake.aliasExtractor(modelObj, 'BelongsTo') %}
+{% if belongsTo %}
+        $query = $this->{{ currentModelName }}->find('all')
+            ->contain([{{ Bake.stringifyList(belongsTo, {'indent': false})|raw }}]);
+{% else %}
+        $query = $this->{{ currentModelName }}->find('all');
+{% endif %}
+        
+        // Define headers and fields for export
+        $headers = ['ID', 'Name', 'Created', 'Modified'];
+        $fields = ['id', 'name', 'created', 'modified'];
+        
+        return $this->doExportExcel($query, '{{ currentModelName }}', $headers, $fields);
+    }

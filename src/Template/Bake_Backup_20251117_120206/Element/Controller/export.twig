@@ -1,0 +1,112 @@
+{#
+/**
+ * Export methods template
+ * Generates exportCsv, exportExcel, and printReport methods
+ */
+#}
+
+    /**
+     * Export to CSV
+     *
+     * @return \Cake\Http\Response
+     */
+    public function exportCsv()
+    {
+{% set belongsTo = Bake.aliasExtractor(modelObj, 'BelongsTo') %}
+{% if belongsTo %}
+        $query = $this->{{ currentModelName }}->find('all')
+            ->contain([{{ Bake.stringifyList(belongsTo, {'indent': false})|raw }}]);
+{% else %}
+        $query = $this->{{ currentModelName }}->find('all');
+{% endif %}
+        
+        $headers = [
+{% set fields = Bake.filterFields(schema.columns(), schema, modelObj, currentModelName, 8) %}
+{% for field in fields %}
+            '{{ field|humanize }}',
+{% endfor %}
+        ];
+        
+        $fields = [
+{% for field in fields %}
+{% if field in associations|keys %}
+            '{{ associations[field] }}.{{ displayField }}',
+{% else %}
+            '{{ field }}',
+{% endif %}
+{% endfor %}
+        ];
+        
+        return $this->exportCsv($query, '{{ currentModelName }}', $headers, $fields);
+    }
+    
+    /**
+     * Export to Excel
+     *
+     * @return \Cake\Http\Response
+     */
+    public function exportExcel()
+    {
+{% set belongsTo = Bake.aliasExtractor(modelObj, 'BelongsTo') %}
+{% if belongsTo %}
+        $query = $this->{{ currentModelName }}->find('all')
+            ->contain([{{ Bake.stringifyList(belongsTo, {'indent': false})|raw }}]);
+{% else %}
+        $query = $this->{{ currentModelName }}->find('all');
+{% endif %}
+        
+        $headers = [
+{% set fields = Bake.filterFields(schema.columns(), schema, modelObj, currentModelName, 8) %}
+{% for field in fields %}
+            '{{ field|humanize }}',
+{% endfor %}
+        ];
+        
+        $fields = [
+{% for field in fields %}
+{% if field in associations|keys %}
+            '{{ associations[field] }}.{{ displayField }}',
+{% else %}
+            '{{ field }}',
+{% endif %}
+{% endfor %}
+        ];
+        
+        return $this->exportExcel($query, '{{ currentModelName }}', $headers, $fields);
+    }
+    
+    /**
+     * Print Report
+     *
+     * @return void
+     */
+    public function printReport()
+    {
+{% set belongsTo = Bake.aliasExtractor(modelObj, 'BelongsTo') %}
+{% if belongsTo %}
+        $query = $this->{{ currentModelName }}->find('all')
+            ->contain([{{ Bake.stringifyList(belongsTo, {'indent': false})|raw }}]);
+{% else %}
+        $query = $this->{{ currentModelName }}->find('all');
+{% endif %}
+        
+        $title = '{{ currentModelName|humanize }} Report';
+        $headers = [
+{% set fields = Bake.filterFields(schema.columns(), schema, modelObj, currentModelName, 8) %}
+{% for field in fields %}
+            '{{ field|humanize }}',
+{% endfor %}
+        ];
+        
+        $fields = [
+{% for field in fields %}
+{% if field in associations|keys %}
+            '{{ associations[field] }}.{{ displayField }}',
+{% else %}
+            '{{ field }}',
+{% endif %}
+{% endfor %}
+        ];
+        
+        $this->exportPrint($query, $title, $headers, $fields);
+    }

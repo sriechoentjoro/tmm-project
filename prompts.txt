@@ -1,0 +1,173 @@
+please revise all baked files and bake templates
+1. For controller bake template:
+- Redirect after input database Redirect url for add and view to url controller/view/$this->ModelName->getLastInsertedId()
+- if preg_match "file", sent the temp-file to appController::functionUploadFunction with give parameter controllerName as apload folder name in webroot\uploads\controllerName, fileName as file_path + random of Number and character, as return value for the field.
+- if preg_match "image", sent the temp-file to appController::functionUploadImage with give parameter controllerName as apload folder name in webroot\uploads\controllerName, fileName as file_path + random of Number and character, as return value for the field. image will be resized for mobile display with water mark favicon.ico stored in webroot\img folder
+- if preg_math "image" , the thumbnail image should be displayed after id column.
+- for all data will be displayed in form off add or edit should be given like 
+            $options = array();
+            if(isset($this->params['named']['<?php echo $relation['foreignKey'];?>'])){
+                $options = array(
+                    'conditions' => array(
+                        'id' => $this->params['named']['<?php echo $relation['foreignKey'];?>']
+                    )
+                );
+            }            
+            $<?php echo $otherPluralName;?> = $this-><?php echo $currentModelName;?>-><?php echo $otherModelName;?>->find('list', $options);
+to limit the data which could select and avoid miss select when select the data
+
+2. For View
+- displayed on in tab contents body home for detail information and next is related relation data. relation data should displayed like table in index.ctp
+- if preg_math "image" , the image should be displayed 
+
+4. For Form
+- if preg_math "image" or "file" should like currently improved with preview and form property has ready for upload phisical image or file 
+- if preg_math "date" should use datePicker with year can be select easily
+- if preg_math "password" should use input with password input type.
+- if preg_math "email" should use email format validation
+- all character input should use capital character
+- for propinsies select, kabupaten select, kecamatan select and kelurahan select must nestedly to avoid miss select of them.
+
+---Form---
+<table>
+	<tr>
+		<td>
+			<?php                                        
+				$model = 'Applicant';
+				echo $this->CustomForm->selectAddress($model, 'propinsi_id', 'kabupaten_id', 'kecamatan_id', 'kelurahan_id');
+			?>
+			<?php echo $this->Form->label(__('propinsi_id'));?></td><td><?php echo $this->Form->input('propinsi_id', array('placeHolder' => __('-- ' . __('Input Propinsi') . ' --'), 'label' => FALSE));?>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<?php echo $this->Form->label(__('kabupaten_id'));?></td><td><?php echo $this->Form->input('kabupaten_id', array('placeHolder' => '-- ' . __('Input Kabupaten') . ' --', 'label' => FALSE));?></td>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<?php echo $this->Form->label(__('kecamatan_id'));?></td><td><?php echo $this->Form->input('kecamatan_id', array('placeHolder' => '-- ' . __('Input Kecamatan') . ' --', 'label' => FALSE));?></td>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<?php echo $this->Form->label(__('kelurahan_id'));?></td><td><?php echo $this->Form->input('kelurahan_id', array('placeHolder' => '-- ' . __('Input Kelurahan') . ' --', 'label' => FALSE));?></td>
+	</tr>
+</table>
+---Controller---
+        $this->Applicant->bindModel(
+                array('belongsTo' => array(
+                        'Propinsi' => array(
+                            'className' => 'Propinsi',
+                            'foreignKey' => 'propinsi_id',
+                        ),
+                        'Kabupaten' => array(
+                            'className' => 'Kabupaten',
+                            'foreignKey' => 'kabupaten_id',
+                        ),
+                        'Kecamatan' => array(
+                            'className' => 'Kecamatan',
+                            'foreignKey' => 'kecamatan_id',
+                        ),
+                        'Kelurahan' => array(
+                            'className' => 'Kelurahan',
+                            'foreignKey' => 'kelurahan_id',
+                        ),
+                    ))
+        );
+------------------		
+	if (isset($this->params['named']['propinsi_id'])) {
+		$options = array(
+			'conditions' => array(
+				'id' => $this->params['named']['propinsi_id']
+			)
+		);
+	}
+	$propinsis = $this->Applicant->Propinsi->find('list', $options);
+---appController---
+
+---Helper---
+    function selectAddress($model, $field_prop, $field_kab, $field_kec = null, $field_kel = null) {
+
+        $html = '';
+        $link_propinsi = FULL_BASE_URL . $this->Html->url(
+                        array(
+                            'controller' => 'daerahs',
+                            'action' => 'optionPropinsi'
+                        )
+        );
+        $link_kabupaten = FULL_BASE_URL . $this->Html->url(
+                        array(
+                            'controller' => 'daerahs',
+                            'action' => 'optionKabupaten'
+                        )
+        );
+        $link_kecamatan = FULL_BASE_URL . $this->Html->url(
+                        array(
+                            'controller' => 'daerahs',
+                            'action' => 'optionKecamatan'
+                        )
+        );
+        $link_kelurahan = FULL_BASE_URL . $this->Html->url(
+                        array(
+                            'controller' => 'daerahs',
+                            'action' => 'optionKelurahan'
+                        )
+        );
+        $id_form = Inflector::humanize($model . ucfirst($this->params['action']) . 'Form');
+        $id_propinsi = Inflector::classify($model . Inflector::humanize($field_prop));
+        $id_kabupaten = Inflector::classify($model . Inflector::humanize($field_kab));
+        $id_kecamatan = Inflector::classify($model . Inflector::humanize($field_kec));
+        $id_kelurahan = Inflector::classify($model . Inflector::humanize($field_kel));
+
+        return
+
+                $this->Packer->packJS(
+                        <<<EOD
+$(document).ready(function () {
+    $("#{$id_form} #{$id_propinsi}").change(function () {
+        var id_propinsi = $(this).val();
+
+        $.ajax({
+            type: "POST",
+            url: "$link_kabupaten" + "/id_propinsi:" + id_propinsi,
+            cache: false,
+            success: function (html) {
+                $("#{$id_form} #{$id_kabupaten}").html(html);
+            }
+        });
+    });
+    $("#{$id_form} #{$id_kabupaten}").change(function () {
+        var id_propinsi = $("#{$id_form} #{$id_propinsi}").val();
+        var id_kabupaten = $(this).val();
+
+        $.ajax({
+            type: "POST",
+            url: "$link_kecamatan" + "/id_propinsi:" + id_propinsi + "/id_kabupaten:" + id_kabupaten,
+            cache: false,
+            success: function (html) {
+                $("#{$id_form} #{$id_kecamatan}").html(html);
+            }
+        });
+    });
+    $("#{$id_form} #{$id_kecamatan}").change(function () {
+        var id_propinsi = $("#{$id_form} #{$id_propinsi}").val();
+        var id_kabupaten = $("#{$id_form} #{$id_kabupaten}").val();
+        var id_kecamatan = $(this).val();
+
+        $.ajax({
+            type: "POST",
+            url: "$link_kelurahan" + "/id_propinsi:" + id_propinsi + "/id_kabupaten:" + id_kabupaten + "/id_kecamatan:" + id_kecamatan,
+            cache: false,
+            success: function (html) {
+                $("#{$id_form} #{$id_kelurahan}").html(html);
+            }
+        });
+    });
+});
+EOD
+        );
+    }
+
+
+5. When baking templates, be carefull and ensure not change anything that well improved

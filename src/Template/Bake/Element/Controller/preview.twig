@@ -1,0 +1,88 @@
+{#
+/**
+ * Preview method element for Controller bake template
+ * Validates data before saving to database
+ */
+#}
+{% set associations = Bake.aliasExtractor(modelObj, 'BelongsTo') %}
+{% set associations = associations|merge(Bake.aliasExtractor(modelObj, 'BelongsToMany')) %}
+{% set associations = associations|merge(Bake.aliasExtractor(modelObj, 'HasOne')) %}
+{% set associations = associations|merge(Bake.aliasExtractor(modelObj, 'HasMany')) %}
+
+    /**
+     * Preview method - Validate and show data before saving
+     *
+     * @return \Cake\Http\Response|null Redirects on invalid request.
+     * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
+     */
+    public function preview()
+    {
+        if (!$this->request->is(['post', 'put', 'patch'])) {
+            return $this->redirect(['action' => 'index']);
+        }
+
+        $data = $this->request->getData();
+        
+        // Process date fields - convert HTML5 date array to string
+        foreach ($data as $field => $value) {
+            if (is_array($value) && isset($value['year'], $value['month'], $value['day'])) {
+                $data[$field] = sprintf(
+                    '%04d-%02d-%02d',
+                    $value['year'],
+                    $value['month'],
+                    $value['day']
+                );
+            }
+        }
+        
+        // Determine mode: edit (has ID) vs add (no ID)
+        $isEditMode = !empty($data['id']);
+        
+        // Create entity for validation (no save)
+        if ($isEditMode) {
+            ${{ singularName }} = $this->{{ currentModelName }}->get($data['id'], ['contain' => []]);
+            ${{ singularName }} = $this->{{ currentModelName }}->patchEntity(${{ singularName }}, $data);
+        } else {
+            ${{ singularName }} = $this->{{ currentModelName }}->newEntity($data);
+        }
+
+        // Get validation errors
+        $validationErrors = ${{ singularName }}->getErrors();
+        
+        // Manual check: Edit mode requires ID in data
+        if ($isEditMode && empty($data['id'])) {
+            $validationErrors['id'] = ['ID is required for updating existing records'];
+        }
+        
+        // Get database schema metadata
+        $schema = $this->{{ currentModelName }}->getSchema();
+        $fieldMetadata = [];
+        
+        foreach ($schema->columns() as $column) {
+            $columnData = $schema->getColumn($column);
+            $fieldMetadata[$column] = [
+                'type' => $schema->getColumnType($column),
+                'nullable' => $schema->isNullable($column),
+                'length' => isset($columnData['length']) ? $columnData['length'] : null,
+                'default' => isset($columnData['default']) ? $columnData['default'] : null,
+            ];
+        }
+        
+        // Ensure ID in data for edit mode display
+        if (!empty(${{ singularName }}->id) && empty($data['id'])) {
+            $data['id'] = ${{ singularName }}->id;
+        }
+        
+        // Load associations for display
+        if (!empty(${{ singularName }}->id)) {
+            ${{ singularName }} = $this->{{ currentModelName }}->get(${{ singularName }}->id, [
+                'contain' => [
+{%- for assoc in associations %}
+                    '{{ assoc }}',
+{%- endfor %}
+                ]
+            ]);
+        }
+
+        $this->set(compact('{{ singularName }}', 'validationErrors', 'fieldMetadata', 'data'));
+    }

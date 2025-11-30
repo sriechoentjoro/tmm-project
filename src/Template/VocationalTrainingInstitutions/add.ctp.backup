@@ -1,0 +1,454 @@
+<?php
+/**
+ * @var \App\View\AppView $this
+ * @var \App\Model\Entity\App\Model\Entity\VocationalTrainingInstitution|null $vocationalTrainingInstitution */
+use Cake\Utility\Inflector;
+
+// Dynamic host detection for static assets (CORS-friendly)
+$protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') ? 'https' : 'http';
+$host = $_SERVER['HTTP_HOST'];
+$staticAssetsUrl = $protocol . '://' . $host . '/static-assets';
+?>
+<!-- Load CSS/JS from static location (workaround for .htaccess issue) -->
+<script src="<?= $staticAssetsUrl ?>/js/form-confirm.js?v=2.0"></script>
+<?= $this->Html->css('datepicker-fix.css') ?>
+
+<!-- Mobile CSS now loaded globally from layout - mobile-responsive.css -->
+
+<!-- Actions Sidebar -->
+<nav class="actions-sidebar" id="actions-sidebar">
+    <button class="menu-toggle" onclick="toggleActionsMenu()">
+        <i class="fas fa-bars"></i>
+    </button>
+    <ul class="side-nav">
+        <li class="heading"><?= __('Actions') ?></li>
+        <li><?= $this->Html->link('<i class="fas fa-list"></i> ' . __('List Vocational Training Institutions'), ['action' => 'index'], ['escape' => false]) ?></li>
+        <li><?= $this->Html->link('<i class="fas fa-list"></i> ' . __('List MasterPropinsis'), ['controller' => 'MasterPropinsis', 'action' => 'index'], ['escape' => false]) ?></li>
+        <li><?= $this->Html->link('<i class="fas fa-plus"></i> ' . __('New MasterPropinsi'), ['controller' => 'MasterPropinsis', 'action' => 'add'], ['escape' => false]) ?></li>
+        <li><?= $this->Html->link('<i class="fas fa-list"></i> ' . __('List MasterKabupatens'), ['controller' => 'MasterKabupatens', 'action' => 'index'], ['escape' => false]) ?></li>
+        <li><?= $this->Html->link('<i class="fas fa-plus"></i> ' . __('New MasterKabupaten'), ['controller' => 'MasterKabupatens', 'action' => 'add'], ['escape' => false]) ?></li>
+        <li><?= $this->Html->link('<i class="fas fa-list"></i> ' . __('List MasterKecamatans'), ['controller' => 'MasterKecamatans', 'action' => 'index'], ['escape' => false]) ?></li>
+        <li><?= $this->Html->link('<i class="fas fa-plus"></i> ' . __('New MasterKecamatan'), ['controller' => 'MasterKecamatans', 'action' => 'add'], ['escape' => false]) ?></li>
+        <li><?= $this->Html->link('<i class="fas fa-list"></i> ' . __('List MasterKelurahans'), ['controller' => 'MasterKelurahans', 'action' => 'index'], ['escape' => false]) ?></li>
+        <li><?= $this->Html->link('<i class="fas fa-plus"></i> ' . __('New MasterKelurahan'), ['controller' => 'MasterKelurahans', 'action' => 'add'], ['escape' => false]) ?></li>
+    </ul>
+</nav>
+
+<!-- Main Content -->
+<div class="vocationalTrainingInstitutions form content">
+    <div class="card">
+        <div class="content-header">
+            <h3 class="content-title">
+                <i class="fas fa-edit"></i>
+                <?= __(Inflector::humanize($this->request->getParam("action")) . ' Vocational Training Institution') ?>
+            </h3>
+        </div>
+
+        <div class="card-body">
+            <?= $this->Form->create($vocationalTrainingInstitution, ['type' => 'file', 'data-confirm' => 'true', 'id' => 'vocationalTrainingInstitutionForm']) ?>
+            <fieldset>
+                <legend><?= __('Enter Vocational Training Institution Information') ?></legend>
+                <div class="row">
+                    <div class="col-12 mb-3">
+                        <div class="form-check">
+                            <?= $this->Form->control('is_special_skill_support_institution', [
+                                'type' => 'checkbox',
+                                'class' => 'form-check-input',
+                                'label' => ['text' => __('Is Special Skill Support Institution'), 'class' => 'form-check-label']
+                            ]) ?>
+                        </div>
+                    </div>
+                    <div class="col-12 mb-3">
+                        <label class="form-label"><?= __('Abbreviation') ?></label>
+                        <?= $this->Form->control('abbreviation', [
+                            'class' => 'form-control',
+                            'placeholder' => __('Enter Abbreviation'),
+                            'label' => false
+                        ]) ?>
+                    </div>
+                    <div class="col-12 mb-3">
+                        <label class="form-label"><?= __('Name') ?></label>
+                        <?= $this->Form->control('name', [
+                            'class' => 'form-control',
+                            'placeholder' => __('Enter Name'),
+                            'label' => false
+                        ]) ?>
+                    </div>
+                    <div class="col-md-12 mb-3">
+                        <div class="card bg-light">
+                            <div class="card-body">
+                                <h5 class="card-title"><i class="fas fa-map-marker-alt"></i> <?= __('Address Information') ?></h5>
+                                <p class="text-muted small mb-3">Select Province first, then City, District, and Village will be populated automatically</p>
+                                <div class="row">
+                                    <div class="col-md-3 mb-2">
+                                        <label class="form-label required"><?= __('Province') ?> <span class="text-danger">*</span></label>
+                                        <?= $this->Form->control('propinsi_id', [
+                                            'options' => isset($propinsis) ? $propinsis : [],
+                                            'class' => 'form-control address-select',
+                                            'id' => 'VocationalTrainingInstitutionPropinsiId',
+                                            'label' => false,
+                                            'empty' => __('-- Select Province --'),
+                                            'required' => false
+                                        ]) ?>
+                                    </div>
+                                    <div class="col-md-3 mb-2">
+                                        <label class="form-label required"><?= __('Kabupaten/City') ?> <span class="text-danger">*</span></label>
+                                        <?= $this->Form->control('kabupaten_id', [
+                                            'options' => isset($kabupatens) ? $kabupatens : [],
+                                            'class' => 'form-control address-select',
+                                            'id' => 'VocationalTrainingInstitutionKabupatenId',
+                                            'label' => false,
+                                            'empty' => __('-- Select Kabupaten --'),
+                                            'required' => false
+                                        ]) ?>
+                                    </div>
+                                    <div class="col-md-3 mb-2">
+                                        <label class="form-label required"><?= __('Kecamatan/District') ?> <span class="text-danger">*</span></label>
+                                        <?= $this->Form->control('kecamatan_id', [
+                                            'options' => isset($kecamatans) ? $kecamatans : [],
+                                            'class' => 'form-control address-select',
+                                            'id' => 'VocationalTrainingInstitutionKecamatanId',
+                                            'label' => false,
+                                            'empty' => __('-- Select Kecamatan --'),
+                                            'required' => false
+                                        ]) ?>
+                                    </div>
+                                    <div class="col-md-3 mb-2">
+                                        <label class="form-label required"><?= __('Kelurahan/Village') ?> <span class="text-danger">*</span></label>
+                                        <?= $this->Form->control('kelurahan_id', [
+                                            'options' => isset($kelurahans) ? $kelurahans : [],
+                                            'class' => 'form-control address-select',
+                                            'id' => 'VocationalTrainingInstitutionKelurahanId',
+                                            'label' => false,
+                                            'empty' => __('-- Select Kelurahan --'),
+                                            'required' => false
+                                        ]) ?>
+                                    </div>
+                                </div>
+                                <div class="address-loading" style="display: none;">
+                                    <i class="fas fa-spinner fa-spin"></i> Loading options...
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 mb-3">
+                        <label class="form-label"><?= __('Master Kabupaten Id') ?></label>
+                        <?= $this->Form->control('master_kabupaten_id', [
+                            'options' => $masterKabupatens,
+                            'class' => 'form-control',
+                            'label' => false,
+                            'empty' => __('-- Select Master Kabupaten Id --')
+                        ]) ?>
+                    </div>
+                    <div class="col-12 mb-3">
+                        <label class="form-label"><?= __('Master Kecamatan Id') ?></label>
+                        <?= $this->Form->control('master_kecamatan_id', [
+                            'options' => $masterKecamatans,
+                            'class' => 'form-control',
+                            'label' => false,
+                            'empty' => __('-- Select Master Kecamatan Id --')
+                        ]) ?>
+                    </div>
+                    <div class="col-12 mb-3">
+                        <label class="form-label"><?= __('Master Kelurahan Id') ?></label>
+                        <?= $this->Form->control('master_kelurahan_id', [
+                            'options' => $masterKelurahans,
+                            'class' => 'form-control',
+                            'label' => false,
+                            'empty' => __('-- Select Master Kelurahan Id --')
+                        ]) ?>
+                    </div>
+                    <div class="col-12 mb-3">
+                        <label class="form-label"><?= __('Address') ?></label>
+                        <?= $this->Form->control('address', [
+                            'class' => 'form-control',
+                            'placeholder' => __('Enter Address'),
+                            'label' => false
+                        ]) ?>
+                    </div>
+                    <div class="col-12 mb-3">
+                        <label class="form-label"><?= __('Post Code') ?></label>
+                        <?= $this->Form->control('post_code', [
+                            'class' => 'form-control',
+                            'placeholder' => __('Enter Post Code'),
+                            'label' => false
+                        ]) ?>
+                    </div>
+                    <div class="col-12 mb-3">
+                        <label class="form-label"><?= __('Director') ?></label>
+                        <?= $this->Form->control('director', [
+                            'class' => 'form-control',
+                            'placeholder' => __('Enter Director'),
+                            'label' => false
+                        ]) ?>
+                    </div>
+                    <div class="col-12 mb-3">
+                        <label class="form-label"><?= __('Director Katakana') ?></label>
+                        <?= $this->Form->control('director_katakana', [
+                            'class' => 'form-control katakana-input',
+                            'placeholder' => __('Enter Director Katakana (Katakana)'),
+                            'label' => false
+                        ]) ?>
+                    </div>
+                    <div class="col-12 mb-3">
+                        <label class="form-label"><?= __('Mou File') ?></label>
+                        <?= $this->Form->control('mou_file', [
+                            'type' => 'file',
+                            'class' => 'form-control',
+                            'label' => false,
+                            'accept' => '.pdf,.doc,.docx,.xls,.xlsx,.zip,.rar',
+                        ]) ?>
+                        <?php if (!empty($vocationalTrainingInstitution->mou_file)): ?>
+                            <div class="mt-2">
+                                <a href="<?= $this->Url->build('/' . $vocationalTrainingInstitution->mou_file, ['fullBase' => true]) ?>" 
+                                   target="_blank" 
+                                   class="btn btn-sm btn-info">
+                                    <i class="fas fa-download"></i> Download Current File
+                                </a>
+                            </div>
+                        <?php endif; ?>
+                    </div>
+                </div>
+            </fieldset>
+            
+            <div class="form-actions mt-4">
+                <?= $this->Form->button(__('Save Vocational Training Institution'), [
+                    'class' => 'btn-export-light',
+                    'id' => 'submitBtn'
+                ]) ?>
+                <?= $this->Html->link(__('Cancel'), ['action' => 'index'], [
+                    'class' => 'btn-export-light'
+                ]) ?>
+            </div>
+            <?= $this->Form->end() ?>
+        </div>
+    </div>
+</div>
+
+<?php $this->append('script'); ?>
+<script src="<?= $staticAssetsUrl ?>/js/image-preview.js"></script>
+<script>
+// Enhanced Datepicker with easy year selection
+$(document).ready(function() {
+        // Initialize Bootstrap Datepicker with correct format
+    $('.datepicker').datepicker({
+        format: 'yyyy-mm-dd',  // MySQL date format
+        autoclose: true,
+        todayHighlight: true,
+        orientation: 'bottom auto',
+        container: 'body',
+        showOnFocus: true,
+        zIndexOffset: 1050
+    });
+    
+    // Fix datepicker CSS conflicts
+    $('.datepicker-dropdown').css({
+        'z-index': '1060',
+        'display': 'block'
+    });
+    
+    // Ensure datepicker opens below input
+    $('.datepicker').on('show', function(e) {
+                                'label' => ['text' => __('Is Special Skill Support Institution'), 'class' => 'form-check-label']
+                            ]) ?>
+                        </div>
+                    </div>
+                    <div class="col-12 mb-3">
+                        <label class="form-label"><?= __('Abbreviation') ?></label>
+                        <?= $this->Form->control('abbreviation', [
+                            'class' => 'form-control',
+                            'placeholder' => __('Enter Abbreviation'),
+                            'label' => false
+                        ]) ?>
+                    </div>
+                    <div class="col-12 mb-3">
+                        <label class="form-label"><?= __('Name') ?></label>
+                        <?= $this->Form->control('name', [
+                            'class' => 'form-control',
+                            'placeholder' => __('Enter Name'),
+                            'label' => false
+                        ]) ?>
+                    </div>
+                    <div class="col-md-12 mb-3">
+                        <div class="card bg-light">
+                            <div class="card-body">
+                                <h5 class="card-title"><i class="fas fa-map-marker-alt"></i> <?= __('Address Information') ?></h5>
+                                <p class="text-muted small mb-3">Select Province first, then City, District, and Village will be populated automatically</p>
+                                <div class="row">
+                                    <div class="col-md-3 mb-2">
+                                        <label class="form-label required"><?= __('Province') ?> <span class="text-danger">*</span></label>
+                                        <?= $this->Form->control('propinsi_id', [
+                                            'options' => isset($propinsis) ? $propinsis : [],
+                                            'class' => 'form-control address-select',
+                                            'id' => 'VocationalTrainingInstitutionPropinsiId',
+                                            'label' => false,
+                                            'empty' => __('-- Select Province --'),
+                                            'required' => false
+                                        ]) ?>
+                                    </div>
+                                    <div class="col-md-3 mb-2">
+                                        <label class="form-label required"><?= __('Kabupaten/City') ?> <span class="text-danger">*</span></label>
+                                        <?= $this->Form->control('kabupaten_id', [
+                                            'options' => isset($kabupatens) ? $kabupatens : [],
+                                            'class' => 'form-control address-select',
+                                            'id' => 'VocationalTrainingInstitutionKabupatenId',
+                                            'label' => false,
+                                            'empty' => __('-- Select Kabupaten --'),
+                                            'required' => false
+                                        ]) ?>
+                                    </div>
+                                    <div class="col-md-3 mb-2">
+                                        <label class="form-label required"><?= __('Kecamatan/District') ?> <span class="text-danger">*</span></label>
+                                        <?= $this->Form->control('kecamatan_id', [
+                                            'options' => isset($kecamatans) ? $kecamatans : [],
+                                            'class' => 'form-control address-select',
+                                            'id' => 'VocationalTrainingInstitutionKecamatanId',
+                                            'label' => false,
+                                            'empty' => __('-- Select Kecamatan --'),
+                                            'required' => false
+                                        ]) ?>
+                                    </div>
+                                    <div class="col-md-3 mb-2">
+                                        <label class="form-label required"><?= __('Kelurahan/Village') ?> <span class="text-danger">*</span></label>
+                                        <?= $this->Form->control('kelurahan_id', [
+                                            'options' => isset($kelurahans) ? $kelurahans : [],
+                                            'class' => 'form-control address-select',
+                                            'id' => 'VocationalTrainingInstitutionKelurahanId',
+                                            'label' => false,
+                                            'empty' => __('-- Select Kelurahan --'),
+                                            'required' => false
+                                        ]) ?>
+                                    </div>
+                                </div>
+                                <div class="address-loading" style="display: none;">
+                                    <i class="fas fa-spinner fa-spin"></i> Loading options...
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 mb-3">
+                        <label class="form-label"><?= __('Master Kabupaten Id') ?></label>
+                        <?= $this->Form->control('master_kabupaten_id', [
+                            'options' => $masterKabupatens,
+                            'class' => 'form-control',
+                            'label' => false,
+                            'empty' => __('-- Select Master Kabupaten Id --')
+                        ]) ?>
+                    </div>
+                    <div class="col-12 mb-3">
+                        <label class="form-label"><?= __('Master Kecamatan Id') ?></label>
+                        <?= $this->Form->control('master_kecamatan_id', [
+                            'options' => $masterKecamatans,
+                            'class' => 'form-control',
+                            'label' => false,
+                            'empty' => __('-- Select Master Kecamatan Id --')
+                        ]) ?>
+                    </div>
+                    <div class="col-12 mb-3">
+                        <label class="form-label"><?= __('Master Kelurahan Id') ?></label>
+                        <?= $this->Form->control('master_kelurahan_id', [
+                            'options' => $masterKelurahans,
+                            'class' => 'form-control',
+                            'label' => false,
+                            'empty' => __('-- Select Master Kelurahan Id --')
+                        ]) ?>
+                    </div>
+                    <div class="col-12 mb-3">
+                        <label class="form-label"><?= __('Address') ?></label>
+                        <?= $this->Form->control('address', [
+                            'class' => 'form-control',
+                            'placeholder' => __('Enter Address'),
+                            'label' => false
+                        ]) ?>
+                    </div>
+                    <div class="col-12 mb-3">
+                        <label class="form-label"><?= __('Post Code') ?></label>
+                        <?= $this->Form->control('post_code', [
+                            'class' => 'form-control',
+                            'placeholder' => __('Enter Post Code'),
+                            'label' => false
+                        ]) ?>
+                    </div>
+                    <div class="col-12 mb-3">
+                        <label class="form-label"><?= __('Director') ?></label>
+                        <?= $this->Form->control('director', [
+                            'class' => 'form-control',
+                            'placeholder' => __('Enter Director'),
+                            'label' => false
+                        ]) ?>
+                    </div>
+                    <div class="col-12 mb-3">
+                        <label class="form-label"><?= __('Director Katakana') ?></label>
+                        <?= $this->Form->control('director_katakana', [
+                            'class' => 'form-control katakana-input',
+                            'placeholder' => __('Enter Director Katakana (Katakana)'),
+                            'label' => false
+                        ]) ?>
+                    </div>
+                    <div class="col-12 mb-3">
+                        <label class="form-label"><?= __('Mou File') ?></label>
+                        <?= $this->Form->control('mou_file', [
+                            'type' => 'file',
+                            'class' => 'form-control',
+                            'label' => false,
+                            'accept' => '.pdf,.doc,.docx,.xls,.xlsx,.zip,.rar',
+                        ]) ?>
+                        <?php if (!empty($vocationalTrainingInstitution->mou_file)): ?>
+                            <div class="mt-2">
+                                <a href="<?= $this->Url->build('/' . $vocationalTrainingInstitution->mou_file, ['fullBase' => true]) ?>" 
+                                   target="_blank" 
+                                   class="btn btn-sm btn-info">
+                                    <i class="fas fa-download"></i> Download Current File
+                                </a>
+                            </div>
+                        <?php endif; ?>
+                    </div>
+                </div>
+            </fieldset>
+            
+            <div class="form-actions mt-4">
+                <?= $this->Form->button(__('Save Vocational Training Institution'), [
+                    'class' => 'btn-export-light',
+                    'id' => 'submitBtn'
+                ]) ?>
+                <?= $this->Html->link(__('Cancel'), ['action' => 'index'], [
+                    'class' => 'btn-export-light'
+                ]) ?>
+            </div>
+            <?= $this->Form->end() ?>
+        </div>
+    </div>
+</div>
+
+<?php $this->append('script'); ?>
+<script src="<?= $staticAssetsUrl ?>/js/image-preview.js"></script>
+<script>
+// Enhanced Datepicker with easy year selection
+$(document).ready(function() {
+        // Initialize Bootstrap Datepicker with correct format
+    $('.datepicker').datepicker({
+        format: 'yyyy-mm-dd',  // MySQL date format
+        autoclose: true,
+        todayHighlight: true,
+        orientation: 'bottom auto',
+        container: 'body',
+        showOnFocus: true,
+        zIndexOffset: 1050
+    });
+    
+    // Fix datepicker CSS conflicts
+    $('.datepicker-dropdown').css({
+        'z-index': '1060',
+        'display': 'block'
+    });
+    
+    // Ensure datepicker opens below input
+    $('.datepicker').on('show', function(e) {
+        $('.datepicker-dropdown').css({
+            'top': $(this).offset().top + $(this).outerHeight(),
+            'left': $(this).offset().left
+        });
+    });
+});
+</script>
+<?php $this->end(); ?>

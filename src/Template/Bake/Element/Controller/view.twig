@@ -1,0 +1,73 @@
+{#
+/**
+ * Custom View Method Template with Nested Association Support
+ * Ensures foreign keys in related tables display title/name instead of ID
+ */
+#}
+{% set allAssociations = Bake.aliasExtractor(modelObj, 'BelongsTo') %}
+{% set allAssociations = allAssociations|merge(Bake.aliasExtractor(modelObj, 'BelongsToMany')) %}
+{% set allAssociations = allAssociations|merge(Bake.aliasExtractor(modelObj, 'HasOne')) %}
+{% set allAssociations = allAssociations|merge(Bake.aliasExtractor(modelObj, 'HasMany')) %}
+
+{# Build nested contain array for HasMany associations #}
+{% set nestedContain = [] %}
+{% for assoc in Bake.aliasExtractor(modelObj, 'HasMany') %}
+    {# Get the associated model to find its belongsTo associations #}
+    {% set associatedModel = Bake.getAssociatedTableAlias(modelObj, assoc) %}
+    {# Create nested contain structure: 'HasManyModel' => ['BelongsToModel1', 'BelongsToModel2'] #}
+    {% set nestedContain = nestedContain|merge([assoc]) %}
+{% endfor %}
+
+    /**
+     * View method
+     *
+     * @param string|null $id {{ singularHumanName }} id.
+     * @return \Cake\Http\Response|null
+     * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
+     */
+    public function view($id = null)
+    {
+        // Load with nested associations to display foreign key names
+        $contain = [];
+        
+        // Add simple associations
+{% for assoc in Bake.aliasExtractor(modelObj, 'BelongsTo') %}
+        $contain[] = '{{ assoc }}';
+{% endfor %}
+{% for assoc in Bake.aliasExtractor(modelObj, 'HasOne') %}
+        $contain[] = '{{ assoc }}';
+{% endfor %}
+{% for assoc in Bake.aliasExtractor(modelObj, 'BelongsToMany') %}
+        $contain[] = '{{ assoc }}';
+{% endfor %}
+        
+        // Add HasMany with nested BelongsTo for foreign key display
+{% for assoc in Bake.aliasExtractor(modelObj, 'HasMany') %}
+    {% set otherModelName = Bake.getAssociatedTableAlias(modelObj, assoc) %}
+        // {{ assoc }} with its associations
+        ${{ otherModelName|variable }}Associations = [];
+        try {
+            ${{ otherModelName|variable }}Table = $this->{{ currentModelName }}->{{ otherModelName }};
+            // Get all BelongsTo associations for nested contain
+            foreach (${{ otherModelName|variable }}Table->associations() as $association) {
+                if ($association->type() === 'manyToOne') {
+                    ${{ otherModelName|variable }}Associations[] = $association->getName();
+                }
+            }
+        } catch (\Exception $e) {
+            // If association doesn't exist, just use empty array
+        }
+        
+        if (!empty(${{ otherModelName|variable }}Associations)) {
+            $contain['{{ assoc }}'] = ${{ otherModelName|variable }}Associations;
+        } else {
+            $contain[] = '{{ assoc }}';
+        }
+        
+{% endfor %}
+        ${{ singularName }} = $this->{{ currentModelName }}->get($id, [
+            'contain' => $contain,
+        ]);
+
+        $this->set('{{ singularName }}', ${{ singularName }});
+    }

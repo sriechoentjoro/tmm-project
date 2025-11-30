@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test AJAX Filter</title>
+    <style>
+        body { font-family: Arial; padding: 20px; }
+        .status { padding: 10px; margin: 10px 0; border-radius: 5px; }
+        .success { background: #d4edda; color: #155724; }
+        .error { background: #f8d7da; color: #721c24; }
+        .info { background: #d1ecf1; color: #0c5460; }
+        pre { background: #f5f5f5; padding: 15px; overflow-x: auto; }
+        button { padding: 10px 20px; margin: 5px; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <h1>AJAX Filter Test</h1>
+    
+    <div id="status"></div>
+    
+    <h2>Test Scenarios:</h2>
+    <button onclick="testBasic()">1. Basic AJAX Request (No Filter)</button>
+    <button onclick="testWithFilter()">2. With Filter (title=motor)</button>
+    <button onclick="testMultipleFilters()">3. Multiple Filters</button>
+    <button onclick="testInvalidColumn()">4. Invalid Column</button>
+    
+    <h2>Response:</h2>
+    <pre id="response"></pre>
+    
+    <h2>HTML Output:</h2>
+    <div id="htmlOutput" style="border: 1px solid #ccc; padding: 10px;"></div>
+
+    <script>
+        function showStatus(message, type = 'info') {
+            const statusDiv = document.getElementById('status');
+            statusDiv.className = 'status ' + type;
+            statusDiv.innerHTML = message;
+        }
+        
+        function showResponse(data) {
+            document.getElementById('response').textContent = JSON.stringify(data, null, 2);
+            
+            if (data.html) {
+                document.getElementById('htmlOutput').innerHTML = '<table border="1">' + data.html + '</table>';
+            }
+        }
+        
+        function testBasic() {
+            showStatus('Testing basic AJAX request...', 'info');
+            
+            fetch('http://localhost:8765/inventories?ajax=1', {
+                method: 'GET',
+                headers: {
+                    'X-Requested-With': 'XMLHttpRequest',
+                    'Accept': 'application/json'
+                }
+            })
+            .then(response => response.json())
+            .then(data => {
+                showStatus(`✓ Success! Count: ${data.count}, Total: ${data.total}`, 'success');
+                showResponse(data);
+            })
+            .catch(error => {
+                showStatus('✗ Error: ' + error.message, 'error');
+                console.error(error);
+            });
+        }
+        
+        function testWithFilter() {
+            showStatus('Testing with filter (title=motor)...', 'info');
+            
+            fetch('http://localhost:8765/inventories?ajax=1&filter[title]=motor', {
+                method: 'GET',
+                headers: {
+                    'X-Requested-With': 'XMLHttpRequest',
+                    'Accept': 'application/json'
+                }
+            })
+            .then(response => response.json())
+            .then(data => {
+                showStatus(`✓ Filter applied! Count: ${data.count}, Total: ${data.total}`, 'success');
+                showResponse(data);
+            })
+            .catch(error => {
+                showStatus('✗ Error: ' + error.message, 'error');
+                console.error(error);
+            });
+        }
+        
+        function testMultipleFilters() {
+            showStatus('Testing multiple filters (title=motor, maker=honda)...', 'info');
+            
+            fetch('http://localhost:8765/inventories?ajax=1&filter[title]=motor&filter[maker]=honda', {
+                method: 'GET',
+                headers: {
+                    'X-Requested-With': 'XMLHttpRequest',
+                    'Accept': 'application/json'
+                }
+            })
+            .then(response => response.json())
+            .then(data => {
+                showStatus(`✓ Multiple filters! Count: ${data.count}, Total: ${data.total}`, 'success');
+                showResponse(data);
+            })
+            .catch(error => {
+                showStatus('✗ Error: ' + error.message, 'error');
+                console.error(error);
+            });
+        }
+        
+        function testInvalidColumn() {
+            showStatus('Testing invalid column...', 'info');
+            
+            fetch('http://localhost:8765/inventories?ajax=1&filter[invalid_field]=test', {
+                method: 'GET',
+                headers: {
+                    'X-Requested-With': 'XMLHttpRequest',
+                    'Accept': 'application/json'
+                }
+            })
+            .then(response => response.json())
+            .then(data => {
+                showStatus(`✓ Invalid column handled! Count: ${data.count}`, 'success');
+                showResponse(data);
+            })
+            .catch(error => {
+                showStatus('✗ Error: ' + error.message, 'error');
+                console.error(error);
+            });
+        }
+        
+        // Auto-test on load
+        window.onload = () => {
+            showStatus('Ready to test. Click buttons above.', 'info');
+        };
+    </script>
+</body>
+</html>

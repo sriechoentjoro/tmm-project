@@ -1,0 +1,40 @@
+{#
+/**
+ * CakePHP(tm) : Rapid Development Framework (http://cakephp.org)
+ * Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
+ *
+ * Licensed under The MIT License
+ * For full copyright and license information, please see the LICENSE.txt
+ * Redistributions of files must retain the above copyright notice.
+ *
+ * @copyright     Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
+ * @link          http://cakephp.org CakePHP(tm) Project
+ * @since         2.0.0
+ * @license       http://www.opensource.org/licenses/mit-license.php MIT License
+ */
+#}
+    /**
+     * Index method
+     *
+     * @return \Cake\Http\Response|null
+     */
+    public function index()
+    {
+{% set belongsTo = Bake.aliasExtractor(modelObj, 'BelongsTo') %}
+{% if belongsTo %}
+        $this->paginate = [
+            'contain' => [{{ Bake.stringifyList(belongsTo, {'indent': false})|raw }}],
+        ];
+{% endif %}
+        ${{ pluralName }} = $this->paginate($this->{{ currentModelName }});
+
+{% if belongsTo %}
+        // Load dropdown data for filters
+{% for assoc in belongsTo %}
+        ${{ assoc|lower }} = $this->{{ currentModelName }}->{{ assoc }}->find('list')->limit(200)->toArray();
+{% endfor %}
+        $this->set(compact('{{ pluralName }}', {{ belongsTo|map(a => "'" ~ a|lower ~ "'")|join(', ')|raw }}));
+{% else %}
+        $this->set(compact('{{ pluralName }}'));
+{% endif %}
+    }

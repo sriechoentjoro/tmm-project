@@ -1,0 +1,1 @@
+Exception: Unknown command `cake test`. Run `cake --help` to get the list of valid commands. in [D:\xampp\htdocs\tmm\vendor\cakephp\cakephp\src\Console\CommandRunner.php, line 346]

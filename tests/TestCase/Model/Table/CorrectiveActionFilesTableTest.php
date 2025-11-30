@@ -1,0 +1,93 @@
+<?php
+namespace App\Test\TestCase\Model\Table;
+
+use App\Model\Table\CorrectiveActionFilesTable;
+use Cake\ORM\TableRegistry;
+use Cake\TestSuite\TestCase;
+
+/**
+ * App\Model\Table\CorrectiveActionFilesTable Test Case
+ */
+class CorrectiveActionFilesTableTest extends TestCase
+{
+    /**
+     * Test subject
+     *
+     * @var \App\Model\Table\CorrectiveActionFilesTable
+     */
+    public $CorrectiveActionFiles;
+
+    /**
+     * Fixtures
+     *
+     * @var array
+     */
+    public $fixtures = [
+        'app.CorrectiveActionFiles',
+        'app.DailyActivities',
+    ];
+
+    /**
+     * setUp method
+     *
+     * @return void
+     */
+    public function setUp()
+    {
+        parent::setUp();
+        $config = TableRegistry::getTableLocator()->exists('CorrectiveActionFiles') ? [] : ['className' => CorrectiveActionFilesTable::class];
+        $this->CorrectiveActionFiles = TableRegistry::getTableLocator()->get('CorrectiveActionFiles', $config);
+    }
+
+    /**
+     * tearDown method
+     *
+     * @return void
+     */
+    public function tearDown()
+    {
+        unset($this->CorrectiveActionFiles);
+
+        parent::tearDown();
+    }
+
+    /**
+     * Test initialize method
+     *
+     * @return void
+     */
+    public function testInitialize()
+    {
+        $this->markTestIncomplete('Not implemented yet.');
+    }
+
+    /**
+     * Test validationDefault method
+     *
+     * @return void
+     */
+    public function testValidationDefault()
+    {
+        $this->markTestIncomplete('Not implemented yet.');
+    }
+
+    /**
+     * Test buildRules method
+     *
+     * @return void
+     */
+    public function testBuildRules()
+    {
+        $this->markTestIncomplete('Not implemented yet.');
+    }
+
+    /**
+     * Test defaultConnectionName method
+     *
+     * @return void
+     */
+    public function testDefaultConnectionName()
+    {
+        $this->markTestIncomplete('Not implemented yet.');
+    }
+}

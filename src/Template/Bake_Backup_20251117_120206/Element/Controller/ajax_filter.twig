@@ -1,0 +1,135 @@
+{#
+/**
+ * AJAX Filter Method for Server-Side Filtering
+ * Auto-generated method for handling AJAX filter requests
+ */
+#}
+
+    /**
+     * AJAX Filter method - Server-side filtering
+     *
+     * @return \Cake\Http\Response|null JSON response
+     */
+    public function ajaxFilter()
+    {
+        $this->request->allowMethod(['get', 'post']);
+        
+        // Get filter parameters from request
+        $filters = $this->request->getQuery('filters', []);
+        $page = $this->request->getQuery('page', 1);
+        $limit = $this->request->getQuery('limit', 20);
+        
+        // Build query with filters
+        $query = $this->{{ currentModelName }}->find();
+        
+{% set belongsTo = Bake.aliasExtractor(modelObj, 'BelongsTo') %}
+{% if belongsTo %}
+        // Contain associations
+        $query->contain([{{ Bake.stringifyList(belongsTo, {'indent': false})|raw }}]);
+        
+{% endif %}
+        // Apply filters
+        if (!empty($filters)) {
+            foreach ($filters as $field => $filter) {
+                if (empty($filter['value'])) {
+                    continue;
+                }
+                
+                $value = $filter['value'];
+                $operator = isset($filter['operator']) ? $filter['operator'] : 'like';
+                
+                // Handle different operators
+                switch ($operator) {
+                    case '=':
+                    case 'equals':
+                        $query->where(["{{ currentModelName }}.{$field}" => $value]);
+                        break;
+                        
+                    case '!=':
+                        $query->where(["{{ currentModelName }}.{$field} !=" => $value]);
+                        break;
+                        
+                    case '<':
+                    case 'lt':
+                        $query->where(["{{ currentModelName }}.{$field} <" => $value]);
+                        break;
+                        
+                    case '>':
+                    case 'gt':
+                        $query->where(["{{ currentModelName }}.{$field} >" => $value]);
+                        break;
+                        
+                    case '<=':
+                    case 'lte':
+                        $query->where(["{{ currentModelName }}.{$field} <=" => $value]);
+                        break;
+                        
+                    case '>=':
+                    case 'gte':
+                        $query->where(["{{ currentModelName }}.{$field} >=" => $value]);
+                        break;
+                        
+                    case 'between':
+                        if (isset($filter['value2']) && !empty($filter['value2'])) {
+                            $query->where([
+                                "{{ currentModelName }}.{$field} >=" => $value,
+                                "{{ currentModelName }}.{$field} <=" => $filter['value2']
+                            ]);
+                        }
+                        break;
+                        
+                    case 'like':
+                    case 'contains':
+                        $query->where(["{{ currentModelName }}.{$field} LIKE" => "%{$value}%"]);
+                        break;
+                        
+                    case 'not_like':
+                        $query->where(["{{ currentModelName }}.{$field} NOT LIKE" => "%{$value}%"]);
+                        break;
+                        
+                    case 'starts_with':
+                    case 'starts':
+                        $query->where(["{{ currentModelName }}.{$field} LIKE" => "{$value}%"]);
+                        break;
+                        
+                    case 'ends_with':
+                    case 'ends':
+                        $query->where(["{{ currentModelName }}.{$field} LIKE" => "%{$value}"]);
+                        break;
+                        
+                    default:
+                        $query->where(["{{ currentModelName }}.{$field} LIKE" => "%{$value}%"]);
+                        break;
+                }
+            }
+        }
+        
+        // Paginate results
+        $this->paginate = [
+            'limit' => $limit,
+            'page' => $page
+        ];
+        
+        try {
+            ${{ pluralName }} = $this->paginate($query);
+            $paging = $this->request->getParam('paging')['{{ currentModelName }}'];
+            
+            $this->set([
+                '{{ pluralName }}' => ${{ pluralName }},
+                'paging' => $paging,
+                'success' => true,
+                '_serialize' => ['{{ pluralName }}', 'paging', 'success']
+            ]);
+            $this->viewBuilder()->setOption('serialize', ['{{ pluralName }}', 'paging', 'success']);
+            $this->RequestHandler->renderAs($this, 'json');
+            
+        } catch (\Exception $e) {
+            $this->set([
+                'success' => false,
+                'error' => $e->getMessage(),
+                '_serialize' => ['success', 'error']
+            ]);
+            $this->viewBuilder()->setOption('serialize', ['success', 'error']);
+            $this->RequestHandler->renderAs($this, 'json');
+        }
+    }

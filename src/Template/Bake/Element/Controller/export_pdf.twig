@@ -1,0 +1,44 @@
+{#
+/**
+ * Print Report method template
+ */
+#}
+    /**
+     * Print Report
+     *
+     * @return \Cake\Http\Response|null
+     */
+    public function printReport()
+    {
+        // Override AppController's layout to use print layout
+        $this->layout = 'print';
+        $this->viewBuilder()->setLayout('print');
+        
+{% set belongsTo = Bake.aliasExtractor(modelObj, 'BelongsTo') %}
+{% if belongsTo %}
+        $query = $this->{{ currentModelName }}->find('all')
+            ->contain([{{ Bake.stringifyList(belongsTo, {'indent': false})|raw }}]);
+{% else %}
+        $query = $this->{{ currentModelName }}->find('all');
+{% endif %}
+        
+        // Define report configuration
+        $title = '{{ currentModelName|humanize }} Report';
+        $headers = ['ID', 'Name', 'Created', 'Modified'];
+        $fields = ['id', 'name', 'created', 'modified'];
+        
+        return $this->doExportPrint($query, $title, $headers, $fields);
+    }
+
+    /**
+     * Export PDF method (alias for printReport)
+     *
+     * @return \Cake\Http\Response|null
+     */
+    public function exportPdf()
+    {
+        // Override AppController's layout to use print layout
+        $this->layout = 'print';
+        $this->viewBuilder()->setLayout('print');
+        return $this->printReport();
+    }

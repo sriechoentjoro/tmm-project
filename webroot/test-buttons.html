@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test Action Buttons</title>
+    <link rel="stylesheet" href="http://localhost/static-assets/css/fontawesome-all.min.css">
+    <style>
+        body {
+            padding: 50px;
+            font-family: Arial, sans-serif;
+        }
+        
+        .btn-action-icon {
+            display: inline-flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            width: 32px !important;
+            height: 32px !important;
+            background: #2c3e50 !important;
+            color: white !important;
+            border-radius: 4px !important;
+            text-decoration: none !important;
+            transition: all 0.2s ease !important;
+            border: none !important;
+            cursor: pointer !important;
+            margin: 0 2px !important;
+        }
+        
+        .btn-action-icon:hover {
+            transform: translateY(-2px) !important;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2) !important;
+            color: white !important;
+        }
+        
+        .btn-action-icon i {
+            font-size: 14px !important;
+            color: white !important;
+        }
+        
+        .btn-view-icon {
+            background: #3498db !important;
+        }
+        
+        .btn-edit-icon {
+            background: #f39c12 !important;
+        }
+        
+        .btn-delete-icon {
+            background: #e74c3c !important;
+        }
+    </style>
+</head>
+<body>
+    <h1>Test Action Buttons</h1>
+    <p>If you see three colored buttons below, the styles are working:</p>
+    
+    <div style="margin: 20px 0;">
+        <a href="#" class="btn-action-icon btn-view-icon" title="View">
+            <i class="fas fa-eye"></i>
+        </a>
+        <a href="#" class="btn-action-icon btn-edit-icon" title="Edit">
+            <i class="fas fa-edit"></i>
+        </a>
+        <a href="#" class="btn-action-icon btn-delete-icon" title="Delete">
+            <i class="fas fa-trash"></i>
+        </a>
+    </div>
+    
+    <p>You should see:</p>
+    <ul>
+        <li>Blue button with eye icon (View)</li>
+        <li>Orange button with pencil icon (Edit)</li>
+        <li>Red button with trash icon (Delete)</li>
+    </ul>
+</body>
+</html>

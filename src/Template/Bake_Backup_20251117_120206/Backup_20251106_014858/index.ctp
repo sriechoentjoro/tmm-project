@@ -1,0 +1,226 @@
+<%
+/**
+ * CakePHP(tm) : Rapid Development Framework (https://cakephp.org)
+ * Copyright (c) Cake Software Foundation, Inc. (https://cakefoundation.org)
+ *
+ * Licensed under The MIT License
+ * For full copyright and license information, please see the LICENSE.txt
+ * Redistributions of files must retain the above copyright notice.
+ *
+ * @copyright     Copyright (c) Cake Software Foundation, Inc. (https://cakefoundation.org)
+ * @link          https://cakephp.org CakePHP(tm) Project
+ * @since         2.0.0
+ * @license       https://opensource.org/licenses/mit-license.php MIT License
+ *
+ * Enhanced Index Template with Filters, Scroll, Export
+ */
+use Cake\Utility\Inflector;
+
+// Detect image fields for thumbnail display
+$imageFields = [];
+foreach ($fields as $field) {
+    if (preg_match('/(image|photo|foto|gambar|picture|img)/i', $field)) {
+        $imageFields[] = $field;
+$firstImageField = !empty($imageFields) ? $imageFields[0] : null;
+
+$fields = collection($fields)
+    ->filter(function($field) use ($schema) {
+        return !in_array($schema->getColumnType($field), ['binary', 'text']);
+    })
+    ->take(7);
+%>
+<!-- Page Header -->
+<div class="index-header">
+    <h2>
+        <i class="fas fa-list"></i>
+        <?= __('<%= $pluralHumanName %>') ?>
+    </h2>
+    <div class="header-actions">
+        <?= $this->Html->link(
+            '<i class="fas fa-plus"></i> ' . __('Add <%= $singularHumanName %>'),
+            ['action' => 'add'],
+            ['class' => 'btn btn-success btn-add', 'escape' => false]
+        ) ?>
+    </div>
+</div>
+
+<!-- Table Info Bar -->
+<div class="table-info-bar">
+    <span class="table-count">
+        <i class="fas fa-database"></i> 
+        Showing <?= $this->Paginator->counter(['format' => '{{count}} records']) ?>
+    </span>
+    <div class="table-actions">
+        <button class="btn-export" onclick="exportTableToCSV(this.closest('.table-container').querySelector('table'))">
+            <i class="fas fa-download"></i> Export CSV
+        </button>
+        <button class="btn-print" onclick="window.print()">
+            <i class="fas fa-print"></i> Print
+        </button>
+    </div>
+</div>
+
+<!-- Table Container with Horizontal Scroll -->
+<div class="table-container">
+    <div class="scroll-hint"><i class="fas fa-arrows-alt-h"></i> Scroll horizontally to see more columns</div>
+    <div class="table-scroll-wrapper">
+        <table class="table table-striped table-hover">
+            <thead>
+                <tr>
+<%
+    foreach ($fields as $field):
+<%  if ($firstImageField && $field === $primaryKey[0]): %>
+                    <th class="filter-thumbnail"></th>
+<%  endif; %>
+<%  if ($firstImageField && $field === $primaryKey[0]): %>
+                    <th><?= __('Thumbnail') ?></th>
+<%  endif; %>
+        if (isset($schema)) {
+            $columnType = $schema->getColumnType($field);
+%>
+                    <th><?= $this->Paginator->sort('<%= $field %>') ?></th>
+<%  endforeach; %>
+                    <th class="actions"><?= __('Actions') ?></th>
+                </tr>
+                <!-- Filter Row -->
+                <tr class="filter-row">
+<%
+    $columnIndex = 0;
+    foreach ($fields as $field):
+<%  if ($firstImageField && $field === $primaryKey[0]): %>
+                    <th class="filter-thumbnail"></th>
+<%  endif; %>
+<%
+        $columnType = isset($schema) ? $schema->getColumnType($field) : 'string';
+        $filterType = 'text';
+        $placeholder = 'Filter...';
+        
+        if ($columnType === 'integer' || $columnType === 'biginteger') {
+            $filterType = 'number';
+            $placeholder = 'Filter ID...';
+        } elseif ($columnType === 'date' || $columnType === 'datetime' || $columnType === 'timestamp') {
+            $filterType = 'date';
+            $placeholder = '';
+%>
+                    <th><input type="<%= $filterType %>" class="filter-input" placeholder="<%= $placeholder %>" data-column="<%= $columnIndex++ %>"></th>
+<%  endforeach; %>
+                    <th class="filter-actions">
+                        <button class="btn-filter" title="Apply Filters"><i class="fas fa-filter"></i></button>
+                        <button class="btn-clear-filter" title="Clear All Filters"><i class="fas fa-times"></i></button>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php foreach ($<%= $pluralVar %> as $<%= $singularVar %>): ?>
+                <tr>
+<%
+    foreach ($fields as $field):
+<%  if ($firstImageField && $field === $primaryKey[0]): %>
+                    <td class="thumbnail-cell">
+                        <?php if (!empty($<%= $singularVar %>-><%= $firstImageField %>)): ?>
+                            <img src="<?= $this->Url->build('/' . $<%= $singularVar %>-><%= $firstImageField %>, ['fullBase' => true]) ?>" 
+                                 alt="Thumbnail" 
+                                 class="table-thumbnail"
+                                 onerror="this.src='/img/no-image.png'">
+                        <?php else: ?>
+                            <span class="no-thumbnail"><i class="fas fa-image"></i></span>
+                        <?php endif; ?>
+                    </td>
+<%  endif; %>
+<%
+        $isKey = false;
+        if (!empty($associations['BelongsTo'])) {
+            foreach ($associations['BelongsTo'] as $alias => $details) {
+                if ($field === $details['foreignKey']) {
+                    $isKey = true;
+%>
+                    <td><?= $<%= $singularVar %>->has('<%= $details['property'] %>') ? $this->Html->link($<%= $singularVar %>-><%= $details['property'] %>-><%= $details['displayField'] %>, ['controller' => '<%= $details['controller'] %>', 'action' => 'view', $<%= $singularVar %>-><%= $details['property'] %>-><%= $details['primaryKey'][0] %>]) : '' ?></td>
+<%
+                    break;
+        if ($isKey !== true) {
+            if (isset($schema) && !in_array($schema->getColumnType($field), ['integer', 'biginteger', 'decimal', 'float'])) {
+%>
+                    <td><?= h($<%= $singularVar %>-><%= $field %>) ?></td>
+<%
+            } else {
+%>
+                    <td><?= $this->Number->format($<%= $singularVar %>-><%= $field %>) ?></td>
+<%
+    endforeach;
+%>
+                    <td class="actions">
+                        <div class="action-buttons-hover">
+                        <?= $this->Html->link(
+                            '<i class="fas fa-plus"></i>',
+                            ['action' => 'view', $<%= $singularVar %>-><%= $primaryKey[0] %>],
+                            ['class' => 'btn btn-sm btn-view', 'escape' => false, 'title' => 'View']
+                        ) ?>
+                        <?= $this->Html->link(
+                            '<i class="fas fa-edit"></i>',
+                            ['action' => 'edit', $<%= $singularVar %>-><%= $primaryKey[0] %>],
+                            ['class' => 'btn btn-sm btn-edit', 'escape' => false, 'title' => 'Edit']
+                        ) ?>
+                        </div>
+                    </td>
+                </tr>
+                <?php endforeach; ?>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<!-- Pagination -->
+<div class="paginator" role="navigation" aria-label="Pagination">
+    <ul class="pagination" role="group">
+        <?= $this->Paginator->first('<i class="fas fa-angle-double-left"></i>', ['escape' => false]) ?>
+        <?= $this->Paginator->prev('<i class="fas fa-angle-left"></i> ' . __('Previous'), ['escape' => false]) ?>
+        <?= $this->Paginator->numbers() ?>
+        <?= $this->Paginator->next(__('Next') . ' <i class="fas fa-angle-right"></i>', ['escape' => false]) ?>
+        <?= $this->Paginator->last('<i class="fas fa-angle-double-right"></i>', ['escape' => false]) ?>
+    </ul>
+    <p class="pagination-info">
+        <?= $this->Paginator->counter(__('Page {{page}} of {{pages}}, showing {{current}} record(s) out of {{count}} total')) ?>
+    </p>
+</div>
+
+<!-- Actions Sidebar -->
+<div class="actions-sidebar">
+    <button class="actions-toggle" onclick="this.parentElement.classList.toggle('active')">
+        <i class="fas fa-bars"></i>
+    </button>
+    <div class="actions-content">
+        <h3><i class="fas fa-tasks"></i> <?= __('Actions') ?></h3>
+        <ul class="side-nav">
+            <li><?= $this->Html->link(
+                '<i class="fas fa-plus"></i> ' . __('New <%= $singularHumanName %>'),
+                ['action' => 'add'],
+                ['escape' => false]
+            ) ?></li>
+<%
+    $done = [];
+    foreach ($associations as $type => $data):
+        foreach ($data as $alias => $details):
+            if (!empty($details['navLink']) && $details['controller'] !== $this->name && !in_array($details['controller'], $done)):
+                $done[] = $details['controller'];
+%>
+            <li><?= $this->Html->link(
+                '<i class="fas fa-list"></i> ' . __('List <%= $details['controller'] %>'),
+                ['controller' => '<%= $details['controller'] %>', 'action' => 'index'],
+                ['escape' => false]
+            ) ?></li>
+            <li><?= $this->Html->link(
+                '<i class="fas fa-plus"></i> ' . __('New <%= Inflector::humanize(Inflector::singularize($details['controller'])) %>'),
+                ['controller' => '<%= $details['controller'] %>', 'action' => 'add'],
+                ['escape' => false]
+            ) ?></li>
+<%
+            endif;
+        endforeach;
+    endforeach;
+%>
+        </ul>
+    </div>
+</div>
+
+
+

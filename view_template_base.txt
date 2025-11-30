@@ -1,0 +1,179 @@
+<?php
+/**
+ * @var \App\View\AppView $this
+ * @var \App\Model\Entity\{{SINGULAR}} ${{VARIABLE}}
+ */
+?>
+<!-- Enhanced View Template for {{TABLE_NAME}} -->
+
+<div class="github-container">
+    <!-- Page Header with Hamburger Menu -->
+    <div class="github-page-header">
+        <div class="github-header-content">
+            <div class="github-title-row">
+                <div style="display: flex; align-items: center; gap: 10px;">
+                    <!-- Hamburger Dropdown Menu -->
+                    <button class="btn btn-link dropdown-toggle" type="button" id="dropdownMenuButton" 
+                            data-bs-toggle="dropdown" aria-expanded="false" 
+                            style="padding: 6px 8px; font-size: 18px;">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        {{PHP_ECHO}}$this->Html->link(
+                            '<i class="fas fa-list"></i> ' . __('List {{HUMAN_NAME}}'),
+                            ['action' => 'index'],
+                            ['class' => 'dropdown-item', 'escape' => false]
+                        ){{PHP_ECHO_END}}
+                        {{PHP_ECHO}}$this->Html->link(
+                            '<i class="fas fa-plus"></i> ' . __('New {{HUMAN_NAME}}'),
+                            ['action' => 'add'],
+                            ['class' => 'dropdown-item', 'escape' => false]
+                        ){{PHP_ECHO_END}}
+                        {{PHP_ECHO}}$this->Html->link(
+                            '<i class="fas fa-edit"></i> ' . __('Edit {{HUMAN_NAME}}'),
+                            ['action' => 'edit', ${{VARIABLE}}->id],
+                            ['class' => 'dropdown-item', 'escape' => false]
+                        ){{PHP_ECHO_END}}
+                        {{PHP_ECHO}}$this->Form->postLink(
+                            '<i class="fas fa-trash"></i> ' . __('Delete {{HUMAN_NAME}}'),
+                            ['action' => 'delete', ${{VARIABLE}}->id],
+                            ['confirm' => __('Are you sure you want to delete # {0}?', ${{VARIABLE}}->id), 'class' => 'dropdown-item text-danger', 'escape' => false]
+                        ){{PHP_ECHO_END}}
+                    </div>
+
+                    <h1 class="github-title">{{PHP_ECHO}}h(isset(${{VARIABLE}}->title) ? ${{VARIABLE}}->title : (isset(${{VARIABLE}}->name) ? ${{VARIABLE}}->name : (isset(${{VARIABLE}}->code) ? ${{VARIABLE}}->code : ${{VARIABLE}}->id))){{PHP_ECHO_END}}</h1>
+                </div>
+                
+                <div class="github-actions">
+                    {{PHP_ECHO}}$this->Html->link(__('Edit'), ['action' => 'edit', ${{VARIABLE}}->id], ['class' => 'btn btn-github-edit']){{PHP_ECHO_END}}
+                    {{PHP_ECHO}}$this->Form->postLink(__('Delete'), ['action' => 'delete', ${{VARIABLE}}->id], ['confirm' => __('Are you sure you want to delete # {0}?', ${{VARIABLE}}->id), 'class' => 'btn btn-github-danger']){{PHP_ECHO_END}}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Tab Navigation -->
+    <div class="view-tabs-container" style="margin-top: 20px;">
+        <ul class="view-tabs-nav" role="tablist" style="display: flex; list-style: none; padding: 0; border-bottom: 1px solid #d0d7de;">
+            <li class="view-tab-item">
+                <a href="#tab-detail" class="view-tab-link active" data-tab="tab-detail" 
+                   style="padding: 8px 16px; display: block; text-decoration: none; border-bottom: 2px solid #fd8c73;">
+                    📄 {{PHP_ECHO}}__('Detail'){{PHP_ECHO_END}}
+                </a>
+            </li>{{ASSOCIATION_TABS}}
+        </ul>
+
+        <!-- Tab Contents -->
+        <div class="view-tabs-content">
+            <!-- Detail Tab -->
+            <div id="tab-detail" class="view-tab-pane active" style="padding: 20px; background: white;">
+                <p><em>Use original baked template for detailed fields display.</em></p>
+            </div>{{TAB_CONTENT}}
+        </div>
+    </div>
+</div>
+
+<style>
+.github-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.github-page-header {
+    background: white;
+    border-bottom: 1px solid #d0d7de;
+    padding: 16px 0;
+    margin-bottom: 20px;
+}
+
+.github-title-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.github-title {
+    font-size: 24px;
+    font-weight: 600;
+    margin: 0;
+}
+
+.btn-github-edit {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 6px 16px;
+    border-radius: 6px;
+    text-decoration: none;
+    border: none;
+}
+
+.btn-github-danger {
+    background: #d73a49;
+    color: white;
+    padding: 6px 16px;
+    border-radius: 6px;
+    text-decoration: none;
+    margin-left: 8px;
+}
+
+.view-tab-link {
+    color: #57606a;
+    transition: all 0.2s;
+}
+
+.view-tab-link.active {
+    color: #fd8c73;
+    border-bottom-color: #fd8c73 !important;
+}
+
+.view-tab-link:hover {
+    color: #fd8c73;
+}
+
+.view-tab-pane {
+    border: 1px solid #d0d7de;
+    border-top: none;
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Tab switching
+    const tabLinks = document.querySelectorAll('.view-tab-link');
+    const tabPanes = document.querySelectorAll('.view-tab-pane');
+    
+    tabLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            // Remove active class from all tabs
+            tabLinks.forEach(l => l.classList.remove('active'));
+            tabPanes.forEach(p => p.style.display = 'none');
+            
+            // Add active class to clicked tab
+            this.classList.add('active');
+            
+            // Show corresponding content
+            const tabId = this.getAttribute('data-tab');
+            document.getElementById(tabId).style.display = 'block';
+        });
+    });
+    
+    // Dropdown toggle
+    const dropdownButton = document.getElementById('dropdownMenuButton');
+    const dropdownMenu = dropdownButton?.nextElementSibling;
+    
+    if (dropdownButton && dropdownMenu) {
+        dropdownButton.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            dropdownMenu.classList.toggle('show');
+        });
+        
+        document.addEventListener('click', function() {
+            dropdownMenu.classList.remove('show');
+        });
+    }
+});
+</script>

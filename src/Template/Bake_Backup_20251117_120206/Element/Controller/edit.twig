@@ -1,0 +1,84 @@
+{#
+/**
+ * Custom Bake Template for Edit Action with File Upload Support
+ * Enhanced to handle file/image uploads automatically
+ */
+#}
+{% set compact = ["'#{singularName}'"] %}
+{% set hasFileFields = false %}
+{% for field in fields %}
+{% if field matches '/.*(file|image|photo|attachment|gambar|foto).*/i' %}
+{% set hasFileFields = true %}
+{% endif %}
+{% endfor %}
+    /**
+     * Edit method
+     *
+     * @param string|null $id {{ singularHumanName }} id.
+     * @return \Cake\Http\Response|null Redirects on successful edit, renders view otherwise.
+     * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
+     */
+    public function edit($id = null)
+    {
+        ${{ singularName }} = $this->{{ currentModelName }}->get($id, [
+            'contain' => [{{ Bake.stringifyList(Bake.aliasExtractor(modelObj, 'BelongsToMany'))|raw }}],
+        ]);
+        if ($this->request->is(['patch', 'post', 'put'])) {
+            // Get POST data
+            $data = $this->request->getData();
+            
+            // Auto-detect and handle image/file uploads
+            $imageFields = [];
+            $fileFields = [];
+            foreach ($data as $fieldName => $value) {
+                if (is_array($value) && isset($value['tmp_name'])) {
+                    // Check if it's an image field
+                    if (preg_match('/(image|photo|gambar|foto)/i', $fieldName)) {
+                        $imageFields[] = $fieldName;
+                    } else {
+                        $fileFields[] = $fieldName;
+                    }
+                }
+            }
+            
+            // Upload images with thumbnail and watermark
+            foreach ($imageFields as $fieldName) {
+                $imagePath = $this->uploadImage('{{ currentModelName }}', $fieldName, '{{ pluralName|lower }}');
+                if ($imagePath) {
+                    $data[$fieldName] = $imagePath;
+                } else {
+                    // Keep existing value if upload failed
+                    unset($data[$fieldName]);
+                }
+            }
+            
+            // Upload files (documents, etc)
+            foreach ($fileFields as $fieldName) {
+                $success = $this->uploadFile('{{ currentModelName }}', $fieldName, '{{ pluralName|lower }}');
+                if ($success) {
+                    $data = $this->request->getData(); // Get updated data after upload
+                } else {
+                    unset($data[$fieldName]); // Keep existing value
+                }
+            }
+            
+            ${{ singularName }} = $this->{{ currentModelName }}->patchEntity(${{ singularName }}, $data);
+            if ($this->{{ currentModelName }}->save(${{ singularName }})) {
+                $this->Flash->success(__('The {{ singularHumanName|lower }} has been saved.'));
+
+                return $this->redirect(['action' => 'index']);
+            }
+            $this->Flash->error(__('The {{ singularHumanName|lower }} could not be saved. Please, try again.'));
+        }
+{% set associations = Bake.aliasExtractor(modelObj, 'BelongsTo') %}
+{% set associations = associations|merge(Bake.aliasExtractor(modelObj, 'BelongsToMany')) %}
+
+{%- for assoc in associations %}
+    {%- set otherName = Bake.getAssociatedTableAlias(modelObj, assoc) %}
+    {%- set otherPlural = otherName|variable %}
+        ${{ otherPlural }} = $this->{{ currentModelName }}->{{ otherName }}->find('list', ['limit' => 200]);
+        {{- "\n" }}
+    {%- set compact = compact|merge(["'#{otherPlural}'"]) %}
+{% endfor %}
+        $this->set(compact({{ compact|join(', ')|raw }}));
+    }

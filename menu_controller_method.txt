@@ -1,0 +1,27 @@
+<?php
+// Add this method to MenusController.php before the closing }
+
+    /**
+     * Get menu tree for navigation
+     *
+     * @return array Menu tree
+     */
+    public function getMenuTree()
+    {
+        $this->viewBuilder()->setLayout(false);
+        
+        $menus = $this->Menus->find('threaded')
+            ->where(['Menus.parent_id IS' => null, 'Menus.is_active' => 1])
+            ->order(['Menus.position' => 'ASC'])
+            ->contain(['ChildMenus' => function ($q) {
+                return $q
+                    ->where(['ChildMenus.is_active' => 1])
+                    ->order(['ChildMenus.position' => 'ASC']);
+            }])
+            ->all();
+        
+        $this->set('menus', $menus);
+        $this->set('_serialize', ['menus']);
+        
+        return $menus;
+    }

@@ -1,0 +1,33 @@
+# SSH Configuration for VPS Servers
+# Location: D:\xampp\htdocs\ssh_config
+
+# VPS Development Server
+Host vps-development
+    HostName 103.214.112.58
+    User root
+    Port 22
+    ServerAliveInterval 60
+    ServerAliveCountMax 15
+    StrictHostKeyChecking no
+    UserKnownHostsFile /dev/null
+    LogLevel ERROR
+    RemoteCommand none
+    RequestTTY no
+
+# cPanel Server
+Host cpanel-server
+    HostName your-server-ip-or-domain.com
+    User your-cpanel-username
+    IdentityFile C:\Users\Administrator\.ssh\id_rsa_cpanel
+    Port 22
+    ServerAliveInterval 60
+    ServerAliveCountMax 15
+
+# Example: Asahi Production
+# Host asahi-production
+#     HostName 123.456.789.10
+#     User asahi
+#     IdentityFile C:\Users\Administrator\.ssh\id_rsa_production
+#     Port 22
+#     ServerAliveInterval 60
+#     ServerAliveCountMax 15

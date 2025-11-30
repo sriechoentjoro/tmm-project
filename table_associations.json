@@ -1,0 +1,848 @@
+{
+    "ChartOfAccounts":  {
+                            "belongsTo":  [
+                                              "ParentChartOfAccounts"
+                                          ],
+                            "hasMany":  [
+
+                                        ],
+                            "belongsToMany":  [
+
+                                              ]
+                        },
+    "Vehicles":  {
+                     "belongsTo":  [
+                                       "VehicleTypes",
+                                       "LesorCompanies"
+                                   ],
+                     "hasMany":  [
+
+                                 ],
+                     "belongsToMany":  [
+
+                                       ]
+                 },
+    "InventoryImages":  {
+                            "belongsTo":  [
+                                              "Inventories"
+                                          ],
+                            "hasMany":  [
+
+                                        ],
+                            "belongsToMany":  [
+
+                                              ]
+                        },
+    "Approvals":  {
+                      "belongsTo":  [
+                                        "References",
+                                        "ApprovalStatuses",
+                                        "Personnels"
+                                    ],
+                      "hasMany":  [
+                                      "PurchaseRequests"
+                                  ],
+                      "belongsToMany":  [
+
+                                        ]
+                  },
+    "ActionPerformers":  {
+                             "belongsTo":  [
+                                               "DailyActivities",
+                                               "Actions",
+                                               "Personnels"
+                                           ],
+                             "hasMany":  [
+
+                                         ],
+                             "belongsToMany":  [
+
+                                               ]
+                         },
+    "Uoms":  {
+                 "belongsTo":  [
+
+                               ],
+                 "hasMany":  [
+                                 "Inventories",
+                                 "StockTakes"
+                             ],
+                 "belongsToMany":  [
+
+                                   ]
+             },
+    "SafetyCards":  {
+                        "belongsTo":  [
+                                          "LineSections",
+                                          "LineProcesses",
+                                          "Lines",
+                                          "LineFunctions",
+                                          "LineUnits",
+                                          "LineParts",
+                                          "Personnels"
+                                      ],
+                        "hasMany":  [
+
+                                    ],
+                        "belongsToMany":  [
+
+                                          ]
+                    },
+    "DailyActivities":  {
+                            "belongsTo":  [
+                                              "ActionStatuses",
+                                              "LineSections",
+                                              "LineProcesses",
+                                              "LineGroups",
+                                              "Lines",
+                                              "LineFunctions",
+                                              "LineUnits",
+                                              "LineParts",
+                                              "JobCategories",
+                                              "SpStatuses",
+                                              "Shifts",
+                                              "BreakDownCauses",
+                                              "JobStatuses"
+                                          ],
+                            "hasMany":  [
+                                            "ActionImages",
+                                            "ActionPerformers",
+                                            "ActionPlanTasks",
+                                            "ActionPlans",
+                                            "Actions",
+                                            "BinderPlannedJobTaskResponses",
+                                            "BinderPmProblemResponses",
+                                            "CorrectiveActionFiles"
+                                        ],
+                            "belongsToMany":  [
+
+                                              ]
+                        },
+    "JobCategories":  {
+                          "belongsTo":  [
+
+                                        ],
+                          "hasMany":  [
+                                          "DailyActivities"
+                                      ],
+                          "belongsToMany":  [
+
+                                            ]
+                      },
+    "Inventories":  {
+                        "belongsTo":  [
+                                          "Storages",
+                                          "Uoms"
+                                      ],
+                        "hasMany":  [
+                                        "AdjustStocks",
+                                        "InventoryImages",
+                                        "PurchaseReceiptItems",
+                                        "StockIncomings",
+                                        "StockOutgoings",
+                                        "StockTakes"
+                                    ],
+                        "belongsToMany":  [
+
+                                          ]
+                    },
+    "CorrectiveActionFiles":  {
+                                  "belongsTo":  [
+                                                    "DailyActivities"
+                                                ],
+                                  "hasMany":  [
+
+                                              ],
+                                  "belongsToMany":  [
+
+                                                    ]
+                              },
+    "Kelurahans":  {
+                       "belongsTo":  [
+                                         "Propinsis",
+                                         "Kabupatens",
+                                         "Kecamatans"
+                                     ],
+                       "hasMany":  [
+
+                                   ],
+                       "belongsToMany":  [
+
+                                         ]
+                   },
+    "SpStatuses":  {
+                       "belongsTo":  [
+
+                                     ],
+                       "hasMany":  [
+                                       "DailyActivities"
+                                   ],
+                       "belongsToMany":  [
+
+                                         ]
+                   },
+    "LesorCompanies":  {
+                           "belongsTo":  [
+
+                                         ],
+                           "hasMany":  [
+                                           "Vehicles"
+                                       ],
+                           "belongsToMany":  [
+
+                                             ]
+                       },
+    "PurchaseRequestItems":  {
+                                 "belongsTo":  [
+                                                   "PurchaseRequests",
+                                                   "Inventories"
+                                               ],
+                                 "hasMany":  [
+
+                                             ],
+                                 "belongsToMany":  [
+
+                                                   ]
+                             },
+    "PaymentMethods":  {
+                           "belongsTo":  [
+
+                                         ],
+                           "hasMany":  [
+                                           "Suppliers"
+                                       ],
+                           "belongsToMany":  [
+
+                                             ]
+                       },
+    "ShiftGroups":  {
+                        "belongsTo":  [
+
+                                      ],
+                        "hasMany":  [
+                                        "Personnels"
+                                    ],
+                        "belongsToMany":  [
+
+                                          ]
+                    },
+    "MaritalStatuses":  {
+                            "belongsTo":  [
+
+                                          ],
+                            "hasMany":  [
+                                            "Personnels"
+                                        ],
+                            "belongsToMany":  [
+
+                                              ]
+                        },
+    "EmployeeStatuses":  {
+                             "belongsTo":  [
+
+                                           ],
+                             "hasMany":  [
+                                             "Personnels"
+                                         ],
+                             "belongsToMany":  [
+
+                                               ]
+                         },
+    "Positions":  {
+                      "belongsTo":  [
+
+                                    ],
+                      "hasMany":  [
+                                      "Personnels"
+                                  ],
+                      "belongsToMany":  [
+
+                                        ]
+                  },
+    "Kecamatans":  {
+                       "belongsTo":  [
+                                         "Propinsis",
+                                         "Kabupatens"
+                                     ],
+                       "hasMany":  [
+                                       "Kelurahans"
+                                   ],
+                       "belongsToMany":  [
+
+                                         ]
+                   },
+    "Personnels":  {
+                       "belongsTo":  [
+                                         "Genders",
+                                         "Religions",
+                                         "MaritalStatuses",
+                                         "EmployeeStatuses",
+                                         "ShiftGroups",
+                                         "Propinsis",
+                                         "Kabupatens",
+                                         "Kecamatans",
+                                         "Kelurahans",
+                                         "Companies",
+                                         "Departments",
+                                         "Sections",
+                                         "Positions",
+                                         "Stratas"
+                                     ],
+                       "hasMany":  [
+
+                                   ],
+                       "belongsToMany":  [
+
+                                         ]
+                   },
+    "StockOutgoings":  {
+                           "belongsTo":  [
+                                             "Inventories",
+                                             "StockIncomings",
+                                             "Vehicles",
+                                             "ApprovalStatuses",
+                                             "ApprovedByPersonnels",
+                                             "Personnels"
+                                         ],
+                           "hasMany":  [
+
+                                       ],
+                           "belongsToMany":  [
+
+                                             ]
+                       },
+    "CompleteStatuses":  {
+                             "belongsTo":  [
+
+                                           ],
+                             "hasMany":  [
+                                             "ActionPlanTasks",
+                                             "ActionPlans"
+                                         ],
+                             "belongsToMany":  [
+
+                                               ]
+                         },
+    "Stratas":  {
+                    "belongsTo":  [
+
+                                  ],
+                    "hasMany":  [
+                                    "Personnels"
+                                ],
+                    "belongsToMany":  [
+
+                                      ]
+                },
+    "Propinsis":  {
+                      "belongsTo":  [
+
+                                    ],
+                      "hasMany":  [
+                                      "Kabupatens",
+                                      "Kecamatans",
+                                      "Kelurahans"
+                                  ],
+                      "belongsToMany":  [
+
+                                        ]
+                  },
+    "Customers":  {
+                      "belongsTo":  [
+
+                                    ],
+                      "hasMany":  [
+
+                                  ],
+                      "belongsToMany":  [
+
+                                        ]
+                  },
+    "ActionStatuses":  {
+                           "belongsTo":  [
+
+                                         ],
+                           "hasMany":  [
+                                           "DailyActivities"
+                                       ],
+                           "belongsToMany":  [
+
+                                             ]
+                       },
+    "Storages":  {
+                     "belongsTo":  [
+
+                                   ],
+                     "hasMany":  [
+                                     "Inventories",
+                                     "TestSmartForms"
+                                 ],
+                     "belongsToMany":  [
+
+                                       ]
+                 },
+    "ActionPlans":  {
+                        "belongsTo":  [
+                                          "DailyActivities",
+                                          "CompleteStatuses"
+                                      ],
+                        "hasMany":  [
+                                        "ActionPlanTasks"
+                                    ],
+                        "belongsToMany":  [
+
+                                          ]
+                    },
+    "PurchaseReceiptItems":  {
+                                 "belongsTo":  [
+                                                   "PurchaseReceipts",
+                                                   "Inventories"
+                                               ],
+                                 "hasMany":  [
+
+                                             ],
+                                 "belongsToMany":  [
+
+                                                   ]
+                             },
+    "JobStatuses":  {
+                        "belongsTo":  [
+
+                                      ],
+                        "hasMany":  [
+                                        "Actions",
+                                        "DailyActivities"
+                                    ],
+                        "belongsToMany":  [
+
+                                          ]
+                    },
+    "LanguageAbilities":  {
+                              "belongsTo":  [
+
+                                            ],
+                              "hasMany":  [
+
+                                          ],
+                              "belongsToMany":  [
+
+                                                ]
+                          },
+    "Shifts":  {
+                   "belongsTo":  [
+
+                                 ],
+                   "hasMany":  [
+
+                               ],
+                   "belongsToMany":  [
+
+                                     ]
+               },
+    "PurchaseRequests":  {
+                             "belongsTo":  [
+                                               "RequesterPersonnels",
+                                               "Departments",
+                                               "Approvals"
+                                           ],
+                             "hasMany":  [
+                                             "PurchaseRequestItems"
+                                         ],
+                             "belongsToMany":  [
+
+                                               ]
+                         },
+    "Counters":  {
+                     "belongsTo":  [
+
+                                   ],
+                     "hasMany":  [
+
+                                 ],
+                     "belongsToMany":  [
+
+                                       ]
+                 },
+    "Genders":  {
+                    "belongsTo":  [
+
+                                  ],
+                    "hasMany":  [
+                                    "Personnels"
+                                ],
+                    "belongsToMany":  [
+
+                                      ]
+                },
+    "ApprovalMatrix":  {
+                           "belongsTo":  [
+
+                                         ],
+                           "hasMany":  [
+
+                                       ],
+                           "belongsToMany":  [
+
+                                             ]
+                       },
+    "Suppliers":  {
+                      "belongsTo":  [
+                                        "PaymentMethods",
+                                        "Banks"
+                                    ],
+                      "hasMany":  [
+                                      "PurchaseReceipts",
+                                      "TestSmartForms"
+                                  ],
+                      "belongsToMany":  [
+
+                                        ]
+                  },
+    "ApprovalStatuses":  {
+                             "belongsTo":  [
+
+                                           ],
+                             "hasMany":  [
+                                             "Approvals"
+                                         ],
+                             "belongsToMany":  [
+
+                                               ]
+                         },
+    "ApprovalWorkflows":  {
+                              "belongsTo":  [
+                                                "ApproverPersonnels"
+                                            ],
+                              "hasMany":  [
+
+                                          ],
+                              "belongsToMany":  [
+
+                                                ]
+                          },
+    "PreparationCategories":  {
+                                  "belongsTo":  [
+
+                                                ],
+                                  "hasMany":  [
+
+                                              ],
+                                  "belongsToMany":  [
+
+                                                    ]
+                              },
+    "TransactionTypes":  {
+                             "belongsTo":  [
+
+                                           ],
+                             "hasMany":  [
+                                             "AccountingTransactions"
+                                         ],
+                             "belongsToMany":  [
+
+                                               ]
+                         },
+    "ActionImages":  {
+                         "belongsTo":  [
+                                           "DailyActivities",
+                                           "Actions"
+                                       ],
+                         "hasMany":  [
+
+                                     ],
+                         "belongsToMany":  [
+
+                                           ]
+                     },
+    "Priorities":  {
+                       "belongsTo":  [
+
+                                     ],
+                       "hasMany":  [
+
+                                   ],
+                       "belongsToMany":  [
+
+                                         ]
+                   },
+    "StockTakes":  {
+                       "belongsTo":  [
+                                         "Inventories",
+                                         "Uoms"
+                                     ],
+                       "hasMany":  [
+
+                                   ],
+                       "belongsToMany":  [
+
+                                         ]
+                   },
+    "VehicleTypes":  {
+                         "belongsTo":  [
+
+                                       ],
+                         "hasMany":  [
+                                         "Vehicles"
+                                     ],
+                         "belongsToMany":  [
+
+                                           ]
+                     },
+    "Companies":  {
+                      "belongsTo":  [
+
+                                    ],
+                      "hasMany":  [
+                                      "Personnels"
+                                  ],
+                      "belongsToMany":  [
+
+                                        ]
+                  },
+    "Kabupatens":  {
+                       "belongsTo":  [
+                                         "Propinsis"
+                                     ],
+                       "hasMany":  [
+                                       "Kecamatans",
+                                       "Kelurahans"
+                                   ],
+                       "belongsToMany":  [
+
+                                         ]
+                   },
+    "AccountingTransactions":  {
+                                   "belongsTo":  [
+                                                     "References",
+                                                     "Personnels",
+                                                     "Vehicles"
+                                                 ],
+                                   "hasMany":  [
+
+                                               ],
+                                   "belongsToMany":  [
+
+                                                     ]
+                               },
+    "BreakDownCauses":  {
+                            "belongsTo":  [
+
+                                          ],
+                            "hasMany":  [
+                                            "DailyActivities"
+                                        ],
+                            "belongsToMany":  [
+
+                                              ]
+                        },
+    "Authorizations":  {
+                           "belongsTo":  [
+                                             "Personnels",
+                                             "Roles"
+                                         ],
+                           "hasMany":  [
+
+                                       ],
+                           "belongsToMany":  [
+
+                                             ]
+                       },
+    "BinderPlannedJobTaskResponses":  {
+                                          "belongsTo":  [
+                                                            "PlannedJobs",
+                                                            "PlannedJobSubs",
+                                                            "PlannedJobTasks",
+                                                            "DailyActivities"
+                                                        ],
+                                          "hasMany":  [
+
+                                                      ],
+                                          "belongsToMany":  [
+
+                                                            ]
+                                      },
+    "ActionPlanTasks":  {
+                            "belongsTo":  [
+                                              "DailyActivities",
+                                              "ActionPlans",
+                                              "CompleteStatuses"
+                                          ],
+                            "hasMany":  [
+
+                                        ],
+                            "belongsToMany":  [
+
+                                              ]
+                        },
+    "PurchaseReceipts":  {
+                             "belongsTo":  [
+                                               "Suppliers",
+                                               "ApprovalStatuses",
+                                               "ApprovedByPersonnels",
+                                               "Personnels"
+                                           ],
+                             "hasMany":  [
+                                             "StockIncomings"
+                                         ],
+                             "belongsToMany":  [
+
+                                               ]
+                         },
+    "MarriageStatuses":  {
+                             "belongsTo":  [
+
+                                           ],
+                             "hasMany":  [
+
+                                         ],
+                             "belongsToMany":  [
+
+                                               ]
+                         },
+    "Titles":  {
+                   "belongsTo":  [
+
+                                 ],
+                   "hasMany":  [
+                                   "Users"
+                               ],
+                   "belongsToMany":  [
+
+                                     ]
+               },
+    "Languages":  {
+                      "belongsTo":  [
+
+                                    ],
+                      "hasMany":  [
+
+                                  ],
+                      "belongsToMany":  [
+
+                                        ]
+                  },
+    "MaintenanceCards":  {
+                             "belongsTo":  [
+                                               "LineSections",
+                                               "LineProcesses",
+                                               "Lines",
+                                               "LineFunctions",
+                                               "LineUnits",
+                                               "LineParts",
+                                               "Personnels"
+                                           ],
+                             "hasMany":  [
+
+                                         ],
+                             "belongsToMany":  [
+
+                                               ]
+                         },
+    "StockIncomings":  {
+                           "belongsTo":  [
+                                             "Inventories",
+                                             "PurchaseReceipts",
+                                             "Personnels"
+                                         ],
+                           "hasMany":  [
+                                           "StockOutgoings"
+                                       ],
+                           "belongsToMany":  [
+
+                                             ]
+                       },
+    "Religions":  {
+                      "belongsTo":  [
+
+                                    ],
+                      "hasMany":  [
+                                      "Personnels"
+                                  ],
+                      "belongsToMany":  [
+
+                                        ]
+                  },
+    "AdjustStocks":  {
+                         "belongsTo":  [
+                                           "Inventories",
+                                           "Personnels"
+                                       ],
+                         "hasMany":  [
+
+                                     ],
+                         "belongsToMany":  [
+
+                                           ]
+                     },
+    "Menus":  {
+                  "belongsTo":  [
+                                    "ParentMenus"
+                                ],
+                  "hasMany":  [
+                                  "ChildMenus"
+                              ],
+                  "belongsToMany":  [
+
+                                    ]
+              },
+    "Departments":  {
+                        "belongsTo":  [
+
+                                      ],
+                        "hasMany":  [
+                                        "Personnels"
+                                    ],
+                        "belongsToMany":  [
+
+                                          ]
+                    },
+    "Actions":  {
+                    "belongsTo":  [
+                                      "DailyActivities",
+                                      "JobStatuses"
+                                  ],
+                    "hasMany":  [
+                                    "ActionImages",
+                                    "ActionPerformers"
+                                ],
+                    "belongsToMany":  [
+
+                                      ]
+                },
+    "BinderPmProblemResponses":  {
+                                     "belongsTo":  [
+                                                       "PreventiveCheckSchedules",
+                                                       "DailyActivities"
+                                                   ],
+                                     "hasMany":  [
+
+                                                 ],
+                                     "belongsToMany":  [
+
+                                                       ]
+                                 },
+    "Drivers":  {
+                    "belongsTo":  [
+
+                                  ],
+                    "hasMany":  [
+
+                                ],
+                    "belongsToMany":  [
+
+                                      ]
+                },
+    "GroupSubs":  {
+                      "belongsTo":  [
+                                        "Departments",
+                                        "Sections",
+                                        "Groups"
+                                    ],
+                      "hasMany":  [
+                                      "Users"
+                                  ],
+                      "belongsToMany":  [
+
+                                        ]
+                  }
+}

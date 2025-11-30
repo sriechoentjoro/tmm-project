@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test Between Operator - Asahi Personnel</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .test-section {
+            background: white;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        h2 {
+            color: #2c3e50;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+        }
+        .instruction {
+            background: #e8f4f8;
+            padding: 15px;
+            border-left: 4px solid #3498db;
+            margin: 10px 0;
+        }
+        .step {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        .expected {
+            background: #d4edda;
+            padding: 10px;
+            border-left: 4px solid #28a745;
+            margin: 10px 0;
+        }
+        .code {
+            background: #f8f9fa;
+            padding: 10px;
+            border: 1px solid #ddd;
+            font-family: monospace;
+            margin: 10px 0;
+        }
+        .warning {
+            background: #fff3cd;
+            padding: 10px;
+            border-left: 4px solid #ffc107;
+            margin: 10px 0;
+        }
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            background: #3498db;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            margin: 10px 5px 10px 0;
+        }
+        .button:hover {
+            background: #2980b9;
+        }
+    </style>
+</head>
+<body>
+    <h1>🔍 Test Between Operator - Personnel Filter</h1>
+    
+    <div class="test-section">
+        <h2>📋 What Has Been Fixed</h2>
+        <ul>
+            <li>✅ Range input now properly shows/hides when "Between" operator is selected</li>
+            <li>✅ Event listeners added for range input (keyup and change events)</li>
+            <li>✅ Placeholder text changes dynamically based on data type</li>
+            <li>✅ Backend correctly handles between operator with >= and <= conditions</li>
+            <li>✅ Fallback to >= operator if only start value provided (no range value)</li>
+        </ul>
+    </div>
+
+    <div class="test-section">
+        <h2>🧪 Test Case 1: Filter by ID Between 1-10</h2>
+        
+        <div class="instruction">
+            <strong>Steps:</strong>
+            <div class="step">1. Go to <a href="http://localhost/asahi_v3/personnels" target="_blank" class="button">Personnel List Page</a></div>
+            <div class="step">2. In the <strong>ID</strong> column header, find the filter controls</div>
+            <div class="step">3. Select operator: <code>Between</code></div>
+            <div class="step">4. Notice that a second input field appears below (labeled "To...")</div>
+            <div class="step">5. Enter <strong>From: 1</strong> in the first input</div>
+            <div class="step">6. Enter <strong>To: 10</strong> in the second input (range input)</div>
+            <div class="step">7. Wait 500ms for debounce, or press Tab/Enter</div>
+        </div>
+        
+        <div class="expected">
+            <strong>Expected Result:</strong><br>
+            ✓ Table should show only 10 records with ID from 1 to 10<br>
+            ✓ IDs displayed: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+        </div>
+        
+        <div class="code">
+            <strong>API Test:</strong><br>
+            URL: http://localhost/asahi_v3/personnels/filter?filter[id][operator]=between&filter[id][value]=1&filter[id][range]=10<br>
+            <a href="http://localhost/asahi_v3/personnels/filter?filter[id][operator]=between&filter[id][value]=1&filter[id][range]=10" target="_blank" class="button">Test API Direct</a>
+        </div>
+    </div>
+
+    <div class="test-section">
+        <h2>🧪 Test Case 2: Filter by Birth Date Between 1980-1985</h2>
+        
+        <div class="instruction">
+            <strong>Steps:</strong>
+            <div class="step">1. In the <strong>Birth Date</strong> column, select operator: <code>Between</code></div>
+            <div class="step">2. Range input (date picker) should appear below</div>
+            <div class="step">3. Enter <strong>Start Date: 1980-01-01</strong></div>
+            <div class="step">4. Enter <strong>End Date: 1985-12-31</strong></div>
+            <div class="step">5. Wait for filter to apply automatically</div>
+        </div>
+        
+        <div class="expected">
+            <strong>Expected Result:</strong><br>
+            ✓ Table shows records with birth dates from 1980 to 1985<br>
+            ✓ About 94 records should be displayed<br>
+            ✓ Sample dates: 1980-04-03, 1982-05-08, 1983-10-26, 1985-11-11
+        </div>
+        
+        <div class="code">
+            <strong>API Test:</strong><br>
+            URL: http://localhost/asahi_v3/personnels/filter?filter[personnel_birth_date][operator]=between&filter[personnel_birth_date][value]=1980-01-01&filter[personnel_birth_date][range]=1985-12-31<br>
+            <a href="http://localhost/asahi_v3/personnels/filter?filter[personnel_birth_date][operator]=between&filter[personnel_birth_date][value]=1980-01-01&filter[personnel_birth_date][range]=1985-12-31" target="_blank" class="button">Test API Direct</a>
+        </div>
+    </div>
+
+    <div class="test-section">
+        <h2>🧪 Test Case 3: Between Without Range (Fallback to >=)</h2>
+        
+        <div class="instruction">
+            <strong>Steps:</strong>
+            <div class="step">1. In the <strong>ID</strong> column, select operator: <code>Between</code></div>
+            <div class="step">2. Enter <strong>From: 100</strong></div>
+            <div class="step">3. Leave the <strong>"To"</strong> field empty</div>
+            <div class="step">4. Press Tab or wait for debounce</div>
+        </div>
+        
+        <div class="expected">
+            <strong>Expected Result:</strong><br>
+            ✓ System automatically falls back to >= operator<br>
+            ✓ Shows all records with ID >= 100<br>
+            ✓ About 569 records displayed<br>
+            ✓ First few IDs: 100, 101, 102, 103...
+        </div>
+        
+        <div class="code">
+            <strong>API Test:</strong><br>
+            URL: http://localhost/asahi_v3/personnels/filter?filter[id][operator]=between&filter[id][value]=100<br>
+            <a href="http://localhost/asahi_v3/personnels/filter?filter[id][operator]=between&filter[id][value]=100" target="_blank" class="button">Test API Direct</a>
+        </div>
+    </div>
+
+    <div class="test-section">
+        <h2>⚙️ Technical Details</h2>
+        
+        <div class="warning">
+            <strong>JavaScript Behavior:</strong><br>
+            • Range input has <code>display:none</code> by default<br>
+            • When "Between" is selected, JavaScript shows the range input with <code>display:block</code><br>
+            • Both filter-input and filter-input-range have event listeners (keyup + change)<br>
+            • Debounce: 500ms for text/number inputs, immediate for dropdowns
+        </div>
+        
+        <div class="warning">
+            <strong>Backend Logic (PersonnelsController.php):</strong><br>
+            • Checks for <code>filter[field][range]</code> parameter<br>
+            • If range exists: applies <code>field >= value AND field <= range</code><br>
+            • If no range: falls back to <code>field >= value</code><br>
+            • Works for numeric (ID) and date fields (Birth Date)
+        </div>
+        
+        <div class="code">
+            <strong>Controller Code (lines 224-234):</strong>
+            <pre>case 'between':
+    $rangeValue = isset($filterData['range']) ? $filterData['range'] : '';
+    if (!empty($rangeValue)) {
+        $query->where([
+            $fieldName . ' >=' => $value,
+            $fieldName . ' <=' => $rangeValue
+        ]);
+    } else {
+        $query->where([$fieldName . ' >=' => $value]);
+    }
+    break;</pre>
+        </div>
+    </div>
+
+    <div class="test-section">
+        <h2>✅ Verification Checklist</h2>
+        <ul>
+            <li>☐ Range input appears when "Between" is selected</li>
+            <li>☐ Range input disappears when other operator is selected</li>
+            <li>☐ Placeholder changes to "From..." and "To..." for between operator</li>
+            <li>☐ Filter triggers after typing in range input</li>
+            <li>☐ Results are correct (within specified range)</li>
+            <li>☐ Fallback to >= works when range is empty</li>
+            <li>☐ Works for both numeric (ID) and date (Birth Date) fields</li>
+        </ul>
+    </div>
+
+    <div class="test-section">
+        <h2>🚀 Quick Start</h2>
+        <a href="http://localhost/asahi_v3/personnels" target="_blank" class="button">Open Personnel List</a>
+        <p style="margin-top: 15px;">
+            <strong>Remember:</strong> Press <kbd>Ctrl + Shift + R</kbd> to hard refresh and clear browser cache!
+        </p>
+    </div>
+
+    <script>
+        // Auto-refresh indicator
+        console.log('Between Operator Test Page Loaded');
+        console.log('Ready for testing!');
+    </script>
+</body>
+</html>

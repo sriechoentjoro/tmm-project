@@ -1,0 +1,206 @@
+/* ============================================
+   DATEPICKER CSS FIXES
+   ============================================
+   Purpose: Fix Bootstrap Datepicker display issues
+   - Calendar alignment and z-index
+   - Proper table layout for date cells
+   - Responsive sizing and spacing
+   ============================================ */
+
+/* Datepicker Dropdown Container */
+.datepicker-dropdown {
+    z-index: 1060 !important;
+    background-color: #ffffff;
+    border: 1px solid #ced4da;
+    border-radius: 0.375rem;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+    padding: 0.5rem;
+}
+
+/* Datepicker Table - Fix Layout */
+.datepicker table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    table-layout: fixed;
+}
+
+/* Day Headers (Su, Mo, Tu, etc) */
+.datepicker table thead th {
+    text-align: center;
+    padding: 0.5rem 0.25rem;
+    font-weight: 600;
+    font-size: 0.875rem;
+    color: #495057;
+    background-color: #f8f9fa;
+    border: none;
+}
+
+/* Date Cells */
+.datepicker table tbody td {
+    text-align: center;
+    padding: 0.5rem;
+    border: none;
+    cursor: pointer;
+    width: 14.28%; /* 100% / 7 days */
+}
+
+.datepicker table tbody td.day {
+    border-radius: 0.25rem;
+    transition: background-color 0.15s ease-in-out;
+}
+
+.datepicker table tbody td.day:hover {
+    background-color: #e9ecef;
+}
+
+/* Selected Date */
+.datepicker table tbody td.active,
+.datepicker table tbody td.active:hover,
+.datepicker table tbody td.active.highlighted {
+    background-color: #0d6efd !important;
+    color: #ffffff !important;
+    font-weight: 600;
+}
+
+/* Today's Date */
+.datepicker table tbody td.today {
+    background-color: #cfe2ff;
+    color: #084298;
+}
+
+.datepicker table tbody td.today:hover {
+    background-color: #9ec5fe;
+}
+
+/* Disabled Dates */
+.datepicker table tbody td.disabled,
+.datepicker table tbody td.disabled:hover {
+    color: #adb5bd;
+    background-color: transparent;
+    cursor: not-allowed;
+}
+
+/* Old/New Month Dates */
+.datepicker table tbody td.old,
+.datepicker table tbody td.new {
+    color: #adb5bd;
+}
+
+/* Navigation Arrows */
+.datepicker .prev,
+.datepicker .next {
+    cursor: pointer;
+    padding: 0.5rem;
+    text-align: center;
+    font-weight: 700;
+    font-size: 1.25rem;
+}
+
+.datepicker .prev:hover,
+.datepicker .next:hover {
+    background-color: #e9ecef;
+    border-radius: 0.25rem;
+}
+
+/* Month/Year Switcher */
+.datepicker .datepicker-switch {
+    font-weight: 600;
+    cursor: pointer;
+    text-align: center;
+    padding: 0.5rem;
+}
+
+.datepicker .datepicker-switch:hover {
+    background-color: #e9ecef;
+    border-radius: 0.25rem;
+}
+
+/* Month View */
+.datepicker .datepicker-months tbody td,
+.datepicker .datepicker-years tbody td,
+.datepicker .datepicker-decades tbody td,
+.datepicker .datepicker-centuries tbody td {
+    padding: 0.25rem;
+}
+
+.datepicker .datepicker-months .month,
+.datepicker .datepicker-years .year,
+.datepicker .datepicker-decades .decade,
+.datepicker .datepicker-centuries .century {
+    display: inline-block;
+    width: 23%;
+    margin: 1%;
+    padding: 0.5rem;
+    text-align: center;
+    border-radius: 0.25rem;
+    cursor: pointer;
+}
+
+.datepicker .datepicker-months .month:hover,
+.datepicker .datepicker-years .year:hover,
+.datepicker .datepicker-decades .decade:hover,
+.datepicker .datepicker-centuries .century:hover {
+    background-color: #e9ecef;
+}
+
+.datepicker .datepicker-months .month.active,
+.datepicker .datepicker-years .year.active,
+.datepicker .datepicker-decades .decade.active,
+.datepicker .datepicker-centuries .century.active {
+    background-color: #0d6efd;
+    color: #ffffff;
+}
+
+/* Prevent Body Scroll When Datepicker Open */
+body.datepicker-open {
+    overflow: hidden;
+}
+
+/* Input Field with Datepicker */
+input.datepicker {
+    cursor: pointer;
+    background-color: #ffffff;
+}
+
+input.datepicker:focus {
+    border-color: #86b7fe;
+    box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 576px) {
+    .datepicker-dropdown {
+        font-size: 0.875rem;
+    }
+    
+    .datepicker table tbody td {
+        padding: 0.25rem;
+    }
+    
+    .datepicker .datepicker-months .month,
+    .datepicker .datepicker-years .year {
+        width: 31%;
+        padding: 0.375rem;
+    }
+}
+
+/* Fix for inline datepicker if needed */
+.datepicker-inline {
+    width: 100%;
+    max-width: 350px;
+    margin: 0 auto;
+}
+
+/* Clear Button (if enabled) */
+.datepicker .datepicker-clear {
+    padding: 0.25rem 0.5rem;
+    margin-top: 0.5rem;
+    text-align: center;
+    cursor: pointer;
+    border-top: 1px solid #dee2e6;
+}
+
+.datepicker .datepicker-clear:hover {
+    background-color: #f8f9fa;
+}
