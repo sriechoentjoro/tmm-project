@@ -117,6 +117,21 @@ class AcceptanceOrganizationsController extends AppController
             
             $acceptanceOrganization = $this->AcceptanceOrganizations->patchEntity($acceptanceOrganization, $data);
             if ($this->AcceptanceOrganizations->save($acceptanceOrganization)) {
+                // Log activity
+                $this->loadModel('StakeholderActivities');
+                $this->StakeholderActivities->logActivity(
+                    'registration',
+                    'acceptance_org',
+                    $acceptanceOrganization->id,
+                    'New acceptance organization registered: ' . $acceptanceOrganization->title,
+                    array(
+                        'status' => $acceptanceOrganization->status,
+                        'title' => $acceptanceOrganization->title
+                    ),
+                    null,
+                    $this->Auth->user('id')
+                );
+                
                 $this->Flash->success(__('The acceptance organization has been saved.'));
 
                 return $this->redirect(['action' => 'index']);
@@ -178,8 +193,42 @@ class AcceptanceOrganizationsController extends AppController
                 }
             }
             
+            // Store original values for change detection
+            $originalStatus = $acceptanceOrganization->status;
+            $originalTitle = $acceptanceOrganization->title;
+            
             $acceptanceOrganization = $this->AcceptanceOrganizations->patchEntity($acceptanceOrganization, $data);
             if ($this->AcceptanceOrganizations->save($acceptanceOrganization)) {
+                // Log activity
+                $this->loadModel('StakeholderActivities');
+                $changes = array();
+                
+                // Track status change
+                if ($originalStatus !== $acceptanceOrganization->status) {
+                    $changes['status'] = array(
+                        'from' => $originalStatus,
+                        'to' => $acceptanceOrganization->status
+                    );
+                }
+                
+                // Track title change
+                if ($originalTitle !== $acceptanceOrganization->title) {
+                    $changes['title'] = array(
+                        'from' => $originalTitle,
+                        'to' => $acceptanceOrganization->title
+                    );
+                }
+                
+                $this->StakeholderActivities->logActivity(
+                    'profile_update',
+                    'acceptance_org',
+                    $acceptanceOrganization->id,
+                    'Acceptance organization updated: ' . $acceptanceOrganization->title,
+                    array('changes' => $changes),
+                    null,
+                    $this->Auth->user('id')
+                );
+                
                 $this->Flash->success(__('The acceptance organization has been saved.'));
 
                 return $this->redirect(['action' => 'index']);
@@ -201,7 +250,24 @@ class AcceptanceOrganizationsController extends AppController
     {
         $this->request->allowMethod(['post', 'delete']);
         $acceptanceOrganization = $this->AcceptanceOrganizations->get($id);
+        
+        // Store title for logging before deletion
+        $organizationTitle = $acceptanceOrganization->title;
+        $organizationId = $acceptanceOrganization->id;
+        
         if ($this->AcceptanceOrganizations->delete($acceptanceOrganization)) {
+            // Log activity
+            $this->loadModel('StakeholderActivities');
+            $this->StakeholderActivities->logActivity(
+                'admin_approval', // Using admin_approval as deletion type
+                'acceptance_org',
+                $organizationId,
+                'Acceptance organization deleted: ' . $organizationTitle,
+                array('title' => $organizationTitle),
+                null,
+                $this->Auth->user('id')
+            );
+            
             $this->Flash->success(__('The acceptance organization has been deleted.'));
         } else {
             $this->Flash->error(__('The acceptance organization could not be deleted. Please, try again.'));

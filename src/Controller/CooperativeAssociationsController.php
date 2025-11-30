@@ -111,6 +111,21 @@ class CooperativeAssociationsController extends AppController
             
             $cooperativeAssociation = $this->CooperativeAssociations->patchEntity($cooperativeAssociation, $data);
             if ($this->CooperativeAssociations->save($cooperativeAssociation)) {
+                // Log activity
+                $this->loadModel('StakeholderActivities');
+                $this->StakeholderActivities->logActivity(
+                    'registration',
+                    'cooperative_assoc',
+                    $cooperativeAssociation->id,
+                    'New cooperative association registered: ' . $cooperativeAssociation->name,
+                    array(
+                        'status' => $cooperativeAssociation->status,
+                        'name' => $cooperativeAssociation->name
+                    ),
+                    null,
+                    $this->Auth->user('id')
+                );
+                
                 $this->Flash->success(__('The cooperative association has been saved.'));
 
                 return $this->redirect(['action' => 'index']);
@@ -171,8 +186,42 @@ class CooperativeAssociationsController extends AppController
                 }
             }
             
+            // Store original values for change detection
+            $originalStatus = $cooperativeAssociation->status;
+            $originalName = $cooperativeAssociation->name;
+            
             $cooperativeAssociation = $this->CooperativeAssociations->patchEntity($cooperativeAssociation, $data);
             if ($this->CooperativeAssociations->save($cooperativeAssociation)) {
+                // Log activity
+                $this->loadModel('StakeholderActivities');
+                $changes = array();
+                
+                // Track status change
+                if ($originalStatus !== $cooperativeAssociation->status) {
+                    $changes['status'] = array(
+                        'from' => $originalStatus,
+                        'to' => $cooperativeAssociation->status
+                    );
+                }
+                
+                // Track name change
+                if ($originalName !== $cooperativeAssociation->name) {
+                    $changes['name'] = array(
+                        'from' => $originalName,
+                        'to' => $cooperativeAssociation->name
+                    );
+                }
+                
+                $this->StakeholderActivities->logActivity(
+                    'profile_update',
+                    'cooperative_assoc',
+                    $cooperativeAssociation->id,
+                    'Cooperative association updated: ' . $cooperativeAssociation->name,
+                    array('changes' => $changes),
+                    null,
+                    $this->Auth->user('id')
+                );
+                
                 $this->Flash->success(__('The cooperative association has been saved.'));
 
                 return $this->redirect(['action' => 'index']);
@@ -193,7 +242,24 @@ class CooperativeAssociationsController extends AppController
     {
         $this->request->allowMethod(['post', 'delete']);
         $cooperativeAssociation = $this->CooperativeAssociations->get($id);
+        
+        // Store name for logging before deletion
+        $associationName = $cooperativeAssociation->name;
+        $associationId = $cooperativeAssociation->id;
+        
         if ($this->CooperativeAssociations->delete($cooperativeAssociation)) {
+            // Log activity
+            $this->loadModel('StakeholderActivities');
+            $this->StakeholderActivities->logActivity(
+                'admin_approval', // Using admin_approval as deletion type
+                'cooperative_assoc',
+                $associationId,
+                'Cooperative association deleted: ' . $associationName,
+                array('name' => $associationName),
+                null,
+                $this->Auth->user('id')
+            );
+            
             $this->Flash->success(__('The cooperative association has been deleted.'));
         } else {
             $this->Flash->error(__('The cooperative association could not be deleted. Please, try again.'));
