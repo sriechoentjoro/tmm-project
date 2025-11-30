@@ -72,6 +72,7 @@
                     <th style="padding: 12px; border-bottom: 2px solid #667eea; white-space: nowrap;" scope="col"><?= $this->Paginator->sort('address') ?></th>
                     <th style="padding: 12px; border-bottom: 2px solid #667eea; white-space: nowrap;" scope="col"><?= $this->Paginator->sort('director') ?></th>
                     <th style="padding: 12px; border-bottom: 2px solid #667eea; white-space: nowrap;" scope="col"><?= $this->Paginator->sort('director_hiragana') ?></th>
+                    <th style="padding: 12px; border-bottom: 2px solid #667eea; white-space: nowrap;" scope="col"><?= $this->Paginator->sort('status') ?></th>
                 </tr>
             
             <!-- Filter Row (INSIDE thead) -->
@@ -155,6 +156,14 @@
                     </select>
                     <input type="text" class="filter-input form-control form-control-sm" placeholder="Filter..." data-column="director_hiragana" style="font-size: 0.85rem; padding: 4px;">
                 </td>
+                <td style="padding: 5px;">
+                    <select class="filter-input form-control form-control-sm" data-column="status" data-type="select" style="font-size: 0.85rem; padding: 4px;">
+                        <option value="">All Statuses</option>
+                        <option value="active">Active</option>
+                        <option value="suspended">Suspended</option>
+                        <option value="inactive">Inactive</option>
+                    </select>
+                </td>
             </tr>
             </thead>
             
@@ -183,6 +192,29 @@
                     <td style="padding: 8px; white-space: nowrap;"><?= h($acceptanceOrganization->address) ?></td>
                     <td style="padding: 8px; white-space: nowrap;"><?= h($acceptanceOrganization->director) ?></td>
                     <td style="padding: 8px; white-space: nowrap;"><?= h($acceptanceOrganization->director_hiragana) ?></td>
+                    <td style="padding: 8px; white-space: nowrap;">
+                        <?php
+                        $statusClass = 'secondary';
+                        $statusIcon = 'fa-question-circle';
+                        switch($acceptanceOrganization->status) {
+                            case 'active':
+                                $statusClass = 'success';
+                                $statusIcon = 'fa-check-circle';
+                                break;
+                            case 'suspended':
+                                $statusClass = 'warning';
+                                $statusIcon = 'fa-pause-circle';
+                                break;
+                            case 'inactive':
+                                $statusClass = 'danger';
+                                $statusIcon = 'fa-times-circle';
+                                break;
+                        }
+                        ?>
+                        <span class="badge badge-<?= $statusClass ?>" style="font-size: 0.85rem;">
+                            <i class="fas <?= $statusIcon ?>"></i> <?= h(ucfirst($acceptanceOrganization->status)) ?>
+                        </span>
+                    </td>
                 </tr>
                 <?php endforeach; ?>
             </tbody>

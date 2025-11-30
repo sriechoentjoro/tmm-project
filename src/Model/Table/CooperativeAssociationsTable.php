@@ -78,6 +78,13 @@ class CooperativeAssociationsTable extends Table
             ->date('date_expired')
             ->allowEmptyDate('date_expired');
 
+        $validator
+            ->scalar('status')
+            ->maxLength('status', 50)
+            ->requirePresence('status', 'create')
+            ->notEmptyString('status')
+            ->inList('status', ['active', 'suspended', 'inactive'], 'Invalid status value');
+
         return $validator;
     }
 

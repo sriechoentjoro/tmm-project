@@ -140,6 +140,36 @@
                             <th class="github-detail-label"><?= __('Date Expired') ?></th>
                             <td class="github-detail-value"><?= h($cooperativeAssociation->date_expired) ?></td>
                         </tr>
+                        <tr>
+                            <th class="github-detail-label"><?= __('Status') ?></th>
+                            <td class="github-detail-value">
+                                <?php
+                                $statusClass = 'secondary';
+                                $statusIcon = 'fa-question-circle';
+                                $statusText = 'Unknown';
+                                switch($cooperativeAssociation->status) {
+                                    case 'active':
+                                        $statusClass = 'success';
+                                        $statusIcon = 'fa-check-circle';
+                                        $statusText = 'Active - Operational';
+                                        break;
+                                    case 'suspended':
+                                        $statusClass = 'warning';
+                                        $statusIcon = 'fa-pause-circle';
+                                        $statusText = 'Suspended - Temporarily inactive';
+                                        break;
+                                    case 'inactive':
+                                        $statusClass = 'danger';
+                                        $statusIcon = 'fa-times-circle';
+                                        $statusText = 'Inactive - Not operational';
+                                        break;
+                                }
+                                ?>
+                                <span class="badge badge-<?= $statusClass ?>" style="font-size: 1rem; padding: 0.5rem 1rem;">
+                                    <i class="fas <?= $statusIcon ?>"></i> <?= h($statusText) ?>
+                                </span>
+                            </td>
+                        </tr>
                     </tbody>
                 </table>
             </div>

@@ -88,6 +88,25 @@ $staticAssetsUrl = $protocol . '://' . $host . '/static-assets';
                             'autocomplete' => 'off'
                         ]) ?>
                     </div>
+                    <div class="col-12 mb-3">
+                        <label class="form-label">
+                            <?= __('Status') ?>
+                            <small class="text-muted">(Association operational status)</small>
+                        </label>
+                        <?= $this->Form->control('status', [
+                            'type' => 'select',
+                            'options' => [
+                                'active' => __('Active - Operational'),
+                                'suspended' => __('Suspended - Temporarily inactive'),
+                                'inactive' => __('Inactive - Not operational')
+                            ],
+                            'class' => 'form-control',
+                            'label' => false
+                        ]) ?>
+                        <small class="form-text text-muted">
+                            <i class="fas fa-info-circle"></i> Active associations can manage cooperative member organizations.
+                        </small>
+                    </div>
                 </div>
             </fieldset>
             

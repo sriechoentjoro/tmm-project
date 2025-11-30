@@ -89,6 +89,26 @@ $staticAssetsUrl = $protocol . '://' . $host . '/static-assets';
                             'label' => false
                         ]) ?>
                     </div>
+                    <div class="col-12 mb-3">
+                        <label class="form-label">
+                            <?= __('Status') ?>
+                            <small class="text-muted">(Organization operational status)</small>
+                        </label>
+                        <?= $this->Form->control('status', [
+                            'type' => 'select',
+                            'options' => [
+                                'active' => __('Active - Can accept new apprentices'),
+                                'suspended' => __('Suspended - Temporarily not accepting'),
+                                'inactive' => __('Inactive - Not operational')
+                            ],
+                            'default' => 'active',
+                            'class' => 'form-control',
+                            'label' => false
+                        ]) ?>
+                        <small class="form-text text-muted">
+                            <i class="fas fa-info-circle"></i> Only active organizations can accept new apprenticeship assignments.
+                        </small>
+                    </div>
                 </div>
             </fieldset>
             

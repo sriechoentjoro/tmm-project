@@ -86,6 +86,13 @@ class AcceptanceOrganizationsTable extends Table
             ->maxLength('director_hiragana', 256)
             ->allowEmptyString('director_hiragana');
 
+        $validator
+            ->scalar('status')
+            ->maxLength('status', 50)
+            ->requirePresence('status', 'create')
+            ->notEmptyString('status')
+            ->inList('status', ['active', 'suspended', 'inactive'], 'Invalid status value');
+
         return $validator;
     }
 

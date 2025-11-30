@@ -71,6 +71,7 @@
                     <th style="padding: 12px; border-bottom: 2px solid #667eea; white-space: nowrap;" scope="col"><?= $this->Paginator->sort('telephone') ?></th>
                     <th style="padding: 12px; border-bottom: 2px solid #667eea; white-space: nowrap;" scope="col"><?= $this->Paginator->sort('date_permitted') ?></th>
                     <th style="padding: 12px; border-bottom: 2px solid #667eea; white-space: nowrap;" scope="col"><?= $this->Paginator->sort('date_expired') ?></th>
+                    <th style="padding: 12px; border-bottom: 2px solid #667eea; white-space: nowrap;" scope="col"><?= $this->Paginator->sort('status') ?></th>
                 </tr>
             
             <!-- Filter Row (INSIDE thead) -->
@@ -148,6 +149,14 @@
                     <input type="date" class="filter-input form-control form-control-sm" data-column="date_expired" style="font-size: 0.85rem; padding: 4px;">
                     <input type="date" class="filter-input-range form-control form-control-sm" data-column="date_expired" style="display:none; margin-top: 2px; font-size: 0.85rem;">
                 </td>
+                <td style="padding: 5px;">
+                    <select class="filter-input form-control form-control-sm" data-column="status" data-type="select" style="font-size: 0.85rem; padding: 4px;">
+                        <option value="">All Statuses</option>
+                        <option value="active">Active</option>
+                        <option value="suspended">Suspended</option>
+                        <option value="inactive">Inactive</option>
+                    </select>
+                </td>
             </tr>
             </thead>
             
@@ -175,6 +184,29 @@
                     <td style="padding: 8px; white-space: nowrap;"><?= h($cooperativeAssociation->telephone) ?></td>
                     <td style="padding: 8px; white-space: nowrap;"><?= h($cooperativeAssociation->date_permitted) ?></td>
                     <td style="padding: 8px; white-space: nowrap;"><?= h($cooperativeAssociation->date_expired) ?></td>
+                    <td style="padding: 8px; white-space: nowrap;">
+                        <?php
+                        $statusClass = 'secondary';
+                        $statusIcon = 'fa-question-circle';
+                        switch($cooperativeAssociation->status) {
+                            case 'active':
+                                $statusClass = 'success';
+                                $statusIcon = 'fa-check-circle';
+                                break;
+                            case 'suspended':
+                                $statusClass = 'warning';
+                                $statusIcon = 'fa-pause-circle';
+                                break;
+                            case 'inactive':
+                                $statusClass = 'danger';
+                                $statusIcon = 'fa-times-circle';
+                                break;
+                        }
+                        ?>
+                        <span class="badge badge-<?= $statusClass ?>" style="font-size: 0.85rem;">
+                            <i class="fas <?= $statusIcon ?>"></i> <?= h(ucfirst($cooperativeAssociation->status)) ?>
+                        </span>
+                    </td>
                 </tr>
                 <?php endforeach; ?>
             </tbody>
