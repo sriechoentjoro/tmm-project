@@ -107,6 +107,22 @@ Router::scope('/', function (RouteBuilder $routes) {
         ['pass' => ['id', 'statusId'], 'id' => '[0-9]+', 'statusId' => '[0-9]+']
     );
     
+    // Admin routes
+    $routes->prefix('admin', function (RouteBuilder $routes) {
+        // Stakeholder Dashboard
+        $routes->connect(
+            '/stakeholder-dashboard',
+            ['controller' => 'StakeholderDashboard', 'action' => 'index']
+        );
+        $routes->connect(
+            '/stakeholder-dashboard/export',
+            ['controller' => 'StakeholderDashboard', 'action' => 'exportStatistics']
+        );
+        
+        // All other admin routes use standard routing
+        $routes->fallbacks(DashedRoute::class);
+    });
+    
     $routes->fallbacks(DashedRoute::class);
 });
 
