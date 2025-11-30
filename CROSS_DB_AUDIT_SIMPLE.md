@@ -1,4 +1,4 @@
-﻿# Cross-Database Association Issues
+# Cross-Database Association Issues
 
 Total files checked: 84
 Issues found: 1

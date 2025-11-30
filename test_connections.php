@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 require 'config/bootstrap.php';
 use Cake\Datasource\ConnectionManager;
 

@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 /**
  * IMPORTANT: This file replaces the Datasources section in config/app.php
  * To activate, merge this into app.php replacing old Datasources section
