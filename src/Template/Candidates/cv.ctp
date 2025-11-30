@@ -200,6 +200,7 @@
                                         $end = new DateTime($exp->end_date);
                                         $diff = $start->diff($end);
                                         echo $diff->y . ' years';
+                                    }
                                     ?>
                                 </td>
                             </tr>
