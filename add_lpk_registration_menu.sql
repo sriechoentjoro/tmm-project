@@ -12,7 +12,6 @@ USE cms_authentication_authorization;
 -- Create Admin menu as parent if it doesn't exist
 INSERT INTO menus (parent_id, title, url, icon, sort_order, is_active, created, modified)
 SELECT NULL, 'Admin', '#', 'fa-user-shield', 10, 1, NOW(), NOW()
-FROM DUAL
 WHERE NOT EXISTS (
     SELECT 1 FROM menus WHERE title = 'Admin' AND parent_id IS NULL
 );
