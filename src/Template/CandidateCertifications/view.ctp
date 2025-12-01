@@ -1132,3 +1132,6 @@ document.addEventListener('DOMContentLoaded', function() {
 </style>
 
 </div><!-- .view-content-wrapper -->
+
+<!-- Process Flow Help Button -->
+<?= $this->element('process_flow_help') ?>

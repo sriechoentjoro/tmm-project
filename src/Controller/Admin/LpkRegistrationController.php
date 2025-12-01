@@ -511,4 +511,21 @@ class LpkRegistrationController extends AppController
         
         return $username;
     }
+    
+    /**
+     * Process Flow Documentation
+     *
+     * Displays interactive process flow diagram with database relationships
+     * Helps users understand the 3-step registration workflow
+     *
+     * @return \Cake\Http\Response|null|void
+     */
+    public function processFlow()
+    {
+        // This action renders the process flow documentation
+        // Template: src/Template/Admin/LpkRegistration/process_flow.ctp
+        // Layout: src/Template/Layout/process_flow.ctp
+        
+        $this->viewBuilder()->setLayout('process_flow');
+    }
 }

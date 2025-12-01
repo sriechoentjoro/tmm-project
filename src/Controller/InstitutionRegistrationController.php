@@ -230,4 +230,12 @@ class InstitutionRegistrationController extends AppController
             $this->Auth->setUser($user->toArray());
         }
     }
+
+    /**
+     * Process Flow Documentation
+     */
+    public function processFlow()
+    {
+        $this->viewBuilder()->setLayout('process_flow');
+    }
 }

@@ -589,3 +589,6 @@ document.addEventListener('DOMContentLoaded', function() {
         padding: 10px 12px;
         font-size: 13px;
 </style>
+
+<!-- Process Flow Help Button -->
+<?= $this->element('process_flow_help') ?>

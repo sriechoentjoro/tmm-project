@@ -263,5 +263,12 @@ class MasterKabupatensController extends AppController
     {
         return $this->getRegionsByParent('MasterKabupatens', 'master_propinsi_id', 'propinsi_id');
     }
-}
 
+    /**
+     * Process Flow Documentation
+     */
+    public function processFlow()
+    {
+        $this->viewBuilder()->setLayout('process_flow');
+    }
+}

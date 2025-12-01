@@ -313,4 +313,12 @@ class DashboardController extends AppController
             return 'Unknown Institution';
         }
     }
+
+    /**
+     * Process Flow Documentation
+     */
+    public function processFlow()
+    {
+        $this->viewBuilder()->setLayout('process_flow');
+    }
 }

@@ -271,5 +271,12 @@ class MasterKelurahansController extends AppController
     {
         return $this->getRegionsByParent('MasterKelurahans', 'master_kecamatan_id', 'kecamatan_id');
     }
-}
 
+    /**
+     * Process Flow Documentation
+     */
+    public function processFlow()
+    {
+        $this->viewBuilder()->setLayout('process_flow');
+    }
+}

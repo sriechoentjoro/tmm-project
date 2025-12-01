@@ -1401,5 +1401,12 @@ class CandidatesController extends AppController
         return $this->response->withType('application/json')
             ->withStringBody(json_encode($kelurahans));
     }
-}
 
+    /**
+     * Process Flow Documentation
+     */
+    public function processFlow()
+    {
+        $this->viewBuilder()->setLayout('process_flow');
+    }
+}

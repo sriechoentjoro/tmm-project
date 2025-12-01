@@ -160,3 +160,6 @@ $(document).ready(function() {
 </script>
 <?php $this->end(); ?>
 
+
+<!-- Process Flow Help Button -->
+<?= $this->element('process_flow_help') ?>

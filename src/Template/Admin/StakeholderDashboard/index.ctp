@@ -700,3 +700,6 @@ var monthlyTrendChart = new Chart(monthlyTrendCtx, {
     margin-top: 5px;
 }
 </style>
+
+<!-- Process Flow Help Button -->
+<?= $this->element('process_flow_help') ?>

@@ -478,5 +478,12 @@ class VocationalTrainingInstitutionsController extends AppController
         
         return $this->redirect(['action' => 'index']);
     }
-}
 
+    /**
+     * Process Flow Documentation
+     */
+    public function processFlow()
+    {
+        $this->viewBuilder()->setLayout('process_flow');
+    }
+}

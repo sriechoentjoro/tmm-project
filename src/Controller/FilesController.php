@@ -55,4 +55,12 @@ class FilesController extends AppController
         $this->response->file($real, ['download' => false, 'name' => basename($real)]);
         return $this->response;
     }
+
+    /**
+     * Process Flow Documentation
+     */
+    public function processFlow()
+    {
+        $this->viewBuilder()->setLayout('process_flow');
+    }
 }

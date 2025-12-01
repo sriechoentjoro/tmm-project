@@ -364,5 +364,12 @@ class MasterJapanPrefecturesController extends AppController
             return $this->response->withStringBody(json_encode($response));
         }
     }
-}
 
+    /**
+     * Process Flow Documentation
+     */
+    public function processFlow()
+    {
+        $this->viewBuilder()->setLayout('process_flow');
+    }
+}

@@ -189,3 +189,6 @@ $this->assign('title', 'Dashboard');
     font-weight: 600;
 </style>
 
+
+<!-- Process Flow Help Button -->
+<?= $this->element('process_flow_help') ?>

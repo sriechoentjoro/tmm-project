@@ -19,4 +19,12 @@ class StakeholdersController extends AppController
     {
         // This is just a view, no data processing needed
     }
+
+    /**
+     * Process Flow Documentation
+     */
+    public function processFlow()
+    {
+        $this->viewBuilder()->setLayout('process_flow');
+    }
 }

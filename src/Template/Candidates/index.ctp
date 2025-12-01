@@ -1235,3 +1235,6 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 </script>
 
+
+<!-- Process Flow Help Button -->
+<?= $this->element('process_flow_help') ?>

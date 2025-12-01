@@ -255,5 +255,12 @@ class CandidateDocumentManagementDashboardDetailsController extends AppControlle
         $this->viewBuilder()->setLayout('print');
         return $this->printReport();
     }
-}
 
+    /**
+     * Process Flow Documentation
+     */
+    public function processFlow()
+    {
+        $this->viewBuilder()->setLayout('process_flow');
+    }
+}

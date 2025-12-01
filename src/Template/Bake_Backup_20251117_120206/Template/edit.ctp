@@ -84,3 +84,6 @@ $staticAssetsUrl = $protocol . '://' . $host . '/static-assets';
                 <?= $this->Form->hidden('id') ?>
             <?php endif; ?>
 
+
+<!-- Process Flow Help Button -->
+<?= $this->element('process_flow_help') ?>

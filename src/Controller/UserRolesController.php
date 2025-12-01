@@ -111,4 +111,12 @@ class UserRolesController extends AppController
 
         return $this->redirect(['action' => 'view', $userId]);
     }
+
+    /**
+     * Process Flow Documentation
+     */
+    public function processFlow()
+    {
+        $this->viewBuilder()->setLayout('process_flow');
+    }
 }

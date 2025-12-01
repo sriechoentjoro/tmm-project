@@ -5,6 +5,21 @@
  * Public page - no authentication required
  */
 ?>
+<style>
+/* Inherit font-family from HTML body for all form fields */
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="number"],
+input[type="date"],
+input[type="password"],
+textarea,
+select,
+input::placeholder,
+textarea::placeholder {
+    font-family: inherit !important;
+}
+</style>
 <div class="set-password-page">
     <div class="container">
         <div class="row justify-content-center">

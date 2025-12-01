@@ -224,3 +224,6 @@ $fields = collection($fields)
 
 
 
+
+<!-- Process Flow Help Button -->
+<?= $this->element('process_flow_help') ?>

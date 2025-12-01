@@ -86,3 +86,6 @@ $staticAssetsUrl = $protocol . '://' . $host . '/static-assets';
             <fieldset>
                 <legend><?= __('Enter <%= $singularHumanName %> Information') ?></legend>
 
+
+<!-- Process Flow Help Button -->
+<?= $this->element('process_flow_help') ?>

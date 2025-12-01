@@ -4,6 +4,20 @@
  * Admin creates new LPK record and system sends verification email
  */
 ?>
+<style>
+/* Inherit font-family from HTML body for all form fields */
+.lpk-registration-create input[type="text"],
+.lpk-registration-create input[type="email"],
+.lpk-registration-create input[type="tel"],
+.lpk-registration-create input[type="number"],
+.lpk-registration-create input[type="date"],
+.lpk-registration-create textarea,
+.lpk-registration-create select,
+.lpk-registration-create input::placeholder,
+.lpk-registration-create textarea::placeholder {
+    font-family: inherit !important;
+}
+</style>
 <div class="lpk-registration-create">
     <div class="row">
         <div class="col-lg-12">
@@ -486,3 +500,6 @@ $(document).ready(function() {
     padding: 0.25rem 0.5rem;
 }
 </style>
+
+<!-- Process Flow Help Button -->
+<?= $this->element('process_flow_help', ['controller' => 'LpkRegistration']) ?>

@@ -1,9 +1,9 @@
 -- Add LPK Registration Menu to Enhanced Tab Menu
 -- This adds the new Phase 3-4 LPK Registration feature to the admin menu structure
--- Database: cms_authentication_authorization
+-- Database: cms_masters
 -- Table: menus
 
-USE cms_authentication_authorization;
+USE cms_masters;
 
 -- ============================================================================
 -- STEP 1: Check if "Admin" parent menu exists, if not create it
@@ -136,10 +136,10 @@ ORDER BY
 -- All items active and properly nested
 --
 -- To deploy:
--- mysql -u root -p cms_authentication_authorization < add_lpk_registration_menu.sql
+-- mysql -u root -p cms_masters < add_lpk_registration_menu.sql
 --
 -- Or via phpMyAdmin:
--- 1. Select database: cms_authentication_authorization
+-- 1. Select database: cms_masters
 -- 2. Click SQL tab
 -- 3. Copy/paste this entire file
 -- 4. Click Go

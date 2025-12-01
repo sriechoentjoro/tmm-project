@@ -282,4 +282,12 @@ class UsersController extends AppController
         
         $this->set(compact('user'));
     }
+
+    /**
+     * Process Flow Documentation
+     */
+    public function processFlow()
+    {
+        $this->viewBuilder()->setLayout('process_flow');
+    }
 }

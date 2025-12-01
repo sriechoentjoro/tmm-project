@@ -414,4 +414,12 @@ class StakeholderDashboardController extends AppController
         
         return $this->render();
     }
+
+    /**
+     * Process Flow Documentation
+     */
+    public function processFlow()
+    {
+        $this->viewBuilder()->setLayout('process_flow');
+    }
 }
