@@ -189,6 +189,164 @@ $cakeDescription = 'TMM: Apprentice Management Modules';
         body .header-dropdown a:hover { background: #f5f5f5 !important; }
         body .header-dropdown-trigger span { color: #333 !important; }
     </style>
+    
+    <!-- Form Font-Family Inheritance & Enhanced Select Styling -->
+    <style>
+        /* Make all form elements inherit body font-family */
+        input,
+        select,
+        textarea,
+        button,
+        label,
+        .form-control,
+        .form-select,
+        option {
+            font-family: inherit !important;
+        }
+        
+        /* Enhanced Select Input Styling */
+        select,
+        select.form-control,
+        .form-select {
+            font-family: inherit !important;
+            border: 2px solid #cbd5e0 !important;
+            border-radius: 6px !important;
+            padding: 8px 12px !important;
+            background-color: #ffffff !important;
+            color: #2d3748 !important;
+            font-size: 14px !important;
+            line-height: 1.5 !important;
+            transition: all 0.2s ease !important;
+            appearance: none !important;
+            -webkit-appearance: none !important;
+            -moz-appearance: none !important;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23333' d='M6 9L1 4h10z'/%3E%3C/svg%3E") !important;
+            background-repeat: no-repeat !important;
+            background-position: right 12px center !important;
+            background-size: 12px !important;
+            padding-right: 36px !important;
+            cursor: pointer !important;
+        }
+        
+        select:hover,
+        select.form-control:hover,
+        .form-select:hover {
+            border-color: #4299e1 !important;
+            box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.1) !important;
+        }
+        
+        select:focus,
+        select.form-control:focus,
+        .form-select:focus {
+            outline: none !important;
+            border-color: #4299e1 !important;
+            box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.2) !important;
+            background-color: #f7fafc !important;
+        }
+        
+        select:disabled,
+        select.form-control:disabled,
+        .form-select:disabled {
+            background-color: #edf2f7 !important;
+            border-color: #e2e8f0 !important;
+            cursor: not-allowed !important;
+            opacity: 0.6 !important;
+        }
+        
+        /* Enhanced Input & Textarea Styling */
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        input[type="number"],
+        input[type="date"],
+        input[type="password"],
+        textarea,
+        input.form-control,
+        textarea.form-control {
+            font-family: inherit !important;
+            border: 2px solid #cbd5e0 !important;
+            border-radius: 6px !important;
+            padding: 8px 12px !important;
+            background-color: #ffffff !important;
+            color: #2d3748 !important;
+            font-size: 14px !important;
+            line-height: 1.5 !important;
+            transition: all 0.2s ease !important;
+        }
+        
+        input[type="text"]:hover,
+        input[type="email"]:hover,
+        input[type="tel"]:hover,
+        input[type="number"]:hover,
+        input[type="date"]:hover,
+        input[type="password"]:hover,
+        textarea:hover {
+            border-color: #4299e1 !important;
+        }
+        
+        input[type="text"]:focus,
+        input[type="email"]:focus,
+        input[type="tel"]:focus,
+        input[type="number"]:focus,
+        input[type="date"]:focus,
+        input[type="password"]:focus,
+        textarea:focus {
+            outline: none !important;
+            border-color: #4299e1 !important;
+            box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.2) !important;
+            background-color: #f7fafc !important;
+        }
+        
+        /* Placeholder text styling */
+        ::placeholder {
+            font-family: inherit !important;
+            color: #a0aec0 !important;
+            opacity: 1 !important;
+        }
+        
+        :-ms-input-placeholder {
+            font-family: inherit !important;
+            color: #a0aec0 !important;
+        }
+        
+        ::-ms-input-placeholder {
+            font-family: inherit !important;
+            color: #a0aec0 !important;
+        }
+        
+        /* Label styling */
+        label,
+        .form-label,
+        label.form-label {
+            font-family: inherit !important;
+            color: #2d3748 !important;
+            font-weight: 600 !important;
+            font-size: 14px !important;
+            margin-bottom: 6px !important;
+            display: inline-block !important;
+        }
+        
+        /* Button font inheritance */
+        button,
+        .btn,
+        input[type="submit"],
+        input[type="button"] {
+            font-family: inherit !important;
+        }
+        
+        /* Select option styling */
+        select option {
+            font-family: inherit !important;
+            padding: 8px 12px !important;
+            background-color: #ffffff !important;
+            color: #2d3748 !important;
+        }
+        
+        select option:hover,
+        select option:checked {
+            background-color: #edf2f7 !important;
+        }
+    </style>
 </head>
 <body>
     <!-- DEBUG: RAW SESSION DUMP -->
