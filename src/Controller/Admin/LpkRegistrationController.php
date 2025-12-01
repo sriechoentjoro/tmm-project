@@ -99,10 +99,13 @@ class LpkRegistrationController extends AppController
                             $institution->director_name,
                             'lpk_verification',
                             [
-                                'institution' => $institution,
-                                'token' => $token,
-                                'verificationUrl' => $verificationUrl,
-                                'expiresIn' => '24 hours'
+                                'directorName' => $institution->director_name,
+                                'institutionName' => $institution->name,
+                                'registrationNumber' => $institution->registration_number,
+                                'email' => $institution->email,
+                                'registeredByAdmin' => $this->Auth->user('fullname'),
+                                'registrationDate' => $institution->created->format('d F Y, H:i'),
+                                'verificationUrl' => $verificationUrl
                             ]
                         );
                         
@@ -371,8 +374,10 @@ class LpkRegistrationController extends AppController
                         $institution->director_name,
                         'lpk_welcome',
                         [
-                            'institution' => $institution,
+                            'directorName' => $institution->director_name,
+                            'institutionName' => $institution->name,
                             'username' => $user->username,
+                            'email' => $institution->email,
                             'loginUrl' => \Cake\Routing\Router::url([
                                 'controller' => 'Users',
                                 'action' => 'login',
@@ -448,10 +453,13 @@ class LpkRegistrationController extends AppController
                 $institution->director_name,
                 'lpk_verification',
                 [
-                    'institution' => $institution,
-                    'token' => $token,
-                    'verificationUrl' => $verificationUrl,
-                    'expiresIn' => '24 hours'
+                    'directorName' => $institution->director_name,
+                    'institutionName' => $institution->name,
+                    'registrationNumber' => $institution->registration_number,
+                    'email' => $institution->email,
+                    'registeredByAdmin' => $this->Auth->user('fullname'),
+                    'registrationDate' => $institution->created->format('d F Y, H:i'),
+                    'verificationUrl' => $verificationUrl
                 ]
             );
             
