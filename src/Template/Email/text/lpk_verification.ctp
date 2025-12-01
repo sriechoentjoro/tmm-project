@@ -1,64 +1,75 @@
-WELCOME TO TMM SYSTEM, <?= strtoupper(h($institutionName)) ?>!
+================================================================================
+TMM SYSTEM REGISTRATION - VERIFY YOUR EMAIL ADDRESS
+================================================================================
 
-Dear <?= h($userName) ?>,
+Dear <?= h($directorName) ?>,
 
-Your Vocational Training Institution (LPK) account has been created in the 
-TMM Apprentice Management System. Before you can start managing your candidates 
-and training programs, you need to verify your email address.
+Congratulations! Your Vocational Training Institution "<?= h($institutionName) ?>" 
+has been successfully registered in the TMM (Training and Manpower Management) 
+System.
 
---------------------------------------------------------------------------------
-INSTITUTION DETAILS
---------------------------------------------------------------------------------
+To complete your registration and activate your account, please verify your 
+email address by visiting the link below:
 
-Name: <?= h($institutionName) ?>
-
-Email: <?= h($email) ?>
-
-Registration Number: <?= h($registrationNumber) ?>
+<?= $verificationUrl ?>
 
 
 --------------------------------------------------------------------------------
-YOUR TEMPORARY LOGIN CREDENTIALS
+REGISTRATION DETAILS
 --------------------------------------------------------------------------------
 
-Email: <?= h($email) ?>
+Institution Name:      <?= h($institutionName) ?>
 
-Temporary Password: <?= h($temporaryPassword) ?>
+Registration Number:   <?= h($registrationNumber) ?>
 
+Email Address:         <?= h($email) ?>
 
-⚠️ IMPORTANT: This temporary password will expire in 24 hours. You must verify 
-your email and change your password before the expiration.
+Director Name:         <?= h($directorName) ?>
+
+Registered By:         <?= h($registeredByAdmin) ?>
+
+Registration Date:     <?= h($registrationDate) ?>
+
 
 --------------------------------------------------------------------------------
-VERIFICATION LINK
+IMPORTANT
 --------------------------------------------------------------------------------
 
-Please click or copy this link to verify your email address:
-
-<?= $verificationLink ?>
+⏰ This verification link will expire in 24 HOURS. Please verify your email 
+   as soon as possible to avoid delays in account activation.
 
 
 --------------------------------------------------------------------------------
 WHAT HAPPENS NEXT?
 --------------------------------------------------------------------------------
 
-1. Click the verification link above to confirm your email address
-2. Log in using your email and temporary password
-3. Change your password to a secure password of your choice
-4. Complete your profile and start managing candidates
+After verifying your email, you'll be directed to create a secure password 
+for your account. Once completed, you'll receive a welcome email with your 
+login credentials and instructions on how to access the TMM system.
+
 
 --------------------------------------------------------------------------------
-BENEFITS OF YOUR LPK ACCOUNT
+SECURITY NOTICE
 --------------------------------------------------------------------------------
 
-✓ Manage candidate registrations and profiles
-✓ Track training progress and assessments
-✓ Export candidate data and reports
-✓ Access to monitoring dashboard
-✓ Direct communication with administrators
+🔒 If you did not request this registration or believe this email was sent 
+   to you by mistake, please contact our support team immediately at:
+   
+   Email: support@asahifamily.id
+   Phone: +62 21 8984 4450
 
-If you did not request this account or have any questions, please contact 
-the system administrator immediately.
 
-Best regards,
-TMM System Administrator
+================================================================================
+TMM - Training and Manpower Management System
+PT. ASAHI FAMILY INDONESIA
+
+Jl. Industri Raya III Blok AF No. 1, Kawasan Industri Jababeka
+Cikarang, Bekasi 17530, Indonesia
+
+Email: support@asahifamily.id
+Phone: +62 21 8984 4450
+
+© <?= date('Y') ?> PT. ASAHI FAMILY INDONESIA. All rights reserved.
+
+This is an automated email. Please do not reply directly to this message.
+================================================================================
