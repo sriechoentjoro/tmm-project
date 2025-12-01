@@ -4,6 +4,7 @@ namespace App\Model\Table;
 use Cake\ORM\Table;
 use Cake\Validation\Validator;
 use Cake\I18n\Time;
+use Cake\Datasource\ConnectionManager;
 use Cake\Log\Log;
 
 /**
@@ -31,7 +32,7 @@ class EmailVerificationTokensTable extends Table
         $this->setPrimaryKey('id');
 
         // Use authentication database connection
-        $this->setConnection('cms_authentication_authorization');
+        $this->setConnection(ConnectionManager::get('cms_authentication_authorization'));
     }
 
     /**
