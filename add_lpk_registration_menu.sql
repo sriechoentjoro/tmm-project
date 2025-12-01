@@ -138,6 +138,12 @@ ORDER BY
 --
 -- To deploy:
 -- mysql -u root -p cms_authentication_authorization < add_lpk_registration_menu.sql
+--
+-- Or via phpMyAdmin:
+-- 1. Select database: cms_authentication_authorization
+-- 2. Click SQL tab
+-- 3. Copy/paste this entire file
+-- 4. Click Go
 -- ============================================================================
 
 -- Show success message
