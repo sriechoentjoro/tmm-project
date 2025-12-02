@@ -1,5 +1,35 @@
 # Git-Based Deployment Guide for TMM Application
 
+## 🎉 Latest Deployment: December 3, 2025 ✅
+
+**Status:** Successfully deployed Multi-Language Process Flow Help System
+- **Commit:** 2ec76bf
+- **Files:** 564 files updated (92 templates + 91 controllers + automation scripts)
+- **Features:** Light glossy theme, 3-language support (🇮🇩 🇬🇧 🇯🇵), Japanese text fixed
+- **Result:** ✅ All process flow pages working perfectly
+
+## Quick Deploy v2.0 (Recommended - CRLF Fixed)
+
+**Use the improved script for next deployment:**
+```powershell
+powershell -ExecutionPolicy Bypass -File deploy_to_production_via_git_v2.ps1
+```
+
+**What it does automatically:**
+1. ✓ Checks uncommitted changes
+2. ✓ Commits & pushes to GitHub (optional)
+3. ✓ Pulls on production server
+4. ✓ Sets file permissions (www-data:www-data)
+5. ✓ Clears CakePHP cache
+6. ✓ Restarts PHP-FPM & nginx
+7. ✓ Verifies deployment
+
+**Why v2.0?**
+- ✅ **Fixed CRLF issues** - No more bash errors on Linux
+- ✅ **Single command SSH** - Uses `cd && command` pattern
+- ✅ **Better error handling** - Try/catch with status indicators
+- ✅ **Improved output** - ✓ ✗ ⚠ symbols for each step
+
 ## Overview
 
 This guide describes the Git-based deployment workflow between your local development environment (`d:\xampp\htdocs\tmm`) and the production server (`103.214.112.58:/var/www/tmm`).
