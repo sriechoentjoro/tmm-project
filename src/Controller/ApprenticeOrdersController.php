@@ -603,6 +603,14 @@ class ApprenticeOrdersController extends AppController
      */
     public function processFlow()
     {
+        // Handle language switching
+        if ($lang = $this->request->getQuery('lang')) {
+            if (in_array($lang, ['ind', 'eng', 'jpn'])) {
+                $this->request->getSession()->write('Config.language', $lang);
+                return $this->redirect(['action' => 'processFlow']);
+            }
+        }
+        
         $this->viewBuilder()->setLayout('process_flow');
     }
 }

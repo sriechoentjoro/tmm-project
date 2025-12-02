@@ -522,6 +522,14 @@ class LpkRegistrationController extends AppController
      */
     public function processFlow()
     {
+        // Handle language switching
+        if ($lang = $this->request->getQuery('lang')) {
+            if (in_array($lang, ['ind', 'eng', 'jpn'])) {
+                $this->request->getSession()->write('Config.language', $lang);
+                return $this->redirect(['action' => 'processFlow']);
+            }
+        }
+        
         // This action renders the process flow documentation
         // Template: src/Template/Admin/LpkRegistration/process_flow.ctp
         // Layout: src/Template/Layout/process_flow.ctp

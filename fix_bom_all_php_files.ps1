@@ -2,7 +2,7 @@
 # BOM causes "Namespace declaration must be first statement" error
 # Date: November 16, 2025
 
-$projectRoot = "d:\xampp\htdocs\project_tmm"
+$projectRoot = "d:\xampp\htdocs\tmm"
 $logFile = "$projectRoot\fix_bom.log"
 
 # Initialize log
