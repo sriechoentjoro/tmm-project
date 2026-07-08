@@ -1,0 +1,1808 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+        Users - TMM Apprentice Management
+    </title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=1781114452">
+
+    <!-- Google Fonts - Nunito & Mulish -->
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i&subset=latin-ext,vietnamese" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome - Local to avoid tracking prevention -->
+    <link rel="stylesheet" href="/css/fontawesome-all.min.css?v=1781114452">
+    
+    <!-- Bootstrap 5 CSS for Dropdown -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Mobile Responsive CSS - Global -->
+    <link rel="stylesheet" href="/css/mobile-responsive.css?v=1781114452">
+    
+    <!-- Actions Sidebar & Table Enhancements - Global -->
+    <link rel="stylesheet" href="/css/actions-table.css?v=1781114452">
+    
+    <!-- Table Enhanced CSS - Hover Action Buttons -->
+    <link rel="stylesheet" href="/css/table-enhanced.css?v=1781114452">
+    
+    <!-- Form Styles - Actions Sidebar & Modern Form UI -->
+    <link rel="stylesheet" href="/css/form-styles.css?v=1781114452"
+    
+    <!-- jQuery & Bootstrap for Forms -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/smoothness/jquery-ui.css">
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
+    
+    <!-- Bootstrap Datepicker for Date Fields -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
+    
+    <!-- CSS files commented out - using inline styles below -->
+    <!-- <link rel="stylesheet" href="/css/base.css?1764530097"/> -->
+
+                
+    <style>
+        body {
+            background: #f5f7fa;
+            font-family: 'Mulish', 'Nunito', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .content-wrapper {
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            padding: 30px;
+            margin-top: 20px;
+        }
+
+        .page-header {
+            background: linear-gradient(135deg, #00BCD4 0%, #00838F 100%);
+            color: #fff;
+            padding: 20px 0;
+            margin-bottom: 0;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .page-header h1 {
+            margin: 0;
+            font-size: 28px;
+            font-weight: 600;
+        }
+
+        .flash-messages {
+            margin: 20px 0;
+        }
+
+        .flash-message {
+            padding: 15px 20px;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            animation: slideIn 0.3s ease;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .flash-message.success {
+            background: #d4edda;
+            border-left: 4px solid #28a745;
+            color: #155724;
+        }
+
+        .flash-message.error {
+            background: #f8d7da;
+            border-left: 4px solid #dc3545;
+            color: #721c24;
+        }
+
+        .flash-message.warning {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            color: #856404;
+        }
+
+        .flash-message i {
+            margin-right: 10px;
+            font-size: 18px;
+        }
+
+        /* Export and Print buttons */
+        .btn-export,
+        .btn-print {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            padding: 6px 10px;
+            background: linear-gradient(135deg, #00BCD4 0%, #00838F 100%);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 13px;
+            font-weight: 500;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .btn-export:hover,
+        .btn-print:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            color: white;
+            text-decoration: none;
+        }
+
+        .btn-export i,
+        .btn-print i {
+            font-size: 13px;
+        }
+
+        /* Light/Transparent Export and Print buttons - mobile friendly */
+        .btn-export-light {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            padding: 6px 10px;
+            background: rgba(102, 126, 234, 0.1);
+            color: #00BCD4;
+            border: 1px solid rgba(102, 126, 234, 0.3);
+            border-radius: 6px;
+            font-size: 13px;
+            font-weight: 500;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            margin-left: 5px;
+        }
+
+        .btn-export-light:hover {
+            background: rgba(102, 126, 234, 0.2);
+            border-color: rgba(102, 126, 234, 0.5);
+            color: #5568d3;
+            text-decoration: none;
+            transform: translateY(-1px);
+        }
+
+        .btn-export-light i {
+            font-size: 13px;
+        }
+
+        /* Mobile optimization for export buttons */
+        @media (max-width: 768px) {
+            .btn-export,
+            .btn-print {
+                padding: 5px 8px;
+                font-size: 12px;
+                gap: 3px;
+            }
+
+            .btn-export i,
+            .btn-print i {
+                font-size: 12px;
+            }
+
+            .btn-export-light {
+                padding: 5px 8px;
+                font-size: 11px;
+                gap: 3px;
+                margin-left: 3px;
+            }
+
+            .btn-export-light i {
+                font-size: 11px;
+            }
+        }
+
+        /* Table row positioning for action buttons */
+        .table tbody tr,
+        .table-row-with-actions {
+            position: relative;
+        }
+
+        /* Action buttons - invisible cell */
+        td.actions-cell-invisible {
+            width: 0 !important;
+            padding: 0 !important;
+            border: none !important;
+            overflow: visible !important;
+            position: relative !important;
+        }
+
+        /* Action button container */
+        .action-buttons-hover {
+            position: absolute !important;
+            right: 10px !important;
+            top: 50% !important;
+            transform: translateY(-50%) !important;
+            display: inline-flex !important;
+            gap: 4px !important;
+            opacity: 0 !important;
+            visibility: hidden !important;
+            transition: opacity 0.3s ease, visibility 0.3s ease !important;
+            background: rgba(255, 255, 255, 0.95) !important;
+            padding: 4px 8px !important;
+            border-radius: 6px !important;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15) !important;
+            z-index: 100 !important;
+        }
+
+        /* Show on hover - desktop */
+        tbody tr:hover .action-buttons-hover {
+            opacity: 1 !important;
+            visibility: visible !important;
+        }
+
+        /* Show on touch - mobile */
+        tbody tr:active .action-buttons-hover,
+        tbody tr:focus-within .action-buttons-hover {
+            opacity: 1 !important;
+            visibility: visible !important;
+        }
+
+        /* Keep visible when hovering buttons */
+        .action-buttons-hover:hover {
+            opacity: 1 !important;
+            visibility: visible !important;
+        }
+
+        /* Action button icons */
+        .btn-action-icon {
+            display: inline-flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            width: 24px !important;
+            height: 24px !important;
+            background: #2c3e50 !important;
+            color: white !important;
+            border-radius: 4px !important;
+            text-decoration: none !important;
+            transition: all 0.2s ease !important;
+            border: none !important;
+            cursor: pointer !important;
+            margin: 0 !important;
+            padding: 0 !important;
+            vertical-align: middle !important;
+        }
+
+        .btn-action-icon:hover {
+            transform: translateY(-2px) !important;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2) !important;
+            color: white !important;
+            text-decoration: none !important;
+        }
+
+        .btn-action-icon i {
+            font-size: 11px !important;
+            color: white !important;
+            margin: 0 !important;
+            padding: 0 !important;
+        }
+
+        /* Button colors - Edit button removed, only view and delete */
+        .btn-edit-icon {
+            display: none !important; /* Hide edit buttons */
+        }
+
+        .btn-delete-icon {
+            background: #e74c3c !important;
+        }
+
+        .btn-delete-icon:hover {
+            background: #c0392b !important;
+        }
+
+        .btn-view-icon {
+            background: #3498db !important;
+        }
+
+        .btn-view-icon:hover {
+            background: #2980b9 !important;
+        }
+
+        /* Sticky Actions column */
+        th.actions,
+        td.actions {
+            position: sticky !important;
+            right: 0 !important;
+            background: transparent !important;
+            box-shadow: -2px 0 5px rgba(0,0,0,0.1) !important;
+            z-index: 2 !important;
+            text-align: right !important;
+        }
+
+        th.actions {
+            display: table-cell !important;
+        }
+
+        th.actions {
+            background: linear-gradient(135deg, #00BCD4 0%, #00838F 100%) !important;
+            z-index: 6 !important;
+            color: white !important;
+            font-weight: 600 !important;
+            text-align: center !important;
+        }
+
+        /* Apply zebra striping and hover to actions cell */
+        tbody tr:nth-child(odd) td.actions {
+            background: transparent !important;
+        }
+
+        tbody tr:nth-child(even) td.actions {
+            background: transparent !important;
+        }
+
+        tbody tr:hover td.actions {
+            background: transparent !important;
+        }
+
+        /* Style table headers to match elegant-tab design */
+        thead {
+            background: linear-gradient(135deg, #00BCD4 0%, #00838F 100%) !important;
+        }
+
+        thead th {
+            background: transparent !important;
+            color: rgba(255, 255, 255, 0.8) !important;
+            font-weight: 500 !important;
+            font-size: 15px !important;
+            padding: 18px 20px !important;
+            border: none !important;
+            border-bottom: 3px solid transparent !important;
+            text-align: center !important;
+            white-space: nowrap !important;
+            transition: all 0.3s ease !important;
+            position: relative !important;
+            min-width: 100px !important;
+        }
+
+        /* Fix table column alignment */
+        .table {
+            table-layout: auto !important;
+            width: max-content !important;
+            min-width: 100% !important;
+        }
+
+        .table thead th,
+        .table tbody td {
+            white-space: nowrap !important;
+            padding-left: 20px !important;
+            padding-right: 20px !important;
+            vertical-align: middle !important;
+            text-align: left !important;
+        }
+
+        /* ID column should be narrow */
+        .table thead th:first-child,
+        .table tbody td:first-child {
+            width: 1% !important;
+            padding-left: 15px !important;
+            padding-right: 15px !important;
+        }
+
+        .table thead th {
+            padding-top: 18px !important;
+            padding-bottom: 18px !important;
+        }
+
+        .table tbody td {
+            padding-top: 12px !important;
+            padding-bottom: 12px !important;
+        }
+
+        /* Ensure filter inputs match column width */
+        .filter-row th {
+            padding: 4px 8px !important;
+            box-sizing: border-box !important;
+        }
+
+        .filter-input {
+            width: 100% !important;
+            box-sizing: border-box !important;
+            padding: 6px 8px !important;
+            min-width: 80px !important;
+        }
+
+        thead th.actions {
+            min-width: 90px !important;
+        }
+
+        /* Thumbnail cells should remain centered */
+        .thumbnail-cell,
+        th:has(+ th):first-child {
+            text-align: center !important;
+        }
+
+        thead th > a {
+            color: rgba(255, 255, 255, 0.8) !important;
+            text-decoration: none !important;
+        }
+
+        thead th:hover {
+            color: #fff !important;
+            background: rgba(255,255,255,0.1) !important;
+            border-bottom-color: rgba(255, 255, 255, 0.5) !important;
+        }
+
+        thead th:hover > a {
+            color: #fff !important;
+        }
+
+        /* Table thumbnail styling */
+        .table-thumbnail {
+            max-width: 50px !important;
+            max-height: 50px !important;
+            width: auto !important;
+            height: auto !important;
+            object-fit: cover !important;
+            border-radius: 4px !important;
+            display: block !important;
+        }
+
+        .thumbnail-cell {
+            text-align: center !important;
+            vertical-align: middle !important;
+        }
+
+        .no-thumbnail {
+            color: #ccc !important;
+            font-size: 24px !important;
+        }
+
+        /* Center the elegant-tabs navigation */
+        .elegant-tabs {
+            justify-content: center !important;
+        }
+    </style>
+</head>
+<body>
+    <!-- Page Header -->
+    <div class="page-header">
+        <div class="container" style="display: flex; justify-content: space-between; align-items: center;">
+            <div class="header-title">
+                <h1><i class="fas fa-graduation-cap"></i> TMM - Apprentice Management</h1>
+            </div>
+            
+            <div class="header-user-menu">
+                <ul class="user-menu" style="display: flex; align-items: center; margin: 0; padding: 0; list-style: none;">
+                                            <!-- Login Link -->
+                        <li>
+                            <a href="/users/login" style="color: white; text-decoration: none; font-weight: bold; font-size: 16px; border: 1px solid white; padding: 5px 15px; border-radius: 4px;"><i class="fas fa-sign-in-alt"></i> Login</a>                        </li>
+                                    </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Elegant Tab Menu -->
+    <!-- Elegant Tab Menu Navigation -->
+<style>
+body, html {
+    overflow-x: hidden;
+    overflow-y: auto;
+    max-width: 100vw;
+}
+
+.elegant-menu-wrapper {
+    background: linear-gradient(135deg, #00BCD4 0%, #00838F 100%);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    margin-bottom: 30px;
+    position: relative;
+    overflow: visible !important;
+    min-height: 60px;
+}
+
+.elegant-menu-wrapper::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%23ffffff" fill-opacity="0.1" d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,112C672,96,768,96,864,112C960,128,1056,160,1152,160C1248,160,1344,128,1392,112L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>') no-repeat bottom;
+    background-size: cover;
+    opacity: 0.3;
+    pointer-events: none;
+}
+
+.elegant-tabs {
+    display: flex;
+    overflow-x: auto;
+    overflow-y: visible !important;
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    z-index: 1;
+    scrollbar-width: thin;
+    scrollbar-color: transparent transparent;
+    cursor: grab;
+}
+
+.elegant-tabs:active {
+    cursor: grabbing;
+}
+
+.elegant-tabs::-webkit-scrollbar {
+    height: 4px;
+}
+
+.elegant-tabs::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.elegant-tabs::-webkit-scrollbar-thumb {
+    background: transparent;
+    border-radius: 2px;
+}
+
+.elegant-tabs::-webkit-scrollbar-thumb:hover {
+    background: transparent;
+}
+
+.elegant-tab {
+    flex: 0 0 auto;
+    min-width: 150px;
+    position: relative;
+    z-index: 1;
+    overflow: visible !important;
+}
+
+.elegant-tab.active {
+    z-index: 1000;
+    overflow: visible !important;
+}
+
+.elegant-tab > a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 20px 14px;
+    color: rgba(255,255,255,0.8);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 15px;
+    transition: all 0.3s ease;
+    border-bottom: 3px solid transparent;
+    position: relative;
+    white-space: nowrap;
+}
+
+.elegant-tab > a i {
+    margin-right: 8px;
+    font-size: 18px;
+}
+
+.elegant-tab > a:hover {
+    color: #fff;
+    background: rgba(255,255,255,0.1);
+    border-bottom-color: rgba(255,255,255,0.5);
+}
+
+.elegant-tab.active > a {
+    color: #fff;
+    background: rgba(255,255,255,0.15);
+    border-bottom-color: #fff;
+}
+
+ul.elegant-submenu {
+    background: #fff;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    border-radius: 0 0 12px 12px;
+    padding: 12px;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    min-width: 250px;
+    max-width: 600px;
+    z-index: 99999;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 5px;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    transform: translateY(-10px);
+    display: none !important;
+    list-style: none;
+    margin: 0;
+    pointer-events: auto;
+}
+
+li.elegant-tab.active > ul.elegant-submenu {
+    display: grid !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: translateY(0) !important;
+    pointer-events: auto !important;
+}
+
+li.elegant-submenu-item {
+    list-style: none;
+    display: block;
+}
+
+li.elegant-submenu-item a {
+    display: flex;
+    align-items: center;
+    padding: 8px 12px;
+    color: #4a5568;
+    text-decoration: none;
+    font-size: 13px;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+    border-left: 2px solid transparent;
+}
+
+li.elegant-submenu-item a i {
+    margin-right: 8px;
+    color: #00BCD4;
+    font-size: 16px;
+    width: 20px;
+    text-align: center;
+}
+
+li.elegant-submenu-item a:hover {
+    background: linear-gradient(135deg, #f0f4ff 0%, #e9f0ff 100%);
+    border-left-color: #00BCD4;
+    color: #00BCD4;
+    transform: translateX(3px);
+}
+
+li.elegant-submenu-item a:hover i {
+    color: #0097A7;
+}
+
+li.elegant-tab-divider {
+    flex: 0 0 auto;
+    width: 1px;
+    align-self: stretch;
+    margin: 10px 4px;
+    background: rgba(255,255,255,0.35);
+    list-style: none;
+}
+
+li.elegant-category-group {
+    flex: 0 0 auto;
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    overflow: visible !important;
+}
+
+.elegant-category-label {
+    color: rgba(255,255,255,0.7);
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    text-align: center;
+    padding: 8px 12px 0;
+    white-space: nowrap;
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+    margin: 0 8px;
+    padding-bottom: 4px;
+}
+
+ul.elegant-category-tabs {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    overflow: visible !important;
+}
+
+.elegant-menu-hint {
+    position: absolute;
+    top: 4px;
+    right: 10px;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: rgba(255,255,255,0.9);
+    font-size: 11px;
+    background: rgba(0,0,0,0.25);
+    border-radius: 12px;
+    padding: 3px 12px;
+    pointer-events: none;
+    opacity: 0.95;
+    transition: opacity 0.8s ease;
+    max-width: 60vw;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.elegant-menu-hint.hint-faded {
+    opacity: 0;
+}
+
+.elegant-menu-wrapper:hover .elegant-menu-hint.hint-faded {
+    opacity: 0.95;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .elegant-menu-wrapper {
+        overflow-x: hidden;
+        max-width: 100vw;
+    }
+
+    .elegant-tabs {
+        width: 100%;
+        flex-wrap: nowrap;
+    }
+
+    .elegant-tab {
+        flex: 0 0 auto;
+        min-width: 130px;
+    }
+
+    .elegant-tab > a {
+        font-size: 13px;
+        padding: 8px 12px 12px;
+    }
+
+    .elegant-category-label {
+        font-size: 9px;
+        letter-spacing: 1px;
+    }
+
+    /* Touch devices swipe natively - hide the mouse-wheel hint */
+    .elegant-menu-hint {
+        display: none;
+    }
+
+    .elegant-tab.active .elegant-submenu {
+        left: 50% !important;
+        right: auto !important;
+        transform: translateX(-50%) !important;
+        width: 90vw !important;
+        max-width: 90vw !important;
+        grid-template-columns: 1fr !important;
+        box-sizing: border-box;
+        margin-left: 0 !important;
+    }
+}
+</style>
+
+
+
+<div class="elegant-menu-wrapper">
+    <ul class="elegant-tabs">
+                    </ul>
+    <div class="elegant-menu-hint" id="elegantMenuHint">
+        <i class="fas fa-arrows-alt-h"></i>
+        <span>Hover over the menu bar and scroll the mouse wheel &mdash; or click and drag &mdash; to slide the menu left / right</span>
+    </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    console.log('Elegant menu initialized');
+    
+    const tabs = document.querySelectorAll('.elegant-tab');
+    console.log('Found tabs:', tabs.length);
+
+    tabs.forEach((tab, index) => {
+        const link = tab.querySelector('a');
+        const submenu = tab.querySelector('.elegant-submenu');
+
+        console.log('Tab ' + index + ':', {
+            hasLink: !!link,
+            hasSubmenu: !!submenu,
+            submenuChildren: submenu ? submenu.children.length : 0
+        });
+
+        if (submenu && submenu.children.length > 0) {
+            // Add down arrow indicator for menus with children
+            const arrow = document.createElement('i');
+            arrow.className = 'fas fa-chevron-down';
+            arrow.style.marginLeft = '5px';
+            arrow.style.fontSize = '12px';
+            arrow.style.transition = 'transform 0.3s ease';
+            link.appendChild(arrow);
+
+            // Click event to toggle submenu
+            link.addEventListener('click', function(e) {
+                console.log('Tab clicked:', tab);
+                console.log('Submenu element:', submenu);
+                e.preventDefault();
+                e.stopPropagation();
+
+                const isActive = tab.classList.contains('active');
+                console.log('Is active:', isActive);
+                console.log('Current submenu display:', submenu.style.display);
+
+                // Close all other tabs
+                tabs.forEach(t => {
+                    if (t !== tab) {
+                        t.classList.remove('active');
+                        const otherSubmenu = t.querySelector('.elegant-submenu');
+                        const otherArrow = t.querySelector('.fa-chevron-down');
+                        if (otherSubmenu) {
+                            otherSubmenu.style.display = 'none';
+                            otherSubmenu.style.opacity = '0';
+                            otherSubmenu.style.visibility = 'hidden';
+                            otherSubmenu.style.transform = 'translateY(-10px)';
+                        }
+                        if (otherArrow) {
+                            otherArrow.style.transform = 'rotate(0deg)';
+                        }
+                    }
+                });
+
+                // Toggle current tab
+                if (isActive) {
+                    console.log('Closing submenu...');
+                    tab.classList.remove('active');
+                    submenu.style.display = 'none';
+                    submenu.style.opacity = '0';
+                    submenu.style.visibility = 'hidden';
+                    submenu.style.transform = 'translateY(-10px)';
+                    submenu.style.position = 'absolute';
+                    arrow.style.transform = 'rotate(0deg)';
+                    console.log('Closed - display:', submenu.style.display);
+                } else {
+                    console.log('Opening submenu...');
+                    tab.classList.add('active');
+                    
+                    // Get position of tab for submenu placement
+                    const rect = tab.getBoundingClientRect();
+                    console.log('Tab position:', rect);
+                    
+                    // Position submenu directly below the tab, centered under it
+                    submenu.style.position = 'fixed';
+                    submenu.style.top = rect.bottom + 'px';
+                    submenu.style.left = (rect.left + rect.width / 2) + 'px';
+                    submenu.style.transform = 'translateX(-50%)';
+                    submenu.style.display = 'grid';
+                    submenu.style.opacity = '1';
+                    submenu.style.visibility = 'visible';
+                    arrow.style.transform = 'rotate(180deg)';
+                    console.log('Opened - display:', submenu.style.display);
+                }
+            });
+        } else if (link) {
+            // For tabs without submenu, allow normal navigation
+            console.log('Tab has no submenu, allowing normal navigation');
+        }
+    });
+
+    // Close submenu when clicking outside
+    document.addEventListener('click', function(e) {
+        if (!e.target.closest('.elegant-menu-wrapper')) {
+            console.log('Clicked outside menu');
+            tabs.forEach(tab => {
+                tab.classList.remove('active');
+                const submenu = tab.querySelector('.elegant-submenu');
+                const arrow = tab.querySelector('.fa-chevron-down');
+                if (submenu) {
+                    submenu.style.display = 'none';
+                    submenu.style.opacity = '0';
+                    submenu.style.visibility = 'hidden';
+                    submenu.style.transform = 'translateY(-10px)';
+                }
+                if (arrow) {
+                    arrow.style.transform = 'rotate(0deg)';
+                }
+            });
+        }
+    });
+
+    // Prevent closing when clicking inside submenu
+    document.querySelectorAll('.elegant-submenu').forEach(submenu => {
+        submenu.addEventListener('click', function(e) {
+            e.stopPropagation();
+            console.log('Clicked inside submenu');
+        });
+    });
+
+    // Drag scroll functionality
+    const tabsContainer = document.querySelector('.elegant-tabs');
+    let isDown = false;
+    let startX;
+    let scrollLeft;
+
+    tabsContainer.addEventListener('mousedown', (e) => {
+        // Only enable drag on the container, not on links
+        if (e.target.tagName === 'A' || e.target.closest('a')) {
+            return;
+        }
+        isDown = true;
+        tabsContainer.classList.add('active');
+        startX = e.pageX - tabsContainer.offsetLeft;
+        scrollLeft = tabsContainer.scrollLeft;
+    });
+
+    tabsContainer.addEventListener('mouseleave', () => {
+        isDown = false;
+    });
+
+    tabsContainer.addEventListener('mouseup', () => {
+        isDown = false;
+    });
+
+    tabsContainer.addEventListener('mousemove', (e) => {
+        if (!isDown) return;
+        e.preventDefault();
+        const x = e.pageX - tabsContainer.offsetLeft;
+        const walk = (x - startX) * 2; // Scroll speed multiplier
+        tabsContainer.scrollLeft = scrollLeft - walk;
+    });
+
+    // Mouse wheel: hovering over the menu bar and scrolling the wheel
+    // slides the menu horizontally instead of scrolling the page
+    tabsContainer.addEventListener('wheel', (e) => {
+        const delta = Math.abs(e.deltaY) > Math.abs(e.deltaX) ? e.deltaY : e.deltaX;
+        if (tabsContainer.scrollWidth > tabsContainer.clientWidth) {
+            e.preventDefault();
+            tabsContainer.scrollLeft += delta;
+        }
+    }, { passive: false });
+
+    // Fade the usage hint after a few seconds; it reappears while hovering the menu bar
+    const menuHint = document.getElementById('elegantMenuHint');
+    if (menuHint) {
+        setTimeout(() => {
+            menuHint.classList.add('hint-faded');
+        }, 8000);
+    }
+});
+</script>
+
+    <!-- Flash Messages -->
+    
+    <!-- Main Content -->
+    <div class="container">
+        <div class="content-wrapper">
+            <div class="users form login-container">
+    <div class="row justify-content-center">
+        <div class="col-12">
+            <div class="card shadow-sm mt-5 mx-auto" style="max-width: 1000px;">
+                <div class="card-header bg-primary text-white text-center">
+                    <h3 class="mb-0">
+                        <i class="fas fa-sign-in-alt"></i> Login System
+                    </h3>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <!-- Login Form -->
+                        <div class="col-md-6 border-end">
+                            <h5 class="mb-3 text-primary">
+                                <i class="fas fa-user-lock"></i> Login Form
+                            </h5>
+                            <div class="message error" onclick="this.classList.add('hidden');">You are not authorized to access this location.</div>
+
+                            <form method="post" accept-charset="utf-8" autocomplete="off" action="/users/login?redirect=%2Fcandidates%2Fprocess-flow%3Flang%3Deng"><div style="display:none;"><input type="hidden" name="_method" value="POST"/></div>                            <div class="form-group mb-3">
+                                <div class="input text required"><label for="username-field">Username</label><input type="text" name="username" class="form-control" placeholder="Enter Username" required="required" autofocus="autofocus" autocomplete="off" id="username-field"/></div>                            </div>
+                            <div class="form-group mb-4">
+                                <div class="input password required"><label for="password-field">Password</label><input type="password" name="password" class="form-control" placeholder="Enter Password" required="required" autocomplete="new-password" id="password-field"/></div>                            </div>
+                            <div class="d-grid gap-2">
+                                <button class="btn btn-primary btn-block btn-lg" type="submit">Login</button>                            </div>
+                            </form>                        </div>
+
+                        <!-- Test Credentials -->
+                        <div class="col-md-6">
+                            <h5 class="mb-3 text-success">
+                                <i class="fas fa-users-cog"></i> Test Credentials
+                            </h5>
+                            <div class="alert alert-info">
+                                <small><i class="fas fa-info-circle"></i> Click username to auto-fill login form</small>
+                            </div>
+                            <div class="credentials-list" style="max-height: 400px; overflow-y: auto;">
+                                <!-- Administrator -->
+                                <div class="credential-item mb-3 p-3 border rounded bg-light" onclick="fillLogin('admin', 'admin123')">
+                                    <div class="d-flex justify-content-between align-items-start">
+                                        <div>
+                                            <h6 class="mb-1 text-danger">
+                                                <i class="fas fa-user-shield"></i> Administrator
+                                            </h6>
+                                            <div><small class="text-muted">Username:</small> <code>admin</code></div>
+                                            <div><small class="text-muted">Password:</small> <code>admin123</code></div>
+                                            <small class="text-muted d-block mt-1">Full Access</small>
+                                        </div>
+                                        <span class="badge bg-danger">ADMIN</span>
+                                    </div>
+                                </div>
+
+                                <!-- Management -->
+                                <div class="credential-item mb-3 p-3 border rounded bg-light" onclick="fillLogin('director', 'director123')">
+                                    <div class="d-flex justify-content-between align-items-start">
+                                        <div>
+                                            <h6 class="mb-1 text-primary">
+                                                <i class="fas fa-user-tie"></i> Director
+                                            </h6>
+                                            <div><small class="text-muted">Username:</small> <code>director</code></div>
+                                            <div><small class="text-muted">Password:</small> <code>director123</code></div>
+                                            <small class="text-muted d-block mt-1">Management Level</small>
+                                        </div>
+                                        <span class="badge bg-primary">MGT</span>
+                                    </div>
+                                </div>
+
+                                <div class="credential-item mb-3 p-3 border rounded bg-light" onclick="fillLogin('manager', 'manager123')">
+                                    <div class="d-flex justify-content-between align-items-start">
+                                        <div>
+                                            <h6 class="mb-1 text-primary">
+                                                <i class="fas fa-user-tie"></i> General Manager
+                                            </h6>
+                                            <div><small class="text-muted">Username:</small> <code>manager</code></div>
+                                            <div><small class="text-muted">Password:</small> <code>manager123</code></div>
+                                            <small class="text-muted d-block mt-1">Management Level</small>
+                                        </div>
+                                        <span class="badge bg-primary">MGT</span>
+                                    </div>
+                                </div>
+
+                                <!-- TMM Recruitment -->
+                                <div class="credential-item mb-3 p-3 border rounded bg-light" onclick="fillLogin('recruitment1', 'recruit123')">
+                                    <div class="d-flex justify-content-between align-items-start">
+                                        <div>
+                                            <h6 class="mb-1 text-success">
+                                                <i class="fas fa-user-plus"></i> Recruitment Officer 1
+                                            </h6>
+                                            <div><small class="text-muted">Username:</small> <code>recruitment1</code></div>
+                                            <div><small class="text-muted">Password:</small> <code>recruit123</code></div>
+                                            <small class="text-muted d-block mt-1">Recruitment Department</small>
+                                        </div>
+                                        <span class="badge bg-success">RECRUIT</span>
+                                    </div>
+                                </div>
+
+                                <!-- TMM Training -->
+                                <div class="credential-item mb-3 p-3 border rounded bg-light" onclick="fillLogin('training1', 'training123')">
+                                    <div class="d-flex justify-content-between align-items-start">
+                                        <div>
+                                            <h6 class="mb-1 text-warning">
+                                                <i class="fas fa-chalkboard-teacher"></i> Training Coordinator 1
+                                            </h6>
+                                            <div><small class="text-muted">Username:</small> <code>training1</code></div>
+                                            <div><small class="text-muted">Password:</small> <code>training123</code></div>
+                                            <small class="text-muted d-block mt-1">Training Department</small>
+                                        </div>
+                                        <span class="badge bg-warning text-dark">TRAINING</span>
+                                    </div>
+                                </div>
+
+                                <!-- TMM Documentation -->
+                                <div class="credential-item mb-3 p-3 border rounded bg-light" onclick="fillLogin('documentation1', 'doc123')">
+                                    <div class="d-flex justify-content-between align-items-start">
+                                        <div>
+                                            <h6 class="mb-1 text-info">
+                                                <i class="fas fa-file-alt"></i> Documentation Officer 1
+                                            </h6>
+                                            <div><small class="text-muted">Username:</small> <code>documentation1</code></div>
+                                            <div><small class="text-muted">Password:</small> <code>doc123</code></div>
+                                            <small class="text-muted d-block mt-1">Documentation Department</small>
+                                        </div>
+                                        <span class="badge bg-info">DOC</span>
+                                    </div>
+                                </div>
+
+                                <!-- LPK Penyangga -->
+                                <div class="credential-item mb-3 p-3 border rounded bg-light" onclick="fillLogin('lpk_semarang', 'lpk123')">
+                                    <div class="d-flex justify-content-between align-items-start">
+                                        <div>
+                                            <h6 class="mb-1 text-secondary">
+                                                <i class="fas fa-school"></i> LPK Semarang
+                                            </h6>
+                                            <div><small class="text-muted">Username:</small> <code>lpk_semarang</code></div>
+                                            <div><small class="text-muted">Password:</small> <code>lpk123</code></div>
+                                            <small class="text-muted d-block mt-1">Vocational Training Institution</small>
+                                        </div>
+                                        <span class="badge bg-secondary">LPK</span>
+                                    </div>
+                                </div>
+
+                                <div class="credential-item mb-3 p-3 border rounded bg-light" onclick="fillLogin('lpk_bekasi', 'lpk123')">
+                                    <div class="d-flex justify-content-between align-items-start">
+                                        <div>
+                                            <h6 class="mb-1 text-secondary">
+                                                <i class="fas fa-school"></i> LPK Bekasi
+                                            </h6>
+                                            <div><small class="text-muted">Username:</small> <code>lpk_bekasi</code></div>
+                                            <div><small class="text-muted">Password:</small> <code>lpk123</code></div>
+                                            <small class="text-muted d-block mt-1">Vocational Training Institution</small>
+                                        </div>
+                                        <span class="badge bg-secondary">LPK</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer text-center text-muted">
+                    <small>&copy; 2026 TMM System - Test Environment</small>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<style>
+    .login-container {
+        width: 90%;
+        max-width: 1200px;
+        margin: 0 auto;
+        min-height: 80vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .login-container .card {
+        width: 100%;
+    }
+    
+    .login-container .form-control {
+        padding: 12px;
+        font-size: 16px;
+    }
+    
+    .login-container .btn-lg {
+        padding: 12px;
+        font-size: 18px;
+    }
+
+    .credential-item {
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+
+    .credential-item:hover {
+        background-color: #e3f2fd !important;
+        border-color: #2196F3 !important;
+        box-shadow: 0 2px 8px rgba(33, 150, 243, 0.3);
+        transform: translateY(-2px);
+    }
+
+    .credential-item code {
+        background-color: #f8f9fa;
+        padding: 2px 6px;
+        border-radius: 3px;
+        font-size: 13px;
+        color: #d63384;
+    }
+
+    .credentials-list::-webkit-scrollbar {
+        width: 8px;
+    }
+
+    .credentials-list::-webkit-scrollbar-track {
+        background: #f1f1f1;
+        border-radius: 10px;
+    }
+
+    .credentials-list::-webkit-scrollbar-thumb {
+        background: #888;
+        border-radius: 10px;
+    }
+
+    .credentials-list::-webkit-scrollbar-thumb:hover {
+        background: #555;
+    }
+
+    /* Prevent browser password autofill styling */
+    input:-webkit-autofill,
+    input:-webkit-autofill:hover,
+    input:-webkit-autofill:focus,
+    input:-webkit-autofill:active {
+        -webkit-box-shadow: 0 0 0 30px white inset !important;
+        -webkit-text-fill-color: #000 !important;
+    }
+</style>
+
+<script>
+    // Function to fill login credentials
+    function fillLogin(username, password) {
+        document.getElementById('username-field').value = username;
+        document.getElementById('password-field').value = password;
+        
+        // Focus on login button
+        document.querySelector('.btn-primary').focus();
+        
+        // Show visual feedback
+        const usernameField = document.getElementById('username-field');
+        const passwordField = document.getElementById('password-field');
+        
+        usernameField.classList.add('border-success');
+        passwordField.classList.add('border-success');
+        
+        setTimeout(() => {
+            usernameField.classList.remove('border-success');
+            passwordField.classList.remove('border-success');
+        }, 1000);
+    }
+
+    // Prevent browser from saving passwords
+    document.addEventListener('DOMContentLoaded', function() {
+        // Disable autocomplete on page load
+        const form = document.querySelector('form');
+        if (form) {
+            form.setAttribute('autocomplete', 'off');
+        }
+        
+        // Clear form fields on page load
+        const usernameField = document.getElementById('username-field');
+        const passwordField = document.getElementById('password-field');
+        
+        if (usernameField) usernameField.value = '';
+        if (passwordField) passwordField.value = '';
+        
+        // Prevent password manager from auto-filling
+        setTimeout(() => {
+            if (usernameField) usernameField.value = '';
+            if (passwordField) passwordField.value = '';
+        }, 100);
+    });
+
+    // Clear fields on browser back button
+    window.addEventListener('pageshow', function(event) {
+        if (event.persisted) {
+            document.getElementById('username-field').value = '';
+            document.getElementById('password-field').value = '';
+        }
+    });
+</script>
+
+
+
+
+        </div>
+    </div>
+    <script>
+        // Override table-filter.js if skipAutoFilter flag is set
+        if (window.skipAutoFilter === true) {
+            // Prevent table-filter.js from initializing by removing the class it looks for
+            document.addEventListener('DOMContentLoaded', function() {
+                console.log('skipAutoFilter enabled - preventing auto-filter initialization');
+                const tables = document.querySelectorAll('.table:not(.no-auto-filter)');
+                // Only remove auto-filter from tables WITHOUT no-auto-filter class
+                // Tables WITH no-auto-filter class should be left alone
+            });
+        }
+    </script>
+    <script src="/js/context-menu.js?v=1781114452"></script>
+    <script src="/js/submenu-position.js?v=1781114452"></script>
+    <script src="/js/table-drag-scroll.js?v=1781114452"></script>
+    <script src="/js/table-filter.js?v=1781114452"></script>
+    
+    <!-- Romaji to Katakana Converter for Japanese name input -->
+    <script src="/js/romaji-to-katakana.js?v=1781114452"></script>
+
+    <!-- Association Link Modal -->
+    <div id="associationModal" class="modal fade" tabindex="-1" role="dialog" style="display: none;">
+        <div class="modal-dialog modal-xl" role="document" style="max-width: 95%; width: 95%;">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Loading...</h5>
+                    <button type="button" class="close" onclick="closeAssociationModal()" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body" id="associationModalBody">
+                    <div class="text-center">
+                        <i class="fas fa-spinner fa-spin fa-3x"></i>
+                        <p>Loading data...</p>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" onclick="closeAssociationModal()">Close</button>
+                    <a id="associationModalLink" href="#" class="btn btn-primary" target="_blank">Open Full Page</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        /* Modal Styles */
+        .modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 9999;
+            overflow-y: auto;
+        }
+        .modal.fade {
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .modal.show {
+            display: block !important;
+            opacity: 1;
+        }
+        .modal-dialog {
+            position: relative;
+            margin: 50px auto;
+            max-width: 95%;
+            width: 95%;
+            animation: slideDown 0.3s ease;
+        }
+        @keyframes slideDown {
+            from {
+                transform: translateY(-50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+        .modal-content {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+        .modal-header {
+            padding: 15px 20px;
+            border-bottom: 1px solid #dee2e6;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: linear-gradient(135deg, #00BCD4 0%, #00838F 100%);
+            color: white;
+            border-radius: 8px 8px 0 0;
+        }
+        .modal-header .close {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+            opacity: 0.8;
+            transition: opacity 0.2s;
+        }
+        .modal-header .close:hover {
+            opacity: 1;
+        }
+        .modal-body {
+            padding: 20px;
+            max-height: 60vh;
+            overflow-y: auto;
+        }
+        /* Fix table alignment in modal */
+        .modal-body table {
+            width: 100%;
+            table-layout: auto;
+            border-collapse: collapse;
+        }
+        .modal-body table th,
+        .modal-body table td {
+            padding: 8px;
+            vertical-align: middle;
+            border: 1px solid #dee2e6;
+            text-align: left;
+            word-wrap: break-word;
+        }
+        .modal-body table thead th {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.15) 0%, rgba(118, 75, 162, 0.15) 100%);
+            font-weight: 600;
+            white-space: nowrap;
+        }
+        .modal-body .table-responsive {
+            overflow-x: auto;
+            margin-bottom: 1rem;
+            width: 100%;
+        }
+        .modal-body .filter-row th {
+            padding: 4px !important;
+        }
+        .modal-body .filter-row input,
+        .modal-body .filter-row select {
+            width: 100%;
+            min-width: 60px;
+            font-size: 11px;
+            padding: 2px 4px;
+            height: auto;
+            box-sizing: border-box;
+        }
+        .modal-body .filter-row > th > div {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+        /* Fix GitHub container styles in modal */
+        .modal-body .github-container {
+            padding: 0;
+            margin: 0;
+        }
+        .modal-body .github-page-header {
+            display: none; /* Hide duplicate header in modal */
+        }
+        /* Ensure tab content displays properly */
+        .modal-body .view-tab-pane {
+            min-height: 200px;
+        }
+        .modal-body .github-related-table {
+            width: 100%;
+            margin-top: 10px;
+        }
+        /* Remove actions column header sticky positioning in modal */
+        .modal-body .actions-column-header {
+            position: static !important;
+            left: auto !important;
+        }
+        /* Fix action buttons in modal tables */
+        .modal-body .action-buttons-hover {
+            display: flex;
+            gap: 5px;
+            justify-content: center;
+        }
+        .modal-footer {
+            padding: 15px 20px;
+            border-top: 1px solid #dee2e6;
+            display: flex;
+            justify-content: flex-end;
+            gap: 10px;
+        }
+        .modal-footer .btn {
+            padding: 8px 16px;
+            border-radius: 4px;
+            border: none;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+        .modal-footer .btn-secondary {
+            background: #6c757d;
+            color: white;
+        }
+        .modal-footer .btn-secondary:hover {
+            background: #5a6268;
+        }
+        .modal-footer .btn-primary {
+            background: linear-gradient(135deg, #00BCD4 0%, #00838F 100%);
+            color: white;
+        }
+        .modal-footer .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(102, 126, 234, 0.4);
+        }
+        /* Association link styling */
+        a[href*="/view/"] {
+            color: #00BCD4;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+        a[href*="/view/"]:hover {
+            color: #0097A7;
+            text-decoration: underline;
+        }
+    </style>
+
+    <script>
+        // Toggle Actions Sidebar Menu
+        function toggleActionsMenu() {
+            const sidebar = document.getElementById('actions-sidebar');
+            sidebar.classList.toggle('active');
+        }
+        
+        // Close sidebar when clicking outside
+        document.addEventListener('click', function(e) {
+            const sidebar = document.getElementById('actions-sidebar');
+            if (sidebar && !sidebar.contains(e.target) && sidebar.classList.contains('active')) {
+                sidebar.classList.remove('active');
+            }
+        });
+        
+        // Association Modal Functions
+        function openAssociationModal(url, title) {
+            const modal = document.getElementById('associationModal');
+            const modalBody = document.getElementById('associationModalBody');
+            const modalTitle = modal.querySelector('.modal-title');
+            const modalLink = document.getElementById('associationModalLink');
+            
+            // Set title and link
+            modalTitle.textContent = title || 'Details';
+            modalLink.href = url;
+            
+            // Show loading state
+            modalBody.innerHTML = `
+                <div class="text-center">
+                    <i class="fas fa-spinner fa-spin fa-3x" style="color: #00BCD4;"></i>
+                    <p style="margin-top: 15px;">Loading data...</p>
+                </div>
+            `;
+            
+            // Show modal
+            modal.classList.add('show');
+            document.body.style.overflow = 'hidden';
+            
+            // Load content via AJAX
+            fetch(url)
+                .then(response => response.text())
+                .then(html => {
+                    // Parse the HTML and extract the main content
+                    const parser = new DOMParser();
+                    const doc = parser.parseFromString(html, 'text/html');
+                    
+                    // Try to find the main content div
+                    let content = doc.querySelector('.github-container') ||
+                                  doc.querySelector('.content-wrapper') || 
+                                  doc.querySelector('.inventories.view') ||
+                                  doc.querySelector('.view') ||
+                                  doc.querySelector('main') ||
+                                  doc.querySelector('.container');
+                    
+                    if (content) {
+                        // Remove action buttons and navigation elements
+                        const actionsDiv = content.querySelector('.actions');
+                        if (actionsDiv) actionsDiv.remove();
+                        
+                        const nav = content.querySelector('nav');
+                        if (nav) nav.remove();
+                        
+                        modalBody.innerHTML = '';
+                        modalBody.appendChild(content);
+                    } else {
+                        modalBody.innerHTML = '<div class="alert alert-warning">Could not load content. Please open full page.</div>';
+                    }
+                })
+                .catch(error => {
+                    console.error('Error loading modal content:', error);
+                    modalBody.innerHTML = '<div class="alert alert-danger">Error loading content.</div>';
+                });
+        }
+        
+        function closeAssociationModal() {
+            const modal = document.getElementById('associationModal');
+            modal.classList.remove('show');
+            document.body.style.overflow = '';
+        }
+        
+        // Close modal when clicking outside
+        document.addEventListener('click', function(event) {
+            const modal = document.getElementById('associationModal');
+            if (event.target === modal) {
+                closeAssociationModal();
+            }
+        });
+        
+        // Close modal with ESC key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeAssociationModal();
+            }
+        });
+        
+        // Intercept all association links in table cells
+        document.addEventListener('DOMContentLoaded', function() {
+            // Wait a bit for AJAX table content to load
+            setTimeout(function() {
+                attachModalListeners();
+            }, 500);
+        });
+        
+        // Function to attach listeners (can be called after AJAX updates)
+        function attachModalListeners() {
+            // Find all links in table cells that point to /view/ pages
+            // EXCLUDE action buttons (btn-view-icon, btn-action-icon) - they should open full page
+            const tableLinks = document.querySelectorAll('table td a[href*="/view/"]:not(.btn-view-icon):not(.btn-action-icon)');
+            
+            tableLinks.forEach(link => {
+                // Skip if already has listener
+                if (link.dataset.modalAttached) return;
+                
+                link.dataset.modalAttached = 'true';
+                link.addEventListener('click', function(event) {
+                    event.preventDefault();
+                    const url = this.href;
+                    const title = this.textContent.trim() || 'Details';
+                    openAssociationModal(url, title);
+                });
+            });
+        }
+        
+        // Re-attach listeners after AJAX table updates
+        if (typeof MutationObserver !== 'undefined') {
+            const observer = new MutationObserver(function(mutations) {
+                mutations.forEach(function(mutation) {
+                    if (mutation.addedNodes.length > 0) {
+                        // Check if table rows were added
+                        mutation.addedNodes.forEach(function(node) {
+                            if (node.nodeType === 1 && (node.tagName === 'TR' || node.querySelector('tr'))) {
+                                attachModalListeners();
+                            }
+                        });
+                    }
+                });
+            });
+            
+            // Observe the table body for changes
+            const tables = document.querySelectorAll('table tbody');
+            tables.forEach(table => {
+                observer.observe(table, { childList: true, subtree: true });
+            });
+        }
+
+        // ========================================================================
+        // GLOBAL TAB SWITCHING FUNCTION - Available for modals and all pages
+        // ========================================================================
+        if (typeof window.initializeTabSwitching === 'undefined') {
+            window.initializeTabSwitching = function(container) {
+                // Find container (for modal context or specific view container)
+                const viewContainer = container || document.querySelector('.github-container') || document;
+                
+                // Use data-view-template attribute to target only the primary view template tabs
+                const isDocument = (viewContainer === document);
+                
+                let tabLinks, tabPanes;
+                
+                if (isDocument) {
+                    // When querying whole document, find tabs within view-content-wrapper
+                    const viewWrapper = document.querySelector('.view-content-wrapper[data-view-template="true"]');
+                    if (!viewWrapper) {
+                        console.warn('No view-content-wrapper with data-view-template found');
+                        return;
+                    }
+                    tabLinks = viewWrapper.querySelectorAll('.view-tabs-container .view-tab-link');
+                    tabPanes = viewWrapper.querySelectorAll('.view-tab-pane');
+                } else {
+                    // When container is specified, search within it for the wrapper
+                    const viewWrapper = viewContainer.querySelector('.view-content-wrapper[data-view-template="true"]');
+                    if (viewWrapper) {
+                        tabLinks = viewWrapper.querySelectorAll('.view-tabs-container .view-tab-link');
+                        tabPanes = viewWrapper.querySelectorAll('.view-tab-pane');
+                    } else {
+                        // Fallback: container might BE the wrapper already
+                        tabLinks = viewContainer.querySelectorAll('.view-tab-link');
+                        tabPanes = viewContainer.querySelectorAll('.view-tab-pane');
+                    }
+                }
+                
+                if (tabLinks.length === 0 || tabPanes.length === 0) {
+                    console.error('No tabs found! TabLinks:', tabLinks.length, 'TabPanes:', tabPanes.length);
+                    return;
+                }
+                
+                console.log('âœ… SUCCESS: Initializing', tabLinks.length, 'tab links and', tabPanes.length, 'tab panes');
+                console.log('ðŸ“ Container:', isDocument ? 'document (full page)' : 'element (modal/container)');
+                
+                // Remove existing click handlers to avoid duplicates
+                tabLinks.forEach(link => {
+                    const newLink = link.cloneNode(true);
+                    link.parentNode.replaceChild(newLink, link);
+                });
+                
+                // Re-query after cloning
+                if (isDocument) {
+                    const viewWrapper = document.querySelector('.view-content-wrapper[data-view-template="true"]');
+                    tabLinks = viewWrapper.querySelectorAll('.view-tabs-container .view-tab-link');
+                    tabPanes = viewWrapper.querySelectorAll('.view-tab-pane');
+                } else {
+                    const viewWrapper = viewContainer.querySelector('.view-content-wrapper[data-view-template="true"]');
+                    if (viewWrapper) {
+                        tabLinks = viewWrapper.querySelectorAll('.view-tabs-container .view-tab-link');
+                        tabPanes = viewWrapper.querySelectorAll('.view-tab-pane');
+                    } else {
+                        tabLinks = viewContainer.querySelectorAll('.view-tab-link');
+                        tabPanes = viewContainer.querySelectorAll('.view-tab-pane');
+                    }
+                }
+                
+                tabLinks.forEach(link => {
+                    link.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        
+                        console.log('ðŸ–±ï¸  Tab clicked:', this.getAttribute('data-tab'));
+                        
+                        const targetTab = this.getAttribute('data-tab');
+                        if (!targetTab) {
+                            console.error('No data-tab attribute found');
+                            return;
+                        }
+                        
+                        // Remove active class from all tabs and panes
+                        tabLinks.forEach(l => l.classList.remove('active'));
+                        tabPanes.forEach(p => p.classList.remove('active'));
+                        
+                        // Add active class to clicked tab
+                        this.classList.add('active');
+                        
+                        // Find and activate corresponding pane
+                        let targetPane;
+                        if (isDocument) {
+                            const viewWrapper = document.querySelector('.view-content-wrapper[data-view-template="true"]');
+                            targetPane = viewWrapper ? viewWrapper.querySelector('#' + targetTab) : null;
+                        } else {
+                            const viewWrapper = viewContainer.querySelector('.view-content-wrapper[data-view-template="true"]');
+                            targetPane = viewWrapper ? viewWrapper.querySelector('#' + targetTab) : viewContainer.querySelector('#' + targetTab);
+                        }
+                        
+                        if (targetPane) {
+                            targetPane.classList.add('active');
+                            console.log('Activated pane:', targetTab);
+                        } else {
+                            console.error('Target pane not found:', targetTab);
+                        }
+                        // Store in sessionStorage
+                        try {
+                            sessionStorage.setItem('activeViewTab', targetTab);
+                        } catch (e) {
+                            console.warn('sessionStorage not available:', e);
+                        }
+                    });
+                });
+            };
+        }
+        // ========================================================================
+        // END GLOBAL TAB SWITCHING FUNCTION
+        // ========================================================================
+
+        // Flash messages auto-hide after 5 seconds
+        document.addEventListener('DOMContentLoaded', function() {
+            const flashMessages = document.querySelectorAll('.flash-message');
+            flashMessages.forEach(msg => {
+                setTimeout(() => {
+                    msg.style.transition = 'opacity 0.5s ease';
+                    msg.style.opacity = '0';
+                    setTimeout(() => msg.remove(), 500);
+                }, 5000);
+            });
+        });
+    </script>
+    <script>
+        // Header Dropdown Toggle
+        document.addEventListener('DOMContentLoaded', function() {
+            const dropdownTriggers = document.querySelectorAll('.header-dropdown-trigger');
+            
+            dropdownTriggers.forEach(trigger => {
+                trigger.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    
+                    // Close other dropdowns
+                    dropdownTriggers.forEach(other => {
+                        if (other !== trigger) {
+                            const otherDropdown = other.querySelector('.header-dropdown');
+                            if (otherDropdown) otherDropdown.style.display = 'none';
+                        }
+                    });
+                    
+                    // Toggle current
+                    const dropdown = this.querySelector('.header-dropdown');
+                    if (dropdown) {
+                        dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
+                    }
+                });
+            });
+            
+            // Close dropdowns when clicking outside
+            document.addEventListener('click', function() {
+                document.querySelectorAll('.header-dropdown').forEach(dropdown => {
+                    dropdown.style.display = 'none';
+                });
+            });
+        });
+    </script>
+</body>
+</html>
+
+

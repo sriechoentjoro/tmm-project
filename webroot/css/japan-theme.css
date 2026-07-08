@@ -1,0 +1,54 @@
+/*
+ * TMM Japan Nuance Theme - bilingual domain terms
+ * A tasteful indigo/sakura chip that pairs each entity with its proper
+ * Japanese program term (kanji + furigana + romaji + English gloss).
+ */
+
+:root {
+    --jp-indigo: #1a237e;
+    --jp-sakura-deep: #e8809b;
+}
+
+/* Thin sakura accent under the main header band */
+.page-header {
+    border-bottom: 3px solid var(--jp-sakura-deep) !important;
+}
+
+/* ── Bilingual term chip ─────────────────────────────────────── */
+.jp-term {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 6px;
+    padding: 4px 12px;
+    background: linear-gradient(135deg, rgba(26, 35, 126, 0.06), rgba(232, 128, 155, 0.10));
+    border: 1px solid rgba(26, 35, 126, 0.15);
+    border-left: 3px solid var(--jp-sakura-deep);
+    border-radius: 8px;
+    font-size: 0.85em;
+    line-height: 1.35;
+    white-space: nowrap;
+    max-width: 100%;
+    flex-wrap: wrap;
+}
+.jp-term .jp-kanji {
+    font-weight: 700;
+    color: var(--jp-indigo);
+    font-size: 1.05em;
+}
+.jp-term .jp-kana {
+    color: #8e44ad;
+    font-size: 0.85em;
+}
+.jp-term .jp-romaji {
+    color: #6c757d;
+    font-style: italic;
+}
+.jp-term .jp-en {
+    color: #546e7a;
+}
+.jp-term .jp-sep { color: #cfd8dc; }
+.jp-term::before {
+    content: '\1F1EF\1F1F5'; /* 🇯🇵 */
+    font-size: 1.05em;
+}

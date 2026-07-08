@@ -1,0 +1,4598 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: TMM Apprentice Management System\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: ja\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+# ── Actions / buttons ──────────────────────────────────────────
+msgid "Save"
+msgstr "保存"
+
+msgid "Cancel"
+msgstr "キャンセル"
+
+msgid "Edit"
+msgstr "編集"
+
+msgid "View"
+msgstr "表示"
+
+msgid "Delete"
+msgstr "削除"
+
+msgid "Add New"
+msgstr "新規追加"
+
+msgid "Search"
+msgstr "検索"
+
+msgid "Reset"
+msgstr "リセット"
+
+msgid "Reset Filter"
+msgstr "フィルターをリセット"
+
+msgid "Print"
+msgstr "印刷"
+
+msgid "Back to List"
+msgstr "一覧に戻る"
+
+msgid "Actions"
+msgstr "操作"
+
+msgid "Manage Roles"
+msgstr "ロール管理"
+
+msgid "Dashboard"
+msgstr "ダッシュボード"
+
+# ── Common field labels ───────────────────────────────────────
+msgid "Name"
+msgstr "名前"
+
+msgid "Email"
+msgstr "メール"
+
+msgid "Address"
+msgstr "住所"
+
+msgid "Telephone"
+msgstr "電話番号"
+
+msgid "Status"
+msgstr "ステータス"
+
+msgid "Date"
+msgstr "日付"
+
+msgid "Type"
+msgstr "種別"
+
+msgid "Amount"
+msgstr "金額"
+
+msgid "Description"
+msgstr "説明"
+
+msgid "Reference"
+msgstr "参照番号"
+
+msgid "Notes"
+msgstr "備考"
+
+msgid "Trainee"
+msgstr "技能実習生"
+
+msgid "Trainees"
+msgstr "技能実習生"
+
+msgid "Organization"
+msgstr "機関"
+
+msgid "Institution"
+msgstr "機関"
+
+msgid "Director"
+msgstr "代表者"
+
+msgid "Prefecture"
+msgstr "都道府県"
+
+msgid "Contact Person"
+msgstr "担当者"
+
+msgid "Roles"
+msgstr "ロール"
+
+msgid "Classification"
+msgstr "分類"
+
+msgid "Problem"
+msgstr "問題"
+
+msgid "Solution"
+msgstr "解決策"
+
+msgid "Cause"
+msgstr "原因"
+
+msgid "Photo"
+msgstr "写真"
+
+msgid "Debit"
+msgstr "借方"
+
+msgid "Credit"
+msgstr "貸方"
+
+msgid "Balanced"
+msgstr "貸借一致"
+
+msgid "Currency"
+msgstr "通貨"
+
+# ── Statuses ──────────────────────────────────────────────────
+msgid "Active"
+msgstr "有効"
+
+msgid "Suspended"
+msgstr "停止中"
+
+msgid "Inactive"
+msgstr "無効"
+
+msgid "Pending"
+msgstr "保留中"
+
+msgid "Submitted"
+msgstr "提出済み"
+
+msgid "Paid Off"
+msgstr "完済"
+
+msgid "Open"
+msgstr "未対応"
+
+msgid "Registered"
+msgstr "登録済み"
+
+msgid "Posted"
+msgstr "記帳済み"
+
+msgid "Draft"
+msgstr "下書き"
+
+# ── Summary / filters ─────────────────────────────────────────
+msgid "Total"
+msgstr "合計"
+
+msgid "Total Users"
+msgstr "ユーザー総数"
+
+msgid "All statuses"
+msgstr "すべてのステータス"
+
+msgid "All trainees"
+msgstr "すべての技能実習生"
+
+msgid "All organizations"
+msgstr "すべての機関"
+
+msgid "All roles"
+msgstr "すべてのロール"
+
+msgid "All classifications"
+msgstr "すべての分類"
+
+msgid "Page {{page}} of {{pages}}, showing {{current}} record(s) out of {{count}} total"
+msgstr "{{pages}} ページ中 {{page}} ページ目・全 {{count}} 件中 {{current}} 件を表示"
+
+# ── Domain / stakeholders ─────────────────────────────────────
+msgid "User Management"
+msgstr "ユーザー管理"
+
+msgid "Acceptance Organizations"
+msgstr "受入れ機関"
+
+msgid "Cooperative Associations"
+msgstr "監理団体"
+
+msgid "Special Skill Support Institutions"
+msgstr "登録支援機関"
+
+msgid "Payment Tracking"
+msgstr "支払い管理"
+
+msgid "Receipts"
+msgstr "領収書"
+
+msgid "Journal Entries"
+msgstr "仕訳"
+
+msgid "Chart of Accounts"
+msgstr "勘定科目表"
+
+msgid "Reports"
+msgstr "レポート"
+
+# ── Pagination ────────────────────────────────────────────────
+msgid "previous"
+msgstr "前へ"
+
+msgid "next"
+msgstr "次へ"
+
+msgid "first"
+msgstr "最初"
+
+msgid "last"
+msgstr "最後"
+
+# ── More labels ───────────────────────────────────────────────
+msgid "Id"
+msgstr "ID"
+
+msgid "Title"
+msgstr "タイトル"
+
+msgid "Ticket"
+msgstr "チケット"
+
+msgid "Details"
+msgstr "詳細"
+
+msgid "Detail"
+msgstr "詳細"
+
+msgid "Account"
+msgstr "勘定"
+
+msgid "Username"
+msgstr "ユーザー名"
+
+msgid "Password"
+msgstr "パスワード"
+
+msgid "Post Code"
+msgstr "郵便番号"
+
+msgid "Remaining"
+msgstr "残額"
+
+msgid "Required"
+msgstr "必須"
+
+msgid "Transaction Type"
+msgstr "取引種別"
+
+msgid "Created"
+msgstr "作成日"
+
+msgid "Enabled"
+msgstr "有効"
+
+msgid "Registration"
+msgstr "登録"
+
+msgid "Role"
+msgstr "ロール"
+
+msgid "Payment"
+msgstr "支払い"
+
+msgid "Accumulated"
+msgstr "累計"
+
+# ── Summary card labels ───────────────────────────────────────
+msgid "Total Incidents"
+msgstr "問題総数"
+
+msgid "With Solution"
+msgstr "解決済み"
+
+msgid "Organizations"
+msgstr "機関数"
+
+msgid "Institutions"
+msgstr "機関数"
+
+msgid "Last 90 Days"
+msgstr "過去90日"
+
+msgid "Prefectures"
+msgstr "都道府県数"
+
+msgid "Awaiting Registration"
+msgstr "登録待ち"
+
+msgid "Pending Review"
+msgstr "確認待ち"
+
+msgid "Collected"
+msgstr "回収額"
+
+msgid "Outstanding"
+msgstr "未回収"
+
+msgid "Total Received"
+msgstr "受領総額"
+
+msgid "Trainees Settled"
+msgstr "完済者数"
+
+msgid "Still Paying"
+msgstr "支払い中"
+
+msgid "Payments Recorded"
+msgstr "記録済み支払い"
+
+msgid "Ready to Depart"
+msgstr "出発準備完了"
+
+# ── Buttons ───────────────────────────────────────────────────
+msgid "Add Payment"
+msgstr "支払いを追加"
+
+msgid "Add Ticket"
+msgstr "チケットを追加"
+
+msgid "Add Record"
+msgstr "記録を追加"
+
+msgid "Add Entry"
+msgstr "仕訳を追加"
+
+msgid "Add Line"
+msgstr "行を追加"
+
+msgid "Log Incident"
+msgstr "問題を記録"
+
+msgid "New User"
+msgstr "新規ユーザー"
+
+msgid "Manual Entry"
+msgstr "手動入力"
+
+msgid "Auto-Generate"
+msgstr "自動生成"
+
+# ── Filters ───────────────────────────────────────────────────
+msgid "All"
+msgstr "すべて"
+
+msgid "All institutions"
+msgstr "すべての機関"
+
+msgid "All payments"
+msgstr "すべての支払い"
+
+msgid "All prefectures"
+msgstr "すべての都道府県"
+
+msgid "All documents"
+msgstr "すべての書類"
+
+# ── Accounting / finance ──────────────────────────────────────
+msgid "Balance"
+msgstr "残高"
+
+msgid "Balance Sheet"
+msgstr "貸借対照表"
+
+msgid "Cash Flow"
+msgstr "キャッシュフロー"
+
+msgid "Income Statement"
+msgstr "損益計算書"
+
+msgid "Financial Reports"
+msgstr "財務レポート"
+
+msgid "Journals"
+msgstr "仕訳帳"
+
+msgid "Journal Lines"
+msgstr "仕訳明細"
+
+msgid "Recent Journal Entries"
+msgstr "最近の仕訳"
+
+msgid "Flights"
+msgstr "便"
+
+msgid "Flight Legs"
+msgstr "区間"
+
+msgid "Current Status"
+msgstr "現在の状況"
+
+msgid "Free Amount"
+msgstr "任意金額"
+
+msgid "Full Payment"
+msgstr "全額支払い"
+
+msgid "Payment Mode"
+msgstr "支払い方法"
+
+msgid "Payment Amount"
+msgstr "支払い金額"
+
+msgid "Payment Date"
+msgstr "支払い日"
+
+msgid "Owing Cost"
+msgstr "請求額"
+
+msgid "Owing Cost Set"
+msgstr "請求額設定済み"
+
+msgid "Total to pay"
+msgstr "支払い総額"
+
+msgid "Payment Progress per Trainee"
+msgstr "技能実習生別の支払い状況"
+
+msgid "How it works"
+msgstr "仕組み"
+
+msgid "Printed on"
+msgstr "印刷日"
+
+# ── Dashboards ────────────────────────────────────────────────
+msgid "Documentation Dashboard"
+msgstr "書類管理ダッシュボード"
+
+msgid "Accounting Dashboard"
+msgstr "会計ダッシュボード"
+
+msgid "Executive Dashboard"
+msgstr "経営ダッシュボード"
+
+msgid "Pipeline Timeline"
+msgstr "パイプラインの流れ"
+
+msgid "Quick Actions"
+msgstr "クイック操作"
+
+# ── Save buttons ──────────────────────────────────────────────
+msgid "Save Changes"
+msgstr "変更を保存"
+
+msgid "Save Entry"
+msgstr "仕訳を保存"
+
+msgid "Save Payment"
+msgstr "支払いを保存"
+
+msgid "Save Association"
+msgstr "団体を保存"
+
+msgid "Save Record"
+msgstr "記録を保存"
+
+msgid "Add Installment"
+msgstr "分割払いを追加"
+
+msgid "Add Installment Payment"
+msgstr "分割払いを追加"
+
+# ── Menu labels ───────────────────────────────────────────────
+msgid "Candidate Management"
+msgstr "候補者管理"
+
+msgid "Candidate List"
+msgstr "候補者一覧"
+
+msgid "Apprentice Management"
+msgstr "技能実習生管理"
+
+msgid "Apprentice Orders"
+msgstr "求人オーダー"
+
+msgid "Apprentice Docs"
+msgstr "技能実習生書類"
+
+msgid "Trainee List"
+msgstr "技能実習生一覧"
+
+msgid "Trainee Submissions"
+msgstr "技能実習生提出書類"
+
+msgid "Departure Docs"
+msgstr "出国書類"
+
+msgid "Departure Documents"
+msgstr "出国書類"
+
+msgid "Departure Management"
+msgstr "出国管理"
+
+msgid "Ticketing & Transit"
+msgstr "航空券・乗継"
+
+msgid "Candidate Docs"
+msgstr "候補者書類"
+
+msgid "Candidate Documents"
+msgstr "候補者書類"
+
+msgid "TMM Documentation"
+msgstr "TMM書類管理"
+
+msgid "Passport Management"
+msgstr "パスポート管理"
+
+msgid "Passport Records"
+msgstr "パスポート記録"
+
+msgid "COE/Visa Management"
+msgstr "COE・ビザ管理"
+
+msgid "COE & Visa Records"
+msgstr "COE・ビザ記録"
+
+msgid "Health Certificates"
+msgstr "健康診断書"
+
+msgid "Create Ticket"
+msgstr "航空券を作成"
+
+msgid "Document Checklist"
+msgstr "書類チェックリスト"
+
+msgid "Trainee Installments"
+msgstr "技能実習生分割払い"
+
+msgid "Manual Adjustments"
+msgstr "手動調整"
+
+msgid "Auto-Generated Entries"
+msgstr "自動生成仕訳"
+
+msgid "Reports & Analytics"
+msgstr "レポート・分析"
+
+msgid "Active Apprentices"
+msgstr "在籍技能実習生"
+
+msgid "Candidate Pipeline"
+msgstr "候補者パイプライン"
+
+msgid "Training Progress"
+msgstr "研修進捗"
+
+msgid "Audit"
+msgstr "監査"
+
+msgid "Master Data"
+msgstr "マスタデータ"
+
+msgid "Configuration"
+msgstr "設定"
+
+msgid "Menu Management"
+msgstr "メニュー管理"
+
+msgid "Cooperative Stories"
+msgstr "監理団体の事例"
+
+msgid "Organization Stories"
+msgstr "受入れ機関の事例"
+
+msgid "LPK Stories"
+msgstr "LPKの事例"
+
+msgid "Status Guide"
+msgstr "ステータスの説明"
+
+msgid "Process Guide"
+msgstr "手続きの流れ"
+
+msgid "Field Guide"
+msgstr "項目の説明"
+
+msgid "Result Guide"
+msgstr "結果の説明"
+
+msgid "Double-Entry Rules"
+msgstr "複式簿記のルール"
+
+msgid "Set the owing cost first"
+msgstr "先に請求額を設定"
+
+msgid "Difference is calculated"
+msgstr "差額を計算"
+
+msgid "Receipt at zero"
+msgstr "残額ゼロで領収書発行"
+
+msgid "Record a payment - the running balance is calculated automatically"
+msgstr "支払いを記録すると残高は自動計算されます"
+
+msgid "Free Amount for any partial payment, or Full Payment to settle the whole remaining balance at once."
+msgstr "一部支払いは「任意金額」、残額を一括清算する場合は「全額支払い」を選択します。"
+
+msgid "Pay any amount toward the balance"
+msgstr "残高に対して任意の金額を支払う"
+
+msgid "Settle the entire remaining balance"
+msgstr "残額全額を清算する"
+
+msgid "This payment settles the balance - trainee will be marked PAID OFF"
+msgstr "この支払いで残額が清算され、技能実習生は「完済」になります"
+
+msgid "Green = record exists. Click a red item to add the missing record."
+msgstr "緑＝記録あり。赤い項目をクリックすると不足分を追加できます。"
+
+# ── Search / filter operators ─────────────────────────────────
+msgid "Starts"
+msgstr "で始まる"
+
+msgid "Equals"
+msgstr "等しい"
+
+msgid "Ends"
+msgstr "で終わる"
+
+msgid "Contains"
+msgstr "を含む"
+
+msgid "Between"
+msgstr "範囲"
+
+msgid "Filter Id"
+msgstr "ID で絞り込み"
+
+# ── Yes / No / common ─────────────────────────────────────────
+msgid "Yes"
+msgstr "はい"
+
+msgid "No"
+msgstr "いいえ"
+
+msgid "Optional"
+msgstr "任意"
+
+msgid "List"
+msgstr "一覧"
+
+msgid "Updated"
+msgstr "更新日"
+
+msgid "Slug"
+msgstr "スラッグ"
+
+msgid "View Full Record"
+msgstr "全記録を表示"
+
+msgid "Address Information"
+msgstr "住所情報"
+
+msgid "Reference File"
+msgstr "参照ファイル"
+
+# ── Common placeholders ───────────────────────────────────────
+msgid "Enter Title"
+msgstr "タイトルを入力"
+
+msgid "Enter Name"
+msgstr "名前を入力"
+
+msgid "Enter Detail"
+msgstr "詳細を入力"
+
+msgid "Enter Age"
+msgstr "年齢を入力"
+
+msgid "Enter Address"
+msgstr "住所を入力"
+
+msgid "Enter Contact Person"
+msgstr "担当者を入力"
+
+msgid "Enter Director"
+msgstr "代表者を入力"
+
+msgid "Enter Telephone"
+msgstr "電話番号を入力"
+
+# ── Region fields (Indonesia admin areas) ─────────────────────
+msgid "Province"
+msgstr "州"
+
+msgid "Kabupaten/City"
+msgstr "県・市"
+
+msgid "Kecamatan/District"
+msgstr "郡"
+
+msgid "Kelurahan/Village"
+msgstr "村"
+
+msgid "-- Select Province --"
+msgstr "-- 州を選択 --"
+
+msgid "-- Select Kabupaten --"
+msgstr "-- 県・市を選択 --"
+
+msgid "-- Select Kecamatan --"
+msgstr "-- 郡を選択 --"
+
+msgid "-- Select Kelurahan --"
+msgstr "-- 村を選択 --"
+
+# ── Incident fields ───────────────────────────────────────────
+msgid "Problem Contents"
+msgstr "問題内容"
+
+msgid "Problem Classification"
+msgstr "問題分類"
+
+msgid "Problem Solution"
+msgstr "解決策"
+
+msgid "Problem Inference"
+msgstr "推定原因"
+
+msgid "Date Occurrence"
+msgstr "発生日"
+
+msgid "Enter Problem Contents"
+msgstr "問題内容を入力"
+
+msgid "Enter Problem Classification"
+msgstr "問題分類を入力"
+
+msgid "Enter Problem Solution"
+msgstr "解決策を入力"
+
+msgid "Enter Problem Inference"
+msgstr "推定原因を入力"
+
+msgid "Select Date Occurrence"
+msgstr "発生日を選択"
+
+# ── List / New entity titles ──────────────────────────────────
+msgid "List Apprentices"
+msgstr "技能実習生一覧"
+
+msgid "List Candidates"
+msgstr "候補者一覧"
+
+msgid "List Trainees"
+msgstr "技能実習生一覧"
+
+msgid "New Apprentice"
+msgstr "新規技能実習生"
+
+msgid "New Candidate"
+msgstr "新規候補者"
+
+msgid "New Trainee"
+msgstr "新規技能実習生"
+
+msgid "New Acceptance Organization"
+msgstr "新規受入れ機関"
+
+msgid "New Cooperative Association"
+msgstr "新規監理団体"
+
+msgid "List Acceptance Organizations"
+msgstr "受入れ機関一覧"
+
+msgid "Last Salary Amount"
+msgstr "前職給与額"
+
+msgid "Optional field"
+msgstr "任意項目"
+
+# ── Candidate / trainee profile fields ────────────────────────
+msgid "Birth Place"
+msgstr "出生地"
+
+msgid "Birth Date"
+msgstr "生年月日"
+
+msgid "Name Katakana"
+msgstr "氏名（カタカナ）"
+
+msgid "Body Height"
+msgstr "身長"
+
+msgid "Body Weight"
+msgstr "体重"
+
+msgid "Strengths"
+msgstr "長所"
+
+msgid "Weaknesses"
+msgstr "短所"
+
+msgid "Hobby"
+msgstr "趣味"
+
+msgid "Application Reasons"
+msgstr "志望理由"
+
+msgid "Saving Goal Amount"
+msgstr "貯蓄目標額"
+
+msgid "Identity Number"
+msgstr "身分証番号"
+
+msgid "Telephone Mobile"
+msgstr "携帯電話"
+
+msgid "Telephone Emergency"
+msgstr "緊急連絡先"
+
+msgid "Expected Work Upon Returning To Japan"
+msgstr "帰国後の希望職種"
+
+msgid "Explain Eye Condition"
+msgstr "視力の状態"
+
+msgid "Explain Color Blind"
+msgstr "色覚の説明"
+
+msgid "Will Go To Japan After Finished"
+msgstr "修了後に渡日予定"
+
+msgid "Specific Rejected Reason"
+msgstr "不合格の具体的理由"
+
+msgid "Remarks / Notes"
+msgstr "備考"
+
+msgid "Kode Pos"
+msgstr "郵便番号"
+
+msgid "Kode Propinsi"
+msgstr "州コード"
+
+msgid "Kode Kabupaten"
+msgstr "県コード"
+
+msgid "Year"
+msgstr "年"
+
+msgid "Profile"
+msgstr "プロフィール"
+
+msgid "Update"
+msgstr "更新"
+
+# ── Boolean profile flags ─────────────────────────────────────
+msgid "Is Smoking"
+msgstr "喫煙"
+
+msgid "Is Drinking Alcohol"
+msgstr "飲酒"
+
+msgid "Is Tattooed"
+msgstr "入れ墨"
+
+msgid "Is Color Blind"
+msgstr "色覚異常"
+
+msgid "Is Right Handed"
+msgstr "右利き"
+
+msgid "Is Wear Eye Glasses"
+msgstr "眼鏡使用"
+
+msgid "Is Ever Went To Japan"
+msgstr "渡日歴あり"
+
+msgid "Is Holding Passport"
+msgstr "パスポート保有"
+
+msgid "Is Training Pass"
+msgstr "研修合格"
+
+msgid "Is Apprenticeship Pass"
+msgstr "実習合格"
+
+# ── Enter placeholders (profile) ──────────────────────────────
+msgid "Enter Email"
+msgstr "メールを入力"
+
+msgid "Enter Strengths"
+msgstr "長所を入力"
+
+msgid "Enter Weaknesses"
+msgstr "短所を入力"
+
+msgid "Enter Hobby"
+msgstr "趣味を入力"
+
+msgid "Enter Body Height"
+msgstr "身長を入力"
+
+msgid "Enter Body Weight"
+msgstr "体重を入力"
+
+msgid "Enter Application Reasons"
+msgstr "志望理由を入力"
+
+msgid "Enter Saving Goal Amount"
+msgstr "貯蓄目標額を入力"
+
+msgid "Enter Last Salary Amount"
+msgstr "前職給与額を入力"
+
+msgid "Enter Specific Rejected Reason"
+msgstr "不合格の具体的理由を入力"
+
+msgid "Enter Expected Work Upon Returning To Japan"
+msgstr "帰国後の希望職種を入力"
+
+msgid "Enter Explain Eye Condition"
+msgstr "視力の状態を入力"
+
+msgid "Enter Explain Color Blind"
+msgstr "色覚の説明を入力"
+
+# ── Social links ──────────────────────────────────────────────
+msgid "Link Facebook"
+msgstr "Facebook リンク"
+
+msgid "Link Instagram"
+msgstr "Instagram リンク"
+
+msgid "Link Line"
+msgstr "LINE リンク"
+
+msgid "Link Tiktok"
+msgstr "TikTok リンク"
+
+msgid "Link Whatsapp"
+msgstr "WhatsApp リンク"
+
+# ── Baked List / New titles ───────────────────────────────────
+msgid "New Vocational Training Institution"
+msgstr "新規職業訓練機関"
+
+msgid "List Vocational Training Institutions"
+msgstr "職業訓練機関一覧"
+
+msgid "New Apprentice Order"
+msgstr "新規求人オーダー"
+
+msgid "List Apprentice Orders"
+msgstr "求人オーダー一覧"
+
+msgid "New Master Gender"
+msgstr "新規性別"
+
+msgid "New Master Religion"
+msgstr "新規宗教"
+
+msgid "New Master Marriage Status"
+msgstr "新規婚姻状況"
+
+msgid "New Master Blood Type"
+msgstr "新規血液型"
+
+msgid "New Master Rejected Reason"
+msgstr "新規不合格理由"
+
+# ── View-page & master-data labels (tier 4) ───────────────────
+msgid "Image Path"
+msgstr "画像パス"
+
+msgid "Image Photo"
+msgstr "写真画像"
+
+msgid "Birth Place Katakana"
+msgstr "出生地（カタカナ）"
+
+msgid "Candidate Code"
+msgstr "候補者コード"
+
+msgid "Applicant Code"
+msgstr "応募者コード"
+
+msgid "Tmm Code"
+msgstr "TMM コード"
+
+msgid "Education"
+msgstr "学歴"
+
+msgid "Courses"
+msgstr "コース"
+
+msgid "Certifications"
+msgstr "資格・認定"
+
+msgid "Training Pass"
+msgstr "実習合格"
+
+msgid "Apprenticeship Pass"
+msgstr "研修合格"
+
+msgid "Select trainee"
+msgstr "実習生を選択"
+
+msgid "record(s)"
+msgstr "件"
+
+msgid "optional"
+msgstr "任意"
+
+msgid "PDF"
+msgstr "PDF"
+
+msgid "Excel"
+msgstr "Excel"
+
+msgid "CSV"
+msgstr "CSV"
+
+msgid "Enter Link Facebook"
+msgstr "Facebook リンクを入力"
+
+msgid "Enter Link Instagram"
+msgstr "Instagram リンクを入力"
+
+msgid "Enter Link Line"
+msgstr "LINE リンクを入力"
+
+msgid "Enter Link Tiktok"
+msgstr "TikTok リンクを入力"
+
+msgid "Enter Link Whatsapp"
+msgstr "WhatsApp リンクを入力"
+
+# ── Master-data add/list titles ───────────────────────────────
+msgid "New Master Propinsi"
+msgstr "新規州・県"
+
+msgid "New Master Kabupaten"
+msgstr "新規市・区"
+
+msgid "New Master Kecamatan"
+msgstr "新規郡"
+
+msgid "New Master Kelurahan"
+msgstr "新規町・村"
+
+msgid "New Candidate Education"
+msgstr "新規候補者学歴"
+
+msgid "New Candidate Experience"
+msgstr "新規候補者職歴"
+
+msgid "New Candidate Family"
+msgstr "新規候補者家族"
+
+msgid "New Candidate Course"
+msgstr "新規候補者コース"
+
+msgid "New Candidate Certification"
+msgstr "新規候補者資格"
+
+msgid "New Candidate Document"
+msgstr "新規候補者書類"
+
+# ── Administrator Dashboard ───────────────────────────────────
+msgid "Administrator Dashboard"
+msgstr "管理者ダッシュボード"
+
+msgid "System-wide overview of the TMM Apprentice Management System"
+msgstr "TMM 技能実習生管理システムの全体概要"
+
+msgid "System Users"
+msgstr "システムユーザー"
+
+msgid "Apprentices in Japan"
+msgstr "在日実習生"
+
+msgid "Recruitment Pipeline"
+msgstr "採用パイプライン"
+
+msgid "Timeline: Candidate → Trainee → Apprentice"
+msgstr "タイムライン：候補者 → 実習生 → 技能実習生"
+
+msgid "Candidate → Trainee conversion"
+msgstr "候補者 → 実習生 転換率"
+
+msgid "Trainee → Apprentice conversion"
+msgstr "実習生 → 技能実習生 転換率"
+
+msgid "Finance Snapshot"
+msgstr "財務概況"
+
+msgid "Contracted"
+msgstr "契約総額"
+
+msgid "Collection Rate"
+msgstr "回収率"
+
+msgid "paid off"
+msgstr "完済"
+
+msgid "Stakeholder Network"
+msgstr "関係機関ネットワーク"
+
+msgid "Vocational Training Institutions"
+msgstr "職業訓練機関"
+
+msgid "Support Institutions"
+msgstr "登録支援機関"
+
+msgid "Operations & Access"
+msgstr "業務・アクセス管理"
+
+msgid "Document Tickets"
+msgstr "書類チケット"
+
+msgid "Installment Records"
+msgstr "分割払い記録"
+
+msgid "Users by Role"
+msgstr "役割別ユーザー"
+
+msgid "Manage Users"
+msgstr "ユーザー管理"
+
+msgid "Recent Users"
+msgstr "最近のユーザー"
+
+msgid "Recent Candidates"
+msgstr "最近の候補者"
+
+msgid "Recent Trainees"
+msgstr "最近の実習生"
+
+msgid "No records yet."
+msgstr "記録がまだありません。"
+
+# ── Tier 5: legends, dropdowns, save buttons, field labels ────
+msgid "-- Select Vocational Training Institution Id --"
+msgstr "-- 職業訓練機関を選択 --"
+
+msgid "-- Select Acceptance Organization Id --"
+msgstr "-- 受入れ機関を選択 --"
+
+msgid "-- Select Master Rejected Reason Id --"
+msgstr "-- 不合格理由を選択 --"
+
+msgid "-- Select Master Religion Id --"
+msgstr "-- 宗教を選択 --"
+
+msgid "-- Select Master Marriage Status Id --"
+msgstr "-- 婚姻状況を選択 --"
+
+msgid "-- Select Master Gender Id --"
+msgstr "-- 性別を選択 --"
+
+msgid "-- Select Blood Type Id --"
+msgstr "-- 血液型を選択 --"
+
+msgid "-- Select Apprenticeship Order Id --"
+msgstr "-- 実習受入れ注文を選択 --"
+
+msgid "Save Trainee"
+msgstr "実習生を保存"
+
+msgid "Save Candidate"
+msgstr "候補者を保存"
+
+msgid "Save Apprentice"
+msgstr "技能実習生を保存"
+
+msgid "Enter Trainee Information"
+msgstr "実習生情報を入力"
+
+msgid "Enter Candidate Information"
+msgstr "候補者情報を入力"
+
+msgid "Enter Apprentice Information"
+msgstr "技能実習生情報を入力"
+
+msgid "Core profile, address, contacts"
+msgstr "基本情報・住所・連絡先"
+
+msgid "Personal Information"
+msgstr "個人情報"
+
+msgid "Contact & Social Media"
+msgstr "連絡先・SNS"
+
+msgid "Japan Experience & Plans"
+msgstr "日本での経験・計画"
+
+msgid "Family data"
+msgstr "家族情報"
+
+msgid "Family"
+msgstr "家族"
+
+msgid "Work experience"
+msgstr "職歴"
+
+msgid "Experience"
+msgstr "経験"
+
+msgid "Stories"
+msgstr "ストーリー"
+
+msgid "Document"
+msgstr "書類"
+
+msgid "File"
+msgstr "ファイル"
+
+msgid "Checklist"
+msgstr "チェックリスト"
+
+msgid "Code"
+msgstr "コード"
+
+msgid "Gender"
+msgstr "性別"
+
+msgid "Company Name"
+msgstr "会社名"
+
+msgid "Director Hiragana"
+msgstr "代表者（ひらがな）"
+
+msgid "Place of Issue"
+msgstr "発行地"
+
+msgid "Date Permitted"
+msgstr "許可日"
+
+msgid "Date Paid"
+msgstr "支払日"
+
+msgid "Date Expired"
+msgstr "有効期限"
+
+msgid "Visa Received"
+msgstr "ビザ受領"
+
+msgid "COE Received"
+msgstr "在留資格認定証明書受領"
+
+msgid "Promotion History"
+msgstr "昇進履歴"
+
+msgid "Download Image"
+msgstr "画像をダウンロード"
+
+msgid "Completed"
+msgstr "完了"
+
+msgid "Inactive - Not operational"
+msgstr "非稼働 - 運用停止中"
+
+msgid "No trainees found."
+msgstr "実習生が見つかりません。"
+
+msgid "Filter Title"
+msgstr "タイトルで絞り込み"
+
+msgid "Enter Post Code"
+msgstr "郵便番号を入力"
+
+msgid "Enter Full Name"
+msgstr "氏名を入力"
+
+msgid "Enter Candidate Code"
+msgstr "候補者コードを入力"
+
+msgid "Enter Applicant Code"
+msgstr "応募者コードを入力"
+
+msgid "Enter Tmm Code"
+msgstr "TMM コードを入力"
+
+msgid "Enter Birth Place (City/District)"
+msgstr "出生地（市・区）を入力"
+
+msgid "Enter Complete Address (Street, RT/RW, etc.)"
+msgstr "完全な住所（番地・RT/RW 等）を入力"
+
+msgid "Enter 16-digit Identity Number (NIK/KTP)"
+msgstr "16桁の身分証番号（NIK/KTP）を入力"
+
+msgid "Select Birth Date (YYYY-MM-DD)"
+msgstr "生年月日を選択（YYYY-MM-DD）"
+
+# ── Tier 6: statuses, view labels, glosses, guidance ──────────
+msgid "Candidates"
+msgstr "候補者"
+
+msgid "trainees"
+msgstr "実習生"
+
+msgid "unknown trainee"
+msgstr "不明な実習生"
+
+msgid "Age"
+msgstr "年齢"
+
+msgid "years"
+msgstr "歳"
+
+msgid "Smoking"
+msgstr "喫煙"
+
+msgid "Right Handed"
+msgstr "右利き"
+
+msgid "Holding Passport"
+msgstr "パスポート保有"
+
+msgid "Color Blind"
+msgstr "色覚異常"
+
+msgid "Tattooed"
+msgstr "入れ墨あり"
+
+msgid "Wears Eye Glasses"
+msgstr "眼鏡着用"
+
+msgid "Work Experience"
+msgstr "職務経歴"
+
+msgid "Background & Motivation"
+msgstr "経歴・志望動機"
+
+msgid "Enter Is Training Pass"
+msgstr "実習合格を入力"
+
+msgid "Enter Is Apprenticeship Pass"
+msgstr "研修合格を入力"
+
+msgid "Enter Is Holding Passport"
+msgstr "パスポート保有を入力"
+
+msgid "Booked"
+msgstr "予約済み"
+
+msgid "Cancelled"
+msgstr "キャンセル済み"
+
+msgid "Installment"
+msgstr "分割払い"
+
+msgid "All Journals"
+msgstr "すべての仕訳"
+
+msgid "Totals"
+msgstr "合計"
+
+msgid "Total Price"
+msgstr "合計金額"
+
+msgid "Translation"
+msgstr "翻訳"
+
+msgid "Transit Routes"
+msgstr "経由ルート"
+
+msgid "Ticket Type"
+msgstr "チケット種別"
+
+msgid "Ticket Number"
+msgstr "チケット番号"
+
+msgid "Select type"
+msgstr "種別を選択"
+
+msgid "Visa Application"
+msgstr "ビザ申請"
+
+msgid "Visa Issued In"
+msgstr "ビザ発行地"
+
+msgid "Upload"
+msgstr "アップロード"
+
+msgid "Uploaded By"
+msgstr "アップロード者"
+
+msgid "Uploaded At"
+msgstr "アップロード日時"
+
+msgid "View file"
+msgstr "ファイルを表示"
+
+msgid "Tests"
+msgstr "テスト"
+
+msgid "Certs"
+msgstr "資格"
+
+msgid "Show All"
+msgstr "すべて表示"
+
+msgid "TikTok"
+msgstr "TikTok"
+
+msgid "WhatsApp"
+msgstr "WhatsApp"
+
+msgid "WhatsApp number or link"
+msgstr "WhatsApp 番号またはリンク"
+
+msgid "TikTok username or link"
+msgstr "TikTok ユーザー名またはリンク"
+
+msgid "Unique identifier code for this candidate."
+msgstr "この候補者の一意の識別コード。"
+
+msgid "Suspended / Inactive"
+msgstr "停止中／非稼働"
+
+msgid "Suspended - Temporarily not accepting"
+msgstr "停止中 - 一時的に受入れ停止"
+
+msgid "Suspended - Temporarily inactive"
+msgstr "停止中 - 一時的に非稼働"
+
+msgid "Temporarily not accepting apprentices"
+msgstr "一時的に実習生を受け入れていません"
+
+msgid "Temporarily inactive - permit under review"
+msgstr "一時的に非稼働 - 許可審査中"
+
+msgid "-- Select Vocational Training Institution --"
+msgstr "-- 職業訓練機関を選択 --"
+
+# ── Tier 7: relation empty-states & entity glosses ────────────
+msgid "This record is not associated with any VocationalTrainingInstitution."
+msgstr "この記録は職業訓練機関に関連付けられていません。"
+
+msgid "This record is not associated with any AcceptanceOrganization."
+msgstr "この記録は受入れ機関に関連付けられていません。"
+
+msgid "This record is not associated with any ApprenticeOrder."
+msgstr "この記録は実習受入れ注文に関連付けられていません。"
+
+msgid "This record is not associated with any MasterReligion."
+msgstr "この記録は宗教マスタに関連付けられていません。"
+
+msgid "This record is not associated with any MasterPropinsi."
+msgstr "この記録は州・県マスタに関連付けられていません。"
+
+msgid "This record is not associated with any MasterMarriageStatus."
+msgstr "この記録は婚姻状況マスタに関連付けられていません。"
+
+msgid "This record is not associated with any MasterKelurahan."
+msgstr "この記録は町・村マスタに関連付けられていません。"
+
+msgid "This record is not associated with any MasterKecamatan."
+msgstr "この記録は郡マスタに関連付けられていません。"
+
+msgid "This record is not associated with any MasterKabupaten."
+msgstr "この記録は市・区マスタに関連付けられていません。"
+
+msgid "This record is not associated with any MasterGender."
+msgstr "この記録は性別マスタに関連付けられていません。"
+
+msgid "This record is not associated with any MasterBloodType."
+msgstr "この記録は血液型マスタに関連付けられていません。"
+
+msgid "Acceptance Organization"
+msgstr "受入れ機関"
+
+msgid "Vocational Training Institution"
+msgstr "職業訓練機関"
+
+msgid "Apprentice Order"
+msgstr "実習受入れ注文"
+
+msgid "Kode Kecamatan"
+msgstr "郡コード"
+
+msgid "TMM Code"
+msgstr "TMM コード"
+
+msgid "Title Jpg"
+msgstr "画像タイトル"
+
+msgid "VocationalTrainingInstitution Details"
+msgstr "職業訓練機関の詳細"
+
+msgid "List Vocational Training Institution Stories"
+msgstr "職業訓練機関ストーリー一覧"
+
+msgid "List Acceptance Organization Stories"
+msgstr "受入れ機関ストーリー一覧"
+
+msgid "List Special Skill Support Institutions"
+msgstr "登録支援機関一覧"
+
+# ── Tier 7b: dropdowns, legends, guidance, empty-states ───────
+msgid "-- Select Trainee Id --"
+msgstr "-- 実習生を選択 --"
+
+msgid "-- Select Religion --"
+msgstr "-- 宗教を選択 --"
+
+msgid "-- Select Marriage Status --"
+msgstr "-- 婚姻状況を選択 --"
+
+msgid "-- Select Gender --"
+msgstr "-- 性別を選択 --"
+
+msgid "-- Select Blood Type --"
+msgstr "-- 血液型を選択 --"
+
+msgid "-- Select Apprentice Order --"
+msgstr "-- 実習受入れ注文を選択 --"
+
+msgid "-- Select Acceptance Organization --"
+msgstr "-- 受入れ機関を選択 --"
+
+msgid "-- Select Master Kelurahan Id --"
+msgstr "-- 町・村を選択 --"
+
+msgid "-- Select Master Kecamatan Id --"
+msgstr "-- 郡を選択 --"
+
+msgid "-- Select Master Kabupaten Id --"
+msgstr "-- 市・区を選択 --"
+
+msgid "-- Select Master Blood Type Id --"
+msgstr "-- 血液型を選択 --"
+
+msgid "-- Select Apprentice Order Id --"
+msgstr "-- 実習受入れ注文を選択 --"
+
+msgid "Select Birth Date"
+msgstr "生年月日を選択"
+
+msgid "Select Province first; City, District and Village will be populated automatically"
+msgstr "先に州・県を選択してください。市・区・郡・町村は自動的に表示されます"
+
+msgid "Save Vocational Training Institution Story"
+msgstr "職業訓練機関ストーリーを保存"
+
+msgid "Save Special Skill Support Institution"
+msgstr "登録支援機関を保存"
+
+msgid "Save Acceptance Organization Story"
+msgstr "受入れ機関ストーリーを保存"
+
+msgid "Save Acceptance Organization"
+msgstr "受入れ機関を保存"
+
+msgid "Result"
+msgstr "結果"
+
+msgid "Religion"
+msgstr "宗教"
+
+msgid "Related Records"
+msgstr "関連記録"
+
+msgid "Recent formal photo of the candidate."
+msgstr "候補者の最近の正式な写真。"
+
+msgid "Promote to Apprentice"
+msgstr "技能実習生へ昇格"
+
+msgid "Promoted"
+msgstr "昇格済み"
+
+msgid "Progress"
+msgstr "進捗"
+
+msgid "Passed"
+msgstr "合格"
+
+msgid "Placement & Order Information"
+msgstr "配属・注文情報"
+
+msgid "Physical Score"
+msgstr "身体スコア"
+
+msgid "Physical Condition & Health"
+msgstr "身体状態・健康"
+
+msgid "Physical"
+msgstr "身体"
+
+msgid "Phone numbers, email and social media accounts"
+msgstr "電話番号・メール・SNS アカウント"
+
+msgid "Previous experience and future plans related to Japan"
+msgstr "日本に関する過去の経験と将来の計画"
+
+msgid "Problem, solution or cause…"
+msgstr "問題・解決策・原因…"
+
+msgid "Operational - can manage member organizations"
+msgstr "稼働中 - 会員機関を管理できます"
+
+msgid "Not operational"
+msgstr "非稼働"
+
+msgid "Not balanced"
+msgstr "貸借不一致"
+
+msgid "No longer operational"
+msgstr "運用終了"
+
+msgid "No tickets yet."
+msgstr "チケットはまだありません。"
+
+msgid "No payments match the current filter."
+msgstr "現在の絞り込みに一致する支払いはありません。"
+
+msgid "No incidents match the current filter."
+msgstr "現在の絞り込みに一致する事例はありません。"
+
+msgid "No incidents logged - all clear."
+msgstr "記録された事例はありません - すべて問題なし。"
+
+msgid "Missing Record"
+msgstr "記録なし"
+
+msgid "Modified"
+msgstr "更新日時"
+
+msgid "National identity number (KTP). Must be 16 digits."
+msgstr "国民識別番号（KTP）。16桁である必要があります。"
+
+msgid "Name in Katakana (カタカナ). Example: タナカ タロウ"
+msgstr "カタカナ氏名。例：タナカ タロウ"
+
+# ── Tier 8: master-data view families ──
+msgid "MasterReligions"
+msgstr "宗教マスタ"
+
+msgid "MasterReligion Details"
+msgstr "宗教マスタの詳細"
+
+msgid "No MasterReligion Associated"
+msgstr "宗教マスタが関連付けられていません"
+
+msgid "MasterPropinsis"
+msgstr "州・県マスタ"
+
+msgid "MasterPropinsi Details"
+msgstr "州・県マスタの詳細"
+
+msgid "No MasterPropinsi Associated"
+msgstr "州・県マスタが関連付けられていません"
+
+msgid "MasterMarriageStatuss"
+msgstr "婚姻状況マスタ"
+
+msgid "MasterMarriageStatus Details"
+msgstr "婚姻状況マスタの詳細"
+
+msgid "No MasterMarriageStatus Associated"
+msgstr "婚姻状況マスタが関連付けられていません"
+
+msgid "MasterKelurahans"
+msgstr "町・村マスタ"
+
+msgid "MasterKelurahan Details"
+msgstr "町・村マスタの詳細"
+
+msgid "No MasterKelurahan Associated"
+msgstr "町・村マスタが関連付けられていません"
+
+msgid "MasterKecamatans"
+msgstr "郡マスタ"
+
+msgid "MasterKecamatan Details"
+msgstr "郡マスタの詳細"
+
+msgid "No MasterKecamatan Associated"
+msgstr "郡マスタが関連付けられていません"
+
+msgid "MasterKabupatens"
+msgstr "市・区マスタ"
+
+msgid "MasterKabupaten Details"
+msgstr "市・区マスタの詳細"
+
+msgid "No MasterKabupaten Associated"
+msgstr "市・区マスタが関連付けられていません"
+
+msgid "MasterGenders"
+msgstr "性別マスタ"
+
+msgid "MasterGender Details"
+msgstr "性別マスタの詳細"
+
+msgid "No MasterGender Associated"
+msgstr "性別マスタが関連付けられていません"
+
+msgid "MasterBloodTypes"
+msgstr "血液型マスタ"
+
+msgid "MasterBloodType Details"
+msgstr "血液型マスタの詳細"
+
+msgid "No MasterBloodType Associated"
+msgstr "血液型マスタが関連付けられていません"
+
+msgid "MasterMarriageStatuses"
+msgstr "婚姻状況マスタ"
+
+msgid "No VocationalTrainingInstitution Associated"
+msgstr "職業訓練機関が関連付けられていません"
+
+msgid "No AcceptanceOrganization Associated"
+msgstr "受入れ機関が関連付けられていません"
+
+msgid "No ApprenticeOrder Associated"
+msgstr "実習受入れ注文が関連付けられていません"
+
+msgid "VocationalTrainingInstitutions"
+msgstr "職業訓練機関"
+
+# ── Tier 8b: fields, placeholders, filters, legends ───────────
+msgid "Full Name"
+msgstr "氏名"
+
+msgid "Full name as it appears on the identity card."
+msgstr "身分証明書に記載されている氏名。"
+
+msgid "Marriage Status"
+msgstr "婚姻状況"
+
+msgid "Institution Name"
+msgstr "機関名"
+
+msgid "Interview"
+msgstr "面接"
+
+msgid "Entry"
+msgstr "登録"
+
+msgid "In Training"
+msgstr "実習中"
+
+msgid "Ever Went To Japan"
+msgstr "渡日経験"
+
+msgid "Grading Remarks"
+msgstr "評価コメント"
+
+msgid "Male Trainee Number"
+msgstr "男性実習生数"
+
+msgid "Female Trainee Number"
+msgstr "女性実習生数"
+
+msgid "Is Special Skill Support Institution"
+msgstr "登録支援機関である"
+
+msgid "LINE"
+msgstr "LINE"
+
+msgid "LINE ID"
+msgstr "LINE ID"
+
+msgid "Instagram"
+msgstr "Instagram"
+
+msgid "Facebook"
+msgstr "Facebook"
+
+msgid "Facebook profile or link"
+msgstr "Facebook プロフィールまたはリンク"
+
+msgid "Instagram username or link"
+msgstr "Instagram ユーザー名またはリンク"
+
+msgid "Loading options..."
+msgstr "選択肢を読み込み中…"
+
+msgid "Kode Kelurahan"
+msgstr "町・村コード"
+
+msgid "Employment Start Year"
+msgstr "就業開始年"
+
+msgid "Employment End Year"
+msgstr "就業終了年"
+
+msgid "Identity, name, birth data and photo"
+msgstr "身分・氏名・出生情報・写真"
+
+msgid "Family member or close relative."
+msgstr "家族または近親者。"
+
+msgid "Family Information"
+msgstr "家族情報"
+
+msgid "Filter Name"
+msgstr "名前で絞り込み"
+
+msgid "Filter Institution Name"
+msgstr "機関名で絞り込み"
+
+msgid "Filter Company Name"
+msgstr "会社名で絞り込み"
+
+msgid "Filter Age"
+msgstr "年齢で絞り込み"
+
+msgid "Filter Course Year"
+msgstr "受講年で絞り込み"
+
+msgid "Filter Certification Date"
+msgstr "資格取得日で絞り込み"
+
+msgid "Filter Employment Start Year"
+msgstr "就業開始年で絞り込み"
+
+msgid "Filter Employment End Year"
+msgstr "就業終了年で絞り込み"
+
+msgid "List Cooperative Associations"
+msgstr "監理団体一覧"
+
+msgid "Enter Company Name"
+msgstr "会社名を入力"
+
+msgid "Enter Birth Place"
+msgstr "出生地を入力"
+
+msgid "Enter Identity Number"
+msgstr "身分証番号を入力"
+
+msgid "Enter Telephone Mobile"
+msgstr "携帯電話番号を入力"
+
+msgid "Enter Telephone Emergency"
+msgstr "緊急連絡先を入力"
+
+msgid "Enter Mobile Number (e.g., 081234567890)"
+msgstr "携帯番号を入力（例：081234567890）"
+
+msgid "Enter Emergency Contact Number"
+msgstr "緊急連絡先番号を入力"
+
+msgid "Enter Director Hiragana (Hiragana)"
+msgstr "代表者名（ひらがな）を入力"
+
+msgid "Enter Acceptance Organization Information"
+msgstr "受入れ機関情報を入力"
+
+msgid "Enter Acceptance Organization Story Information"
+msgstr "受入れ機関ストーリー情報を入力"
+
+msgid "Enter Vocational Training Institution Story Information"
+msgstr "職業訓練機関ストーリー情報を入力"
+
+msgid "Enter Special Skill Support Institution Information"
+msgstr "登録支援機関情報を入力"
+
+# ── Tier 9: fields, statuses, view families, guidance ─────────
+msgid "Blood Type"
+msgstr "血液型"
+
+msgid "Batch"
+msgstr "バッチ"
+
+msgid "Course"
+msgstr "コース"
+
+msgid "Course Year"
+msgstr "受講年"
+
+msgid "Courses & Training"
+msgstr "コース・研修"
+
+msgid "Education History"
+msgstr "学歴"
+
+msgid "Certification Date"
+msgstr "資格取得日"
+
+msgid "Departure Year"
+msgstr "出発年"
+
+msgid "Departure Month"
+msgstr "出発月"
+
+msgid "Date Received"
+msgstr "受領日"
+
+msgid "Date of Issue"
+msgstr "発行日"
+
+msgid "Date Issued"
+msgstr "発行日"
+
+msgid "COE Type"
+msgstr "在留資格認定証明書の種類"
+
+msgid "Abbreviation"
+msgstr "略称"
+
+msgid "Airline"
+msgstr "航空会社"
+
+msgid "Clinic"
+msgstr "診療所"
+
+msgid "Emergency Contact Number"
+msgstr "緊急連絡先番号"
+
+msgid "Drinking Alcohol"
+msgstr "飲酒"
+
+msgid "Eligible"
+msgstr "対象"
+
+msgid "Eligible for Promotion"
+msgstr "昇格対象"
+
+msgid "Candidate Pass"
+msgstr "候補者合格"
+
+msgid "Checked In"
+msgstr "チェックイン済み"
+
+msgid "Uploaded"
+msgstr "アップロード済み"
+
+msgid "Unpaid Amount"
+msgstr "未払い額"
+
+msgid "Uncategorized"
+msgstr "未分類"
+
+msgid "Acceptance Org"
+msgstr "受入れ機関"
+
+msgid "Avg"
+msgstr "平均"
+
+msgid "Dr"
+msgstr "借方"
+
+msgid "Cr"
+msgstr "貸方"
+
+msgid "Confirm Promotion"
+msgstr "昇格を確認"
+
+msgid "Add Submission"
+msgstr "提出を追加"
+
+msgid "Add record"
+msgstr "記録を追加"
+
+msgid "Add flight leg"
+msgstr "フライト区間を追加"
+
+msgid "Add Account"
+msgstr "勘定科目を追加"
+
+msgid "Upload Document"
+msgstr "書類をアップロード"
+
+msgid "Upload Doc"
+msgstr "書類をアップロード"
+
+msgid "View Journals"
+msgstr "仕訳を表示"
+
+msgid "View All"
+msgstr "すべて表示"
+
+msgid "All types"
+msgstr "すべての種類"
+
+msgid "All Reports"
+msgstr "すべてのレポート"
+
+msgid "By classification:"
+msgstr "分類別："
+
+msgid "Data to be copied"
+msgstr "コピーされるデータ"
+
+# ── Fieldset legends & guidance sentences ─────────────────────
+msgid "Character, work history and reasons for applying"
+msgstr "性格・職歴・応募理由"
+
+msgid "Body measurements, eyesight and lifestyle"
+msgstr "身体測定・視力・生活習慣"
+
+msgid "Apprentice order, institution and acceptance organization"
+msgstr "実習受入れ注文・機関・受入れ機関"
+
+msgid "An acceptance organization is the company in Japan that receives and employs the apprentices."
+msgstr "受入れ機関とは、実習生を受け入れて雇用する日本の企業です。"
+
+msgid "Complete residential address including street name, RT/RW, and house number."
+msgstr "番地・RT/RW・住居番号を含む完全な居住住所。"
+
+msgid "Click to select date from calendar."
+msgstr "クリックしてカレンダーから日付を選択してください。"
+
+msgid "Click to choose a file or drag & drop it here"
+msgstr "クリックしてファイルを選択するか、ここにドラッグ＆ドロップしてください"
+
+msgid "Delete this incident record?"
+msgstr "この事例記録を削除しますか？"
+
+# ── Tier 9b: stakeholder view families & statuses ─────────────
+msgid "AcceptanceOrganizations"
+msgstr "受入れ機関"
+
+msgid "AcceptanceOrganization Details"
+msgstr "受入れ機関の詳細"
+
+msgid "CooperativeAssociationStories"
+msgstr "監理団体ストーリー"
+
+msgid "Active - Operational"
+msgstr "有効 - 稼働中"
+
+msgid "Active - Can accept new apprentices"
+msgstr "有効 - 新規実習生の受入れ可能"
+
+msgid "Can accept new apprenticeship assignments"
+msgstr "新規の実習配属を受け入れ可能"
+
+msgid "e.g., 12345"
+msgstr "例：12345"
+
+msgid "e.g., 081234567890"
+msgstr "例：081234567890"
+
+msgid "Edit Ticket"
+msgstr "チケットを編集"
+
+# ── Tier 10: guidance sentences & label families ──────────────
+msgid "Your data meets all requirements and is ready to be saved."
+msgstr "入力データはすべての要件を満たしており、保存する準備ができています。"
+
+msgid "When a payment clears a trainee's full balance it appears here as a receipt."
+msgstr "支払いによって実習生の残高が完済されると、領収書としてここに表示されます。"
+
+msgid "when the difference reaches 0 the system issues the receipt and closes the balance."
+msgstr "差額が0になると、システムが領収書を発行し残高を締め切ります。"
+
+msgid "when the immigration office issued the passport"
+msgstr "入国管理局がパスポートを発行した日"
+
+msgid "when the passport fee was settled"
+msgstr "パスポート手数料が精算された日"
+
+msgid "when TMM received the physical passport from the trainee"
+msgstr "TMM が実習生からパスポート原本を受領した日"
+
+msgid "Use the buttons above to add each trainee's passport details."
+msgstr "上のボタンから各実習生のパスポート情報を追加してください。"
+
+msgid "Use the buttons above to record each trainee's COE and visa details."
+msgstr "上のボタンから各実習生の在留資格認定証明書とビザ情報を記録してください。"
+
+msgid "Use the buttons above to record each trainee's medical check-up."
+msgstr "上のボタンから各実習生の健康診断を記録してください。"
+
+msgid "Upload pre-departure documents one by one, or work through a trainee's full list in the checklist."
+msgstr "出発前書類を1件ずつアップロードするか、チェックリストで実習生の全リストを処理してください。"
+
+msgid "Upload a pre-departure document for a trainee going to Japan"
+msgstr "日本へ渡航する実習生の出発前書類をアップロード"
+
+msgid "Uploader and upload time are recorded automatically"
+msgstr "アップロード者とアップロード日時は自動的に記録されます"
+
+msgid "uploaded but still awaiting review — not yet counted as complete"
+msgstr "アップロード済みですが確認待ちです — まだ完了とはみなされません"
+
+msgid "uploads pending review"
+msgstr "確認待ちのアップロード"
+
+msgid "Upload Rules"
+msgstr "アップロード規則"
+
+msgid "Turn source cost/price records into balanced double-entry journals, matched to the Chart of Accounts"
+msgstr "元となる原価・価格記録を、勘定科目表に対応した貸借一致の複式仕訳に変換します"
+
+msgid "Total debit must equal total credit - the Save button stays locked until it balances."
+msgstr "借方合計と貸方合計は一致する必要があります - 貸借が一致するまで保存ボタンはロックされます。"
+
+msgid "Trainee installment payments - who has paid, who still owes"
+msgstr "実習生の分割払い - 支払い済みの者と未払いの者"
+
+# ── Total / summary labels ────────────────────────────────────
+msgid "Total Trainees"
+msgstr "実習生合計"
+
+msgid "Total Tickets"
+msgstr "チケット合計"
+
+msgid "Total Submissions"
+msgstr "提出合計"
+
+msgid "Total Records"
+msgstr "記録合計"
+
+msgid "Total Entries"
+msgstr "仕訳合計"
+
+msgid "Total Debit"
+msgstr "借方合計"
+
+msgid "Total Credit"
+msgstr "貸方合計"
+
+msgid "Total assets"
+msgstr "総資産"
+
+msgid "Total Settled"
+msgstr "精算済み合計"
+
+msgid "Total Settled Value"
+msgstr "精算済み金額合計"
+
+msgid "Total Paid to Date"
+msgstr "これまでの支払い合計"
+
+msgid "Total Owing Cost"
+msgstr "未払い費用合計"
+
+# ── Labels & statuses ─────────────────────────────────────────
+msgid "Working in Japan"
+msgstr "日本で就労中"
+
+msgid "With Transit"
+msgstr "経由あり"
+
+msgid "With Passport Record"
+msgstr "パスポート記録あり"
+
+msgid "With COE / Visa Record"
+msgstr "在留資格認定証明書／ビザ記録あり"
+
+msgid "With Check-Up"
+msgstr "健康診断あり"
+
+msgid "Will Go After Finished"
+msgstr "修了後に渡日予定"
+
+msgid "Who is travelling"
+msgstr "渡航者"
+
+msgid "Visa Applied"
+msgstr "ビザ申請済み"
+
+msgid "view payments"
+msgstr "支払いを表示"
+
+msgid "Valid - expires in"
+msgstr "有効 - 期限まで"
+
+msgid "Training Institution"
+msgstr "訓練機関"
+
+msgid "Trainees without a passport record"
+msgstr "パスポート記録のない実習生"
+
+msgid "Trainees without a medical check-up"
+msgstr "健康診断のない実習生"
+
+msgid "Trainees without a COE / visa record"
+msgstr "在留資格認定証明書／ビザ記録のない実習生"
+
+msgid "Trainees Ready to Depart"
+msgstr "出発準備完了の実習生"
+
+msgid "Trainees Fully Paid"
+msgstr "完済済みの実習生"
+
+msgid "Trainee Progress"
+msgstr "実習生の進捗"
+
+msgid "Trainee ID"
+msgstr "実習生 ID"
+
+msgid "Trainee / Payer"
+msgstr "実習生／支払者"
+
+msgid "Trainee → Apprentice Promotion History"
+msgstr "実習生 → 技能実習生 昇格履歴"
+
+msgid "Tracking"
+msgstr "追跡"
+
+msgid "Top prefectures:"
+msgstr "上位の都道府県："
+
+msgid "Today"
+msgstr "本日"
+
+msgid "Tickets & Flights"
+msgstr "チケット・フライト"
+
+msgid "Tickets without flights yet"
+msgstr "フライト未登録のチケット"
+
+# ── Tier 11: no-related-records families ──
+msgid "There are no related CandidateFamilies for this Candidate."
+msgstr "この候補者に関連する候補者家族はありません。"
+
+msgid "There are no related CandidateExperiences for this Candidate."
+msgstr "この候補者に関連する候補者職歴はありません。"
+
+msgid "There are no related CandidateEducations for this Candidate."
+msgstr "この候補者に関連する候補者学歴はありません。"
+
+msgid "There are no related CandidateDocuments for this Candidate."
+msgstr "この候補者に関連する候補者書類はありません。"
+
+msgid "There are no related CandidateCourses for this Candidate."
+msgstr "この候補者に関連する候補者コースはありません。"
+
+msgid "There are no related CandidateCertifications for this Candidate."
+msgstr "この候補者に関連する候補者資格はありません。"
+
+msgid "There are no related ApprenticeFamilyStories for this Apprentice."
+msgstr "この技能実習生に関連する技能実習生家族ストーリーはありません。"
+
+msgid "There are no related ApprenticeFamilies for this Apprentice."
+msgstr "この技能実習生に関連する技能実習生家族はありません。"
+
+msgid "There are no related ApprenticeExperiences for this Apprentice."
+msgstr "この技能実習生に関連する技能実習生職歴はありません。"
+
+msgid "There are no related ApprenticeEducations for this Apprentice."
+msgstr "この技能実習生に関連する技能実習生学歴はありません。"
+
+msgid "There are no related ApprenticeCourses for this Apprentice."
+msgstr "この技能実習生に関連する技能実習生コースはありません。"
+
+msgid "There are no related ApprenticeCertifications for this Apprentice."
+msgstr "この技能実習生に関連する技能実習生資格はありません。"
+
+# ── Tier 11b: guidance, statuses, labels ──────────────────────
+msgid "Apprentices"
+msgstr "技能実習生"
+
+msgid "Trainee has departed to Japan"
+msgstr "実習生は日本へ出発しました"
+
+msgid "trainee has departed to Japan"
+msgstr "実習生は日本へ出発しました"
+
+msgid "Trainee has checked in for the flight"
+msgstr "実習生はフライトにチェックインしました"
+
+msgid "trainee has checked in for the flight"
+msgstr "実習生はフライトにチェックインしました"
+
+msgid "Ticket was cancelled"
+msgstr "チケットはキャンセルされました"
+
+msgid "ticket was cancelled"
+msgstr "チケットはキャンセルされました"
+
+msgid "Ticket purchased, departure planned"
+msgstr "チケット購入済み、出発予定"
+
+msgid "ticket purchased, departure planned"
+msgstr "チケット購入済み、出発予定"
+
+msgid "Trainee record created"
+msgstr "実習生記録を作成しました"
+
+msgid "Trainee Document Preparation Checklist"
+msgstr "実習生書類準備チェックリスト"
+
+msgid "Trainee batches, scores and completion"
+msgstr "実習生バッチ・スコア・修了状況"
+
+msgid "Training performance summary, special notes…"
+msgstr "実習成績の概要・特記事項…"
+
+msgid "Translation required"
+msgstr "翻訳が必要"
+
+msgid "Tidak Fit"
+msgstr "不適格"
+
+msgid "This trainee is already paid off - the receipt has been issued. No further payment can be recorded."
+msgstr "この実習生はすでに完済しており、領収書が発行されています。これ以上の支払いは記録できません。"
+
+msgid "This trainee already submitted this document. Saving will replace the existing file record."
+msgstr "この実習生はすでにこの書類を提出しています。保存すると既存のファイル記録が置き換えられます。"
+
+msgid "This payment settled the trainee's full balance. The account is now closed."
+msgstr "この支払いで実習生の残高が完済されました。口座は締め切られました。"
+
+msgid "This document is a system-generated payment record."
+msgstr "この書類はシステムが自動生成した支払い記録です。"
+
+msgid "This journal has no double-entry lines."
+msgstr "この仕訳には複式記入の明細がありません。"
+
+msgid "This Payment"
+msgstr "今回の支払い"
+
+msgid "The visa application is submitted to the Japanese embassy / consulate with the COE"
+msgstr "ビザ申請は在留資格認定証明書とともに日本大使館／領事館に提出されます"
+
+msgid "The passport comes back with the visa - record where it was issued"
+msgstr "パスポートはビザとともに返却されます - 発行地を記録してください"
+
+msgid "the immigration office listed in the passport"
+msgstr "パスポートに記載された入国管理局"
+
+msgid "The Departure Folder"
+msgstr "出発フォルダ"
+
+msgid "The account structure behind every journal entry and financial report"
+msgstr "すべての仕訳と財務レポートの基盤となる勘定構造"
+
+msgid "Termination Reason"
+msgstr "終了理由"
+
+msgid "Test Score"
+msgstr "テストスコア"
+
+msgid "Tattoo"
+msgstr "入れ墨"
+
+msgid "Submission Status"
+msgstr "提出状況"
+
+msgid "Submission Progress"
+msgstr "提出進捗"
+
+msgid "Subject"
+msgstr "件名"
+
+msgid "Still owing"
+msgstr "未払い"
+
+msgid "Still Missing Items"
+msgstr "未提出項目"
+
+msgid "Step 1 - set what each trainee must pay before recording any payment"
+msgstr "ステップ1 - 支払いを記録する前に各実習生の支払額を設定してください"
+
+msgid "Status \"Submitted\" counts toward departure readiness"
+msgstr "「提出済み」ステータスは出発準備の達成にカウントされます"
+
+msgid "Status legend:"
+msgstr "ステータス凡例："
+
+msgid "Start Over"
+msgstr "最初からやり直す"
+
+msgid "Special Skill Support Institution"
+msgstr "登録支援機関"
+
+msgid "source records ready to journalize"
+msgstr "仕訳可能な元記録"
+
+msgid "Settling payment (receipt)"
+msgstr "精算支払い（領収書）"
+
+msgid "Settled On"
+msgstr "精算日"
+
+msgid "SETTLED"
+msgstr "精算済み"
+
+msgid "Set Owing Cost"
+msgstr "未払い費用を設定"
+
+msgid "Set it first on Payment Tracking"
+msgstr "先に支払い追跡で設定してください"
+
+msgid "Set both dates to see the validity period."
+msgstr "有効期間を表示するには両方の日付を設定してください。"
+
+msgid "Self-registration progress"
+msgstr "自己登録の進捗"
+
+msgid "-- Select Trainee --"
+msgstr "-- 実習生を選択 --"
+
+msgid "Select Trainee"
+msgstr "実習生を選択"
+
+msgid "Select result"
+msgstr "結果を選択"
+
+msgid "Selection & Result"
+msgstr "選考・結果"
+
+msgid "Selected Document"
+msgstr "選択された書類"
+
+msgid "Select document type"
+msgstr "書類の種類を選択"
+
+msgid "Select Date Permitted"
+msgstr "許可日を選択"
+
+msgid "Select Date Expired"
+msgstr "有効期限を選択"
+
+msgid "Select COE type"
+msgstr "在留資格認定証明書の種類を選択"
+
+msgid "Select a trainee to see at a glance which preparation documents have been uploaded. Upload a file on each row to mark it as prepared."
+msgstr "実習生を選択すると、どの準備書類がアップロード済みか一目で確認できます。各行でファイルをアップロードすると準備完了として記録されます。"
+
+# ── Tier 12: related-records families ──
+msgid "Related CandidateFamilies"
+msgstr "関連候補者家族"
+
+msgid "Related CandidateExperiences"
+msgstr "関連候補者職歴"
+
+msgid "Related CandidateEducations"
+msgstr "関連候補者学歴"
+
+msgid "Related CandidateDocuments"
+msgstr "関連候補者書類"
+
+msgid "Related CandidateCourses"
+msgstr "関連候補者コース"
+
+msgid "Related CandidateCertifications"
+msgstr "関連候補者資格"
+
+msgid "Related ApprenticeFamilyStories"
+msgstr "関連技能実習生家族ストーリー"
+
+msgid "Related ApprenticeFamilies"
+msgstr "関連技能実習生家族"
+
+msgid "Related ApprenticeExperiences"
+msgstr "関連技能実習生職歴"
+
+msgid "Related ApprenticeEducations"
+msgstr "関連技能実習生学歴"
+
+msgid "Related ApprenticeCourses"
+msgstr "関連技能実習生コース"
+
+msgid "Related ApprenticeCertifications"
+msgstr "関連技能実習生資格"
+
+msgid "ApprenticeOrders"
+msgstr "実習受入れ注文"
+
+msgid "ApprenticeOrder Details"
+msgstr "実習受入れ注文の詳細"
+
+# ── Tier 12b: entity titles, guidance, labels ─────────────────
+msgid "Vocational Training Institution Story"
+msgstr "職業訓練機関ストーリー"
+
+msgid "Trainee Submission Documents"
+msgstr "実習生提出書類"
+
+msgid "Trainee Submission Document"
+msgstr "実習生提出書類"
+
+msgid "Trainee Record Pasport"
+msgstr "実習生パスポート記録"
+
+msgid "Trainee Record Medical Check Up"
+msgstr "実習生健康診断記録"
+
+msgid "Trainee Record Coe Visa"
+msgstr "実習生在留資格認定証明書・ビザ記録"
+
+msgid "Trainee Installment"
+msgstr "実習生分割払い"
+
+msgid "Trainee Details"
+msgstr "実習生の詳細"
+
+msgid "Tickets"
+msgstr "チケット"
+
+msgid "Ticket Details"
+msgstr "チケットの詳細"
+
+msgid "Ticket / Booking Ref"
+msgstr "チケット／予約番号"
+
+msgid "Type:"
+msgstr "種別："
+
+msgid "Status:"
+msgstr "ステータス："
+
+msgid "Set"
+msgstr "設定"
+
+msgid "seats left"
+msgstr "残席"
+
+msgid "School / College"
+msgstr "学校／大学"
+
+msgid "Schedule overlap"
+msgstr "日程の重複"
+
+msgid "Schedule Interview"
+msgstr "面接を予定"
+
+msgid "Saving Goal"
+msgstr "貯蓄目標"
+
+msgid "Save Ticket"
+msgstr "チケットを保存"
+
+msgid "Save MCU Result"
+msgstr "健康診断結果を保存"
+
+msgid "Save Interview"
+msgstr "面接を保存"
+
+msgid "Save Document"
+msgstr "書類を保存"
+
+msgid "Save Cooperative Association"
+msgstr "監理団体を保存"
+
+msgid "Revenue vs expenses from posted journals"
+msgstr "計上済み仕訳による収益と費用の対比"
+
+msgid "Revenue"
+msgstr "収益"
+
+msgid "Re-uploading a document replaces the previous record"
+msgstr "書類を再アップロードすると、以前の記録が置き換えられます"
+
+msgid "required for departure"
+msgstr "出発に必要"
+
+msgid "required document types"
+msgstr "必要な書類の種類"
+
+msgid "required documents"
+msgstr "必要書類"
+
+msgid "required"
+msgstr "必須"
+
+msgid "Report"
+msgstr "レポート"
+
+msgid "Replace"
+msgstr "置き換え"
+
+msgid "Remove this document record?"
+msgstr "この書類記録を削除しますか？"
+
+msgid "Remove record"
+msgstr "記録を削除"
+
+msgid "Remove leg"
+msgstr "区間を削除"
+
+msgid "Remove flight"
+msgstr "フライトを削除"
+
+msgid "Remove"
+msgstr "削除"
+
+msgid "remaining = owing cost minus accumulated payments."
+msgstr "残額 = 未払い費用 − 累計支払額。"
+
+msgid "Remaining Balance"
+msgstr "残高"
+
+msgid "Remaining:"
+msgstr "残り："
+
+msgid "Relationship"
+msgstr "続柄"
+
+msgid "Rejection"
+msgstr "不合格"
+
+msgid "Registered support bodies (tōroku shien kikan) for specified-skilled workers"
+msgstr "特定技能労働者のための登録支援機関"
+
+msgid "registered"
+msgstr "登録済み"
+
+msgid "Register a cooperative association (kumiai) partner"
+msgstr "監理団体（組合）パートナーを登録"
+
+msgid "Red = nothing collected yet"
+msgstr "赤 = まだ回収なし"
+
+msgid "Record the first payment"
+msgstr "最初の支払いを記録"
+
+msgid "Record debits and credits here - Posted entries feed the Income Statement, Balance Sheet and Cash Flow."
+msgstr "ここに借方と貸方を記録します - 計上済みの仕訳は損益計算書・貸借対照表・キャッシュフローに反映されます。"
+
+msgid "Record any problem that occurs at a vocational training institution, along with its cause, solution and lessons learned, so patterns can be spotted over time."
+msgstr "職業訓練機関で発生した問題を、その原因・解決策・教訓とともに記録し、時間の経過とともに傾向を把握できるようにします。"
+
+msgid "Record any problem that occurs at an acceptance organization, along with its cause, solution and lessons learned, so patterns can be spotted over time."
+msgstr "受入れ機関で発生した問題を、その原因・解決策・教訓とともに記録し、時間の経過とともに傾向を把握できるようにします。"
+
+msgid "Receiving bodies (kumiai) that place apprentices with member companies in Japan"
+msgstr "日本の会員企業に実習生を配属する受入れ団体（組合）"
+
+msgid "Received From"
+msgstr "受領元"
+
+msgid "Received by (Accounting)"
+msgstr "受領者（経理）"
+
+msgid "Received"
+msgstr "受領済み"
+
+msgid "Receipt Management"
+msgstr "領収書管理"
+
+msgid "Receipt"
+msgstr "領収書"
+
+msgid "ready to depart"
+msgstr "出発準備完了"
+
+msgid "Ready"
+msgstr "準備完了"
+
+msgid "Promotion Checklist"
+msgstr "昇格チェックリスト"
+
+msgid "Promote Trainee to Apprentice"
+msgstr "実習生を技能実習生へ昇格"
+
+msgid "Promote to Trainee"
+msgstr "実習生へ昇格"
+
+msgid "Promote Candidate to Trainee"
+msgstr "候補者を実習生へ昇格"
+
+msgid "Progress Tracking"
+msgstr "進捗追跡"
+
+msgid "Problems reported at vocational training institutions (LPK) - cause, solution and lessons learned"
+msgstr "職業訓練機関（LPK）で報告された問題 - 原因・解決策・教訓"
+
+msgid "Problems reported at acceptance organizations - cause, solution and lessons learned"
+msgstr "受入れ機関で報告された問題 - 原因・解決策・教訓"
+
+msgid "Print / PDF"
+msgstr "印刷／PDF"
+
+msgid "Price"
+msgstr "価格"
+
+msgid "Preview Data Before Saving"
+msgstr "保存前にデータをプレビュー"
+
+msgid "Pre-departure documents submitted by trainees going to Japan"
+msgstr "日本へ渡航する実習生が提出した出発前書類"
+
+msgid "Pre-departure document readiness for trainees going to Japan"
+msgstr "日本へ渡航する実習生の出発前書類の準備状況"
+
+msgid "Posted Volume (Debit)"
+msgstr "計上額（借方）"
+
+msgid "Posted entries feed the financial reports; Draft ones do not."
+msgstr "計上済みの仕訳は財務レポートに反映されますが、下書きは反映されません。"
+
+msgid "Position"
+msgstr "役職"
+
+msgid "Please select a training batch."
+msgstr "研修バッチを選択してください。"
+
+msgid "Please select a trainee above to view and update the document checklist."
+msgstr "上で実習生を選択して、書類チェックリストを表示・更新してください。"
+
+# ── Tier 13: no-related + relation empty-states ──
+msgid "No Related CandidateFamilies"
+msgstr "関連候補者家族なし"
+
+msgid "No Related CandidateExperiences"
+msgstr "関連候補者職歴なし"
+
+msgid "No Related CandidateEducations"
+msgstr "関連候補者学歴なし"
+
+msgid "No Related CandidateDocuments"
+msgstr "関連候補者書類なし"
+
+msgid "No Related CandidateCourses"
+msgstr "関連候補者コースなし"
+
+msgid "No Related CandidateCertifications"
+msgstr "関連候補者資格なし"
+
+msgid "No Related ApprenticeFamilyStories"
+msgstr "関連技能実習生家族ストーリーなし"
+
+msgid "No Related ApprenticeFamilies"
+msgstr "関連技能実習生家族なし"
+
+msgid "No Related ApprenticeExperiences"
+msgstr "関連技能実習生職歴なし"
+
+msgid "No Related ApprenticeEducations"
+msgstr "関連技能実習生学歴なし"
+
+msgid "No Related ApprenticeCourses"
+msgstr "関連技能実習生コースなし"
+
+msgid "No Related ApprenticeCertifications"
+msgstr "関連技能実習生資格なし"
+
+msgid "This record is not associated with any Trainee."
+msgstr "この記録は実習生に関連付けられていません。"
+
+msgid "No Trainee Associated"
+msgstr "実習生が関連付けられていません"
+
+msgid "This record is not associated with any Candidate."
+msgstr "この記録は候補者に関連付けられていません。"
+
+msgid "No Candidate Associated"
+msgstr "候補者が関連付けられていません"
+
+msgid "This record is not associated with any MasterRejectedReason."
+msgstr "この記録は不合格理由マスタに関連付けられていません。"
+
+msgid "No MasterRejectedReason Associated"
+msgstr "不合格理由マスタが関連付けられていません"
+
+msgid "This record is not associated with any MasterCandidateInterviewResult."
+msgstr "この記録は面接結果マスタに関連付けられていません。"
+
+msgid "No MasterCandidateInterviewResult Associated"
+msgstr "面接結果マスタが関連付けられていません"
+
+# ── Tier 13b: empty-states, statuses, labels ──────────────────
+msgid "No work experience records."
+msgstr "職務経歴の記録はありません。"
+
+msgid "No family records."
+msgstr "家族の記録はありません。"
+
+msgid "No education records."
+msgstr "学歴の記録はありません。"
+
+msgid "No documents submitted yet."
+msgstr "まだ書類が提出されていません。"
+
+msgid "No documents match the current filter."
+msgstr "現在の絞り込みに一致する書類はありません。"
+
+msgid "No documents."
+msgstr "書類はありません。"
+
+msgid "No test scores recorded yet"
+msgstr "テストスコアはまだ記録されていません"
+
+msgid "No physical test recorded"
+msgstr "身体テストは記録されていません"
+
+msgid "No passport records yet."
+msgstr "パスポートの記録はまだありません。"
+
+msgid "No medical check-up records yet."
+msgstr "健康診断の記録はまだありません。"
+
+msgid "No installment payments yet."
+msgstr "分割払いはまだありません。"
+
+msgid "No installment payments recorded yet."
+msgstr "分割払いはまだ記録されていません。"
+
+msgid "No settled payments yet."
+msgstr "精算済みの支払いはまだありません。"
+
+msgid "No journal entries yet."
+msgstr "仕訳はまだありません。"
+
+msgid "No journal entries yet - the monthly cash flow will appear here."
+msgstr "仕訳はまだありません - 月次キャッシュフローがここに表示されます。"
+
+msgid "No promotions recorded yet."
+msgstr "昇格はまだ記録されていません。"
+
+msgid "No promotion records yet."
+msgstr "昇格記録はまだありません。"
+
+msgid "No trainees pending promotion."
+msgstr "昇格待ちの実習生はいません。"
+
+msgid "No support institutions yet."
+msgstr "登録支援機関はまだありません。"
+
+msgid "No required documents configured."
+msgstr "必要書類が設定されていません。"
+
+msgid "No owing cost set for this trainee yet."
+msgstr "この実習生の未払い費用はまだ設定されていません。"
+
+msgid "Owing cost not set yet."
+msgstr "未払い費用がまだ設定されていません。"
+
+msgid "No Flights Yet"
+msgstr "フライトはまだありません"
+
+msgid "No flights linked to this ticket yet."
+msgstr "このチケットにはまだフライトが紐付けられていません。"
+
+msgid "No flights linked"
+msgstr "フライト未紐付け"
+
+msgid "No permit expiry dates recorded yet - add them on edit to enable expiry tracking."
+msgstr "許可の有効期限がまだ記録されていません - 編集画面で追加すると期限追跡が有効になります。"
+
+msgid "No tickets match the current filter."
+msgstr "現在の絞り込みに一致するチケットはありません。"
+
+msgid "No organizations match the current filter."
+msgstr "現在の絞り込みに一致する機関はありません。"
+
+msgid "No institutions match the current filter."
+msgstr "現在の絞り込みに一致する機関はありません。"
+
+msgid "No training batches available. Please create one first."
+msgstr "利用可能な研修バッチがありません。先に作成してください。"
+
+msgid "Not cleared - follow-up check-up required"
+msgstr "不合格 - 再検査が必要"
+
+msgid "Note the basis for this promotion decision…"
+msgstr "この昇格判断の根拠を記入してください…"
+
+# ── Statuses & short labels ───────────────────────────────────
+msgid "Not Uploaded"
+msgstr "未アップロード"
+
+msgid "Not Submitted"
+msgstr "未提出"
+
+msgid "Not tested"
+msgstr "未検査"
+
+msgid "not started"
+msgstr "未着手"
+
+msgid "Not scored"
+msgstr "未採点"
+
+msgid "Not required"
+msgstr "不要"
+
+msgid "off"
+msgstr "オフ"
+
+msgid "Occupation"
+msgstr "職業"
+
+msgid "Paid"
+msgstr "支払い済み"
+
+msgid "Paid off"
+msgstr "完済"
+
+msgid "Paid so far"
+msgstr "これまでの支払い"
+
+msgid "Paying Trainees"
+msgstr "支払い中の実習生"
+
+msgid "Passport"
+msgstr "パスポート"
+
+msgid "Passport Details"
+msgstr "パスポート情報"
+
+msgid "Passport administration for trainees going to Japan"
+msgstr "日本へ渡航する実習生のパスポート管理"
+
+msgid "Passport administration for a trainee going to Japan"
+msgstr "日本へ渡航する実習生のパスポート管理"
+
+msgid "Payment Details"
+msgstr "支払い情報"
+
+msgid "Payment Amount (Rp)"
+msgstr "支払額（Rp）"
+
+msgid "Payment Accummulated"
+msgstr "累計支払額"
+
+msgid "Pending Value"
+msgstr "保留中の金額"
+
+msgid "Pending Records"
+msgstr "保留中の記録"
+
+msgid "Period"
+msgstr "期間"
+
+msgid "Permitted"
+msgstr "許可済み"
+
+msgid "permit(s) expired"
+msgstr "期限切れの許可"
+
+msgid "Permit Period"
+msgstr "許可期間"
+
+msgid "Permit has expired."
+msgstr "許可の有効期限が切れています。"
+
+msgid "Permit Dates Set"
+msgstr "許可日設定済み"
+
+msgid "Physical Test"
+msgstr "身体テスト"
+
+msgid "Place Visa Issued"
+msgstr "ビザ発行地"
+
+msgid "Place Issue"
+msgstr "発行地"
+
+msgid "Placement & Order"
+msgstr "配属・注文"
+
+msgid "Outstanding Payments"
+msgstr "未回収の支払い"
+
+msgid "Outstanding balance after this payment"
+msgstr "今回の支払い後の未払い残高"
+
+msgid "Out of Balance"
+msgstr "貸借不一致"
+
+msgid "Owing cost (Rp)"
+msgstr "未払い費用（Rp）"
+
+msgid "overall completion"
+msgstr "全体の完了率"
+
+msgid "Organization Incident Log"
+msgstr "機関インシデント記録"
+
+msgid "Orange = started, still far to go"
+msgstr "オレンジ = 着手済み、まだ道のりは長い"
+
+msgid "Operational Status"
+msgstr "稼働状況"
+
+msgid "Operational Reports"
+msgstr "業務レポート"
+
+msgid "Open report"
+msgstr "レポートを開く"
+
+msgid "Open Payment Tracking"
+msgstr "支払い追跡を開く"
+
+msgid "Open Document Checklist"
+msgstr "書類チェックリストを開く"
+
+msgid "Open Checklist"
+msgstr "チェックリストを開く"
+
+msgid "One record per trainee is enough - it marks the passport step complete in the pre-departure pipeline."
+msgstr "実習生1人につき1件で十分です - 出発前パイプラインのパスポート工程が完了として記録されます。"
+
+msgid "Please select an apprentice order before promoting."
+msgstr "昇格する前に実習受入れ注文を選択してください。"
+
+msgid "Please review your data and validation status before saving to database."
+msgstr "データベースに保存する前に、データと検証状況を確認してください。"
+
+# ── Tier 14: master families, empty-states, accounting, fields ─
+msgid "MasterRejectedReasons"
+msgstr "不合格理由マスタ"
+
+msgid "MasterRejectedReason Details"
+msgstr "不合格理由マスタの詳細"
+
+msgid "MasterCandidateInterviewResults"
+msgstr "面接結果マスタ"
+
+msgid "MasterCandidateInterviewResult Details"
+msgstr "面接結果マスタの詳細"
+
+msgid "New Vocational Training Institution Story"
+msgstr "新規職業訓練機関ストーリー"
+
+msgid "New Special Skill Support Institution"
+msgstr "新規登録支援機関"
+
+msgid "New Acceptance Organization Story"
+msgstr "新規受入れ機関ストーリー"
+
+# ── Empty states ──────────────────────────────────────────────
+msgid "No document cost records yet."
+msgstr "書類費用の記録はまだありません。"
+
+msgid "No description"
+msgstr "説明なし"
+
+msgid "No course records."
+msgstr "コースの記録はありません。"
+
+msgid "No cooperative associations yet."
+msgstr "監理団体はまだありません。"
+
+msgid "No COE / visa records yet."
+msgstr "在留資格認定証明書／ビザの記録はまだありません。"
+
+msgid "No Check-Up Yet"
+msgstr "健康診断はまだありません"
+
+msgid "No certification records."
+msgstr "資格の記録はありません。"
+
+msgid "No candidates yet."
+msgstr "候補者はまだいません。"
+
+msgid "No candidates pending promotion."
+msgstr "昇格待ちの候補者はいません。"
+
+msgid "No associations match the current filter."
+msgstr "現在の絞り込みに一致する団体はありません。"
+
+msgid "No apprentice orders available. Please create one first."
+msgstr "利用可能な実習受入れ注文がありません。先に作成してください。"
+
+msgid "No AO interview recorded"
+msgstr "受入れ機関面接の記録はありません"
+
+msgid "No accounts yet."
+msgstr "勘定科目はまだありません。"
+
+msgid "No accounts of this type yet."
+msgstr "この種類の勘定科目はまだありません。"
+
+msgid "No accounts defined yet."
+msgstr "勘定科目がまだ定義されていません。"
+
+msgid "No acceptance organizations yet."
+msgstr "受入れ機関はまだありません。"
+
+# ── Accounting & finance ──────────────────────────────────────
+msgid "Network"
+msgstr "ネットワーク"
+
+msgid "Net result"
+msgstr "純損益"
+
+msgid "Net Profit"
+msgstr "純利益"
+
+msgid "Net Loss"
+msgstr "純損失"
+
+msgid "Net"
+msgstr "純額"
+
+msgid "net"
+msgstr "純額"
+
+msgid "Liabilities"
+msgstr "負債"
+
+msgid "Journal entries"
+msgstr "仕訳"
+
+msgid "Line Note"
+msgstr "明細摘要"
+
+msgid "lines"
+msgstr "明細"
+
+msgid "Is Paid Off"
+msgstr "完済済み"
+
+msgid "Is Active"
+msgstr "有効"
+
+msgid "Full Payment Amount"
+msgstr "全額支払額"
+
+msgid "Fully Paid Off"
+msgstr "完済済み"
+
+msgid "Final Payment"
+msgstr "最終支払い"
+
+msgid "Last payment:"
+msgstr "最終支払い："
+
+msgid "Largest outstanding balance first"
+msgstr "未払い残高の多い順"
+
+msgid "Monthly journal debit / credit volume"
+msgstr "月次仕訳の借方／貸方額"
+
+msgid "Monthly debit / credit journal totals"
+msgstr "月次の借方／貸方仕訳合計"
+
+msgid "General ledger - only Posted entries count in the financial reports"
+msgstr "総勘定元帳 - 計上済みの仕訳のみが財務レポートに反映されます"
+
+msgid "How each source maps to the Chart of Accounts"
+msgstr "各元記録が勘定科目表にどう対応するか"
+
+msgid "Free-form double-entry - total debit must equal total credit"
+msgstr "自由形式の複式記入 - 借方合計と貸方合計は一致する必要があります"
+
+msgid "Generate These"
+msgstr "これらを生成"
+
+msgid "Generate All"
+msgstr "すべて生成"
+
+# ── Field labels ──────────────────────────────────────────────
+msgid "Mobile"
+msgstr "携帯"
+
+msgid "Medical Check-Ups"
+msgstr "健康診断"
+
+msgid "Medical"
+msgstr "医療"
+
+msgid "MCU"
+msgstr "健康診断"
+
+msgid "MCU Report File"
+msgstr "健康診断報告ファイル"
+
+msgid "Mcu Files"
+msgstr "健康診断ファイル"
+
+msgid "Major"
+msgstr "専攻"
+
+msgid "Level"
+msgstr "レベル"
+
+msgid "Last Salary"
+msgstr "前職給与"
+
+msgid "Latest Candidates"
+msgstr "最新の候補者"
+
+msgid "Job Detail"
+msgstr "職務内容"
+
+msgid "Itineraries"
+msgstr "旅程"
+
+msgid "Issued"
+msgstr "発行済み"
+
+msgid "Interview Score"
+msgstr "面接スコア"
+
+msgid "Interview Result"
+msgstr "面接結果"
+
+msgid "Institution (LPK)"
+msgstr "機関（LPK）"
+
+msgid "Identity"
+msgstr "身分情報"
+
+msgid "Hierarchy"
+msgstr "階層"
+
+msgid "Health & Lifestyle"
+msgstr "健康・生活習慣"
+
+msgid "Glasses"
+msgstr "眼鏡"
+
+msgid "Graduated"
+msgstr "卒業"
+
+msgid "Format"
+msgstr "形式"
+
+msgid "Flight Number"
+msgstr "便名"
+
+msgid "Full address"
+msgstr "完全な住所"
+
+msgid "File Path"
+msgstr "ファイルパス"
+
+msgid "File Name"
+msgstr "ファイル名"
+
+msgid "File / Date"
+msgstr "ファイル／日付"
+
+msgid "Linked Flights"
+msgstr "紐付けられたフライト"
+
+msgid "Manage Transit Routes"
+msgstr "経由ルートを管理"
+
+msgid "List Trainee Submissions"
+msgstr "実習生提出書類一覧"
+
+msgid "LPK Institutions"
+msgstr "LPK 機関"
+
+msgid "LPK Incident Log"
+msgstr "LPK インシデント記録"
+
+msgid "months"
+msgstr "ヶ月"
+
+msgid "in progress"
+msgstr "進行中"
+
+# ── Statuses & guidance ───────────────────────────────────────
+msgid "Healthy - cleared for departure"
+msgstr "健康 - 出発可能"
+
+msgid "Health certificate for a trainee going to Japan"
+msgstr "日本へ渡航する実習生の健康証明書"
+
+msgid "Health certificate administration for trainees going to Japan"
+msgstr "日本へ渡航する実習生の健康証明書管理"
+
+msgid "Fit"
+msgstr "適格"
+
+msgid "Fit dengan keterangan"
+msgstr "条件付き適格"
+
+msgid "Green = complete (ready to depart)"
+msgstr "緑 = 完了（出発準備完了）"
+
+msgid "Funnel from candidate to trainee to apprentice"
+msgstr "候補者から実習生、技能実習生への推移"
+
+msgid "Japan Immigration issues the Certificate of Eligibility and TMM receives it"
+msgstr "日本の入国管理局が在留資格認定証明書を発行し、TMM が受領します"
+
+msgid "How to read this page"
+msgstr "このページの見方"
+
+msgid "Least complete first — open a row to see exactly what is missing"
+msgstr "未完了の多い順 — 行を開くと不足内容を正確に確認できます"
+
+msgid "Most missing first — these documents are the bottleneck"
+msgstr "不足の多い順 — これらの書類がボトルネックです"
+
+msgid "Files are stored under"
+msgstr "ファイルの保存先"
+
+msgid "Name, TMM code, NIK…"
+msgstr "氏名・TMM コード・NIK…"
+
+msgid "Name, director or address…"
+msgstr "名称・代表者・住所…"
+
+msgid "Name, contact person or email…"
+msgstr "名称・担当者・メール…"
+
+msgid "Name, address or telephone…"
+msgstr "名称・住所・電話…"
+
+# ── Filters ───────────────────────────────────────────────────
+msgid "Filter Problem Contents"
+msgstr "問題内容で絞り込み"
+
+msgid "Filter File Name"
+msgstr "ファイル名で絞り込み"
+
+msgid "Filter Date Occurrence"
+msgstr "発生日で絞り込み"
+
+msgid "Filter Comments"
+msgstr "コメントで絞り込み"
+
+# ── Tier 15: candidate view families ──
+msgid "CandidateFamilies"
+msgstr "候補者家族"
+
+msgid "CandidateExperiences"
+msgstr "候補者職歴"
+
+msgid "CandidateEducations"
+msgstr "候補者学歴"
+
+msgid "CandidateDocuments"
+msgstr "候補者書類"
+
+msgid "CandidateCourses"
+msgstr "候補者コース"
+
+msgid "CandidateCertifications"
+msgstr "候補者資格"
+
+# ── Tier 15b: edit buttons, guidance, labels ──────────────────
+msgid "Edit Trainee Submission Document"
+msgstr "実習生提出書類を編集"
+
+msgid "Edit Trainee Installment"
+msgstr "実習生分割払いを編集"
+
+msgid "Edit Passport Record"
+msgstr "パスポート記録を編集"
+
+msgid "Edit Medical Check-Up"
+msgstr "健康診断を編集"
+
+msgid "Edit Journal"
+msgstr "仕訳を編集"
+
+msgid "Edit Cooperative Association"
+msgstr "監理団体を編集"
+
+msgid "Edit COE / Visa Record"
+msgstr "在留資格認定証明書／ビザ記録を編集"
+
+msgid "Edit Chart Of Account"
+msgstr "勘定科目を編集"
+
+msgid "Edit Candidate"
+msgstr "候補者を編集"
+
+msgid "Edit leg"
+msgstr "区間を編集"
+
+msgid "Edit flight"
+msgstr "フライトを編集"
+
+msgid "Delete Candidate"
+msgstr "候補者を削除"
+
+msgid "Delete this cooperative association? This cannot be undone."
+msgstr "この監理団体を削除しますか？この操作は取り消せません。"
+
+# ── View families & titles ────────────────────────────────────
+msgid "Cooperative Association Stories"
+msgstr "監理団体ストーリー"
+
+msgid "Cooperative Association"
+msgstr "監理団体"
+
+msgid "Chart Of Account"
+msgstr "勘定科目"
+
+msgid "Candidate Details"
+msgstr "候補者の詳細"
+
+msgid "Candidate Management Dashboard"
+msgstr "候補者管理ダッシュボード"
+
+msgid "Curriculum Vitae"
+msgstr "履歴書"
+
+msgid "CV Page"
+msgstr "履歴書ページ"
+
+# ── Field labels ──────────────────────────────────────────────
+msgid "From"
+msgstr "開始"
+
+msgid "Kelurahan"
+msgstr "町・村"
+
+msgid "Kecamatan"
+msgstr "郡"
+
+msgid "Kabupaten"
+msgstr "市・区"
+
+msgid "leg"
+msgstr "区間"
+
+msgid "legs"
+msgstr "区間"
+
+msgid "Expenses"
+msgstr "費用"
+
+msgid "Equity"
+msgstr "資本"
+
+msgid "entries"
+msgstr "件"
+
+msgid "Emergency"
+msgstr "緊急連絡先"
+
+msgid "Document Type"
+msgstr "書類の種類"
+
+msgid "Document Details"
+msgstr "書類の詳細"
+
+msgid "Document Costs"
+msgstr "書類費用"
+
+msgid "Document Cost Management"
+msgstr "書類費用管理"
+
+msgid "Document Completeness"
+msgstr "書類の完全性"
+
+msgid "Documents"
+msgstr "書類"
+
+msgid "document(s)"
+msgstr "件の書類"
+
+msgid "documents uploaded"
+msgstr "件の書類をアップロード済み"
+
+msgid "Docs"
+msgstr "書類"
+
+msgid "Departure"
+msgstr "出発"
+
+msgid "Departure airport"
+msgstr "出発空港"
+
+msgid "Departure Readiness per Trainee"
+msgstr "実習生別の出発準備状況"
+
+msgid "Date Visa Received"
+msgstr "ビザ受領日"
+
+msgid "Date Visa Application"
+msgstr "ビザ申請日"
+
+msgid "Date Received (by TMM)"
+msgstr "受領日（TMM）"
+
+msgid "Date Issue"
+msgstr "発行日"
+
+msgid "Date Coe Received"
+msgstr "在留資格認定証明書受領日"
+
+msgid "Contact Information"
+msgstr "連絡先情報"
+
+msgid "Company"
+msgstr "会社"
+
+msgid "Comments"
+msgstr "コメント"
+
+msgid "Comment"
+msgstr "コメント"
+
+msgid "Collected from Trainees"
+msgstr "実習生からの回収額"
+
+msgid "COE & Visa Details"
+msgstr "在留資格認定証明書・ビザの詳細"
+
+msgid "COE / Visa"
+msgstr "在留資格認定証明書／ビザ"
+
+msgid "Clinic / Hospital"
+msgstr "診療所／病院"
+
+msgid "Check-Up Title"
+msgstr "健康診断タイトル"
+
+msgid "Check-Up Details"
+msgstr "健康診断の詳細"
+
+msgid "Check-Up"
+msgstr "健康診断"
+
+msgid "Category"
+msgstr "分類"
+
+msgid "Certification"
+msgstr "資格"
+
+msgid "Certificate"
+msgstr "証明書"
+
+msgid "Cost"
+msgstr "費用"
+
+msgid "Cannot Save - Fix Errors First"
+msgstr "保存できません - 先にエラーを修正してください"
+
+# ── Buttons & actions ─────────────────────────────────────────
+msgid "Confirm & Save"
+msgstr "確認して保存"
+
+msgid "Confirm Promotion to Trainee"
+msgstr "実習生への昇格を確認"
+
+msgid "Confirm Promotion to Apprentice"
+msgstr "技能実習生への昇格を確認"
+
+msgid "Clear"
+msgstr "クリア"
+
+msgid "Check"
+msgstr "確認"
+
+msgid "Export Excel"
+msgstr "Excel をエクスポート"
+
+msgid "Export CV PDF"
+msgstr "履歴書 PDF をエクスポート"
+
+msgid "Export CV Excel"
+msgstr "履歴書 Excel をエクスポート"
+
+msgid "Export CV"
+msgstr "履歴書をエクスポート"
+
+msgid "Deep-Dive Reports"
+msgstr "詳細レポート"
+
+# ── Guidance sentences ────────────────────────────────────────
+msgid "Fields marked with * are required. Update the candidate information in the sections below."
+msgstr "* が付いた項目は必須です。以下の各セクションで候補者情報を更新してください。"
+
+msgid "Fields marked with * are required. Complete each section below to register a new candidate."
+msgstr "* が付いた項目は必須です。新規候補者を登録するには以下の各セクションを入力してください。"
+
+msgid "Everything a trainee needs before boarding the flight to Japan"
+msgstr "日本行きの便に搭乗する前に実習生が必要とするすべて"
+
+msgid "Every payment recorded - see Payment Tracking for per-trainee balances"
+msgstr "記録されたすべての支払い - 実習生別残高は支払い追跡をご覧ください"
+
+msgid "Every installment payment, ticket and document cost already has a matching journal entry. New cost/price records will appear here automatically."
+msgstr "すべての分割払い・チケット・書類費用にはすでに対応する仕訳があります。新しい原価・価格記録は自動的にここに表示されます。"
+
+msgid "Every entry needs at least one debit and one credit line."
+msgstr "各仕訳には少なくとも借方1行と貸方1行が必要です。"
+
+msgid "Expiry is before the permitted date - please check."
+msgstr "有効期限が許可日より前です - 確認してください。"
+
+msgid "Documents every trainee must carry when flying to Japan"
+msgstr "日本へ渡航する際にすべての実習生が携行すべき書類"
+
+msgid "Departure tickets for trainees going to Japan"
+msgstr "日本へ渡航する実習生の出発チケット"
+
+msgid "Departure ticket for a trainee going to Japan"
+msgstr "日本へ渡航する実習生の出発チケット"
+
+msgid "Debit and credit totals differ"
+msgstr "借方合計と貸方合計が一致しません"
+
+msgid "Create a ticket first, then build its flight itinerary here."
+msgstr "先にチケットを作成し、ここでその旅程を作成してください。"
+
+msgid "Correcting or reclassifying entry - lines must balance (total debit = total credit)"
+msgstr "訂正または再分類の仕訳 - 明細は貸借一致が必要です（借方合計 = 貸方合計）"
+
+msgid "Chart of accounts grouped by account type."
+msgstr "勘定科目の種類別に分類された勘定科目表。"
+
+msgid "Certificate of Eligibility and visa administration for trainees going to Japan"
+msgstr "日本へ渡航する実習生の在留資格認定証明書とビザの管理"
+
+msgid "Certificate of Eligibility and visa administration for a trainee going to Japan"
+msgstr "日本へ渡航する実習生の在留資格認定証明書とビザの管理"
+
+msgid "Candidates with is_candidate_pass=1 who have not yet become trainees will appear here."
+msgstr "is_candidate_pass=1 でまだ実習生になっていない候補者がここに表示されます。"
+
+msgid "Companies in Japan that receive and employ the apprentices"
+msgstr "実習生を受け入れて雇用する日本の企業"
+
+msgid "Data Preview with Validation Rules"
+msgstr "検証ルール付きのデータプレビュー"
+
+msgid "Choose the payment mode"
+msgstr "支払い方法を選択"
+
+msgid "Define them under Chart of Accounts"
+msgstr "勘定科目表で定義してください"
+
+msgid "COE Biasa = paper certificate, COE Electronic = e-COE. One record per trainee marks the COE/visa step complete in the pre-departure pipeline."
+msgstr "COE Biasa = 紙の証明書、COE Electronic = 電子 COE。実習生1人につき1件で、出発前パイプラインの COE／ビザ工程が完了として記録されます。"
+
+msgid "Enter Postal Code (e.g., 12345)"
+msgstr "郵便番号を入力（例：12345）"
+
+msgid "Enter Cooperative Association Information"
+msgstr "監理団体情報を入力"
+
+# ── Tier 16: add-first families ──
+msgid "Add First CandidateFamily"
+msgstr "候補者家族を最初に追加"
+
+msgid "Add First CandidateExperience"
+msgstr "候補者職歴を最初に追加"
+
+msgid "Add First CandidateEducation"
+msgstr "候補者学歴を最初に追加"
+
+msgid "Add First CandidateDocument"
+msgstr "候補者書類を最初に追加"
+
+msgid "Add First CandidateCourse"
+msgstr "候補者コースを最初に追加"
+
+msgid "Add First CandidateCertification"
+msgstr "候補者資格を最初に追加"
+
+msgid "Add First ApprenticeFamilyStory"
+msgstr "技能実習生家族ストーリーを最初に追加"
+
+msgid "Add First ApprenticeFamily"
+msgstr "技能実習生家族を最初に追加"
+
+msgid "Add First ApprenticeExperience"
+msgstr "技能実習生職歴を最初に追加"
+
+msgid "Add First ApprenticeEducation"
+msgstr "技能実習生学歴を最初に追加"
+
+msgid "Add First ApprenticeCourse"
+msgstr "技能実習生コースを最初に追加"
+
+msgid "Add First ApprenticeCertification"
+msgstr "技能実習生資格を最初に追加"
+
+# ── Tier 16b: add buttons, guidance, labels ───────────────────
+msgid "Add Trainee Submission Document"
+msgstr "実習生提出書類を追加"
+
+msgid "Add Trainee"
+msgstr "実習生を追加"
+
+msgid "Add Passport Record"
+msgstr "パスポート記録を追加"
+
+msgid "Add Medical Check-Up"
+msgstr "健康診断を追加"
+
+msgid "Add MCU"
+msgstr "健康診断を追加"
+
+msgid "Add Leg"
+msgstr "区間を追加"
+
+msgid "Add Journal Entry"
+msgstr "仕訳を追加"
+
+msgid "Add Journal"
+msgstr "仕訳を追加"
+
+msgid "Add Cooperative Association"
+msgstr "監理団体を追加"
+
+msgid "Add COE / Visa Record"
+msgstr "在留資格認定証明書／ビザ記録を追加"
+
+msgid "Add Check-Up"
+msgstr "健康診断を追加"
+
+msgid "Add check-up"
+msgstr "健康診断を追加"
+
+msgid "Add Chart Of Account"
+msgstr "勘定科目を追加"
+
+msgid "Add First Trainee →"
+msgstr "最初の実習生を追加 →"
+
+msgid "Add first leg"
+msgstr "最初の区間を追加"
+
+msgid "Adding passport record for"
+msgstr "パスポート記録を追加中："
+
+msgid "Adding medical check-up for"
+msgstr "健康診断を追加中："
+
+msgid "Adding COE / visa record for"
+msgstr "在留資格認定証明書／ビザ記録を追加中："
+
+msgid "Additional Information"
+msgstr "追加情報"
+
+# ── Labels ────────────────────────────────────────────────────
+msgid "Candidate"
+msgstr "候補者"
+
+msgid "Apprentice"
+msgstr "技能実習生"
+
+msgid "Apprentice ID"
+msgstr "技能実習生 ID"
+
+msgid "Apprentice Pass"
+msgstr "技能実習生合格"
+
+msgid "Apprentice record created"
+msgstr "技能実習生記録を作成しました"
+
+msgid "Apprentices currently working in Japan"
+msgstr "現在日本で就労中の技能実習生"
+
+msgid "Account Hierarchy"
+msgstr "勘定科目の階層"
+
+msgid "Acceptance Organization Story"
+msgstr "受入れ機関ストーリー"
+
+msgid "Acceptance Organization Stories"
+msgstr "受入れ機関ストーリー"
+
+msgid "Association Details"
+msgstr "団体の詳細"
+
+msgid "Association"
+msgstr "団体"
+
+msgid "Assets"
+msgstr "資産"
+
+msgid "Arrival airport"
+msgstr "到着空港"
+
+msgid "Arrival"
+msgstr "到着"
+
+msgid "AO Interview"
+msgstr "受入れ機関面接"
+
+msgid "Amount received"
+msgstr "受領額"
+
+msgid "After This Payment"
+msgstr "今回の支払い後"
+
+msgid "Adjustment"
+msgstr "調整"
+
+msgid "Auto-Generated Journals"
+msgstr "自動生成仕訳"
+
+msgid "Avg Score"
+msgstr "平均スコア"
+
+msgid "Batch Name Cards"
+msgstr "バッチ名カード"
+
+msgid "Batches"
+msgstr "バッチ"
+
+msgid "Basic Information"
+msgstr "基本情報"
+
+msgid "Birth Place (Katakana)"
+msgstr "出生地（カタカナ）"
+
+msgid "Booking Reference"
+msgstr "予約番号"
+
+msgid "Booking Ref"
+msgstr "予約番号"
+
+msgid "Booking"
+msgstr "予約"
+
+msgid "By Trainee"
+msgstr "実習生別"
+
+msgid "By Document"
+msgstr "書類別"
+
+msgid "Double-Entry Lines"
+msgstr "複式記入明細"
+
+msgid "Ever Went to Japan"
+msgstr "渡日経験"
+
+msgid "Expected work upon returning to Japan:"
+msgstr "帰国後に日本で希望する仕事："
+
+msgid "Alcohol"
+msgstr "飲酒"
+
+msgid "Adjustments get an ADJ- reference and are used to correct or reclassify earlier entries."
+msgstr "調整には ADJ- の参照番号が付与され、以前の仕訳の訂正や再分類に使用されます。"
+
+# ── Statuses ──────────────────────────────────────────────────
+msgid "All Status"
+msgstr "すべてのステータス"
+
+msgid "All Documents"
+msgstr "すべての書類"
+
+msgid "All Batches"
+msgstr "すべてのバッチ"
+
+msgid "All Orgs"
+msgstr "すべての機関"
+
+msgid "All Installments"
+msgstr "すべての分割払い"
+
+msgid "All requirements met"
+msgstr "すべての要件を満たしています"
+
+msgid "All required documents collected!"
+msgstr "必要書類がすべて揃いました！"
+
+msgid "All source records are journalized."
+msgstr "すべての元記録が仕訳済みです。"
+
+msgid "All eligible trainees have already been promoted to apprentice."
+msgstr "対象となるすべての実習生はすでに技能実習生へ昇格済みです。"
+
+msgid "Already Promoted to Trainee"
+msgstr "すでに実習生へ昇格済み"
+
+msgid "Already Promoted"
+msgstr "昇格済み"
+
+msgid "Already promoted"
+msgstr "昇格済み"
+
+msgid "Already paid off."
+msgstr "すでに完済しています。"
+
+msgid "Already Generated"
+msgstr "生成済み"
+
+msgid "Awaiting registration"
+msgstr "登録待ち"
+
+msgid "Documents not 100% complete"
+msgstr "書類が100%揃っていません"
+
+# ── Buttons ───────────────────────────────────────────────────
+msgid "Back"
+msgstr "戻る"
+
+msgid "Back to Edit"
+msgstr "編集に戻る"
+
+msgid "Back to Promote"
+msgstr "昇格に戻る"
+
+msgid "Back to Promotion Dashboard"
+msgstr "昇格ダッシュボードに戻る"
+
+msgid "Assign to Training Batch"
+msgstr "研修バッチに割り当て"
+
+msgid "Assign to Apprentice Order / Placement"
+msgstr "実習受入れ注文／配属に割り当て"
+
+# ── Guidance sentences ────────────────────────────────────────
+msgid "A support institution helps specified-skilled workers. New institutions are invited to self-register via a secure link."
+msgstr "登録支援機関は特定技能労働者を支援します。新しい機関は安全なリンクを通じて自己登録するよう招待されます。"
+
+msgid "A cooperative association (kumiai) is the receiving body that places apprentices with member companies in Japan. Keep the permit dates current so expiry can be tracked."
+msgstr "監理団体（組合）は、実習生を日本の会員企業に配属する受入れ団体です。有効期限を追跡できるよう、許可日を常に最新に保ってください。"
+
+msgid "A cooperative association (kumiai) is the receiving body that places apprentices with member companies in Japan."
+msgstr "監理団体（組合）は、実習生を日本の会員企業に配属する受入れ団体です。"
+
+msgid "A passport record is required before departure - add them here"
+msgstr "出発前にパスポート記録が必要です - ここで追加してください"
+
+msgid "A health certificate is required before departure - add one here"
+msgstr "出発前に健康証明書が必要です - ここで追加してください"
+
+msgid "A COE and visa are required before departure - add them here"
+msgstr "出発前に在留資格認定証明書とビザが必要です - ここで追加してください"
+
+msgid "Assets, liabilities and equity balances"
+msgstr "資産・負債・資本の残高"
+
+msgid "Aggregated from journal details per account - post journals to update the figures"
+msgstr "勘定科目別の仕訳明細から集計されます - 数値を更新するには仕訳を計上してください"
+
+msgid "Build and manage flight itineraries per ticket - legs, routes and layovers"
+msgstr "チケットごとにフライト旅程を作成・管理します - 区間・ルート・乗り継ぎ"
+
+msgid "A line is either a debit or a credit, not both."
+msgstr "各明細は借方または貸方のいずれかで、両方にはできません。"
+
+msgid "Active associations can manage cooperative member organizations."
+msgstr "有効な団体は、会員機関を管理できます。"
+
+msgid "Active associations can manage cooperative member organizations"
+msgstr "有効な団体は、会員機関を管理できます"
+
+msgid "Allowed types: PDF, JPG, PNG, DOC(X), XLS(X), ZIP"
+msgstr "許可される種類：PDF、JPG、PNG、DOC(X)、XLS(X)、ZIP"
+
+msgid "Checklist status is stored per trainee"
+msgstr "チェックリストの状態は実習生ごとに保存されます"
+
+msgid "Blue = more than half collected"
+msgstr "青 = 半分以上回収済み"
+
+# ── Tier 17: List/New/Id families ──
+msgid "New TraineeCertification"
+msgstr "新規実習生資格"
+
+msgid "List TraineeCertifications"
+msgstr "実習生資格一覧"
+
+msgid "New TraineeCourse"
+msgstr "新規実習生コース"
+
+msgid "List TraineeCourses"
+msgstr "実習生コース一覧"
+
+msgid "New TraineeEducation"
+msgstr "新規実習生学歴"
+
+msgid "List TraineeEducations"
+msgstr "実習生学歴一覧"
+
+msgid "New TraineeExperience"
+msgstr "新規実習生職歴"
+
+msgid "List TraineeExperiences"
+msgstr "実習生職歴一覧"
+
+msgid "New TraineeFamily"
+msgstr "新規実習生家族"
+
+msgid "List TraineeFamilies"
+msgstr "実習生家族一覧"
+
+msgid "New TraineeFamilyStory"
+msgstr "新規実習生家族ストーリー"
+
+msgid "List TraineeFamilyStories"
+msgstr "実習生家族ストーリー一覧"
+
+msgid "New CandidateCertification"
+msgstr "新規候補者資格"
+
+msgid "List CandidateCertifications"
+msgstr "候補者資格一覧"
+
+msgid "New CandidateCourse"
+msgstr "新規候補者コース"
+
+msgid "List CandidateCourses"
+msgstr "候補者コース一覧"
+
+msgid "New CandidateDocument"
+msgstr "新規候補者書類"
+
+msgid "List CandidateDocuments"
+msgstr "候補者書類一覧"
+
+msgid "New CandidateEducation"
+msgstr "新規候補者学歴"
+
+msgid "List CandidateEducations"
+msgstr "候補者学歴一覧"
+
+msgid "New CandidateExperience"
+msgstr "新規候補者職歴"
+
+msgid "List CandidateExperiences"
+msgstr "候補者職歴一覧"
+
+msgid "New CandidateFamily"
+msgstr "新規候補者家族"
+
+msgid "List CandidateFamilies"
+msgstr "候補者家族一覧"
+
+msgid "New ApprenticeCertification"
+msgstr "新規技能実習生資格"
+
+msgid "List ApprenticeCertifications"
+msgstr "技能実習生資格一覧"
+
+msgid "New ApprenticeCourse"
+msgstr "新規技能実習生コース"
+
+msgid "List ApprenticeCourses"
+msgstr "技能実習生コース一覧"
+
+msgid "New ApprenticeEducation"
+msgstr "新規技能実習生学歴"
+
+msgid "List ApprenticeEducations"
+msgstr "技能実習生学歴一覧"
+
+msgid "New ApprenticeExperience"
+msgstr "新規技能実習生職歴"
+
+msgid "List ApprenticeExperiences"
+msgstr "技能実習生職歴一覧"
+
+msgid "New ApprenticeFamily"
+msgstr "新規技能実習生家族"
+
+msgid "List ApprenticeFamilies"
+msgstr "技能実習生家族一覧"
+
+msgid "New ApprenticeFamilyStory"
+msgstr "新規技能実習生家族ストーリー"
+
+msgid "List ApprenticeFamilyStories"
+msgstr "技能実習生家族ストーリー一覧"
+
+msgid "New MasterCandidateInterviewResult"
+msgstr "新規面接結果マスタ"
+
+msgid "List MasterCandidateInterviewResults"
+msgstr "面接結果マスタ一覧"
+
+msgid "New MasterRejectedReason"
+msgstr "新規不合格理由マスタ"
+
+msgid "List MasterRejectedReasons"
+msgstr "不合格理由マスタ一覧"
+
+msgid "List AcceptanceOrganizations"
+msgstr "受入れ機関一覧"
+
+msgid "List ApprenticeOrders"
+msgstr "実習受入れ注文一覧"
+
+msgid "List MasterBloodTypes"
+msgstr "血液型マスタ一覧"
+
+msgid "List MasterGenders"
+msgstr "性別マスタ一覧"
+
+msgid "List MasterKabupatens"
+msgstr "市・区マスタ一覧"
+
+msgid "List MasterKecamatans"
+msgstr "郡マスタ一覧"
+
+msgid "List MasterKelurahans"
+msgstr "町・村マスタ一覧"
+
+msgid "List MasterMarriageStatuses"
+msgstr "婚姻状況マスタ一覧"
+
+msgid "List MasterPropinsis"
+msgstr "州・県マスタ一覧"
+
+msgid "List MasterReligions"
+msgstr "宗教マスタ一覧"
+
+msgid "ApprenticeCertifications"
+msgstr "技能実習生資格"
+
+msgid "ApprenticeCourses"
+msgstr "技能実習生コース"
+
+msgid "ApprenticeEducations"
+msgstr "技能実習生学歴"
+
+msgid "ApprenticeExperiences"
+msgstr "技能実習生職歴"
+
+msgid "ApprenticeFamilies"
+msgstr "技能実習生家族"
+
+msgid "ApprenticeFamilyStories"
+msgstr "技能実習生家族ストーリー"
+
+msgid "Acceptance Organization Id"
+msgstr "受入れ機関"
+
+msgid "Apprentice Id"
+msgstr "技能実習生"
+
+msgid "Apprentice Order Id"
+msgstr "実習受入れ注文"
+
+msgid "Apprenticeship Order Id"
+msgstr "実習受入れ注文"
+
+msgid "Apprenticeship Submission Document Id"
+msgstr "実習提出書類"
+
+msgid "Blood Type Id"
+msgstr "血液型"
+
+msgid "Candidate Id"
+msgstr "候補者"
+
+msgid "Cooperative Association Id"
+msgstr "監理団体"
+
+msgid "Course Major Id"
+msgstr "専攻"
+
+msgid "Kabupaten Id"
+msgstr "市・区"
+
+msgid "Kecamatan Id"
+msgstr "郡"
+
+msgid "Propinsi Id"
+msgstr "州・県"
+
+msgid "Master Blood Type Id"
+msgstr "血液型"
+
+msgid "Master Candidate Interview Result Id"
+msgstr "面接結果"
+
+msgid "Master Currency Id"
+msgstr "通貨"
+
+msgid "Master Family Connection Id"
+msgstr "続柄"
+
+msgid "Master Gender Id"
+msgstr "性別"
+
+msgid "Master Interview Result Id"
+msgstr "面接結果"
+
+msgid "Master Japan Prefecture Id"
+msgstr "日本の都道府県"
+
+msgid "Master Job Category Id"
+msgstr "職種"
+
+msgid "Master Kabupaten Id"
+msgstr "市・区"
+
+msgid "Master Kecamatan Id"
+msgstr "郡"
+
+msgid "Master Kelurahan Id"
+msgstr "町・村"
+
+msgid "Master Marriage Status Id"
+msgstr "婚姻状況"
+
+msgid "Master Propinsi Id"
+msgstr "州・県"
+
+msgid "Master Rejected Reason Id"
+msgstr "不合格理由"
+
+msgid "Master Religion Id"
+msgstr "宗教"
+
+msgid "Master Strata Id"
+msgstr "学歴レベル"
+
+msgid "Training Id"
+msgstr "研修"
+
+msgid "Trainee Id"
+msgstr "実習生"
+
+msgid "Enter Master Interview Result Id"
+msgstr "面接結果を入力"
+
+msgid "Enter Master Rejected Reason Id"
+msgstr "不合格理由を入力"
+
+msgid "Enter Master Japan Prefecture Id"
+msgstr "日本の都道府県を入力"
+
+msgid "Enter Training Id"
+msgstr "研修を入力"
+
+msgid "Select Candidate Id"
+msgstr "候補者を選択"
+
+msgid "Select Master Candidate Interview Result Id"
+msgstr "面接結果を選択"
+
+msgid "Filter Apprentice Id"
+msgstr "技能実習生で絞り込み"
+
+msgid "Filter Candidate Id"
+msgstr "候補者で絞り込み"
+
+msgid "Filter Course Major Id"
+msgstr "専攻で絞り込み"
+
+msgid "Filter Master Course Major Id"
+msgstr "専攻で絞り込み"
+
+msgid "Filter Master Family Connection Id"
+msgstr "続柄で絞り込み"
+
+msgid "Filter Master Kabupaten Id"
+msgstr "市・区で絞り込み"
+
+msgid "Filter Master Propinsi Id"
+msgstr "州・県で絞り込み"
+
+msgid "Filter Master Strata Id"
+msgstr "学歴レベルで絞り込み"
+
+msgid "Filter Vocational Training Institution Id"
+msgstr "職業訓練機関で絞り込み"
+
+# ── Tier 17b: remaining labels, icon buttons, fragments ───────
+msgid "Cert"
+msgstr "資格"
+
+msgid "Edu"
+msgstr "学歴"
+
+msgid "Exp"
+msgstr "職歴"
+
+msgid "LPK"
+msgstr "LPK"
+
+msgid "ID"
+msgstr "ID"
+
+msgid "Expires"
+msgstr "有効期限"
+
+msgid "expiring within 90 days"
+msgstr "90日以内に期限切れ"
+
+msgid "enrolled"
+msgstr "登録済み"
+
+msgid "checklist"
+msgstr "チェックリスト"
+
+msgid "Current file:"
+msgstr "現在のファイル："
+
+msgid "choose to replace"
+msgstr "置き換えるには選択"
+
+msgid "check the times"
+msgstr "時刻を確認してください"
+
+msgid "day(s)."
+msgstr "日。"
+
+msgid "done once per trainee on the"
+msgstr "実習生ごとに1回実施："
+
+msgid "document received and verified — counts toward departure readiness"
+msgstr "書類受領・確認済み — 出発準備の達成にカウントされます"
+
+msgid "e.g. Owner capital injection"
+msgstr "例：オーナーによる資本注入"
+
+msgid "e.g. Reclassify ticket cost"
+msgstr "例：チケット費用の再分類"
+
+msgid "Course Major"
+msgstr "専攻"
+
+msgid "Master Course Major Id"
+msgstr "専攻"
+
+# ── Icon buttons ──────────────────────────────────────────────
+msgid "<i class=\"fa fa-arrow-left\"></i> Back"
+msgstr "<i class=\"fa fa-arrow-left\"></i> 戻る"
+
+msgid "<i class=\"fa fa-arrow-left\"></i> Back to Edit"
+msgstr "<i class=\"fa fa-arrow-left\"></i> 編集に戻る"
+
+msgid "<i class=\"fa fa-arrow-right\"></i> Continue"
+msgstr "<i class=\"fa fa-arrow-right\"></i> 続ける"
+
+msgid "<i class=\"fa fa-arrow-right\"></i> Continue to Review"
+msgstr "<i class=\"fa fa-arrow-right\"></i> 確認へ進む"
+
+msgid "<i class=\"fa fa-check\"></i> Check & Continue"
+msgstr "<i class=\"fa fa-check\"></i> 確認して続ける"
+
+msgid "<i class=\"fa fa-check\"></i> Submit Registration"
+msgstr "<i class=\"fa fa-check\"></i> 登録を送信"
+
+msgid "<i class=\"fa fa-save\"></i> Save & Continue"
+msgstr "<i class=\"fa fa-save\"></i> 保存して続ける"
+
+# ── Tier 18: baked class titles + Master Ids ──
+msgid "New VocationalTrainingInstitution"
+msgstr "新規職業訓練機関"
+
+msgid "New AcceptanceOrganization"
+msgstr "新規受入れ機関"
+
+msgid "New MasterReligion"
+msgstr "新規宗教マスタ"
+
+msgid "New MasterPropinsi"
+msgstr "新規州・県マスタ"
+
+msgid "New MasterMarriageStatus"
+msgstr "新規婚姻状況マスタ"
+
+msgid "New MasterKelurahan"
+msgstr "新規町・村マスタ"
+
+msgid "New MasterKecamatan"
+msgstr "新規郡マスタ"
+
+msgid "New MasterKabupaten"
+msgstr "新規市・区マスタ"
+
+msgid "New MasterGender"
+msgstr "新規性別マスタ"
+
+msgid "New MasterBloodType"
+msgstr "新規血液型マスタ"
+
+msgid "New ApprenticeOrder"
+msgstr "新規実習受入れ注文"
+
+msgid "List VocationalTrainingInstitutions"
+msgstr "職業訓練機関一覧"
+
+msgid "Vocational Training Institution Id"
+msgstr "職業訓練機関"
+
+msgid "Master Transaction Category Id"
+msgstr "取引分類"
+
+msgid "Master Trainee Coe Type Id"
+msgstr "在留資格認定証明書の種類"
+
+msgid "Master Ticket Type Id"
+msgstr "チケット種別"
+
+msgid "Master Ticket Status Id"
+msgstr "チケット状況"
+
+msgid "Master Medical Check Up Result Id"
+msgstr "健康診断結果"
+
+msgid "Master Document Submission Status Id"
+msgstr "書類提出状況"
+
+# ── Tier 18b: apostrophe guidance + fragments ─────────────────
+msgid "Record a trainee's owing cost with their first payment - the system tracks the balance until the receipt is issued."
+msgstr "実習生の未払い費用を最初の支払いとともに記録します - システムは領収書が発行されるまで残高を追跡します。"
+
+msgid "Payments that fully settled a trainee's balance"
+msgstr "実習生の残高を完済した支払い"
+
+msgid "Doctor's Notes"
+msgstr "医師の所見"
+
+msgid "Create a ticket to start tracking a trainee's departure to Japan."
+msgstr "実習生の日本への出発追跡を開始するには、チケットを作成してください。"
+
+msgid "Cleared with medical notes - read the doctor's comments"
+msgstr "所見付きで合格 - 医師のコメントをご確認ください"
+
+msgid "Balance uses each account's natural side: debit-normal for assets and expenses, credit-normal for revenue, liabilities and equity."
+msgstr "残高は各勘定科目の通常残高側を使用します：資産と費用は借方残高、収益・負債・資本は貸方残高。"
+
+msgid "A trainee can have multiple check-ups (e.g. first and follow-up). Attach the clinic's report as PDF or photo. Allowed: PDF, JPG, PNG, DOC(X)."
+msgstr "実習生は複数回の健康診断を受けられます（例：初回と再検査）。診療所の報告書を PDF または写真で添付してください。許可：PDF、JPG、PNG、DOC(X)。"
+
+msgid "See every remaining document for this trainee in the"
+msgstr "この実習生の残りの書類はすべて以下でご確認ください："
+
+msgid "To"
+msgstr "終了"
+
+msgid "page."
+msgstr "ページ。"
+
+msgid "Page {{page}} of {{pages}} · {{count}} trainees"
+msgstr "{{pages}}ページ中{{page}}ページ · {{count}}名の実習生"
+
+msgid "カタカナで名前を入力してください"
+msgstr "カタカナで名前を入力してください"
+
+msgid "カタカナで出生地を入力してください"
+msgstr "カタカナで出生地を入力してください"
+
+# ── LPK menu titles ───────────────────────────────────────────
+msgid "Vocational Training Institutions (LPK)"
+msgstr "職業訓練機関（LPK）"
+
+msgid "Register LPK"
+msgstr "LPK 登録"
+
+msgid "Manage LPK"
+msgstr "LPK 管理"
+
+msgid "LPK Verification"
+msgstr "LPK 検証"
+
+msgid "LPK Registration (Admin)"
+msgstr "LPK 登録（管理者）"
+
+# ── Training dashboard ────────────────────────────────────────
+msgid "Training Dashboard"
+msgstr "研修ダッシュボード"
+
+msgid "TMM Training Division — Program Overview &amp; Key Performance Indicators"
+msgstr "TMM 研修部門 — プログラム概要・主要業績指標"
+
+msgid "Currently active"
+msgstr "現在稼働中"
+
+msgid "rate"
+msgstr "合格率"
+
+msgid "Issued to date"
+msgstr "これまでの発行数"
+
+msgid "Promoted out"
+msgstr "昇格した人数"
+
+msgid "new"
+msgstr "新規"
+
+msgid "legacy"
+msgstr "既存"
+
+msgid "Eligible Intake"
+msgstr "受入れ対象"
+
+msgid "Candidates ready"
+msgstr "準備完了の候補者"
+
+msgid "Participant Pipeline"
+msgstr "参加者パイプライン"
+
+msgid "Active trainees"
+msgstr "稼働中の実習生"
+
+msgid "Ready to promote"
+msgstr "昇格準備完了"
+
+msgid "Daily Scores"
+msgstr "日次スコア"
+
+msgid "Score Report"
+msgstr "スコアレポート"
+
+msgid "Promote"
+msgstr "昇格"
+
+msgid "Name Cards"
+msgstr "ネームカード"
+
+msgid "Upcoming Departures"
+msgstr "今後の出発予定"
+
+msgid "No upcoming departures scheduled"
+msgstr "予定されている出発はありません"
+
+msgid "days"
+msgstr "日"
+
+msgid "Male"
+msgstr "男性"
+
+msgid "Female"
+msgstr "女性"
+
+msgid "Pass rate:"
+msgstr "合格率："
+
+msgid "Training Batch Schedule"
+msgstr "研修バッチ日程"
+
+msgid "Add Batch"
+msgstr "バッチを追加"
+
+msgid "Capacity"
+msgstr "定員"
+
+msgid "d left"
+msgstr "日残り"
+
+msgid "Timeline"
+msgstr "タイムライン"
+
+msgid "Register Trainees"
+msgstr "実習生を登録"
+
+msgid "Manage"
+msgstr "管理"
+
+msgid "Japan Training Batches"
+msgstr "日本研修バッチ"
+
+msgid "Location"
+msgstr "所在地"
+
+msgid "Start"
+msgstr "開始"
+
+msgid "End"
+msgstr "終了"
+
+msgid "Duration"
+msgstr "期間"
+
+msgid "Enrolled"
+msgstr "登録者数"
+
+msgid "mo"
+msgstr "ヶ月"
+
+msgid "Eligible Candidates — Ready to Register as Trainee"
+msgstr "受入れ対象候補者 — 実習生として登録可能"
+
+msgid "All Candidates"
+msgstr "すべての候補者"
+
+msgid "Register to Batch"
+msgstr "バッチに登録"
+
+msgid "All passed candidates have been registered as trainees."
+msgstr "合格したすべての候補者は実習生として登録済みです。"
+
+msgid "Register to batch"
+msgstr "バッチに登録"
+
+msgid "Eligible Trainees — Ready to Promote to Apprentice"
+msgstr "昇格対象実習生 — 技能実習生へ昇格可能"
+
+msgid "Promotion Page"
+msgstr "昇格ページ"
+
+msgid "All passed trainees have been promoted to apprentice."
+msgstr "合格したすべての実習生は技能実習生へ昇格済みです。"
+
+msgid "Apprentice Order:"
+msgstr "実習受入れ注文："
+
+msgid "— No order —"
+msgstr "— 注文なし —"
+
+msgid "All Trainees"
+msgstr "すべての実習生"
+
+msgid "Add the first trainee"
+msgstr "最初の実習生を追加"
+
+msgid "Planning"
+msgstr "計画中"
+
+msgid "Recruiting"
+msgstr "募集中"
+
+msgid "Ongoing"
+msgstr "進行中"

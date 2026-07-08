@@ -1,0 +1,4598 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: TMM Apprentice Management System\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: id\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+# ── Actions / buttons ──────────────────────────────────────────
+msgid "Save"
+msgstr "Simpan"
+
+msgid "Cancel"
+msgstr "Batal"
+
+msgid "Edit"
+msgstr "Ubah"
+
+msgid "View"
+msgstr "Lihat"
+
+msgid "Delete"
+msgstr "Hapus"
+
+msgid "Add New"
+msgstr "Tambah Baru"
+
+msgid "Search"
+msgstr "Cari"
+
+msgid "Reset"
+msgstr "Atur Ulang"
+
+msgid "Reset Filter"
+msgstr "Atur Ulang Filter"
+
+msgid "Print"
+msgstr "Cetak"
+
+msgid "Back to List"
+msgstr "Kembali ke Daftar"
+
+msgid "Actions"
+msgstr "Aksi"
+
+msgid "Manage Roles"
+msgstr "Kelola Peran"
+
+msgid "Dashboard"
+msgstr "Dasbor"
+
+# ── Common field labels ───────────────────────────────────────
+msgid "Name"
+msgstr "Nama"
+
+msgid "Email"
+msgstr "Surel"
+
+msgid "Address"
+msgstr "Alamat"
+
+msgid "Telephone"
+msgstr "Telepon"
+
+msgid "Status"
+msgstr "Status"
+
+msgid "Date"
+msgstr "Tanggal"
+
+msgid "Type"
+msgstr "Jenis"
+
+msgid "Amount"
+msgstr "Jumlah"
+
+msgid "Description"
+msgstr "Keterangan"
+
+msgid "Reference"
+msgstr "Nomor Referensi"
+
+msgid "Notes"
+msgstr "Catatan"
+
+msgid "Trainee"
+msgstr "Peserta Pelatihan"
+
+msgid "Trainees"
+msgstr "Peserta Pelatihan"
+
+msgid "Organization"
+msgstr "Organisasi"
+
+msgid "Institution"
+msgstr "Lembaga"
+
+msgid "Director"
+msgstr "Direktur"
+
+msgid "Prefecture"
+msgstr "Prefektur"
+
+msgid "Contact Person"
+msgstr "Narahubung"
+
+msgid "Roles"
+msgstr "Peran"
+
+msgid "Classification"
+msgstr "Klasifikasi"
+
+msgid "Problem"
+msgstr "Masalah"
+
+msgid "Solution"
+msgstr "Solusi"
+
+msgid "Cause"
+msgstr "Penyebab"
+
+msgid "Photo"
+msgstr "Foto"
+
+msgid "Debit"
+msgstr "Debit"
+
+msgid "Credit"
+msgstr "Kredit"
+
+msgid "Balanced"
+msgstr "Seimbang"
+
+msgid "Currency"
+msgstr "Mata Uang"
+
+# ── Statuses ──────────────────────────────────────────────────
+msgid "Active"
+msgstr "Aktif"
+
+msgid "Suspended"
+msgstr "Ditangguhkan"
+
+msgid "Inactive"
+msgstr "Tidak Aktif"
+
+msgid "Pending"
+msgstr "Menunggu"
+
+msgid "Submitted"
+msgstr "Terkirim"
+
+msgid "Paid Off"
+msgstr "Lunas"
+
+msgid "Open"
+msgstr "Terbuka"
+
+msgid "Registered"
+msgstr "Terdaftar"
+
+msgid "Posted"
+msgstr "Diposting"
+
+msgid "Draft"
+msgstr "Draf"
+
+# ── Summary / filters ─────────────────────────────────────────
+msgid "Total"
+msgstr "Total"
+
+msgid "Total Users"
+msgstr "Total Pengguna"
+
+msgid "All statuses"
+msgstr "Semua status"
+
+msgid "All trainees"
+msgstr "Semua peserta"
+
+msgid "All organizations"
+msgstr "Semua organisasi"
+
+msgid "All roles"
+msgstr "Semua peran"
+
+msgid "All classifications"
+msgstr "Semua klasifikasi"
+
+msgid "Page {{page}} of {{pages}}, showing {{current}} record(s) out of {{count}} total"
+msgstr "Halaman {{page}} dari {{pages}}, menampilkan {{current}} dari {{count}} data"
+
+# ── Domain / stakeholders ─────────────────────────────────────
+msgid "User Management"
+msgstr "Manajemen Pengguna"
+
+msgid "Acceptance Organizations"
+msgstr "Organisasi Penerima"
+
+msgid "Cooperative Associations"
+msgstr "Asosiasi Koperasi"
+
+msgid "Special Skill Support Institutions"
+msgstr "Lembaga Pendukung Keterampilan Khusus"
+
+msgid "Payment Tracking"
+msgstr "Pelacakan Pembayaran"
+
+msgid "Receipts"
+msgstr "Kwitansi"
+
+msgid "Journal Entries"
+msgstr "Entri Jurnal"
+
+msgid "Chart of Accounts"
+msgstr "Bagan Akun"
+
+msgid "Reports"
+msgstr "Laporan"
+
+# ── Pagination ────────────────────────────────────────────────
+msgid "previous"
+msgstr "sebelumnya"
+
+msgid "next"
+msgstr "berikutnya"
+
+msgid "first"
+msgstr "pertama"
+
+msgid "last"
+msgstr "terakhir"
+
+# ── More labels ───────────────────────────────────────────────
+msgid "Id"
+msgstr "ID"
+
+msgid "Title"
+msgstr "Judul"
+
+msgid "Ticket"
+msgstr "Tiket"
+
+msgid "Details"
+msgstr "Detail"
+
+msgid "Detail"
+msgstr "Detail"
+
+msgid "Account"
+msgstr "Akun"
+
+msgid "Username"
+msgstr "Nama Pengguna"
+
+msgid "Password"
+msgstr "Kata Sandi"
+
+msgid "Post Code"
+msgstr "Kode Pos"
+
+msgid "Remaining"
+msgstr "Sisa"
+
+msgid "Required"
+msgstr "Wajib"
+
+msgid "Transaction Type"
+msgstr "Jenis Transaksi"
+
+msgid "Created"
+msgstr "Dibuat"
+
+msgid "Enabled"
+msgstr "Diaktifkan"
+
+msgid "Registration"
+msgstr "Pendaftaran"
+
+msgid "Role"
+msgstr "Peran"
+
+msgid "Payment"
+msgstr "Pembayaran"
+
+msgid "Accumulated"
+msgstr "Akumulasi"
+
+# ── Summary card labels ───────────────────────────────────────
+msgid "Total Incidents"
+msgstr "Total Insiden"
+
+msgid "With Solution"
+msgstr "Dengan Solusi"
+
+msgid "Organizations"
+msgstr "Organisasi"
+
+msgid "Institutions"
+msgstr "Lembaga"
+
+msgid "Last 90 Days"
+msgstr "90 Hari Terakhir"
+
+msgid "Prefectures"
+msgstr "Prefektur"
+
+msgid "Awaiting Registration"
+msgstr "Menunggu Pendaftaran"
+
+msgid "Pending Review"
+msgstr "Menunggu Peninjauan"
+
+msgid "Collected"
+msgstr "Terkumpul"
+
+msgid "Outstanding"
+msgstr "Tertunggak"
+
+msgid "Total Received"
+msgstr "Total Diterima"
+
+msgid "Trainees Settled"
+msgstr "Peserta Lunas"
+
+msgid "Still Paying"
+msgstr "Masih Membayar"
+
+msgid "Payments Recorded"
+msgstr "Pembayaran Tercatat"
+
+msgid "Ready to Depart"
+msgstr "Siap Berangkat"
+
+# ── Buttons ───────────────────────────────────────────────────
+msgid "Add Payment"
+msgstr "Tambah Pembayaran"
+
+msgid "Add Ticket"
+msgstr "Tambah Tiket"
+
+msgid "Add Record"
+msgstr "Tambah Data"
+
+msgid "Add Entry"
+msgstr "Tambah Entri"
+
+msgid "Add Line"
+msgstr "Tambah Baris"
+
+msgid "Log Incident"
+msgstr "Catat Insiden"
+
+msgid "New User"
+msgstr "Pengguna Baru"
+
+msgid "Manual Entry"
+msgstr "Input Manual"
+
+msgid "Auto-Generate"
+msgstr "Buat Otomatis"
+
+# ── Filters ───────────────────────────────────────────────────
+msgid "All"
+msgstr "Semua"
+
+msgid "All institutions"
+msgstr "Semua lembaga"
+
+msgid "All payments"
+msgstr "Semua pembayaran"
+
+msgid "All prefectures"
+msgstr "Semua prefektur"
+
+msgid "All documents"
+msgstr "Semua dokumen"
+
+# ── Accounting / finance ──────────────────────────────────────
+msgid "Balance"
+msgstr "Saldo"
+
+msgid "Balance Sheet"
+msgstr "Neraca"
+
+msgid "Cash Flow"
+msgstr "Arus Kas"
+
+msgid "Income Statement"
+msgstr "Laporan Laba Rugi"
+
+msgid "Financial Reports"
+msgstr "Laporan Keuangan"
+
+msgid "Journals"
+msgstr "Jurnal"
+
+msgid "Journal Lines"
+msgstr "Baris Jurnal"
+
+msgid "Recent Journal Entries"
+msgstr "Entri Jurnal Terkini"
+
+msgid "Flights"
+msgstr "Penerbangan"
+
+msgid "Flight Legs"
+msgstr "Segmen Penerbangan"
+
+msgid "Current Status"
+msgstr "Status Saat Ini"
+
+msgid "Free Amount"
+msgstr "Jumlah Bebas"
+
+msgid "Full Payment"
+msgstr "Pembayaran Penuh"
+
+msgid "Payment Mode"
+msgstr "Metode Pembayaran"
+
+msgid "Payment Amount"
+msgstr "Jumlah Pembayaran"
+
+msgid "Payment Date"
+msgstr "Tanggal Pembayaran"
+
+msgid "Owing Cost"
+msgstr "Biaya Tertagih"
+
+msgid "Owing Cost Set"
+msgstr "Biaya Tertagih Ditetapkan"
+
+msgid "Total to pay"
+msgstr "Total yang harus dibayar"
+
+msgid "Payment Progress per Trainee"
+msgstr "Progres Pembayaran per Peserta"
+
+msgid "How it works"
+msgstr "Cara kerja"
+
+msgid "Printed on"
+msgstr "Dicetak pada"
+
+# ── Dashboards ────────────────────────────────────────────────
+msgid "Documentation Dashboard"
+msgstr "Dasbor Dokumentasi"
+
+msgid "Accounting Dashboard"
+msgstr "Dasbor Akuntansi"
+
+msgid "Executive Dashboard"
+msgstr "Dasbor Eksekutif"
+
+msgid "Pipeline Timeline"
+msgstr "Alur Tahapan"
+
+msgid "Quick Actions"
+msgstr "Aksi Cepat"
+
+# ── Save buttons ──────────────────────────────────────────────
+msgid "Save Changes"
+msgstr "Simpan Perubahan"
+
+msgid "Save Entry"
+msgstr "Simpan Entri"
+
+msgid "Save Payment"
+msgstr "Simpan Pembayaran"
+
+msgid "Save Association"
+msgstr "Simpan Asosiasi"
+
+msgid "Save Record"
+msgstr "Simpan Data"
+
+msgid "Add Installment"
+msgstr "Tambah Cicilan"
+
+msgid "Add Installment Payment"
+msgstr "Tambah Pembayaran Cicilan"
+
+# ── Menu labels ───────────────────────────────────────────────
+msgid "Candidate Management"
+msgstr "Manajemen Kandidat"
+
+msgid "Candidate List"
+msgstr "Daftar Kandidat"
+
+msgid "Apprentice Management"
+msgstr "Manajemen Pemagang"
+
+msgid "Apprentice Orders"
+msgstr "Pesanan Pemagang"
+
+msgid "Apprentice Docs"
+msgstr "Dokumen Pemagang"
+
+msgid "Trainee List"
+msgstr "Daftar Peserta"
+
+msgid "Trainee Submissions"
+msgstr "Berkas Peserta"
+
+msgid "Departure Docs"
+msgstr "Dokumen Keberangkatan"
+
+msgid "Departure Documents"
+msgstr "Dokumen Keberangkatan"
+
+msgid "Departure Management"
+msgstr "Manajemen Keberangkatan"
+
+msgid "Ticketing & Transit"
+msgstr "Tiket & Transit"
+
+msgid "Candidate Docs"
+msgstr "Dokumen Kandidat"
+
+msgid "Candidate Documents"
+msgstr "Dokumen Kandidat"
+
+msgid "TMM Documentation"
+msgstr "Dokumentasi TMM"
+
+msgid "Passport Management"
+msgstr "Manajemen Paspor"
+
+msgid "Passport Records"
+msgstr "Data Paspor"
+
+msgid "COE/Visa Management"
+msgstr "Manajemen COE/Visa"
+
+msgid "COE & Visa Records"
+msgstr "Data COE & Visa"
+
+msgid "Health Certificates"
+msgstr "Sertifikat Kesehatan"
+
+msgid "Create Ticket"
+msgstr "Buat Tiket"
+
+msgid "Document Checklist"
+msgstr "Ceklis Dokumen"
+
+msgid "Trainee Installments"
+msgstr "Cicilan Peserta"
+
+msgid "Manual Adjustments"
+msgstr "Penyesuaian Manual"
+
+msgid "Auto-Generated Entries"
+msgstr "Entri Otomatis"
+
+msgid "Reports & Analytics"
+msgstr "Laporan & Analitik"
+
+msgid "Active Apprentices"
+msgstr "Pemagang Aktif"
+
+msgid "Candidate Pipeline"
+msgstr "Alur Kandidat"
+
+msgid "Training Progress"
+msgstr "Progres Pelatihan"
+
+msgid "Audit"
+msgstr "Audit"
+
+msgid "Master Data"
+msgstr "Data Master"
+
+msgid "Configuration"
+msgstr "Konfigurasi"
+
+msgid "Menu Management"
+msgstr "Manajemen Menu"
+
+msgid "Cooperative Stories"
+msgstr "Kasus Asosiasi Koperasi"
+
+msgid "Organization Stories"
+msgstr "Kasus Organisasi"
+
+msgid "LPK Stories"
+msgstr "Kasus LPK"
+
+msgid "Status Guide"
+msgstr "Panduan Status"
+
+msgid "Process Guide"
+msgstr "Panduan Proses"
+
+msgid "Field Guide"
+msgstr "Panduan Kolom"
+
+msgid "Result Guide"
+msgstr "Panduan Hasil"
+
+msgid "Double-Entry Rules"
+msgstr "Aturan Pembukuan Berpasangan"
+
+msgid "Set the owing cost first"
+msgstr "Tetapkan biaya tertagih dulu"
+
+msgid "Difference is calculated"
+msgstr "Selisih dihitung"
+
+msgid "Receipt at zero"
+msgstr "Kwitansi saat nol"
+
+msgid "Record a payment - the running balance is calculated automatically"
+msgstr "Catat pembayaran - saldo berjalan dihitung otomatis"
+
+msgid "Free Amount for any partial payment, or Full Payment to settle the whole remaining balance at once."
+msgstr "Jumlah Bebas untuk pembayaran sebagian, atau Pembayaran Penuh untuk melunasi seluruh sisa saldo sekaligus."
+
+msgid "Pay any amount toward the balance"
+msgstr "Bayar berapa pun untuk mengurangi saldo"
+
+msgid "Settle the entire remaining balance"
+msgstr "Lunasi seluruh sisa saldo"
+
+msgid "This payment settles the balance - trainee will be marked PAID OFF"
+msgstr "Pembayaran ini melunasi saldo - peserta akan ditandai LUNAS"
+
+msgid "Green = record exists. Click a red item to add the missing record."
+msgstr "Hijau = data ada. Klik item merah untuk menambahkan data yang kurang."
+
+# ── Search / filter operators ─────────────────────────────────
+msgid "Starts"
+msgstr "Diawali"
+
+msgid "Equals"
+msgstr "Sama dengan"
+
+msgid "Ends"
+msgstr "Diakhiri"
+
+msgid "Contains"
+msgstr "Mengandung"
+
+msgid "Between"
+msgstr "Antara"
+
+msgid "Filter Id"
+msgstr "Saring ID"
+
+# ── Yes / No / common ─────────────────────────────────────────
+msgid "Yes"
+msgstr "Ya"
+
+msgid "No"
+msgstr "Tidak"
+
+msgid "Optional"
+msgstr "Opsional"
+
+msgid "List"
+msgstr "Daftar"
+
+msgid "Updated"
+msgstr "Diperbarui"
+
+msgid "Slug"
+msgstr "Slug"
+
+msgid "View Full Record"
+msgstr "Lihat Data Lengkap"
+
+msgid "Address Information"
+msgstr "Informasi Alamat"
+
+msgid "Reference File"
+msgstr "Berkas Referensi"
+
+# ── Common placeholders ───────────────────────────────────────
+msgid "Enter Title"
+msgstr "Masukkan Judul"
+
+msgid "Enter Name"
+msgstr "Masukkan Nama"
+
+msgid "Enter Detail"
+msgstr "Masukkan Detail"
+
+msgid "Enter Age"
+msgstr "Masukkan Usia"
+
+msgid "Enter Address"
+msgstr "Masukkan Alamat"
+
+msgid "Enter Contact Person"
+msgstr "Masukkan Narahubung"
+
+msgid "Enter Director"
+msgstr "Masukkan Direktur"
+
+msgid "Enter Telephone"
+msgstr "Masukkan Telepon"
+
+# ── Region fields (Indonesia admin areas) ─────────────────────
+msgid "Province"
+msgstr "Provinsi"
+
+msgid "Kabupaten/City"
+msgstr "Kabupaten/Kota"
+
+msgid "Kecamatan/District"
+msgstr "Kecamatan"
+
+msgid "Kelurahan/Village"
+msgstr "Kelurahan/Desa"
+
+msgid "-- Select Province --"
+msgstr "-- Pilih Provinsi --"
+
+msgid "-- Select Kabupaten --"
+msgstr "-- Pilih Kabupaten --"
+
+msgid "-- Select Kecamatan --"
+msgstr "-- Pilih Kecamatan --"
+
+msgid "-- Select Kelurahan --"
+msgstr "-- Pilih Kelurahan --"
+
+# ── Incident fields ───────────────────────────────────────────
+msgid "Problem Contents"
+msgstr "Isi Masalah"
+
+msgid "Problem Classification"
+msgstr "Klasifikasi Masalah"
+
+msgid "Problem Solution"
+msgstr "Solusi Masalah"
+
+msgid "Problem Inference"
+msgstr "Dugaan Penyebab"
+
+msgid "Date Occurrence"
+msgstr "Tanggal Kejadian"
+
+msgid "Enter Problem Contents"
+msgstr "Masukkan Isi Masalah"
+
+msgid "Enter Problem Classification"
+msgstr "Masukkan Klasifikasi Masalah"
+
+msgid "Enter Problem Solution"
+msgstr "Masukkan Solusi Masalah"
+
+msgid "Enter Problem Inference"
+msgstr "Masukkan Dugaan Penyebab"
+
+msgid "Select Date Occurrence"
+msgstr "Pilih Tanggal Kejadian"
+
+# ── List / New entity titles ──────────────────────────────────
+msgid "List Apprentices"
+msgstr "Daftar Pemagang"
+
+msgid "List Candidates"
+msgstr "Daftar Kandidat"
+
+msgid "List Trainees"
+msgstr "Daftar Peserta"
+
+msgid "New Apprentice"
+msgstr "Pemagang Baru"
+
+msgid "New Candidate"
+msgstr "Kandidat Baru"
+
+msgid "New Trainee"
+msgstr "Peserta Baru"
+
+msgid "New Acceptance Organization"
+msgstr "Organisasi Penerima Baru"
+
+msgid "New Cooperative Association"
+msgstr "Asosiasi Koperasi Baru"
+
+msgid "List Acceptance Organizations"
+msgstr "Daftar Organisasi Penerima"
+
+msgid "Last Salary Amount"
+msgstr "Gaji Terakhir"
+
+msgid "Optional field"
+msgstr "Kolom opsional"
+
+# ── Candidate / trainee profile fields ────────────────────────
+msgid "Birth Place"
+msgstr "Tempat Lahir"
+
+msgid "Birth Date"
+msgstr "Tanggal Lahir"
+
+msgid "Name Katakana"
+msgstr "Nama Katakana"
+
+msgid "Body Height"
+msgstr "Tinggi Badan"
+
+msgid "Body Weight"
+msgstr "Berat Badan"
+
+msgid "Strengths"
+msgstr "Kelebihan"
+
+msgid "Weaknesses"
+msgstr "Kekurangan"
+
+msgid "Hobby"
+msgstr "Hobi"
+
+msgid "Application Reasons"
+msgstr "Alasan Melamar"
+
+msgid "Saving Goal Amount"
+msgstr "Target Tabungan"
+
+msgid "Identity Number"
+msgstr "Nomor Identitas"
+
+msgid "Telephone Mobile"
+msgstr "Telepon Seluler"
+
+msgid "Telephone Emergency"
+msgstr "Telepon Darurat"
+
+msgid "Expected Work Upon Returning To Japan"
+msgstr "Pekerjaan yang Diharapkan Setelah Kembali"
+
+msgid "Explain Eye Condition"
+msgstr "Kondisi Mata"
+
+msgid "Explain Color Blind"
+msgstr "Penjelasan Buta Warna"
+
+msgid "Will Go To Japan After Finished"
+msgstr "Akan ke Jepang Setelah Selesai"
+
+msgid "Specific Rejected Reason"
+msgstr "Alasan Penolakan Spesifik"
+
+msgid "Remarks / Notes"
+msgstr "Keterangan / Catatan"
+
+msgid "Kode Pos"
+msgstr "Kode Pos"
+
+msgid "Kode Propinsi"
+msgstr "Kode Provinsi"
+
+msgid "Kode Kabupaten"
+msgstr "Kode Kabupaten"
+
+msgid "Year"
+msgstr "Tahun"
+
+msgid "Profile"
+msgstr "Profil"
+
+msgid "Update"
+msgstr "Perbarui"
+
+# ── Boolean profile flags ─────────────────────────────────────
+msgid "Is Smoking"
+msgstr "Merokok"
+
+msgid "Is Drinking Alcohol"
+msgstr "Minum Alkohol"
+
+msgid "Is Tattooed"
+msgstr "Bertato"
+
+msgid "Is Color Blind"
+msgstr "Buta Warna"
+
+msgid "Is Right Handed"
+msgstr "Tangan Kanan Dominan"
+
+msgid "Is Wear Eye Glasses"
+msgstr "Memakai Kacamata"
+
+msgid "Is Ever Went To Japan"
+msgstr "Pernah ke Jepang"
+
+msgid "Is Holding Passport"
+msgstr "Memiliki Paspor"
+
+msgid "Is Training Pass"
+msgstr "Lulus Pelatihan"
+
+msgid "Is Apprenticeship Pass"
+msgstr "Lulus Magang"
+
+# ── Enter placeholders (profile) ──────────────────────────────
+msgid "Enter Email"
+msgstr "Masukkan Surel"
+
+msgid "Enter Strengths"
+msgstr "Masukkan Kelebihan"
+
+msgid "Enter Weaknesses"
+msgstr "Masukkan Kekurangan"
+
+msgid "Enter Hobby"
+msgstr "Masukkan Hobi"
+
+msgid "Enter Body Height"
+msgstr "Masukkan Tinggi Badan"
+
+msgid "Enter Body Weight"
+msgstr "Masukkan Berat Badan"
+
+msgid "Enter Application Reasons"
+msgstr "Masukkan Alasan Melamar"
+
+msgid "Enter Saving Goal Amount"
+msgstr "Masukkan Target Tabungan"
+
+msgid "Enter Last Salary Amount"
+msgstr "Masukkan Gaji Terakhir"
+
+msgid "Enter Specific Rejected Reason"
+msgstr "Masukkan Alasan Penolakan Spesifik"
+
+msgid "Enter Expected Work Upon Returning To Japan"
+msgstr "Masukkan Pekerjaan yang Diharapkan Setelah Kembali"
+
+msgid "Enter Explain Eye Condition"
+msgstr "Masukkan Kondisi Mata"
+
+msgid "Enter Explain Color Blind"
+msgstr "Masukkan Penjelasan Buta Warna"
+
+# ── Social links ──────────────────────────────────────────────
+msgid "Link Facebook"
+msgstr "Tautan Facebook"
+
+msgid "Link Instagram"
+msgstr "Tautan Instagram"
+
+msgid "Link Line"
+msgstr "Tautan LINE"
+
+msgid "Link Tiktok"
+msgstr "Tautan TikTok"
+
+msgid "Link Whatsapp"
+msgstr "Tautan WhatsApp"
+
+# ── Baked List / New titles ───────────────────────────────────
+msgid "New Vocational Training Institution"
+msgstr "Lembaga Pelatihan Vokasi Baru"
+
+msgid "List Vocational Training Institutions"
+msgstr "Daftar Lembaga Pelatihan Vokasi"
+
+msgid "New Apprentice Order"
+msgstr "Pesanan Pemagang Baru"
+
+msgid "List Apprentice Orders"
+msgstr "Daftar Pesanan Pemagang"
+
+msgid "New Master Gender"
+msgstr "Jenis Kelamin Baru"
+
+msgid "New Master Religion"
+msgstr "Agama Baru"
+
+msgid "New Master Marriage Status"
+msgstr "Status Pernikahan Baru"
+
+msgid "New Master Blood Type"
+msgstr "Golongan Darah Baru"
+
+msgid "New Master Rejected Reason"
+msgstr "Alasan Penolakan Baru"
+
+# ── View-page & master-data labels (tier 4) ───────────────────
+msgid "Image Path"
+msgstr "Jalur Gambar"
+
+msgid "Image Photo"
+msgstr "Foto"
+
+msgid "Birth Place Katakana"
+msgstr "Tempat Lahir Katakana"
+
+msgid "Candidate Code"
+msgstr "Kode Kandidat"
+
+msgid "Applicant Code"
+msgstr "Kode Pelamar"
+
+msgid "Tmm Code"
+msgstr "Kode TMM"
+
+msgid "Education"
+msgstr "Pendidikan"
+
+msgid "Courses"
+msgstr "Kursus"
+
+msgid "Certifications"
+msgstr "Sertifikasi"
+
+msgid "Training Pass"
+msgstr "Lulus Pelatihan"
+
+msgid "Apprenticeship Pass"
+msgstr "Lulus Magang"
+
+msgid "Select trainee"
+msgstr "Pilih Peserta"
+
+msgid "record(s)"
+msgstr "data"
+
+msgid "optional"
+msgstr "opsional"
+
+msgid "PDF"
+msgstr "PDF"
+
+msgid "Excel"
+msgstr "Excel"
+
+msgid "CSV"
+msgstr "CSV"
+
+msgid "Enter Link Facebook"
+msgstr "Masukkan Tautan Facebook"
+
+msgid "Enter Link Instagram"
+msgstr "Masukkan Tautan Instagram"
+
+msgid "Enter Link Line"
+msgstr "Masukkan Tautan LINE"
+
+msgid "Enter Link Tiktok"
+msgstr "Masukkan Tautan TikTok"
+
+msgid "Enter Link Whatsapp"
+msgstr "Masukkan Tautan WhatsApp"
+
+# ── Master-data add/list titles ───────────────────────────────
+msgid "New Master Propinsi"
+msgstr "Provinsi Baru"
+
+msgid "New Master Kabupaten"
+msgstr "Kabupaten Baru"
+
+msgid "New Master Kecamatan"
+msgstr "Kecamatan Baru"
+
+msgid "New Master Kelurahan"
+msgstr "Kelurahan Baru"
+
+msgid "New Candidate Education"
+msgstr "Pendidikan Kandidat Baru"
+
+msgid "New Candidate Experience"
+msgstr "Pengalaman Kandidat Baru"
+
+msgid "New Candidate Family"
+msgstr "Keluarga Kandidat Baru"
+
+msgid "New Candidate Course"
+msgstr "Kursus Kandidat Baru"
+
+msgid "New Candidate Certification"
+msgstr "Sertifikasi Kandidat Baru"
+
+msgid "New Candidate Document"
+msgstr "Dokumen Kandidat Baru"
+
+# ── Administrator Dashboard ───────────────────────────────────
+msgid "Administrator Dashboard"
+msgstr "Dasbor Administrator"
+
+msgid "System-wide overview of the TMM Apprentice Management System"
+msgstr "Ikhtisar menyeluruh Sistem Manajemen Pemagangan TMM"
+
+msgid "System Users"
+msgstr "Pengguna Sistem"
+
+msgid "Apprentices in Japan"
+msgstr "Pemagang di Jepang"
+
+msgid "Recruitment Pipeline"
+msgstr "Alur Rekrutmen"
+
+msgid "Timeline: Candidate → Trainee → Apprentice"
+msgstr "Linimasa: Kandidat → Peserta → Pemagang"
+
+msgid "Candidate → Trainee conversion"
+msgstr "Konversi Kandidat → Peserta"
+
+msgid "Trainee → Apprentice conversion"
+msgstr "Konversi Peserta → Pemagang"
+
+msgid "Finance Snapshot"
+msgstr "Ringkasan Keuangan"
+
+msgid "Contracted"
+msgstr "Terkontrak"
+
+msgid "Collection Rate"
+msgstr "Tingkat Penagihan"
+
+msgid "paid off"
+msgstr "lunas"
+
+msgid "Stakeholder Network"
+msgstr "Jaringan Pemangku Kepentingan"
+
+msgid "Vocational Training Institutions"
+msgstr "Lembaga Pelatihan Vokasi"
+
+msgid "Support Institutions"
+msgstr "Lembaga Pendukung"
+
+msgid "Operations & Access"
+msgstr "Operasional & Akses"
+
+msgid "Document Tickets"
+msgstr "Tiket Dokumen"
+
+msgid "Installment Records"
+msgstr "Catatan Cicilan"
+
+msgid "Users by Role"
+msgstr "Pengguna per Peran"
+
+msgid "Manage Users"
+msgstr "Kelola Pengguna"
+
+msgid "Recent Users"
+msgstr "Pengguna Terbaru"
+
+msgid "Recent Candidates"
+msgstr "Kandidat Terbaru"
+
+msgid "Recent Trainees"
+msgstr "Peserta Terbaru"
+
+msgid "No records yet."
+msgstr "Belum ada data."
+
+# ── Tier 5: legends, dropdowns, save buttons, field labels ────
+msgid "-- Select Vocational Training Institution Id --"
+msgstr "-- Pilih Lembaga Pelatihan Vokasi --"
+
+msgid "-- Select Acceptance Organization Id --"
+msgstr "-- Pilih Organisasi Penerima --"
+
+msgid "-- Select Master Rejected Reason Id --"
+msgstr "-- Pilih Alasan Penolakan --"
+
+msgid "-- Select Master Religion Id --"
+msgstr "-- Pilih Agama --"
+
+msgid "-- Select Master Marriage Status Id --"
+msgstr "-- Pilih Status Pernikahan --"
+
+msgid "-- Select Master Gender Id --"
+msgstr "-- Pilih Jenis Kelamin --"
+
+msgid "-- Select Blood Type Id --"
+msgstr "-- Pilih Golongan Darah --"
+
+msgid "-- Select Apprenticeship Order Id --"
+msgstr "-- Pilih Pesanan Pemagangan --"
+
+msgid "Save Trainee"
+msgstr "Simpan Peserta"
+
+msgid "Save Candidate"
+msgstr "Simpan Kandidat"
+
+msgid "Save Apprentice"
+msgstr "Simpan Pemagang"
+
+msgid "Enter Trainee Information"
+msgstr "Masukkan Informasi Peserta"
+
+msgid "Enter Candidate Information"
+msgstr "Masukkan Informasi Kandidat"
+
+msgid "Enter Apprentice Information"
+msgstr "Masukkan Informasi Pemagang"
+
+msgid "Core profile, address, contacts"
+msgstr "Profil inti, alamat, kontak"
+
+msgid "Personal Information"
+msgstr "Informasi Pribadi"
+
+msgid "Contact & Social Media"
+msgstr "Kontak & Media Sosial"
+
+msgid "Japan Experience & Plans"
+msgstr "Pengalaman & Rencana Jepang"
+
+msgid "Family data"
+msgstr "Data Keluarga"
+
+msgid "Family"
+msgstr "Keluarga"
+
+msgid "Work experience"
+msgstr "Pengalaman Kerja"
+
+msgid "Experience"
+msgstr "Pengalaman"
+
+msgid "Stories"
+msgstr "Kisah"
+
+msgid "Document"
+msgstr "Dokumen"
+
+msgid "File"
+msgstr "Berkas"
+
+msgid "Checklist"
+msgstr "Daftar Periksa"
+
+msgid "Code"
+msgstr "Kode"
+
+msgid "Gender"
+msgstr "Jenis Kelamin"
+
+msgid "Company Name"
+msgstr "Nama Perusahaan"
+
+msgid "Director Hiragana"
+msgstr "Direktur (Hiragana)"
+
+msgid "Place of Issue"
+msgstr "Tempat Penerbitan"
+
+msgid "Date Permitted"
+msgstr "Tanggal Izin"
+
+msgid "Date Paid"
+msgstr "Tanggal Bayar"
+
+msgid "Date Expired"
+msgstr "Tanggal Kedaluwarsa"
+
+msgid "Visa Received"
+msgstr "Visa Diterima"
+
+msgid "COE Received"
+msgstr "COE Diterima"
+
+msgid "Promotion History"
+msgstr "Riwayat Promosi"
+
+msgid "Download Image"
+msgstr "Unduh Gambar"
+
+msgid "Completed"
+msgstr "Selesai"
+
+msgid "Inactive - Not operational"
+msgstr "Tidak Aktif - Tidak Beroperasi"
+
+msgid "No trainees found."
+msgstr "Peserta tidak ditemukan."
+
+msgid "Filter Title"
+msgstr "Saring Judul"
+
+msgid "Enter Post Code"
+msgstr "Masukkan Kode Pos"
+
+msgid "Enter Full Name"
+msgstr "Masukkan Nama Lengkap"
+
+msgid "Enter Candidate Code"
+msgstr "Masukkan Kode Kandidat"
+
+msgid "Enter Applicant Code"
+msgstr "Masukkan Kode Pelamar"
+
+msgid "Enter Tmm Code"
+msgstr "Masukkan Kode TMM"
+
+msgid "Enter Birth Place (City/District)"
+msgstr "Masukkan Tempat Lahir (Kota/Kabupaten)"
+
+msgid "Enter Complete Address (Street, RT/RW, etc.)"
+msgstr "Masukkan Alamat Lengkap (Jalan, RT/RW, dll.)"
+
+msgid "Enter 16-digit Identity Number (NIK/KTP)"
+msgstr "Masukkan Nomor Identitas 16 digit (NIK/KTP)"
+
+msgid "Select Birth Date (YYYY-MM-DD)"
+msgstr "Pilih Tanggal Lahir (YYYY-MM-DD)"
+
+# ── Tier 6: statuses, view labels, glosses, guidance ──────────
+msgid "Candidates"
+msgstr "Kandidat"
+
+msgid "trainees"
+msgstr "peserta"
+
+msgid "unknown trainee"
+msgstr "peserta tidak dikenal"
+
+msgid "Age"
+msgstr "Usia"
+
+msgid "years"
+msgstr "tahun"
+
+msgid "Smoking"
+msgstr "Merokok"
+
+msgid "Right Handed"
+msgstr "Tangan Kanan"
+
+msgid "Holding Passport"
+msgstr "Memiliki Paspor"
+
+msgid "Color Blind"
+msgstr "Buta Warna"
+
+msgid "Tattooed"
+msgstr "Bertato"
+
+msgid "Wears Eye Glasses"
+msgstr "Memakai Kacamata"
+
+msgid "Work Experience"
+msgstr "Pengalaman Kerja"
+
+msgid "Background & Motivation"
+msgstr "Latar Belakang & Motivasi"
+
+msgid "Enter Is Training Pass"
+msgstr "Masukkan Status Lulus Pelatihan"
+
+msgid "Enter Is Apprenticeship Pass"
+msgstr "Masukkan Status Lulus Magang"
+
+msgid "Enter Is Holding Passport"
+msgstr "Masukkan Status Kepemilikan Paspor"
+
+msgid "Booked"
+msgstr "Dipesan"
+
+msgid "Cancelled"
+msgstr "Dibatalkan"
+
+msgid "Installment"
+msgstr "Cicilan"
+
+msgid "All Journals"
+msgstr "Semua Jurnal"
+
+msgid "Totals"
+msgstr "Total"
+
+msgid "Total Price"
+msgstr "Total Harga"
+
+msgid "Translation"
+msgstr "Terjemahan"
+
+msgid "Transit Routes"
+msgstr "Rute Transit"
+
+msgid "Ticket Type"
+msgstr "Jenis Tiket"
+
+msgid "Ticket Number"
+msgstr "Nomor Tiket"
+
+msgid "Select type"
+msgstr "Pilih Jenis"
+
+msgid "Visa Application"
+msgstr "Permohonan Visa"
+
+msgid "Visa Issued In"
+msgstr "Visa Diterbitkan Di"
+
+msgid "Upload"
+msgstr "Unggah"
+
+msgid "Uploaded By"
+msgstr "Diunggah Oleh"
+
+msgid "Uploaded At"
+msgstr "Diunggah Pada"
+
+msgid "View file"
+msgstr "Lihat Berkas"
+
+msgid "Tests"
+msgstr "Tes"
+
+msgid "Certs"
+msgstr "Sertifikat"
+
+msgid "Show All"
+msgstr "Tampilkan Semua"
+
+msgid "TikTok"
+msgstr "TikTok"
+
+msgid "WhatsApp"
+msgstr "WhatsApp"
+
+msgid "WhatsApp number or link"
+msgstr "Nomor atau tautan WhatsApp"
+
+msgid "TikTok username or link"
+msgstr "Nama pengguna atau tautan TikTok"
+
+msgid "Unique identifier code for this candidate."
+msgstr "Kode pengenal unik untuk kandidat ini."
+
+msgid "Suspended / Inactive"
+msgstr "Ditangguhkan / Tidak Aktif"
+
+msgid "Suspended - Temporarily not accepting"
+msgstr "Ditangguhkan - Sementara tidak menerima"
+
+msgid "Suspended - Temporarily inactive"
+msgstr "Ditangguhkan - Sementara tidak aktif"
+
+msgid "Temporarily not accepting apprentices"
+msgstr "Sementara tidak menerima pemagang"
+
+msgid "Temporarily inactive - permit under review"
+msgstr "Sementara tidak aktif - izin sedang ditinjau"
+
+msgid "-- Select Vocational Training Institution --"
+msgstr "-- Pilih Lembaga Pelatihan Vokasi --"
+
+# ── Tier 7: relation empty-states & entity glosses ────────────
+msgid "This record is not associated with any VocationalTrainingInstitution."
+msgstr "Data ini tidak terkait dengan Lembaga Pelatihan Vokasi mana pun."
+
+msgid "This record is not associated with any AcceptanceOrganization."
+msgstr "Data ini tidak terkait dengan Organisasi Penerima mana pun."
+
+msgid "This record is not associated with any ApprenticeOrder."
+msgstr "Data ini tidak terkait dengan Pesanan Pemagang mana pun."
+
+msgid "This record is not associated with any MasterReligion."
+msgstr "Data ini tidak terkait dengan master Agama mana pun."
+
+msgid "This record is not associated with any MasterPropinsi."
+msgstr "Data ini tidak terkait dengan master Provinsi mana pun."
+
+msgid "This record is not associated with any MasterMarriageStatus."
+msgstr "Data ini tidak terkait dengan master Status Pernikahan mana pun."
+
+msgid "This record is not associated with any MasterKelurahan."
+msgstr "Data ini tidak terkait dengan master Kelurahan mana pun."
+
+msgid "This record is not associated with any MasterKecamatan."
+msgstr "Data ini tidak terkait dengan master Kecamatan mana pun."
+
+msgid "This record is not associated with any MasterKabupaten."
+msgstr "Data ini tidak terkait dengan master Kabupaten mana pun."
+
+msgid "This record is not associated with any MasterGender."
+msgstr "Data ini tidak terkait dengan master Jenis Kelamin mana pun."
+
+msgid "This record is not associated with any MasterBloodType."
+msgstr "Data ini tidak terkait dengan master Golongan Darah mana pun."
+
+msgid "Acceptance Organization"
+msgstr "Organisasi Penerima"
+
+msgid "Vocational Training Institution"
+msgstr "Lembaga Pelatihan Vokasi"
+
+msgid "Apprentice Order"
+msgstr "Pesanan Pemagang"
+
+msgid "Kode Kecamatan"
+msgstr "Kode Kecamatan"
+
+msgid "TMM Code"
+msgstr "Kode TMM"
+
+msgid "Title Jpg"
+msgstr "Judul Gambar"
+
+msgid "VocationalTrainingInstitution Details"
+msgstr "Detail Lembaga Pelatihan Vokasi"
+
+msgid "List Vocational Training Institution Stories"
+msgstr "Daftar Kisah Lembaga Pelatihan Vokasi"
+
+msgid "List Acceptance Organization Stories"
+msgstr "Daftar Kisah Organisasi Penerima"
+
+msgid "List Special Skill Support Institutions"
+msgstr "Daftar Lembaga Pendukung Keterampilan Khusus"
+
+# ── Tier 7b: dropdowns, legends, guidance, empty-states ───────
+msgid "-- Select Trainee Id --"
+msgstr "-- Pilih Peserta --"
+
+msgid "-- Select Religion --"
+msgstr "-- Pilih Agama --"
+
+msgid "-- Select Marriage Status --"
+msgstr "-- Pilih Status Pernikahan --"
+
+msgid "-- Select Gender --"
+msgstr "-- Pilih Jenis Kelamin --"
+
+msgid "-- Select Blood Type --"
+msgstr "-- Pilih Golongan Darah --"
+
+msgid "-- Select Apprentice Order --"
+msgstr "-- Pilih Pesanan Pemagang --"
+
+msgid "-- Select Acceptance Organization --"
+msgstr "-- Pilih Organisasi Penerima --"
+
+msgid "-- Select Master Kelurahan Id --"
+msgstr "-- Pilih Kelurahan --"
+
+msgid "-- Select Master Kecamatan Id --"
+msgstr "-- Pilih Kecamatan --"
+
+msgid "-- Select Master Kabupaten Id --"
+msgstr "-- Pilih Kabupaten --"
+
+msgid "-- Select Master Blood Type Id --"
+msgstr "-- Pilih Golongan Darah --"
+
+msgid "-- Select Apprentice Order Id --"
+msgstr "-- Pilih Pesanan Pemagang --"
+
+msgid "Select Birth Date"
+msgstr "Pilih Tanggal Lahir"
+
+msgid "Select Province first; City, District and Village will be populated automatically"
+msgstr "Pilih Provinsi dulu; Kota, Kecamatan dan Kelurahan akan terisi otomatis"
+
+msgid "Save Vocational Training Institution Story"
+msgstr "Simpan Kisah Lembaga Pelatihan Vokasi"
+
+msgid "Save Special Skill Support Institution"
+msgstr "Simpan Lembaga Pendukung Keterampilan Khusus"
+
+msgid "Save Acceptance Organization Story"
+msgstr "Simpan Kisah Organisasi Penerima"
+
+msgid "Save Acceptance Organization"
+msgstr "Simpan Organisasi Penerima"
+
+msgid "Result"
+msgstr "Hasil"
+
+msgid "Religion"
+msgstr "Agama"
+
+msgid "Related Records"
+msgstr "Data Terkait"
+
+msgid "Recent formal photo of the candidate."
+msgstr "Foto formal terbaru dari kandidat."
+
+msgid "Promote to Apprentice"
+msgstr "Promosikan ke Pemagang"
+
+msgid "Promoted"
+msgstr "Dipromosikan"
+
+msgid "Progress"
+msgstr "Progres"
+
+msgid "Passed"
+msgstr "Lulus"
+
+msgid "Placement & Order Information"
+msgstr "Informasi Penempatan & Pesanan"
+
+msgid "Physical Score"
+msgstr "Skor Fisik"
+
+msgid "Physical Condition & Health"
+msgstr "Kondisi Fisik & Kesehatan"
+
+msgid "Physical"
+msgstr "Fisik"
+
+msgid "Phone numbers, email and social media accounts"
+msgstr "Nomor telepon, surel dan akun media sosial"
+
+msgid "Previous experience and future plans related to Japan"
+msgstr "Pengalaman sebelumnya dan rencana masa depan terkait Jepang"
+
+msgid "Problem, solution or cause…"
+msgstr "Masalah, solusi atau penyebab…"
+
+msgid "Operational - can manage member organizations"
+msgstr "Beroperasi - dapat mengelola organisasi anggota"
+
+msgid "Not operational"
+msgstr "Tidak beroperasi"
+
+msgid "Not balanced"
+msgstr "Tidak seimbang"
+
+msgid "No longer operational"
+msgstr "Tidak lagi beroperasi"
+
+msgid "No tickets yet."
+msgstr "Belum ada tiket."
+
+msgid "No payments match the current filter."
+msgstr "Tidak ada pembayaran yang cocok dengan filter saat ini."
+
+msgid "No incidents match the current filter."
+msgstr "Tidak ada insiden yang cocok dengan filter saat ini."
+
+msgid "No incidents logged - all clear."
+msgstr "Tidak ada insiden tercatat - semua aman."
+
+msgid "Missing Record"
+msgstr "Data Hilang"
+
+msgid "Modified"
+msgstr "Diubah"
+
+msgid "National identity number (KTP). Must be 16 digits."
+msgstr "Nomor identitas nasional (KTP). Harus 16 digit."
+
+msgid "Name in Katakana (カタカナ). Example: タナカ タロウ"
+msgstr "Nama dalam Katakana (カタカナ). Contoh: タナカ タロウ"
+
+# ── Tier 8: master-data view families ──
+msgid "MasterReligions"
+msgstr "Master Agama"
+
+msgid "MasterReligion Details"
+msgstr "Detail Master Agama"
+
+msgid "No MasterReligion Associated"
+msgstr "Tidak ada Master Agama terkait"
+
+msgid "MasterPropinsis"
+msgstr "Master Provinsi"
+
+msgid "MasterPropinsi Details"
+msgstr "Detail Master Provinsi"
+
+msgid "No MasterPropinsi Associated"
+msgstr "Tidak ada Master Provinsi terkait"
+
+msgid "MasterMarriageStatuss"
+msgstr "Master Status Pernikahan"
+
+msgid "MasterMarriageStatus Details"
+msgstr "Detail Master Status Pernikahan"
+
+msgid "No MasterMarriageStatus Associated"
+msgstr "Tidak ada Master Status Pernikahan terkait"
+
+msgid "MasterKelurahans"
+msgstr "Master Kelurahan"
+
+msgid "MasterKelurahan Details"
+msgstr "Detail Master Kelurahan"
+
+msgid "No MasterKelurahan Associated"
+msgstr "Tidak ada Master Kelurahan terkait"
+
+msgid "MasterKecamatans"
+msgstr "Master Kecamatan"
+
+msgid "MasterKecamatan Details"
+msgstr "Detail Master Kecamatan"
+
+msgid "No MasterKecamatan Associated"
+msgstr "Tidak ada Master Kecamatan terkait"
+
+msgid "MasterKabupatens"
+msgstr "Master Kabupaten"
+
+msgid "MasterKabupaten Details"
+msgstr "Detail Master Kabupaten"
+
+msgid "No MasterKabupaten Associated"
+msgstr "Tidak ada Master Kabupaten terkait"
+
+msgid "MasterGenders"
+msgstr "Master Jenis Kelamin"
+
+msgid "MasterGender Details"
+msgstr "Detail Master Jenis Kelamin"
+
+msgid "No MasterGender Associated"
+msgstr "Tidak ada Master Jenis Kelamin terkait"
+
+msgid "MasterBloodTypes"
+msgstr "Master Golongan Darah"
+
+msgid "MasterBloodType Details"
+msgstr "Detail Master Golongan Darah"
+
+msgid "No MasterBloodType Associated"
+msgstr "Tidak ada Master Golongan Darah terkait"
+
+msgid "MasterMarriageStatuses"
+msgstr "Master Status Pernikahan"
+
+msgid "No VocationalTrainingInstitution Associated"
+msgstr "Tidak ada Lembaga Pelatihan Vokasi terkait"
+
+msgid "No AcceptanceOrganization Associated"
+msgstr "Tidak ada Organisasi Penerima terkait"
+
+msgid "No ApprenticeOrder Associated"
+msgstr "Tidak ada Pesanan Pemagang terkait"
+
+msgid "VocationalTrainingInstitutions"
+msgstr "Lembaga Pelatihan Vokasi"
+
+# ── Tier 8b: fields, placeholders, filters, legends ───────────
+msgid "Full Name"
+msgstr "Nama Lengkap"
+
+msgid "Full name as it appears on the identity card."
+msgstr "Nama lengkap sesuai kartu identitas."
+
+msgid "Marriage Status"
+msgstr "Status Pernikahan"
+
+msgid "Institution Name"
+msgstr "Nama Lembaga"
+
+msgid "Interview"
+msgstr "Wawancara"
+
+msgid "Entry"
+msgstr "Pendaftaran"
+
+msgid "In Training"
+msgstr "Sedang Pelatihan"
+
+msgid "Ever Went To Japan"
+msgstr "Pernah ke Jepang"
+
+msgid "Grading Remarks"
+msgstr "Catatan Penilaian"
+
+msgid "Male Trainee Number"
+msgstr "Jumlah Peserta Pria"
+
+msgid "Female Trainee Number"
+msgstr "Jumlah Peserta Wanita"
+
+msgid "Is Special Skill Support Institution"
+msgstr "Merupakan Lembaga Pendukung Keterampilan Khusus"
+
+msgid "LINE"
+msgstr "LINE"
+
+msgid "LINE ID"
+msgstr "ID LINE"
+
+msgid "Instagram"
+msgstr "Instagram"
+
+msgid "Facebook"
+msgstr "Facebook"
+
+msgid "Facebook profile or link"
+msgstr "Profil atau tautan Facebook"
+
+msgid "Instagram username or link"
+msgstr "Nama pengguna atau tautan Instagram"
+
+msgid "Loading options..."
+msgstr "Memuat pilihan…"
+
+msgid "Kode Kelurahan"
+msgstr "Kode Kelurahan"
+
+msgid "Employment Start Year"
+msgstr "Tahun Mulai Kerja"
+
+msgid "Employment End Year"
+msgstr "Tahun Selesai Kerja"
+
+msgid "Identity, name, birth data and photo"
+msgstr "Identitas, nama, data kelahiran dan foto"
+
+msgid "Family member or close relative."
+msgstr "Anggota keluarga atau kerabat dekat."
+
+msgid "Family Information"
+msgstr "Informasi Keluarga"
+
+msgid "Filter Name"
+msgstr "Saring Nama"
+
+msgid "Filter Institution Name"
+msgstr "Saring Nama Lembaga"
+
+msgid "Filter Company Name"
+msgstr "Saring Nama Perusahaan"
+
+msgid "Filter Age"
+msgstr "Saring Usia"
+
+msgid "Filter Course Year"
+msgstr "Saring Tahun Kursus"
+
+msgid "Filter Certification Date"
+msgstr "Saring Tanggal Sertifikasi"
+
+msgid "Filter Employment Start Year"
+msgstr "Saring Tahun Mulai Kerja"
+
+msgid "Filter Employment End Year"
+msgstr "Saring Tahun Selesai Kerja"
+
+msgid "List Cooperative Associations"
+msgstr "Daftar Asosiasi Pengawas"
+
+msgid "Enter Company Name"
+msgstr "Masukkan Nama Perusahaan"
+
+msgid "Enter Birth Place"
+msgstr "Masukkan Tempat Lahir"
+
+msgid "Enter Identity Number"
+msgstr "Masukkan Nomor Identitas"
+
+msgid "Enter Telephone Mobile"
+msgstr "Masukkan Telepon Seluler"
+
+msgid "Enter Telephone Emergency"
+msgstr "Masukkan Telepon Darurat"
+
+msgid "Enter Mobile Number (e.g., 081234567890)"
+msgstr "Masukkan Nomor Seluler (mis., 081234567890)"
+
+msgid "Enter Emergency Contact Number"
+msgstr "Masukkan Nomor Kontak Darurat"
+
+msgid "Enter Director Hiragana (Hiragana)"
+msgstr "Masukkan Nama Direktur (Hiragana)"
+
+msgid "Enter Acceptance Organization Information"
+msgstr "Masukkan Informasi Organisasi Penerima"
+
+msgid "Enter Acceptance Organization Story Information"
+msgstr "Masukkan Informasi Kisah Organisasi Penerima"
+
+msgid "Enter Vocational Training Institution Story Information"
+msgstr "Masukkan Informasi Kisah Lembaga Pelatihan Vokasi"
+
+msgid "Enter Special Skill Support Institution Information"
+msgstr "Masukkan Informasi Lembaga Pendukung Keterampilan Khusus"
+
+# ── Tier 9: fields, statuses, view families, guidance ─────────
+msgid "Blood Type"
+msgstr "Golongan Darah"
+
+msgid "Batch"
+msgstr "Angkatan"
+
+msgid "Course"
+msgstr "Kursus"
+
+msgid "Course Year"
+msgstr "Tahun Kursus"
+
+msgid "Courses & Training"
+msgstr "Kursus & Pelatihan"
+
+msgid "Education History"
+msgstr "Riwayat Pendidikan"
+
+msgid "Certification Date"
+msgstr "Tanggal Sertifikasi"
+
+msgid "Departure Year"
+msgstr "Tahun Keberangkatan"
+
+msgid "Departure Month"
+msgstr "Bulan Keberangkatan"
+
+msgid "Date Received"
+msgstr "Tanggal Diterima"
+
+msgid "Date of Issue"
+msgstr "Tanggal Penerbitan"
+
+msgid "Date Issued"
+msgstr "Tanggal Terbit"
+
+msgid "COE Type"
+msgstr "Jenis COE"
+
+msgid "Abbreviation"
+msgstr "Singkatan"
+
+msgid "Airline"
+msgstr "Maskapai"
+
+msgid "Clinic"
+msgstr "Klinik"
+
+msgid "Emergency Contact Number"
+msgstr "Nomor Kontak Darurat"
+
+msgid "Drinking Alcohol"
+msgstr "Minum Alkohol"
+
+msgid "Eligible"
+msgstr "Memenuhi Syarat"
+
+msgid "Eligible for Promotion"
+msgstr "Memenuhi Syarat untuk Promosi"
+
+msgid "Candidate Pass"
+msgstr "Kandidat Lulus"
+
+msgid "Checked In"
+msgstr "Telah Check-In"
+
+msgid "Uploaded"
+msgstr "Terunggah"
+
+msgid "Unpaid Amount"
+msgstr "Jumlah Belum Dibayar"
+
+msgid "Uncategorized"
+msgstr "Tanpa Kategori"
+
+msgid "Acceptance Org"
+msgstr "Org. Penerima"
+
+msgid "Avg"
+msgstr "Rata-rata"
+
+msgid "Dr"
+msgstr "Debit"
+
+msgid "Cr"
+msgstr "Kredit"
+
+msgid "Confirm Promotion"
+msgstr "Konfirmasi Promosi"
+
+msgid "Add Submission"
+msgstr "Tambah Pengajuan"
+
+msgid "Add record"
+msgstr "Tambah Data"
+
+msgid "Add flight leg"
+msgstr "Tambah Rute Penerbangan"
+
+msgid "Add Account"
+msgstr "Tambah Akun"
+
+msgid "Upload Document"
+msgstr "Unggah Dokumen"
+
+msgid "Upload Doc"
+msgstr "Unggah Dok"
+
+msgid "View Journals"
+msgstr "Lihat Jurnal"
+
+msgid "View All"
+msgstr "Lihat Semua"
+
+msgid "All types"
+msgstr "Semua Jenis"
+
+msgid "All Reports"
+msgstr "Semua Laporan"
+
+msgid "By classification:"
+msgstr "Berdasarkan klasifikasi:"
+
+msgid "Data to be copied"
+msgstr "Data yang akan disalin"
+
+# ── Fieldset legends & guidance sentences ─────────────────────
+msgid "Character, work history and reasons for applying"
+msgstr "Karakter, riwayat kerja dan alasan melamar"
+
+msgid "Body measurements, eyesight and lifestyle"
+msgstr "Ukuran tubuh, penglihatan dan gaya hidup"
+
+msgid "Apprentice order, institution and acceptance organization"
+msgstr "Pesanan pemagang, lembaga dan organisasi penerima"
+
+msgid "An acceptance organization is the company in Japan that receives and employs the apprentices."
+msgstr "Organisasi penerima adalah perusahaan di Jepang yang menerima dan mempekerjakan pemagang."
+
+msgid "Complete residential address including street name, RT/RW, and house number."
+msgstr "Alamat tempat tinggal lengkap termasuk nama jalan, RT/RW, dan nomor rumah."
+
+msgid "Click to select date from calendar."
+msgstr "Klik untuk memilih tanggal dari kalender."
+
+msgid "Click to choose a file or drag & drop it here"
+msgstr "Klik untuk memilih berkas atau seret & lepas di sini"
+
+msgid "Delete this incident record?"
+msgstr "Hapus catatan insiden ini?"
+
+# ── Tier 9b: stakeholder view families & statuses ─────────────
+msgid "AcceptanceOrganizations"
+msgstr "Organisasi Penerima"
+
+msgid "AcceptanceOrganization Details"
+msgstr "Detail Organisasi Penerima"
+
+msgid "CooperativeAssociationStories"
+msgstr "Kisah Asosiasi Pengawas"
+
+msgid "Active - Operational"
+msgstr "Aktif - Beroperasi"
+
+msgid "Active - Can accept new apprentices"
+msgstr "Aktif - Dapat menerima pemagang baru"
+
+msgid "Can accept new apprenticeship assignments"
+msgstr "Dapat menerima penugasan pemagangan baru"
+
+msgid "e.g., 12345"
+msgstr "mis., 12345"
+
+msgid "e.g., 081234567890"
+msgstr "mis., 081234567890"
+
+msgid "Edit Ticket"
+msgstr "Edit Tiket"
+
+# ── Tier 10: guidance sentences & label families ──────────────
+msgid "Your data meets all requirements and is ready to be saved."
+msgstr "Data Anda memenuhi semua persyaratan dan siap disimpan."
+
+msgid "When a payment clears a trainee's full balance it appears here as a receipt."
+msgstr "Ketika pembayaran melunasi seluruh saldo peserta, ia muncul di sini sebagai kuitansi."
+
+msgid "when the difference reaches 0 the system issues the receipt and closes the balance."
+msgstr "ketika selisih mencapai 0, sistem menerbitkan kuitansi dan menutup saldo."
+
+msgid "when the immigration office issued the passport"
+msgstr "ketika kantor imigrasi menerbitkan paspor"
+
+msgid "when the passport fee was settled"
+msgstr "ketika biaya paspor dilunasi"
+
+msgid "when TMM received the physical passport from the trainee"
+msgstr "ketika TMM menerima paspor fisik dari peserta"
+
+msgid "Use the buttons above to add each trainee's passport details."
+msgstr "Gunakan tombol di atas untuk menambahkan detail paspor setiap peserta."
+
+msgid "Use the buttons above to record each trainee's COE and visa details."
+msgstr "Gunakan tombol di atas untuk mencatat detail COE dan visa setiap peserta."
+
+msgid "Use the buttons above to record each trainee's medical check-up."
+msgstr "Gunakan tombol di atas untuk mencatat pemeriksaan kesehatan setiap peserta."
+
+msgid "Upload pre-departure documents one by one, or work through a trainee's full list in the checklist."
+msgstr "Unggah dokumen pra-keberangkatan satu per satu, atau selesaikan seluruh daftar peserta di daftar periksa."
+
+msgid "Upload a pre-departure document for a trainee going to Japan"
+msgstr "Unggah dokumen pra-keberangkatan untuk peserta yang berangkat ke Jepang"
+
+msgid "Uploader and upload time are recorded automatically"
+msgstr "Pengunggah dan waktu unggah dicatat secara otomatis"
+
+msgid "uploaded but still awaiting review — not yet counted as complete"
+msgstr "terunggah tetapi masih menunggu peninjauan — belum dihitung sebagai selesai"
+
+msgid "uploads pending review"
+msgstr "unggahan menunggu peninjauan"
+
+msgid "Upload Rules"
+msgstr "Aturan Unggah"
+
+msgid "Turn source cost/price records into balanced double-entry journals, matched to the Chart of Accounts"
+msgstr "Ubah catatan biaya/harga sumber menjadi jurnal berpasangan seimbang, dicocokkan dengan Bagan Akun"
+
+msgid "Total debit must equal total credit - the Save button stays locked until it balances."
+msgstr "Total debit harus sama dengan total kredit - tombol Simpan terkunci hingga seimbang."
+
+msgid "Trainee installment payments - who has paid, who still owes"
+msgstr "Pembayaran cicilan peserta - siapa yang sudah bayar, siapa yang masih berhutang"
+
+# ── Total / summary labels ────────────────────────────────────
+msgid "Total Trainees"
+msgstr "Total Peserta"
+
+msgid "Total Tickets"
+msgstr "Total Tiket"
+
+msgid "Total Submissions"
+msgstr "Total Pengajuan"
+
+msgid "Total Records"
+msgstr "Total Data"
+
+msgid "Total Entries"
+msgstr "Total Entri"
+
+msgid "Total Debit"
+msgstr "Total Debit"
+
+msgid "Total Credit"
+msgstr "Total Kredit"
+
+msgid "Total assets"
+msgstr "Total Aset"
+
+msgid "Total Settled"
+msgstr "Total Terselesaikan"
+
+msgid "Total Settled Value"
+msgstr "Total Nilai Terselesaikan"
+
+msgid "Total Paid to Date"
+msgstr "Total Dibayar Hingga Kini"
+
+msgid "Total Owing Cost"
+msgstr "Total Biaya Terutang"
+
+# ── Labels & statuses ─────────────────────────────────────────
+msgid "Working in Japan"
+msgstr "Bekerja di Jepang"
+
+msgid "With Transit"
+msgstr "Dengan Transit"
+
+msgid "With Passport Record"
+msgstr "Dengan Catatan Paspor"
+
+msgid "With COE / Visa Record"
+msgstr "Dengan Catatan COE / Visa"
+
+msgid "With Check-Up"
+msgstr "Dengan Pemeriksaan"
+
+msgid "Will Go After Finished"
+msgstr "Berangkat Setelah Selesai"
+
+msgid "Who is travelling"
+msgstr "Siapa yang bepergian"
+
+msgid "Visa Applied"
+msgstr "Visa Diajukan"
+
+msgid "view payments"
+msgstr "lihat pembayaran"
+
+msgid "Valid - expires in"
+msgstr "Berlaku - kedaluwarsa dalam"
+
+msgid "Training Institution"
+msgstr "Lembaga Pelatihan"
+
+msgid "Trainees without a passport record"
+msgstr "Peserta tanpa catatan paspor"
+
+msgid "Trainees without a medical check-up"
+msgstr "Peserta tanpa pemeriksaan kesehatan"
+
+msgid "Trainees without a COE / visa record"
+msgstr "Peserta tanpa catatan COE / visa"
+
+msgid "Trainees Ready to Depart"
+msgstr "Peserta Siap Berangkat"
+
+msgid "Trainees Fully Paid"
+msgstr "Peserta Lunas Penuh"
+
+msgid "Trainee Progress"
+msgstr "Progres Peserta"
+
+msgid "Trainee ID"
+msgstr "ID Peserta"
+
+msgid "Trainee / Payer"
+msgstr "Peserta / Pembayar"
+
+msgid "Trainee → Apprentice Promotion History"
+msgstr "Riwayat Promosi Peserta → Pemagang"
+
+msgid "Tracking"
+msgstr "Pelacakan"
+
+msgid "Top prefectures:"
+msgstr "Prefektur teratas:"
+
+msgid "Today"
+msgstr "Hari Ini"
+
+msgid "Tickets & Flights"
+msgstr "Tiket & Penerbangan"
+
+msgid "Tickets without flights yet"
+msgstr "Tiket tanpa penerbangan"
+
+# ── Tier 11: no-related-records families ──
+msgid "There are no related CandidateFamilies for this Candidate."
+msgstr "Tidak ada Keluarga Kandidat terkait untuk Kandidat ini."
+
+msgid "There are no related CandidateExperiences for this Candidate."
+msgstr "Tidak ada Pengalaman Kandidat terkait untuk Kandidat ini."
+
+msgid "There are no related CandidateEducations for this Candidate."
+msgstr "Tidak ada Pendidikan Kandidat terkait untuk Kandidat ini."
+
+msgid "There are no related CandidateDocuments for this Candidate."
+msgstr "Tidak ada Dokumen Kandidat terkait untuk Kandidat ini."
+
+msgid "There are no related CandidateCourses for this Candidate."
+msgstr "Tidak ada Kursus Kandidat terkait untuk Kandidat ini."
+
+msgid "There are no related CandidateCertifications for this Candidate."
+msgstr "Tidak ada Sertifikasi Kandidat terkait untuk Kandidat ini."
+
+msgid "There are no related ApprenticeFamilyStories for this Apprentice."
+msgstr "Tidak ada Kisah Keluarga Pemagang terkait untuk Pemagang ini."
+
+msgid "There are no related ApprenticeFamilies for this Apprentice."
+msgstr "Tidak ada Keluarga Pemagang terkait untuk Pemagang ini."
+
+msgid "There are no related ApprenticeExperiences for this Apprentice."
+msgstr "Tidak ada Pengalaman Pemagang terkait untuk Pemagang ini."
+
+msgid "There are no related ApprenticeEducations for this Apprentice."
+msgstr "Tidak ada Pendidikan Pemagang terkait untuk Pemagang ini."
+
+msgid "There are no related ApprenticeCourses for this Apprentice."
+msgstr "Tidak ada Kursus Pemagang terkait untuk Pemagang ini."
+
+msgid "There are no related ApprenticeCertifications for this Apprentice."
+msgstr "Tidak ada Sertifikasi Pemagang terkait untuk Pemagang ini."
+
+# ── Tier 11b: guidance, statuses, labels ──────────────────────
+msgid "Apprentices"
+msgstr "Pemagang"
+
+msgid "Trainee has departed to Japan"
+msgstr "Peserta telah berangkat ke Jepang"
+
+msgid "trainee has departed to Japan"
+msgstr "peserta telah berangkat ke Jepang"
+
+msgid "Trainee has checked in for the flight"
+msgstr "Peserta telah check-in untuk penerbangan"
+
+msgid "trainee has checked in for the flight"
+msgstr "peserta telah check-in untuk penerbangan"
+
+msgid "Ticket was cancelled"
+msgstr "Tiket telah dibatalkan"
+
+msgid "ticket was cancelled"
+msgstr "tiket telah dibatalkan"
+
+msgid "Ticket purchased, departure planned"
+msgstr "Tiket dibeli, keberangkatan direncanakan"
+
+msgid "ticket purchased, departure planned"
+msgstr "tiket dibeli, keberangkatan direncanakan"
+
+msgid "Trainee record created"
+msgstr "Data peserta dibuat"
+
+msgid "Trainee Document Preparation Checklist"
+msgstr "Daftar Periksa Persiapan Dokumen Peserta"
+
+msgid "Trainee batches, scores and completion"
+msgstr "Angkatan, nilai dan penyelesaian peserta"
+
+msgid "Training performance summary, special notes…"
+msgstr "Ringkasan kinerja pelatihan, catatan khusus…"
+
+msgid "Translation required"
+msgstr "Perlu Terjemahan"
+
+msgid "Tidak Fit"
+msgstr "Tidak Fit"
+
+msgid "This trainee is already paid off - the receipt has been issued. No further payment can be recorded."
+msgstr "Peserta ini sudah lunas - kuitansi telah diterbitkan. Tidak ada pembayaran lain yang dapat dicatat."
+
+msgid "This trainee already submitted this document. Saving will replace the existing file record."
+msgstr "Peserta ini sudah mengajukan dokumen ini. Menyimpan akan mengganti catatan berkas yang ada."
+
+msgid "This payment settled the trainee's full balance. The account is now closed."
+msgstr "Pembayaran ini melunasi seluruh saldo peserta. Akun kini ditutup."
+
+msgid "This document is a system-generated payment record."
+msgstr "Dokumen ini adalah catatan pembayaran yang dihasilkan sistem."
+
+msgid "This journal has no double-entry lines."
+msgstr "Jurnal ini tidak memiliki baris berpasangan."
+
+msgid "This Payment"
+msgstr "Pembayaran Ini"
+
+msgid "The visa application is submitted to the Japanese embassy / consulate with the COE"
+msgstr "Permohonan visa diajukan ke kedutaan / konsulat Jepang bersama COE"
+
+msgid "The passport comes back with the visa - record where it was issued"
+msgstr "Paspor kembali bersama visa - catat tempat penerbitannya"
+
+msgid "the immigration office listed in the passport"
+msgstr "kantor imigrasi yang tercantum di paspor"
+
+msgid "The Departure Folder"
+msgstr "Folder Keberangkatan"
+
+msgid "The account structure behind every journal entry and financial report"
+msgstr "Struktur akun di balik setiap entri jurnal dan laporan keuangan"
+
+msgid "Termination Reason"
+msgstr "Alasan Pemutusan"
+
+msgid "Test Score"
+msgstr "Nilai Tes"
+
+msgid "Tattoo"
+msgstr "Tato"
+
+msgid "Submission Status"
+msgstr "Status Pengajuan"
+
+msgid "Submission Progress"
+msgstr "Progres Pengajuan"
+
+msgid "Subject"
+msgstr "Subjek"
+
+msgid "Still owing"
+msgstr "Masih berhutang"
+
+msgid "Still Missing Items"
+msgstr "Item yang Masih Kurang"
+
+msgid "Step 1 - set what each trainee must pay before recording any payment"
+msgstr "Langkah 1 - tetapkan jumlah yang harus dibayar setiap peserta sebelum mencatat pembayaran"
+
+msgid "Status \"Submitted\" counts toward departure readiness"
+msgstr "Status \"Diajukan\" dihitung untuk kesiapan keberangkatan"
+
+msgid "Status legend:"
+msgstr "Keterangan status:"
+
+msgid "Start Over"
+msgstr "Mulai Ulang"
+
+msgid "Special Skill Support Institution"
+msgstr "Lembaga Pendukung Keterampilan Khusus"
+
+msgid "source records ready to journalize"
+msgstr "catatan sumber siap dijurnalkan"
+
+msgid "Settling payment (receipt)"
+msgstr "Pembayaran pelunasan (kuitansi)"
+
+msgid "Settled On"
+msgstr "Diselesaikan Pada"
+
+msgid "SETTLED"
+msgstr "LUNAS"
+
+msgid "Set Owing Cost"
+msgstr "Tetapkan Biaya Terutang"
+
+msgid "Set it first on Payment Tracking"
+msgstr "Tetapkan dulu di Pelacakan Pembayaran"
+
+msgid "Set both dates to see the validity period."
+msgstr "Tetapkan kedua tanggal untuk melihat masa berlaku."
+
+msgid "Self-registration progress"
+msgstr "Progres pendaftaran mandiri"
+
+msgid "-- Select Trainee --"
+msgstr "-- Pilih Peserta --"
+
+msgid "Select Trainee"
+msgstr "Pilih Peserta"
+
+msgid "Select result"
+msgstr "Pilih Hasil"
+
+msgid "Selection & Result"
+msgstr "Seleksi & Hasil"
+
+msgid "Selected Document"
+msgstr "Dokumen Terpilih"
+
+msgid "Select document type"
+msgstr "Pilih Jenis Dokumen"
+
+msgid "Select Date Permitted"
+msgstr "Pilih Tanggal Izin"
+
+msgid "Select Date Expired"
+msgstr "Pilih Tanggal Kedaluwarsa"
+
+msgid "Select COE type"
+msgstr "Pilih Jenis COE"
+
+msgid "Select a trainee to see at a glance which preparation documents have been uploaded. Upload a file on each row to mark it as prepared."
+msgstr "Pilih peserta untuk melihat sekilas dokumen persiapan mana yang telah diunggah. Unggah berkas di setiap baris untuk menandainya siap."
+
+# ── Tier 12: related-records families ──
+msgid "Related CandidateFamilies"
+msgstr "Keluarga Kandidat Terkait"
+
+msgid "Related CandidateExperiences"
+msgstr "Pengalaman Kandidat Terkait"
+
+msgid "Related CandidateEducations"
+msgstr "Pendidikan Kandidat Terkait"
+
+msgid "Related CandidateDocuments"
+msgstr "Dokumen Kandidat Terkait"
+
+msgid "Related CandidateCourses"
+msgstr "Kursus Kandidat Terkait"
+
+msgid "Related CandidateCertifications"
+msgstr "Sertifikasi Kandidat Terkait"
+
+msgid "Related ApprenticeFamilyStories"
+msgstr "Kisah Keluarga Pemagang Terkait"
+
+msgid "Related ApprenticeFamilies"
+msgstr "Keluarga Pemagang Terkait"
+
+msgid "Related ApprenticeExperiences"
+msgstr "Pengalaman Pemagang Terkait"
+
+msgid "Related ApprenticeEducations"
+msgstr "Pendidikan Pemagang Terkait"
+
+msgid "Related ApprenticeCourses"
+msgstr "Kursus Pemagang Terkait"
+
+msgid "Related ApprenticeCertifications"
+msgstr "Sertifikasi Pemagang Terkait"
+
+msgid "ApprenticeOrders"
+msgstr "Pesanan Pemagang"
+
+msgid "ApprenticeOrder Details"
+msgstr "Detail Pesanan Pemagang"
+
+# ── Tier 12b: entity titles, guidance, labels ─────────────────
+msgid "Vocational Training Institution Story"
+msgstr "Kisah Lembaga Pelatihan Vokasi"
+
+msgid "Trainee Submission Documents"
+msgstr "Dokumen Pengajuan Peserta"
+
+msgid "Trainee Submission Document"
+msgstr "Dokumen Pengajuan Peserta"
+
+msgid "Trainee Record Pasport"
+msgstr "Catatan Paspor Peserta"
+
+msgid "Trainee Record Medical Check Up"
+msgstr "Catatan Pemeriksaan Kesehatan Peserta"
+
+msgid "Trainee Record Coe Visa"
+msgstr "Catatan COE & Visa Peserta"
+
+msgid "Trainee Installment"
+msgstr "Cicilan Peserta"
+
+msgid "Trainee Details"
+msgstr "Detail Peserta"
+
+msgid "Tickets"
+msgstr "Tiket"
+
+msgid "Ticket Details"
+msgstr "Detail Tiket"
+
+msgid "Ticket / Booking Ref"
+msgstr "Tiket / No. Pemesanan"
+
+msgid "Type:"
+msgstr "Jenis:"
+
+msgid "Status:"
+msgstr "Status:"
+
+msgid "Set"
+msgstr "Tetapkan"
+
+msgid "seats left"
+msgstr "kursi tersisa"
+
+msgid "School / College"
+msgstr "Sekolah / Perguruan Tinggi"
+
+msgid "Schedule overlap"
+msgstr "Jadwal bertumpang tindih"
+
+msgid "Schedule Interview"
+msgstr "Jadwalkan Wawancara"
+
+msgid "Saving Goal"
+msgstr "Target Tabungan"
+
+msgid "Save Ticket"
+msgstr "Simpan Tiket"
+
+msgid "Save MCU Result"
+msgstr "Simpan Hasil MCU"
+
+msgid "Save Interview"
+msgstr "Simpan Wawancara"
+
+msgid "Save Document"
+msgstr "Simpan Dokumen"
+
+msgid "Save Cooperative Association"
+msgstr "Simpan Asosiasi Pengawas"
+
+msgid "Revenue vs expenses from posted journals"
+msgstr "Pendapatan vs beban dari jurnal terposting"
+
+msgid "Revenue"
+msgstr "Pendapatan"
+
+msgid "Re-uploading a document replaces the previous record"
+msgstr "Mengunggah ulang dokumen akan mengganti catatan sebelumnya"
+
+msgid "required for departure"
+msgstr "diperlukan untuk keberangkatan"
+
+msgid "required document types"
+msgstr "jenis dokumen yang diperlukan"
+
+msgid "required documents"
+msgstr "dokumen yang diperlukan"
+
+msgid "required"
+msgstr "wajib"
+
+msgid "Report"
+msgstr "Laporan"
+
+msgid "Replace"
+msgstr "Ganti"
+
+msgid "Remove this document record?"
+msgstr "Hapus catatan dokumen ini?"
+
+msgid "Remove record"
+msgstr "Hapus Data"
+
+msgid "Remove leg"
+msgstr "Hapus Rute"
+
+msgid "Remove flight"
+msgstr "Hapus Penerbangan"
+
+msgid "Remove"
+msgstr "Hapus"
+
+msgid "remaining = owing cost minus accumulated payments."
+msgstr "sisa = biaya terutang dikurangi akumulasi pembayaran."
+
+msgid "Remaining Balance"
+msgstr "Sisa Saldo"
+
+msgid "Remaining:"
+msgstr "Sisa:"
+
+msgid "Relationship"
+msgstr "Hubungan"
+
+msgid "Rejection"
+msgstr "Penolakan"
+
+msgid "Registered support bodies (tōroku shien kikan) for specified-skilled workers"
+msgstr "Badan pendukung terdaftar (tōroku shien kikan) untuk pekerja berketerampilan khusus"
+
+msgid "registered"
+msgstr "terdaftar"
+
+msgid "Register a cooperative association (kumiai) partner"
+msgstr "Daftarkan mitra asosiasi pengawas (kumiai)"
+
+msgid "Red = nothing collected yet"
+msgstr "Merah = belum ada yang terkumpul"
+
+msgid "Record the first payment"
+msgstr "Catat pembayaran pertama"
+
+msgid "Record debits and credits here - Posted entries feed the Income Statement, Balance Sheet and Cash Flow."
+msgstr "Catat debit dan kredit di sini - Entri terposting mengisi Laporan Laba Rugi, Neraca dan Arus Kas."
+
+msgid "Record any problem that occurs at a vocational training institution, along with its cause, solution and lessons learned, so patterns can be spotted over time."
+msgstr "Catat setiap masalah yang terjadi di lembaga pelatihan vokasi, beserta penyebab, solusi dan pelajaran yang dipetik, agar pola dapat teridentifikasi seiring waktu."
+
+msgid "Record any problem that occurs at an acceptance organization, along with its cause, solution and lessons learned, so patterns can be spotted over time."
+msgstr "Catat setiap masalah yang terjadi di organisasi penerima, beserta penyebab, solusi dan pelajaran yang dipetik, agar pola dapat teridentifikasi seiring waktu."
+
+msgid "Receiving bodies (kumiai) that place apprentices with member companies in Japan"
+msgstr "Badan penerima (kumiai) yang menempatkan pemagang di perusahaan anggota di Jepang"
+
+msgid "Received From"
+msgstr "Diterima Dari"
+
+msgid "Received by (Accounting)"
+msgstr "Diterima oleh (Akuntansi)"
+
+msgid "Received"
+msgstr "Diterima"
+
+msgid "Receipt Management"
+msgstr "Manajemen Kuitansi"
+
+msgid "Receipt"
+msgstr "Kuitansi"
+
+msgid "ready to depart"
+msgstr "siap berangkat"
+
+msgid "Ready"
+msgstr "Siap"
+
+msgid "Promotion Checklist"
+msgstr "Daftar Periksa Promosi"
+
+msgid "Promote Trainee to Apprentice"
+msgstr "Promosikan Peserta ke Pemagang"
+
+msgid "Promote to Trainee"
+msgstr "Promosikan ke Peserta"
+
+msgid "Promote Candidate to Trainee"
+msgstr "Promosikan Kandidat ke Peserta"
+
+msgid "Progress Tracking"
+msgstr "Pelacakan Progres"
+
+msgid "Problems reported at vocational training institutions (LPK) - cause, solution and lessons learned"
+msgstr "Masalah yang dilaporkan di lembaga pelatihan vokasi (LPK) - penyebab, solusi dan pelajaran yang dipetik"
+
+msgid "Problems reported at acceptance organizations - cause, solution and lessons learned"
+msgstr "Masalah yang dilaporkan di organisasi penerima - penyebab, solusi dan pelajaran yang dipetik"
+
+msgid "Print / PDF"
+msgstr "Cetak / PDF"
+
+msgid "Price"
+msgstr "Harga"
+
+msgid "Preview Data Before Saving"
+msgstr "Pratinjau Data Sebelum Menyimpan"
+
+msgid "Pre-departure documents submitted by trainees going to Japan"
+msgstr "Dokumen pra-keberangkatan yang diajukan peserta yang berangkat ke Jepang"
+
+msgid "Pre-departure document readiness for trainees going to Japan"
+msgstr "Kesiapan dokumen pra-keberangkatan untuk peserta yang berangkat ke Jepang"
+
+msgid "Posted Volume (Debit)"
+msgstr "Volume Terposting (Debit)"
+
+msgid "Posted entries feed the financial reports; Draft ones do not."
+msgstr "Entri terposting mengisi laporan keuangan; entri Draf tidak."
+
+msgid "Position"
+msgstr "Posisi"
+
+msgid "Please select a training batch."
+msgstr "Silakan pilih angkatan pelatihan."
+
+msgid "Please select a trainee above to view and update the document checklist."
+msgstr "Silakan pilih peserta di atas untuk melihat dan memperbarui daftar periksa dokumen."
+
+# ── Tier 13: no-related + relation empty-states ──
+msgid "No Related CandidateFamilies"
+msgstr "Tidak Ada Keluarga Kandidat Terkait"
+
+msgid "No Related CandidateExperiences"
+msgstr "Tidak Ada Pengalaman Kandidat Terkait"
+
+msgid "No Related CandidateEducations"
+msgstr "Tidak Ada Pendidikan Kandidat Terkait"
+
+msgid "No Related CandidateDocuments"
+msgstr "Tidak Ada Dokumen Kandidat Terkait"
+
+msgid "No Related CandidateCourses"
+msgstr "Tidak Ada Kursus Kandidat Terkait"
+
+msgid "No Related CandidateCertifications"
+msgstr "Tidak Ada Sertifikasi Kandidat Terkait"
+
+msgid "No Related ApprenticeFamilyStories"
+msgstr "Tidak Ada Kisah Keluarga Pemagang Terkait"
+
+msgid "No Related ApprenticeFamilies"
+msgstr "Tidak Ada Keluarga Pemagang Terkait"
+
+msgid "No Related ApprenticeExperiences"
+msgstr "Tidak Ada Pengalaman Pemagang Terkait"
+
+msgid "No Related ApprenticeEducations"
+msgstr "Tidak Ada Pendidikan Pemagang Terkait"
+
+msgid "No Related ApprenticeCourses"
+msgstr "Tidak Ada Kursus Pemagang Terkait"
+
+msgid "No Related ApprenticeCertifications"
+msgstr "Tidak Ada Sertifikasi Pemagang Terkait"
+
+msgid "This record is not associated with any Trainee."
+msgstr "Data ini tidak terkait dengan Peserta mana pun."
+
+msgid "No Trainee Associated"
+msgstr "Tidak ada Peserta terkait"
+
+msgid "This record is not associated with any Candidate."
+msgstr "Data ini tidak terkait dengan Kandidat mana pun."
+
+msgid "No Candidate Associated"
+msgstr "Tidak ada Kandidat terkait"
+
+msgid "This record is not associated with any MasterRejectedReason."
+msgstr "Data ini tidak terkait dengan Master Alasan Penolakan mana pun."
+
+msgid "No MasterRejectedReason Associated"
+msgstr "Tidak ada Master Alasan Penolakan terkait"
+
+msgid "This record is not associated with any MasterCandidateInterviewResult."
+msgstr "Data ini tidak terkait dengan Master Hasil Wawancara Kandidat mana pun."
+
+msgid "No MasterCandidateInterviewResult Associated"
+msgstr "Tidak ada Master Hasil Wawancara Kandidat terkait"
+
+# ── Tier 13b: empty-states, statuses, labels ──────────────────
+msgid "No work experience records."
+msgstr "Tidak ada catatan pengalaman kerja."
+
+msgid "No family records."
+msgstr "Tidak ada catatan keluarga."
+
+msgid "No education records."
+msgstr "Tidak ada catatan pendidikan."
+
+msgid "No documents submitted yet."
+msgstr "Belum ada dokumen yang diajukan."
+
+msgid "No documents match the current filter."
+msgstr "Tidak ada dokumen yang cocok dengan filter saat ini."
+
+msgid "No documents."
+msgstr "Tidak ada dokumen."
+
+msgid "No test scores recorded yet"
+msgstr "Belum ada nilai tes tercatat"
+
+msgid "No physical test recorded"
+msgstr "Tidak ada tes fisik tercatat"
+
+msgid "No passport records yet."
+msgstr "Belum ada catatan paspor."
+
+msgid "No medical check-up records yet."
+msgstr "Belum ada catatan pemeriksaan kesehatan."
+
+msgid "No installment payments yet."
+msgstr "Belum ada pembayaran cicilan."
+
+msgid "No installment payments recorded yet."
+msgstr "Belum ada pembayaran cicilan tercatat."
+
+msgid "No settled payments yet."
+msgstr "Belum ada pembayaran terselesaikan."
+
+msgid "No journal entries yet."
+msgstr "Belum ada entri jurnal."
+
+msgid "No journal entries yet - the monthly cash flow will appear here."
+msgstr "Belum ada entri jurnal - arus kas bulanan akan muncul di sini."
+
+msgid "No promotions recorded yet."
+msgstr "Belum ada promosi tercatat."
+
+msgid "No promotion records yet."
+msgstr "Belum ada catatan promosi."
+
+msgid "No trainees pending promotion."
+msgstr "Tidak ada peserta yang menunggu promosi."
+
+msgid "No support institutions yet."
+msgstr "Belum ada lembaga pendukung."
+
+msgid "No required documents configured."
+msgstr "Tidak ada dokumen wajib yang dikonfigurasi."
+
+msgid "No owing cost set for this trainee yet."
+msgstr "Belum ada biaya terutang yang ditetapkan untuk peserta ini."
+
+msgid "Owing cost not set yet."
+msgstr "Biaya terutang belum ditetapkan."
+
+msgid "No Flights Yet"
+msgstr "Belum Ada Penerbangan"
+
+msgid "No flights linked to this ticket yet."
+msgstr "Belum ada penerbangan yang tertaut ke tiket ini."
+
+msgid "No flights linked"
+msgstr "Tidak ada penerbangan tertaut"
+
+msgid "No permit expiry dates recorded yet - add them on edit to enable expiry tracking."
+msgstr "Belum ada tanggal kedaluwarsa izin tercatat - tambahkan saat mengedit untuk mengaktifkan pelacakan kedaluwarsa."
+
+msgid "No tickets match the current filter."
+msgstr "Tidak ada tiket yang cocok dengan filter saat ini."
+
+msgid "No organizations match the current filter."
+msgstr "Tidak ada organisasi yang cocok dengan filter saat ini."
+
+msgid "No institutions match the current filter."
+msgstr "Tidak ada lembaga yang cocok dengan filter saat ini."
+
+msgid "No training batches available. Please create one first."
+msgstr "Tidak ada angkatan pelatihan tersedia. Silakan buat satu terlebih dahulu."
+
+msgid "Not cleared - follow-up check-up required"
+msgstr "Tidak lolos - pemeriksaan lanjutan diperlukan"
+
+msgid "Note the basis for this promotion decision…"
+msgstr "Catat dasar keputusan promosi ini…"
+
+# ── Statuses & short labels ───────────────────────────────────
+msgid "Not Uploaded"
+msgstr "Belum Diunggah"
+
+msgid "Not Submitted"
+msgstr "Belum Diajukan"
+
+msgid "Not tested"
+msgstr "Belum Diuji"
+
+msgid "not started"
+msgstr "belum dimulai"
+
+msgid "Not scored"
+msgstr "Belum Dinilai"
+
+msgid "Not required"
+msgstr "Tidak Diperlukan"
+
+msgid "off"
+msgstr "nonaktif"
+
+msgid "Occupation"
+msgstr "Pekerjaan"
+
+msgid "Paid"
+msgstr "Dibayar"
+
+msgid "Paid off"
+msgstr "Lunas"
+
+msgid "Paid so far"
+msgstr "Dibayar sejauh ini"
+
+msgid "Paying Trainees"
+msgstr "Peserta yang Membayar"
+
+msgid "Passport"
+msgstr "Paspor"
+
+msgid "Passport Details"
+msgstr "Detail Paspor"
+
+msgid "Passport administration for trainees going to Japan"
+msgstr "Administrasi paspor untuk peserta yang berangkat ke Jepang"
+
+msgid "Passport administration for a trainee going to Japan"
+msgstr "Administrasi paspor untuk peserta yang berangkat ke Jepang"
+
+msgid "Payment Details"
+msgstr "Detail Pembayaran"
+
+msgid "Payment Amount (Rp)"
+msgstr "Jumlah Pembayaran (Rp)"
+
+msgid "Payment Accummulated"
+msgstr "Akumulasi Pembayaran"
+
+msgid "Pending Value"
+msgstr "Nilai Tertunda"
+
+msgid "Pending Records"
+msgstr "Data Tertunda"
+
+msgid "Period"
+msgstr "Periode"
+
+msgid "Permitted"
+msgstr "Diizinkan"
+
+msgid "permit(s) expired"
+msgstr "izin kedaluwarsa"
+
+msgid "Permit Period"
+msgstr "Masa Izin"
+
+msgid "Permit has expired."
+msgstr "Izin telah kedaluwarsa."
+
+msgid "Permit Dates Set"
+msgstr "Tanggal Izin Ditetapkan"
+
+msgid "Physical Test"
+msgstr "Tes Fisik"
+
+msgid "Place Visa Issued"
+msgstr "Tempat Visa Diterbitkan"
+
+msgid "Place Issue"
+msgstr "Tempat Penerbitan"
+
+msgid "Placement & Order"
+msgstr "Penempatan & Pesanan"
+
+msgid "Outstanding Payments"
+msgstr "Pembayaran Belum Terbayar"
+
+msgid "Outstanding balance after this payment"
+msgstr "Saldo belum terbayar setelah pembayaran ini"
+
+msgid "Out of Balance"
+msgstr "Tidak Seimbang"
+
+msgid "Owing cost (Rp)"
+msgstr "Biaya Terutang (Rp)"
+
+msgid "overall completion"
+msgstr "penyelesaian keseluruhan"
+
+msgid "Organization Incident Log"
+msgstr "Log Insiden Organisasi"
+
+msgid "Orange = started, still far to go"
+msgstr "Oranye = dimulai, masih jauh"
+
+msgid "Operational Status"
+msgstr "Status Operasional"
+
+msgid "Operational Reports"
+msgstr "Laporan Operasional"
+
+msgid "Open report"
+msgstr "Buka Laporan"
+
+msgid "Open Payment Tracking"
+msgstr "Buka Pelacakan Pembayaran"
+
+msgid "Open Document Checklist"
+msgstr "Buka Daftar Periksa Dokumen"
+
+msgid "Open Checklist"
+msgstr "Buka Daftar Periksa"
+
+msgid "One record per trainee is enough - it marks the passport step complete in the pre-departure pipeline."
+msgstr "Satu catatan per peserta sudah cukup - menandai langkah paspor selesai dalam alur pra-keberangkatan."
+
+msgid "Please select an apprentice order before promoting."
+msgstr "Silakan pilih pesanan pemagang sebelum mempromosikan."
+
+msgid "Please review your data and validation status before saving to database."
+msgstr "Silakan tinjau data dan status validasi Anda sebelum menyimpan ke basis data."
+
+# ── Tier 14: master families, empty-states, accounting, fields ─
+msgid "MasterRejectedReasons"
+msgstr "Master Alasan Penolakan"
+
+msgid "MasterRejectedReason Details"
+msgstr "Detail Master Alasan Penolakan"
+
+msgid "MasterCandidateInterviewResults"
+msgstr "Master Hasil Wawancara Kandidat"
+
+msgid "MasterCandidateInterviewResult Details"
+msgstr "Detail Master Hasil Wawancara Kandidat"
+
+msgid "New Vocational Training Institution Story"
+msgstr "Kisah Lembaga Pelatihan Vokasi Baru"
+
+msgid "New Special Skill Support Institution"
+msgstr "Lembaga Pendukung Keterampilan Khusus Baru"
+
+msgid "New Acceptance Organization Story"
+msgstr "Kisah Organisasi Penerima Baru"
+
+# ── Empty states ──────────────────────────────────────────────
+msgid "No document cost records yet."
+msgstr "Belum ada catatan biaya dokumen."
+
+msgid "No description"
+msgstr "Tanpa deskripsi"
+
+msgid "No course records."
+msgstr "Tidak ada catatan kursus."
+
+msgid "No cooperative associations yet."
+msgstr "Belum ada asosiasi pengawas."
+
+msgid "No COE / visa records yet."
+msgstr "Belum ada catatan COE / visa."
+
+msgid "No Check-Up Yet"
+msgstr "Belum Ada Pemeriksaan"
+
+msgid "No certification records."
+msgstr "Tidak ada catatan sertifikasi."
+
+msgid "No candidates yet."
+msgstr "Belum ada kandidat."
+
+msgid "No candidates pending promotion."
+msgstr "Tidak ada kandidat yang menunggu promosi."
+
+msgid "No associations match the current filter."
+msgstr "Tidak ada asosiasi yang cocok dengan filter saat ini."
+
+msgid "No apprentice orders available. Please create one first."
+msgstr "Tidak ada pesanan pemagang tersedia. Silakan buat satu terlebih dahulu."
+
+msgid "No AO interview recorded"
+msgstr "Tidak ada wawancara AO tercatat"
+
+msgid "No accounts yet."
+msgstr "Belum ada akun."
+
+msgid "No accounts of this type yet."
+msgstr "Belum ada akun jenis ini."
+
+msgid "No accounts defined yet."
+msgstr "Belum ada akun yang ditetapkan."
+
+msgid "No acceptance organizations yet."
+msgstr "Belum ada organisasi penerima."
+
+# ── Accounting & finance ──────────────────────────────────────
+msgid "Network"
+msgstr "Jaringan"
+
+msgid "Net result"
+msgstr "Hasil Bersih"
+
+msgid "Net Profit"
+msgstr "Laba Bersih"
+
+msgid "Net Loss"
+msgstr "Rugi Bersih"
+
+msgid "Net"
+msgstr "Bersih"
+
+msgid "net"
+msgstr "bersih"
+
+msgid "Liabilities"
+msgstr "Liabilitas"
+
+msgid "Journal entries"
+msgstr "Entri Jurnal"
+
+msgid "Line Note"
+msgstr "Catatan Baris"
+
+msgid "lines"
+msgstr "baris"
+
+msgid "Is Paid Off"
+msgstr "Lunas"
+
+msgid "Is Active"
+msgstr "Aktif"
+
+msgid "Full Payment Amount"
+msgstr "Jumlah Pembayaran Penuh"
+
+msgid "Fully Paid Off"
+msgstr "Lunas Penuh"
+
+msgid "Final Payment"
+msgstr "Pembayaran Terakhir"
+
+msgid "Last payment:"
+msgstr "Pembayaran terakhir:"
+
+msgid "Largest outstanding balance first"
+msgstr "Saldo belum terbayar terbesar dulu"
+
+msgid "Monthly journal debit / credit volume"
+msgstr "Volume debit / kredit jurnal bulanan"
+
+msgid "Monthly debit / credit journal totals"
+msgstr "Total jurnal debit / kredit bulanan"
+
+msgid "General ledger - only Posted entries count in the financial reports"
+msgstr "Buku besar - hanya entri Terposting yang dihitung dalam laporan keuangan"
+
+msgid "How each source maps to the Chart of Accounts"
+msgstr "Bagaimana setiap sumber dipetakan ke Bagan Akun"
+
+msgid "Free-form double-entry - total debit must equal total credit"
+msgstr "Entri berpasangan bentuk bebas - total debit harus sama dengan total kredit"
+
+msgid "Generate These"
+msgstr "Hasilkan Ini"
+
+msgid "Generate All"
+msgstr "Hasilkan Semua"
+
+# ── Field labels ──────────────────────────────────────────────
+msgid "Mobile"
+msgstr "Seluler"
+
+msgid "Medical Check-Ups"
+msgstr "Pemeriksaan Kesehatan"
+
+msgid "Medical"
+msgstr "Medis"
+
+msgid "MCU"
+msgstr "MCU"
+
+msgid "MCU Report File"
+msgstr "Berkas Laporan MCU"
+
+msgid "Mcu Files"
+msgstr "Berkas MCU"
+
+msgid "Major"
+msgstr "Jurusan"
+
+msgid "Level"
+msgstr "Tingkat"
+
+msgid "Last Salary"
+msgstr "Gaji Terakhir"
+
+msgid "Latest Candidates"
+msgstr "Kandidat Terbaru"
+
+msgid "Job Detail"
+msgstr "Detail Pekerjaan"
+
+msgid "Itineraries"
+msgstr "Rencana Perjalanan"
+
+msgid "Issued"
+msgstr "Diterbitkan"
+
+msgid "Interview Score"
+msgstr "Nilai Wawancara"
+
+msgid "Interview Result"
+msgstr "Hasil Wawancara"
+
+msgid "Institution (LPK)"
+msgstr "Lembaga (LPK)"
+
+msgid "Identity"
+msgstr "Identitas"
+
+msgid "Hierarchy"
+msgstr "Hierarki"
+
+msgid "Health & Lifestyle"
+msgstr "Kesehatan & Gaya Hidup"
+
+msgid "Glasses"
+msgstr "Kacamata"
+
+msgid "Graduated"
+msgstr "Lulus"
+
+msgid "Format"
+msgstr "Format"
+
+msgid "Flight Number"
+msgstr "Nomor Penerbangan"
+
+msgid "Full address"
+msgstr "Alamat lengkap"
+
+msgid "File Path"
+msgstr "Jalur Berkas"
+
+msgid "File Name"
+msgstr "Nama Berkas"
+
+msgid "File / Date"
+msgstr "Berkas / Tanggal"
+
+msgid "Linked Flights"
+msgstr "Penerbangan Tertaut"
+
+msgid "Manage Transit Routes"
+msgstr "Kelola Rute Transit"
+
+msgid "List Trainee Submissions"
+msgstr "Daftar Pengajuan Peserta"
+
+msgid "LPK Institutions"
+msgstr "Lembaga LPK"
+
+msgid "LPK Incident Log"
+msgstr "Log Insiden LPK"
+
+msgid "months"
+msgstr "bulan"
+
+msgid "in progress"
+msgstr "sedang berjalan"
+
+# ── Statuses & guidance ───────────────────────────────────────
+msgid "Healthy - cleared for departure"
+msgstr "Sehat - lolos untuk keberangkatan"
+
+msgid "Health certificate for a trainee going to Japan"
+msgstr "Sertifikat kesehatan untuk peserta yang berangkat ke Jepang"
+
+msgid "Health certificate administration for trainees going to Japan"
+msgstr "Administrasi sertifikat kesehatan untuk peserta yang berangkat ke Jepang"
+
+msgid "Fit"
+msgstr "Fit"
+
+msgid "Fit dengan keterangan"
+msgstr "Fit dengan keterangan"
+
+msgid "Green = complete (ready to depart)"
+msgstr "Hijau = lengkap (siap berangkat)"
+
+msgid "Funnel from candidate to trainee to apprentice"
+msgstr "Corong dari kandidat ke peserta ke pemagang"
+
+msgid "Japan Immigration issues the Certificate of Eligibility and TMM receives it"
+msgstr "Imigrasi Jepang menerbitkan Certificate of Eligibility dan TMM menerimanya"
+
+msgid "How to read this page"
+msgstr "Cara membaca halaman ini"
+
+msgid "Least complete first — open a row to see exactly what is missing"
+msgstr "Paling tidak lengkap dulu — buka baris untuk melihat persis apa yang kurang"
+
+msgid "Most missing first — these documents are the bottleneck"
+msgstr "Paling banyak kurang dulu — dokumen ini adalah penghambatnya"
+
+msgid "Files are stored under"
+msgstr "Berkas disimpan di bawah"
+
+msgid "Name, TMM code, NIK…"
+msgstr "Nama, kode TMM, NIK…"
+
+msgid "Name, director or address…"
+msgstr "Nama, direktur atau alamat…"
+
+msgid "Name, contact person or email…"
+msgstr "Nama, narahubung atau surel…"
+
+msgid "Name, address or telephone…"
+msgstr "Nama, alamat atau telepon…"
+
+# ── Filters ───────────────────────────────────────────────────
+msgid "Filter Problem Contents"
+msgstr "Saring Isi Masalah"
+
+msgid "Filter File Name"
+msgstr "Saring Nama Berkas"
+
+msgid "Filter Date Occurrence"
+msgstr "Saring Tanggal Kejadian"
+
+msgid "Filter Comments"
+msgstr "Saring Komentar"
+
+# ── Tier 15: candidate view families ──
+msgid "CandidateFamilies"
+msgstr "Keluarga Kandidat"
+
+msgid "CandidateExperiences"
+msgstr "Pengalaman Kandidat"
+
+msgid "CandidateEducations"
+msgstr "Pendidikan Kandidat"
+
+msgid "CandidateDocuments"
+msgstr "Dokumen Kandidat"
+
+msgid "CandidateCourses"
+msgstr "Kursus Kandidat"
+
+msgid "CandidateCertifications"
+msgstr "Sertifikasi Kandidat"
+
+# ── Tier 15b: edit buttons, guidance, labels ──────────────────
+msgid "Edit Trainee Submission Document"
+msgstr "Edit Dokumen Pengajuan Peserta"
+
+msgid "Edit Trainee Installment"
+msgstr "Edit Cicilan Peserta"
+
+msgid "Edit Passport Record"
+msgstr "Edit Catatan Paspor"
+
+msgid "Edit Medical Check-Up"
+msgstr "Edit Pemeriksaan Kesehatan"
+
+msgid "Edit Journal"
+msgstr "Edit Jurnal"
+
+msgid "Edit Cooperative Association"
+msgstr "Edit Asosiasi Pengawas"
+
+msgid "Edit COE / Visa Record"
+msgstr "Edit Catatan COE / Visa"
+
+msgid "Edit Chart Of Account"
+msgstr "Edit Bagan Akun"
+
+msgid "Edit Candidate"
+msgstr "Edit Kandidat"
+
+msgid "Edit leg"
+msgstr "Edit Rute"
+
+msgid "Edit flight"
+msgstr "Edit Penerbangan"
+
+msgid "Delete Candidate"
+msgstr "Hapus Kandidat"
+
+msgid "Delete this cooperative association? This cannot be undone."
+msgstr "Hapus asosiasi pengawas ini? Tindakan ini tidak dapat dibatalkan."
+
+# ── View families & titles ────────────────────────────────────
+msgid "Cooperative Association Stories"
+msgstr "Kisah Asosiasi Pengawas"
+
+msgid "Cooperative Association"
+msgstr "Asosiasi Pengawas"
+
+msgid "Chart Of Account"
+msgstr "Bagan Akun"
+
+msgid "Candidate Details"
+msgstr "Detail Kandidat"
+
+msgid "Candidate Management Dashboard"
+msgstr "Dasbor Manajemen Kandidat"
+
+msgid "Curriculum Vitae"
+msgstr "Daftar Riwayat Hidup"
+
+msgid "CV Page"
+msgstr "Halaman CV"
+
+# ── Field labels ──────────────────────────────────────────────
+msgid "From"
+msgstr "Dari"
+
+msgid "Kelurahan"
+msgstr "Kelurahan"
+
+msgid "Kecamatan"
+msgstr "Kecamatan"
+
+msgid "Kabupaten"
+msgstr "Kabupaten"
+
+msgid "leg"
+msgstr "rute"
+
+msgid "legs"
+msgstr "rute"
+
+msgid "Expenses"
+msgstr "Beban"
+
+msgid "Equity"
+msgstr "Ekuitas"
+
+msgid "entries"
+msgstr "entri"
+
+msgid "Emergency"
+msgstr "Darurat"
+
+msgid "Document Type"
+msgstr "Jenis Dokumen"
+
+msgid "Document Details"
+msgstr "Detail Dokumen"
+
+msgid "Document Costs"
+msgstr "Biaya Dokumen"
+
+msgid "Document Cost Management"
+msgstr "Manajemen Biaya Dokumen"
+
+msgid "Document Completeness"
+msgstr "Kelengkapan Dokumen"
+
+msgid "Documents"
+msgstr "Dokumen"
+
+msgid "document(s)"
+msgstr "dokumen"
+
+msgid "documents uploaded"
+msgstr "dokumen terunggah"
+
+msgid "Docs"
+msgstr "Dok"
+
+msgid "Departure"
+msgstr "Keberangkatan"
+
+msgid "Departure airport"
+msgstr "Bandara keberangkatan"
+
+msgid "Departure Readiness per Trainee"
+msgstr "Kesiapan Keberangkatan per Peserta"
+
+msgid "Date Visa Received"
+msgstr "Tanggal Visa Diterima"
+
+msgid "Date Visa Application"
+msgstr "Tanggal Permohonan Visa"
+
+msgid "Date Received (by TMM)"
+msgstr "Tanggal Diterima (oleh TMM)"
+
+msgid "Date Issue"
+msgstr "Tanggal Penerbitan"
+
+msgid "Date Coe Received"
+msgstr "Tanggal COE Diterima"
+
+msgid "Contact Information"
+msgstr "Informasi Kontak"
+
+msgid "Company"
+msgstr "Perusahaan"
+
+msgid "Comments"
+msgstr "Komentar"
+
+msgid "Comment"
+msgstr "Komentar"
+
+msgid "Collected from Trainees"
+msgstr "Terkumpul dari Peserta"
+
+msgid "COE & Visa Details"
+msgstr "Detail COE & Visa"
+
+msgid "COE / Visa"
+msgstr "COE / Visa"
+
+msgid "Clinic / Hospital"
+msgstr "Klinik / Rumah Sakit"
+
+msgid "Check-Up Title"
+msgstr "Judul Pemeriksaan"
+
+msgid "Check-Up Details"
+msgstr "Detail Pemeriksaan"
+
+msgid "Check-Up"
+msgstr "Pemeriksaan"
+
+msgid "Category"
+msgstr "Kategori"
+
+msgid "Certification"
+msgstr "Sertifikasi"
+
+msgid "Certificate"
+msgstr "Sertifikat"
+
+msgid "Cost"
+msgstr "Biaya"
+
+msgid "Cannot Save - Fix Errors First"
+msgstr "Tidak Dapat Menyimpan - Perbaiki Kesalahan Dulu"
+
+# ── Buttons & actions ─────────────────────────────────────────
+msgid "Confirm & Save"
+msgstr "Konfirmasi & Simpan"
+
+msgid "Confirm Promotion to Trainee"
+msgstr "Konfirmasi Promosi ke Peserta"
+
+msgid "Confirm Promotion to Apprentice"
+msgstr "Konfirmasi Promosi ke Pemagang"
+
+msgid "Clear"
+msgstr "Bersihkan"
+
+msgid "Check"
+msgstr "Periksa"
+
+msgid "Export Excel"
+msgstr "Ekspor Excel"
+
+msgid "Export CV PDF"
+msgstr "Ekspor CV PDF"
+
+msgid "Export CV Excel"
+msgstr "Ekspor CV Excel"
+
+msgid "Export CV"
+msgstr "Ekspor CV"
+
+msgid "Deep-Dive Reports"
+msgstr "Laporan Mendalam"
+
+# ── Guidance sentences ────────────────────────────────────────
+msgid "Fields marked with * are required. Update the candidate information in the sections below."
+msgstr "Kolom bertanda * wajib diisi. Perbarui informasi kandidat di bagian-bagian di bawah."
+
+msgid "Fields marked with * are required. Complete each section below to register a new candidate."
+msgstr "Kolom bertanda * wajib diisi. Lengkapi setiap bagian di bawah untuk mendaftarkan kandidat baru."
+
+msgid "Everything a trainee needs before boarding the flight to Japan"
+msgstr "Semua yang dibutuhkan peserta sebelum naik penerbangan ke Jepang"
+
+msgid "Every payment recorded - see Payment Tracking for per-trainee balances"
+msgstr "Setiap pembayaran tercatat - lihat Pelacakan Pembayaran untuk saldo per peserta"
+
+msgid "Every installment payment, ticket and document cost already has a matching journal entry. New cost/price records will appear here automatically."
+msgstr "Setiap pembayaran cicilan, tiket dan biaya dokumen sudah memiliki entri jurnal yang cocok. Catatan biaya/harga baru akan muncul di sini secara otomatis."
+
+msgid "Every entry needs at least one debit and one credit line."
+msgstr "Setiap entri memerlukan setidaknya satu baris debit dan satu baris kredit."
+
+msgid "Expiry is before the permitted date - please check."
+msgstr "Kedaluwarsa lebih awal dari tanggal izin - silakan periksa."
+
+msgid "Documents every trainee must carry when flying to Japan"
+msgstr "Dokumen yang wajib dibawa setiap peserta saat terbang ke Jepang"
+
+msgid "Departure tickets for trainees going to Japan"
+msgstr "Tiket keberangkatan untuk peserta yang berangkat ke Jepang"
+
+msgid "Departure ticket for a trainee going to Japan"
+msgstr "Tiket keberangkatan untuk peserta yang berangkat ke Jepang"
+
+msgid "Debit and credit totals differ"
+msgstr "Total debit dan kredit berbeda"
+
+msgid "Create a ticket first, then build its flight itinerary here."
+msgstr "Buat tiket dulu, lalu susun rencana perjalanannya di sini."
+
+msgid "Correcting or reclassifying entry - lines must balance (total debit = total credit)"
+msgstr "Entri koreksi atau reklasifikasi - baris harus seimbang (total debit = total kredit)"
+
+msgid "Chart of accounts grouped by account type."
+msgstr "Bagan akun yang dikelompokkan berdasarkan jenis akun."
+
+msgid "Certificate of Eligibility and visa administration for trainees going to Japan"
+msgstr "Administrasi Certificate of Eligibility dan visa untuk peserta yang berangkat ke Jepang"
+
+msgid "Certificate of Eligibility and visa administration for a trainee going to Japan"
+msgstr "Administrasi Certificate of Eligibility dan visa untuk peserta yang berangkat ke Jepang"
+
+msgid "Candidates with is_candidate_pass=1 who have not yet become trainees will appear here."
+msgstr "Kandidat dengan is_candidate_pass=1 yang belum menjadi peserta akan muncul di sini."
+
+msgid "Companies in Japan that receive and employ the apprentices"
+msgstr "Perusahaan di Jepang yang menerima dan mempekerjakan pemagang"
+
+msgid "Data Preview with Validation Rules"
+msgstr "Pratinjau Data dengan Aturan Validasi"
+
+msgid "Choose the payment mode"
+msgstr "Pilih metode pembayaran"
+
+msgid "Define them under Chart of Accounts"
+msgstr "Tetapkan di bawah Bagan Akun"
+
+msgid "COE Biasa = paper certificate, COE Electronic = e-COE. One record per trainee marks the COE/visa step complete in the pre-departure pipeline."
+msgstr "COE Biasa = sertifikat kertas, COE Electronic = e-COE. Satu catatan per peserta menandai langkah COE/visa selesai dalam alur pra-keberangkatan."
+
+msgid "Enter Postal Code (e.g., 12345)"
+msgstr "Masukkan Kode Pos (mis., 12345)"
+
+msgid "Enter Cooperative Association Information"
+msgstr "Masukkan Informasi Asosiasi Pengawas"
+
+# ── Tier 16: add-first families ──
+msgid "Add First CandidateFamily"
+msgstr "Tambah Keluarga Kandidat Pertama"
+
+msgid "Add First CandidateExperience"
+msgstr "Tambah Pengalaman Kandidat Pertama"
+
+msgid "Add First CandidateEducation"
+msgstr "Tambah Pendidikan Kandidat Pertama"
+
+msgid "Add First CandidateDocument"
+msgstr "Tambah Dokumen Kandidat Pertama"
+
+msgid "Add First CandidateCourse"
+msgstr "Tambah Kursus Kandidat Pertama"
+
+msgid "Add First CandidateCertification"
+msgstr "Tambah Sertifikasi Kandidat Pertama"
+
+msgid "Add First ApprenticeFamilyStory"
+msgstr "Tambah Kisah Keluarga Pemagang Pertama"
+
+msgid "Add First ApprenticeFamily"
+msgstr "Tambah Keluarga Pemagang Pertama"
+
+msgid "Add First ApprenticeExperience"
+msgstr "Tambah Pengalaman Pemagang Pertama"
+
+msgid "Add First ApprenticeEducation"
+msgstr "Tambah Pendidikan Pemagang Pertama"
+
+msgid "Add First ApprenticeCourse"
+msgstr "Tambah Kursus Pemagang Pertama"
+
+msgid "Add First ApprenticeCertification"
+msgstr "Tambah Sertifikasi Pemagang Pertama"
+
+# ── Tier 16b: add buttons, guidance, labels ───────────────────
+msgid "Add Trainee Submission Document"
+msgstr "Tambah Dokumen Pengajuan Peserta"
+
+msgid "Add Trainee"
+msgstr "Tambah Peserta"
+
+msgid "Add Passport Record"
+msgstr "Tambah Catatan Paspor"
+
+msgid "Add Medical Check-Up"
+msgstr "Tambah Pemeriksaan Kesehatan"
+
+msgid "Add MCU"
+msgstr "Tambah MCU"
+
+msgid "Add Leg"
+msgstr "Tambah Rute"
+
+msgid "Add Journal Entry"
+msgstr "Tambah Entri Jurnal"
+
+msgid "Add Journal"
+msgstr "Tambah Jurnal"
+
+msgid "Add Cooperative Association"
+msgstr "Tambah Asosiasi Pengawas"
+
+msgid "Add COE / Visa Record"
+msgstr "Tambah Catatan COE / Visa"
+
+msgid "Add Check-Up"
+msgstr "Tambah Pemeriksaan"
+
+msgid "Add check-up"
+msgstr "Tambah pemeriksaan"
+
+msgid "Add Chart Of Account"
+msgstr "Tambah Bagan Akun"
+
+msgid "Add First Trainee →"
+msgstr "Tambah Peserta Pertama →"
+
+msgid "Add first leg"
+msgstr "Tambah rute pertama"
+
+msgid "Adding passport record for"
+msgstr "Menambahkan catatan paspor untuk"
+
+msgid "Adding medical check-up for"
+msgstr "Menambahkan pemeriksaan kesehatan untuk"
+
+msgid "Adding COE / visa record for"
+msgstr "Menambahkan catatan COE / visa untuk"
+
+msgid "Additional Information"
+msgstr "Informasi Tambahan"
+
+# ── Labels ────────────────────────────────────────────────────
+msgid "Candidate"
+msgstr "Kandidat"
+
+msgid "Apprentice"
+msgstr "Pemagang"
+
+msgid "Apprentice ID"
+msgstr "ID Pemagang"
+
+msgid "Apprentice Pass"
+msgstr "Pemagang Lulus"
+
+msgid "Apprentice record created"
+msgstr "Data pemagang dibuat"
+
+msgid "Apprentices currently working in Japan"
+msgstr "Pemagang yang sedang bekerja di Jepang"
+
+msgid "Account Hierarchy"
+msgstr "Hierarki Akun"
+
+msgid "Acceptance Organization Story"
+msgstr "Kisah Organisasi Penerima"
+
+msgid "Acceptance Organization Stories"
+msgstr "Kisah Organisasi Penerima"
+
+msgid "Association Details"
+msgstr "Detail Asosiasi"
+
+msgid "Association"
+msgstr "Asosiasi"
+
+msgid "Assets"
+msgstr "Aset"
+
+msgid "Arrival airport"
+msgstr "Bandara kedatangan"
+
+msgid "Arrival"
+msgstr "Kedatangan"
+
+msgid "AO Interview"
+msgstr "Wawancara AO"
+
+msgid "Amount received"
+msgstr "Jumlah diterima"
+
+msgid "After This Payment"
+msgstr "Setelah Pembayaran Ini"
+
+msgid "Adjustment"
+msgstr "Penyesuaian"
+
+msgid "Auto-Generated Journals"
+msgstr "Jurnal Terhasilkan Otomatis"
+
+msgid "Avg Score"
+msgstr "Rata-rata Nilai"
+
+msgid "Batch Name Cards"
+msgstr "Kartu Nama Angkatan"
+
+msgid "Batches"
+msgstr "Angkatan"
+
+msgid "Basic Information"
+msgstr "Informasi Dasar"
+
+msgid "Birth Place (Katakana)"
+msgstr "Tempat Lahir (Katakana)"
+
+msgid "Booking Reference"
+msgstr "Nomor Pemesanan"
+
+msgid "Booking Ref"
+msgstr "No. Pemesanan"
+
+msgid "Booking"
+msgstr "Pemesanan"
+
+msgid "By Trainee"
+msgstr "Per Peserta"
+
+msgid "By Document"
+msgstr "Per Dokumen"
+
+msgid "Double-Entry Lines"
+msgstr "Baris Berpasangan"
+
+msgid "Ever Went to Japan"
+msgstr "Pernah ke Jepang"
+
+msgid "Expected work upon returning to Japan:"
+msgstr "Pekerjaan yang diharapkan setelah kembali ke Jepang:"
+
+msgid "Alcohol"
+msgstr "Alkohol"
+
+msgid "Adjustments get an ADJ- reference and are used to correct or reclassify earlier entries."
+msgstr "Penyesuaian mendapat referensi ADJ- dan digunakan untuk mengoreksi atau mereklasifikasi entri sebelumnya."
+
+# ── Statuses ──────────────────────────────────────────────────
+msgid "All Status"
+msgstr "Semua Status"
+
+msgid "All Documents"
+msgstr "Semua Dokumen"
+
+msgid "All Batches"
+msgstr "Semua Angkatan"
+
+msgid "All Orgs"
+msgstr "Semua Org."
+
+msgid "All Installments"
+msgstr "Semua Cicilan"
+
+msgid "All requirements met"
+msgstr "Semua persyaratan terpenuhi"
+
+msgid "All required documents collected!"
+msgstr "Semua dokumen wajib terkumpul!"
+
+msgid "All source records are journalized."
+msgstr "Semua catatan sumber telah dijurnalkan."
+
+msgid "All eligible trainees have already been promoted to apprentice."
+msgstr "Semua peserta yang memenuhi syarat sudah dipromosikan ke pemagang."
+
+msgid "Already Promoted to Trainee"
+msgstr "Sudah Dipromosikan ke Peserta"
+
+msgid "Already Promoted"
+msgstr "Sudah Dipromosikan"
+
+msgid "Already promoted"
+msgstr "Sudah dipromosikan"
+
+msgid "Already paid off."
+msgstr "Sudah lunas."
+
+msgid "Already Generated"
+msgstr "Sudah Dihasilkan"
+
+msgid "Awaiting registration"
+msgstr "Menunggu pendaftaran"
+
+msgid "Documents not 100% complete"
+msgstr "Dokumen belum 100% lengkap"
+
+# ── Buttons ───────────────────────────────────────────────────
+msgid "Back"
+msgstr "Kembali"
+
+msgid "Back to Edit"
+msgstr "Kembali ke Edit"
+
+msgid "Back to Promote"
+msgstr "Kembali ke Promosi"
+
+msgid "Back to Promotion Dashboard"
+msgstr "Kembali ke Dasbor Promosi"
+
+msgid "Assign to Training Batch"
+msgstr "Tetapkan ke Angkatan Pelatihan"
+
+msgid "Assign to Apprentice Order / Placement"
+msgstr "Tetapkan ke Pesanan Pemagang / Penempatan"
+
+# ── Guidance sentences ────────────────────────────────────────
+msgid "A support institution helps specified-skilled workers. New institutions are invited to self-register via a secure link."
+msgstr "Lembaga pendukung membantu pekerja berketerampilan khusus. Lembaga baru diundang untuk mendaftar mandiri melalui tautan aman."
+
+msgid "A cooperative association (kumiai) is the receiving body that places apprentices with member companies in Japan. Keep the permit dates current so expiry can be tracked."
+msgstr "Asosiasi pengawas (kumiai) adalah badan penerima yang menempatkan pemagang di perusahaan anggota di Jepang. Jaga tanggal izin tetap terkini agar kedaluwarsa dapat dilacak."
+
+msgid "A cooperative association (kumiai) is the receiving body that places apprentices with member companies in Japan."
+msgstr "Asosiasi pengawas (kumiai) adalah badan penerima yang menempatkan pemagang di perusahaan anggota di Jepang."
+
+msgid "A passport record is required before departure - add them here"
+msgstr "Catatan paspor diperlukan sebelum keberangkatan - tambahkan di sini"
+
+msgid "A health certificate is required before departure - add one here"
+msgstr "Sertifikat kesehatan diperlukan sebelum keberangkatan - tambahkan di sini"
+
+msgid "A COE and visa are required before departure - add them here"
+msgstr "COE dan visa diperlukan sebelum keberangkatan - tambahkan di sini"
+
+msgid "Assets, liabilities and equity balances"
+msgstr "Saldo aset, liabilitas dan ekuitas"
+
+msgid "Aggregated from journal details per account - post journals to update the figures"
+msgstr "Diagregasi dari detail jurnal per akun - posting jurnal untuk memperbarui angka"
+
+msgid "Build and manage flight itineraries per ticket - legs, routes and layovers"
+msgstr "Bangun dan kelola rencana perjalanan per tiket - rute, jalur dan transit"
+
+msgid "A line is either a debit or a credit, not both."
+msgstr "Sebuah baris adalah debit atau kredit, bukan keduanya."
+
+msgid "Active associations can manage cooperative member organizations."
+msgstr "Asosiasi aktif dapat mengelola organisasi anggota koperasi."
+
+msgid "Active associations can manage cooperative member organizations"
+msgstr "Asosiasi aktif dapat mengelola organisasi anggota koperasi"
+
+msgid "Allowed types: PDF, JPG, PNG, DOC(X), XLS(X), ZIP"
+msgstr "Jenis yang diizinkan: PDF, JPG, PNG, DOC(X), XLS(X), ZIP"
+
+msgid "Checklist status is stored per trainee"
+msgstr "Status daftar periksa disimpan per peserta"
+
+msgid "Blue = more than half collected"
+msgstr "Biru = lebih dari separuh terkumpul"
+
+# ── Tier 17: List/New/Id families ──
+msgid "New TraineeCertification"
+msgstr "Sertifikasi Peserta Baru"
+
+msgid "List TraineeCertifications"
+msgstr "Daftar Sertifikasi Peserta"
+
+msgid "New TraineeCourse"
+msgstr "Kursus Peserta Baru"
+
+msgid "List TraineeCourses"
+msgstr "Daftar Kursus Peserta"
+
+msgid "New TraineeEducation"
+msgstr "Pendidikan Peserta Baru"
+
+msgid "List TraineeEducations"
+msgstr "Daftar Pendidikan Peserta"
+
+msgid "New TraineeExperience"
+msgstr "Pengalaman Peserta Baru"
+
+msgid "List TraineeExperiences"
+msgstr "Daftar Pengalaman Peserta"
+
+msgid "New TraineeFamily"
+msgstr "Keluarga Peserta Baru"
+
+msgid "List TraineeFamilies"
+msgstr "Daftar Keluarga Peserta"
+
+msgid "New TraineeFamilyStory"
+msgstr "Kisah Keluarga Peserta Baru"
+
+msgid "List TraineeFamilyStories"
+msgstr "Daftar Kisah Keluarga Peserta"
+
+msgid "New CandidateCertification"
+msgstr "Sertifikasi Kandidat Baru"
+
+msgid "List CandidateCertifications"
+msgstr "Daftar Sertifikasi Kandidat"
+
+msgid "New CandidateCourse"
+msgstr "Kursus Kandidat Baru"
+
+msgid "List CandidateCourses"
+msgstr "Daftar Kursus Kandidat"
+
+msgid "New CandidateDocument"
+msgstr "Dokumen Kandidat Baru"
+
+msgid "List CandidateDocuments"
+msgstr "Daftar Dokumen Kandidat"
+
+msgid "New CandidateEducation"
+msgstr "Pendidikan Kandidat Baru"
+
+msgid "List CandidateEducations"
+msgstr "Daftar Pendidikan Kandidat"
+
+msgid "New CandidateExperience"
+msgstr "Pengalaman Kandidat Baru"
+
+msgid "List CandidateExperiences"
+msgstr "Daftar Pengalaman Kandidat"
+
+msgid "New CandidateFamily"
+msgstr "Keluarga Kandidat Baru"
+
+msgid "List CandidateFamilies"
+msgstr "Daftar Keluarga Kandidat"
+
+msgid "New ApprenticeCertification"
+msgstr "Sertifikasi Pemagang Baru"
+
+msgid "List ApprenticeCertifications"
+msgstr "Daftar Sertifikasi Pemagang"
+
+msgid "New ApprenticeCourse"
+msgstr "Kursus Pemagang Baru"
+
+msgid "List ApprenticeCourses"
+msgstr "Daftar Kursus Pemagang"
+
+msgid "New ApprenticeEducation"
+msgstr "Pendidikan Pemagang Baru"
+
+msgid "List ApprenticeEducations"
+msgstr "Daftar Pendidikan Pemagang"
+
+msgid "New ApprenticeExperience"
+msgstr "Pengalaman Pemagang Baru"
+
+msgid "List ApprenticeExperiences"
+msgstr "Daftar Pengalaman Pemagang"
+
+msgid "New ApprenticeFamily"
+msgstr "Keluarga Pemagang Baru"
+
+msgid "List ApprenticeFamilies"
+msgstr "Daftar Keluarga Pemagang"
+
+msgid "New ApprenticeFamilyStory"
+msgstr "Kisah Keluarga Pemagang Baru"
+
+msgid "List ApprenticeFamilyStories"
+msgstr "Daftar Kisah Keluarga Pemagang"
+
+msgid "New MasterCandidateInterviewResult"
+msgstr "Master Hasil Wawancara Kandidat Baru"
+
+msgid "List MasterCandidateInterviewResults"
+msgstr "Daftar Master Hasil Wawancara Kandidat"
+
+msgid "New MasterRejectedReason"
+msgstr "Master Alasan Penolakan Baru"
+
+msgid "List MasterRejectedReasons"
+msgstr "Daftar Master Alasan Penolakan"
+
+msgid "List AcceptanceOrganizations"
+msgstr "Daftar Organisasi Penerima"
+
+msgid "List ApprenticeOrders"
+msgstr "Daftar Pesanan Pemagang"
+
+msgid "List MasterBloodTypes"
+msgstr "Daftar Master Golongan Darah"
+
+msgid "List MasterGenders"
+msgstr "Daftar Master Jenis Kelamin"
+
+msgid "List MasterKabupatens"
+msgstr "Daftar Master Kabupaten"
+
+msgid "List MasterKecamatans"
+msgstr "Daftar Master Kecamatan"
+
+msgid "List MasterKelurahans"
+msgstr "Daftar Master Kelurahan"
+
+msgid "List MasterMarriageStatuses"
+msgstr "Daftar Master Status Pernikahan"
+
+msgid "List MasterPropinsis"
+msgstr "Daftar Master Provinsi"
+
+msgid "List MasterReligions"
+msgstr "Daftar Master Agama"
+
+msgid "ApprenticeCertifications"
+msgstr "Sertifikasi Pemagang"
+
+msgid "ApprenticeCourses"
+msgstr "Kursus Pemagang"
+
+msgid "ApprenticeEducations"
+msgstr "Pendidikan Pemagang"
+
+msgid "ApprenticeExperiences"
+msgstr "Pengalaman Pemagang"
+
+msgid "ApprenticeFamilies"
+msgstr "Keluarga Pemagang"
+
+msgid "ApprenticeFamilyStories"
+msgstr "Kisah Keluarga Pemagang"
+
+msgid "Acceptance Organization Id"
+msgstr "Organisasi Penerima"
+
+msgid "Apprentice Id"
+msgstr "Pemagang"
+
+msgid "Apprentice Order Id"
+msgstr "Pesanan Pemagang"
+
+msgid "Apprenticeship Order Id"
+msgstr "Pesanan Pemagang"
+
+msgid "Apprenticeship Submission Document Id"
+msgstr "Dokumen Pengajuan Pemagangan"
+
+msgid "Blood Type Id"
+msgstr "Golongan Darah"
+
+msgid "Candidate Id"
+msgstr "Kandidat"
+
+msgid "Cooperative Association Id"
+msgstr "Asosiasi Pengawas"
+
+msgid "Course Major Id"
+msgstr "Jurusan"
+
+msgid "Kabupaten Id"
+msgstr "Kabupaten"
+
+msgid "Kecamatan Id"
+msgstr "Kecamatan"
+
+msgid "Propinsi Id"
+msgstr "Provinsi"
+
+msgid "Master Blood Type Id"
+msgstr "Golongan Darah"
+
+msgid "Master Candidate Interview Result Id"
+msgstr "Hasil Wawancara Kandidat"
+
+msgid "Master Currency Id"
+msgstr "Mata Uang"
+
+msgid "Master Family Connection Id"
+msgstr "Hubungan Keluarga"
+
+msgid "Master Gender Id"
+msgstr "Jenis Kelamin"
+
+msgid "Master Interview Result Id"
+msgstr "Hasil Wawancara"
+
+msgid "Master Japan Prefecture Id"
+msgstr "Prefektur Jepang"
+
+msgid "Master Job Category Id"
+msgstr "Kategori Pekerjaan"
+
+msgid "Master Kabupaten Id"
+msgstr "Kabupaten"
+
+msgid "Master Kecamatan Id"
+msgstr "Kecamatan"
+
+msgid "Master Kelurahan Id"
+msgstr "Kelurahan"
+
+msgid "Master Marriage Status Id"
+msgstr "Status Pernikahan"
+
+msgid "Master Propinsi Id"
+msgstr "Provinsi"
+
+msgid "Master Rejected Reason Id"
+msgstr "Alasan Penolakan"
+
+msgid "Master Religion Id"
+msgstr "Agama"
+
+msgid "Master Strata Id"
+msgstr "Strata"
+
+msgid "Training Id"
+msgstr "Pelatihan"
+
+msgid "Trainee Id"
+msgstr "Peserta"
+
+msgid "Enter Master Interview Result Id"
+msgstr "Masukkan Hasil Wawancara"
+
+msgid "Enter Master Rejected Reason Id"
+msgstr "Masukkan Alasan Penolakan"
+
+msgid "Enter Master Japan Prefecture Id"
+msgstr "Masukkan Prefektur Jepang"
+
+msgid "Enter Training Id"
+msgstr "Masukkan Pelatihan"
+
+msgid "Select Candidate Id"
+msgstr "Pilih Kandidat"
+
+msgid "Select Master Candidate Interview Result Id"
+msgstr "Pilih Hasil Wawancara Kandidat"
+
+msgid "Filter Apprentice Id"
+msgstr "Saring Pemagang"
+
+msgid "Filter Candidate Id"
+msgstr "Saring Kandidat"
+
+msgid "Filter Course Major Id"
+msgstr "Saring Jurusan"
+
+msgid "Filter Master Course Major Id"
+msgstr "Saring Jurusan"
+
+msgid "Filter Master Family Connection Id"
+msgstr "Saring Hubungan Keluarga"
+
+msgid "Filter Master Kabupaten Id"
+msgstr "Saring Kabupaten"
+
+msgid "Filter Master Propinsi Id"
+msgstr "Saring Provinsi"
+
+msgid "Filter Master Strata Id"
+msgstr "Saring Strata"
+
+msgid "Filter Vocational Training Institution Id"
+msgstr "Saring Lembaga Pelatihan Vokasi"
+
+# ── Tier 17b: remaining labels, icon buttons, fragments ───────
+msgid "Cert"
+msgstr "Sertifikat"
+
+msgid "Edu"
+msgstr "Pendidikan"
+
+msgid "Exp"
+msgstr "Pengalaman"
+
+msgid "LPK"
+msgstr "LPK"
+
+msgid "ID"
+msgstr "ID"
+
+msgid "Expires"
+msgstr "Kedaluwarsa"
+
+msgid "expiring within 90 days"
+msgstr "kedaluwarsa dalam 90 hari"
+
+msgid "enrolled"
+msgstr "terdaftar"
+
+msgid "checklist"
+msgstr "daftar periksa"
+
+msgid "Current file:"
+msgstr "Berkas saat ini:"
+
+msgid "choose to replace"
+msgstr "pilih untuk mengganti"
+
+msgid "check the times"
+msgstr "periksa waktunya"
+
+msgid "day(s)."
+msgstr "hari."
+
+msgid "done once per trainee on the"
+msgstr "dilakukan sekali per peserta pada"
+
+msgid "document received and verified — counts toward departure readiness"
+msgstr "dokumen diterima dan diverifikasi — dihitung untuk kesiapan keberangkatan"
+
+msgid "e.g. Owner capital injection"
+msgstr "mis. Injeksi modal pemilik"
+
+msgid "e.g. Reclassify ticket cost"
+msgstr "mis. Reklasifikasi biaya tiket"
+
+msgid "Course Major"
+msgstr "Jurusan"
+
+msgid "Master Course Major Id"
+msgstr "Jurusan"
+
+# ── Icon buttons ──────────────────────────────────────────────
+msgid "<i class=\"fa fa-arrow-left\"></i> Back"
+msgstr "<i class=\"fa fa-arrow-left\"></i> Kembali"
+
+msgid "<i class=\"fa fa-arrow-left\"></i> Back to Edit"
+msgstr "<i class=\"fa fa-arrow-left\"></i> Kembali ke Edit"
+
+msgid "<i class=\"fa fa-arrow-right\"></i> Continue"
+msgstr "<i class=\"fa fa-arrow-right\"></i> Lanjutkan"
+
+msgid "<i class=\"fa fa-arrow-right\"></i> Continue to Review"
+msgstr "<i class=\"fa fa-arrow-right\"></i> Lanjut ke Tinjauan"
+
+msgid "<i class=\"fa fa-check\"></i> Check & Continue"
+msgstr "<i class=\"fa fa-check\"></i> Periksa & Lanjutkan"
+
+msgid "<i class=\"fa fa-check\"></i> Submit Registration"
+msgstr "<i class=\"fa fa-check\"></i> Kirim Pendaftaran"
+
+msgid "<i class=\"fa fa-save\"></i> Save & Continue"
+msgstr "<i class=\"fa fa-save\"></i> Simpan & Lanjutkan"
+
+# ── Tier 18: baked class titles + Master Ids ──
+msgid "New VocationalTrainingInstitution"
+msgstr "Lembaga Pelatihan Vokasi Baru"
+
+msgid "New AcceptanceOrganization"
+msgstr "Organisasi Penerima Baru"
+
+msgid "New MasterReligion"
+msgstr "Master Agama Baru"
+
+msgid "New MasterPropinsi"
+msgstr "Master Provinsi Baru"
+
+msgid "New MasterMarriageStatus"
+msgstr "Master Status Pernikahan Baru"
+
+msgid "New MasterKelurahan"
+msgstr "Master Kelurahan Baru"
+
+msgid "New MasterKecamatan"
+msgstr "Master Kecamatan Baru"
+
+msgid "New MasterKabupaten"
+msgstr "Master Kabupaten Baru"
+
+msgid "New MasterGender"
+msgstr "Master Jenis Kelamin Baru"
+
+msgid "New MasterBloodType"
+msgstr "Master Golongan Darah Baru"
+
+msgid "New ApprenticeOrder"
+msgstr "Pesanan Pemagang Baru"
+
+msgid "List VocationalTrainingInstitutions"
+msgstr "Daftar Lembaga Pelatihan Vokasi"
+
+msgid "Vocational Training Institution Id"
+msgstr "Lembaga Pelatihan Vokasi"
+
+msgid "Master Transaction Category Id"
+msgstr "Kategori Transaksi"
+
+msgid "Master Trainee Coe Type Id"
+msgstr "Jenis COE Peserta"
+
+msgid "Master Ticket Type Id"
+msgstr "Jenis Tiket"
+
+msgid "Master Ticket Status Id"
+msgstr "Status Tiket"
+
+msgid "Master Medical Check Up Result Id"
+msgstr "Hasil Pemeriksaan Kesehatan"
+
+msgid "Master Document Submission Status Id"
+msgstr "Status Pengajuan Dokumen"
+
+# ── Tier 18b: apostrophe guidance + fragments ─────────────────
+msgid "Record a trainee's owing cost with their first payment - the system tracks the balance until the receipt is issued."
+msgstr "Catat biaya terutang peserta bersama pembayaran pertamanya - sistem melacak saldo hingga kuitansi diterbitkan."
+
+msgid "Payments that fully settled a trainee's balance"
+msgstr "Pembayaran yang melunasi seluruh saldo peserta"
+
+msgid "Doctor's Notes"
+msgstr "Catatan Dokter"
+
+msgid "Create a ticket to start tracking a trainee's departure to Japan."
+msgstr "Buat tiket untuk mulai melacak keberangkatan peserta ke Jepang."
+
+msgid "Cleared with medical notes - read the doctor's comments"
+msgstr "Lolos dengan catatan medis - baca komentar dokter"
+
+msgid "Balance uses each account's natural side: debit-normal for assets and expenses, credit-normal for revenue, liabilities and equity."
+msgstr "Saldo menggunakan sisi alami setiap akun: normal-debit untuk aset dan beban, normal-kredit untuk pendapatan, liabilitas dan ekuitas."
+
+msgid "A trainee can have multiple check-ups (e.g. first and follow-up). Attach the clinic's report as PDF or photo. Allowed: PDF, JPG, PNG, DOC(X)."
+msgstr "Peserta dapat memiliki beberapa pemeriksaan (mis. pertama dan lanjutan). Lampirkan laporan klinik sebagai PDF atau foto. Diizinkan: PDF, JPG, PNG, DOC(X)."
+
+msgid "See every remaining document for this trainee in the"
+msgstr "Lihat setiap dokumen tersisa untuk peserta ini di"
+
+msgid "To"
+msgstr "Sampai"
+
+msgid "page."
+msgstr "halaman."
+
+msgid "Page {{page}} of {{pages}} · {{count}} trainees"
+msgstr "Halaman {{page}} dari {{pages}} · {{count}} peserta"
+
+msgid "カタカナで名前を入力してください"
+msgstr "Masukkan nama dalam Katakana"
+
+msgid "カタカナで出生地を入力してください"
+msgstr "Masukkan tempat lahir dalam Katakana"
+
+# ── LPK menu titles ───────────────────────────────────────────
+msgid "Vocational Training Institutions (LPK)"
+msgstr "Lembaga Pelatihan Vokasi (LPK)"
+
+msgid "Register LPK"
+msgstr "Daftar LPK"
+
+msgid "Manage LPK"
+msgstr "Kelola LPK"
+
+msgid "LPK Verification"
+msgstr "Verifikasi LPK"
+
+msgid "LPK Registration (Admin)"
+msgstr "Pendaftaran LPK (Admin)"
+
+# ── Training dashboard ────────────────────────────────────────
+msgid "Training Dashboard"
+msgstr "Dasbor Pelatihan"
+
+msgid "TMM Training Division — Program Overview &amp; Key Performance Indicators"
+msgstr "Divisi Pelatihan TMM — Ikhtisar Program &amp; Indikator Kinerja Utama"
+
+msgid "Currently active"
+msgstr "Sedang aktif"
+
+msgid "rate"
+msgstr "tingkat lulus"
+
+msgid "Issued to date"
+msgstr "Diterbitkan sejauh ini"
+
+msgid "Promoted out"
+msgstr "Dipromosikan keluar"
+
+msgid "new"
+msgstr "baru"
+
+msgid "legacy"
+msgstr "lama"
+
+msgid "Eligible Intake"
+msgstr "Penerimaan Memenuhi Syarat"
+
+msgid "Candidates ready"
+msgstr "Kandidat siap"
+
+msgid "Participant Pipeline"
+msgstr "Alur Peserta"
+
+msgid "Active trainees"
+msgstr "Peserta aktif"
+
+msgid "Ready to promote"
+msgstr "Siap dipromosikan"
+
+msgid "Daily Scores"
+msgstr "Nilai Harian"
+
+msgid "Score Report"
+msgstr "Laporan Nilai"
+
+msgid "Promote"
+msgstr "Promosikan"
+
+msgid "Name Cards"
+msgstr "Kartu Nama"
+
+msgid "Upcoming Departures"
+msgstr "Keberangkatan Mendatang"
+
+msgid "No upcoming departures scheduled"
+msgstr "Tidak ada keberangkatan terjadwal"
+
+msgid "days"
+msgstr "hari"
+
+msgid "Male"
+msgstr "Laki-laki"
+
+msgid "Female"
+msgstr "Perempuan"
+
+msgid "Pass rate:"
+msgstr "Tingkat lulus:"
+
+msgid "Training Batch Schedule"
+msgstr "Jadwal Angkatan Pelatihan"
+
+msgid "Add Batch"
+msgstr "Tambah Angkatan"
+
+msgid "Capacity"
+msgstr "Kapasitas"
+
+msgid "d left"
+msgstr "hari lagi"
+
+msgid "Timeline"
+msgstr "Linimasa"
+
+msgid "Register Trainees"
+msgstr "Daftarkan Peserta"
+
+msgid "Manage"
+msgstr "Kelola"
+
+msgid "Japan Training Batches"
+msgstr "Angkatan Pelatihan Jepang"
+
+msgid "Location"
+msgstr "Lokasi"
+
+msgid "Start"
+msgstr "Mulai"
+
+msgid "End"
+msgstr "Selesai"
+
+msgid "Duration"
+msgstr "Durasi"
+
+msgid "Enrolled"
+msgstr "Terdaftar"
+
+msgid "mo"
+msgstr "bln"
+
+msgid "Eligible Candidates — Ready to Register as Trainee"
+msgstr "Kandidat Memenuhi Syarat — Siap Didaftarkan sebagai Peserta"
+
+msgid "All Candidates"
+msgstr "Semua Kandidat"
+
+msgid "Register to Batch"
+msgstr "Daftarkan ke Angkatan"
+
+msgid "All passed candidates have been registered as trainees."
+msgstr "Semua kandidat yang lulus telah didaftarkan sebagai peserta."
+
+msgid "Register to batch"
+msgstr "Daftarkan ke angkatan"
+
+msgid "Eligible Trainees — Ready to Promote to Apprentice"
+msgstr "Peserta Memenuhi Syarat — Siap Dipromosikan ke Pemagang"
+
+msgid "Promotion Page"
+msgstr "Halaman Promosi"
+
+msgid "All passed trainees have been promoted to apprentice."
+msgstr "Semua peserta yang lulus telah dipromosikan ke pemagang."
+
+msgid "Apprentice Order:"
+msgstr "Pesanan Pemagang:"
+
+msgid "— No order —"
+msgstr "— Tanpa pesanan —"
+
+msgid "All Trainees"
+msgstr "Semua Peserta"
+
+msgid "Add the first trainee"
+msgstr "Tambah peserta pertama"
+
+msgid "Planning"
+msgstr "Perencanaan"
+
+msgid "Recruiting"
+msgstr "Rekrutmen"
+
+msgid "Ongoing"
+msgstr "Berjalan"

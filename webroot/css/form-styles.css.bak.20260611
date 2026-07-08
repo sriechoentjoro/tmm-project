@@ -1,0 +1,359 @@
+/* =================================
+   FORM PAGE STYLES - Actions Sidebar & Modern Form UI
+   ================================= */
+
+/* Actions Sidebar - Floating Menu */
+.actions-sidebar { 
+    position: fixed;
+    top: 120px;
+    right: 20px;
+    width: 60px;
+    z-index: 1000;
+}
+
+.actions-sidebar .menu-toggle { 
+    background: linear-gradient(135deg, #00BCD4 0%, #0097A7 100%); 
+    color: white; 
+    border: none; 
+    width: 50px; 
+    height: 50px; 
+    border-radius: 50%; 
+    cursor: pointer; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    font-size: 20px; 
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4); 
+    transition: all 0.3s ease;
+}
+
+.actions-sidebar .menu-toggle:hover { 
+    transform: scale(1.1) rotate(90deg); 
+    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6); 
+}
+
+.actions-sidebar .menu-toggle i { 
+    transition: transform 0.3s ease; 
+}
+
+.actions-sidebar.active .menu-toggle {
+    background: linear-gradient(135deg, #0097A7 0%, #00BCD4 100%);
+}
+
+.actions-sidebar.active .menu-toggle i { 
+    transform: rotate(180deg); 
+}
+
+/* Side Navigation Menu */
+.side-nav { 
+    position: fixed;
+    top: 120px;
+    right: 90px;
+    width: 280px;
+    list-style: none; 
+    padding: 0;
+    margin: 0; 
+    background: white;
+    border-radius: 12px; 
+    box-shadow: 0 8px 30px rgba(0,0,0,0.15); 
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(20px) scale(0.95);
+    transition: all 0.3s ease;
+    max-height: 80vh;
+    overflow-y: auto;
+}
+
+.actions-sidebar.active .side-nav { 
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(0) scale(1);
+}
+
+.side-nav .heading { 
+    font-weight: 600; 
+    color: white;
+    background: linear-gradient(135deg, #00BCD4 0%, #0097A7 100%);
+    font-size: 16px; 
+    padding: 15px 20px;
+    margin: 0;
+    border-radius: 12px 12px 0 0;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.side-nav li { 
+    margin: 0;
+    padding: 0;
+}
+
+.side-nav li a { 
+    display: flex; 
+    align-items: center; 
+    padding: 12px 20px; 
+    color: #495057; 
+    text-decoration: none; 
+    transition: all 0.2s ease; 
+    border-left: 3px solid transparent;
+    font-size: 14px;
+}
+
+.side-nav li a:hover { 
+    background: linear-gradient(135deg, #f0f4ff 0%, #e9f0ff 100%); 
+    border-left-color: #00BCD4; 
+    color: #00BCD4;
+}
+
+.side-nav li a i { 
+    margin-right: 10px; 
+    width: 20px; 
+    text-align: center;
+    font-size: 16px;
+}
+
+.side-nav::-webkit-scrollbar {
+    width: 6px;
+}
+
+.side-nav::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+.side-nav::-webkit-scrollbar-thumb {
+    background: #00BCD4;
+    border-radius: 10px;
+}
+
+.side-nav::-webkit-scrollbar-thumb:hover {
+    background: #0097A7;
+}
+
+/* Form Content Area */
+.content-header {
+    background: linear-gradient(135deg, #00BCD4 0%, #0097A7 100%);
+    color: white;
+    padding: 20px 30px;
+    border-radius: 12px 12px 0 0;
+    margin-bottom: 0;
+}
+
+.content-title {
+    margin: 0;
+    font-size: 24px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.content-title i {
+    font-size: 28px;
+}
+
+/* Card Styling */
+.card {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+    margin-bottom: 20px;
+}
+
+.card-body {
+    padding: 30px;
+}
+
+/* Form Fields */
+.form-control {
+    border: 1px solid #ced4da;
+    border-radius: 6px;
+    padding: 10px 15px;
+    font-size: 14px;
+    transition: all 0.2s ease;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.form-control:focus {
+    border-color: #00BCD4;
+    box-shadow: 0 0 0 0.2rem rgba(102, 126, 234, 0.25);
+    outline: 0;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    font-weight: 500;
+    color: #495057;
+    margin-bottom: 8px;
+    display: block;
+}
+
+/* Buttons */
+.btn {
+    padding: 10px 24px;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 500;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #00BCD4 0%, #0097A7 100%);
+    color: white;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+}
+
+.btn-secondary {
+    background: #6c757d;
+    color: white;
+}
+
+.btn-secondary:hover {
+    background: #5a6268;
+}
+
+/* Row/Column Layout */
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -10px;
+}
+
+.col,
+.col-md-6,
+.col-md-4,
+.col-md-3 {
+    padding: 0 10px;
+    box-sizing: border-box;
+}
+
+.col-md-6 {
+    width: 50%;
+}
+
+.col-md-4 {
+    width: 33.333%;
+}
+
+.col-md-3 {
+    width: 25%;
+}
+
+/* Image Preview */
+.image-preview-container {
+    margin-top: 15px;
+}
+
+.image-preview {
+    max-width: 200px;
+    max-height: 200px;
+    border-radius: 8px;
+    border: 2px solid #e9ecef;
+    padding: 5px;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .actions-sidebar {
+        top: 80px;
+        right: 10px;
+    }
+    
+    .side-nav {
+        right: 70px;
+        width: calc(100vw - 90px);
+        max-width: 280px;
+    }
+    
+    .content-header {
+        margin: -20px -20px 20px -20px;
+        padding: 15px 20px;
+    }
+    
+    .content-title {
+        font-size: 20px;
+    }
+    
+    .card-body {
+        padding: 20px;
+    }
+    
+    .col-md-6,
+    .col-md-4,
+    .col-md-3 {
+        width: 100%;
+    }
+    
+    .row {
+        margin: 0;
+    }
+    
+    .col,
+    .col-md-6,
+    .col-md-4,
+    .col-md-3 {
+        padding: 0;
+    }
+}
+
+/* Fieldset Styling */
+fieldset {
+    border: none;
+    padding: 0;
+    margin: 0;
+}
+
+legend {
+    font-size: 18px;
+    font-weight: 600;
+    color: #495057;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #e9ecef;
+}
+
+/* Select Dropdown */
+select.form-control {
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23333' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    padding-right: 35px;
+}
+
+/* Textarea */
+textarea.form-control {
+    min-height: 100px;
+    resize: vertical;
+}
+
+/* File Input */
+input[type="file"] {
+    padding: 8px;
+    border: 1px solid #ced4da;
+    border-radius: 6px;
+    background: white;
+}
+
+/* Form Actions */
+.form-actions {
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid #e9ecef;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
