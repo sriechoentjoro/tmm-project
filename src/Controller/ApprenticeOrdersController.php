@@ -29,11 +29,42 @@ class ApprenticeOrdersController extends AppController
         $cooperativeassociations = $this->ApprenticeOrders->CooperativeAssociations->find('list')->limit(200)->toArray();
         $acceptanceorganizations = $this->ApprenticeOrders->AcceptanceOrganizations->find('list')->limit(200)->toArray();
         $masterjobcategories = $this->ApprenticeOrders->MasterJobCategories->find('list')->limit(200)->toArray();
-        $this->set(compact('apprenticeOrders', 'cooperativeassociations', 'acceptanceorganizations', 'masterjobcategories'));
+        $cooperative_associations = $cooperativeassociations;
+        $acceptance_organizations = $acceptanceorganizations;
+        $job_categorys = $masterjobcategories;
+        $this->set(compact('apprenticeOrders', 'cooperativeassociations', 'acceptanceorganizations', 'masterjobcategories', 'cooperative_associations', 'acceptance_organizations', 'job_categorys'));
     }
 
+    /**
+     * Statistics method - order counts and requested trainees per departure year
+     *
+     * @return void
+     */
+    public function statistics()
+    {
+        $query = $this->ApprenticeOrders->find();
+        $byYear = $query
+            ->select([
+                'departure_year',
+                'order_count' => $query->func()->count('*'),
+                'total_male' => $query->func()->sum('male_trainee_number'),
+                'total_female' => $query->func()->sum('female_trainee_number'),
+            ])
+            ->group(['departure_year'])
+            ->order(['departure_year' => 'DESC'])
+            ->enableHydration(false)
+            ->toArray();
 
-                
+        $totals = [
+            'orders' => array_sum(array_column($byYear, 'order_count')),
+            'trainees' => array_sum(array_map(function ($r) {
+                return (int)$r['total_male'] + (int)$r['total_female'];
+            }, $byYear)),
+        ];
+
+        $this->set(compact('byYear', 'totals'));
+    }
+
     /**
      * View method
      *

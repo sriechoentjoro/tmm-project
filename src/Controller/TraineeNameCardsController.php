@@ -58,6 +58,12 @@ class TraineeNameCardsController extends AppController
     /** Print all trainees in a batch */
     public function printBatch($batchId = null)
     {
+        if (!$batchId) {
+            $this->Flash->info(__('Please choose a batch to print name cards for.'));
+
+            return $this->redirect(['action' => 'index']);
+        }
+
         $conn = ConnectionManager::get('cms_tmm_trainee_trainings');
 
         $batch = $conn->execute(

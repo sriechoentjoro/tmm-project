@@ -313,6 +313,7 @@ ul.elegant-category-tabs {
     /**
      * Check if user has permission to access a menu URL with specific action
      */
+    if (!function_exists('hasMenuPermissionWithAction')):
     function hasMenuPermissionWithAction($menuUrl, $rolePermissions, $isAdministrator) {
         if ($isAdministrator) {
             return true; // Administrator sees all menus
@@ -384,6 +385,7 @@ ul.elegant-category-tabs {
         }
         return $filtered;
     }
+    endif;
 ?>
 
 <?php

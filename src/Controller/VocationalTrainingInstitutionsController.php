@@ -47,7 +47,11 @@ class VocationalTrainingInstitutionsController extends AppController
         $masterkabupatens = $this->VocationalTrainingInstitutions->MasterKabupatens->find('list')->limit(200)->toArray();
         $masterkecamatans = $this->VocationalTrainingInstitutions->MasterKecamatans->find('list')->limit(200)->toArray();
         $masterkelurahans = $this->VocationalTrainingInstitutions->MasterKelurahans->find('list')->limit(200)->toArray();
-        $this->set(compact('vocationalTrainingInstitutions', 'masterpropinsis', 'masterkabupatens', 'masterkecamatans', 'masterkelurahans'));
+        $master_propinsis = $masterpropinsis;
+        $master_kabupatens = $masterkabupatens;
+        $master_kecamatans = $masterkecamatans;
+        $master_kelurahans = $masterkelurahans;
+        $this->set(compact('vocationalTrainingInstitutions', 'masterpropinsis', 'masterkabupatens', 'masterkecamatans', 'masterkelurahans', 'master_propinsis', 'master_kabupatens', 'master_kecamatans', 'master_kelurahans'));
     }
 
 

@@ -32,7 +32,7 @@ class CandidateDocumentsMasterListTable extends Table
     {
         parent::initialize($config);
 
-        $this->setTable('candidate_documents_master_list');
+        $this->setTable('candidate_document_master_lists');
         $this->setDisplayField('title');
         $this->setPrimaryKey('id');
 

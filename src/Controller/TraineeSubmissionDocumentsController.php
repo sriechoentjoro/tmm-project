@@ -473,6 +473,7 @@ class TraineeSubmissionDocumentsController extends AppController
             ->find()
             ->order(['id' => 'DESC'])
             ->limit(500)
+            ->enableHydration(false)
             ->toArray();
         $this->set(compact('costs'));
     }

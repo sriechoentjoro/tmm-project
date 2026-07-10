@@ -40,6 +40,25 @@ class ApprenticesController extends AppController
         $masterkelurahans = $this->Apprentices->MasterKelurahans->find('list')->limit(200)->toArray();
         $masterbloodtypes = $this->Apprentices->MasterBloodTypes->find('list')->limit(200)->toArray();
         $this->set(compact('apprentices', 'candidates', 'trainees', 'apprenticeorders', 'vocationaltraininginstitutions', 'acceptanceorganizations', 'mastergenders', 'masterreligions', 'mastermarriagestatuses', 'masterpropinsis', 'masterkabupatens', 'masterkecamatans', 'masterkelurahans', 'masterbloodtypes'));
+
+        // Snake_case aliases + extra lists used by the filter row in index.ctp
+        $locator = \Cake\ORM\TableRegistry::getTableLocator();
+        $this->set([
+            'apprenticeship_orders' => $apprenticeorders,
+            'vocational_training_institutions' => $vocationaltraininginstitutions,
+            'acceptance_organizations' => $acceptanceorganizations,
+            'master_genders' => $mastergenders,
+            'master_religions' => $masterreligions,
+            'master_marriage_statuss' => $mastermarriagestatuses,
+            'master_propinsis' => $masterpropinsis,
+            'master_kabupatens' => $masterkabupatens,
+            'master_kecamatans' => $masterkecamatans,
+            'master_kelurahans' => $masterkelurahans,
+            'blood_types' => $masterbloodtypes,
+            'trainings' => $locator->get('Trainings')->find('list')->limit(200)->toArray(),
+            'master_interview_results' => $locator->get('MasterInterviewResults')->find('list')->limit(200)->toArray(),
+            'master_rejected_reasons' => $locator->get('MasterRejectedReasons')->find('list')->limit(200)->toArray(),
+        ]);
     }
 
 

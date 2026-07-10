@@ -42,6 +42,11 @@ class CandidateRecordMedicalCheckUpsTable extends Table
             'strategy' => 'select',
             'joinType' => 'INNER',
         ]);
+        $this->belongsTo('Applicants', [
+            'className' => 'Candidates',
+            'foreignKey' => 'applicant_id',
+            'strategy' => 'select',
+        ]);
         $this->belongsTo('MasterMedicalCheckUpResults', [
             'foreignKey' => 'medical_check_up_result_id',
             'strategy' => 'select',

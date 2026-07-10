@@ -47,7 +47,47 @@ class CandidateDocumentsController extends AppController
         $this->set(compact('candidateDocuments', 'candidates'));
     }
 
+    /**
+     * Submission Checklist method - per-candidate document checklist against
+     * the master document list, with upload/submission status per document.
+     *
+     * @return void
+     */
+    public function submissionChecklist()
+    {
+        $candidateId = (int)$this->request->getQuery('candidate_id');
 
+        $candidatesQuery = $this->CandidateDocuments->Candidates->find('list');
+        if ($this->hasRole('lpk-penyangga')) {
+            $institutionId = $this->getUserInstitutionId();
+            $candidatesQuery->where($institutionId
+                ? ['vocational_training_institution_id' => $institutionId]
+                : ['1' => 0]);
+        }
+        $candidates = $candidatesQuery->order(['name' => 'ASC'])->toArray();
+
+        $masterListTable = $this->loadModel('CandidateDocumentsMasterList');
+        $masterDocuments = $masterListTable->find()
+            ->contain(['CandidateDocumentCategories'])
+            ->order(['CandidateDocumentsMasterList.id' => 'ASC'])
+            ->all();
+
+        $submissions = [];
+        $uploadedDocs = [];
+        if ($candidateId) {
+            $submissionsTable = $this->loadModel('CandidateSubmissionDocuments');
+            foreach ($submissionsTable->find()->where(['applicant_id' => $candidateId]) as $sub) {
+                $submissions[$sub->document_id] = $sub;
+            }
+            $uploaded = $this->CandidateDocuments->find()
+                ->where(['candidate_id' => $candidateId, 'candidate_document_master_list_id IS NOT' => null]);
+            foreach ($uploaded as $docRow) {
+                $uploadedDocs[$docRow->candidate_document_master_list_id] = $docRow;
+            }
+        }
+
+        $this->set(compact('candidates', 'candidateId', 'masterDocuments', 'submissions', 'uploadedDocs'));
+    }
 
     /**
      * View method

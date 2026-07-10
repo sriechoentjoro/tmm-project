@@ -65,6 +65,26 @@ class TraineesController extends AppController
         $lpks           = $this->Trainees->VocationalTrainingInstitutions->find('list')->limit(200)->toArray();
 
         $this->set(compact('trainees', 'scoreSummaries', 'batchNames', 'acceptanceOrgs', 'lpks'));
+
+        // Filter-row dropdown lists expected by index.ctp (snake_case names)
+        $locator = \Cake\ORM\TableRegistry::getTableLocator();
+        $this->set([
+            'acceptance_organizations' => $acceptanceOrgs,
+            'vocational_training_institutions' => $lpks,
+            'candidates' => $this->Trainees->Candidates->find('list')->limit(200)->toArray(),
+            'apprenticeship_orders' => $this->Trainees->ApprenticeOrders->find('list')->limit(200)->toArray(),
+            'master_genders' => $this->Trainees->MasterGenders->find('list')->limit(200)->toArray(),
+            'master_religions' => $this->Trainees->MasterReligions->find('list')->limit(200)->toArray(),
+            'master_marriage_statuss' => $this->Trainees->MasterMarriageStatuses->find('list')->limit(200)->toArray(),
+            'master_propinsis' => $this->Trainees->MasterPropinsis->find('list')->limit(200)->toArray(),
+            'master_kabupatens' => $this->Trainees->MasterKabupatens->find('list')->limit(200)->toArray(),
+            'master_kecamatans' => $this->Trainees->MasterKecamatans->find('list')->limit(200)->toArray(),
+            'master_kelurahans' => $this->Trainees->MasterKelurahans->find('list')->limit(200)->toArray(),
+            'blood_types' => $this->Trainees->MasterBloodTypes->find('list')->limit(200)->toArray(),
+            'trainings' => $locator->get('Trainings')->find('list')->limit(200)->toArray(),
+            'master_interview_results' => $locator->get('MasterInterviewResults')->find('list')->limit(200)->toArray(),
+            'master_rejected_reasons' => $locator->get('MasterRejectedReasons')->find('list')->limit(200)->toArray(),
+        ]);
     }
 
 

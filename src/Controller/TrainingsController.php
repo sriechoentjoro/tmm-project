@@ -25,6 +25,24 @@ class TrainingsController extends AppController
         $this->set(compact('trainings'));
     }
 
+    /**
+     * Location Shift method - training batch overview grouped by status,
+     * with capacity and schedule progress per batch.
+     *
+     * @return void
+     */
+    public function locationShift()
+    {
+        $batchesTable = \Cake\ORM\TableRegistry::getTableLocator()->get('TrainingBatches', [
+            'connection' => \Cake\Datasource\ConnectionManager::get('cms_tmm_trainee_trainings'),
+        ]);
+        $batches = $batchesTable->find()
+            ->order(['start_date' => 'DESC'])
+            ->toArray();
+
+        $this->set(compact('batches'));
+    }
+
 
 
     /**

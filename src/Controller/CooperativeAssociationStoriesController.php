@@ -27,7 +27,8 @@ class CooperativeAssociationStoriesController extends AppController
 
         // Load dropdown data for filters
         $cooperativeassociations = $this->CooperativeAssociationStories->CooperativeAssociations->find('list')->limit(200)->toArray();
-        $this->set(compact('cooperativeAssociationStories', 'cooperativeassociations'));
+        $cooperative_associations = $cooperativeassociations;
+        $this->set(compact('cooperativeAssociationStories', 'cooperativeassociations', 'cooperative_associations'));
     }
 
 
