@@ -54,6 +54,16 @@ class StakeholderActivitiesTable extends Table
     }
 
     /**
+     * Returns the database connection name to use by default.
+     *
+     * @return string
+     */
+    public static function defaultConnectionName()
+    {
+        return 'cms_authentication_authorization';
+    }
+
+    /**
      * Default validation rules.
      *
      * @param \Cake\Validation\Validator $validator Validator instance.

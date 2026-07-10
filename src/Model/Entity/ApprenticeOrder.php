@@ -42,7 +42,7 @@ class ApprenticeOrder extends Entity
         'title' => true,
         'male_trainee_number' => true,
         'female_trainee_number' => true,
-        'job_category_id' => true,
+        'master_job_category_id' => true,
         'departure_year' => true,
         'departure_month' => true,
         'is_practical_test_required' => true,

@@ -588,10 +588,11 @@ $cacheBust = '?v=' . time();
     <?= $this->element('elegant_menu') ?>
 
     <!-- Flash Messages -->
-    <?php if ($this->Flash->render()): ?>
+    <?php $flashHtml = $this->Flash->render(); ?>
+    <?php if ($flashHtml): ?>
         <div class="container">
             <div class="flash-messages">
-                <?= $this->Flash->render() ?>
+                <?= $flashHtml ?>
             </div>
         </div>
     <?php endif; ?>

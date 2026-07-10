@@ -114,7 +114,7 @@ $staticAssetsUrl = $protocol . '://' . $host . '/static-assets';
                     </div>
                     <div class="col-12 mb-3">
                         <label class="form-label"><?= __('Job Category Id') ?></label>
-                        <?= $this->Form->control('job_category_id', [
+                        <?= $this->Form->control('master_job_category_id', [
                             'options' => $masterJobCategories,
                             'class' => 'form-control',
                             'label' => false,
