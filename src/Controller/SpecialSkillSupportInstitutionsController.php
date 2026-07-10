@@ -30,9 +30,48 @@ class SpecialSkillSupportInstitutionsController extends AppController
      */
     public function index()
     {
-        $specialSkillSupportInstitutions = $this->paginate($this->SpecialSkillSupportInstitutions);
+        // Optional filters
+        $filterStatus = (string)$this->request->getQuery('status');
+        $filterReg = $this->request->getQuery('registered'); // '' | '1' | '0'
+        $search = trim((string)$this->request->getQuery('q'));
 
-        $this->set(compact('specialSkillSupportInstitutions'));
+        $query = $this->SpecialSkillSupportInstitutions->find();
+        if ($filterStatus !== '') {
+            $query->where(['SpecialSkillSupportInstitutions.status' => $filterStatus]);
+        }
+        if ($filterReg === '1' || $filterReg === '0') {
+            $query->where(['SpecialSkillSupportInstitutions.is_registered' => (int)$filterReg]);
+        } else {
+            $filterReg = '';
+        }
+        if ($search !== '') {
+            $query->where(['OR' => [
+                'SpecialSkillSupportInstitutions.name LIKE' => '%' . $search . '%',
+                'SpecialSkillSupportInstitutions.contact_person LIKE' => '%' . $search . '%',
+                'SpecialSkillSupportInstitutions.email LIKE' => '%' . $search . '%',
+            ]]);
+        }
+
+        $this->paginate = ['order' => ['SpecialSkillSupportInstitutions.name' => 'ASC']];
+        $specialSkillSupportInstitutions = $this->paginate($query);
+
+        // Summary: status + self-registration progress
+        $summary = ['total' => 0, 'active' => 0, 'suspended' => 0, 'inactive' => 0,
+            'registered' => 0, 'pending' => 0];
+        try {
+            $conn = \Cake\Datasource\ConnectionManager::get('cms_tmm_stakeholders');
+            foreach ($conn->execute('SELECT status, COUNT(*) AS total FROM special_skill_support_institutions GROUP BY status')->fetchAll('assoc') as $row) {
+                $key = in_array($row['status'], ['active', 'suspended', 'inactive']) ? $row['status'] : 'inactive';
+                $summary[$key] += (int)$row['total'];
+                $summary['total'] += (int)$row['total'];
+            }
+            $summary['registered'] = (int)$conn->execute('SELECT COUNT(*) FROM special_skill_support_institutions WHERE is_registered = 1')->fetch()[0];
+            $summary['pending'] = $summary['total'] - $summary['registered'];
+        } catch (\Exception $e) {
+        }
+
+        $this->set(compact('specialSkillSupportInstitutions', 'summary',
+            'filterStatus', 'filterReg', 'search'));
     }
 
 

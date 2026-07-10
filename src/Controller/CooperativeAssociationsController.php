@@ -20,9 +20,51 @@ class CooperativeAssociationsController extends AppController
      */
     public function index()
     {
-        $cooperativeAssociations = $this->paginate($this->CooperativeAssociations);
+        // Optional filters
+        $filterStatus = (string)$this->request->getQuery('status');
+        $search = trim((string)$this->request->getQuery('q'));
 
-        $this->set(compact('cooperativeAssociations'));
+        $query = $this->CooperativeAssociations->find();
+        if ($filterStatus !== '') {
+            $query->where(['CooperativeAssociations.status' => $filterStatus]);
+        }
+        if ($search !== '') {
+            $query->where(['OR' => [
+                'CooperativeAssociations.name LIKE' => '%' . $search . '%',
+                'CooperativeAssociations.address LIKE' => '%' . $search . '%',
+                'CooperativeAssociations.telephone LIKE' => '%' . $search . '%',
+            ]]);
+        }
+
+        $this->paginate = ['order' => ['CooperativeAssociations.name' => 'ASC']];
+        $cooperativeAssociations = $this->paginate($query);
+
+        // Summary. NOTE: many legacy rows store date_expired = '0000-00-00'
+        // (a zero date = "not set"), so real expiry tracking counts only
+        // valid dates greater than the zero date.
+        $summary = ['total' => 0, 'active' => 0, 'suspended' => 0, 'inactive' => 0,
+            'expiryTracked' => 0, 'expiringSoon' => 0, 'expired' => 0];
+        try {
+            $conn = \Cake\Datasource\ConnectionManager::get('cms_tmm_stakeholders');
+            foreach ($conn->execute('SELECT status, COUNT(*) AS total FROM cooperative_associations GROUP BY status')->fetchAll('assoc') as $row) {
+                $key = in_array($row['status'], ['active', 'suspended', 'inactive']) ? $row['status'] : 'inactive';
+                $summary[$key] += (int)$row['total'];
+                $summary['total'] += (int)$row['total'];
+            }
+            $summary['expiryTracked'] = (int)$conn->execute(
+                "SELECT COUNT(*) FROM cooperative_associations WHERE date_expired > '1000-01-01'"
+            )->fetch()[0];
+            $summary['expiringSoon'] = (int)$conn->execute(
+                "SELECT COUNT(*) FROM cooperative_associations
+                 WHERE date_expired > '1000-01-01' AND date_expired BETWEEN CURDATE() AND DATE_ADD(CURDATE(), INTERVAL 90 DAY)"
+            )->fetch()[0];
+            $summary['expired'] = (int)$conn->execute(
+                "SELECT COUNT(*) FROM cooperative_associations WHERE date_expired > '1000-01-01' AND date_expired < CURDATE()"
+            )->fetch()[0];
+        } catch (\Exception $e) {
+        }
+
+        $this->set(compact('cooperativeAssociations', 'summary', 'filterStatus', 'search'));
     }
 
 

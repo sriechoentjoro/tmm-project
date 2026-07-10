@@ -33,8 +33,12 @@ class AppController extends Controller
 {
     use ExportTrait;
 
-    public $layout = 'elegant';
-    
+    // NOTE: do not declare a public $layout property here. CakePHP's
+    // createView() copies it into the ViewBuilder after the action runs,
+    // silently overriding every $this->viewBuilder()->setLayout() call
+    // (process_flow, print, ...). The 'elegant' default is applied in
+    // beforeRender() only when no action picked a layout.
+
     /**
      * Current logged in user data
      * @var array
@@ -105,7 +109,14 @@ class AppController extends Controller
     public function beforeFilter(Event $event)
     {
         parent::beforeFilter($event);
-        
+
+        // Apply the interface language chosen via the switcher (Config.language).
+        // Maps ind/eng/jpn to a locale so the .po translation files in
+        // src/Locale/{ind,jpn}/default.po take effect across every page.
+        $lang = $this->request->getSession()->read('Config.language') ?: 'ind';
+        $localeMap = ['ind' => 'ind', 'eng' => 'en_US', 'jpn' => 'jpn'];
+        \Cake\I18n\I18n::setLocale(isset($localeMap[$lang]) ? $localeMap[$lang] : 'ind');
+
         // Allow public access to login
         $this->Auth->allow(['login']);
 
@@ -142,48 +153,13 @@ class AppController extends Controller
             return true; // All authenticated users can access their own profile and logout
         }
         
-        // Check if user has permission to access this controller/action
-        if (!$this->hasPermission($controller, $action)) {
-            // Use enhanced unauthorized handler
-            $this->handleUnauthorizedAccess($action, 
-                __('Your role does not have access to {0} in {1}.', $action, $controller)
-            );
-            return false;
-        }
-        
-        // Management/Director role - read-only access to all non-master tables
-        if ($this->hasRole('management') || $this->hasRole('director')) {
-            return $this->authorizeManagement();
-        }
-        
-        // TMM Recruitment role
-        if ($this->hasRole('tmm-recruitment')) {
-            return $this->authorizeTmmRecruitment();
-        }
-        
-        // TMM Training role
-        if ($this->hasRole('tmm-training')) {
-            return $this->authorizeTmmTraining();
-        }
-        
-        // TMM Documentation role
-        if ($this->hasRole('tmm-documentation')) {
-            return $this->authorizeTmmDocumentation();
-        }
-        
-        // LPK Penyangga role - institution-specific access
-        if ($this->hasRole('lpk-penyangga')) {
-            return $this->authorizeLpkPenyangga();
+        // Single gate: DB-driven permission check via role_menus → menus.granted_actions
+        if ($this->hasPermission($controller, $action)) {
+            return true;
         }
 
-        // LPK SO role - institution-specific access
-        if ($this->hasRole('lpk-so')) {
-            return $this->authorizeLpkSo();
-        }
-        
-        // Default deny - should not reach here due to hasPermission check above
-        $this->handleUnauthorizedAccess($action, 
-            __('No authorization rules defined for your role.')
+        $this->handleUnauthorizedAccess($action,
+            __('Your role does not have access to {0} in {1}.', $action, $controller)
         );
         return false;
     }
@@ -225,27 +201,38 @@ class AppController extends Controller
     protected function authorizeTmmRecruitment()
     {
         $controller = $this->request->getParam('controller');
-        
-        // Allowed controllers
+
         $allowedControllers = [
             'Dashboard',
+            // Candidate management
             'Candidates',
+            'LpkPhysicalTests',
+            'CandidateRecordInterviews',
+            'CandidateRecordMedicalCheckUps',
+            'CandidateDocuments',
             'ApprenticeOrders',
-            'MasterPropinsis',  // Read-only
-            'MasterKabupatens', // Read-only
-            'MasterKecamatans', // Read-only
-            'MasterKelurahans', // Read-only
-            'VocationalTrainingInstitutions', // Read-only
+            // Stakeholder management (full ownership)
+            'VocationalTrainingInstitutions',
+            'VocationalTrainingInstitutionStories',
+            'AcceptanceOrganizations',
+            'AcceptanceOrganizationStories',
+            'CooperativeAssociations',
+            'CooperativeAssociationStories',
+            'SpecialSkillSupportInstitutions',
+            // Read-only master tables
+            'MasterPropinsis',
+            'MasterKabupatens',
+            'MasterKecamatans',
+            'MasterKelurahans',
         ];
-        
+
         if (in_array($controller, $allowedControllers)) {
-            // Read-only for master tables
             if (strpos($controller, 'Master') === 0) {
                 return $this->isReadOnlyAction();
             }
             return true;
         }
-        
+
         return false;
     }
     
@@ -256,26 +243,31 @@ class AppController extends Controller
     protected function authorizeTmmTraining()
     {
         $controller = $this->request->getParam('controller');
-        
-        // Allowed controllers
+
         $allowedControllers = [
             'Dashboard',
-            'Trainees',
+            'Trainees',          // includes promoteToApprentice, doPromoteToApprentice
             'TraineeTrainings',
+            'TraineeDocuments',
             'TrainingScores',
-            'AcceptanceOrganizations', // Read-only
-            'MasterPropinsis',  // Read-only
-            'MasterKabupatens', // Read-only
+            'Apprentices',       // read-only once promoted
+            //'AcceptanceOrganizations',  // read-only
+            'VocationalTrainingInstitutions', // read-only
+            'MasterPropinsis',   // read-only
+            'MasterKabupatens',  // read-only
+            'MasterKecamatans',  // read-only
+            'MasterKelurahans',  // read-only
         ];
-        
+
+        $readOnlyControllers = ['AcceptanceOrganizations', 'VocationalTrainingInstitutions', 'Apprentices'];
+
         if (in_array($controller, $allowedControllers)) {
-            // Read-only for master tables and acceptance organizations
-            if (strpos($controller, 'Master') === 0 || $controller === 'AcceptanceOrganizations') {
+            if (strpos($controller, 'Master') === 0 || in_array($controller, $readOnlyControllers)) {
                 return $this->isReadOnlyAction();
             }
             return true;
         }
-        
+
         return false;
     }
     
@@ -314,26 +306,35 @@ class AppController extends Controller
     protected function authorizeLpkPenyangga()
     {
         $controller = $this->request->getParam('controller');
-        
-        // Allowed controllers
+
         $allowedControllers = [
             'Dashboard',
             'Candidates',
             'CandidateDocuments',
-            'MasterPropinsis',  // Read-only
-            'MasterKabupatens', // Read-only
-            'MasterKecamatans', // Read-only
-            'MasterKelurahans', // Read-only
+            'LpkPhysicalTests',
+            'CandidateRecordInterviews',
+            'CandidateRecordMedicalCheckUps',
+            'MasterPropinsis',           // read-only
+            'MasterKabupatens',          // read-only
+            'MasterKecamatans',          // read-only
+            'MasterKelurahans',          // read-only
         ];
-        
+
         if (in_array($controller, $allowedControllers)) {
-            // Read-only for master tables
             if (strpos($controller, 'Master') === 0) {
                 return $this->isReadOnlyAction();
             }
+            // Promote actions are tmm-recruitment only
+            if ($controller === 'Candidates') {
+                $action = $this->request->getParam('action');
+                $promotionActions = ['promoteToTrainee', 'doPromote', 'promotionHistory'];
+                if (in_array($action, $promotionActions)) {
+                    return false;
+                }
+            }
             return true;
         }
-        
+
         return false;
     }
 
@@ -472,26 +473,14 @@ class AppController extends Controller
             return true;
         }
         
-        // Check database scope permissions
-        $connectionName = $this->getControllerConnection($controller);
-        if ($connectionName && !$this->hasConnectionAccess($connectionName)) {
+        // DB-driven: check role_menus → menus.granted_actions
+        $permissions = $this->getMenuRolePermissions();
+        if (!isset($permissions[$controller])) {
             return false;
         }
-        
-        // Check controller-specific permissions
-        $rolePermissions = $this->getRolePermissions();
-        if (!isset($rolePermissions[$controller])) {
-            return false;
-        }
-        
-        $allowedActions = $rolePermissions[$controller];
-        
-        // '*' means all actions allowed
-        if (in_array('*', $allowedActions)) {
-            return true;
-        }
-        
-        return in_array($action, $allowedActions);
+
+        $allowed = $permissions[$controller];
+        return in_array('*', $allowed) || in_array($action, $allowed);
     }
     
     /**
@@ -516,6 +505,9 @@ class AppController extends Controller
             'CandidateDocuments' => 'cms_lpk_candidates',
             'CandidateEducations' => 'cms_lpk_candidates',
             'CandidateExperiences' => 'cms_lpk_candidates',
+            'LpkPhysicalTests' => 'cms_lpk_candidates',
+            'CandidateRecordInterviews' => 'cms_lpk_candidates',
+            'CandidateRecordMedicalCheckUps' => 'cms_lpk_candidates',
             
             // CMS TMM Trainees
             'Trainees' => 'cms_tmm_trainees',
@@ -527,9 +519,13 @@ class AppController extends Controller
             'ApprenticeDocuments' => 'cms_tmm_apprentice_documents',
             
             // CMS TMM Stakeholders
-            'CooperativeAssociations' => 'cms_tmm_stakeholders',
             'AcceptanceOrganizations' => 'cms_tmm_stakeholders',
+            'AcceptanceOrganizationStories' => 'cms_tmm_stakeholders',
+            'CooperativeAssociations' => 'cms_tmm_stakeholders',
+            'CooperativeAssociationStories' => 'cms_tmm_stakeholders',
             'VocationalTrainingInstitutions' => 'cms_tmm_stakeholders',
+            'VocationalTrainingInstitutionStories' => 'cms_tmm_stakeholders',
+            'SpecialSkillSupportInstitutions' => 'cms_tmm_stakeholders',
         ];
         
         return isset($connectionMap[$controller]) ? $connectionMap[$controller] : null;
@@ -551,7 +547,7 @@ class AppController extends Controller
         // Define role-based database access
         $roleConnections = [
             'management' => '*', // All databases (read-only)
-            'tmm-recruitment' => ['cms_lpk_candidates', 'cms_tmm_apprentices', 'cms_masters'],
+            'tmm-recruitment' => ['cms_lpk_candidates', 'cms_tmm_apprentices', 'cms_tmm_stakeholders', 'cms_masters'],
             'tmm-training' => ['cms_tmm_trainees', 'cms_tmm_trainee_trainings', 'cms_masters'],
             'tmm-documentation' => ['cms_tmm_apprentice_documents', 'cms_lpk_candidate_documents', 'cms_masters'],
             'lpk-penyangga' => ['cms_lpk_candidates', 'cms_lpk_candidate_documents', 'cms_masters'],
@@ -571,38 +567,146 @@ class AppController extends Controller
     }
     
     /**
-     * Get role-based controller/action permissions
-     * Filtered by database connection access scope
+     * Returns role permissions sourced entirely from the database (role_menus →
+     * menus.controller / menus.action / role_menus.granted_actions).
+     * No hardcoded role arrays — manage access through /menus matrix UI.
      *
      * @return array [controller => [actions]]
      */
     protected function getRolePermissions()
     {
-        $permissions = [];
+        return $this->getMenuRolePermissions();
+    }
 
-        // Management: Read-only access
-        if ($this->hasRole('management')) {
-            $permissions = $this->getManagementPermissions();
+    /**
+     * Permissions derived from menus assigned to the current user's roles.
+     * Parses each assigned menu URL into [Controller => [actions]].
+     *
+     * @return array [controller => [actions]]
+     */
+    protected function getMenuRolePermissions()
+    {
+        static $cached = null;
+        if ($cached !== null) {
+            return $cached;
         }
-        // TMM Recruitment
-        elseif ($this->hasRole('tmm-recruitment')) {
-            $permissions = $this->getRecruitmentPermissions();
-        }
-        // TMM Training
-        elseif ($this->hasRole('tmm-training')) {
-            $permissions = $this->getTrainingPermissions();
-        }
-        // TMM Documentation
-        elseif ($this->hasRole('tmm-documentation')) {
-            $permissions = $this->getDocumentationPermissions();
-        }
-        // LPK Penyangga
-        elseif ($this->hasRole('lpk-penyangga')) {
-            $permissions = $this->getLpkPermissions();
+        $cached = [];
+
+        $roleNames = isset($this->currentUser['role_names']) ? (array)$this->currentUser['role_names'] : [];
+        if (empty($roleNames)) {
+            return $cached;
         }
 
-        // Filter permissions based on database connection access
-        return $this->filterPermissionsByDatabaseAccess($permissions);
+        try {
+            $locator = \Cake\ORM\TableRegistry::getTableLocator();
+
+            $roleIds = $locator->get('Roles')->find()
+                ->where(['name IN' => $roleNames])
+                ->extract('id')
+                ->toList();
+            if (empty($roleIds)) {
+                return $cached;
+            }
+
+            // Join role_menus → menus in one query, pulling granted_actions alongside.
+            // Parent-container menus (those that have at least one active child menu also
+            // assigned to this role) are excluded from PAGE-LEVEL permissions — they exist
+            // only as navigation containers.  Their child menus supply the actual access.
+            $roleIdList = implode(',', array_map('intval', $roleIds));
+            $conn   = \Cake\Datasource\ConnectionManager::get('cms_authentication_authorization');
+            $rows   = $conn->execute(
+                'SELECT m.controller, m.action, m.url, rm.granted_actions
+                 FROM role_menus rm
+                 JOIN cms_masters.menus m ON m.id = rm.menu_id
+                 WHERE rm.role_id IN (' . $roleIdList . ')
+                   AND rm.is_active = 1
+                   AND m.is_active  = 1
+                   -- Skip menus that act as navigation containers:
+                   -- if this menu has at least one active child assigned to the same role,
+                   -- it is a parent tab whose URL is just the default landing — child menus
+                   -- supply the real page permissions.
+                   AND NOT EXISTS (
+                       SELECT 1
+                       FROM role_menus rm2
+                       JOIN cms_masters.menus m2 ON m2.id = rm2.menu_id
+                       WHERE m2.parent_id = m.id
+                         AND rm2.role_id IN (' . $roleIdList . ')
+                         AND rm2.is_active = 1
+                         AND m2.is_active  = 1
+                   )'
+            )->fetchAll('assoc');
+
+            foreach ($rows as $row) {
+                // Resolve controller name
+                if (!empty($row['controller'])) {
+                    $controller = $row['controller'];
+                    $menuAction = $row['action'] ?: 'index';
+                } else {
+                    $parsed = $this->parseMenuUrl($row['url']);
+                    if (!$parsed) {
+                        continue;
+                    }
+                    list($controller, $menuAction) = $parsed;
+                }
+
+                $ga = trim((string)$row['granted_actions']);
+
+                if (!empty($ga) && $ga !== '*') {
+                    // Explicit comma-separated action list — grant exactly those actions.
+                    $actions  = array_map('trim', explode(',', $ga));
+                    $existing = isset($cached[$controller]) ? $cached[$controller] : [];
+                    $cached[$controller] = array_values(array_unique(array_merge($existing, $actions)));
+                } else {
+                    // granted_actions is '*' or empty.
+                    // We deliberately do NOT use a controller-wide ['*'] wildcard here
+                    // because that leaks sibling actions the role was never assigned
+                    // (e.g. Reports::incomeStatement becoming accessible just because
+                    //  Reports::trainingProgress was granted to the same role).
+                    //
+                    // Instead, build an explicit action list from the menu's own action:
+                    //   • index  → index, view         (browse + read)
+                    //   • other  → that action, index, view  (specific action + read helpers)
+                    //
+                    // Controllers that genuinely need full CRUD should use an explicit
+                    // granted_actions list like "index,view,add,edit,delete".
+                    $existing = isset($cached[$controller]) ? $cached[$controller] : [];
+                    $toAdd = array_unique([$menuAction, 'index', 'view']);
+                    $cached[$controller] = array_values(array_unique(array_merge($existing, $toAdd)));
+                }
+            }
+        } catch (\Exception $e) {
+            $this->log('getMenuRolePermissions failed: ' . $e->getMessage(), 'error');
+            $cached = [];
+        }
+
+        return $cached;
+    }
+
+    /**
+     * Parse an internal menu URL into [ControllerName, actionName].
+     *
+     * @param string|null $url Menu URL, e.g. /candidates/promote-to-trainee
+     * @return array|null [controller, action] or null when not parseable
+     */
+    protected function parseMenuUrl($url)
+    {
+        if (empty($url) || $url === '#' || strpos($url, 'http') === 0 || strpos($url, 'javascript:') === 0) {
+            return null;
+        }
+        $parts = array_values(array_filter(explode('/', trim($url, '/'))));
+        // Skip routing prefixes such as /admin/...
+        if (!empty($parts) && in_array($parts[0], ['admin', 'tmm'])) {
+            array_shift($parts);
+        }
+        if (empty($parts)) {
+            return null;
+        }
+        $controller = \Cake\Utility\Inflector::camelize(str_replace('-', '_', $parts[0]));
+        $action = isset($parts[1])
+            ? \Cake\Utility\Inflector::variable(str_replace('-', '_', $parts[1]))
+            : 'index';
+
+        return [$controller, $action];
     }
 
     /**
@@ -634,106 +738,6 @@ class AppController extends Controller
     }
 
     /**
-     * Get management role permissions (read-only)
-     *
-     * @return array [controller => [actions]]
-     */
-    protected function getManagementPermissions()
-    {
-        // Management can view all but cannot edit
-        return [
-            'Users' => ['profile', 'settings', 'changeLanguage', 'help'], // Own profile access
-            'Dashboard' => ['index'],
-            'Candidates' => ['index', 'view', 'export'],
-            'CandidateDocuments' => ['index', 'view'],
-            'Trainees' => ['index', 'view', 'export'],
-            'Apprentices' => ['index', 'view', 'export'],
-            'CooperativeAssociations' => ['index', 'view'],
-            'AcceptanceOrganizations' => ['index', 'view'],
-            'VocationalTrainingInstitutions' => ['index', 'view'],
-        ];
-    }
-    
-    /**
-     * Get recruitment role permissions
-     * 
-     * @return array [controller => [actions]]
-     */
-    protected function getRecruitmentPermissions()
-    {
-        return [
-            'Users' => ['profile', 'settings', 'changeLanguage', 'help'], // Own profile access
-            'Dashboard' => ['index'],
-            'Candidates' => ['*'], // Full access
-            'CandidateDocuments' => ['*'],
-            'CandidateEducations' => ['*'],
-            'CandidateExperiences' => ['*'],
-            'ApprenticeOrders' => ['*'],
-            'Apprentices' => ['*'],
-            'ApprenticeDocuments' => ['*'],
-            'CooperativeAssociations' => ['index', 'view'],
-            'AcceptanceOrganizations' => ['index', 'view'],
-            'VocationalTrainingInstitutions' => ['index', 'view'],
-        ];
-    }
-    
-    /**
-     * Get training role permissions
-     * 
-     * @return array [controller => [actions]]
-     */
-    protected function getTrainingPermissions()
-    {
-        return [
-            'Users' => ['profile', 'settings', 'changeLanguage', 'help'], // Own profile access
-            'Dashboard' => ['index'],
-            'Trainees' => ['*'],
-            'TraineeAccountings' => ['*'],
-            'TraineeTrainings' => ['*'],
-            'TraineeDocuments' => ['*'],
-            'Candidates' => ['index', 'view'],
-            'VocationalTrainingInstitutions' => ['index', 'view'],
-        ];
-    }
-    
-    /**
-     * Get documentation role permissions
-     * 
-     * @return array [controller => [actions]]
-     */
-    protected function getDocumentationPermissions()
-    {
-        return [
-            'Users' => ['profile', 'settings', 'changeLanguage', 'help'], // Own profile access
-            'Dashboard' => ['index'],
-            'CandidateDocuments' => ['*'],
-            'ApprenticeDocuments' => ['*'],
-            'TraineeDocuments' => ['*'],
-            'Candidates' => ['index', 'view'],
-            'Apprentices' => ['index', 'view'],
-            'Trainees' => ['index', 'view'],
-        ];
-    }
-    
-    /**
-     * Get LPK role permissions (institution-scoped)
-     * 
-     * @return array [controller => [actions]]
-     */
-    protected function getLpkPermissions()
-    {
-        return [
-            // Note: profile, settings, changeLanguage, help are handled in isAuthorized() for all authenticated users
-            // No Users controller access - LPK cannot manage users
-            'Dashboard' => ['index'],
-            'Candidates' => ['*'], // With institution scope
-            'CandidateDocuments' => ['*'],
-            'CandidateEducations' => ['*'],
-            'CandidateExperiences' => ['*'],
-        ];
-    }
-
-    /**
      * Before render callback.
      *
      * @param \Cake\Event\Event $event The beforeRender event.
@@ -743,8 +747,26 @@ class AppController extends Controller
     {
         parent::beforeRender($event);
 
-        // Skip menu loading for print layout
-        if ($this->viewBuilder()->getLayout() === 'print') {
+        // Default layout when the action did not pick one (replaces the
+        // former public $layout property, which overrode action choices).
+        // AJAX requests are excluded: RequestHandler switches them to
+        // AjaxView, whose own 'ajax' layout must not be overridden here.
+        if ($this->viewBuilder()->getLayout() === null && !$this->request->is('ajax')) {
+            $this->viewBuilder()->setLayout('elegant');
+        }
+
+        // Provide related-data tabs to view pages that opt in via the
+        // 'view_tabs' element (templates without their own tab system)
+        if ($this->request->getParam('action') === 'view' && !isset($this->viewVars['relatedTabs'])) {
+            $this->set('relatedTabs', $this->getRelatedDataTabs());
+        }
+
+        // Skip menu loading for layouts/requests that do not render the
+        // navigation (standalone pages and bare ajax/modal responses)
+        if (
+            $this->request->is('ajax')
+            || in_array($this->viewBuilder()->getLayout(), ['print', 'process_flow', 'ajax'])
+        ) {
             return;
         }
 
@@ -761,35 +783,73 @@ class AppController extends Controller
                     ->where(['ChildMenus.is_active' => 1])
                     ->order(['ChildMenus.sort_order' => 'ASC']);
             }])
-            ->all();
+            ->all()
+            ->toList();
+
+        // sort_order restarts at 1 within each category, so top-level tabs
+        // must be ordered by category first; unknown categories go last
+        // Tab order follows the journey timeline:
+        //   Candidate (Recruitment) -> Trainee (Training, Documentation, Accounting)
+        //   -> Apprentice (Apprentice in Japan)
+        // with Audit pinned left-most and support menus (Reports, System) at the end.
+        $categoryOrder = [
+            'Audit',               // always left-most for all roles
+            'Dashboards',
+            'Stakeholder',
+            'Recruitment',         // timeline: Candidate
+            'Training',            // timeline: Trainee - training phase
+            'Documentation',       // timeline: Trainee - pre-departure documents
+            'Accounting',          // timeline: Trainee - installments & costs
+            'Apprentice in Japan', // timeline: Apprentice
+            'Reports',
+            'System',
+        ];
+        $categoryRank = array_flip($categoryOrder);
+        usort($menus, function ($a, $b) use ($categoryRank) {
+            $rankA = isset($categoryRank[$a->category]) ? $categoryRank[$a->category] : PHP_INT_MAX;
+            $rankB = isset($categoryRank[$b->category]) ? $categoryRank[$b->category] : PHP_INT_MAX;
+            if ($rankA !== $rankB) {
+                return $rankA <=> $rankB;
+            }
+            return (int)$a->sort_order <=> (int)$b->sort_order;
+        });
 
         $this->set('navigationMenus', $menus);
-        
+
         // Get current user from Auth component for menu filtering
         $user = $this->Auth->user();
-        
+
         // Pass allowed controllers and detailed permissions to template for menu filtering
         if (!empty($user)) {
             // Update currentUser for role checking
             $this->currentUser = $user;
-            
+
             $rolePermissions = $this->getRolePermissions();
             $isAdmin = $this->hasRole('administrator');
             $allowedControllers = $isAdmin ? array() : array_keys($rolePermissions);
-            
+
+            // Pass the explicit set of menu IDs the role was granted in role_menus.
+            // The template uses this for exact-match filtering instead of the loose
+            // controller-level match, which was leaking sibling menu items that share
+            // the same controller (e.g. all Dashboard::* sub-pages showing up for a
+            // role that only has Training Dashboard assigned).
+            $allowedMenuIds = $isAdmin ? null : $this->getAllowedMenuIds();
+
             $this->set('allowedControllers', $allowedControllers);
-            $this->set('rolePermissions', $rolePermissions); // Pass full permissions for action-level checking
+            $this->set('rolePermissions', $rolePermissions);
             $this->set('isAdministrator', $isAdmin);
+            $this->set('allowedMenuIds', $allowedMenuIds);
         } else {
             $this->set('allowedControllers', array());
             $this->set('rolePermissions', array());
             $this->set('isAdministrator', false);
+            $this->set('allowedMenuIds', []);
         }
     }
     
     /**
      * Get list of controllers user has permission to access
-     * 
+     *
      * @return array List of controller names
      */
     protected function getAllowedControllers()
@@ -798,9 +858,73 @@ class AppController extends Controller
         if (empty($permissions)) {
             return [];
         }
-        
-        // Extract controller names
         return array_keys($permissions);
+    }
+
+    /**
+     * Return the explicit set of menu IDs (and their parent IDs) that the
+     * current user's roles have been granted in the role_menus table.
+     *
+     * This is used by the navigation template to show ONLY menus that were
+     * explicitly assigned to the role — not every menu whose controller
+     * happens to match a controller the role can access.
+     *
+     * @return array  Flat list of integer menu IDs, or null for administrator.
+     */
+    protected function getAllowedMenuIds()
+    {
+        static $cachedMenuIds = null;
+        if ($cachedMenuIds !== null) {
+            return $cachedMenuIds;
+        }
+        $cachedMenuIds = [];
+
+        $roleNames = isset($this->currentUser['role_names']) ? (array)$this->currentUser['role_names'] : [];
+        if (empty($roleNames)) {
+            return $cachedMenuIds;
+        }
+
+        try {
+            $locator  = \Cake\ORM\TableRegistry::getTableLocator();
+            $roleIds  = $locator->get('Roles')->find()
+                ->where(['name IN' => $roleNames])
+                ->extract('id')
+                ->toList();
+
+            if (empty($roleIds)) {
+                return $cachedMenuIds;
+            }
+
+            $conn = \Cake\Datasource\ConnectionManager::get('cms_authentication_authorization');
+
+            // Fetch the directly-assigned menu IDs
+            $rows = $conn->execute(
+                'SELECT rm.menu_id, m.parent_id
+                 FROM role_menus rm
+                 JOIN cms_masters.menus m ON m.id = rm.menu_id
+                 WHERE rm.role_id IN (' . implode(',', array_map('intval', $roleIds)) . ')
+                   AND rm.is_active = 1
+                   AND m.is_active  = 1'
+            )->fetchAll('assoc');
+
+            $menuIds   = [];
+            $parentIds = [];
+            foreach ($rows as $row) {
+                $menuIds[] = (int)$row['menu_id'];
+                if (!empty($row['parent_id'])) {
+                    $parentIds[] = (int)$row['parent_id'];
+                }
+            }
+
+            // Also include parent menu IDs so the parent tab is visible when
+            // at least one child is assigned, without exposing siblings.
+            $cachedMenuIds = array_values(array_unique(array_merge($menuIds, $parentIds)));
+        } catch (\Exception $e) {
+            $this->log('getAllowedMenuIds failed: ' . $e->getMessage(), 'error');
+            $cachedMenuIds = [];
+        }
+
+        return $cachedMenuIds;
     }
 
     /**
@@ -1509,6 +1633,143 @@ class AppController extends Controller
         
         return $this->response;
     }
+
+    /**
+     * Discover data related to the entity shown by a view action.
+     *
+     * Two relation kinds, resolved from information_schema of the model's
+     * own database:
+     *  - children: tables holding a {singular}_id column pointing at the record
+     *  - siblings: rows in other tables that share one of the record's own
+     *    foreign key values (e.g. other documents of the same trainee)
+     *
+     * @return array [['label' => ..., 'columns' => [...], 'rows' => [...]], ...]
+     */
+    protected function getRelatedDataTabs()
+    {
+        try {
+            $entity = null;
+            foreach ($this->viewVars as $var) {
+                if ($var instanceof \Cake\Datasource\EntityInterface) {
+                    $entity = $var;
+                    break;
+                }
+            }
+            if ($entity === null || empty($entity->id)) {
+                return [];
+            }
+
+            $table = \Cake\ORM\TableRegistry::getTableLocator()->get($this->name);
+            $conn = $table->getConnection();
+            $config = $conn->config();
+            $dbName = isset($config['database']) ? $config['database'] : null;
+            if (!$dbName) {
+                return [];
+            }
+            $tableName = $table->getTable();
+            $singularFk = \Cake\Utility\Inflector::singularize($tableName) . '_id';
+
+            $pairs = $conn->execute(
+                "SELECT c.TABLE_NAME AS t, c.COLUMN_NAME AS c FROM information_schema.columns c
+                 JOIN information_schema.tables t
+                   ON t.table_schema = c.table_schema AND t.TABLE_NAME = c.TABLE_NAME
+                 WHERE c.table_schema = ? AND c.COLUMN_NAME LIKE '%\\_id'
+                   AND t.TABLE_TYPE = 'BASE TABLE'",
+                [$dbName]
+            )->fetchAll('assoc');
+            $tablesByColumn = [];
+            foreach ($pairs as $pair) {
+                $tablesByColumn[$pair['c']][] = $pair['t'];
+            }
+
+            $tabs = [];
+            $seen = [];
+
+            // children rows referencing this record
+            $childTables = isset($tablesByColumn[$singularFk]) ? $tablesByColumn[$singularFk] : [];
+            foreach ($childTables as $child) {
+                if ($child === $tableName || count($tabs) >= 6) {
+                    continue;
+                }
+                $tab = $this->buildRelatedTab($conn, $child, $singularFk, $entity->id);
+                if ($tab) {
+                    $tabs[] = $tab;
+                    $seen[$child] = true;
+                }
+            }
+
+            // sibling rows sharing one of this record's foreign keys
+            foreach ($entity->toArray() as $column => $value) {
+                if (substr($column, -3) !== '_id' || empty($value) || !is_numeric($value) || $column === $singularFk) {
+                    continue;
+                }
+                $siblingTables = isset($tablesByColumn[$column]) ? $tablesByColumn[$column] : [];
+                foreach ($siblingTables as $sibling) {
+                    if ($sibling === $tableName || isset($seen[$sibling]) || strpos($sibling, 'master_') === 0) {
+                        continue;
+                    }
+                    if (count($tabs) >= 6) {
+                        break 2;
+                    }
+                    $tab = $this->buildRelatedTab($conn, $sibling, $column, $value);
+                    if ($tab) {
+                        $tabs[] = $tab;
+                        $seen[$sibling] = true;
+                    }
+                }
+            }
+
+            return $tabs;
+        } catch (\Exception $e) {
+            $this->log('getRelatedDataTabs failed: ' . $e->getMessage(), 'error');
+
+            return [];
+        }
+    }
+
+    /**
+     * Fetch up to 50 related rows and shape them into a display tab.
+     *
+     * @return array|null Tab data, or null when the table holds no matches
+     */
+    protected function buildRelatedTab($conn, $tableName, $column, $value)
+    {
+        try {
+            $rows = $conn->execute(
+                sprintf('SELECT * FROM `%s` WHERE `%s` = ? ORDER BY id DESC LIMIT 50', $tableName, $column),
+                [$value]
+            )->fetchAll('assoc');
+        } catch (\Exception $e) {
+            try {
+                // tables without an id column
+                $rows = $conn->execute(
+                    sprintf('SELECT * FROM `%s` WHERE `%s` = ? LIMIT 50', $tableName, $column),
+                    [$value]
+                )->fetchAll('assoc');
+            } catch (\Exception $e) {
+                return null;
+            }
+        }
+        if (!$rows) {
+            return null;
+        }
+
+        $columns = [];
+        foreach (array_keys($rows[0]) as $col) {
+            if (count($columns) >= 8) {
+                break;
+            }
+            if (preg_match('/password|token/i', $col)) {
+                continue;
+            }
+            $columns[] = $col;
+        }
+
+        return [
+            'label' => \Cake\Utility\Inflector::humanize($tableName),
+            'controller' => \Cake\Utility\Inflector::camelize($tableName),
+            'columns' => $columns,
+            'rows' => $rows,
+        ];
+    }
 }
-
-

@@ -20,14 +20,60 @@ class VocationalTrainingInstitutionStoriesController extends AppController
      */
     public function index()
     {
-        $this->paginate = [
-            'contain' => ['VocationalTrainingInstitutions'],
-        ];
-        $vocationalTrainingInstitutionStories = $this->paginate($this->VocationalTrainingInstitutionStories);
+        // Optional filters
+        $filterInst = (int)$this->request->getQuery('institution_id');
+        $filterClass = trim((string)$this->request->getQuery('classification'));
+        $search = trim((string)$this->request->getQuery('q'));
 
-        // Load dropdown data for filters
+        $query = $this->VocationalTrainingInstitutionStories->find()->contain(['VocationalTrainingInstitutions']);
+        if ($filterInst) {
+            $query->where(['VocationalTrainingInstitutionStories.vocational_training_institution_id' => $filterInst]);
+        }
+        if ($filterClass !== '') {
+            $query->where(['VocationalTrainingInstitutionStories.problem_classification' => $filterClass]);
+        }
+        if ($search !== '') {
+            $query->where(['OR' => [
+                'VocationalTrainingInstitutionStories.problem_contents LIKE' => '%' . $search . '%',
+                'VocationalTrainingInstitutionStories.problem_solution LIKE' => '%' . $search . '%',
+                'VocationalTrainingInstitutionStories.problem_inference LIKE' => '%' . $search . '%',
+            ]]);
+        }
+
+        $this->paginate = ['order' => ['VocationalTrainingInstitutionStories.date_occurrence' => 'DESC']];
+        $vocationalTrainingInstitutionStories = $this->paginate($query);
+
         $vocationaltraininginstitutions = $this->VocationalTrainingInstitutionStories->VocationalTrainingInstitutions->find('list')->limit(200)->toArray();
-        $this->set(compact('vocationalTrainingInstitutionStories', 'vocationaltraininginstitutions'));
+
+        // Summary + classification stats
+        $summary = ['total' => 0, 'resolved' => 0, 'institutions' => 0, 'recent' => 0];
+        $classifications = [];
+        try {
+            $conn = \Cake\Datasource\ConnectionManager::get('cms_tmm_stakeholders');
+            $summary['total'] = (int)$conn->execute('SELECT COUNT(*) FROM vocational_training_institution_stories')->fetch()[0];
+            $summary['resolved'] = (int)$conn->execute(
+                "SELECT COUNT(*) FROM vocational_training_institution_stories WHERE problem_solution IS NOT NULL AND problem_solution <> ''"
+            )->fetch()[0];
+            $summary['institutions'] = (int)$conn->execute(
+                'SELECT COUNT(DISTINCT vocational_training_institution_id) FROM vocational_training_institution_stories'
+            )->fetch()[0];
+            $summary['recent'] = (int)$conn->execute(
+                'SELECT COUNT(*) FROM vocational_training_institution_stories WHERE date_occurrence >= DATE_SUB(CURDATE(), INTERVAL 90 DAY)'
+            )->fetch()[0];
+            foreach ($conn->execute(
+                "SELECT problem_classification AS c, COUNT(*) AS total
+                 FROM vocational_training_institution_stories
+                 WHERE problem_classification IS NOT NULL AND problem_classification <> ''
+                 GROUP BY problem_classification ORDER BY total DESC"
+            )->fetchAll('assoc') as $row) {
+                $classifications[$row['c']] = (int)$row['total'];
+            }
+        } catch (\Exception $e) {
+        }
+
+        $this->set(compact('vocationalTrainingInstitutionStories', 'vocationaltraininginstitutions',
+            'summary', 'classifications', 'filterInst', 'filterClass', 'search'));
+        $this->set('vocational_training_institutions', $vocationaltraininginstitutions);
     }
 
 

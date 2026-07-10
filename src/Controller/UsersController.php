@@ -109,12 +109,52 @@ class UsersController extends AppController
      */
     public function index()
     {
-        $this->paginate = [
-            'contain' => ['Roles']
-        ];
-        $users = $this->paginate($this->Users);
+        // Optional filters
+        $filterRole = (int)$this->request->getQuery('role_id');
+        $filterStatus = (string)$this->request->getQuery('status');
+        $search = trim((string)$this->request->getQuery('q'));
 
-        $this->set(compact('users'));
+        $query = $this->Users->find()->contain(['Roles']);
+        if ($filterRole) {
+            $query->matching('Roles', function ($q) use ($filterRole) {
+                return $q->where(['Roles.id' => $filterRole]);
+            });
+        }
+        if ($filterStatus !== '') {
+            $query->where(['Users.status' => $filterStatus]);
+        }
+        if ($search !== '') {
+            $query->where(['OR' => [
+                'Users.username LIKE' => '%' . $search . '%',
+                'Users.email LIKE' => '%' . $search . '%',
+                'Users.full_name LIKE' => '%' . $search . '%',
+            ]]);
+        }
+
+        $this->paginate = ['order' => ['Users.id' => 'ASC']];
+        $users = $this->paginate($query);
+
+        // Summary stats + role/status filter data
+        $roleList = $this->Users->Roles->find('list')->toArray();
+        $summary = ['total' => 0, 'active' => 0, 'pending' => 0, 'inactive' => 0];
+        $byRole = [];
+        try {
+            $conn = \Cake\Datasource\ConnectionManager::get('cms_authentication_authorization');
+            $summary['total'] = (int)$conn->execute('SELECT COUNT(*) FROM users')->fetch()[0];
+            $summary['active'] = (int)$conn->execute("SELECT COUNT(*) FROM users WHERE status = 'active'")->fetch()[0];
+            $summary['pending'] = (int)$conn->execute("SELECT COUNT(*) FROM users WHERE status = 'pending_verification'")->fetch()[0];
+            $summary['inactive'] = (int)$conn->execute('SELECT COUNT(*) FROM users WHERE is_active = 0')->fetch()[0];
+            foreach ($conn->execute(
+                'SELECT r.id, COUNT(*) AS total FROM user_roles ur
+                 JOIN roles r ON r.id = ur.role_id GROUP BY r.id'
+            )->fetchAll('assoc') as $row) {
+                $byRole[(int)$row['id']] = (int)$row['total'];
+            }
+        } catch (\Exception $e) {
+        }
+
+        $this->set(compact('users', 'roleList', 'summary', 'byRole',
+            'filterRole', 'filterStatus', 'search'));
     }
 
     /**
@@ -155,8 +195,8 @@ class UsersController extends AppController
         
         $lpkPenyangga = $this->SpecialSkillSupportInstitutions->find('list', [
             'keyField' => 'id',
-            'valueField' => 'company_name'
-        ])->order(['company_name' => 'ASC'])->toArray();
+            'valueField' => 'name'
+        ])->order(['name' => 'ASC'])->toArray();
         
         $lpkSo = $this->VocationalTrainingInstitutions->find('list', [
             'keyField' => 'id',
@@ -192,8 +232,21 @@ class UsersController extends AppController
             }
             $this->Flash->error(__('The user could not be saved. Please, try again.'));
         }
+        $this->loadModel('SpecialSkillSupportInstitutions');
+        $this->loadModel('VocationalTrainingInstitutions');
+
+        $lpkPenyangga = $this->SpecialSkillSupportInstitutions->find('list', [
+            'keyField' => 'id',
+            'valueField' => 'name',
+        ])->order(['name' => 'ASC'])->toArray();
+
+        $lpkSo = $this->VocationalTrainingInstitutions->find('list', [
+            'keyField' => 'id',
+            'valueField' => 'name',
+        ])->order(['name' => 'ASC'])->toArray();
+
         $roles = $this->Users->Roles->find('list', ['limit' => 200]);
-        $this->set(compact('user', 'roles'));
+        $this->set(compact('user', 'roles', 'lpkPenyangga', 'lpkSo'));
     }
 
 

@@ -1,204 +1,258 @@
 <?php
 /**
+ * Add / Edit Cooperative Association - rich form
+ *
  * @var \App\View\AppView $this
- * @var \App\Model\Entity\App\Model\Entity\CooperativeAssociation|null $cooperativeAssociation */
-use Cake\Utility\Inflector;
+ * @var \App\Model\Entity\CooperativeAssociation $cooperativeAssociation
+ */
+$action = $this->request->getParam('action');
+$isEdit = ($action === 'edit');
+$this->assign('title', ($isEdit ? 'Edit' : 'Add') . ' Cooperative Association');
 
-// Dynamic host detection for static assets (CORS-friendly)
-$protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') ? 'https' : 'http';
-$host = $_SERVER['HTTP_HOST'];
-$staticAssetsUrl = $protocol . '://' . $host . '/static-assets';
+$dateVal = function ($value) {
+    if ($value instanceof \DateTimeInterface || $value instanceof \Cake\I18n\Date) {
+        return $value->format('Y-m-d');
+    }
+    return $value ? (string)$value : '';
+};
 ?>
-<!-- Load CSS/JS from static location (workaround for .htaccess issue) -->
+
 <?= $this->Html->script('form-confirm.js?v=2.0') ?>
-<?= $this->Html->css('datepicker-fix.css') ?>
 
-<!-- Mobile CSS now loaded globally from layout - mobile-responsive.css -->
-
-<!-- Actions Sidebar -->
-<nav class="actions-sidebar" id="actions-sidebar">
-    <button class="menu-toggle" onclick="toggleActionsMenu()">
-        <i class="fas fa-bars"></i>
-    </button>
-    <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Html->link('<i class="fas fa-list"></i> ' . __('List Cooperative Associations'), ['action' => 'index'], ['escape' => false]) ?></li>
-    </ul>
-</nav>
-
-<!-- Main Content -->
-<div class="cooperativeAssociations form content">
-    <div class="card">
-        <div class="content-header">
-            <h3 class="content-title">
-                <i class="fas fa-edit"></i>
-                <?= __(Inflector::humanize($this->request->getParam("action")) . ' Cooperative Association') ?>
-            </h3>
+<div class="coop-form-page">
+    <div class="page-header">
+        <div>
+            <h2><i class="fa fa-handshake-o"></i> <?= $isEdit ? __('Edit Cooperative Association') : __('Add Cooperative Association') ?></h2>
+            <p class="text-muted"><?= __('Register a cooperative association (kumiai) partner') ?> 🇯🇵</p>
         </div>
+        <?= $this->Html->link('<i class="fa fa-th-list"></i> ' . __('Back to List'),
+            ['action' => 'index'], ['escape' => false, 'class' => 'btn btn-sm btn-outline-secondary']) ?>
+    </div>
 
-        <div class="card-body">
-            <?= $this->Form->create($cooperativeAssociation, ['data-confirm' => 'true', 'id' => 'cooperativeAssociationForm']) ?>
-            <fieldset>
-                <legend><?= __('Enter Cooperative Association Information') ?></legend>
-                <div class="row">
-                    <div class="col-12 mb-3">
-                        <label class="form-label"><?= __('Name') ?></label>
-                        <?= $this->Form->control('name', [
-                            'class' => 'form-control',
-                            'placeholder' => __('Enter Name'),
-                            'label' => false
+    <?= $this->Form->create($cooperativeAssociation, ['data-confirm' => 'true', 'id' => 'cooperativeAssociationForm']) ?>
+    <div class="row">
+        <div class="col-md-7">
+            <div class="card">
+                <div class="card-header"><h4><i class="fa fa-building"></i> <?= __('Association Details') ?></h4></div>
+                <div class="card-body">
+                    <div class="form-section-label"><i class="fa fa-id-card-o"></i> <?= __('Identity') ?></div>
+                    <div class="input">
+                        <label><?= __('Name') ?></label>
+                        <?= $this->Form->text('name', [
+                            'value' => $cooperativeAssociation->name,
+                            'placeholder' => 'e.g. Asahi Cooperative Association',
+                            'required' => true,
                         ]) ?>
                     </div>
-                    <div class="col-12 mb-3">
-                        <label class="form-label"><?= __('Address') ?></label>
-                        <?= $this->Form->control('address', [
-                            'class' => 'form-control',
-                            'placeholder' => __('Enter Address'),
-                            'label' => false
+                    <div class="input">
+                        <label><?= __('Address') ?></label>
+                        <?= $this->Form->textarea('address', [
+                            'value' => $cooperativeAssociation->address,
+                            'rows' => 2,
+                            'placeholder' => __('Full address'),
                         ]) ?>
                     </div>
-                    <div class="col-12 mb-3">
-                        <label class="form-label"><?= __('Telephone') ?></label>
-                        <?= $this->Form->control('telephone', [
-                            'class' => 'form-control',
-                            'placeholder' => __('Enter Telephone'),
-                            'label' => false
+                    <div class="input">
+                        <label><?= __('Telephone') ?></label>
+                        <?= $this->Form->text('telephone', [
+                            'value' => $cooperativeAssociation->telephone,
+                            'placeholder' => 'e.g. +81 3-1234-5678',
+                            'class' => 'no-uppercase',
                         ]) ?>
                     </div>
-                    <div class="col-12 mb-3">
-                        <label class="form-label"><?= __('Date Permitted') ?></label>
-                        <?= $this->Form->control('date_permitted', [
-                            'type' => 'text',
-                            'class' => 'form-control datepicker',
-                            'placeholder' => __('Select Date Permitted'),
-                            'label' => false,
-                            'autocomplete' => 'off'
-                        ]) ?>
+
+                    <hr class="field-divider">
+                    <div class="form-section-label"><i class="fa fa-calendar"></i> <?= __('Permit Period') ?></div>
+                    <div class="field-grid">
+                        <div class="input">
+                            <label><?= __('Date Permitted') ?></label>
+                            <input type="date" name="date_permitted" id="date-permitted"
+                                   value="<?= h($dateVal($cooperativeAssociation->date_permitted)) ?>">
+                        </div>
+                        <div class="input">
+                            <label><?= __('Date Expired') ?></label>
+                            <input type="date" name="date_expired" id="date-expired"
+                                   value="<?= h($dateVal($cooperativeAssociation->date_expired)) ?>">
+                        </div>
                     </div>
-                    <div class="col-12 mb-3">
-                        <label class="form-label"><?= __('Date Expired') ?></label>
-                        <?= $this->Form->control('date_expired', [
-                            'type' => 'text',
-                            'class' => 'form-control datepicker',
-                            'placeholder' => __('Select Date Expired'),
-                            'label' => false,
-                            'autocomplete' => 'off'
-                        ]) ?>
-                    </div>
-                    <div class="col-12 mb-3">
-                        <label class="form-label">
-                            <?= __('Status') ?>
-                            <small class="text-muted">(Association operational status)</small>
-                        </label>
-                        <?= $this->Form->control('status', [
-                            'type' => 'select',
-                            'options' => [
-                                'active' => __('Active - Operational'),
-                                'suspended' => __('Suspended - Temporarily inactive'),
-                                'inactive' => __('Inactive - Not operational')
-                            ],
+                    <div id="validity-hint" class="validity-hint" style="display:none;"></div>
+
+                    <hr class="field-divider">
+                    <div class="form-section-label"><i class="fa fa-toggle-on"></i> <?= __('Status') ?></div>
+                    <div class="input">
+                        <label><?= __('Operational Status') ?></label>
+                        <?= $this->Form->select('status', [
+                            'active' => __('Active - Operational'),
+                            'suspended' => __('Suspended - Temporarily inactive'),
+                            'inactive' => __('Inactive - Not operational'),
+                        ], [
+                            'value' => $cooperativeAssociation->status ?: 'active',
                             'default' => 'active',
-                            'class' => 'form-control',
-                            'label' => false
                         ]) ?>
-                        <small class="form-text text-muted">
-                            <i class="fas fa-info-circle"></i> Active associations can manage cooperative member organizations.
-                        </small>
+                        <small class="text-muted"><i class="fa fa-info-circle"></i> <?= __('Active associations can manage cooperative member organizations.') ?></small>
+                    </div>
+
+                    <div class="form-actions">
+                        <?= $this->Form->button('<i class="fa fa-save"></i> ' . __('Save Association'),
+                            ['escapeTitle' => false, 'class' => 'btn btn-success btn-lg', 'id' => 'submitBtn']) ?>
+                        <?= $this->Html->link(__('Cancel'), ['action' => 'index'],
+                            ['class' => 'btn btn-outline-secondary btn-lg']) ?>
+                        <?php if ($isEdit): ?>
+                            <span class="actions-spacer"></span>
+                            <?= $this->Form->postLink('<i class="fa fa-trash"></i> ' . __('Delete'),
+                                ['action' => 'delete', $cooperativeAssociation->id],
+                                ['escape' => false, 'class' => 'btn btn-outline-danger btn-lg',
+                                 'confirm' => __('Delete this cooperative association? This cannot be undone.')]) ?>
+                        <?php endif; ?>
                     </div>
                 </div>
-            </fieldset>
-            
-            <div class="form-actions mt-4">
-                <?= $this->Form->button(__('Save Cooperative Association'), [
-                    'class' => 'btn-export-light',
-                    'id' => 'submitBtn'
-                ]) ?>
-                <?= $this->Html->link(__('Cancel'), ['action' => 'index'], [
-                    'class' => 'btn-export-light'
-                ]) ?>
             </div>
-            <?= $this->Form->end() ?>
+        </div>
+
+        <div class="col-md-5">
+            <?= $this->element('status_guide', [
+                'statuses' => [
+                    ['label' => __('Active'), 'class' => 'st-active', 'description' => __('Operational - can manage member organizations')],
+                    ['label' => __('Suspended'), 'class' => 'st-suspended', 'description' => __('Temporarily inactive - permit under review')],
+                    ['label' => __('Inactive'), 'class' => 'st-inactive', 'description' => __('No longer operational')],
+                ],
+                'tip' => __('A cooperative association (kumiai) is the receiving body that places apprentices with member companies in Japan. Keep the permit dates current so expiry can be tracked.'),
+            ]) ?>
         </div>
     </div>
+    <?= $this->Form->end() ?>
 </div>
 
-<?php $this->append('script'); ?>
-<?= $this->Html->script('image-preview.js') ?>
 <script>
-// Enhanced Datepicker with easy year selection
-$(document).ready(function() {
-        // Initialize Bootstrap Datepicker with correct format
-    $('.datepicker').datepicker({
-        format: 'yyyy-mm-dd',  // MySQL date format
-        autoclose: true,
-        todayHighlight: true,
-        orientation: 'bottom auto',
-        container: 'body',
-        showOnFocus: true,
-        zIndexOffset: 1050
-    });
-    
-    // Fix datepicker CSS conflicts
-    $('.datepicker-dropdown').css({
-        'z-index': '1060',
-        'display': 'block'
-    });
-    
-    // Ensure datepicker opens below input
-    $('.datepicker').on('show', function(e) {
-        $('.datepicker-dropdown').css({
-            'top': $(this).offset().top + $(this).outerHeight(),
-            'left': $(this).offset().left
-        });
-    });
-            }, 1);
-    });
-    
-    // Auto-uppercase for text inputs (except email, password, url)
-    $('input[type="text"], textarea').not('[type="email"], [type="password"], [type="url"], .datepicker, .no-uppercase').on('input', function() {
-        var start = this.selectionStart;
-        var end = this.selectionEnd;
+$(function () {
+    function updateValidity() {
+        var from = document.getElementById('date-permitted').value;
+        var to = document.getElementById('date-expired').value;
+        var hint = document.getElementById('validity-hint');
+        if (!from && !to) { hint.style.display = 'none'; return; }
+        hint.style.display = '';
+        if (from && to) {
+            var d1 = new Date(from), d2 = new Date(to);
+            if (d2 < d1) {
+                hint.className = 'validity-hint vh-warn';
+                hint.innerHTML = '<i class="fa fa-exclamation-triangle"></i> <?= __('Expiry is before the permitted date - please check.') ?>';
+                return;
+            }
+            var today = new Date(); today.setHours(0, 0, 0, 0);
+            var days = Math.round((d2 - today) / 86400000);
+            if (days < 0) {
+                hint.className = 'validity-hint vh-warn';
+                hint.innerHTML = '<i class="fa fa-times-circle"></i> <?= __('Permit has expired.') ?>';
+            } else {
+                hint.className = 'validity-hint vh-ok';
+                hint.innerHTML = '<i class="fa fa-check-circle"></i> <?= __('Valid - expires in') ?> ' + days + ' <?= __('day(s).') ?>';
+            }
+        } else {
+            hint.className = 'validity-hint';
+            hint.innerHTML = '<i class="fa fa-info-circle"></i> <?= __('Set both dates to see the validity period.') ?>';
+        }
+    }
+    document.getElementById('date-permitted').addEventListener('change', updateValidity);
+    document.getElementById('date-expired').addEventListener('change', updateValidity);
+    updateValidity();
+
+    // Auto-uppercase text inputs (kept from the original form), except phone/email
+    $('input[type="text"]').not('.no-uppercase, [type="email"]').on('input', function () {
+        var s = this.selectionStart, e = this.selectionEnd;
         this.value = this.value.toUpperCase();
-        this.setSelectionRange(start, end);
-    });
-    
-    // Email validation enhancement
-    $('input[type="email"]').on('blur', function() {
-        var email = $(this).val();
-        var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (email && !emailRegex.test(email)) {
-            $(this).addClass('is-invalid');
-            if (!$(this).next('.invalid-feedback').length) {
-                $(this).after('<div class="invalid-feedback">Please enter a valid email address</div>');`n            }`n        } else {
-            $(this).removeClass('is-invalid');
-            $(this).next('.invalid-feedback').remove();
-    });
-    
-    // Password strength indicator
-    $('input[type="password"]').on('input', function() {
-        var password = $(this).val();
-        var strength = 0;
-        if (password.length >= 8) strength++;
-        if (password.match(/[a-z]+/)) strength++;
-        if (password.match(/[A-Z]+/)) strength++;
-        if (password.match(/[0-9]+/)) strength++;
-        if (password.match(/[$@#&!]+/)) strength++;
-        
-        var strengthText = ['Very Weak', 'Weak', 'Fair', 'Good', 'Strong'];
-        var strengthColor = ['#dc3545', '#fd7e14', '#ffc107', '#28a745', '#20c997'];
-        
-        if (!$(this).next('.password-strength').length) {
-            $(this).after('<div class="password-strength mt-1"><small></small><div class="progress" style="height: 5px;"><div class="progress-bar"></div></div></div>');`n        }`n        `n        var strengthDiv = $(this).next('.password-strength');
-        strengthDiv.find('small').text(strengthText[strength - 1] || '').css('color', strengthColor[strength - 1] || '#6c757d');
-        strengthDiv.find('.progress-bar').css({
-            'width': (strength * 20) + '%',
-            'background-color': strengthColor[strength - 1] || '#6c757d'
-        });
+        this.setSelectionRange(s, e);
     });
 });
 </script>
-<?php $this->end(); ?>
 
+<style>
+.coop-form-page .page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+.coop-form-page .page-header h2 { margin: 0 0 5px 0; }
+.coop-form-page .card {
+    border: none;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+    border-radius: 10px;
+    background: #fff;
+}
+.coop-form-page .card-header {
+    background: #f8f9fa;
+    border-bottom: 2px solid #e0e0e0;
+    font-weight: bold;
+    padding: 12px 20px;
+    border-radius: 10px 10px 0 0;
+}
+.coop-form-page .card-header h4 { margin: 0; }
+.coop-form-page .card-body { padding: 20px; }
+.form-section-label {
+    font-size: 12px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #764ba2;
+    margin-bottom: 10px;
+}
+.form-section-label i { margin-right: 5px; }
+.field-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0 15px; }
+@media (max-width: 640px) { .field-grid { grid-template-columns: 1fr; } }
+.coop-form-page .input { margin-bottom: 18px; }
+.coop-form-page label { font-weight: bold; display: block; margin-bottom: 6px; color: #495057; font-size: 0.95em; }
+.coop-form-page input[type="text"],
+.coop-form-page input[type="date"],
+.coop-form-page textarea,
+.coop-form-page select {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #ced4da;
+    border-radius: 8px;
+    background: #fff;
+    font-size: 15px;
+    font-family: inherit;
+    color: #333;
+    box-sizing: border-box;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+.coop-form-page input:focus, .coop-form-page textarea:focus, .coop-form-page select:focus {
+    outline: none;
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.15);
+}
+.coop-form-page .input small { display: block; margin-top: 5px; }
+.field-divider { border: none; border-top: 1px dashed #dee2e6; margin: 5px 0 18px 0; }
+.validity-hint {
+    margin: -8px 0 15px 0;
+    padding: 8px 12px;
+    border-radius: 8px;
+    font-size: 0.9em;
+    background: #eef1ff;
+    border: 1px solid #c7cffb;
+    color: #3b4890;
+}
+.validity-hint.vh-ok { background: #e6f9ee; border-color: #a8e6c1; color: #1e7e42; }
+.validity-hint.vh-warn { background: #fff8e1; border-color: #ffe082; color: #856404; }
+.form-actions { display: flex; gap: 10px; margin-top: 10px; align-items: center; flex-wrap: wrap; }
+.actions-spacer { flex: 1; }
+.guide-list { list-style: none; padding: 0; margin: 0; }
+.guide-list li { padding: 8px 0; color: #495057; }
+.status-badge {
+    padding: 3px 10px;
+    border-radius: 12px;
+    font-size: 11px;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-right: 6px;
+}
+.st-active { background: #e6f9ee; color: #1e7e42; }
+.st-suspended { background: #fff8e1; color: #856404; }
+.st-inactive { background: #fdeaea; color: #c0392b; }
+</style>
 
 <!-- Process Flow Help Button -->
 <?= $this->element('process_flow_help') ?>

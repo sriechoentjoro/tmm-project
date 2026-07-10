@@ -20,14 +20,56 @@ class AcceptanceOrganizationsController extends AppController
      */
     public function index()
     {
-        $this->paginate = [
-            'contain' => ['MasterJapanPrefectures'],
-        ];
-        $acceptanceOrganizations = $this->paginate($this->AcceptanceOrganizations);
+        // Optional filters
+        $filterPrefecture = (int)$this->request->getQuery('prefecture_id');
+        $filterStatus = (string)$this->request->getQuery('status');
+        $search = trim((string)$this->request->getQuery('q'));
 
-        // Load dropdown data for filters
+        $query = $this->AcceptanceOrganizations->find()->contain(['MasterJapanPrefectures']);
+        if ($filterPrefecture) {
+            $query->where(['AcceptanceOrganizations.master_japan_prefecture_id' => $filterPrefecture]);
+        }
+        if ($filterStatus !== '') {
+            $query->where(['AcceptanceOrganizations.status' => $filterStatus]);
+        }
+        if ($search !== '') {
+            $query->where(['OR' => [
+                'AcceptanceOrganizations.title LIKE' => '%' . $search . '%',
+                'AcceptanceOrganizations.director LIKE' => '%' . $search . '%',
+                'AcceptanceOrganizations.address LIKE' => '%' . $search . '%',
+            ]]);
+        }
+
+        $this->paginate = ['order' => ['AcceptanceOrganizations.title' => 'ASC']];
+        $acceptanceOrganizations = $this->paginate($query);
+
         $masterjapanprefectures = $this->AcceptanceOrganizations->MasterJapanPrefectures->find('list')->limit(200)->toArray();
-        $this->set(compact('acceptanceOrganizations', 'masterjapanprefectures'));
+
+        // Summary stats + top prefectures
+        $summary = ['total' => 0, 'active' => 0, 'suspended' => 0, 'inactive' => 0, 'prefectures' => 0];
+        $topPrefectures = [];
+        try {
+            $conn = \Cake\Datasource\ConnectionManager::get('cms_tmm_stakeholders');
+            foreach ($conn->execute('SELECT status, COUNT(*) AS total FROM acceptance_organizations GROUP BY status')->fetchAll('assoc') as $row) {
+                $key = in_array($row['status'], ['active', 'suspended', 'inactive']) ? $row['status'] : 'inactive';
+                $summary[$key] += (int)$row['total'];
+                $summary['total'] += (int)$row['total'];
+            }
+            $summary['prefectures'] = (int)$conn->execute(
+                'SELECT COUNT(DISTINCT master_japan_prefecture_id) FROM acceptance_organizations WHERE master_japan_prefecture_id IS NOT NULL'
+            )->fetch()[0];
+            $topPrefectures = $conn->execute(
+                'SELECT p.title AS name, COUNT(*) AS total
+                 FROM acceptance_organizations o
+                 JOIN master_japan_prefectures p ON p.id = o.master_japan_prefecture_id
+                 GROUP BY p.id, p.title ORDER BY total DESC LIMIT 6'
+            )->fetchAll('assoc');
+        } catch (\Exception $e) {
+        }
+
+        $this->set(compact('acceptanceOrganizations', 'masterjapanprefectures',
+            'summary', 'topPrefectures', 'filterPrefecture', 'filterStatus', 'search'));
+        $this->set('master_japan_prefectures', $masterjapanprefectures);
     }
 
 

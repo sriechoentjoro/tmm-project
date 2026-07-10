@@ -111,7 +111,16 @@ $staticAssetsUrl = $protocol . '://' . $host . '/static-assets';
                     </div>
                 </div>
             </fieldset>
-            
+
+            <?= $this->element('status_guide', [
+                'statuses' => [
+                    ['label' => __('Active'), 'class' => 'st-active', 'description' => __('Can accept new apprenticeship assignments')],
+                    ['label' => __('Suspended'), 'class' => 'st-suspended', 'description' => __('Temporarily not accepting apprentices')],
+                    ['label' => __('Inactive'), 'class' => 'st-inactive', 'description' => __('Not operational')],
+                ],
+                'tip' => __('An acceptance organization is the company in Japan that receives and employs the apprentices.'),
+            ]) ?>
+
             <div class="form-actions mt-4">
                 <?= $this->Form->button(__('Save Acceptance Organization'), [
                     'class' => 'btn-export-light',

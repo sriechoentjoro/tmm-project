@@ -1,6 +1,6 @@
 <?php
 // Use CakePHP's request base path for static assets
-$staticAssetsUrl = $this->request->getAttribute('webroot');
+$staticAssetsUrl = rtrim($this->request->getAttribute('webroot'), '/');
 // Cache busting
 $cacheBust = '?v=' . time();
 ?>
@@ -34,19 +34,30 @@ $cacheBust = '?v=' . time();
     <link rel="stylesheet" href="<?= $staticAssetsUrl ?>/css/table-enhanced.css<?= $cacheBust ?>">
     
     <!-- Form Styles - Actions Sidebar & Modern Form UI -->
-    <link rel="stylesheet" href="<?= $staticAssetsUrl ?>/css/form-styles.css<?= $cacheBust ?>"
-    
+    <link rel="stylesheet" href="<?= $staticAssetsUrl ?>/css/form-styles.css<?= $cacheBust ?>">
+
     <!-- jQuery & Bootstrap for Forms -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/smoothness/jquery-ui.css">
     <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
-    
+
     <!-- Bootstrap Datepicker for Date Fields -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
+
+    <!-- Pretty Form - sectioned two-column layout for scaffolded add/edit forms -->
+    <script src="<?= $staticAssetsUrl ?>/js/pretty-form.js<?= $cacheBust ?>"></script>
+
+    <!-- File Preview - universal preview for all file/image upload inputs -->
+    <script src="<?= $staticAssetsUrl ?>/js/file-preview.js<?= $cacheBust ?>"></script>
+
+    <!-- Address Cascade - Province/Kabupaten/Kecamatan/Kelurahan dependent dropdowns -->
+    <script>var APP_BASE_URL = '<?= $this->Url->build('/') ?>';</script>
+    <script src="<?= $staticAssetsUrl ?>/js/address-cascade.js<?= $cacheBust ?>"></script>
     
     <!-- CSS files commented out - using inline styles below -->
     <!-- <?= $this->Html->css('base') ?> -->
+    <?= $this->Html->css('japan-theme') ?>
 
     <?= $this->fetch('meta') ?>
     <?= $this->fetch('css') ?>
@@ -56,34 +67,40 @@ $cacheBust = '?v=' . time();
         body {
             background: #f5f7fa;
             font-family: 'Mulish', 'Nunito', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        
+        }
+
         .container {
             max-width: 1400px;
             margin: 0 auto;
             padding: 0 20px;
-        
+        }
+
         .content-wrapper {
             background: #fff;
             border-radius: 12px;
             box-shadow: 0 2px 10px rgba(0,0,0,0.08);
             padding: 30px;
             margin-top: 20px;
-        
+        }
+
         .page-header {
             background: linear-gradient(135deg, #00BCD4 0%, #00838F 100%);
             color: #fff;
             padding: 20px 0;
             margin-bottom: 0;
             box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-        
+        }
+
         .page-header h1 {
             margin: 0;
             font-size: 28px;
             font-weight: 600;
-        
+        }
+
         .flash-messages {
             margin: 20px 0;
-        
+        }
+
         .flash-message {
             padding: 15px 20px;
             border-radius: 8px;
@@ -91,34 +108,42 @@ $cacheBust = '?v=' . time();
             display: flex;
             align-items: center;
             animation: slideIn 0.3s ease;
-        
+        }
+
         @keyframes slideIn {
             from {
                 opacity: 0;
                 transform: translateY(-10px);
+            }
             to {
                 opacity: 1;
                 transform: translateY(0);
-        
+            }
+        }
+
         .flash-message.success {
             background: #d4edda;
             border-left: 4px solid #28a745;
             color: #155724;
-        
+        }
+
         .flash-message.error {
             background: #f8d7da;
             border-left: 4px solid #dc3545;
             color: #721c24;
-        
+        }
+
         .flash-message.warning {
             background: #fff3cd;
             border-left: 4px solid #ffc107;
             color: #856404;
-        
+        }
+
         .flash-message i {
             margin-right: 10px;
             font-size: 18px;
-        
+        }
+
         /* Export and Print buttons */
         .btn-export,
         .btn-print {
@@ -136,18 +161,21 @@ $cacheBust = '?v=' . time();
             text-decoration: none;
             transition: all 0.3s ease;
             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        
+        }
+
         .btn-export:hover,
         .btn-print:hover {
             transform: translateY(-2px);
             box-shadow: 0 4px 8px rgba(0,0,0,0.2);
             color: white;
             text-decoration: none;
-        
+        }
+
         .btn-export i,
         .btn-print i {
             font-size: 13px;
-        
+        }
+
         /* Light/Transparent Export and Print buttons - mobile friendly */
         .btn-export-light {
             display: inline-flex;
@@ -164,17 +192,20 @@ $cacheBust = '?v=' . time();
             text-decoration: none;
             transition: all 0.3s ease;
             margin-left: 5px;
-        
+        }
+
         .btn-export-light:hover {
             background: rgba(102, 126, 234, 0.2);
             border-color: rgba(102, 126, 234, 0.5);
             color: #5568d3;
             text-decoration: none;
             transform: translateY(-1px);
-        
+        }
+
         .btn-export-light i {
             font-size: 13px;
-        
+        }
+
         /* Mobile optimization for export buttons */
         @media (max-width: 768px) {
             .btn-export,
@@ -182,25 +213,31 @@ $cacheBust = '?v=' . time();
                 padding: 5px 8px;
                 font-size: 12px;
                 gap: 3px;
-            
+            }
+
             .btn-export i,
             .btn-print i {
                 font-size: 12px;
-            
+            }
+
             .btn-export-light {
                 padding: 5px 8px;
                 font-size: 11px;
                 gap: 3px;
                 margin-left: 3px;
-            
+            }
+
             .btn-export-light i {
                 font-size: 11px;
-        
+            }
+        }
+
         /* Table row positioning for action buttons */
         .table tbody tr,
         .table-row-with-actions {
             position: relative;
-        
+        }
+
         /* Action buttons - invisible cell */
         td.actions-cell-invisible {
             width: 0 !important;
@@ -208,7 +245,8 @@ $cacheBust = '?v=' . time();
             border: none !important;
             overflow: visible !important;
             position: relative !important;
-        
+        }
+
         /* Action button container */
         .action-buttons-hover {
             position: absolute !important;
@@ -225,23 +263,27 @@ $cacheBust = '?v=' . time();
             border-radius: 6px !important;
             box-shadow: 0 2px 8px rgba(0,0,0,0.15) !important;
             z-index: 100 !important;
-        
+        }
+
         /* Show on hover - desktop */
         tbody tr:hover .action-buttons-hover {
             opacity: 1 !important;
             visibility: visible !important;
-        
+        }
+
         /* Show on touch - mobile */
         tbody tr:active .action-buttons-hover,
         tbody tr:focus-within .action-buttons-hover {
             opacity: 1 !important;
             visibility: visible !important;
-        
+        }
+
         /* Keep visible when hovering buttons */
         .action-buttons-hover:hover {
             opacity: 1 !important;
             visibility: visible !important;
-        
+        }
+
         /* Action button icons */
         .btn-action-icon {
             display: inline-flex !important;
@@ -259,35 +301,43 @@ $cacheBust = '?v=' . time();
             margin: 0 !important;
             padding: 0 !important;
             vertical-align: middle !important;
-        
+        }
+
         .btn-action-icon:hover {
             transform: translateY(-2px) !important;
             box-shadow: 0 4px 8px rgba(0,0,0,0.2) !important;
             color: white !important;
             text-decoration: none !important;
-        
+        }
+
         .btn-action-icon i {
             font-size: 11px !important;
             color: white !important;
             margin: 0 !important;
             padding: 0 !important;
-        
+        }
+
         /* Button colors - Edit button removed, only view and delete */
         .btn-edit-icon {
             display: none !important; /* Hide edit buttons */
-        
+        }
+
         .btn-delete-icon {
             background: #e74c3c !important;
-        
+        }
+
         .btn-delete-icon:hover {
             background: #c0392b !important;
-        
+        }
+
         .btn-view-icon {
             background: #3498db !important;
-        
+        }
+
         .btn-view-icon:hover {
             background: #2980b9 !important;
-        
+        }
+
         /* Sticky Actions column */
         th.actions,
         td.actions {
@@ -297,31 +347,38 @@ $cacheBust = '?v=' . time();
             box-shadow: -2px 0 5px rgba(0,0,0,0.1) !important;
             z-index: 2 !important;
             text-align: right !important;
-        
+        }
+
         th.actions {
             display: table-cell !important;
-        
+        }
+
         th.actions {
             background: linear-gradient(135deg, #00BCD4 0%, #00838F 100%) !important;
             z-index: 6 !important;
             color: white !important;
             font-weight: 600 !important;
             text-align: center !important;
-        
+        }
+
         /* Apply zebra striping and hover to actions cell */
         tbody tr:nth-child(odd) td.actions {
             background: transparent !important;
-        
+        }
+
         tbody tr:nth-child(even) td.actions {
             background: transparent !important;
-        
+        }
+
         tbody tr:hover td.actions {
             background: transparent !important;
-        
+        }
+
         /* Style table headers to match elegant-tab design */
         thead {
             background: linear-gradient(135deg, #00BCD4 0%, #00838F 100%) !important;
-        
+        }
+
         thead th {
             background: transparent !important;
             color: rgba(255, 255, 255, 0.8) !important;
@@ -335,13 +392,15 @@ $cacheBust = '?v=' . time();
             transition: all 0.3s ease !important;
             position: relative !important;
             min-width: 100px !important;
-        
+        }
+
         /* Fix table column alignment */
         .table {
             table-layout: auto !important;
             width: max-content !important;
             min-width: 100% !important;
-        
+        }
+
         .table thead th,
         .table tbody td {
             white-space: nowrap !important;
@@ -349,53 +408,64 @@ $cacheBust = '?v=' . time();
             padding-right: 20px !important;
             vertical-align: middle !important;
             text-align: left !important;
-        
+        }
+
         /* ID column should be narrow */
         .table thead th:first-child,
         .table tbody td:first-child {
             width: 1% !important;
             padding-left: 15px !important;
             padding-right: 15px !important;
-        
+        }
+
         .table thead th {
             padding-top: 18px !important;
             padding-bottom: 18px !important;
-        
+        }
+
         .table tbody td {
             padding-top: 12px !important;
             padding-bottom: 12px !important;
-        
+        }
+
         /* Ensure filter inputs match column width */
         .filter-row th {
             padding: 4px 8px !important;
             box-sizing: border-box !important;
-        
+        }
+
         .filter-input {
             width: 100% !important;
             box-sizing: border-box !important;
             padding: 6px 8px !important;
             min-width: 80px !important;
-        
+        }
+
         thead th.actions {
             min-width: 90px !important;
-        
+        }
+
         /* Thumbnail cells should remain centered */
         .thumbnail-cell,
         th:has(+ th):first-child {
             text-align: center !important;
-        
+        }
+
         thead th > a {
             color: rgba(255, 255, 255, 0.8) !important;
             text-decoration: none !important;
-        
+        }
+
         thead th:hover {
             color: #fff !important;
             background: rgba(255,255,255,0.1) !important;
             border-bottom-color: rgba(255, 255, 255, 0.5) !important;
-        
+        }
+
         thead th:hover > a {
             color: #fff !important;
-        
+        }
+
         /* Table thumbnail styling */
         .table-thumbnail {
             max-width: 50px !important;
@@ -405,18 +475,22 @@ $cacheBust = '?v=' . time();
             object-fit: cover !important;
             border-radius: 4px !important;
             display: block !important;
-        
+        }
+
         .thumbnail-cell {
             text-align: center !important;
             vertical-align: middle !important;
-        
+        }
+
         .no-thumbnail {
             color: #ccc !important;
             font-size: 24px !important;
-        
+        }
+
         /* Center the elegant-tabs navigation */
         .elegant-tabs {
             justify-content: center !important;
+        }
     </style>
 </head>
 <body>
@@ -443,9 +517,9 @@ $cacheBust = '?v=' . time();
                                 <i class="fas fa-caret-down"></i>
                             </a>
                             <ul class="header-dropdown" style="display: none; position: absolute; top: 100%; right: 0; background: white; min-width: 150px; box-shadow: 0 2px 5px rgba(0,0,0,0.2); border-radius: 4px; padding: 5px 0; z-index: 1000; list-style: none;">
-                                <li><?= $this->Html->link('ðŸ‡®ðŸ‡© Indonesia', ['controller' => 'Users', 'action' => 'changeLanguage', 'ind'], ['style' => 'display: block; padding: 8px 15px; color: #333; text-decoration: none;']) ?></li>
-                                <li><?= $this->Html->link('ðŸ‡¬ðŸ‡§ English', ['controller' => 'Users', 'action' => 'changeLanguage', 'eng'], ['style' => 'display: block; padding: 8px 15px; color: #333; text-decoration: none;']) ?></li>
-                                <li><?= $this->Html->link('ðŸ‡¯ðŸ‡µ æ—¥æœ¬èªž', ['controller' => 'Users', 'action' => 'changeLanguage', 'jpn'], ['style' => 'display: block; padding: 8px 15px; color: #333; text-decoration: none;']) ?></li>
+                                <li><?= $this->Html->link('🇮🇩 Indonesia', ['controller' => 'Users', 'action' => 'changeLanguage', 'ind'], ['style' => 'display: block; padding: 8px 15px; color: #333; text-decoration: none;']) ?></li>
+                                <li><?= $this->Html->link('🇬🇧 English', ['controller' => 'Users', 'action' => 'changeLanguage', 'eng'], ['style' => 'display: block; padding: 8px 15px; color: #333; text-decoration: none;']) ?></li>
+                                <li><?= $this->Html->link('🇯🇵 日本語', ['controller' => 'Users', 'action' => 'changeLanguage', 'jpn'], ['style' => 'display: block; padding: 8px 15px; color: #333; text-decoration: none;']) ?></li>
                             </ul>
                         </li>
                         
@@ -791,34 +865,34 @@ $cacheBust = '?v=' . time();
             modal.classList.add('show');
             document.body.style.overflow = 'hidden';
             
-            // Load content via AJAX
-            fetch(url)
+            // Load content via AJAX. The X-Requested-With header makes
+            // CakePHP's RequestHandler render with the bare 'ajax' layout,
+            // so the response contains only the page content - no app header.
+            fetch(url, { headers: { 'X-Requested-With': 'XMLHttpRequest' } })
                 .then(response => response.text())
                 .then(html => {
-                    // Parse the HTML and extract the main content
                     const parser = new DOMParser();
                     const doc = parser.parseFromString(html, 'text/html');
-                    
-                    // Try to find the main content div
+
+                    // Bare ajax-layout responses have no header/nav; the
+                    // selectors only matter as a fallback for full pages.
                     let content = doc.querySelector('.github-container') ||
-                                  doc.querySelector('.content-wrapper') || 
+                                  doc.querySelector('.content-wrapper') ||
                                   doc.querySelector('.inventories.view') ||
                                   doc.querySelector('.view') ||
                                   doc.querySelector('main') ||
-                                  doc.querySelector('.container');
-                    
-                    if (content) {
-                        // Remove action buttons and navigation elements
-                        const actionsDiv = content.querySelector('.actions');
-                        if (actionsDiv) actionsDiv.remove();
-                        
-                        const nav = content.querySelector('nav');
-                        if (nav) nav.remove();
-                        
-                        modalBody.innerHTML = '';
-                        modalBody.appendChild(content);
+                                  doc.body;
+
+                    // Remove action buttons and navigation elements
+                    content.querySelectorAll('.actions, nav, .elegant-menu-wrapper, .navbar').forEach(el => el.remove());
+
+                    modalBody.innerHTML = '';
+                    if (content === doc.body) {
+                        while (content.firstChild) {
+                            modalBody.appendChild(content.firstChild);
+                        }
                     } else {
-                        modalBody.innerHTML = '<div class="alert alert-warning">Could not load content. Please open full page.</div>';
+                        modalBody.appendChild(content);
                     }
                 })
                 .catch(error => {
@@ -938,8 +1012,8 @@ $cacheBust = '?v=' . time();
                     return;
                 }
                 
-                console.log('Ã¢Å“â€¦ SUCCESS: Initializing', tabLinks.length, 'tab links and', tabPanes.length, 'tab panes');
-                console.log('Ã°Å¸â€œÂ Container:', isDocument ? 'document (full page)' : 'element (modal/container)');
+                console.log('âœ… SUCCESS: Initializing', tabLinks.length, 'tab links and', tabPanes.length, 'tab panes');
+                console.log('ðŸ“ Container:', isDocument ? 'document (full page)' : 'element (modal/container)');
                 
                 // Remove existing click handlers to avoid duplicates
                 tabLinks.forEach(link => {
@@ -968,7 +1042,7 @@ $cacheBust = '?v=' . time();
                         e.preventDefault();
                         e.stopPropagation();
                         
-                        console.log('Ã°Å¸â€“Â±Ã¯Â¸Â  Tab clicked:', this.getAttribute('data-tab'));
+                        console.log('ðŸ–±ï¸  Tab clicked:', this.getAttribute('data-tab'));
                         
                         const targetTab = this.getAttribute('data-tab');
                         if (!targetTab) {
@@ -1032,6 +1106,10 @@ $cacheBust = '?v=' . time();
             
             dropdownTriggers.forEach(trigger => {
                 trigger.addEventListener('click', function(e) {
+                    // If the click is on a link/button inside the open dropdown, let it through
+                    if (e.target.closest('.header-dropdown')) {
+                        return;
+                    }
                     e.preventDefault();
                     e.stopPropagation();
                     
@@ -1051,13 +1129,200 @@ $cacheBust = '?v=' . time();
                 });
             });
             
-            // Close dropdowns when clicking outside
-            document.addEventListener('click', function() {
-                document.querySelectorAll('.header-dropdown').forEach(dropdown => {
-                    dropdown.style.display = 'none';
-                });
+            // Close dropdowns when clicking outside (not when clicking inside a dropdown)
+            document.addEventListener('click', function(e) {
+                if (!e.target.closest('.header-dropdown-trigger')) {
+                    document.querySelectorAll('.header-dropdown').forEach(dropdown => {
+                        dropdown.style.display = 'none';
+                    });
+                }
             });
         });
+    </script>
+
+    <script>
+    /* ========================================================================
+       Permission Guard — hides/disables action links the current user cannot
+       perform, based on the role_menus granted_actions from the DB.
+       ======================================================================== */
+    (function () {
+        var perms    = <?= json_encode($rolePermissions ?? []) ?>;
+        var isAdmin  = <?= (!empty($isAdministrator) ? 'true' : 'false') ?>;
+
+        /* Convert a URL kebab-case segment to a CakePHP controller (PascalCase)
+           or action (camelCase). */
+        function toController(s) {
+            return s.replace(/-([a-z])/g, function (_, c) { return c.toUpperCase(); })
+                    .replace(/^[a-z]/, function (c) { return c.toUpperCase(); });
+        }
+        function toAction(s) {
+            return s.replace(/-([a-z])/g, function (_, c) { return c.toUpperCase(); });
+        }
+
+        /* Always-allowed path prefixes (auth routes, static assets). */
+        var ALWAYS_ALLOW = ['/users/login', '/users/logout', '/users/register'];
+
+        /* Returns true if the current user may navigate to `href`. */
+        function canAccess(href) {
+            if (isAdmin) return true;
+            /* No permissions loaded → user is unauthenticated; don't block anything */
+            if (Object.keys(perms).length === 0) return true;
+            if (!href || href === '#' || href === '' ||
+                href.indexOf('javascript:') === 0 ||
+                href.indexOf('mailto:')     === 0 ||
+                href.indexOf('http')        === 0) return true;
+            try {
+                var url      = new URL(href, window.location.origin);
+                var pathname = url.pathname;
+                /* Whitelist auth routes explicitly */
+                for (var i = 0; i < ALWAYS_ALLOW.length; i++) {
+                    if (pathname.indexOf(ALWAYS_ALLOW[i]) === 0) return true;
+                }
+                var parts = pathname.replace(/^\//, '').split('/').filter(Boolean);
+                if (!parts.length) return true;
+
+                var ctrl   = toController(parts[0]);
+                var action = parts[1] ? (/^\d+$/.test(parts[1]) ? 'view' : toAction(parts[1])) : 'index';
+
+                if (!(ctrl in perms)) return false;
+                var allowed = perms[ctrl];
+                return allowed.indexOf('*') !== -1 || allowed.indexOf(action) !== -1;
+            } catch (e) { return true; }
+        }
+
+        /* Toast notification */
+        function showToast() {
+            var t = document.getElementById('__perm_toast');
+            if (t) { clearTimeout(t._tid); t.remove(); }
+            t = document.createElement('div');
+            t.id = '__perm_toast';
+            t.innerHTML =
+                '<i class="fas fa-lock" style="margin-right:8px"></i>' +
+                'You have <strong>read-only access</strong>. This action is not permitted for your role.';
+            t.style.cssText = [
+                'position:fixed', 'bottom:28px', 'left:50%', 'transform:translateX(-50%) translateY(20px)',
+                'background:#2c3e50', 'color:#fff', 'padding:13px 24px', 'border-radius:10px',
+                'font-size:14px', 'z-index:9999', 'box-shadow:0 4px 20px rgba(0,0,0,.3)',
+                'opacity:0', 'transition:all .3s ease', 'pointer-events:none',
+                'display:flex', 'align-items:center', 'white-space:nowrap'
+            ].join(';');
+            document.body.appendChild(t);
+            requestAnimationFrame(function () {
+                t.style.opacity = '1';
+                t.style.transform = 'translateX(-50%) translateY(0)';
+            });
+            t._tid = setTimeout(function () {
+                t.style.opacity = '0';
+                t.style.transform = 'translateX(-50%) translateY(12px)';
+                setTimeout(function () { if (t.parentNode) t.remove(); }, 350);
+            }, 3200);
+        }
+
+        /* Intercept clicks on restricted links/buttons so the toast fires
+           even if the server-side redirect does not show clearly. */
+        function interceptLink(el, href) {
+            el.setAttribute('data-no-perm', '1');
+            el.style.opacity   = '0.38';
+            el.style.cursor    = 'not-allowed';
+            el.style.filter    = 'grayscale(60%)';
+            el.addEventListener('click', function (e) {
+                e.preventDefault();
+                e.stopImmediatePropagation();
+                showToast();
+            }, true);
+        }
+
+        /* Apply on DOMContentLoaded and again after a short delay for
+           dynamically rendered content (tabs, modals). */
+        function applyGuard() {
+            /* <a href="..."> links */
+            document.querySelectorAll('a[href]').forEach(function (a) {
+                if (a.getAttribute('data-no-perm')) return;
+                if (!canAccess(a.getAttribute('href'))) interceptLink(a, a.getAttribute('href'));
+            });
+
+            /* <form action="..."> — covers postLink-generated delete/toggle forms */
+            document.querySelectorAll('form[action]').forEach(function (form) {
+                if (form.getAttribute('data-no-perm')) return;
+                var action = form.getAttribute('action');
+                if (!canAccess(action)) {
+                    form.setAttribute('data-no-perm', '1');
+                    /* Disable all submit buttons inside the form */
+                    form.querySelectorAll('button[type="submit"], input[type="submit"]').forEach(function (btn) {
+                        btn.style.opacity   = '0.38';
+                        btn.style.cursor    = 'not-allowed';
+                        btn.style.filter    = 'grayscale(60%)';
+                    });
+                    form.addEventListener('submit', function (e) {
+                        e.preventDefault();
+                        e.stopImmediatePropagation();
+                        showToast();
+                    }, true);
+                }
+            });
+        }
+
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', function () { applyGuard(); setTimeout(applyGuard, 600); });
+        } else {
+            applyGuard();
+            setTimeout(applyGuard, 600);
+        }
+    })();
+    </script>
+
+    <script>
+    /* Global drag-to-scroll for all horizontally scrollable table containers */
+    (function () {
+        var active = null, startX = 0, baseScroll = 0;
+
+        function init() {
+            /* Mark every scrollable div that wraps a table */
+            document.querySelectorAll('div, section').forEach(function (el) {
+                if (el.classList.contains('drag-scroll')) return;
+                var ox = window.getComputedStyle(el).overflowX;
+                if ((ox === 'auto' || ox === 'scroll') && el.querySelector('table')) {
+                    el.classList.add('drag-scroll');
+                }
+            });
+            /* .table-scroll-wrapper is always a candidate */
+            document.querySelectorAll('.table-scroll-wrapper:not(.drag-scroll)').forEach(function (el) {
+                el.classList.add('drag-scroll');
+            });
+        }
+
+        document.addEventListener('mousedown', function (e) {
+            var el = e.target.closest('.drag-scroll');
+            if (!el) return;
+            /* Let clicks on interactive elements pass through untouched */
+            if (e.target.closest('button, a, input, select, textarea, label')) return;
+            active     = el;
+            startX     = e.pageX;
+            baseScroll = el.scrollLeft;
+            el.classList.add('dragging');
+            e.preventDefault();
+        });
+
+        document.addEventListener('mousemove', function (e) {
+            if (!active) return;
+            active.scrollLeft = baseScroll - (e.pageX - startX);
+        });
+
+        document.addEventListener('mouseup', function () {
+            if (!active) return;
+            active.classList.remove('dragging');
+            active = null;
+        });
+
+        /* Run after DOM is ready, then again after a short delay to catch
+           dynamically rendered wrappers (tab panels, etc.) */
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', function () { init(); setTimeout(init, 800); });
+        } else {
+            init();
+            setTimeout(init, 800);
+        }
+    })();
     </script>
 </body>
 </html>

@@ -20,14 +20,60 @@ class AcceptanceOrganizationStoriesController extends AppController
      */
     public function index()
     {
-        $this->paginate = [
-            'contain' => ['AcceptanceOrganizations'],
-        ];
-        $acceptanceOrganizationStories = $this->paginate($this->AcceptanceOrganizationStories);
+        // Optional filters
+        $filterOrg = (int)$this->request->getQuery('organization_id');
+        $filterClass = trim((string)$this->request->getQuery('classification'));
+        $search = trim((string)$this->request->getQuery('q'));
 
-        // Load dropdown data for filters
+        $query = $this->AcceptanceOrganizationStories->find()->contain(['AcceptanceOrganizations']);
+        if ($filterOrg) {
+            $query->where(['AcceptanceOrganizationStories.acceptance_organization_id' => $filterOrg]);
+        }
+        if ($filterClass !== '') {
+            $query->where(['AcceptanceOrganizationStories.problem_classification' => $filterClass]);
+        }
+        if ($search !== '') {
+            $query->where(['OR' => [
+                'AcceptanceOrganizationStories.problem_contents LIKE' => '%' . $search . '%',
+                'AcceptanceOrganizationStories.problem_solution LIKE' => '%' . $search . '%',
+                'AcceptanceOrganizationStories.problem_inference LIKE' => '%' . $search . '%',
+            ]]);
+        }
+
+        $this->paginate = ['order' => ['AcceptanceOrganizationStories.date_occurrence' => 'DESC']];
+        $acceptanceOrganizationStories = $this->paginate($query);
+
         $acceptanceorganizations = $this->AcceptanceOrganizationStories->AcceptanceOrganizations->find('list')->limit(200)->toArray();
-        $this->set(compact('acceptanceOrganizationStories', 'acceptanceorganizations'));
+
+        // Summary + classification / recency stats
+        $summary = ['total' => 0, 'resolved' => 0, 'orgs' => 0, 'recent' => 0];
+        $classifications = [];
+        try {
+            $conn = \Cake\Datasource\ConnectionManager::get('cms_tmm_stakeholders');
+            $summary['total'] = (int)$conn->execute('SELECT COUNT(*) FROM acceptance_organization_stories')->fetch()[0];
+            $summary['resolved'] = (int)$conn->execute(
+                "SELECT COUNT(*) FROM acceptance_organization_stories WHERE problem_solution IS NOT NULL AND problem_solution <> ''"
+            )->fetch()[0];
+            $summary['orgs'] = (int)$conn->execute(
+                'SELECT COUNT(DISTINCT acceptance_organization_id) FROM acceptance_organization_stories'
+            )->fetch()[0];
+            $summary['recent'] = (int)$conn->execute(
+                'SELECT COUNT(*) FROM acceptance_organization_stories WHERE date_occurrence >= DATE_SUB(CURDATE(), INTERVAL 90 DAY)'
+            )->fetch()[0];
+            foreach ($conn->execute(
+                "SELECT problem_classification AS c, COUNT(*) AS total
+                 FROM acceptance_organization_stories
+                 WHERE problem_classification IS NOT NULL AND problem_classification <> ''
+                 GROUP BY problem_classification ORDER BY total DESC"
+            )->fetchAll('assoc') as $row) {
+                $classifications[$row['c']] = (int)$row['total'];
+            }
+        } catch (\Exception $e) {
+        }
+
+        $this->set(compact('acceptanceOrganizationStories', 'acceptanceorganizations',
+            'summary', 'classifications', 'filterOrg', 'filterClass', 'search'));
+        $this->set('acceptance_organizations', $acceptanceorganizations);
     }
 
 

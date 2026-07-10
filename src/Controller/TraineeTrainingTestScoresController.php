@@ -18,18 +18,25 @@ class TraineeTrainingTestScoresController extends AppController
      *
      * @return \Cake\Http\Response|null
      */
+    /**
+     * Returns a set of trainee_ids that have at least one issued certificate,
+     * used to show certificate status badges across all scoring views.
+     */
+    private function _certifiedTraineeIds()
+    {
+        $conn = \Cake\Datasource\ConnectionManager::get('cms_tmm_trainee_trainings');
+        $rows = $conn->execute('SELECT DISTINCT trainee_id FROM trainee_certificates')->fetchAll('assoc');
+        return array_column($rows, 'trainee_id');
+    }
+
     public function index()
     {
         $this->paginate = [
             'contain' => ['Trainees', 'MasterTrainingCompetencies', 'MasterTrainingTestScoreGrades'],
         ];
         $traineeTrainingTestScores = $this->paginate($this->TraineeTrainingTestScores);
-
-        // Load dropdown data for filters
-        $trainees = $this->TraineeTrainingTestScores->Trainees->find('list')->limit(200)->toArray();
-        $mastertrainingcompetencies = $this->TraineeTrainingTestScores->MasterTrainingCompetencies->find('list')->limit(200)->toArray();
-        $mastertrainingtestscoregrades = $this->TraineeTrainingTestScores->MasterTrainingTestScoreGrades->find('list')->limit(200)->toArray();
-        $this->set(compact('traineeTrainingTestScores', 'trainees', 'mastertrainingcompetencies', 'mastertrainingtestscoregrades'));
+        $certifiedIds = $this->_certifiedTraineeIds();
+        $this->set(compact('traineeTrainingTestScores', 'certifiedIds'));
     }
 
 
@@ -278,5 +285,72 @@ class TraineeTrainingTestScoresController extends AppController
         }
         
         $this->viewBuilder()->setLayout('process_flow');
+    }
+
+    /**
+     * Daily score entry - scores of the most recent test date
+     */
+    public function daily()
+    {
+        $conn = $this->TraineeTrainingTestScores->getConnection();
+
+        // Most recent test date
+        $latestRow  = $conn->execute('SELECT MAX(test_date) AS d FROM trainee_training_test_scores')
+                           ->fetch('assoc');
+        $latestDate = ($latestRow && $latestRow['d']) ? $latestRow['d'] : null;
+
+        // All distinct test dates for the date picker
+        $allDates = $conn->execute(
+            'SELECT DISTINCT test_date FROM trainee_training_test_scores ORDER BY test_date DESC LIMIT 60'
+        )->fetchAll('assoc');
+
+        // Selected date: from query string or default to latest
+        $selectedDate = $this->request->getQuery('date', $latestDate);
+
+        $scores = [];
+        if ($selectedDate) {
+            $scores = $conn->execute(
+                'SELECT tts.id, tts.score, tts.test_date,
+                        t.name AS trainee_name, t.tmm_code,
+                        mc.title AS competency,
+                        g.title AS grade, g.description AS grade_desc
+                 FROM trainee_training_test_scores tts
+                 LEFT JOIN cms_tmm_trainees.trainees t ON t.id = tts.trainee_id
+                 LEFT JOIN master_training_competencies mc ON mc.id = tts.master_training_competency_id
+                 LEFT JOIN master_training_test_score_grades g ON g.id = tts.master_training_test_score_grade_id
+                 WHERE tts.test_date = ?
+                 ORDER BY t.name, mc.title',
+                [$selectedDate]
+            )->fetchAll('assoc');
+        }
+
+        $certifiedIds = $this->_certifiedTraineeIds();
+        $this->set(compact('scores', 'latestDate', 'selectedDate', 'allDates', 'certifiedIds'));
+    }
+
+    /**
+     * Pass/fail report - average score per trainee
+     */
+    public function report()
+    {
+        $conn  = $this->TraineeTrainingTestScores->getConnection();
+        $rows  = $conn->execute(
+            'SELECT
+                tts.trainee_id,
+                t.name           AS trainee_name,
+                t.tmm_code       AS trainee_code,
+                COUNT(*)         AS tests,
+                ROUND(AVG(tts.score), 1) AS avg_score,
+                MIN(tts.score)   AS min_score,
+                MAX(tts.score)   AS max_score,
+                SUM(CASE WHEN tts.score >= 60 THEN 1 ELSE 0 END) AS passed,
+                SUM(CASE WHEN tts.score < 60  THEN 1 ELSE 0 END) AS failed
+             FROM trainee_training_test_scores tts
+             LEFT JOIN cms_tmm_trainees.trainees t ON t.id = tts.trainee_id
+             GROUP BY tts.trainee_id, t.name, t.tmm_code
+             ORDER BY avg_score DESC'
+        )->fetchAll('assoc');
+        $certifiedIds = $this->_certifiedTraineeIds();
+        $this->set(compact('rows', 'certifiedIds'));
     }
 }

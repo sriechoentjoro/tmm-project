@@ -132,6 +132,11 @@ class CandidatesController extends AppController
      */
     public function view($id = null)
     {
+        if (!ctype_digit((string)$id)) {
+            $this->Flash->error(__('Invalid candidate ID.'));
+            return $this->redirect(['action' => 'index']);
+        }
+
         // Load with nested associations to display foreign key names
         $contain = [];
         
@@ -1183,126 +1188,392 @@ class CandidatesController extends AppController
             ]
         ]);
 
-        // Create CSV content (Excel-compatible)
-        $csv = [];
-        
-        // Header
-        $csv[] = ['CANDIDATE CURRICULUM VITAE'];
-        $csv[] = [];
-        
-        // Basic Information
-        $csv[] = ['BASIC INFORMATION'];
-        $csv[] = ['Identity Number', $candidate->identity_number];
-        $csv[] = ['Full Name', $candidate->name];
-        $csv[] = ['Birth Place', $candidate->birth_place];
-        $csv[] = ['Birth Date', $candidate->birth_date];
-        $csv[] = ['Gender', $candidate->master_gender ? $candidate->master_gender->name : ''];
-        $csv[] = ['Religion', $candidate->master_religion ? $candidate->master_religion->name : ''];
-        $csv[] = ['Marriage Status', $candidate->master_marriage_status ? $candidate->master_marriage_status->name : ''];
-        $csv[] = ['Blood Type', $candidate->master_blood_type ? $candidate->master_blood_type->name : ''];
-        $csv[] = [];
-        
-        // Contact Information
-        $csv[] = ['CONTACT INFORMATION'];
-        $csv[] = ['Mobile Phone', $candidate->telephone_mobile];
-        $csv[] = ['Emergency Contact', $candidate->telephone_emergency];
-        $csv[] = ['Email', $candidate->email];
-        $csv[] = ['Address', $candidate->address];
-        $csv[] = [];
-        
-        // Education
+        $fmtDate = function ($value) {
+            if (empty($value)) {
+                return '';
+            }
+            return is_object($value) ? $value->format('Y-m-d') : (string)$value;
+        };
+
+        // Same English -> Japanese label map used on the printed CV (cv.ctp),
+        // so the Excel export mirrors what the Japanese interviewer sees on paper.
+        $ja = [
+            'Candidate Curriculum Vitae' => '候補者履歴書',
+            'Basic Information'     => '基本情報',
+            'Identity Number'       => '身分証明書番号',
+            'Candidate Code'        => '候補者コード',
+            'Full Name'             => '氏名',
+            'Place / Date of Birth' => '出生地・生年月日',
+            'years'                 => '歳',
+            'Gender'                => '性別',
+            'Religion'               => '宗教',
+            'Marriage Status'       => '婚姻状況',
+            'Blood Type'            => '血液型',
+            'Height / Weight'       => '身長・体重',
+            'Contact Information'   => '連絡先情報',
+            'Mobile Phone'          => '携帯電話番号',
+            'Emergency Contact'     => '緊急連絡先',
+            'Email'                 => 'メールアドレス',
+            'Address'                => '住所',
+            'Education History'     => '学歴',
+            'No.'                   => '番号',
+            'School / College'      => '学校名',
+            'Major'                  => '専攻',
+            'Entry Date'             => '入学',
+            'Graduate Date'          => '卒業',
+            'Work Experience'       => '職歴',
+            'Company'                => '会社名',
+            'Position'               => '役職',
+            'Start Year'             => '開始年',
+            'End Year'               => '終了年',
+            'Job Detail'             => '業務内容',
+            'Certifications'        => '資格',
+            'Certification'         => '資格名',
+            'Institution'            => '取得機関',
+            'Date'                   => '取得日',
+            'Detail'                 => '詳細',
+            'Courses & Training'    => '研修・コース',
+            'Course'                 => 'コース名',
+            'Year'                   => '年',
+            'Family Information'    => '家族構成',
+            'Name'                   => '氏名',
+            'Age'                    => '年齢',
+            'Additional Information' => 'その他の情報',
+            'Strengths'              => '長所',
+            'Weaknesses'             => '短所',
+            'Hobby'                  => '趣味',
+            'Application Reasons'   => '志望動機',
+        ];
+        $bl = function ($label) use ($ja) {
+            return isset($ja[$label]) ? $label . ' / ' . $ja[$label] : $label;
+        };
+
+        $age = '';
+        if (!empty($candidate->birth_date)) {
+            try {
+                $birth = new \DateTime($fmtDate($candidate->birth_date));
+                $age = $birth->diff(new \DateTime())->y;
+            } catch (\Exception $e) {
+                $age = '';
+            }
+        }
+
+        // Build a list of layout "blocks" (mirrors the sections on the printed
+        // CV / cv.ctp) which the renderer below turns into a styled .xlsx —
+        // colored section bars, bold table headers, borders — matching the PDF look.
+        $blocks = [];
+
+        // Photo path (mirrors cv.ctp's existence check — some records reference
+        // photos that were never actually uploaded to this server)
+        $photoPath = (!empty($candidate->image_photo) && file_exists(WWW_ROOT . $candidate->image_photo))
+            ? WWW_ROOT . $candidate->image_photo
+            : null;
+
+        $blocks[] = [
+            'type' => 'header',
+            'subtitle' => $bl('Candidate Curriculum Vitae'),
+            'name' => $candidate->name,
+            'katakana' => $candidate->name_katakana,
+            'photo' => $photoPath,
+        ];
+
+        $kv = [];
+        $kv[] = [$bl('Identity Number'), $candidate->identity_number];
+        if (!empty($candidate->candidate_code)) {
+            $kv[] = [$bl('Candidate Code'), $candidate->candidate_code];
+        }
+        $kv[] = [$bl('Full Name'), $candidate->name];
+        $kv[] = [$bl('Place / Date of Birth'), trim($candidate->birth_place . ', ' . $fmtDate($candidate->birth_date) . ($age !== '' ? ' (' . $age . ' ' . $ja['years'] . ')' : ''), ', ')];
+        $kv[] = [$bl('Gender'), $candidate->master_gender ? $candidate->master_gender->title : ''];
+        $kv[] = [$bl('Religion'), $candidate->master_religion ? $candidate->master_religion->title : ''];
+        $kv[] = [$bl('Marriage Status'), $candidate->master_marriage_status ? $candidate->master_marriage_status->title : ''];
+        if (!empty($candidate->master_blood_type)) {
+            $kv[] = [$bl('Blood Type'), $candidate->master_blood_type->title];
+        }
+        if (!empty($candidate->body_height) || !empty($candidate->body_weight)) {
+            $kv[] = [$bl('Height / Weight'), (!empty($candidate->body_height) ? $candidate->body_height . ' cm' : '-') . ' / ' . (!empty($candidate->body_weight) ? $candidate->body_weight . ' kg' : '-')];
+        }
+        $blocks[] = ['type' => 'section', 'text' => $bl('Basic Information')];
+        $blocks[] = ['type' => 'kv', 'rows' => $kv];
+
+        $kv = [];
+        if (!empty($candidate->telephone_mobile)) {
+            $kv[] = [$bl('Mobile Phone'), $candidate->telephone_mobile];
+        }
+        $kv[] = [$bl('Emergency Contact'), $candidate->telephone_emergency];
+        if (!empty($candidate->email)) {
+            $kv[] = [$bl('Email'), $candidate->email];
+        }
+        $kv[] = [$bl('Address'), trim($candidate->address . (!empty($candidate->post_code) ? ' (' . $candidate->post_code . ')' : ''))];
+        $blocks[] = ['type' => 'section', 'text' => $bl('Contact Information')];
+        $blocks[] = ['type' => 'kv', 'rows' => $kv];
+
         if (!empty($candidate->candidate_educations)) {
-            $csv[] = ['EDUCATION HISTORY'];
-            $csv[] = ['No.', 'Institution', 'Level', 'Field of Study', 'Year Graduated'];
-            foreach ($candidate->candidate_educations as $index => $edu) {
-                $csv[] = [
-                    $index + 1,
-                    $edu->institution_name,
-                    $edu->level,
-                    $edu->field_of_study,
-                    $edu->year_graduated
-                ];
+            $rows = [];
+            foreach ($candidate->candidate_educations as $i => $edu) {
+                $rows[] = [$i + 1, $edu->college_name, $edu->college_major, $fmtDate($edu->college_entry_date), $fmtDate($edu->college_graduate_date)];
             }
-            $csv[] = [];
+            $blocks[] = ['type' => 'section', 'text' => $bl('Education History')];
+            $blocks[] = ['type' => 'table', 'headers' => [$bl('No.'), $bl('School / College'), $bl('Major'), $bl('Entry Date'), $bl('Graduate Date')], 'rows' => $rows, 'widths' => [6, 34, 24, 16, 16]];
         }
-        
-        // Work Experience
+
         if (!empty($candidate->candidate_experiences)) {
-            $csv[] = ['WORK EXPERIENCE'];
-            $csv[] = ['No.', 'Company', 'Position', 'Start Date', 'End Date'];
-            foreach ($candidate->candidate_experiences as $index => $exp) {
-                $csv[] = [
-                    $index + 1,
-                    $exp->company_name,
-                    $exp->position,
-                    $exp->start_date,
-                    $exp->end_date
-                ];
+            $rows = [];
+            foreach ($candidate->candidate_experiences as $i => $exp) {
+                $rows[] = [$i + 1, $exp->company_name, $exp->title, $exp->employment_start_year, $exp->employment_end_year, $exp->job_detail];
             }
-            $csv[] = [];
+            $blocks[] = ['type' => 'section', 'text' => $bl('Work Experience')];
+            $blocks[] = ['type' => 'table', 'headers' => [$bl('No.'), $bl('Company'), $bl('Position'), $bl('Start Year'), $bl('End Year'), $bl('Job Detail')], 'rows' => $rows, 'widths' => [6, 28, 20, 13, 13, 30]];
         }
-        
-        // Family
-        if (!empty($candidate->candidate_families)) {
-            $csv[] = ['FAMILY INFORMATION'];
-            $csv[] = ['No.', 'Name', 'Relationship', 'Age', 'Occupation'];
-            foreach ($candidate->candidate_families as $index => $fam) {
-                $csv[] = [
-                    $index + 1,
-                    $fam->full_name,
-                    $fam->relationship,
-                    $fam->age,
-                    $fam->occupation
-                ];
-            }
-            $csv[] = [];
-        }
-        
-        // Certifications
+
         if (!empty($candidate->candidate_certifications)) {
-            $csv[] = ['CERTIFICATIONS'];
-            $csv[] = ['No.', 'Certification', 'Organization', 'Issue Date', 'Expiry Date'];
-            foreach ($candidate->candidate_certifications as $index => $cert) {
-                $csv[] = [
-                    $index + 1,
-                    $cert->certification_name,
-                    $cert->issuing_organization,
-                    $cert->issue_date,
-                    $cert->expiry_date
-                ];
+            $rows = [];
+            foreach ($candidate->candidate_certifications as $i => $cert) {
+                $rows[] = [$i + 1, $cert->title, $cert->institution_name, $fmtDate($cert->certification_date), $cert->detail];
             }
-            $csv[] = [];
+            $blocks[] = ['type' => 'section', 'text' => $bl('Certifications')];
+            $blocks[] = ['type' => 'table', 'headers' => [$bl('No.'), $bl('Certification'), $bl('Institution'), $bl('Date'), $bl('Detail')], 'rows' => $rows, 'widths' => [6, 30, 26, 16, 22]];
         }
-        
-        // Courses
+
         if (!empty($candidate->candidate_courses)) {
-            $csv[] = ['COURSES & TRAINING'];
-            $csv[] = ['No.', 'Course', 'Institution', 'Start Date', 'End Date', 'Duration (hrs)'];
-            foreach ($candidate->candidate_courses as $index => $course) {
-                $csv[] = [
-                    $index + 1,
-                    $course->course_name,
-                    $course->training_institution,
-                    $course->start_date,
-                    $course->end_date,
-                    $course->duration_hours
-                ];
+            $rows = [];
+            foreach ($candidate->candidate_courses as $i => $course) {
+                $rows[] = [$i + 1, $course->title, $course->course_year, $course->detail];
+            }
+            $blocks[] = ['type' => 'section', 'text' => $bl('Courses & Training')];
+            $blocks[] = ['type' => 'table', 'headers' => [$bl('No.'), $bl('Course'), $bl('Year'), $bl('Detail')], 'rows' => $rows, 'widths' => [6, 36, 14, 44]];
+        }
+
+        if (!empty($candidate->candidate_families)) {
+            $rows = [];
+            foreach ($candidate->candidate_families as $i => $fam) {
+                $rows[] = [$i + 1, $fam->name, $fam->age, $fam->detail];
+            }
+            $blocks[] = ['type' => 'section', 'text' => $bl('Family Information')];
+            $blocks[] = ['type' => 'table', 'headers' => [$bl('No.'), $bl('Name'), $bl('Age'), $bl('Detail')], 'rows' => $rows, 'widths' => [6, 30, 10, 54]];
+        }
+
+        if (!empty($candidate->strengths) || !empty($candidate->weaknesses) || !empty($candidate->hobby) || !empty($candidate->application_reasons)) {
+            $kv = [];
+            if (!empty($candidate->strengths)) {
+                $kv[] = [$bl('Strengths'), $candidate->strengths];
+            }
+            if (!empty($candidate->weaknesses)) {
+                $kv[] = [$bl('Weaknesses'), $candidate->weaknesses];
+            }
+            if (!empty($candidate->hobby)) {
+                $kv[] = [$bl('Hobby'), $candidate->hobby];
+            }
+            if (!empty($candidate->application_reasons)) {
+                $kv[] = [$bl('Application Reasons'), $candidate->application_reasons];
+            }
+            $blocks[] = ['type' => 'section', 'text' => $bl('Additional Information')];
+            $blocks[] = ['type' => 'kv', 'rows' => $kv];
+        }
+
+        $filename = 'CV_' . $candidate->identity_number . '_' . date('Ymd') . '.xlsx';
+
+        if (!class_exists('\PhpOffice\PhpSpreadsheet\Spreadsheet')) {
+            // Fallback: flatten blocks to plain CSV if PhpSpreadsheet isn't installed
+            $csv = [];
+            foreach ($blocks as $block) {
+                if ($block['type'] === 'header') {
+                    $csv[] = [$block['subtitle']];
+                    $csv[] = [$block['name'], $block['katakana'] ?? ''];
+                } elseif ($block['type'] === 'section') {
+                    $csv[] = [$block['text']];
+                } elseif ($block['type'] === 'kv') {
+                    foreach ($block['rows'] as $row) {
+                        $csv[] = $row;
+                    }
+                } elseif ($block['type'] === 'table') {
+                    $csv[] = $block['headers'];
+                    foreach ($block['rows'] as $row) {
+                        $csv[] = $row;
+                    }
+                }
+                $csv[] = [];
+            }
+            $stream = fopen('php://temp', 'r+');
+            foreach ($csv as $row) {
+                fputcsv($stream, $row);
+            }
+            rewind($stream);
+            $body = stream_get_contents($stream);
+            fclose($stream);
+
+            return $this->response
+                ->withStringBody("\xEF\xBB\xBF" . $body)
+                ->withType('csv')
+                ->withDownload(str_replace('.xlsx', '.csv', $filename));
+        }
+
+        $spreadsheet = new \PhpOffice\PhpSpreadsheet\Spreadsheet();
+        $sheet = $spreadsheet->getActiveSheet();
+        $sheet->setTitle('CV');
+
+        $maxCols = 6;
+        $colLetters = ['A', 'B', 'C', 'D', 'E', 'F'];
+        $sheet->getColumnDimension('A')->setWidth(46);
+        foreach (range('B', 'F') as $col) {
+            $sheet->getColumnDimension($col)->setWidth(20);
+        }
+        $sheet->getDefaultRowDimension()->setRowHeight(18);
+
+        $sectionFill = '00BCD4';
+        $tableHeaderFill = 'F1FAFB';
+        $borderColor = 'DDE7EA';
+
+        $row = 1;
+        foreach ($blocks as $block) {
+            if ($block['type'] === 'header') {
+                // Photo column (A) spans 6 rows, ~150px tall — matches the PDF header photo
+                $headerRows = 6;
+                $photoCell = "A{$row}";
+                $sheet->mergeCells($photoCell . ':A' . ($row + $headerRows - 1));
+                for ($r = $row; $r < $row + $headerRows; $r++) {
+                    $sheet->getRowDimension($r)->setRowHeight(20);
+                }
+                $sheet->getStyle($photoCell)->applyFromArray([
+                    'borders' => ['allBorders' => ['borderStyle' => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN, 'color' => ['rgb' => 'CFD8DC']]],
+                    'alignment' => ['horizontal' => \PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER, 'vertical' => \PhpOffice\PhpSpreadsheet\Style\Alignment::VERTICAL_CENTER],
+                ]);
+
+                if (!empty($block['photo'])) {
+                    $drawing = new \PhpOffice\PhpSpreadsheet\Worksheet\Drawing();
+                    $drawing->setPath($block['photo']);
+                    $drawing->setHeight(110);
+                    $drawing->setOffsetX(8);
+                    $drawing->setOffsetY(6);
+                    $drawing->setCoordinates($photoCell);
+                    $drawing->setWorksheet($sheet);
+                } else {
+                    $sheet->setCellValue($photoCell, '(no photo)');
+                    $sheet->getStyle($photoCell)->applyFromArray(['font' => ['italic' => true, 'size' => 9, 'color' => ['rgb' => 'B0BEC5']]]);
+                }
+
+                // Subtitle / Name / Katakana stacked in columns B:F
+                $sheet->mergeCells("B{$row}:F{$row}");
+                $sheet->setCellValue("B{$row}", $block['subtitle']);
+                $sheet->getStyle("B{$row}")->applyFromArray([
+                    'font' => ['size' => 9, 'color' => ['rgb' => '90A4AE'], 'bold' => true],
+                ]);
+
+                $nameRow = $row + 1;
+                $sheet->mergeCells("B{$nameRow}:F" . ($nameRow + 1));
+                $sheet->setCellValue("B{$nameRow}", $block['name']);
+                $sheet->getStyle("B{$nameRow}")->applyFromArray([
+                    'font' => ['bold' => true, 'size' => 20, 'color' => ['rgb' => '2C3E50']],
+                    'alignment' => ['vertical' => \PhpOffice\PhpSpreadsheet\Style\Alignment::VERTICAL_CENTER],
+                ]);
+
+                if (!empty($block['katakana'])) {
+                    $kanaRow = $nameRow + 2;
+                    $sheet->mergeCells("B{$kanaRow}:F{$kanaRow}");
+                    $sheet->setCellValue("B{$kanaRow}", $block['katakana']);
+                    $sheet->getStyle("B{$kanaRow}")->applyFromArray([
+                        'font' => ['size' => 13, 'color' => ['rgb' => '607D8B']],
+                    ]);
+                }
+
+                // Bottom border under the whole header band — matches the PDF's
+                // 3px solid cyan rule separating header from body
+                $sheet->getStyle('A' . ($row + $headerRows - 1) . ':F' . ($row + $headerRows - 1))->applyFromArray([
+                    'borders' => ['bottom' => ['borderStyle' => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THICK, 'color' => ['rgb' => $sectionFill]]],
+                ]);
+
+                $row += $headerRows + 1;
+                continue;
+            }
+
+            if ($block['type'] === 'section') {
+                $sheet->mergeCells("A{$row}:F{$row}");
+                $sheet->setCellValue("A{$row}", $block['text']);
+                $sheet->getStyle("A{$row}")->applyFromArray([
+                    'font' => ['bold' => true, 'size' => 11, 'color' => ['rgb' => 'FFFFFF']],
+                    'fill' => ['fillType' => \PhpOffice\PhpSpreadsheet\Style\Fill::FILL_SOLID, 'startColor' => ['rgb' => $sectionFill]],
+                    'alignment' => ['vertical' => \PhpOffice\PhpSpreadsheet\Style\Alignment::VERTICAL_CENTER, 'indent' => 1],
+                ]);
+                $sheet->getRowDimension($row)->setRowHeight(20);
+                $row++;
+                continue;
+            }
+
+            if ($block['type'] === 'kv') {
+                foreach ($block['rows'] as $kvRow) {
+                    $sheet->setCellValueExplicit("A{$row}", $kvRow[0], \PhpOffice\PhpSpreadsheet\Cell\DataType::TYPE_STRING);
+                    $sheet->mergeCells("B{$row}:F{$row}");
+                    // Force text type so long numeric strings (NIK, phone numbers) never
+                    // get auto-converted to scientific notation by Excel.
+                    $sheet->setCellValueExplicit("B{$row}", (string)$kvRow[1], \PhpOffice\PhpSpreadsheet\Cell\DataType::TYPE_STRING);
+                    $sheet->getStyle("A{$row}")->applyFromArray([
+                        'font' => ['bold' => true, 'color' => ['rgb' => '455A64']],
+                        'fill' => ['fillType' => \PhpOffice\PhpSpreadsheet\Style\Fill::FILL_SOLID, 'startColor' => ['rgb' => $tableHeaderFill]],
+                        'borders' => ['allBorders' => ['borderStyle' => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN, 'color' => ['rgb' => $borderColor]]],
+                        'alignment' => ['wrapText' => false, 'vertical' => \PhpOffice\PhpSpreadsheet\Style\Alignment::VERTICAL_CENTER],
+                    ]);
+                    $sheet->getStyle("B{$row}:F{$row}")->applyFromArray([
+                        'borders' => ['allBorders' => ['borderStyle' => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN, 'color' => ['rgb' => $borderColor]]],
+                        'alignment' => ['wrapText' => true, 'vertical' => \PhpOffice\PhpSpreadsheet\Style\Alignment::VERTICAL_CENTER],
+                    ]);
+                    $row++;
+                }
+                $row++;
+                continue;
+            }
+
+            if ($block['type'] === 'table') {
+                $colCount = count($block['headers']);
+                if (!empty($block['widths'])) {
+                    foreach ($block['widths'] as $i => $w) {
+                        // Column A is shared with the photo box and the kv label column
+                        // above/below — keep it fixed at the header-text width instead of
+                        // letting each table shrink it down to its own "No." column width.
+                        if ($i === 0) {
+                            continue;
+                        }
+                        if (isset($colLetters[$i])) {
+                            $sheet->getColumnDimension($colLetters[$i])->setWidth($w);
+                        }
+                    }
+                }
+                foreach ($block['headers'] as $i => $h) {
+                    $cell = $colLetters[$i] . $row;
+                    $sheet->setCellValue($cell, $h);
+                }
+                $sheet->getStyle($colLetters[0] . $row . ':' . $colLetters[$colCount - 1] . $row)->applyFromArray([
+                    'font' => ['bold' => true, 'color' => ['rgb' => '455A64']],
+                    'fill' => ['fillType' => \PhpOffice\PhpSpreadsheet\Style\Fill::FILL_SOLID, 'startColor' => ['rgb' => $tableHeaderFill]],
+                    'borders' => ['allBorders' => ['borderStyle' => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN, 'color' => ['rgb' => $borderColor]]],
+                    'alignment' => ['wrapText' => true],
+                ]);
+                $row++;
+
+                foreach ($block['rows'] as $dataRow) {
+                    foreach ($dataRow as $i => $val) {
+                        $sheet->setCellValue($colLetters[$i] . $row, $val);
+                    }
+                    $sheet->getStyle($colLetters[0] . $row . ':' . $colLetters[$colCount - 1] . $row)->applyFromArray([
+                        'borders' => ['allBorders' => ['borderStyle' => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN, 'color' => ['rgb' => $borderColor]]],
+                        'alignment' => ['wrapText' => true, 'vertical' => \PhpOffice\PhpSpreadsheet\Style\Alignment::VERTICAL_TOP],
+                    ]);
+                    $row++;
+                }
+                $row++;
             }
         }
-        
-        // Generate CSV file
-        $filename = 'CV_' . $candidate->identity_number . '_' . date('Ymd') . '.csv';
-        
-        $response = $this->response->withStringBody(function () use ($csv) {
-            $output = fopen('php://output', 'w');
-            foreach ($csv as $row) {
-                fputcsv($output, $row);
-            }
-            fclose($output);
-        });
-        
-        return $response
-            ->withType('csv')
+
+        $sheet->setSelectedCell('A1');
+
+        $writer = new \PhpOffice\PhpSpreadsheet\Writer\Xlsx($spreadsheet);
+        $tmpFile = tempnam(sys_get_temp_dir(), 'cv_xlsx_');
+        $writer->save($tmpFile);
+        $body = file_get_contents($tmpFile);
+        unlink($tmpFile);
+
+        return $this->response
+            ->withStringBody($body)
+            ->withType('application/vnd.openxmlformats-officedocument.spreadsheetml.sheet')
             ->withDownload($filename);
     }
 
@@ -1416,5 +1687,291 @@ class CandidatesController extends AppController
         }
         
         $this->viewBuilder()->setLayout('process_flow');
+    }
+
+    /**
+     * Recruitment promotion dashboard.
+     * Shows all active candidates with physical score, interview score, and document completeness.
+     * TMM Recruitment PIC uses this to review and promote candidates to trainee.
+     */
+    public function promoteToTrainee()
+    {
+        // Already-promoted candidate IDs
+        $traineesTable = \Cake\ORM\TableRegistry::getTableLocator()->get('Trainees');
+        $promotedIds = $traineesTable->find()
+            ->where(['candidate_id IS NOT' => null])
+            ->extract('candidate_id')
+            ->toList();
+
+        // Eligible: active, not yet promoted, candidate_pass=1
+        $eligibleConditions = ['Candidates.status_flag' => 'active', 'Candidates.is_candidate_pass' => 1];
+        if (!empty($promotedIds)) {
+            $eligibleConditions['Candidates.id NOT IN'] = $promotedIds;
+        }
+        // Already promoted
+        $promotedConditions = ['Candidates.is_candidate_pass' => 1];
+        if (!empty($promotedIds)) {
+            $promotedConditions['Candidates.id IN'] = $promotedIds;
+        }
+
+        $selectFields = [
+            'Candidates.id', 'Candidates.candidate_code', 'Candidates.name',
+            'Candidates.master_gender_id',
+            'Candidates.vocational_training_institution_id',
+            'Candidates.acceptance_organization_id',
+            'Candidates.fitness_score', 'Candidates.fitness_pushups',
+            'Candidates.fitness_situps', 'Candidates.fitness_running_minutes',
+            'Candidates.fitness_running_seconds',
+            'Candidates.interview_score', 'Candidates.interview_recommendation',
+            'Candidates.mcu_score', 'Candidates.mcu_rank',
+            'Candidates.is_candidate_pass', 'Candidates.status_flag',
+        ];
+
+        $candidates = $this->Candidates->find()
+            ->select($selectFields)
+            ->contain(['VocationalTrainingInstitutions', 'AcceptanceOrganizations'])
+            ->where($eligibleConditions)
+            ->order(['Candidates.name' => 'ASC'])
+            ->all();
+
+        $promotedCandidates = !empty($promotedIds)
+            ? $this->Candidates->find()
+                ->select($selectFields)
+                ->contain(['VocationalTrainingInstitutions', 'AcceptanceOrganizations'])
+                ->where($promotedConditions)
+                ->order(['Candidates.name' => 'ASC'])
+                ->all()
+            : [];
+
+        // Relation counts for ALL candidates shown
+        $allCandidateIds = array_merge(
+            array_column($candidates->toArray(), 'id'),
+            array_column(is_array($promotedCandidates) ? $promotedCandidates : $promotedCandidates->toArray(), 'id')
+        );
+        $relCounts = [];
+        if (!empty($allCandidateIds)) {
+            $candConn = $this->Candidates->getConnection();
+            $inList   = implode(',', array_fill(0, count($allCandidateIds), '?'));
+            foreach ([
+                'educations'     => 'candidate_educations',
+                'experiences'    => 'candidate_experiences',
+                'certifications' => 'candidate_certifications',
+                'courses'        => 'candidate_courses',
+                'families'       => 'candidate_families',
+            ] as $key => $table) {
+                $rows = $candConn->execute(
+                    "SELECT candidate_id, COUNT(*) AS cnt FROM {$table} WHERE candidate_id IN ({$inList}) GROUP BY candidate_id",
+                    $allCandidateIds
+                )->fetchAll('assoc');
+                foreach ($rows as $r) {
+                    $relCounts[(int)$r['candidate_id']][$key] = (int)$r['cnt'];
+                }
+            }
+        }
+
+        // Document completeness not tracked (submission_documents uses legacy applicant_id)
+        $totalRequired = 0;
+        $docCompleteness = [];
+
+        // Training batches with open seat counts
+        $batchConn = \Cake\Datasource\ConnectionManager::get('cms_tmm_trainee_trainings');
+        $trainingBatches = $batchConn->execute(
+            "SELECT ttb.id, ttb.batch_name, ttb.origin_training_location,
+                    ttb.origin_start_plan_date, ttb.origin_finish_plan_date,
+                    ttb.training_term_of_months,
+                    COUNT(t.id) AS enrolled
+             FROM trainee_training_batches ttb
+             LEFT JOIN cms_tmm_trainees.trainees t ON t.trainee_training_batch_id = ttb.id
+             GROUP BY ttb.id, ttb.batch_name, ttb.origin_training_location,
+                      ttb.origin_start_plan_date, ttb.origin_finish_plan_date,
+                      ttb.training_term_of_months
+             ORDER BY ttb.id DESC"
+        )->fetchAll('assoc');
+
+        $this->set(compact('candidates', 'promotedCandidates', 'docCompleteness', 'totalRequired', 'trainingBatches', 'relCounts'));
+    }
+
+    /**
+     * POST: promote a single candidate to trainee status.
+     * Marks is_candidate_pass = 1 and creates a trainee record in cms_tmm_trainees.
+     */
+    public function doPromote($candidateId = null)
+    {
+        $this->request->allowMethod(['post']);
+
+        if (!$this->hasRole('administrator') && !$this->hasRole('tmm-recruitment')) {
+            $this->Flash->error(__('Only TMM Recruitment role can promote candidates.'));
+            return $this->redirect(['action' => 'promoteToTrainee']);
+        }
+
+        $locator = \Cake\ORM\TableRegistry::getTableLocator();
+        $candidate = $this->Candidates->get($candidateId, [
+            'contain' => [
+                'CandidateEducations',
+                'CandidateExperiences',
+                'CandidateCertifications',
+                'CandidateCourses',
+                'CandidateFamilies',
+            ]
+        ]);
+
+        $traineesTable = $locator->get('Trainees');
+
+        // Guard: already promoted
+        $existing = $traineesTable->find()->where(['candidate_id' => $candidateId])->first();
+        if ($existing) {
+            $this->Flash->warning(__('Candidate "{0}" is already a trainee.', $candidate->name));
+            return $this->redirect(['action' => 'promoteToTrainee']);
+        }
+
+        // Collect remarks about missing scores
+        $remarks = [];
+        if (empty($candidate->fitness_score) || $candidate->fitness_score < 1) {
+            $remarks[] = __('No physical test score');
+        }
+        if (empty($candidate->interview_score) || $candidate->interview_score < 1) {
+            $remarks[] = __('No AO interview score');
+        }
+        $gradingRemarks = $this->request->getData('grading_remarks') ?: implode('; ', $remarks);
+
+        // Create trainee core record
+        $trainee = $traineesTable->newEntity([
+            'candidate_id'                       => $candidate->id,
+            'applicant_code'                     => $candidate->candidate_code,
+            'tmm_code'                           => 'TMM-' . strtoupper(uniqid()),
+            'vocational_training_institution_id' => $candidate->vocational_training_institution_id ?? 1,
+            'acceptance_organization_id'         => $candidate->acceptance_organization_id,
+            'identity_number'                    => $candidate->identity_number ?? '',
+            'name'                               => $candidate->name,
+            'name_katakana'                      => $candidate->name_katakana,
+            'master_gender_id'                   => $candidate->master_gender_id ?? 1,
+            'master_religion_id'                 => $candidate->master_religion_id ?? 1,
+            'master_marriage_status_id'          => $candidate->master_marriage_status_id ?? 1,
+            'birth_place'                        => $candidate->birth_place,
+            'birth_place_katakana'               => $candidate->birth_place_katakana,
+            'birth_date'                         => $candidate->birth_date,
+            'telephone_mobile'                   => $candidate->telephone_mobile,
+            'telephone_emergency'                => $candidate->telephone_emergency ?? '-',
+            'email'                              => $candidate->email,
+            'master_propinsi_id'                 => $candidate->master_propinsi_id,
+            'master_kabupaten_id'                => $candidate->master_kabupaten_id,
+            'master_kecamatan_id'                => $candidate->master_kecamatan_id,
+            'master_kelurahan_id'                => $candidate->master_kelurahan_id,
+            'post_code'                          => $candidate->post_code,
+            'address'                            => $candidate->address ?? '-',
+            'image_photo'                        => $candidate->image_photo,
+            'strengths'                          => $candidate->strengths,
+            'weaknesses'                         => $candidate->weaknesses,
+            'hobby'                              => $candidate->hobby,
+            'last_salary_amount'                 => $candidate->last_salary_amount,
+            'application_reasons'                => $candidate->application_reasons,
+            'is_ever_went_to_japan'              => $candidate->is_ever_went_to_japan,
+            'will_go_to_japan_after_finished'    => $candidate->will_go_to_japan_after_finished,
+            'expected_work_upon_returning_to_japan' => $candidate->expected_work_upon_returning_to_japan,
+            'is_holding_passport'                => $candidate->is_holding_passport,
+            'saving_goal_amount'                 => $candidate->saving_goal_amount,
+            'blood_type_id'                      => $candidate->master_blood_type_id,
+            'body_weight'                        => $candidate->body_weight,
+            'body_height'                        => $candidate->body_height,
+            'is_wear_eye_glasses'                => $candidate->is_wear_eye_glasses,
+            'explain_eye_condition'              => $candidate->explain_eye_condition,
+            'is_color_blind'                     => $candidate->is_color_blind,
+            'explain_color_blind'                => $candidate->explain_color_blind,
+            'is_right_handed'                    => $candidate->is_right_handed,
+            'is_smoking'                         => $candidate->is_smoking,
+            'is_drinking_alcohol'                => $candidate->is_drinking_alcohol,
+            'is_tattooed'                        => $candidate->is_tattooed,
+            'link_whatsapp'                      => $candidate->link_whatsapp,
+            'link_line'                          => $candidate->link_line,
+            'link_instagram'                     => $candidate->link_instagram,
+            'link_facebook'                      => $candidate->link_facebook,
+            'link_tiktok'                        => $candidate->link_tiktok,
+            'is_candidate_pass'                  => 1,
+            'is_training_pass'                   => 0,
+            'grading_remarks'                    => $gradingRemarks,
+            'trainee_training_batch_id'          => $this->request->getData('trainee_training_batch_id') ?: null,
+        ]);
+
+        if (!$traineesTable->save($trainee)) {
+            $this->Flash->error(__('Could not create trainee record. Please check the data.'));
+            return $this->redirect(['action' => 'promoteToTrainee']);
+        }
+
+        $traineeId = $trainee->id;
+
+        // Copy relation tables: educations
+        try {
+        $conn = \Cake\Datasource\ConnectionManager::get('cms_tmm_trainees');
+        foreach ($candidate->candidate_educations ?? [] as $row) {
+            $conn->execute(
+                "INSERT INTO trainee_educations (trainee_id, master_strata_id, master_propinsi_id, master_kabupaten_id, college_entry_date, college_graduate_date, college_name, college_major)
+                 VALUES (?, ?, ?, ?, ?, ?, ?, ?)",
+                [$traineeId, $row->master_strata_id, $row->master_propinsi_id, $row->master_kabupaten_id,
+                 $row->college_entry_date, $row->college_graduate_date, $row->college_name, $row->college_major]
+            );
+        }
+        // Experiences
+        foreach ($candidate->candidate_experiences ?? [] as $row) {
+            $conn->execute(
+                "INSERT INTO trainee_experiences (trainee_id, employment_start_year, employment_end_year, company_name, title, master_employee_status_id, employment_awards, last_salary_amount, job_detail, termination_reasons)
+                 VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
+                [$traineeId, $row->employment_start_year, $row->employment_end_year, $row->company_name,
+                 $row->title, $row->master_employee_status_id, $row->employment_awards, $row->last_salary_amount,
+                 $row->job_detail, $row->termination_reasons]
+            );
+        }
+        // Certifications
+        foreach ($candidate->candidate_certifications ?? [] as $row) {
+            $conn->execute(
+                "INSERT INTO trainee_certifications (trainee_id, title, institution_name, certification_date, detail)
+                 VALUES (?, ?, ?, ?, ?)",
+                [$traineeId, $row->title, $row->institution_name, $row->certification_date, $row->detail]
+            );
+        }
+        // Courses
+        foreach ($candidate->candidate_courses ?? [] as $row) {
+            $conn->execute(
+                "INSERT INTO trainee_courses (trainee_id, vocational_training_institution_id, course_major_id, course_year, title, detail)
+                 VALUES (?, ?, ?, ?, ?, ?)",
+                [$traineeId, $row->vocational_training_institution_id, $row->master_course_major_id,
+                 $row->course_year, $row->title, $row->detail]
+            );
+        }
+        // Families
+        foreach ($candidate->candidate_families ?? [] as $row) {
+            $conn->execute(
+                "INSERT INTO trainee_families (trainee_id, master_family_connection_id, name, age, master_occupation_id, detail)
+                 VALUES (?, ?, ?, ?, ?, ?)",
+                [$traineeId, $row->master_family_connection_id, $row->name, $row->age,
+                 $row->master_occupation_id, $row->detail]
+            );
+        }
+
+        // Mark candidate as promoted
+        $candidate->is_candidate_pass = 1;
+        $this->Candidates->save($candidate);
+
+        $this->Flash->success(__('"{0}" has been promoted to trainee. All profile data copied successfully.', $candidate->name));
+        return $this->redirect(['action' => 'promoteToTrainee']);
+
+        } catch (\Exception $e) {
+            $this->log('doPromote error: ' . $e->getMessage(), 'error');
+            $this->Flash->error(__('Promotion failed for "{0}": {1}', $candidate->name, $e->getMessage()));
+            return $this->redirect(['action' => 'promoteToTrainee']);
+        }
+    }
+
+    /**
+     * Promotion history for candidates
+     */
+    public function promotionHistory()
+    {
+        $traineesTable = \Cake\ORM\TableRegistry::getTableLocator()->get('Trainees');
+        $histories = $traineesTable->find()
+            ->contain(['Candidates'])
+            ->order(['Trainees.id' => 'DESC'])
+            ->limit(200)
+            ->all();
+        $this->set(compact('histories'));
     }
 }

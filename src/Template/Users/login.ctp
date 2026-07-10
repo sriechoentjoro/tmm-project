@@ -145,6 +145,21 @@
                                     </div>
                                 </div>
 
+                                <!-- TMM Accounting -->
+                                <div class="credential-item mb-3 p-3 border rounded bg-light" onclick="fillLogin('accounting', 'accounting123')">
+                                    <div class="d-flex justify-content-between align-items-start">
+                                        <div>
+                                            <h6 class="mb-1 text-success">
+                                                <i class="fas fa-calculator"></i> Accounting Officer
+                                            </h6>
+                                            <div><small class="text-muted">Username:</small> <code>accounting</code></div>
+                                            <div><small class="text-muted">Password:</small> <code>accounting123</code></div>
+                                            <small class="text-muted d-block mt-1">Accounting Department</small>
+                                        </div>
+                                        <span class="badge bg-success">ACC</span>
+                                    </div>
+                                </div>
+
                                 <!-- LPK Penyangga -->
                                 <div class="credential-item mb-3 p-3 border rounded bg-light" onclick="fillLogin('lpk_semarang', 'lpk123')">
                                     <div class="d-flex justify-content-between align-items-start">

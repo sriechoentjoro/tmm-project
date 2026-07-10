@@ -109,6 +109,16 @@ $staticAssetsUrl = $protocol . '://' . $host . '/static-assets';
                     </div>
                 </div>
             </fieldset>
+
+            <?= $this->element('status_guide', [
+                'statuses' => [
+                    ['label' => __('Active'), 'class' => 'st-active', 'description' => __('Operational - can manage member organizations')],
+                    ['label' => __('Suspended'), 'class' => 'st-suspended', 'description' => __('Temporarily inactive - permit under review')],
+                    ['label' => __('Inactive'), 'class' => 'st-inactive', 'description' => __('No longer operational')],
+                ],
+                'tip' => __('A cooperative association (kumiai) is the receiving body that places apprentices with member companies in Japan.'),
+            ]) ?>
+
             
             <div class="form-actions mt-4">
                 <?= $this->Form->button(__('Save Cooperative Association'), [
@@ -148,12 +158,12 @@ $(document).ready(function() {
     
     // Ensure datepicker opens below input
     $('.datepicker').on('show', function(e) {
-        $('.datepicker-dropdown').css({
-            'top': $(this).offset().top + $(this).outerHeight(),
-            'left': $(this).offset().left
-        });
-    });
-            }, 1);
+        setTimeout(function() {
+            $('.datepicker-dropdown').css({
+                'top': $(this).offset().top + $(this).outerHeight(),
+                'left': $(this).offset().left
+            });
+        }, 1);
     });
     
     // Auto-uppercase for text inputs (except email, password, url)
@@ -171,9 +181,12 @@ $(document).ready(function() {
         if (email && !emailRegex.test(email)) {
             $(this).addClass('is-invalid');
             if (!$(this).next('.invalid-feedback').length) {
-                $(this).after('<div class="invalid-feedback">Please enter a valid email address</div>');`n            }`n        } else {
+                $(this).after('<div class="invalid-feedback">Please enter a valid email address</div>');
+            }
+        } else {
             $(this).removeClass('is-invalid');
             $(this).next('.invalid-feedback').remove();
+        }
     });
     
     // Password strength indicator
@@ -190,7 +203,10 @@ $(document).ready(function() {
         var strengthColor = ['#dc3545', '#fd7e14', '#ffc107', '#28a745', '#20c997'];
         
         if (!$(this).next('.password-strength').length) {
-            $(this).after('<div class="password-strength mt-1"><small></small><div class="progress" style="height: 5px;"><div class="progress-bar"></div></div></div>');`n        }`n        `n        var strengthDiv = $(this).next('.password-strength');
+            $(this).after('<div class="password-strength mt-1"><small></small><div class="progress" style="height: 5px;"><div class="progress-bar"></div></div></div>');
+        }
+
+        var strengthDiv = $(this).next('.password-strength');
         strengthDiv.find('small').text(strengthText[strength - 1] || '').css('color', strengthColor[strength - 1] || '#6c757d');
         strengthDiv.find('.progress-bar').css({
             'width': (strength * 20) + '%',
