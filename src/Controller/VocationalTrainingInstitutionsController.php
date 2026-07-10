@@ -267,6 +267,36 @@ class VocationalTrainingInstitutionsController extends AppController
     }
 
     /**
+     * Register method - Register a new LPK
+     *
+     * Redirects to the 3-step LPK registration wizard (Admin/LpkRegistration).
+     *
+     * @return \Cake\Http\Response
+     */
+    public function register()
+    {
+        return $this->redirect(['prefix' => 'admin', 'controller' => 'LpkRegistration', 'action' => 'create']);
+    }
+
+    /**
+     * Verify method - LPK email verification status overview
+     *
+     * Lists all institutions with their registration/verification status.
+     *
+     * @return void
+     */
+    public function verify()
+    {
+        $this->paginate = [
+            'fields' => ['id', 'name', 'status', 'is_registered', 'registered_at', 'email'],
+            'order' => ['VocationalTrainingInstitutions.registered_at' => 'DESC'],
+            'limit' => 20,
+        ];
+        $institutions = $this->paginate($this->VocationalTrainingInstitutions);
+        $this->set(compact('institutions'));
+    }
+
+    /**
      * Help method - Stakeholder Management Guide
      *
      * @return void
