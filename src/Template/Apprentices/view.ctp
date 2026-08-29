@@ -988,8 +988,10 @@
                                                     $displayValue = $apprenticeCertifications->apprentice->title;
                                                     if (empty($displayValue)) {
                                                         $displayValue = $apprenticeCertifications->apprentice->name;
+                                                    }
                                                     if (empty($displayValue)) {
                                                         $displayValue = $apprenticeCertifications->apprentice_id;
+                                                    }
                                                 ?>
                                                 <?= $this->Html->link(h($displayValue), ['controller' => 'Apprentices', 'action' => 'view', $apprenticeCertifications->apprentice_id]) ?>
                                             <?php else: ?>
@@ -1185,8 +1187,10 @@
                                                     $displayValue = $apprenticeCourses->apprentice->title;
                                                     if (empty($displayValue)) {
                                                         $displayValue = $apprenticeCourses->apprentice->name;
+                                                    }
                                                     if (empty($displayValue)) {
                                                         $displayValue = $apprenticeCourses->apprentice_id;
+                                                    }
                                                 ?>
                                                 <?= $this->Html->link(h($displayValue), ['controller' => 'Apprentices', 'action' => 'view', $apprenticeCourses->apprentice_id]) ?>
                                             <?php else: ?>
@@ -1199,8 +1203,10 @@
                                                     $displayValue = $apprenticeCourses->vocationalTrainingInstitution->title;
                                                     if (empty($displayValue)) {
                                                         $displayValue = $apprenticeCourses->vocationalTrainingInstitution->name;
+                                                    }
                                                     if (empty($displayValue)) {
                                                         $displayValue = $apprenticeCourses->vocational_training_institution_id;
+                                                    }
                                                 ?>
                                                 <?= $this->Html->link(h($displayValue), ['controller' => 'VocationalTrainingInstitutions', 'action' => 'view', $apprenticeCourses->vocational_training_institution_id]) ?>
                                             <?php else: ?>
@@ -1213,8 +1219,10 @@
                                                     $displayValue = $apprenticeCourses->courseMajor->title;
                                                     if (empty($displayValue)) {
                                                         $displayValue = $apprenticeCourses->courseMajor->name;
+                                                    }
                                                     if (empty($displayValue)) {
                                                         $displayValue = $apprenticeCourses->course_major_id;
+                                                    }
                                                 ?>
                                                 <?= $this->Html->link(h($displayValue), ['controller' => 'CourseMajors', 'action' => 'view', $apprenticeCourses->course_major_id]) ?>
                                             <?php else: ?>
@@ -1408,8 +1416,10 @@
                                                     $displayValue = $apprenticeEducations->apprentice->title;
                                                     if (empty($displayValue)) {
                                                         $displayValue = $apprenticeEducations->apprentice->name;
+                                                    }
                                                     if (empty($displayValue)) {
                                                         $displayValue = $apprenticeEducations->apprentice_id;
+                                                    }
                                                 ?>
                                                 <?= $this->Html->link(h($displayValue), ['controller' => 'Apprentices', 'action' => 'view', $apprenticeEducations->apprentice_id]) ?>
                                             <?php else: ?>
@@ -1422,8 +1432,10 @@
                                                     $displayValue = $apprenticeEducations->masterStrata->title;
                                                     if (empty($displayValue)) {
                                                         $displayValue = $apprenticeEducations->masterStrata->name;
+                                                    }
                                                     if (empty($displayValue)) {
                                                         $displayValue = $apprenticeEducations->master_strata_id;
+                                                    }
                                                 ?>
                                                 <?= $this->Html->link(h($displayValue), ['controller' => 'MasterStratas', 'action' => 'view', $apprenticeEducations->master_strata_id]) ?>
                                             <?php else: ?>
@@ -1436,8 +1448,10 @@
                                                     $displayValue = $apprenticeEducations->masterPropinsi->title;
                                                     if (empty($displayValue)) {
                                                         $displayValue = $apprenticeEducations->masterPropinsi->name;
+                                                    }
                                                     if (empty($displayValue)) {
                                                         $displayValue = $apprenticeEducations->master_propinsi_id;
+                                                    }
                                                 ?>
                                                 <?= $this->Html->link(h($displayValue), ['controller' => 'MasterPropinsis', 'action' => 'view', $apprenticeEducations->master_propinsi_id]) ?>
                                             <?php else: ?>
@@ -1450,8 +1464,10 @@
                                                     $displayValue = $apprenticeEducations->masterKabupaten->title;
                                                     if (empty($displayValue)) {
                                                         $displayValue = $apprenticeEducations->masterKabupaten->name;
+                                                    }
                                                     if (empty($displayValue)) {
                                                         $displayValue = $apprenticeEducations->master_kabupaten_id;
+                                                    }
                                                 ?>
                                                 <?= $this->Html->link(h($displayValue), ['controller' => 'MasterKabupatens', 'action' => 'view', $apprenticeEducations->master_kabupaten_id]) ?>
                                             <?php else: ?>
@@ -1644,8 +1660,10 @@
                                                     $displayValue = $apprenticeExperiences->apprentice->title;
                                                     if (empty($displayValue)) {
                                                         $displayValue = $apprenticeExperiences->apprentice->name;
+                                                    }
                                                     if (empty($displayValue)) {
                                                         $displayValue = $apprenticeExperiences->apprentice_id;
+                                                    }
                                                 ?>
                                                 <?= $this->Html->link(h($displayValue), ['controller' => 'Apprentices', 'action' => 'view', $apprenticeExperiences->apprentice_id]) ?>
                                             <?php else: ?>
@@ -1841,8 +1859,10 @@
                                                     $displayValue = $apprenticeFamilies->apprentice->title;
                                                     if (empty($displayValue)) {
                                                         $displayValue = $apprenticeFamilies->apprentice->name;
+                                                    }
                                                     if (empty($displayValue)) {
                                                         $displayValue = $apprenticeFamilies->apprentice_id;
+                                                    }
                                                 ?>
                                                 <?= $this->Html->link(h($displayValue), ['controller' => 'Apprentices', 'action' => 'view', $apprenticeFamilies->apprentice_id]) ?>
                                             <?php else: ?>
@@ -1855,8 +1875,10 @@
                                                     $displayValue = $apprenticeFamilies->masterFamilyConnection->title;
                                                     if (empty($displayValue)) {
                                                         $displayValue = $apprenticeFamilies->masterFamilyConnection->name;
+                                                    }
                                                     if (empty($displayValue)) {
                                                         $displayValue = $apprenticeFamilies->master_family_connection_id;
+                                                    }
                                                 ?>
                                                 <?= $this->Html->link(h($displayValue), ['controller' => 'MasterFamilyConnections', 'action' => 'view', $apprenticeFamilies->master_family_connection_id]) ?>
                                             <?php else: ?>
@@ -2051,8 +2073,10 @@
                                                     $displayValue = $apprenticeFamilyStories->apprentice->title;
                                                     if (empty($displayValue)) {
                                                         $displayValue = $apprenticeFamilyStories->apprentice->name;
+                                                    }
                                                     if (empty($displayValue)) {
                                                         $displayValue = $apprenticeFamilyStories->apprentice_id;
+                                                    }
                                                 ?>
                                                 <?= $this->Html->link(h($displayValue), ['controller' => 'Apprentices', 'action' => 'view', $apprenticeFamilyStories->apprentice_id]) ?>
                                             <?php else: ?>

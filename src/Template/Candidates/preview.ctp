@@ -149,6 +149,9 @@ use Cake\Utility\Inflector;
                             } elseif (isset($assoc->fullname)) {
                                 $displayValue = h($assoc->fullname);
                                 $assocFound = true;
+                            }
+                        }
+                    }
                     
                     // Try plural if singular didn't work
                     if (!$assocFound && $candidate->has($associationPropertyPlural)) {
@@ -163,24 +166,34 @@ use Cake\Utility\Inflector;
                             } elseif (isset($assoc->fullname)) {
                                 $displayValue = h($assoc->fullname);
                                 $assocFound = true;
+                            }
+                        }
+                    }
                     
                     if (!$assocFound) {
                         $displayValue = h($value);
+                    }
+                }
                 // Handle boolean/checkbox fields
                 elseif ($meta['type'] === 'boolean' || $meta['type'] === 'tinyint') {
                     $displayValue = '<input type="checkbox" ' . ($value ? 'checked' : '') . ' disabled> ' 
                                   . ($value ? 'Yes' : 'No');
+                }
                 // Handle date arrays
                 elseif (is_array($value) && $meta['type'] === 'date') {
                     $displayValue = sprintf('%04d-%02d-%02d', $value['year'], $value['month'], $value['day']);
+                }
                 // Handle date objects
                 elseif (is_object($value) && method_exists($value, 'format')) {
                     $displayValue = $value->format('Y-m-d H:i:s');
+                }
                 // Empty values
                 elseif ($value === null || $value === '') {
                     $displayValue = '<span class="empty-value">(empty)</span>';
+                }
                 else {
                     $displayValue = h($value);
+                }
                 ?>
                 
                 <div class="field-preview <?= $hasError ? 'has-error' : '' ?>">

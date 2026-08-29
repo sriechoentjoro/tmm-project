@@ -208,12 +208,16 @@ $foreignValue = isset($foreignValue) ? $foreignValue : null; // e.g., $apprentic
             $baseUrl = strtok($currentUrl, '?');
             
             // Build URL with preserved query params
+            if (!function_exists('buildPageUrl')):
             function buildPageUrl($base, $param, $pageNum, $existingQuery) {
                 $query = [];
                 if (!empty($existingQuery)) {
                     parse_str($existingQuery, $query);
+                }
                 $query[$param] = $pageNum;
                 return $base . '?' . http_build_query($query);
+            }
+            endif;
             
             $existingQuery = parse_url($currentUrl, PHP_URL_QUERY);
             ?>

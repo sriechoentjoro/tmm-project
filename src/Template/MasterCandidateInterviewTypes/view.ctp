@@ -298,8 +298,10 @@
                                                     $displayValue = $candidateRecordInterviews->applicant->title;
                                                     if (empty($displayValue)) {
                                                         $displayValue = $candidateRecordInterviews->applicant->name;
+                                                    }
                                                     if (empty($displayValue)) {
                                                         $displayValue = $candidateRecordInterviews->applicant_id;
+                                                    }
                                                 ?>
                                                 <?= $this->Html->link(h($displayValue), ['controller' => 'Applicants', 'action' => 'view', $candidateRecordInterviews->applicant_id]) ?>
                                             <?php else: ?>
@@ -313,8 +315,10 @@
                                                     $displayValue = $candidateRecordInterviews->masterCandidateInterviewType->title;
                                                     if (empty($displayValue)) {
                                                         $displayValue = $candidateRecordInterviews->masterCandidateInterviewType->name;
+                                                    }
                                                     if (empty($displayValue)) {
                                                         $displayValue = $candidateRecordInterviews->master_candidate_interview_type_id;
+                                                    }
                                                 ?>
                                                 <?= $this->Html->link(h($displayValue), ['controller' => 'MasterCandidateInterviewTypes', 'action' => 'view', $candidateRecordInterviews->master_candidate_interview_type_id]) ?>
                                             <?php else: ?>
