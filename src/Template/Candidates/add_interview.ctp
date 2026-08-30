@@ -25,9 +25,10 @@
             </div>
             <div class="col-md-6">
                 <?= $this->Form->control('planned_date', [
-                    'type' => 'date',
+                    'type' => 'text',
                     'label' => 'Planned Date',
-                    'class' => 'form-control',
+                    'class' => 'form-control datepicker',
+                    'placeholder' => 'YYYY-MM-DD',
                     'required' => true
                 ]) ?>
             </div>

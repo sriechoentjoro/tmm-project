@@ -17,7 +17,11 @@
         echo $this->Form->control('trainee_id');
         echo $this->Form->control('master_transaction_category_id');
         echo $this->Form->control('payment_amount');
-        echo $this->Form->control('payment_date');
+        echo $this->Form->control('payment_date', [
+            'type' => 'text',
+            'class' => 'datepicker',
+            'placeholder' => 'YYYY-MM-DD',
+        ]);
         echo $this->Form->control('full_payment_amount');
         echo $this->Form->control('payment_accummulated');
         echo $this->Form->control('unpaid_amount');

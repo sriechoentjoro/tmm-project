@@ -75,11 +75,11 @@
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin-bottom:18px">
         <div>
             <label class="ao-label"><?= __('Interview Date') ?></label>
-            <?= $this->Form->control('date_interview', ['label' => false, 'type' => 'date', 'class' => 'ao-input', 'value' => date('Y-m-d')]) ?>
+            <?= $this->Form->control('date_interview', ['label' => false, 'type' => 'text', 'class' => 'ao-input datepicker', 'placeholder' => 'YYYY-MM-DD', 'value' => date('Y-m-d')]) ?>
         </div>
         <div>
             <label class="ao-label"><?= __('Result Notification Date') ?></label>
-            <?= $this->Form->control('date_interview_result', ['label' => false, 'type' => 'date', 'class' => 'ao-input', 'value' => date('Y-m-d')]) ?>
+            <?= $this->Form->control('date_interview_result', ['label' => false, 'type' => 'text', 'class' => 'ao-input datepicker', 'placeholder' => 'YYYY-MM-DD', 'value' => date('Y-m-d')]) ?>
         </div>
     </div>
 

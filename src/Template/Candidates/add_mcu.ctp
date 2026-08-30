@@ -12,17 +12,19 @@
         <div class="row">
             <div class="col-md-6">
                 <?= $this->Form->control('mcu_date', [
-                    'type' => 'date',
+                    'type' => 'text',
                     'label' => 'MCU Date',
-                    'class' => 'form-control',
+                    'class' => 'form-control datepicker',
+                    'placeholder' => 'YYYY-MM-DD',
                     'required' => true
                 ]) ?>
             </div>
             <div class="col-md-6">
                 <?= $this->Form->control('mcu_exit_date', [
-                    'type' => 'date',
+                    'type' => 'text',
                     'label' => 'MCU Exit Date',
-                    'class' => 'form-control'
+                    'class' => 'form-control datepicker',
+                    'placeholder' => 'YYYY-MM-DD'
                 ]) ?>
             </div>
         </div>
