@@ -184,9 +184,11 @@
 .bg-gradient-primary {
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
 
+}
 .wizard-steps .step {
     position: relative;
 
+}
 .wizard-steps .step-number {
     width: 50px;
     height: 50px;
@@ -200,39 +202,48 @@
     font-size: 18px;
     margin-bottom: 10px;
 
+}
 .wizard-steps .step.completed .step-number {
     background: #28a745;
     color: white;
 
+}
 .wizard-steps .step.active .step-number {
     background: #667eea;
     color: white;
     box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.2);
 
+}
 .wizard-steps .step-label {
     font-size: 14px;
     color: #6c757d;
 
+}
 .password-strength {
     height: 5px;
     background: #e9ecef;
     border-radius: 3px;
     overflow: hidden;
 
+}
 .password-strength .strength-bar {
     height: 100%;
     transition: all 0.3s;
 
+}
 .password-requirements li {
     padding: 5px 0;
     transition: all 0.3s;
 
+}
 .password-requirements li.met {
     color: #28a745;
 
+}
 .password-requirements li.met i {
     color: #28a745 !important;
-</style>
+
+}</style>
 
 <?php $this->start('script'); ?>
 <script>
@@ -287,6 +298,7 @@ $(document).ready(function() {
         } else {
             $(this).removeClass('is-invalid');
             $('#password-match-error').hide();
+        }
     });
 
     // Form validation
@@ -299,10 +311,12 @@ $(document).ready(function() {
             alert('Password must be at least 8 characters long');
             return false;
 
+        }
         if (password !== confirm) {
             e.preventDefault();
             alert('Passwords do not match');
             return false;
+        }
     });
 });
 </script>

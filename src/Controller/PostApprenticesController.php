@@ -14,7 +14,19 @@ class PostApprenticesController extends AppController
     {
         $this->paginate = ['order' => ['PostApprentices.id' => 'DESC']];
         $postApprentices = $this->paginate($this->PostApprentices);
-        $this->set(compact('postApprentices'));
+
+        // Peta apprentice (nama & kode) + ringkasan status alumni
+        $conn = $this->PostApprentices->getConnection();
+        $apprenticeMap = [];
+        foreach ($conn->execute('SELECT id, name, tmm_code FROM apprentices')->fetchAll('assoc') as $r) {
+            $apprenticeMap[$r['id']] = $r;
+        }
+        $statusStats = $conn->execute(
+            'SELECT current_status AS label, COUNT(*) AS n FROM post_apprentices GROUP BY current_status ORDER BY n DESC'
+        )->fetchAll('assoc');
+        $totalAlumni = array_sum(array_column($statusStats, 'n'));
+
+        $this->set(compact('postApprentices', 'apprenticeMap', 'statusStats', 'totalAlumni'));
     }
 
     public function view($id = null)

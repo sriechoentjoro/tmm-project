@@ -79,6 +79,7 @@ $required = isset($required) ? $required : false;
     display: flex;
     align-items: center;
     justify-content: center;
+}
 .crop-modal-content {
     background: white;
     border-radius: 8px;
@@ -87,38 +88,46 @@ $required = isset($required) ? $required : false;
     max-height: 90vh;
     display: flex;
     flex-direction: column;
+}
 .crop-modal-header {
     padding: 15px 20px;
     border-bottom: 1px solid #ddd;
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
 .crop-modal-header h5 {
     margin: 0;
+}
 .crop-modal-close {
     background: none;
     border: none;
     font-size: 24px;
     cursor: pointer;
     color: #999;
+}
 .crop-modal-close:hover {
     color: #333;
+}
 .crop-modal-body {
     padding: 20px;
     flex: 1;
     overflow: auto;
+}
 .crop-container {
     max-height: 500px;
     display: flex;
     justify-content: center;
     align-items: center;
+}
 .crop-modal-footer {
     padding: 15px 20px;
     border-top: 1px solid #ddd;
     display: flex;
     justify-content: flex-end;
     gap: 10px;
-</style>
+
+}</style>
 
 <script>
 (function(){
@@ -141,6 +150,7 @@ if (typeof Cropper === 'undefined') {
     var script = document.createElement('script');
     script.src = 'https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.13/cropper.min.js';
     document.head.appendChild(script);
+}
 
 // File input change
 input.addEventListener('change', function(e) {
@@ -148,7 +158,8 @@ input.addEventListener('change', function(e) {
     if (!file || !file.type.match('image.*')) {
         alert('Please select an image file (JPEG or PNG)');
         return;
-    
+    }
+
     var reader = new FileReader();
     reader.onload = function(event) {
         cropImage.src = event.target.result;
@@ -159,6 +170,7 @@ input.addEventListener('change', function(e) {
             if (typeof Cropper !== 'undefined') {
                 if (cropper) {
                     cropper.destroy();
+                }
                 cropper = new Cropper(cropImage, {
                     aspectRatio: 4 / 6, // Passport photo ratio
                     viewMode: 1,
@@ -173,6 +185,7 @@ input.addEventListener('change', function(e) {
                 });
             } else {
                 setTimeout(initCropper, 100);
+            }
         };
         initCropper();
     };
@@ -207,6 +220,7 @@ modal.querySelector('.crop-apply').addEventListener('click', function() {
         if (cropper) {
             cropper.destroy();
             cropper = null;
+        }
     }, 'image/jpeg', 0.9);
 });
 
@@ -217,6 +231,7 @@ modal.querySelector('.crop-cancel').addEventListener('click', function() {
     if (cropper) {
         cropper.destroy();
         cropper = null;
+    }
 });
 
 // Close button
@@ -226,6 +241,7 @@ modal.querySelector('.crop-modal-close').addEventListener('click', function() {
     if (cropper) {
         cropper.destroy();
         cropper = null;
+    }
 });
 
 // Re-crop button

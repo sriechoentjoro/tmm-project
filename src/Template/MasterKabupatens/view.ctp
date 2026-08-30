@@ -179,6 +179,7 @@ if (typeof window.initializeTabSwitching === 'undefined') {
             if (!viewWrapper) {
                 console.warn('No view-content-wrapper with data-view-template found');
                 return;
+            }
             tabLinks = viewWrapper.querySelectorAll('.view-tabs-container .view-tab-link');
             tabPanes = viewWrapper.querySelectorAll('.view-tab-pane');
         } else {
@@ -192,13 +193,17 @@ if (typeof window.initializeTabSwitching === 'undefined') {
                 tabLinks = viewContainer.querySelectorAll('.view-tab-link');
                 tabPanes = viewContainer.querySelectorAll('.view-tab-pane');
         
+            }
+        }
         if (tabLinks.length === 0 || tabPanes.length === 0) {
             console.error('âŒ No tabs found! TabLinks:', tabLinks.length, 'TabPanes:', tabPanes.length);
             console.error('Container:', viewContainer);
             if (isDocument) {
                 console.error('View wrapper:', document.querySelector('.view-content-wrapper[data-view-template="true"]'));
+            }
             return;
         
+        }
         console.log('âœ… SUCCESS: Initializing', tabLinks.length, 'tab links and', tabPanes.length, 'tab panes');
         console.log('ðŸ“ Container:', isDocument ? 'document (full page)' : 'element (modal/container)');
         
@@ -224,6 +229,8 @@ if (typeof window.initializeTabSwitching === 'undefined') {
                 freshTabLinks = viewContainer.querySelectorAll('.view-tab-link');
                 freshTabPanes = viewContainer.querySelectorAll('.view-tab-pane');
         
+            }
+        }
         freshTabLinks.forEach(link => {
             link.addEventListener('click', function(e) {
                 e.preventDefault();
@@ -239,6 +246,7 @@ if (typeof window.initializeTabSwitching === 'undefined') {
                     return;
                 
                 // Remove active class from all tabs and panes in this container
+                }
                 freshTabLinks.forEach(l => {
                     l.classList.remove('active');
                 });
@@ -258,6 +266,7 @@ if (typeof window.initializeTabSwitching === 'undefined') {
                     const viewWrapper = viewContainer.querySelector('.view-content-wrapper[data-view-template="true"]');
                     targetPane = viewWrapper ? viewWrapper.querySelector('#' + targetTab) : viewContainer.querySelector('#' + targetTab);
                 
+                }
                 if (targetPane) {
                     targetPane.classList.add('active');
                     console.log('âœ… Activated pane:', targetTab);
@@ -266,10 +275,12 @@ if (typeof window.initializeTabSwitching === 'undefined') {
                     console.error('Available panes:', freshTabPanes ? Array.from(freshTabPanes).map(p => p.id) : 'none');
                 
                 // Store active tab in sessionStorage (optional)
+                }
                 try {
                     sessionStorage.setItem('activeViewTab', targetTab);
                 } catch (e) {
                     console.warn('sessionStorage not available:', e);
+                }
             });
         });
         
@@ -285,6 +296,7 @@ if (typeof window.initializeTabSwitching === 'undefined') {
                     if (viewWrapper) {
                         targetPane = viewWrapper.querySelector('#' + savedTab);
                         savedLink = viewWrapper.querySelector('[data-tab="' + savedTab + '"]');
+                    }
                 } else {
                     const viewWrapper = viewContainer.querySelector('.view-content-wrapper[data-view-template="true"]');
                     if (viewWrapper) {
@@ -294,13 +306,19 @@ if (typeof window.initializeTabSwitching === 'undefined') {
                         targetPane = viewContainer.querySelector('#' + savedTab);
                         savedLink = viewContainer.querySelector('[data-tab="' + savedTab + '"]');
                 
+                    }
+                }
                 if (targetPane && savedLink) {
                     savedLink.click();
+                }
+            }
         } catch (e) {
             console.warn('Could not restore tab from sessionStorage:', e);
+        }
     };
 
 // Drag to scroll for tabs navigation
+}
 document.addEventListener('DOMContentLoaded', function() {
     // Only target view template tabs, not main navigation
     const tabsNav = document.querySelector('.github-container .view-tabs-nav');
@@ -363,6 +381,8 @@ if (typeof jQuery !== 'undefined') {
                     window.initializeTabSwitching(modalBody);
                 } else {
                     console.log('No tab links found in modal');
+                }
+            }
         }, 100);
     });
     
@@ -372,6 +392,7 @@ if (typeof jQuery !== 'undefined') {
     });
 
 // Method 2: Vanilla JavaScript modal event (Bootstrap 5)
+}
 document.addEventListener('DOMContentLoaded', function() {
     console.log('Setting up modal observers...');
     
@@ -385,6 +406,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 if (tabLinks.length > 0) {
                     console.log('Found', tabLinks.length, 'tab links in modal, initializing...');
                     window.initializeTabSwitching(modalBody);
+                }
+            }
         });
     });
     
@@ -397,6 +420,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     let modals = [];
                     if (node.classList && node.classList.contains('modal')) {
                         modals.push(node);
+                    }
                     modals.push(...node.querySelectorAll('.modal'));
                     
                     modals.forEach(function(modal) {
@@ -408,6 +432,9 @@ document.addEventListener('DOMContentLoaded', function() {
                                 if (tabLinks.length > 0) {
                                     console.log('MutationObserver: Found modal with', tabLinks.length, 'tabs, initializing...');
                                     window.initializeTabSwitching(modalBody);
+                                }
+                            }
+                        }
                     });
                     
                     // Also check if tabs were added to an existing modal
@@ -417,6 +444,9 @@ document.addEventListener('DOMContentLoaded', function() {
                             console.log('MutationObserver: Tabs added to modal, initializing...');
                             const modalBody = node.closest('.modal-body');
                             window.initializeTabSwitching(modalBody);
+                        }
+                    }
+                }
             });
         });
     });
@@ -441,6 +471,8 @@ window.initializeModalTabs = function(modalSelector) {
         if (modalBody) {
             console.log('Manual initialization requested for modal');
             window.initializeTabSwitching(modalBody);
+        }
+    }
 };
 
 // Usage examples in comments:
@@ -457,42 +489,51 @@ window.initializeModalTabs = function(modalSelector) {
     box-sizing: border-box !important;
 
 /* Ensure tabs work in modals - override Bootstrap modal styles */
+}
 .modal .view-content-wrapper,
 .modal-body .view-content-wrapper {
     overflow: visible !important;
     transform: none !important;
 
+}
 .modal .view-tabs-container,
 .modal-body .view-tabs-container {
     overflow: visible !important;
 
+}
 .modal .view-tabs-nav,
 .modal-body .view-tabs-nav {
     flex-wrap: nowrap !important;
     transform: none !important;
 
 /* Fix Bootstrap modal conflicts */
+}
 .modal a.view-tab-link,
 .modal-body a.view-tab-link {
     color: #586069 !important;
 
+}
 .modal a.view-tab-link.active,
 .modal-body a.view-tab-link.active {
     color: #0969da !important;
 
+}
 .modal a.view-tab-link:hover,
 .modal-body a.view-tab-link:hover {
     color: #24292f !important;
     text-decoration: none !important;
 
 /* Button spacing for view actions */
+}
 .github-header-actions .btn {
     margin-right: 8px;
 
+}
 .github-header-actions .btn:last-child {
     margin-right: 0;
 
 /* Tab Navigation Styles - Modal Safe with !important overrides */
+}
 .view-tabs-container {
     margin: 20px 0 !important;
     position: relative !important;
@@ -505,12 +546,14 @@ window.initializeModalTabs = function(modalSelector) {
     display: block !important;
 
 /* Override any modal/page styles that might affect tabs */
+}
 .modal .view-tabs-container,
 .modal-body .view-tabs-container {
     margin: 20px 0 !important;
     width: 100% !important;
     max-width: 100% !important;
 
+}
 .view-tabs-nav {
     display: flex !important;
     list-style: none !important;
@@ -525,34 +568,42 @@ window.initializeModalTabs = function(modalSelector) {
     z-index: 1 !important;
     flex-wrap: nowrap !important;
 
+}
 .view-tabs-nav.dragging {
     cursor: grabbing !important;
     scroll-behavior: auto !important;
 
 /* Transparent scrollbar */
+}
 .view-tabs-nav::-webkit-scrollbar {
     height: 8px !important;
 
+}
 .view-tabs-nav::-webkit-scrollbar-track {
     background: transparent !important;
 
+}
 .view-tabs-nav::-webkit-scrollbar-thumb {
     background: rgba(0, 0, 0, 0.1) !important;
     border-radius: 4px !important;
 
+}
 .view-tabs-nav::-webkit-scrollbar-thumb:hover {
     background: rgba(0, 0, 0, 0.2) !important;
 
 /* Firefox */
+}
 .view-tabs-nav {
     scrollbar-width: thin !important;
     scrollbar-color: rgba(0, 0, 0, 0.1) transparent !important;
 
+}
 .view-tab-item {
     margin: 0 !important;
     flex-shrink: 0 !important;
     display: block !important;
 
+}
 .view-tab-link {
     display: flex !important;
     align-items: center !important;
@@ -572,15 +623,18 @@ window.initializeModalTabs = function(modalSelector) {
     height: auto !important;
     line-height: 1.5 !important;
 
+}
 .view-tab-link:last-child {
     border-right: none !important;
 
+}
 .view-tab-link:hover {
     color: #24292f !important;
     background: rgba(175, 184, 193, 0.2) !important;
     border-bottom-color: #959da5 !important;
     text-decoration: none !important;
 
+}
 .view-tab-link.active {
     color: #0969da !important;
     border-bottom-color: #0969da !important;
@@ -588,6 +642,7 @@ window.initializeModalTabs = function(modalSelector) {
     background: #ffffff !important;
     z-index: 2 !important;
 
+}
 .view-tab-link.active::after {
     content: '' !important;
     position: absolute !important;
@@ -597,10 +652,12 @@ window.initializeModalTabs = function(modalSelector) {
     height: 2px !important;
     background: #ffffff !important;
 
+}
 .tab-icon {
     flex-shrink: 0 !important;
     display: inline-block !important;
 
+}
 .tab-badge {
     display: inline-block !important;
     padding: 3px 10px !important;
@@ -612,23 +669,28 @@ window.initializeModalTabs = function(modalSelector) {
     min-width: 20px !important;
     text-align: center !important;
 
+}
 .view-tab-link.active .tab-badge {
     background: #0969da !important;
     color: #ffffff !important;
 
+}
 .view-tabs-content {
     margin-top: 20px !important;
     display: block !important;
     width: 100% !important;
 
+}
 .view-tab-pane {
     display: none !important;
     width: 100% !important;
 
+}
 .view-tab-pane.active {
     display: block !important;
 
 /* Empty State */
+}
 .github-empty-state {
     text-align: center;
     padding: 60px 20px;
@@ -636,25 +698,30 @@ window.initializeModalTabs = function(modalSelector) {
     border: 1px solid var(--github-border-default, #d0d7de);
     border-radius: 12px;
 
+}
 .github-empty-state .empty-icon {
     opacity: 0.3;
     margin-bottom: 16px;
 
+}
 .github-empty-state h3 {
     margin: 0 0 8px;
     font-size: 18px;
     color: var(--github-fg-default, #24292f);
 
+}
 .github-empty-state p {
     margin: 0 0 20px;
     color: var(--github-fg-muted, #656d76);
 
 /* GitHub Style View CSS */
+}
 .github-view-container {
     display: flex;
     flex-direction: column;
     gap: 20px;
 
+}
 .github-details-card,
 .github-related-card {
     background: var(--github-canvas-default, #ffffff);
@@ -662,6 +729,7 @@ window.initializeModalTabs = function(modalSelector) {
     border-radius: 12px;
     overflow: hidden;
 
+}
 .github-details-header,
 .github-related-header {
     padding: 16px 20px;
@@ -671,6 +739,7 @@ window.initializeModalTabs = function(modalSelector) {
     align-items: center;
     justify-content: space-between;
 
+}
 .github-details-title,
 .github-related-title {
     display: flex;
@@ -683,27 +752,33 @@ window.initializeModalTabs = function(modalSelector) {
     width: 100%;
     overflow: hidden;
 
+}
 .github-related-title::after {
     content: "";
     display: block;
     clear: both;
 
+}
 .github-details-body,
 .github-related-body {
     padding: 0;
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
 
+}
 .github-details-table {
     width: 100%;
     border-collapse: collapse;
 
+}
 .github-details-table tr {
     border-bottom: 1px solid var(--github-border-muted, #d8dee4);
 
+}
 .github-details-table tr:last-child {
     border-bottom: none;
 
+}
 .github-detail-label {
     width: 200px;
     padding: 16px 20px;
@@ -713,17 +788,21 @@ window.initializeModalTabs = function(modalSelector) {
     text-align: left;
     vertical-align: top;
 
+}
 .github-detail-value {
     padding: 16px 20px;
     color: var(--github-fg-default, #24292f);
 
+}
 .github-link {
     color: var(--github-accent-fg, #0969da);
     text-decoration: none;
 
+}
 .github-link:hover {
     text-decoration: underline;
 
+}
 .github-badge {
     display: inline-block;
     padding: 4px 12px;
@@ -731,19 +810,23 @@ window.initializeModalTabs = function(modalSelector) {
     font-size: 12px;
     font-weight: 500;
 
+}
 .badge-success {
     background: rgba(26, 127, 55, 0.1);
     color: #1a7f37;
 
+}
 .badge-secondary {
     background: var(--github-canvas-subtle, #f6f8fa);
     color: var(--github-fg-muted, #656d76);
 
+}
 .github-related-table {
     width: 100%;
     min-width: 600px;
     border-collapse: collapse;
 
+}
 .github-related-table thead th {
     padding: 12px 16px;
     text-align: left;
@@ -755,18 +838,22 @@ window.initializeModalTabs = function(modalSelector) {
     top: 0;
     z-index: 10;
 
+}
 .github-related-table tbody td {
     padding: 12px 16px;
     border-bottom: 1px solid var(--github-border-muted, #d8dee4);
 
+}
 .github-related-table tbody tr:last-child td {
     border-bottom: none;
 
+}
 .github-related-actions {
     display: flex;
     gap: 4px;
 
 /* Mobile Full Width Optimization */
+}
 @media (max-width: 768px) {
     .content-wrapper,
     .github-details-card,
@@ -777,83 +864,105 @@ window.initializeModalTabs = function(modalSelector) {
         width: calc(100% - 16px);
         max-width: 100%;
 
+    }
     body {
         padding: 0;
         margin: 0;
 
+    }
     .container {
         padding: 0 8px;
     
     /* Mobile Tab Styles */
+    }
     .view-tab-link {
         padding: 10px 16px;
         font-size: 14px;
     
+    }
     .tab-icon {
         width: 14px;
         height: 14px;
     
+    }
     .tab-badge {
         font-size: 11px;
         padding: 1px 6px;
     
+    }
     .github-detail-label {
         width: 120px;
         padding: 12px 16px;
         font-size: 14px;
     
+    }
     .github-detail-value {
         padding: 12px 16px;
         font-size: 14px;
     
+    }
     .github-related-table {
         font-size: 14px;
     
+    }
     .github-related-actions {
         flex-direction: column;
         gap: 4px;
     
+    }
     .github-related-actions .github-btn {
         width: 100%;
         text-align: center;
 
+    }
+}
 @media (max-width: 480px) {
     .view-tab-link {
         padding: 8px 12px;
         font-size: 13px;
     
+    }
     .github-detail-label {
         width: 100px;
         padding: 10px 12px;
         font-size: 13px;
     
+    }
     .github-detail-value {
         padding: 10px 12px;
         font-size: 13px;
 
 /* Action Buttons Styles (same as index page) */
+    }
+}
 .action-buttons-hover {
     opacity: 0;
     transition: opacity 0.2s ease-in-out;
     display: flex;
     gap: 2px;
 
+}
 .table-row-with-actions:hover .action-buttons-hover {
     opacity: 1;
 
+}
 .actions-column {
     background-color: #fff !important;
     box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
 
+}
 .table-striped tbody tr:nth-of-type(odd) .actions-column {
     background-color: rgba(102, 126, 234, 0.05) !important;
 
+}
 .table-striped tbody tr:nth-of-type(even) .actions-column {
     background-color: #fff !important;
 
+}
 .table-row-with-actions:hover .actions-column {
     background-color: rgba(102, 126, 234, 0.08) !important;
 
+}
 .btn-action-icon {
     display: inline-flex;
     align-items: center;
@@ -870,6 +979,7 @@ window.initializeModalTabs = function(modalSelector) {
     transition: all 0.3s ease;
     margin: 0 2px;
 
+}
 .btn-action-icon:hover {
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     color: #fff;
@@ -879,6 +989,7 @@ window.initializeModalTabs = function(modalSelector) {
     text-decoration: none;
 
 /* Filter Row Styles */
+}
 .filter-row input.filter-input {
     width: 100%;
     padding: 4px 8px;
@@ -886,24 +997,29 @@ window.initializeModalTabs = function(modalSelector) {
     border-radius: 4px;
     font-size: 12px;
 
+}
 .filter-row input.filter-input:focus {
     outline: none;
     border-color: #667eea;
     box-shadow: 0 0 0 2px rgba(102, 126, 234, 0.1);
 
 /* Drag to scroll for tables */
+}
 .table-responsive {
     cursor: grab;
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
 
+}
 .table-responsive:active {
     cursor: grabbing;
 
+}
 .table-responsive.dragging {
     cursor: grabbing;
     user-select: none;
-</style>
+
+}</style>
 
 <script>
 // Drag to scroll functionality for tables
@@ -920,6 +1036,7 @@ document.addEventListener('DOMContentLoaded', function() {
             if (e.target.tagName === 'INPUT' || e.target.tagName === 'BUTTON' || e.target.closest('a')) {
                 return;
             
+            }
             isDown = true;
             container.classList.add('dragging');
             startX = e.pageX - container.offsetLeft;
@@ -992,11 +1109,14 @@ document.addEventListener('DOMContentLoaded', function() {
                         const min = parseFloat(parts[0]);
                         const max = parseFloat(parts[1]);
                         return cellNum >= min && cellNum <= max;
+                    }
                     return cellVal.includes(filterVal);
                 default:
                     return cellVal.includes(filterVal);
         
         // Function to filter all rows
+            }
+        }
         function filterRows() {
             rows.forEach(row => {
                 const cells = row.querySelectorAll('td');
@@ -1014,6 +1134,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     filterOperators.forEach(op => {
                         if (op.getAttribute('data-column') === filterColumn) {
                             operator = op.value;
+                        }
                     });
                     
                     // Get column index
@@ -1022,18 +1143,22 @@ document.addEventListener('DOMContentLoaded', function() {
                     headers.forEach((th, idx) => {
                         if (th.textContent.toLowerCase().includes(filterColumn.replace('_', ' '))) {
                             filterColIndex = idx;
+                        }
                     });
                     
                     if (filterColIndex >= 0 && cells[filterColIndex]) {
                         const cellText = cells[filterColIndex].textContent;
                         if (!applyFilter(cellText, filterVal, operator)) {
                             shouldShow = false;
+                        }
+                    }
                 });
                 
                 row.style.display = shouldShow ? '' : 'none';
             });
         
         // Attach event listeners to inputs and operators
+        }
         filterInputs.forEach(input => {
             input.addEventListener('input', filterRows);
         });
@@ -1061,6 +1186,7 @@ document.addEventListener('DOMContentLoaded', function() {
         document.addEventListener('click', function(e) {
             if (!dropdownButton.contains(e.target) && !dropdownMenu.contains(e.target)) {
                 dropdownMenu.classList.remove('show');
+            }
         });
         
         // Close dropdown after clicking a link (with small delay for navigation)
@@ -1069,9 +1195,11 @@ document.addEventListener('DOMContentLoaded', function() {
                 setTimeout(function() {
                     dropdownMenu.classList.remove('show');
                 }, 100);
+            }
         });
         
         console.log('âœ… Dropdown menu initialized on view page');
+    }
 });
 </script>
 
@@ -1092,9 +1220,11 @@ document.addEventListener('DOMContentLoaded', function() {
     border-radius: 0.25rem;
     box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.175);
 
+}
 .dropdown-menu.show {
     display: block;
 
+}
 .dropdown-item {
     display: block;
     width: 100%;
@@ -1108,24 +1238,29 @@ document.addEventListener('DOMContentLoaded', function() {
     border: 0;
     text-decoration: none;
 
+}
 .dropdown-item:hover {
     color: #16181b;
     background-color: #f8f9fa;
     text-decoration: none;
 
+}
 .dropdown-divider {
     height: 0;
     margin: 0.5rem 0;
     overflow: hidden;
     border-top: 1px solid #e9ecef;
 
+}
 .dropdown-toggle::after {
     display: none; /* Remove default Bootstrap caret */
 
 /* Position dropdown container relatively */
+}
 .github-title-row > div:first-child {
     position: relative;
-</style>
+
+}</style>
 
 </div><!-- .view-content-wrapper -->
 

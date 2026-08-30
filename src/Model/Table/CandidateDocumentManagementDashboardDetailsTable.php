@@ -37,6 +37,9 @@ class CandidateDocumentManagementDashboardDetailsTable extends Table
         $this->setPrimaryKey('id');
 
         $this->belongsTo('CandidateDocumentManagementDashboards', [
+            // there is no candidate_document_management_dashboards table; the
+            // dashboards live in apprentice_document_management_dashboards
+            'className' => 'ApprenticeDocumentManagementDashboards',
             'foreignKey' => 'dashboard_id',
             'strategy' => 'select',
             'joinType' => 'INNER',

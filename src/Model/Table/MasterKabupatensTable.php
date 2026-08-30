@@ -36,7 +36,7 @@ class MasterKabupatensTable extends Table
         $this->setDisplayField('title');
         $this->setPrimaryKey('id');
 
-        $this->belongsTo('Propinsis', [
+        $this->belongsTo('MasterPropinsis', [
             'foreignKey' => 'propinsi_id',
             'strategy' => 'select',
             'joinType' => 'INNER',
@@ -85,7 +85,7 @@ class MasterKabupatensTable extends Table
      */
     public function buildRules(RulesChecker $rules)
     {
-        $rules->add($rules->existsIn(['propinsi_id'], 'Propinsis'));
+        $rules->add($rules->existsIn(['propinsi_id'], 'MasterPropinsis'));
 
         return $rules;
     }

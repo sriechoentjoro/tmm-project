@@ -28,7 +28,8 @@ class CandidateExperiencesController extends AppController
         // Load dropdown data for filters
         $candidates = $this->CandidateExperiences->Candidates->find('list')->limit(200)->toArray();
         $masteremployeestatuses = $this->CandidateExperiences->MasterEmployeeStatuses->find('list')->limit(200)->toArray();
-        $this->set(compact('candidateExperiences', 'candidates', 'masteremployeestatuses'));
+                $master_employee_statuss = $masteremployeestatuses;
+$this->set(compact('candidateExperiences', 'candidates', 'masteremployeestatuses', 'master_employee_statuss'));
     }
 
 

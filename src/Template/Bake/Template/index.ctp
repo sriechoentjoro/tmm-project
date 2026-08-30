@@ -466,6 +466,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 } else {
                     filterInput.placeholder = 'From...';
                     rangeInput.placeholder = 'To...';
+                }
             } else if (rangeInput) {
                 rangeInput.style.display = 'none';
                 rangeInput.value = '';
@@ -480,6 +481,8 @@ document.addEventListener('DOMContentLoaded', function() {
                     filterInput.placeholder = columnLabel + '...';
                 } else if (dataType === 'date') {
                     filterInput.placeholder = '';
+                }
+            }
         });
     });
     
@@ -495,6 +498,7 @@ document.addEventListener('DOMContentLoaded', function() {
             input.addEventListener('keyup', function() {
                 filterSearch();
             });
+        }
     });
     
     // Add event listeners to range inputs for "between" operator
@@ -545,11 +549,15 @@ function filterSearch() {
                                 operator: '>=',
                                 value: value
                             };
+                        }
                     } else {
                         filters[column] = {
                             operator: operator,
                             value: value
                         };
+                    }
+                }
+            }
         });
         
         // Build query string
@@ -559,6 +567,7 @@ function filterSearch() {
             params.append('filter[' + key + '][value]', filters[key].value);
             if (filters[key].range) {
                 params.append('filter[' + key + '][range]', filters[key].range);
+            }
         });
         
         const url = '<?= $this->Url->build(['action' => 'filter']) ?>?' + params.toString();
@@ -573,10 +582,12 @@ function filterSearch() {
             headers: {
                 'X-Requested-With': 'XMLHttpRequest',
                 'Accept': 'application/json'
+            }
         })
         .then(function(response) {
             if (!response.ok) {
                 throw new Error('HTTP error ' + response.status);
+            }
             return response.text();
         })
         .then(function(text) {
@@ -587,10 +598,12 @@ function filterSearch() {
                     console.log('Filtered results:', data.count);
                 } else {
                     tbody.innerHTML = '<tr><td colspan="100" class="text-center text-danger">Error loading data</td></tr>';
+                }
             } catch (e) {
                 console.error('JSON parse error:', e);
                 console.error('Response text:', text.substring(0, 500));
                 tbody.innerHTML = '<tr><td colspan="100" class="text-center text-danger">Server returned invalid response. Check console for details.</td></tr>';
+            }
         })
         .catch(function(error) {
             console.error('Filter error:', error);
@@ -598,6 +611,7 @@ function filterSearch() {
         });
     }, 500); // Debounce 500ms
 
+}
 function clearFilters() {
     document.querySelectorAll('.filter-input, .filter-input-range').forEach(function(input) {
         input.value = '';
@@ -609,6 +623,7 @@ function clearFilters() {
     window.location.reload();
 
 // Enable drag-to-scroll on page load
+}
 window.addEventListener('DOMContentLoaded', function() {
     // Don't auto-load AJAX filter - let PHP render the initial data
     // filterSearch(); // Commented out - causes blank table on load
@@ -623,6 +638,7 @@ window.addEventListener('DOMContentLoaded', function() {
         // Don't enable drag if clicking on input, button, or link
         if (e.target.tagName === 'INPUT' || e.target.tagName === 'BUTTON' || e.target.tagName === 'A' || e.target.closest('a')) {
             return;
+        }
         isDown = true;
         scrollWrapper.style.cursor = 'grabbing';
         scrollWrapper.style.userSelect = 'none';
@@ -680,6 +696,7 @@ function previewFile(url, extension, isImage) {
             </div>
         `;
     
+    }
     modal.innerHTML = `
         <div class="modal-dialog modal-xl modal-dialog-centered">
             <div class="modal-content">
@@ -715,6 +732,7 @@ function previewFile(url, extension, isImage) {
     });
 
 // Export table to CSV
+}
 function exportTableToCSV(table) {
     const rows = table.querySelectorAll('tr');
     let csv = [];
@@ -727,9 +745,11 @@ function exportTableToCSV(table) {
             data = data.replace(/"/g, '""'); // Escape quotes
             row.push('"' + data + '"');
         
+        }
         csv.push(row.join(','));
     
     // Download CSV
+    }
     const csvFile = new Blob([csv.join('\n')], { type: 'text/csv' });
     const downloadLink = document.createElement('a');
     downloadLink.download = 'export_' + new Date().getTime() + '.csv';
@@ -740,6 +760,7 @@ function exportTableToCSV(table) {
     document.body.removeChild(downloadLink);
 
 // Print only the table
+}
 function printTable() {
     const table = document.querySelector('.table-striped');
     if (!table) return;
@@ -767,7 +788,8 @@ function printTable() {
         printWindow.print();
         printWindow.close();
     }, 250);
-</script>
+
+}</script>
 
 <style>
 /* Smaller placeholder text */
@@ -775,30 +797,36 @@ function printTable() {
     font-size: 0.8em;
     opacity: 0.7;
 
+}
 .filter-input::-webkit-input-placeholder {
     font-size: 0.8em;
     opacity: 0.7;
 
+}
 .filter-input::-moz-placeholder {
     font-size: 0.8em;
     opacity: 0.7;
 
+}
 .filter-input:-ms-input-placeholder {
     font-size: 0.8em;
     opacity: 0.7;
 
 /* Hover-only action buttons - always visible on hover */
+}
 .action-buttons-hover {
     opacity: 1 !important;
     transition: opacity 0.2s ease-in-out;
     display: flex;
     gap: 2px;
 
+}
 .table-row-with-actions:hover .action-buttons-hover {
     opacity: 1 !important;
     transform: scale(1.05);
 
 /* Sticky action column with proper background */
+}
 .actions-column {
     background-color: #fff !important;
     box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
@@ -806,22 +834,27 @@ function printTable() {
     left: 0 !important;
     z-index: 5 !important;
 
+}
 .actions-column-header {
     position: sticky !important;
     left: 0 !important;
     z-index: 10 !important;
     box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
 
+}
 .table-striped tbody tr:nth-of-type(odd) .actions-column {
     background-color: rgba(102, 126, 234, 0.05) !important;
 
+}
 .table-striped tbody tr:nth-of-type(even) .actions-column {
     background-color: #fff !important;
 
+}
 .table-row-with-actions:hover .actions-column {
     background-color: rgba(102, 126, 234, 0.08) !important;
 
 /* Action buttons styled like export buttons */
+}
 .btn-action-icon {
     display: inline-flex;
     align-items: center;
@@ -838,6 +871,7 @@ function printTable() {
     transition: all 0.3s ease;
     margin: 0 2px;
 
+}
 .btn-action-icon:hover {
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     color: #fff;
@@ -845,7 +879,8 @@ function printTable() {
     transform: translateY(-1px);
     box-shadow: 0 2px 8px rgba(102, 126, 234, 0.3);
     text-decoration: none;
-</style>
+
+}</style>
 
 <script>
 // Prevent auto-filter initialization - this table has manual filters
@@ -896,6 +931,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 if (filterValue2 && isNumeric) {
                     const filterNum2 = parseFloat(filterValue2);
                     return cellNum >= filterNum && cellNum <= filterNum2;
+                }
                 return cellVal.includes(filterVal);
             case 'like':
             case 'contains':
@@ -912,6 +948,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 return cellVal.includes(filterVal);
     
     // Function to get column index from data-column attribute
+        }
+    }
     function getColumnIndex(columnName) {
         const headers = Array.from(table.querySelectorAll('thead tr:first-child th'));
         for (let i = 0; i < headers.length; i++) {
@@ -919,9 +957,12 @@ document.addEventListener('DOMContentLoaded', function() {
             const columnNameLower = columnName.replace(/_/g, ' ').toLowerCase();
             if (headerText.includes(columnNameLower) || headerText === columnNameLower) {
                 return i;
+            }
+        }
         return -1;
     
     // Main filter function
+    }
     function filterTable() {
         rows.forEach(row => {
             let shouldShow = true;
@@ -942,6 +983,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 filterOperators.forEach(op => {
                     if (op.getAttribute('data-column') === columnName) {
                         operator = op.value;
+                    }
                 });
                 
                 // Find corresponding range input for "between" operator
@@ -950,11 +992,14 @@ document.addEventListener('DOMContentLoaded', function() {
                     rangeInputs.forEach(rangeInput => {
                         if (rangeInput.getAttribute('data-column') === columnName) {
                             filterVal2 = rangeInput.value.trim();
+                        }
                     });
                 
+                }
                 const cellText = cells[columnIndex].textContent;
                 if (!applyFilter(cellText, filterVal, operator, filterVal2)) {
                     shouldShow = false;
+                }
             });
             
             row.style.display = shouldShow ? '' : 'none';
@@ -965,6 +1010,7 @@ document.addEventListener('DOMContentLoaded', function() {
         console.log(`Showing ${visibleCount} of ${rows.length} rows`);
     
     // Attach event listeners
+    }
     filterInputs.forEach(input => {
         input.addEventListener('input', filterTable);
         input.addEventListener('change', filterTable);
@@ -977,6 +1023,7 @@ document.addEventListener('DOMContentLoaded', function() {
             rangeInputs.forEach(rangeInput => {
                 if (rangeInput.getAttribute('data-column') === columnName) {
                     rangeInput.style.display = this.value === 'between' ? 'block' : 'none';
+                }
             });
             filterTable();
         });

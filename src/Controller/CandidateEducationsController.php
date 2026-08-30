@@ -30,7 +30,10 @@ class CandidateEducationsController extends AppController
         $masterstratas = $this->CandidateEducations->MasterStratas->find('list')->limit(200)->toArray();
         $masterpropinsis = $this->CandidateEducations->MasterPropinsis->find('list')->limit(200)->toArray();
         $masterkabupatens = $this->CandidateEducations->MasterKabupatens->find('list')->limit(200)->toArray();
-        $this->set(compact('candidateEducations', 'candidates', 'masterstratas', 'masterpropinsis', 'masterkabupatens'));
+                $master_stratas = $masterstratas;
+        $master_propinsis = $masterpropinsis;
+        $master_kabupatens = $masterkabupatens;
+$this->set(compact('candidateEducations', 'candidates', 'masterstratas', 'masterpropinsis', 'masterkabupatens', 'master_stratas', 'master_propinsis', 'master_kabupatens'));
     }
 
 

@@ -21,14 +21,15 @@ class CandidateRecordMedicalCheckUpsController extends AppController
     public function index()
     {
         $this->paginate = [
-            'contain' => ['Candidates', 'MasterMedicalCheckUpResults'],
+            'contain' => ['Applicants', 'MasterMedicalCheckUpResults'],
         ];
         $candidateRecordMedicalCheckUps = $this->paginate($this->CandidateRecordMedicalCheckUps);
 
         // Load dropdown data for filters
         $applicants = $this->CandidateRecordMedicalCheckUps->Applicants->find('list')->limit(200)->toArray();
-        $medical_check_up_results = $this->CandidateRecordMedicalCheckUps->MasterMedicalCheckUpResults->find('list')->limit(200)->toArray();
-        $this->set(compact('candidateRecordMedicalCheckUps', 'applicants', 'medical_check_up_results'));
+        $medicalCheckUpResults = $this->CandidateRecordMedicalCheckUps->MasterMedicalCheckUpResults->find('list')->limit(200)->toArray();
+                $medical_check_up_results = $medicalCheckUpResults;
+$this->set(compact('candidateRecordMedicalCheckUps', 'applicants', 'medicalCheckUpResults', 'medical_check_up_results'));
     }
 
 
@@ -106,8 +107,8 @@ class CandidateRecordMedicalCheckUpsController extends AppController
             $this->Flash->error(__('The candidate record medical check up could not be saved. Please, try again.'));
         }
         $applicants = $this->CandidateRecordMedicalCheckUps->Applicants->find('list', ['limit' => 200]);
-        $medicalCheckUpResults = $this->CandidateRecordMedicalCheckUps->MedicalCheckUpResults->find('list', ['limit' => 200]);
-        $this->set(compact('candidateRecordMedicalCheckUp', 'Candidates', 'MasterMedicalCheckUpResults'));
+        $medicalCheckUpResults = $this->CandidateRecordMedicalCheckUps->MasterMedicalCheckUpResults->find('list', ['limit' => 200]);
+        $this->set(compact('candidateRecordMedicalCheckUp', 'applicants', 'medicalCheckUpResults'));
     }
 
     /**
@@ -170,8 +171,8 @@ class CandidateRecordMedicalCheckUpsController extends AppController
             $this->Flash->error(__('The candidate record medical check up could not be saved. Please, try again.'));
         }
         $applicants = $this->CandidateRecordMedicalCheckUps->Applicants->find('list', ['limit' => 200]);
-        $medicalCheckUpResults = $this->CandidateRecordMedicalCheckUps->MedicalCheckUpResults->find('list', ['limit' => 200]);
-        $this->set(compact('candidateRecordMedicalCheckUp', 'Candidates', 'MasterMedicalCheckUpResults'));
+        $medicalCheckUpResults = $this->CandidateRecordMedicalCheckUps->MasterMedicalCheckUpResults->find('list', ['limit' => 200]);
+        $this->set(compact('candidateRecordMedicalCheckUp', 'applicants', 'medicalCheckUpResults'));
     }
 
     /**
@@ -201,7 +202,7 @@ class CandidateRecordMedicalCheckUpsController extends AppController
     public function exportCsv()
     {
         $query = $this->CandidateRecordMedicalCheckUps->find('all')
-            ->contain(['Candidates', 'MasterMedicalCheckUpResults']);
+            ->contain(['Applicants', 'MasterMedicalCheckUpResults']);
         
         // Define headers and fields for export
         $headers = ['ID', 'Name', 'Created', 'Modified'];
@@ -217,7 +218,7 @@ class CandidateRecordMedicalCheckUpsController extends AppController
     public function exportExcel()
     {
         $query = $this->CandidateRecordMedicalCheckUps->find('all')
-            ->contain(['Candidates', 'MasterMedicalCheckUpResults']);
+            ->contain(['Applicants', 'MasterMedicalCheckUpResults']);
         
         // Define headers and fields for export
         $headers = ['ID', 'Name', 'Created', 'Modified'];
@@ -237,7 +238,7 @@ class CandidateRecordMedicalCheckUpsController extends AppController
         $this->viewBuilder()->setLayout('print');
         
         $query = $this->CandidateRecordMedicalCheckUps->find('all')
-            ->contain(['Candidates', 'MasterMedicalCheckUpResults']);
+            ->contain(['Applicants', 'MasterMedicalCheckUpResults']);
         
         // Define report configuration
         $title = 'CandidateRecordMedicalCheckUps Report';

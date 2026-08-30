@@ -265,6 +265,7 @@ use Cake\Utility\Inflector;
                                 $(this).css('border-color', 'red');
                             } else {
                                 $(this).css('border-color', '#ced4da');
+                            }
                         });
                     });
                     </script>
@@ -700,8 +701,6 @@ $(document).ready(function() {
             'left': $(this).offset().left
         });
     });
-            }, 1);
-    });
     
     // Auto-uppercase for text inputs (except email, password, url)
     $('input[type="text"], textarea').not('[type="email"], [type="password"], [type="url"], .datepicker, .no-uppercase').on('input', function() {
@@ -718,9 +717,12 @@ $(document).ready(function() {
         if (email && !emailRegex.test(email)) {
             $(this).addClass('is-invalid');
             if (!$(this).next('.invalid-feedback').length) {
-                $(this).after('<div class="invalid-feedback">Please enter a valid email address</div>');`n            }`n        } else {
+                $(this).after('<div class="invalid-feedback">Please enter a valid email address</div>');
+            }
+        } else {
             $(this).removeClass('is-invalid');
             $(this).next('.invalid-feedback').remove();
+        }
     });
     
     // Password strength indicator
@@ -737,7 +739,10 @@ $(document).ready(function() {
         var strengthColor = ['#dc3545', '#fd7e14', '#ffc107', '#28a745', '#20c997'];
         
         if (!$(this).next('.password-strength').length) {
-            $(this).after('<div class="password-strength mt-1"><small></small><div class="progress" style="height: 5px;"><div class="progress-bar"></div></div></div>');`n        }`n        `n        var strengthDiv = $(this).next('.password-strength');
+            $(this).after('<div class="password-strength mt-1"><small></small><div class="progress" style="height: 5px;"><div class="progress-bar"></div></div></div>');
+        }
+        
+        var strengthDiv = $(this).next('.password-strength');
         strengthDiv.find('small').text(strengthText[strength - 1] || '').css('color', strengthColor[strength - 1] || '#6c757d');
         strengthDiv.find('.progress-bar').css({
             'width': (strength * 20) + '%',
@@ -752,192 +757,7 @@ $(document).ready(function() {
             return true;
         
         // Prevent Enter key from submitting form
-        if (e.keyCode === 13 || e.which === 13) {
-            e.preventDefault();
-            
-            // Move to next input field instead
-            var inputs = $(this).find('input, select, textarea').not('[type="hidden"]');
-            var currentIndex = inputs.index(e.target);
-            if (currentIndex < inputs.length - 1) {
-                inputs.eq(currentIndex + 1).focus();
-                        <label class="form-label"><?= __('Link Line') ?></label>
-                        <?= $this->Form->control('link_line', [
-                            'class' => 'form-control',
-                            'placeholder' => __('Enter Link Line'),
-                            'label' => false
-                        ]) ?>
-                    </div>
-                    <div class="col-12 mb-3">
-                        <label class="form-label"><?= __('Link Instagram') ?></label>
-                        <?= $this->Form->control('link_instagram', [
-                            'class' => 'form-control',
-                            'placeholder' => __('Enter Link Instagram'),
-                            'label' => false
-                        ]) ?>
-                    </div>
-                    <div class="col-12 mb-3">
-                        <label class="form-label"><?= __('Link Facebook') ?></label>
-                        <?= $this->Form->control('link_facebook', [
-                            'class' => 'form-control',
-                            'placeholder' => __('Enter Link Facebook'),
-                            'label' => false
-                        ]) ?>
-                    </div>
-                    <div class="col-12 mb-3">
-                        <label class="form-label"><?= __('Link Tiktok') ?></label>
-                        <?= $this->Form->control('link_tiktok', [
-                            'class' => 'form-control',
-                            'placeholder' => __('Enter Link Tiktok'),
-                            'label' => false
-                        ]) ?>
-                    </div>
-                    <div class="col-12 mb-3">
-                        <label class="form-label"><?= __('Master Interview Result Id') ?></label>
-                        <?= $this->Form->control('master_interview_result_id', [
-                            'class' => 'form-control',
-                            'placeholder' => __('Enter Master Interview Result Id'),
-                            'label' => false
-                        ]) ?>
-                    </div>
-                    <div class="col-12 mb-3">
-                        <label class="form-label"><?= __('Is Training Pass') ?></label>
-                        <?= $this->Form->control('is_training_pass', [
-                            'type' => 'password',
-                            'class' => 'form-control',
-                            'placeholder' => __('Enter Is Training Pass'),
-                            'label' => false,
-                            'autocomplete' => 'new-password'
-                        ]) ?>
-                        <small class="text-muted">Minimum 8 characters, include uppercase, lowercase, number & symbol</small>
-                    </div>
-                    <div class="col-12 mb-3">
-                        <label class="form-label"><?= __('Is Apprenticeship Pass') ?></label>
-                        <?= $this->Form->control('is_apprenticeship_pass', [
-                            'type' => 'password',
-                            'class' => 'form-control',
-                            'placeholder' => __('Enter Is Apprenticeship Pass'),
-                            'label' => false,
-                            'autocomplete' => 'new-password'
-                        ]) ?>
-                        <small class="text-muted">Minimum 8 characters, include uppercase, lowercase, number & symbol</small>
-                    </div>
-                    <div class="col-12 mb-3">
-                        <label class="form-label"><?= __('Master Rejected Reason Id') ?></label>
-                        <?= $this->Form->control('master_rejected_reason_id', [
-                            'options' => $masterRejectedReasons,
-                            'class' => 'form-control',
-                            'label' => false,
-                            'empty' => __('-- Select Master Rejected Reason Id --')
-                        ]) ?>
-                    </div>
-                    <div class="col-12 mb-3">
-                        <label class="form-label"><?= __('Specific Rejected Reason') ?></label>
-                        <?= $this->Form->control('specific_rejected_reason', [
-                            'type' => 'textarea',
-                            'class' => 'form-control',
-                            'rows' => 3,
-                            'placeholder' => __('Enter Specific Rejected Reason'),
-                            'label' => false
-                        ]) ?>
-                    </div>
-                </div>
-            </fieldset>
-            
-            <div class="form-actions mt-4">
-                <?= $this->Form->button(__('Save Trainee'), [
-                    'class' => 'btn-export-light',
-                    'id' => 'submitBtn'
-                ]) ?>
-                <?= $this->Html->link(__('Cancel'), ['action' => 'index'], [
-                    'class' => 'btn-export-light'
-                ]) ?>
-            </div>
-            <?= $this->Form->end() ?>
-        </div>
-    </div>
-</div>
-
-<?php $this->append('script'); ?>
-<?= $this->Html->script('image-preview.js') ?>
-<script>
-// Enhanced Datepicker with easy year selection
-$(document).ready(function() {
-        // Initialize Bootstrap Datepicker with correct format
-    $('.datepicker').datepicker({
-        format: 'yyyy-mm-dd',  // MySQL date format
-        autoclose: true,
-        todayHighlight: true,
-        orientation: 'bottom auto',
-        container: 'body',
-        showOnFocus: true,
-        zIndexOffset: 1050
-    });
-    
-    // Fix datepicker CSS conflicts
-    $('.datepicker-dropdown').css({
-        'z-index': '1060',
-        'display': 'block'
-    });
-    
-    // Ensure datepicker opens below input
-    $('.datepicker').on('show', function(e) {
-        $('.datepicker-dropdown').css({
-            'top': $(this).offset().top + $(this).outerHeight(),
-            'left': $(this).offset().left
-        });
-    });
-            }, 1);
-    });
-    
-    // Auto-uppercase for text inputs (except email, password, url)
-    $('input[type="text"], textarea').not('[type="email"], [type="password"], [type="url"], .datepicker, .no-uppercase').on('input', function() {
-        var start = this.selectionStart;
-        var end = this.selectionEnd;
-        this.value = this.value.toUpperCase();
-        this.setSelectionRange(start, end);
-    });
-    
-    // Email validation enhancement
-    $('input[type="email"]').on('blur', function() {
-        var email = $(this).val();
-        var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (email && !emailRegex.test(email)) {
-            $(this).addClass('is-invalid');
-            if (!$(this).next('.invalid-feedback').length) {
-                $(this).after('<div class="invalid-feedback">Please enter a valid email address</div>');`n            }`n        } else {
-            $(this).removeClass('is-invalid');
-            $(this).next('.invalid-feedback').remove();
-    });
-    
-    // Password strength indicator
-    $('input[type="password"]').on('input', function() {
-        var password = $(this).val();
-        var strength = 0;
-        if (password.length >= 8) strength++;
-        if (password.match(/[a-z]+/)) strength++;
-        if (password.match(/[A-Z]+/)) strength++;
-        if (password.match(/[0-9]+/)) strength++;
-        if (password.match(/[$@#&!]+/)) strength++;
-        
-        var strengthText = ['Very Weak', 'Weak', 'Fair', 'Good', 'Strong'];
-        var strengthColor = ['#dc3545', '#fd7e14', '#ffc107', '#28a745', '#20c997'];
-        
-        if (!$(this).next('.password-strength').length) {
-            $(this).after('<div class="password-strength mt-1"><small></small><div class="progress" style="height: 5px;"><div class="progress-bar"></div></div></div>');`n        }`n        `n        var strengthDiv = $(this).next('.password-strength');
-        strengthDiv.find('small').text(strengthText[strength - 1] || '').css('color', strengthColor[strength - 1] || '#6c757d');
-        strengthDiv.find('.progress-bar').css({
-            'width': (strength * 20) + '%',
-            'background-color': strengthColor[strength - 1] || '#6c757d'
-        });
-    });
-    
-    // CRITICAL: Prevent form submit on Enter key (except textarea)
-    $('#traineeForm').on('keydown', function(e) {
-        // Allow Enter in textarea for multiline input
-        if (e.target.tagName.toLowerCase() === 'textarea') {
-            return true;
-        
-        // Prevent Enter key from submitting form
+        }
         if (e.keyCode === 13 || e.which === 13) {
             e.preventDefault();
             
@@ -947,7 +767,9 @@ $(document).ready(function() {
             if (currentIndex < inputs.length - 1) {
                 inputs.eq(currentIndex + 1).focus();
             
+            }
             return false;
+        }
     });
     
     // Form validation
@@ -960,21 +782,25 @@ $(document).ready(function() {
                 $(this).addClass('is-invalid');
                 if (!$(this).next('.invalid-feedback').length) {
                     $(this).after('<div class="invalid-feedback">This field is required</div>');
+                }
             } else {
                 $(this).removeClass('is-invalid');
                 $(this).next('.invalid-feedback').remove();
+            }
         });
         
         if (hasError) {
             e.preventDefault();
             alert('Please fill in all required fields');
             return false;
+        }
     });
     
     // Re-enable form if user navigates back
     $(window).on('pageshow', function(event) {
         if (event.originalEvent.persisted) {
             $('.form-overlay').remove();
+        }
     });
 });
 </script>

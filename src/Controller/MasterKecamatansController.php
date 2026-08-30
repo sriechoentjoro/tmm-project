@@ -28,7 +28,9 @@ class MasterKecamatansController extends AppController
         // Load dropdown data for filters
         $masterpropinsis = $this->MasterKecamatans->MasterPropinsis->find('list')->limit(200)->toArray();
         $masterkabupatens = $this->MasterKecamatans->MasterKabupatens->find('list')->limit(200)->toArray();
-        $this->set(compact('masterKecamatans', 'masterpropinsis', 'masterkabupatens'));
+                $propinsis = $masterpropinsis;
+        $kabupatens = $masterkabupatens;
+$this->set(compact('masterKecamatans', 'masterpropinsis', 'masterkabupatens', 'propinsis', 'kabupatens'));
     }
 
 

@@ -62,7 +62,61 @@ class ApprenticeOrdersController extends AppController
             }, $byYear)),
         ];
 
-        $this->set(compact('byYear', 'totals'));
+        // ---- Pengayaan: breakdown & fulfillment dari tabel terasosiasi ----
+        $conn = \Cake\Datasource\ConnectionManager::get('cms_tmm_trainees');
+
+        // Per kumiai (cooperative association) — join lintas-database
+        $byKumiai = $conn->execute(
+            'SELECT ca.name AS label, COUNT(*) AS orders,
+                    SUM(ao.male_trainee_number + ao.female_trainee_number) AS requested
+             FROM apprentice_orders ao
+             LEFT JOIN cms_tmm_stakeholders.cooperative_associations ca ON ca.id = ao.cooperative_association_id
+             GROUP BY ao.cooperative_association_id, ca.name
+             ORDER BY requested DESC LIMIT 10'
+        )->fetchAll('assoc');
+
+        // Per organisasi penerima
+        $byOrg = $conn->execute(
+            'SELECT ao2.title AS label, COUNT(*) AS orders,
+                    SUM(ao.male_trainee_number + ao.female_trainee_number) AS requested
+             FROM apprentice_orders ao
+             LEFT JOIN cms_tmm_stakeholders.acceptance_organizations ao2 ON ao2.id = ao.acceptance_organization_id
+             GROUP BY ao.acceptance_organization_id, ao2.title
+             ORDER BY requested DESC LIMIT 10'
+        )->fetchAll('assoc');
+
+        // Per kategori pekerjaan
+        $byJob = $conn->execute(
+            'SELECT mjc.title AS label, COUNT(*) AS orders,
+                    SUM(ao.male_trainee_number + ao.female_trainee_number) AS requested
+             FROM apprentice_orders ao
+             LEFT JOIN cms_masters.master_job_categories mjc ON mjc.id = ao.master_job_category_id
+             GROUP BY ao.master_job_category_id, mjc.title
+             ORDER BY requested DESC LIMIT 10'
+        )->fetchAll('assoc');
+
+        // Fulfillment per order: diminta vs trainee ter-assign vs lulus apprenticeship
+        $fulfillment = $conn->execute(
+            'SELECT ao.id, ao.title, ao.departure_year, ao.departure_month,
+                    ca.name AS kumiai, org.title AS organization,
+                    (ao.male_trainee_number + ao.female_trainee_number) AS requested,
+                    COALESCE(t.assigned, 0) AS assigned,
+                    COALESCE(t.passed, 0)   AS passed
+             FROM apprentice_orders ao
+             LEFT JOIN cms_tmm_stakeholders.cooperative_associations ca ON ca.id = ao.cooperative_association_id
+             LEFT JOIN cms_tmm_stakeholders.acceptance_organizations org ON org.id = ao.acceptance_organization_id
+             LEFT JOIN (
+                 SELECT apprenticeship_order_id, COUNT(*) AS assigned,
+                        SUM(is_apprenticeship_pass = 1) AS passed
+                 FROM trainees GROUP BY apprenticeship_order_id
+             ) t ON t.apprenticeship_order_id = ao.id
+             ORDER BY ao.departure_year DESC, ao.id DESC'
+        )->fetchAll('assoc');
+
+        $totals['assigned'] = array_sum(array_column($fulfillment, 'assigned'));
+        $totals['passed']   = array_sum(array_column($fulfillment, 'passed'));
+
+        $this->set(compact('byYear', 'totals', 'byKumiai', 'byOrg', 'byJob', 'fulfillment'));
     }
 
     /**

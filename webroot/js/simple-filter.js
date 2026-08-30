@@ -1,4 +1,3 @@
-<script>
 jQuery(document).ready(function($) {
     console.log('Filter script loaded!');
     
@@ -87,4 +86,3 @@ jQuery(document).ready(function($) {
         console.log('Filter row created successfully!');
     });
 });
-</script>

@@ -14,7 +14,20 @@ class ApprenticeStoriesController extends AppController
     {
         $this->paginate = ['order' => ['ApprenticeStories.id' => 'DESC']];
         $apprenticeStories = $this->paginate($this->ApprenticeStories);
-        $this->set(compact('apprenticeStories'));
+
+        // Peta apprentice + ringkasan klasifikasi masalah
+        $conn = $this->ApprenticeStories->getConnection();
+        $apprenticeMap = [];
+        foreach ($conn->execute('SELECT id, name, tmm_code FROM apprentices')->fetchAll('assoc') as $r) {
+            $apprenticeMap[$r['id']] = $r;
+        }
+        $classStats = $conn->execute(
+            'SELECT problem_classification AS label, COUNT(*) AS n
+             FROM apprentice_stories GROUP BY problem_classification ORDER BY n DESC'
+        )->fetchAll('assoc');
+        $totalStories = array_sum(array_column($classStats, 'n'));
+
+        $this->set(compact('apprenticeStories', 'apprenticeMap', 'classStats', 'totalStories'));
     }
 
     public function view($id = null)

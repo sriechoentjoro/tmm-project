@@ -28,7 +28,8 @@ class ApprenticeRecordMedicalCheckUpsController extends AppController
         // Load dropdown data for filters
         $apprentices = $this->ApprenticeRecordMedicalCheckUps->Apprentices->find('list')->limit(200)->toArray();
         $mastermedicalcheckupresults = $this->ApprenticeRecordMedicalCheckUps->MasterMedicalCheckUpResults->find('list')->limit(200)->toArray();
-        $this->set(compact('apprenticeRecordMedicalCheckUps', 'apprentices', 'mastermedicalcheckupresults'));
+                $master_medical_check_up_results = $mastermedicalcheckupresults;
+$this->set(compact('apprenticeRecordMedicalCheckUps', 'apprentices', 'mastermedicalcheckupresults', 'master_medical_check_up_results'));
     }
 
 

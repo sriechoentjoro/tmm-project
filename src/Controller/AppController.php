@@ -76,14 +76,20 @@ class AppController extends Controller
                 ]
             ],
             'loginAction' => [
+                'prefix' => false,
                 'controller' => 'Users',
                 'action' => 'login'
             ],
             'loginRedirect' => [
+                'prefix' => false,
+                // Land on the system documentation (process pipeline) page;
+                // it highlights the stages for the logged-in role and links
+                // to the role dashboard and every module screen.
                 'controller' => 'Dashboard',
-                'action' => 'index'
+                'action' => 'processFlow'
             ],
             'logoutRedirect' => [
+                'prefix' => false,
                 'controller' => 'Users',
                 'action' => 'login'
             ],

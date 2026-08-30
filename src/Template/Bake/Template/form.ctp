@@ -162,6 +162,7 @@ $staticAssetsUrl = $protocol . '://' . $host . '/static-assets';
                                 $(this).css('border-color', 'red');
                             } else {
                                 $(this).css('border-color', '#ced4da');
+                            }
                         });
                     });
                     </script>
@@ -385,9 +386,11 @@ $(document).ready(function() {
             $(this).addClass('is-invalid');
             if (!$(this).next('.invalid-feedback').length) {
                 $(this).after('<div class="invalid-feedback">Please enter a valid email address</div>');
+            }
         } else {
             $(this).removeClass('is-invalid');
             $(this).next('.invalid-feedback').remove();
+        }
     });
     
     // Password strength indicator
@@ -406,6 +409,7 @@ $(document).ready(function() {
         if (!$(this).next('.password-strength').length) {
             $(this).after('<div class="password-strength mt-1"><small></small><div class="progress" style="height: 5px;"><div class="progress-bar"></div></div></div>');
         
+        }
         var strengthDiv = $(this).next('.password-strength');
         strengthDiv.find('small').text(strengthText[strength - 1] || '').css('color', strengthColor[strength - 1] || '#6c757d');
         strengthDiv.find('.progress-bar').css({

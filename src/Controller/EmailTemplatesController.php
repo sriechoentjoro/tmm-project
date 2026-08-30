@@ -14,7 +14,24 @@ class EmailTemplatesController extends AppController
     {
         $this->paginate = ['order' => ['EmailTemplates.id' => 'DESC']];
         $emailTemplates = $this->paginate($this->EmailTemplates);
-        $this->set(compact('emailTemplates'));
+
+        // Ringkasan status + jumlah email terkirim (dari email_logs terasosiasi)
+        $conn = $this->EmailTemplates->getConnection();
+        $counts = $conn->execute(
+            'SELECT COUNT(*) AS total, SUM(is_active = 1) AS active FROM email_templates'
+        )->fetch('assoc');
+        $sentMap = [];
+        try {
+            foreach ($conn->execute(
+                'SELECT template_key, COUNT(*) AS n FROM email_logs GROUP BY template_key'
+            )->fetchAll('assoc') as $r) {
+                $sentMap[$r['template_key']] = $r['n'];
+            }
+        } catch (\Exception $e) {
+            // email_logs mungkin tidak punya kolom template_key — abaikan
+        }
+
+        $this->set(compact('emailTemplates', 'counts', 'sentMap'));
     }
 
     public function view($id = null)

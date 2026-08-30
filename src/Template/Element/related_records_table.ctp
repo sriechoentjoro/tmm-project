@@ -28,32 +28,39 @@ $title = isset($title) ? $title : 'Related Records';
 <style>
 .ajax-table-container {
     margin: 20px 0;
+}
 .ajax-table-wrapper {
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
     margin: 15px 0;
     border: 1px solid #ddd;
     border-radius: 4px;
+}
 .ajax-table {
     width: 100%;
     min-width: 800px;
     margin: 0;
     border-collapse: collapse;
+}
 .ajax-table th, .ajax-table td {
     padding: 8px 12px;
     border: 1px solid #ddd;
     white-space: nowrap;
+}
 .ajax-table td img {
     display: block;
     margin: 0 auto;
+}
 .ajax-table td a {
     text-decoration: none;
+}
 .ajax-table thead th {
     background: #f8f9fa;
     font-weight: 600;
     position: sticky;
     top: 0;
     z-index: 10;
+}
 .ajax-filter-row select {
     width: 100%;
     padding: 6px 8px;
@@ -62,6 +69,7 @@ $title = isset($title) ? $title : 'Related Records';
     border-radius: 3px;
     background: white;
     margin-bottom: 5px;
+}
 .ajax-filter-row input {
     width: 100%;
     min-width: 120px;
@@ -71,10 +79,12 @@ $title = isset($title) ? $title : 'Related Records';
     border-radius: 3px;
     background: white;
     box-sizing: border-box;
+}
 .ajax-filter-row input:focus {
     outline: none;
     border-color: #0056b3;
     box-shadow: 0 0 0 2px rgba(0,123,255,0.25);
+}
 .ajax-pagination {
     display: flex;
     justify-content: space-between;
@@ -82,6 +92,7 @@ $title = isset($title) ? $title : 'Related Records';
     padding: 10px;
     background: #f8f9fa;
     border-top: 1px solid #ddd;
+}
 .ajax-pagination button {
     padding: 5px 15px;
     margin: 0 5px;
@@ -90,12 +101,15 @@ $title = isset($title) ? $title : 'Related Records';
     border: none;
     border-radius: 3px;
     cursor: pointer;
+}
 .ajax-pagination button:disabled {
     background: #ccc;
     cursor: not-allowed;
+}
 .ajax-pagination button:hover:not(:disabled) {
     background: #0056b3;
-</style>
+
+}</style>
 
 <script>
 console.log('ðŸš€ AJAX Element Loading - Version 2.0 - <?= date('H:i:s') ?>');
@@ -111,13 +125,16 @@ if(e.target.classList.contains('page-btn')&&!e.target.disabled){
 var page=parseInt(e.target.dataset.page);
 console.log('ðŸ“„ Pagination clicked, loading page:',page);
 load(page);
+}
 });
 
 function buildUrl(page){
 var u=c.dataset.ajaxUrl+'?filterField='+encodeURIComponent(c.dataset.filterField)+'&filterValue='+encodeURIComponent(c.dataset.filterValue)+'&page='+page+'&limit='+limit;
 if(Object.keys(columnFilters).length>0){
 u+='&filters='+encodeURIComponent(JSON.stringify(columnFilters));
+}
 return u;
+}
 
 function load(page){
 if(!loaded){loaded=true;}
@@ -150,6 +167,7 @@ function escapeHtml(text){
 if(!text)return '';
 var map={'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'};
 return String(text).replace(/[&<>"']/g,function(m){return map[m];});
+}
 
 var h='<div class="ajax-info" style="padding:10px;background:#e9ecef;margin-bottom:10px;">';
 h+='<strong>Total Records:</strong> '+totalRecords+' | ';
@@ -190,11 +208,13 @@ h+='<option value="less_than"'+(currentOperator==='less_than'?' selected':'')+'>
 if(col.type==='file'){
 h+='<option value="file_exists"'+(currentOperator==='file_exists'?' selected':'')+'>File exists</option>';
 h+='<option value="file_not_exists"'+(currentOperator==='file_not_exists'?' selected':'')+'>File missing</option>';
+}
 h+='</select>';
 // Filter input - ALWAYS show with restored value
 h+='<input type="text" class="filter-input" data-field="'+fieldName+'" value="'+currentValue+'" placeholder="Type to filter..." style="display:block;">';
 }else{
 h+='&nbsp;'; // Non-sortable columns
+}
 h+='</th>';
 });
 h+='<th style="background:#e9ecef;"></th>'; // No apply button anymore
@@ -208,6 +228,7 @@ data.data.forEach(function(row,idx){
 if(idx===0){
 console.log('ðŸ” First row data sample:',row);
 console.log('ðŸ” Available fields:',Object.keys(row));
+}
 h+='<tr>';
 cols.forEach(function(col){
 // Support both 'name' and 'field' for column identifier
@@ -234,6 +255,7 @@ h+='<line x1="3" y1="3" x2="21" y2="21" stroke="#dc3545" stroke-width="3"></line
 h+='</svg>';
 h+='<br><small style="font-size:10px;color:#999;">Not found</small>';
 h+='</span>';
+}
 h+='</td>';
 }else if(col.type==='file'&&v){
 // Other file types (not image)
@@ -245,11 +267,13 @@ h+='<td>'+dateStr+'</td>';
 h+='<td>'+v+'</td>';
 }else{
 h+='<td>'+(v||'-')+'</td>';
+}
 });
 var viewUrl='/project_tmm/'+c.dataset.controller.toLowerCase()+'/view/'+row.id;
 h+='<td><a href="'+viewUrl+'" class="btn btn-xs btn-info">View</a></td>';
 h+='</tr>';
 });
+}
 h+='</tbody></table></div>';
 
 // Pagination controls
@@ -287,14 +311,17 @@ var value=inp.value.trim();
 var operator=d.querySelector('.filter-operator[data-field="'+field+'"]');
 if(value||operator.value==='file_exists'||operator.value==='file_not_exists'){
 columnFilters[field]={operator:operator?operator.value:'contains',value:value};
+}
 });
 console.log('ðŸ” Auto-applying filters:',columnFilters);
 load(1); // Reset to page 1 when filtering
+}
 
 // Debounce function (wait 800ms after user stops typing)
 function debounceFilter(){
 clearTimeout(filterTimeout);
 filterTimeout=setTimeout(applyFilters,800);
+}
 
 // Attach to all filter inputs (keyup event)
 d.querySelectorAll('.filter-input').forEach(function(inp){
@@ -310,20 +337,24 @@ var field=sel.dataset.field;
 var input=d.querySelector('.filter-input[data-field="'+field+'"]');
 if(input&&(input.value.trim()||sel.value==='file_exists'||sel.value==='file_not_exists')){
 applyFilters();
+}
 });
 });
 },100);
 }else{
 console.log('âŒ No content div found!');
+}
 }else{
 console.log('âš ï¸ Data invalid - success:',data.success,'data exists:',!!data.data);
 if(d){d.innerHTML='<div class="alert alert-warning">No data available</div>';d.style.display='block';}
+}
 }).catch(function(e){
 console.error('âŒ Fetch Error:',e);
 console.error('âŒ Error stack:',e.stack);
 if(l)l.style.display='none';
 if(d){d.innerHTML='<div class="alert alert-danger">Error loading data: '+e.message+'</div>';d.style.display='block';}
 });
+}
 
 // Expose loadPage function
 c.loadPage=function(p){load(p);};
@@ -339,6 +370,8 @@ console.log('ðŸ” Tab visibility changed for <?= h($tabId) ?>:', isVisible,
 if(isVisible&&!loaded){
 console.log('âœ… Loading data for <?= h($tabId) ?>');
 load(1);
+}
+}
 });
 });
 observer.observe(tabPane,{attributes:true,attributeFilter:['style','class']});
@@ -350,6 +383,7 @@ load(1);
 },100);}
 }else{
 console.error('âŒ Tab pane NOT found for <?= h($tabId) ?>');
+}
 })();
 </script>
 

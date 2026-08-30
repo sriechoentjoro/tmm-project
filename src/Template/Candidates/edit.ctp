@@ -300,6 +300,7 @@ use Cake\Utility\Inflector;
                                 $(this).css('border-color', 'red');
                             } else {
                                 $(this).css('border-color', '#ced4da');
+                            }
                         });
                     });
                     </script>
@@ -727,9 +728,11 @@ $(document).ready(function() {
             $(this).addClass('is-invalid');
             if (!$(this).next('.invalid-feedback').length) {
                 $(this).after('<div class="invalid-feedback">Please enter a valid email address</div>');
+            }
         } else {
             $(this).removeClass('is-invalid');
             $(this).next('.invalid-feedback').remove();
+        }
     });
     
     // Password strength indicator
@@ -748,6 +751,7 @@ $(document).ready(function() {
         if (!$(this).next('.password-strength').length) {
             $(this).after('<div class="password-strength mt-1"><small></small><div class="progress" style="height: 5px;"><div class="progress-bar"></div></div></div>');
         
+        }
         var strengthDiv = $(this).next('.password-strength');
         strengthDiv.find('small').text(strengthText[strength - 1] || '').css('color', strengthColor[strength - 1] || '#6c757d');
         strengthDiv.find('.progress-bar').css({
@@ -763,6 +767,7 @@ $(document).ready(function() {
             return true;
         
         // Prevent Enter key from submitting form
+        }
         if (e.keyCode === 13 || e.which === 13) {
             e.preventDefault();
             
@@ -771,7 +776,9 @@ $(document).ready(function() {
             var currentIndex = inputs.index(e.target);
             if (currentIndex < inputs.length - 1) {
                 inputs.eq(currentIndex + 1).focus();
+            }
             return false;
+        }
     });
     
     // Form validation
@@ -784,21 +791,25 @@ $(document).ready(function() {
                 $(this).addClass('is-invalid');
                 if (!$(this).next('.invalid-feedback').length) {
                     $(this).after('<div class="invalid-feedback">This field is required</div>');
+                }
             } else {
                 $(this).removeClass('is-invalid');
                 $(this).next('.invalid-feedback').remove();
+            }
         });
         
         if (hasError) {
             e.preventDefault();
             alert('Please fill in all required fields');
             return false;
+        }
     });
     
     // Re-enable form if user navigates back
     $(window).on('pageshow', function(event) {
         if (event.originalEvent.persisted) {
             $('.form-overlay').remove();
+        }
     });
 });
 </script>

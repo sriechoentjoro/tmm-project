@@ -384,9 +384,10 @@ class DashboardController extends AppController
         
         // Chart data
         $candidatesByMonth = $this->getCandidatesByMonth();
+        $candidatesByInstitution = $this->getCandidatesByInstitution();
         $traineesByStatus = $this->getTraineesByStatus();
-        
-        $this->set(compact('stats', 'candidatesByMonth', 'traineesByStatus'));
+
+        $this->set(compact('stats', 'candidatesByMonth', 'candidatesByInstitution', 'traineesByStatus'));
     }
     
     /**
@@ -402,8 +403,17 @@ class DashboardController extends AppController
             'approvedCandidates' => $this->getCountByCondition('Candidates', 'cms_lpk_candidates', ['status' => 'approved']),
         ];
         
-        $recentCandidates = $this->getRecentRecords('Candidates', 'cms_lpk_candidates', 10);
-        
+        try {
+            $candidatesTable = $this->locateTable('Candidates', 'cms_lpk_candidates');
+            $recentCandidates = $candidatesTable->find()
+                ->contain(['VocationalTrainingInstitutions'])
+                ->order(['Candidates.id' => 'DESC'])
+                ->limit(10)
+                ->toArray();
+        } catch (\Exception $e) {
+            $recentCandidates = $this->getRecentRecords('Candidates', 'cms_lpk_candidates', 10);
+        }
+
         $this->set(compact('stats', 'recentCandidates'));
     }
     
@@ -612,11 +622,23 @@ class DashboardController extends AppController
     /**
      * Helper: Get total count from a model
      */
+    /**
+     * Helper: Locate a table, tolerating aliases already configured earlier in
+     * the request (re-configuring an existing alias throws).
+     */
+    protected function locateTable($modelName, $connection = null)
+    {
+        $locator = TableRegistry::getTableLocator();
+        if ($connection === null || $connection === 'default' || $locator->exists($modelName)) {
+            return $locator->get($modelName);
+        }
+        return $locator->get($modelName, ['connection' => ConnectionManager::get($connection)]);
+    }
+
     protected function getTotalCount($modelName, $connection = 'default')
     {
         try {
-            $table = TableRegistry::getTableLocator()->get($modelName);
-            return $table->find()->count();
+            return $this->locateTable($modelName, $connection)->find()->count();
         } catch (\Exception $e) {
             return 0;
         }
@@ -628,9 +650,7 @@ class DashboardController extends AppController
     protected function getCountByCondition($modelName, $connection, $conditions)
     {
         try {
-            $conn = ConnectionManager::get($connection);
-            $table = TableRegistry::getTableLocator()->get($modelName, ['connection' => $conn]);
-            return $table->find()->where($conditions)->count();
+            return $this->locateTable($modelName, $connection)->find()->where($conditions)->count();
         } catch (\Exception $e) {
             return 0;
         }
@@ -642,10 +662,11 @@ class DashboardController extends AppController
     protected function getRecentRecords($modelName, $connection, $limit = 10)
     {
         try {
-            $conn = ConnectionManager::get($connection);
-            $table = TableRegistry::getTableLocator()->get($modelName, ['connection' => $conn]);
+            $table = $this->locateTable($modelName, $connection);
+            // Not every table has a `created` column — fall back to primary key
+            $orderField = $table->getSchema()->hasColumn('created') ? 'created' : $table->getPrimaryKey();
             return $table->find()
-                ->order(['created' => 'DESC'])
+                ->order([$table->aliasField($orderField) => 'DESC'])
                 ->limit($limit)
                 ->toArray();
         } catch (\Exception $e) {
@@ -659,11 +680,11 @@ class DashboardController extends AppController
     protected function getRecentRecordsByCondition($modelName, $connection, $conditions, $limit = 10)
     {
         try {
-            $conn = ConnectionManager::get($connection);
-            $table = TableRegistry::getTableLocator()->get($modelName, ['connection' => $conn]);
+            $table = $this->locateTable($modelName, $connection);
+            $orderField = $table->getSchema()->hasColumn('created') ? 'created' : $table->getPrimaryKey();
             return $table->find()
                 ->where($conditions)
-                ->order(['created' => 'DESC'])
+                ->order([$table->aliasField($orderField) => 'DESC'])
                 ->limit($limit)
                 ->toArray();
         } catch (\Exception $e) {
@@ -676,17 +697,91 @@ class DashboardController extends AppController
      */
     protected function getCandidatesByMonth()
     {
-        // Placeholder - implement based on your requirements
-        return [];
+        try {
+            $conn = ConnectionManager::get('cms_lpk_candidates');
+            $hasCreated = $conn->execute("SHOW COLUMNS FROM candidates LIKE 'created'")->fetch('assoc');
+            if (!$hasCreated) {
+                return [];
+            }
+            return $conn->execute("
+                SELECT DATE_FORMAT(created, '%Y-%m') AS label, COUNT(*) AS count
+                FROM candidates
+                WHERE created >= DATE_SUB(CURDATE(), INTERVAL 12 MONTH)
+                GROUP BY label ORDER BY label
+            ")->fetchAll('assoc');
+        } catch (\Exception $e) {
+            return [];
+        }
     }
-    
+
+    /**
+     * Helper: Candidates per LPK institution (top 8) for the overview chart.
+     */
+    protected function getCandidatesByInstitution()
+    {
+        try {
+            $candidates = ConnectionManager::get('cms_lpk_candidates');
+            $rows = $candidates->execute("
+                SELECT vocational_training_institution_id AS inst_id, COUNT(*) AS count
+                FROM candidates
+                GROUP BY vocational_training_institution_id
+                ORDER BY count DESC
+                LIMIT 8
+            ")->fetchAll('assoc');
+            if (!$rows) {
+                return [];
+            }
+            $names = [];
+            try {
+                $stakeholders = ConnectionManager::get('cms_tmm_stakeholders');
+                $ids = array_filter(array_map(function ($r) { return (int)$r['inst_id']; }, $rows));
+                if ($ids) {
+                    $in = implode(',', $ids);
+                    foreach ($stakeholders->execute("SELECT id, name FROM vocational_training_institutions WHERE id IN ($in)")->fetchAll('assoc') as $n) {
+                        $names[(int)$n['id']] = $n['name'];
+                    }
+                }
+            } catch (\Exception $e) {
+                // fall through — labels degrade to "Institution #id"
+            }
+            $out = [];
+            foreach ($rows as $r) {
+                $id = (int)$r['inst_id'];
+                $out[] = [
+                    'label' => $names[$id] ?? ($id ? "Institution #$id" : 'Unassigned'),
+                    'count' => (int)$r['count'],
+                ];
+            }
+            return $out;
+        } catch (\Exception $e) {
+            return [];
+        }
+    }
+
     /**
      * Helper: Get trainees by status for charts
      */
     protected function getTraineesByStatus()
     {
-        // Placeholder - implement based on your requirements
-        return [];
+        try {
+            $conn = ConnectionManager::get('cms_tmm_trainees');
+            $row = $conn->execute("
+                SELECT COUNT(*) AS total,
+                       SUM(CASE WHEN is_trainee_pass = 1 THEN 1 ELSE 0 END) AS passed
+                FROM trainees
+            ")->fetch('assoc');
+            $total = (int)($row['total'] ?? 0);
+            $passed = (int)($row['passed'] ?? 0);
+            if ($total === 0) {
+                return [];
+            }
+            return [
+                ['label' => __('In Training'), 'count' => $total - $passed],
+                ['label' => __('Passed'), 'count' => $passed],
+            ];
+        } catch (\Exception $e) {
+            return [];
+        }
     }
     
     /**
@@ -890,7 +985,11 @@ class DashboardController extends AppController
                 return $this->redirect(['action' => 'processFlow']);
             }
         }
-        
-        $this->viewBuilder()->setLayout('process_flow');
+
+        $roles = (array)($this->Auth->user('role_names') ?: []);
+        $this->set('userRoles', $roles);
+
+        // Rendered in the default 'elegant' layout so the application menu
+        // stays visible; the menu's first tab ("Process Flow") links back here.
     }
 }

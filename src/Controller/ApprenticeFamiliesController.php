@@ -29,7 +29,9 @@ class ApprenticeFamiliesController extends AppController
         $apprentices = $this->ApprenticeFamilies->Apprentices->find('list')->limit(200)->toArray();
         $masterfamilyconnections = $this->ApprenticeFamilies->MasterFamilyConnections->find('list')->limit(200)->toArray();
         $masteroccupations = $this->ApprenticeFamilies->MasterOccupations->find('list')->limit(200)->toArray();
-        $this->set(compact('apprenticeFamilies', 'apprentices', 'masterfamilyconnections', 'masteroccupations'));
+                $master_family_connections = $masterfamilyconnections;
+        $master_occupations = $masteroccupations;
+$this->set(compact('apprenticeFamilies', 'apprentices', 'masterfamilyconnections', 'masteroccupations', 'master_family_connections', 'master_occupations'));
     }
 
 
