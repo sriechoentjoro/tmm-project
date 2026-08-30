@@ -20,7 +20,7 @@
                 ) ?>
                 <?= $this->Html->link(
                     '<i class="fas fa-plus"></i> ' . __('New Vocational Training Institution'),
-                    ['action' => 'add'],
+                    ['action' => 'create'],
                     ['class' => 'dropdown-item', 'escape' => false]
                 ) ?>
                 <div class="dropdown-divider"></div>
@@ -75,7 +75,7 @@
         <div style="display: flex; align-items: center; gap: 10px;">
             <?= $this->Html->link(
                 '<i class="fas fa-plus"></i> ' . __('Add New'),
-                ['action' => 'add'],
+                ['action' => 'create'],
                 ['class' => 'btn-export-light', 'escape' => false, 'title' => 'Add New Record']
             ) ?>
         </div>
