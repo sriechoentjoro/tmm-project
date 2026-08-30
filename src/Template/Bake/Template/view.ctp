@@ -684,8 +684,10 @@ $pk = "\$${singularVar}->{$primaryKey[0]}";
                                                     $displayValue = $<%= $otherSingularVar %>-><%= lcfirst($associationName) %>->title;
                                                     if (empty($displayValue)) {
                                                         $displayValue = $<%= $otherSingularVar %>-><%= lcfirst($associationName) %>->name;
+                                                    }
                                                     if (empty($displayValue)) {
                                                         $displayValue = $<%= $otherSingularVar %>-><%= $field %>;
+                                                    }
                                                 ?>
                                                 <?= $this->Html->link(h($displayValue), ['controller' => '<%= $associationNamePlural %>', 'action' => 'view', $<%= $otherSingularVar %>-><%= $field %>]) ?>
                                             <?php else: ?>

@@ -984,8 +984,10 @@
                                                     $displayValue = $traineeCertifications->trainee->title;
                                                     if (empty($displayValue)) {
                                                         $displayValue = $traineeCertifications->trainee->name;
+                                                    }
                                                     if (empty($displayValue)) {
                                                         $displayValue = $traineeCertifications->trainee_id;
+                                                    }
                                                 ?>
                                                 <?= $this->Html->link(h($displayValue), ['controller' => 'Trainees', 'action' => 'view', $traineeCertifications->trainee_id]) ?>
                                             <?php else: ?>
@@ -1181,8 +1183,10 @@
                                                     $displayValue = $traineeCourses->trainee->title;
                                                     if (empty($displayValue)) {
                                                         $displayValue = $traineeCourses->trainee->name;
+                                                    }
                                                     if (empty($displayValue)) {
                                                         $displayValue = $traineeCourses->trainee_id;
+                                                    }
                                                 ?>
                                                 <?= $this->Html->link(h($displayValue), ['controller' => 'Trainees', 'action' => 'view', $traineeCourses->trainee_id]) ?>
                                             <?php else: ?>
@@ -1195,8 +1199,10 @@
                                                     $displayValue = $traineeCourses->vocationalTrainingInstitution->title;
                                                     if (empty($displayValue)) {
                                                         $displayValue = $traineeCourses->vocationalTrainingInstitution->name;
+                                                    }
                                                     if (empty($displayValue)) {
                                                         $displayValue = $traineeCourses->vocational_training_institution_id;
+                                                    }
                                                 ?>
                                                 <?= $this->Html->link(h($displayValue), ['controller' => 'VocationalTrainingInstitutions', 'action' => 'view', $traineeCourses->vocational_training_institution_id]) ?>
                                             <?php else: ?>
@@ -1209,8 +1215,10 @@
                                                     $displayValue = $traineeCourses->courseMajor->title;
                                                     if (empty($displayValue)) {
                                                         $displayValue = $traineeCourses->courseMajor->name;
+                                                    }
                                                     if (empty($displayValue)) {
                                                         $displayValue = $traineeCourses->course_major_id;
+                                                    }
                                                 ?>
                                                 <?= $this->Html->link(h($displayValue), ['controller' => 'CourseMajors', 'action' => 'view', $traineeCourses->course_major_id]) ?>
                                             <?php else: ?>
@@ -1404,8 +1412,10 @@
                                                     $displayValue = $traineeEducations->trainee->title;
                                                     if (empty($displayValue)) {
                                                         $displayValue = $traineeEducations->trainee->name;
+                                                    }
                                                     if (empty($displayValue)) {
                                                         $displayValue = $traineeEducations->trainee_id;
+                                                    }
                                                 ?>
                                                 <?= $this->Html->link(h($displayValue), ['controller' => 'Trainees', 'action' => 'view', $traineeEducations->trainee_id]) ?>
                                             <?php else: ?>
@@ -1418,8 +1428,10 @@
                                                     $displayValue = $traineeEducations->masterStrata->title;
                                                     if (empty($displayValue)) {
                                                         $displayValue = $traineeEducations->masterStrata->name;
+                                                    }
                                                     if (empty($displayValue)) {
                                                         $displayValue = $traineeEducations->master_strata_id;
+                                                    }
                                                 ?>
                                                 <?= $this->Html->link(h($displayValue), ['controller' => 'MasterStratas', 'action' => 'view', $traineeEducations->master_strata_id]) ?>
                                             <?php else: ?>
@@ -1432,8 +1444,10 @@
                                                     $displayValue = $traineeEducations->masterPropinsi->title;
                                                     if (empty($displayValue)) {
                                                         $displayValue = $traineeEducations->masterPropinsi->name;
+                                                    }
                                                     if (empty($displayValue)) {
                                                         $displayValue = $traineeEducations->master_propinsi_id;
+                                                    }
                                                 ?>
                                                 <?= $this->Html->link(h($displayValue), ['controller' => 'MasterPropinsis', 'action' => 'view', $traineeEducations->master_propinsi_id]) ?>
                                             <?php else: ?>
@@ -1446,8 +1460,10 @@
                                                     $displayValue = $traineeEducations->masterKabupaten->title;
                                                     if (empty($displayValue)) {
                                                         $displayValue = $traineeEducations->masterKabupaten->name;
+                                                    }
                                                     if (empty($displayValue)) {
                                                         $displayValue = $traineeEducations->master_kabupaten_id;
+                                                    }
                                                 ?>
                                                 <?= $this->Html->link(h($displayValue), ['controller' => 'MasterKabupatens', 'action' => 'view', $traineeEducations->master_kabupaten_id]) ?>
                                             <?php else: ?>
@@ -1640,8 +1656,10 @@
                                                     $displayValue = $traineeExperiences->trainee->title;
                                                     if (empty($displayValue)) {
                                                         $displayValue = $traineeExperiences->trainee->name;
+                                                    }
                                                     if (empty($displayValue)) {
                                                         $displayValue = $traineeExperiences->trainee_id;
+                                                    }
                                                 ?>
                                                 <?= $this->Html->link(h($displayValue), ['controller' => 'Trainees', 'action' => 'view', $traineeExperiences->trainee_id]) ?>
                                             <?php else: ?>
@@ -1837,8 +1855,10 @@
                                                     $displayValue = $traineeFamilies->trainee->title;
                                                     if (empty($displayValue)) {
                                                         $displayValue = $traineeFamilies->trainee->name;
+                                                    }
                                                     if (empty($displayValue)) {
                                                         $displayValue = $traineeFamilies->trainee_id;
+                                                    }
                                                 ?>
                                                 <?= $this->Html->link(h($displayValue), ['controller' => 'Trainees', 'action' => 'view', $traineeFamilies->trainee_id]) ?>
                                             <?php else: ?>
@@ -1851,8 +1871,10 @@
                                                     $displayValue = $traineeFamilies->masterFamilyConnection->title;
                                                     if (empty($displayValue)) {
                                                         $displayValue = $traineeFamilies->masterFamilyConnection->name;
+                                                    }
                                                     if (empty($displayValue)) {
                                                         $displayValue = $traineeFamilies->master_family_connection_id;
+                                                    }
                                                 ?>
                                                 <?= $this->Html->link(h($displayValue), ['controller' => 'MasterFamilyConnections', 'action' => 'view', $traineeFamilies->master_family_connection_id]) ?>
                                             <?php else: ?>
@@ -2047,8 +2069,10 @@
                                                     $displayValue = $traineeFamilyStories->trainee->title;
                                                     if (empty($displayValue)) {
                                                         $displayValue = $traineeFamilyStories->trainee->name;
+                                                    }
                                                     if (empty($displayValue)) {
                                                         $displayValue = $traineeFamilyStories->trainee_id;
+                                                    }
                                                 ?>
                                                 <?= $this->Html->link(h($displayValue), ['controller' => 'Trainees', 'action' => 'view', $traineeFamilyStories->trainee_id]) ?>
                                             <?php else: ?>

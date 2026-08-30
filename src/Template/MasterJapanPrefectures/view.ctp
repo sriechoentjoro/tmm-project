@@ -311,8 +311,10 @@
                                                     $displayValue = $acceptanceOrganizations->masterJapanPrefecture->title;
                                                     if (empty($displayValue)) {
                                                         $displayValue = $acceptanceOrganizations->masterJapanPrefecture->name;
+                                                    }
                                                     if (empty($displayValue)) {
                                                         $displayValue = $acceptanceOrganizations->master_japan_prefecture_id;
+                                                    }
                                                 ?>
                                                 <?= $this->Html->link(h($displayValue), ['controller' => 'MasterJapanPrefectures', 'action' => 'view', $acceptanceOrganizations->master_japan_prefecture_id]) ?>
                                             <?php else: ?>
