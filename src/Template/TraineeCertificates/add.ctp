@@ -15,7 +15,12 @@
     <fieldset>
         <?php
         echo $this->Form->control('trainee_id');
-        echo $this->Form->control('issue_date');
+        echo $this->Form->control('issue_date', [
+            'type' => 'text',
+            'class' => 'form-control datepicker',
+            'placeholder' => 'YYYY-MM-DD',
+            'autocomplete' => 'off'
+        ]);
         echo $this->Form->control('certificate_number');
         echo $this->Form->control('result_score');
         echo $this->Form->control('grade');

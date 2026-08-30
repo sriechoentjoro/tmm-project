@@ -26,23 +26,28 @@ $foreignValue = isset($foreignValue) ? $foreignValue : null; // e.g., $apprentic
 .static-table-wrapper {
     overflow-x: auto;
     margin: 20px 0;
+}
 .static-table {
     width: 100%;
     border-collapse: collapse;
     font-size: 14px;
+}
 .static-table th,
 .static-table td {
     padding: 12px 8px;
     border: 1px solid #dee2e6;
     text-align: left;
+}
 .static-table th {
     background: #f8f9fa;
     font-weight: 600;
     position: sticky;
     top: 0;
     z-index: 10;
+}
 .static-table tbody tr:hover {
     background-color: #f5f5f5;
+}
 .static-pagination {
     display: flex;
     justify-content: space-between;
@@ -50,36 +55,43 @@ $foreignValue = isset($foreignValue) ? $foreignValue : null; // e.g., $apprentic
     padding: 15px 0;
     flex-wrap: wrap;
     gap: 10px;
+}
 .static-pagination button {
     padding: 6px 12px;
     border: 1px solid #dee2e6;
     background: #fff;
     cursor: pointer;
     border-radius: 3px;
+}
 .static-pagination button:disabled {
     opacity: 0.5;
     cursor: not-allowed;
+}
 .static-pagination button:hover:not(:disabled) {
     background: #0056b3;
     color: white;
+}
 .static-info {
     padding: 10px;
     background: #e9ecef;
     margin-bottom: 10px;
     border-radius: 4px;
+}
 .filter-operator {
     height: 28px !important;
     font-size: 11px !important;
     padding: 2px 4px !important;
     border: 1px solid #ced4da;
     border-radius: 3px;
+}
 .filter-input {
     height: 28px !important;
     font-size: 11px !important;
     padding: 2px 6px !important;
     border: 1px solid #ced4da;
     border-radius: 3px;
-</style>
+
+}</style>
 
 <div id="<?= h($tabId) ?>-static" class="static-records-container">
     
@@ -208,7 +220,6 @@ $foreignValue = isset($foreignValue) ? $foreignValue : null; // e.g., $apprentic
             $baseUrl = strtok($currentUrl, '?');
             
             // Build URL with preserved query params
-            if (!function_exists('buildPageUrl')):
             function buildPageUrl($base, $param, $pageNum, $existingQuery) {
                 $query = [];
                 if (!empty($existingQuery)) {
@@ -217,8 +228,7 @@ $foreignValue = isset($foreignValue) ? $foreignValue : null; // e.g., $apprentic
                 $query[$param] = $pageNum;
                 return $base . '?' . http_build_query($query);
             }
-            endif;
-            
+
             $existingQuery = parse_url($currentUrl, PHP_URL_QUERY);
             ?>
             <div class="static-pagination">
@@ -288,6 +298,7 @@ $foreignValue = isset($foreignValue) ? $foreignValue : null; // e.g., $apprentic
             filterInputs.forEach(function(input) {
                 if (input.value.trim() !== '') {
                     allEmpty = false;
+                }
             });
             
             console.log('ðŸ” All inputs empty?', allEmpty);
@@ -304,9 +315,11 @@ $foreignValue = isset($foreignValue) ? $foreignValue : null; // e.g., $apprentic
                 if (infoBar) {
                     var totalRecords = tbody.querySelectorAll('tr').length;
                     infoBar.innerHTML = 'Showing all ' + totalRecords + ' records';
+                }
                 return;
             
             // Collect filter values
+            }
             var filters = {};
             var hasFilters = false;
             
@@ -320,6 +333,7 @@ $foreignValue = isset($foreignValue) ? $foreignValue : null; // e.g., $apprentic
                 if (value !== '') {
                     filters[field] = { value: value, operator: operator };
                     hasFilters = true;
+                }
             });
             
             currentFilters = filters;
@@ -337,6 +351,7 @@ $foreignValue = isset($foreignValue) ? $foreignValue : null; // e.g., $apprentic
                 params.filters = filters;
             
             // Show loading indicator
+            }
             tbody.innerHTML = '<tr><td colspan="100" style="text-align:center;padding:40px;"><i class="fas fa-spinner fa-spin"></i> Searching...</td></tr>';
             
             // Hide pagination during load
@@ -347,6 +362,7 @@ $foreignValue = isset($foreignValue) ? $foreignValue : null; // e.g., $apprentic
             var queryString = Object.keys(params).map(function(key) {
                 if (key === 'filters') {
                     return 'filters=' + encodeURIComponent(JSON.stringify(params[key]));
+                }
                 return key + '=' + encodeURIComponent(params[key]);
             }).join('&');
             
@@ -357,6 +373,7 @@ $foreignValue = isset($foreignValue) ? $foreignValue : null; // e.g., $apprentic
             .then(function(response) { 
                 if (!response.ok) {
                     throw new Error('HTTP ' + response.status + ': ' + response.statusText);
+                }
                 return response.text(); // Get as text first
             })
             .then(function(text) {
@@ -384,12 +401,14 @@ $foreignValue = isset($foreignValue) ? $foreignValue : null; // e.g., $apprentic
                                 } else {
                                     row += '<td><svg width="60" height="60" viewBox="0 0 60 60" style="border:1px dashed #999;border-radius:3px;"><rect width="60" height="60" fill="#f8f9fa"/><text x="30" y="30" font-size="24" text-anchor="middle" fill="#999">ðŸ“·</text></svg></td>';
                                 
+                                }
                                 row += '<td><a href="/apprentices/view/' + record.id + '" class="btn btn-xs btn-info">View</a></td>';
                                 row += '</tr>';
                                 tbody.innerHTML += row;
                             });
                         
                         // Update info bar
+                        }
                         var infoDiv = container.querySelector('.static-info');
                         if (infoDiv) {
                             var filterText = hasFilters ? '<strong style="color:#007bff;">Filtered Results:</strong> ' : '<strong>Total Records:</strong> ';
@@ -399,15 +418,18 @@ $foreignValue = isset($foreignValue) ? $foreignValue : null; // e.g., $apprentic
                                               Math.min(data.page * 50, data.total);
                         
                         // Update/create pagination
+                        }
                         updateAjaxPagination(data.page, data.pages);
                         
                     } else {
                         var errorMsg = data.error || 'Unknown error';
                         tbody.innerHTML = '<tr><td colspan="100" style="text-align:center;padding:20px;color:red;">Error: ' + errorMsg + '</td></tr>';
+                    }
                 } catch(parseError) {
                     console.error('JSON Parse Error:', parseError);
                     console.error('Response was:', text);
                     tbody.innerHTML = '<tr><td colspan="100" style="text-align:center;padding:20px;color:red;">Invalid JSON response. Check console for details.</td></tr>';
+                }
             })
             .catch(function(error) {
                 console.error('Ajax error:', error);
@@ -416,6 +438,7 @@ $foreignValue = isset($foreignValue) ? $foreignValue : null; // e.g., $apprentic
             
         }, 500); // 500ms debounce for server requests
     
+    }
     function updateAjaxPagination(currentPage, totalPages) {
         var existingPagination = container.querySelector('.static-pagination');
         
@@ -423,6 +446,7 @@ $foreignValue = isset($foreignValue) ? $foreignValue : null; // e.g., $apprentic
             if (existingPagination) existingPagination.style.display = 'none';
             return;
         
+        }
         var paginationHTML = '<div class="static-pagination">' +
             '<div>' +
             '<button onclick="performAjaxSearch_' + '<?= h($tabId) ?>' + '(1)" ' + (currentPage === 1 ? 'disabled' : '') + '>First</button>' +
@@ -443,6 +467,9 @@ $foreignValue = isset($foreignValue) ? $foreignValue : null; // e.g., $apprentic
                 tableWrapper.insertAdjacentHTML('afterend', paginationHTML);
     
     // Make function globally accessible for pagination buttons
+            }
+        }
+    }
     window['performAjaxSearch_' + '<?= h($tabId) ?>'] = performAjaxSearch;
     
     // Attach AJAX event listeners
@@ -498,6 +525,8 @@ $foreignValue = isset($foreignValue) ? $foreignValue : null; // e.g., $apprentic
                 return hasMissingSvg || cellElement.textContent.trim() === '-';
             default: return cellText.indexOf(filterValue) !== -1;
     
+        }
+    }
     var filterTimeout;
     function applyFilters() {
         clearTimeout(filterTimeout);
@@ -511,6 +540,7 @@ $foreignValue = isset($foreignValue) ? $foreignValue : null; // e.g., $apprentic
                 if (value || operator === 'file_exists' || operator === 'file_not_exists') {
                     filters[index] = { value: value, operator: operator };
                     hasFilters = true;
+                }
             });
             
             var visibleCount = 0;
@@ -527,6 +557,10 @@ $foreignValue = isset($foreignValue) ? $foreignValue : null; // e.g., $apprentic
                             if (!matchesFilter(cellText, filterValue, operator, cellElement)) {
                                 visible = false;
                                 break;
+                            }
+                        }
+                    }
+                }
                 rowData.row.style.display = visible ? '' : 'none';
                 if (visible) visibleCount++;
             });
@@ -534,8 +568,10 @@ $foreignValue = isset($foreignValue) ? $foreignValue : null; // e.g., $apprentic
             var infoDiv = container.querySelector('.static-info');
             if (infoDiv && hasFilters) {
                 infoDiv.innerHTML = '<strong style="color:#007bff;">Filtered:</strong> ' + visibleCount + ' of <?= $totalRecords ?> records';
+            }
         }, 300);
     
+    }
     filterInputs.forEach(function(input) {
         input.addEventListener('keyup', applyFilters);
         input.addEventListener('paste', applyFilters);

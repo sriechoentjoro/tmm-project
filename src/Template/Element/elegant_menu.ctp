@@ -439,6 +439,26 @@ ul.elegant-category-tabs {
 
 <div class="elegant-menu-wrapper">
     <ul class="elegant-tabs">
+        <?php
+            // Always-visible first tab: system documentation / process pipeline
+            // (the landing page). Independent of role_menus so every role can
+            // return to it at any time.
+            $isProcessFlowPage = $this->request->getParam('controller') === 'Dashboard'
+                && $this->request->getParam('action') === 'processFlow';
+            $pfUrl = $this->request->getAttribute('webroot') . 'dashboard/process-flow';
+        ?>
+        <li class="elegant-category-group" data-category="Home">
+            <div class="elegant-category-label"><?= __('Home') ?></div>
+            <ul class="elegant-category-tabs">
+                <li class="elegant-tab <?= $isProcessFlowPage ? 'active' : '' ?>" data-category="Home">
+                    <a href="<?= $pfUrl ?>">
+                        <i class="fas fa-sitemap"></i>
+                        <span><?= __('Process Flow') ?></span>
+                    </a>
+                </li>
+            </ul>
+        </li>
+        <li class="elegant-tab-divider"></li>
         <?php $isFirstGroup = true; ?>
         <?php foreach ($categoryGroups as $categoryName => $groupItems): ?>
             <?php if (!$isFirstGroup): ?>

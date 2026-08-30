@@ -26,8 +26,9 @@ class MasterApprenticeSubmissionDocumentsController extends AppController
         $masterApprenticeSubmissionDocuments = $this->paginate($this->MasterApprenticeSubmissionDocuments);
 
         // Load dropdown data for filters
-        $masterapprenticeshipsubmissiondocumentcategories = $this->MasterApprenticeSubmissionDocuments->MasterApprenticeshipSubmissionDocumentCategories->find('list')->limit(200)->toArray();
-        $this->set(compact('masterApprenticeSubmissionDocuments', 'MasterApprenticeSubmissionDocumentCategories'));
+        $masterApprenticeshipSubmissionDocumentCategories = $this->MasterApprenticeSubmissionDocuments->MasterApprenticeSubmissionDocumentCategories->find('list')->limit(200)->toArray();
+                $master_apprenticeship_submission_document_categorys = $masterApprenticeshipSubmissionDocumentCategories;
+$this->set(compact('masterApprenticeSubmissionDocuments', 'masterApprenticeshipSubmissionDocumentCategories', 'master_apprenticeship_submission_document_categorys'));
     }
 
 
@@ -103,8 +104,8 @@ class MasterApprenticeSubmissionDocumentsController extends AppController
             }
             $this->Flash->error(__('The master apprentice submission document could not be saved. Please, try again.'));
         }
-        $masterApprenticeshipSubmissionDocumentCategories = $this->MasterApprenticeSubmissionDocuments->MasterApprenticeshipSubmissionDocumentCategories->find('list', ['limit' => 200]);
-        $this->set(compact('masterApprenticeSubmissionDocument', 'MasterApprenticeSubmissionDocumentCategories'));
+        $masterApprenticeshipSubmissionDocumentCategories = $this->MasterApprenticeSubmissionDocuments->MasterApprenticeSubmissionDocumentCategories->find('list', ['limit' => 200]);
+        $this->set(compact('masterApprenticeSubmissionDocument', 'masterApprenticeshipSubmissionDocumentCategories'));
     }
 
     /**
@@ -166,8 +167,8 @@ class MasterApprenticeSubmissionDocumentsController extends AppController
             }
             $this->Flash->error(__('The master apprentice submission document could not be saved. Please, try again.'));
         }
-        $masterApprenticeshipSubmissionDocumentCategories = $this->MasterApprenticeSubmissionDocuments->MasterApprenticeshipSubmissionDocumentCategories->find('list', ['limit' => 200]);
-        $this->set(compact('masterApprenticeSubmissionDocument', 'MasterApprenticeSubmissionDocumentCategories'));
+        $masterApprenticeshipSubmissionDocumentCategories = $this->MasterApprenticeSubmissionDocuments->MasterApprenticeSubmissionDocumentCategories->find('list', ['limit' => 200]);
+        $this->set(compact('masterApprenticeSubmissionDocument', 'masterApprenticeshipSubmissionDocumentCategories'));
     }
 
     /**

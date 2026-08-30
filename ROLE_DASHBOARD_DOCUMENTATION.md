@@ -458,9 +458,10 @@ can't access (configure those in the target controllers / `AppController`).
 
 | # | Item | Status | Notes |
 |---|------|--------|-------|
-| 1 | Management charts | 🔲 Placeholder | `getCandidatesByMonth()` / `getTraineesByStatus()` return `[]`; template shows "Chart.js integration coming soon" |
-| 2 | Admin "Recent Activity" panel | 🔲 Placeholder | Controller already provides `recentUsers` / `recentCandidates`; template doesn't render them yet |
-| 3 | `getTotalCount()` ignores its `$connection` parameter | ⚠️ Latent | Works via each Table's `defaultConnectionName()`; should pass the connection explicitly like the other helpers |
+| 1 | ~~Management charts~~ | ✅ Implemented (2026-08-06) | `getTraineesByStatus()` + new `getCandidatesByInstitution()` feed pure-CSS bar charts; `getCandidatesByMonth()` activates automatically if a `created` column is ever added to `candidates` |
+| 2 | ~~Admin "Recent Activity" panel~~ | ✅ Implemented | Recent Users / Candidates / Trainees feeds render; helpers now fall back to `id DESC` ordering when a table has no `created` column and tolerate already-configured registry aliases |
+| 3 | ~~`getTotalCount()` ignores its `$connection` parameter~~ | ✅ Fixed | All count/recent helpers route through `locateTable()` which honours the connection |
+| 9 | Post-login landing page | ✅ Changed (2026-08-06) | Login now lands on `/dashboard/process-flow` (system documentation with role-highlighted pipeline stages and jump links); the role dashboard remains at `/` |
 | 4 | Admin `totalOrganizations` stat computed but unused | ⚠️ Minor | Either display it or drop the query |
 | 5 | Duplicated CSS across templates | 🔧 Tech debt | The stat-card/card styles are repeated in 4 templates; candidates for extraction into `webroot/css` (see `TEMPLATE_IMPROVEMENTS.css`) |
 | 6 | Status filter deep-links (`?status=...`) | ⚠️ Verify | Training card links pass a `status` query param — the target index actions must implement that filter for the links to actually filter |

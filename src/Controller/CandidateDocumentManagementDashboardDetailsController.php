@@ -26,8 +26,8 @@ class CandidateDocumentManagementDashboardDetailsController extends AppControlle
         $candidateDocumentManagementDashboardDetails = $this->paginate($this->CandidateDocumentManagementDashboardDetails);
 
         // Load dropdown data for filters
-        $dashboards = $this->CandidateDocumentManagementDashboardDetails->Dashboards->find('list')->limit(200)->toArray();
-        $this->set(compact('candidateDocumentManagementDashboardDetails', 'CandidateDocumentManagementDashboards'));
+        $dashboards = $this->CandidateDocumentManagementDashboardDetails->CandidateDocumentManagementDashboards->find('list')->limit(200)->toArray();
+        $this->set(compact('candidateDocumentManagementDashboardDetails', 'dashboards'));
     }
 
 
@@ -103,8 +103,8 @@ class CandidateDocumentManagementDashboardDetailsController extends AppControlle
             }
             $this->Flash->error(__('The candidate document management dashboard detail could not be saved. Please, try again.'));
         }
-        $dashboards = $this->CandidateDocumentManagementDashboardDetails->Dashboards->find('list', ['limit' => 200]);
-        $this->set(compact('candidateDocumentManagementDashboardDetail', 'CandidateDocumentManagementDashboards'));
+        $dashboards = $this->CandidateDocumentManagementDashboardDetails->CandidateDocumentManagementDashboards->find('list', ['limit' => 200]);
+        $this->set(compact('candidateDocumentManagementDashboardDetail', 'dashboards'));
     }
 
     /**
@@ -166,8 +166,8 @@ class CandidateDocumentManagementDashboardDetailsController extends AppControlle
             }
             $this->Flash->error(__('The candidate document management dashboard detail could not be saved. Please, try again.'));
         }
-        $dashboards = $this->CandidateDocumentManagementDashboardDetails->Dashboards->find('list', ['limit' => 200]);
-        $this->set(compact('candidateDocumentManagementDashboardDetail', 'CandidateDocumentManagementDashboards'));
+        $dashboards = $this->CandidateDocumentManagementDashboardDetails->CandidateDocumentManagementDashboards->find('list', ['limit' => 200]);
+        $this->set(compact('candidateDocumentManagementDashboardDetail', 'dashboards'));
     }
 
     /**

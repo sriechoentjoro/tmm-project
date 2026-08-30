@@ -231,6 +231,7 @@ $(document).ready(function() {
             return true;
         
         // Prevent Enter key from submitting form
+        }
         if (e.keyCode === 13 || e.which === 13) {
             e.preventDefault();
             
@@ -240,7 +241,9 @@ $(document).ready(function() {
             if (currentIndex < inputs.length - 1) {
                 inputs.eq(currentIndex + 1).focus();
             
+            }
             return false;
+        }
     });
     
     // CRITICAL: Prevent double-submit and show loading state
@@ -252,6 +255,7 @@ $(document).ready(function() {
             return false;
         
         // Validate required fields
+        }
         var hasError = false;
         $(this).find('[required]').each(function() {
             if (!$(this).val()) {
@@ -259,9 +263,11 @@ $(document).ready(function() {
                 $(this).addClass('is-invalid');
                 if (!$(this).next('.invalid-feedback').length) {
                     $(this).after('<div class="invalid-feedback">This field is required</div>');
+                }
             } else {
                 $(this).removeClass('is-invalid');
                 $(this).next('.invalid-feedback').remove();
+            }
         });
         
         if (hasError) {
@@ -270,6 +276,7 @@ $(document).ready(function() {
             return false;
         
         // Set submitting flag
+        }
         isSubmitting = true;
         
         // Disable submit button and show loading
@@ -287,12 +294,14 @@ $(document).ready(function() {
             $('body').append('<div class="form-overlay" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.3); z-index: 9999; display: flex; align-items: center; justify-content: center;"><div style="background: white; padding: 20px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);"><i class="fas fa-spinner fa-spin fa-2x text-primary"></i><div class="mt-2">Saving data, please wait...</div></div></div>');
         
         // If form validation fails or submission takes too long, re-enable after 10 seconds
+        }
         setTimeout(function() {
             if (isSubmitting) {
                 isSubmitting = false;
                 $submitBtn.prop('disabled', false).text(originalText).css('opacity', '1');
                 $('#trainingForm').find('input, select, textarea, button').prop('disabled', false);
                 $('.form-overlay').remove();
+            }
         }, 10000);
     });
     
@@ -303,6 +312,7 @@ $(document).ready(function() {
             $('#submitBtn').prop('disabled', false).text('<?= __('Save Training') ?>').css('opacity', '1');
             $('#trainingForm').find('input, select, textarea, button').prop('disabled', false);
             $('.form-overlay').remove();
+        }
     });
 });
 </script>

@@ -28,7 +28,9 @@ class CandidateCoursesController extends AppController
         // Load dropdown data for filters
         $candidates = $this->CandidateCourses->Candidates->find('list')->limit(200)->toArray();
         $vocationaltraininginstitutions = $this->CandidateCourses->VocationalTrainingInstitutions->find('list')->limit(200)->toArray();
-        $this->set(compact('candidateCourses', 'candidates', 'vocationaltraininginstitutions'));
+                $master_course_majors = $this->CandidateCourses->find('list', ['keyField' => 'master_course_major_id', 'valueField' => 'master_course_major_id'])->where(['master_course_major_id IS NOT' => null])->distinct(['master_course_major_id'])->toArray();
+        $vocational_training_institutions = $vocationaltraininginstitutions;
+$this->set(compact('candidateCourses', 'candidates', 'vocationaltraininginstitutions', 'vocational_training_institutions', 'master_course_majors'));
     }
 
 

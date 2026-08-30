@@ -48,11 +48,13 @@ class ApprenticeFlightsTable extends Table
             'joinType' => 'INNER',
         ]);
         $this->belongsTo('DepartureAirports', [
+            'className' => 'MasterAirports',
             'foreignKey' => 'departure_airport_id',
             'strategy' => 'select',
             'joinType' => 'INNER',
         ]);
         $this->belongsTo('ArrivalAirports', [
+            'className' => 'MasterAirports',
             'foreignKey' => 'arrival_airport_id',
             'strategy' => 'select',
             'joinType' => 'INNER',

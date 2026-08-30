@@ -45,6 +45,16 @@
                                 ]) ?>
                             </div>
                             <?= $this->Form->end() ?>
+
+                            <!-- System process guide (no login required) -->
+                            <a href="/users/guide" class="btn btn-outline-primary btn-block mt-3"
+                               style="display:flex;align-items:center;justify-content:center;gap:8px;font-weight:600;">
+                                <i class="fas fa-route"></i> <?= __('System Process Guide') ?>
+                            </a>
+                            <p class="text-center text-muted mt-2" style="font-size:12px;">
+                                <i class="fas fa-info-circle"></i>
+                                <?= __('New here? See the full TMM flow: stakeholders → order → recruitment → training → departure → return.') ?>
+                            </p>
                         </div>
 
                         <!-- Test Credentials -->

@@ -475,8 +475,6 @@ $(document).ready(function() {
             'left': $(this).offset().left
         });
     });
-            }, 1);
-    });
     
     // Auto-uppercase for text inputs (except email, password, url)
     $('input[type="text"], textarea').not('[type="email"], [type="password"], [type="url"], .datepicker, .no-uppercase').on('input', function() {
@@ -493,9 +491,12 @@ $(document).ready(function() {
         if (email && !emailRegex.test(email)) {
             $(this).addClass('is-invalid');
             if (!$(this).next('.invalid-feedback').length) {
-                $(this).after('<div class="invalid-feedback">Please enter a valid email address</div>');`n            }`n        } else {
+                $(this).after('<div class="invalid-feedback">Please enter a valid email address</div>');
+            }
+        } else {
             $(this).removeClass('is-invalid');
             $(this).next('.invalid-feedback').remove();
+        }
     });
     
     // Password strength indicator
@@ -512,7 +513,10 @@ $(document).ready(function() {
         var strengthColor = ['#dc3545', '#fd7e14', '#ffc107', '#28a745', '#20c997'];
         
         if (!$(this).next('.password-strength').length) {
-            $(this).after('<div class="password-strength mt-1"><small></small><div class="progress" style="height: 5px;"><div class="progress-bar"></div></div></div>');`n        }`n        `n        var strengthDiv = $(this).next('.password-strength');
+            $(this).after('<div class="password-strength mt-1"><small></small><div class="progress" style="height: 5px;"><div class="progress-bar"></div></div></div>');
+        }
+        
+        var strengthDiv = $(this).next('.password-strength');
         strengthDiv.find('small').text(strengthText[strength - 1] || '').css('color', strengthColor[strength - 1] || '#6c757d');
         strengthDiv.find('.progress-bar').css({
             'width': (strength * 20) + '%',
@@ -527,6 +531,7 @@ $(document).ready(function() {
             return true;
         
         // Prevent Enter key from submitting form
+        }
         if (e.keyCode === 13 || e.which === 13) {
             e.preventDefault();
             
@@ -536,7 +541,9 @@ $(document).ready(function() {
             if (currentIndex < inputs.length - 1) {
                 inputs.eq(currentIndex + 1).focus();
             
+            }
             return false;
+        }
     });
     
     // Form validation
@@ -549,21 +556,25 @@ $(document).ready(function() {
                 $(this).addClass('is-invalid');
                 if (!$(this).next('.invalid-feedback').length) {
                     $(this).after('<div class="invalid-feedback">This field is required</div>');
+                }
             } else {
                 $(this).removeClass('is-invalid');
                 $(this).next('.invalid-feedback').remove();
+            }
         });
         
         if (hasError) {
             e.preventDefault();
             alert('Please fill in all required fields');
             return false;
+        }
     });
     
     // Re-enable form if user navigates back
     $(window).on('pageshow', function(event) {
         if (event.originalEvent.persisted) {
             $('.form-overlay').remove();
+        }
     });
 });
 </script>

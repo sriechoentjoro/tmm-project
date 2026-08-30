@@ -1972,6 +1972,16 @@ class CandidatesController extends AppController
             ->order(['Trainees.id' => 'DESC'])
             ->limit(200)
             ->all();
-        $this->set(compact('histories'));
+
+        // Ringkasan pipeline pasca-promosi (dari tabel trainees terasosiasi)
+        $conn = \Cake\Datasource\ConnectionManager::get('cms_tmm_trainees');
+        $pstats = $conn->execute(
+            'SELECT COUNT(*) AS total,
+                    SUM(apprenticeship_order_id IS NOT NULL) AS with_order,
+                    SUM(is_apprenticeship_pass = 1) AS passed
+             FROM trainees'
+        )->fetch('assoc');
+
+        $this->set(compact('histories', 'pstats'));
     }
 }

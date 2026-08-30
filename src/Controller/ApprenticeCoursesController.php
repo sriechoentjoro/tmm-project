@@ -27,7 +27,9 @@ class ApprenticeCoursesController extends AppController
 
         // Load dropdown data for filters
         $apprentices = $this->ApprenticeCourses->Apprentices->find('list')->limit(200)->toArray();
-        $vocationaltraininginstitutions = $this->ApprenticeCourses->VocationalTrainingInstitutions->find('list')->limit(200)->toArray();        $this->set(compact('apprenticeCourses', 'apprentices', 'vocationaltraininginstitutions'));
+        $vocationaltraininginstitutions = $this->ApprenticeCourses->VocationalTrainingInstitutions->find('list')->limit(200)->toArray();                $course_majors = $this->ApprenticeCourses->find('list', ['keyField' => 'course_major_id', 'valueField' => 'course_major_id'])->where(['course_major_id IS NOT' => null])->distinct(['course_major_id'])->toArray();
+        $vocational_training_institutions = $vocationaltraininginstitutions;
+$this->set(compact('apprenticeCourses', 'apprentices', 'vocationaltraininginstitutions', 'vocational_training_institutions', 'course_majors'));
     }
 
 

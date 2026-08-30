@@ -26,8 +26,9 @@ class MasterOccupationsController extends AppController
         $masterOccupations = $this->paginate($this->MasterOccupations);
 
         // Load dropdown data for filters
-        $occupationcategories = $this->MasterOccupations->OccupationCategories->find('list')->limit(200)->toArray();
-        $this->set(compact('masterOccupations', 'MasterOccupationCategories'));
+        $occupationCategories = $this->MasterOccupations->MasterOccupationCategories->find('list')->limit(200)->toArray();
+                $occupation_categorys = $occupationCategories;
+$this->set(compact('masterOccupations', 'occupationCategories', 'occupation_categorys'));
     }
 
 
@@ -103,8 +104,8 @@ class MasterOccupationsController extends AppController
             }
             $this->Flash->error(__('The master occupation could not be saved. Please, try again.'));
         }
-        $occupationCategories = $this->MasterOccupations->OccupationCategories->find('list', ['limit' => 200]);
-        $this->set(compact('masterOccupation', 'MasterOccupationCategories'));
+        $occupationCategories = $this->MasterOccupations->MasterOccupationCategories->find('list', ['limit' => 200]);
+        $this->set(compact('masterOccupation', 'occupationCategories'));
     }
 
     /**
@@ -166,8 +167,8 @@ class MasterOccupationsController extends AppController
             }
             $this->Flash->error(__('The master occupation could not be saved. Please, try again.'));
         }
-        $occupationCategories = $this->MasterOccupations->OccupationCategories->find('list', ['limit' => 200]);
-        $this->set(compact('masterOccupation', 'MasterOccupationCategories'));
+        $occupationCategories = $this->MasterOccupations->MasterOccupationCategories->find('list', ['limit' => 200]);
+        $this->set(compact('masterOccupation', 'occupationCategories'));
     }
 
     /**

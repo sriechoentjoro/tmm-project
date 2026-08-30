@@ -27,8 +27,9 @@ class ApprenticeRecordCoeVisasController extends AppController
 
         // Load dropdown data for filters
         $apprentices = $this->ApprenticeRecordCoeVisas->Apprentices->find('list')->limit(200)->toArray();
-        $mastercoetypes = $this->ApprenticeRecordCoeVisas->MasterCoeTypes->find('list')->limit(200)->toArray();
-        $this->set(compact('apprenticeRecordCoeVisas', 'apprentices', 'MasterApprenticeCoeTypes'));
+        $masterCoeTypes = $this->ApprenticeRecordCoeVisas->MasterApprenticeCoeTypes->find('list')->limit(200)->toArray();
+                $master_coe_types = $masterCoeTypes;
+$this->set(compact('apprenticeRecordCoeVisas', 'apprentices', 'masterCoeTypes', 'master_coe_types'));
     }
 
 
@@ -106,8 +107,8 @@ class ApprenticeRecordCoeVisasController extends AppController
             $this->Flash->error(__('The apprentice record coe visa could not be saved. Please, try again.'));
         }
         $apprentices = $this->ApprenticeRecordCoeVisas->Apprentices->find('list', ['limit' => 200]);
-        $masterCoeTypes = $this->ApprenticeRecordCoeVisas->MasterCoeTypes->find('list', ['limit' => 200]);
-        $this->set(compact('apprenticeRecordCoeVisa', 'apprentices', 'MasterApprenticeCoeTypes'));
+        $masterCoeTypes = $this->ApprenticeRecordCoeVisas->MasterApprenticeCoeTypes->find('list', ['limit' => 200]);
+        $this->set(compact('apprenticeRecordCoeVisa', 'apprentices', 'masterCoeTypes'));
     }
 
     /**
@@ -170,8 +171,8 @@ class ApprenticeRecordCoeVisasController extends AppController
             $this->Flash->error(__('The apprentice record coe visa could not be saved. Please, try again.'));
         }
         $apprentices = $this->ApprenticeRecordCoeVisas->Apprentices->find('list', ['limit' => 200]);
-        $masterCoeTypes = $this->ApprenticeRecordCoeVisas->MasterCoeTypes->find('list', ['limit' => 200]);
-        $this->set(compact('apprenticeRecordCoeVisa', 'apprentices', 'MasterApprenticeCoeTypes'));
+        $masterCoeTypes = $this->ApprenticeRecordCoeVisas->MasterApprenticeCoeTypes->find('list', ['limit' => 200]);
+        $this->set(compact('apprenticeRecordCoeVisa', 'apprentices', 'masterCoeTypes'));
     }
 
     /**

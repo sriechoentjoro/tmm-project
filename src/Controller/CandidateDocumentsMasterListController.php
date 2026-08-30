@@ -26,8 +26,9 @@ class CandidateDocumentsMasterListController extends AppController
         $candidateDocumentsMasterList = $this->paginate($this->CandidateDocumentsMasterList);
 
         // Load dropdown data for filters
-        $categories = $this->CandidateDocumentsMasterList->Categories->find('list')->limit(200)->toArray();
-        $this->set(compact('candidateDocumentsMasterList', 'CandidateDocumentCategories'));
+        $categories = $this->CandidateDocumentsMasterList->CandidateDocumentCategories->find('list')->limit(200)->toArray();
+                $categorys = $categories;
+$this->set(compact('candidateDocumentsMasterList', 'categories', 'categorys'));
     }
 
 
@@ -103,8 +104,8 @@ class CandidateDocumentsMasterListController extends AppController
             }
             $this->Flash->error(__('The candidate documents master list could not be saved. Please, try again.'));
         }
-        $categories = $this->CandidateDocumentsMasterList->Categories->find('list', ['limit' => 200]);
-        $this->set(compact('candidateDocumentsMasterList', 'CandidateDocumentCategories'));
+        $categories = $this->CandidateDocumentsMasterList->CandidateDocumentCategories->find('list', ['limit' => 200]);
+        $this->set(compact('candidateDocumentsMasterList', 'categories'));
     }
 
     /**
@@ -166,8 +167,8 @@ class CandidateDocumentsMasterListController extends AppController
             }
             $this->Flash->error(__('The candidate documents master list could not be saved. Please, try again.'));
         }
-        $categories = $this->CandidateDocumentsMasterList->Categories->find('list', ['limit' => 200]);
-        $this->set(compact('candidateDocumentsMasterList', 'CandidateDocumentCategories'));
+        $categories = $this->CandidateDocumentsMasterList->CandidateDocumentCategories->find('list', ['limit' => 200]);
+        $this->set(compact('candidateDocumentsMasterList', 'categories'));
     }
 
     /**

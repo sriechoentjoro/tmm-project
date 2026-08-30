@@ -106,11 +106,32 @@ class ChartOfAccountsController extends AppController
             ->order(['type' => 'ASC', 'code' => 'ASC'])
             ->enableHydration(false)
             ->toArray();
+
+        // Saldo dari tabel terasosiasi journal_details (jumlah debit/kredit per akun)
+        $balances = [];
+        foreach ($this->ChartOfAccounts->getConnection()->execute(
+            'SELECT chart_of_account_id AS aid, SUM(debit) AS debit, SUM(credit) AS credit, COUNT(*) AS line_count
+             FROM journal_details GROUP BY chart_of_account_id'
+        )->fetchAll('assoc') as $r) {
+            $balances[$r['aid']] = $r;
+        }
+
         $grouped = [];
+        $typeTotals = [];
         foreach ($accounts as $account) {
             $type = $account['type'] ?: '(untyped)';
+            $bal = $balances[$account['id']] ?? ['debit' => 0, 'credit' => 0, 'line_count' => 0];
+            $account['_debit'] = (float)$bal['debit'];
+            $account['_credit'] = (float)$bal['credit'];
+            $account['_lines'] = (int)$bal['line_count'];
+            // Saldo normal: Asset/Expense = debit - credit; lainnya = credit - debit
+            $account['_balance'] = in_array($type, ['Asset', 'Expense'], true)
+                ? $account['_debit'] - $account['_credit']
+                : $account['_credit'] - $account['_debit'];
             $grouped[$type][] = $account;
+            $typeTotals[$type] = ($typeTotals[$type] ?? 0) + $account['_balance'];
         }
-        $this->set(compact('grouped'));
+
+        $this->set(compact('grouped', 'typeTotals'));
     }
 }

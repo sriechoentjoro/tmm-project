@@ -29,7 +29,9 @@ class CandidateFamiliesController extends AppController
         $candidates = $this->CandidateFamilies->Candidates->find('list')->limit(200)->toArray();
         $masterfamilyconnections = $this->CandidateFamilies->MasterFamilyConnections->find('list')->limit(200)->toArray();
         $masteroccupations = $this->CandidateFamilies->MasterOccupations->find('list')->limit(200)->toArray();
-        $this->set(compact('candidateFamilies', 'candidates', 'masterfamilyconnections', 'masteroccupations'));
+                $master_family_connections = $masterfamilyconnections;
+        $master_occupations = $masteroccupations;
+$this->set(compact('candidateFamilies', 'candidates', 'masterfamilyconnections', 'masteroccupations', 'master_family_connections', 'master_occupations'));
     }
 
 

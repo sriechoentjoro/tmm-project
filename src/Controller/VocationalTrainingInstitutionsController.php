@@ -297,7 +297,28 @@ class VocationalTrainingInstitutionsController extends AppController
             'limit' => 20,
         ];
         $institutions = $this->paginate($this->VocationalTrainingInstitutions);
-        $this->set(compact('institutions'));
+
+        // Ringkasan verifikasi + jumlah kandidat per LPK (tabel terasosiasi lintas-DB)
+        $t = $this->VocationalTrainingInstitutions;
+        $vstats = [
+            'total'      => $t->find()->count(),
+            'registered' => $t->find()->where(['is_registered' => 1])->count(),
+            'active'     => $t->find()->where(['status' => 'active'])->count(),
+        ];
+        $vstats['pending'] = $vstats['total'] - $vstats['registered'];
+
+        $candidateCounts = [];
+        try {
+            foreach (\Cake\Datasource\ConnectionManager::get('cms_lpk_candidates')->execute(
+                'SELECT vocational_training_institution_id AS lpk, COUNT(*) AS n
+                 FROM candidates GROUP BY vocational_training_institution_id'
+            )->fetchAll('assoc') as $r) {
+                $candidateCounts[$r['lpk']] = $r['n'];
+            }
+        } catch (\Exception $e) {
+        }
+
+        $this->set(compact('institutions', 'vstats', 'candidateCounts'));
     }
 
     /**

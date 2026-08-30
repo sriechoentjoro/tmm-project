@@ -74,8 +74,10 @@ $fileExists = (file_exists($fullPath) && is_readable($fullPath));
     @keyframes blink-file-error {
         0%, 50%, 100% { opacity: 1; }
         25%, 75% { opacity: 0.3; }
+    }
     .file-error-blink {
         animation: blink-file-error 1.5s infinite;
+    }
     .file-not-found-compact {
         display: inline-flex;
         align-items: center;
@@ -86,16 +88,20 @@ $fileExists = (file_exists($fullPath) && is_readable($fullPath));
         border-radius: 4px;
         color: #856404;
         font-size: 13px;
+    }
     .file-not-found-compact .icon {
         color: #E74C3C;
         flex-shrink: 0;
+    }
     .file-not-found-compact .edit-link {
         color: #0969da;
         text-decoration: underline;
         font-weight: 500;
         margin-left: 4px;
+    }
     .file-not-found-compact .edit-link:hover {
         color: #0550ae;
+    }
     .file-icon-link {
         display: inline-flex;
         align-items: center;
@@ -108,11 +114,13 @@ $fileExists = (file_exists($fullPath) && is_readable($fullPath));
         text-decoration: none;
         font-size: 13px;
         transition: all 0.2s;
+    }
     .file-icon-link:hover {
         background: #e9ecef;
         border-color: #adb5bd;
         text-decoration: none;
-</style>
+
+    }</style>
 
 <?php if (!$fileExists): ?>
     <!-- File not found - Show compact warning -->

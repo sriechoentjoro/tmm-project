@@ -468,13 +468,31 @@ class TraineeSubmissionDocumentsController extends AppController
     public function costs()
     {
         $conn = \Cake\Datasource\ConnectionManager::get('cms_tmm_trainee_accountings');
-        $costs = \Cake\ORM\TableRegistry::getTableLocator()
-            ->get('TraineeDocumentCosts', ['connection' => $conn])
-            ->find()
-            ->order(['id' => 'DESC'])
-            ->limit(500)
-            ->enableHydration(false)
-            ->toArray();
-        $this->set(compact('costs'));
+        $costs = $conn->execute(
+            'SELECT id, trainee_id, document_type, description, amount, currency_code,
+                    payment_status, payment_date, paid_amount
+             FROM trainee_document_costs ORDER BY id DESC LIMIT 500'
+        )->fetchAll('assoc');
+
+        // Nama trainee dari DB terasosiasi
+        $traineeMap = [];
+        foreach (\Cake\Datasource\ConnectionManager::get('cms_tmm_trainees')->execute(
+            'SELECT id, name, tmm_code FROM trainees'
+        )->fetchAll('assoc') as $r) {
+            $traineeMap[$r['id']] = $r;
+        }
+
+        // Ringkasan biaya
+        $summary = ['total' => 0, 'paid' => 0, 'outstanding' => 0, 'count' => count($costs)];
+        $byType = [];
+        foreach ($costs as $c) {
+            $summary['total'] += (float)$c['amount'];
+            $summary['paid'] += (float)$c['paid_amount'];
+            $byType[$c['document_type']] = ($byType[$c['document_type']] ?? 0) + (float)$c['amount'];
+        }
+        $summary['outstanding'] = $summary['total'] - $summary['paid'];
+        arsort($byType);
+
+        $this->set(compact('costs', 'traineeMap', 'summary', 'byType'));
     }
 }

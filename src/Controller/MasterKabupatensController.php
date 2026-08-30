@@ -27,7 +27,8 @@ class MasterKabupatensController extends AppController
 
         // Load dropdown data for filters
         $masterpropinsis = $this->MasterKabupatens->MasterPropinsis->find('list')->limit(200)->toArray();
-        $this->set(compact('masterKabupatens', 'masterpropinsis'));
+        $propinsis = $masterpropinsis;
+        $this->set(compact('masterKabupatens', 'masterpropinsis', 'propinsis'));
     }
 
 

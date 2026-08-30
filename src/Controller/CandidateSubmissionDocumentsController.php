@@ -26,9 +26,9 @@ class CandidateSubmissionDocumentsController extends AppController
         $candidateSubmissionDocuments = $this->paginate($this->CandidateSubmissionDocuments);
 
         // Load dropdown data for filters
-        $applicants = $this->CandidateSubmissionDocuments->Applicants->find('list')->limit(200)->toArray();
-        $documents = $this->CandidateSubmissionDocuments->Documents->find('list')->limit(200)->toArray();
-        $this->set(compact('candidateSubmissionDocuments', 'Candidates', 'CandidateDocuments'));
+        $applicants = $this->CandidateSubmissionDocuments->Candidates->find('list')->limit(200)->toArray();
+        $documents = $this->CandidateSubmissionDocuments->CandidateDocuments->find('list')->limit(200)->toArray();
+        $this->set(compact('candidateSubmissionDocuments', 'applicants', 'documents'));
     }
 
 
@@ -105,9 +105,9 @@ class CandidateSubmissionDocumentsController extends AppController
             }
             $this->Flash->error(__('The candidate submission document could not be saved. Please, try again.'));
         }
-        $applicants = $this->CandidateSubmissionDocuments->Applicants->find('list', ['limit' => 200]);
-        $documents = $this->CandidateSubmissionDocuments->Documents->find('list', ['limit' => 200]);
-        $this->set(compact('candidateSubmissionDocument', 'Candidates', 'CandidateDocuments'));
+        $applicants = $this->CandidateSubmissionDocuments->Candidates->find('list', ['limit' => 200]);
+        $documents = $this->CandidateSubmissionDocuments->CandidateDocuments->find('list', ['limit' => 200]);
+        $this->set(compact('candidateSubmissionDocument', 'applicants', 'documents'));
     }
 
     /**
@@ -169,9 +169,9 @@ class CandidateSubmissionDocumentsController extends AppController
             }
             $this->Flash->error(__('The candidate submission document could not be saved. Please, try again.'));
         }
-        $applicants = $this->CandidateSubmissionDocuments->Applicants->find('list', ['limit' => 200]);
-        $documents = $this->CandidateSubmissionDocuments->Documents->find('list', ['limit' => 200]);
-        $this->set(compact('candidateSubmissionDocument', 'Candidates', 'CandidateDocuments'));
+        $applicants = $this->CandidateSubmissionDocuments->Candidates->find('list', ['limit' => 200]);
+        $documents = $this->CandidateSubmissionDocuments->CandidateDocuments->find('list', ['limit' => 200]);
+        $this->set(compact('candidateSubmissionDocument', 'applicants', 'documents'));
     }
 
     /**

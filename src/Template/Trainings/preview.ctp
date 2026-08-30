@@ -16,14 +16,17 @@ use Cake\Utility\Inflector;
     border-radius: 8px;
     border: 2px solid;
 
+}
 .validation-summary.passed {
     background-color: #d4edda;
     border-color: #28a745;
 
+}
 .validation-summary.failed {
     background-color: #f8d7da;
     border-color: #dc3545;
 
+}
 .field-preview {
     padding: 15px;
     margin-bottom: 15px;
@@ -31,10 +34,12 @@ use Cake\Utility\Inflector;
     border-radius: 5px;
     background-color: #ffffff;
 
+}
 .field-preview.has-error {
     border-color: #dc3545;
     background-color: #fff5f5;
 
+}
 .field-label {
     font-weight: 600;
     margin-bottom: 8px;
@@ -42,6 +47,7 @@ use Cake\Utility\Inflector;
     align-items: center;
     gap: 8px;
 
+}
 .field-value {
     padding: 8px 12px;
     background-color: #f8f9fa;
@@ -49,30 +55,36 @@ use Cake\Utility\Inflector;
     margin-bottom: 8px;
     font-family: monospace;
 
+}
 .field-meta {
     display: flex;
     gap: 15px;
     font-size: 0.85rem;
     color: #6c757d;
 
+}
 .badge {
     padding: 4px 8px;
     border-radius: 4px;
     font-size: 0.75rem;
     font-weight: 600;
 
+}
 .badge-required {
     background-color: #dc3545;
     color: white;
 
+}
 .badge-optional {
     background-color: #6c757d;
     color: white;
 
+}
 .badge-type {
     background-color: #17a2b8;
     color: white;
 
+}
 .validation-error {
     margin-top: 10px;
     padding: 10px;
@@ -80,14 +92,17 @@ use Cake\Utility\Inflector;
     border-left: 4px solid #dc3545;
     border-radius: 4px;
 
+}
 .error-message {
     color: #721c24;
     font-weight: 500;
 
+}
 .empty-value {
     color: #999;
     font-style: italic;
 
+}
 .form-actions {
     margin-top: 30px;
     padding: 20px;
@@ -95,7 +110,8 @@ use Cake\Utility\Inflector;
     border-radius: 8px;
     display: flex;
     gap: 10px;
-</style>
+
+}</style>
 
 <div class="trainings preview content">
     <div class="card">

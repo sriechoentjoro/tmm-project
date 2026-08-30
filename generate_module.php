@@ -8,7 +8,7 @@
  * Usage: php generate_module.php
  */
 
-$dbUser = 'tmm_user';
+$dbUser = 'tmm';
 $dbPass = '62xe6zyr';
 
 // name, singular, table, database (= connection name), readonly, templatesOnly
@@ -31,6 +31,14 @@ $modules = [
     // controller + model already exist; only the CRUD templates are missing
     ['TraineeInstallments',          'TraineeInstallment',          'trainee_installments',             'cms_tmm_trainee_accountings',         false, true],
     ['TraineeTrainingTestScores',    'TraineeTrainingTestScore',    'trainee_training_test_scores',     'cms_tmm_trainee_training_scorings',   false, true],
+    ['MasterCurrencies',             'MasterCurrency',              'master_currencies',                'cms_tmm_trainee_accountings',         false, true],
+    ['MasterPaymentMethods',         'MasterPaymentMethod',         'master_payment_methods',           'cms_tmm_trainee_accountings',         false, true],
+    ['MasterTransactionCategories',  'MasterTransactionCategory',   'master_transaction_categories',    'cms_tmm_trainee_accountings',         false, true],
+    ['MasterTrainingCompetencies',   'MasterTrainingCompetency',    'master_training_competencies',     'cms_tmm_trainee_training_scorings',   false, true],
+    ['MasterTrainingTestScoreGrades','MasterTrainingTestScoreGrade','master_training_test_score_grades','cms_tmm_trainee_training_scorings',   false, true],
+    ['TraineeScoreAverages',         'TraineeScoreAverage',         'trainee_score_averages',           'cms_tmm_trainee_training_scorings',   false, true],
+    ['CandidateSubmissionDocuments', 'CandidateSubmissionDocument', 'candidate_submission_documents',   'cms_lpk_candidate_documents',         false, true],
+    ['ApprenticeFlights',            'ApprenticeFlight',            'apprentice_flights',               'cms_tmm_apprentice_document_ticketings', false, true],
 ];
 
 $appRoot = __DIR__;

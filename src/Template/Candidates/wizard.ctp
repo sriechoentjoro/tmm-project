@@ -211,6 +211,7 @@
                             alert('File size must be less than 5MB');
                             return;
                         
+                        }
                         const reader = new FileReader();
                         reader.onload = function(event) {
                             imagePreview.src = event.target.result;
@@ -221,6 +222,7 @@
                                 cropper.destroy();
                             
                             // Initialize Cropper.js with square aspect ratio
+                            }
                             cropper = new Cropper(imagePreview, {
                                 aspectRatio: 1, // Square (1:1)
                                 viewMode: 1,
@@ -234,12 +236,14 @@
                                 crop: function(event) {
                                     // Update preview on crop
                                     updateCroppedPreview();
+                                }
                             });
                             
                             cropButton.disabled = false;
                             croppedPreviewContainer.style.display = 'block';
                         };
                         reader.readAsDataURL(file);
+                    }
                 });
 
                 function updateCroppedPreview() {
@@ -250,6 +254,8 @@
                         });
                         croppedPreview.src = canvas.toDataURL();
 
+                    }
+                }
                 cropButton.addEventListener('click', function() {
                     if (cropper) {
                         const canvas = cropper.getCroppedCanvas({
@@ -265,6 +271,7 @@
                         photoForm.submit();
                     } else {
                         alert('Please select and crop a photo first');
+                    }
                 });
                 </script>
 
@@ -501,7 +508,9 @@
                                             option.textContent = name;
                                             if (id == selectedValue) {
                                                 option.selected = true;
+                                            }
                                             targetSelect.appendChild(option);
+                                        }
                                         targetSelect.disabled = false;
                                         if (callback) callback();
                                         updateAddress();
@@ -512,6 +521,7 @@
                                     });
 
                             // Event Listeners
+                            }
                             propinsiSelect.addEventListener('change', function() {
                                 const id = this.value;
                                 kabupatenSelect.innerHTML = '<option value="">Select Kabupaten</option>';
@@ -523,6 +533,7 @@
 
                                 if (id) {
                                     loadDropdown('<?= $this->Url->build(['controller' => 'Candidates', 'action' => 'getKabupaten']) ?>?propinsi_id=' + id, kabupatenSelect);
+                                }
                                 updateAddress();
                             });
 
@@ -535,6 +546,7 @@
 
                                 if (id) {
                                     loadDropdown('<?= $this->Url->build(['controller' => 'Candidates', 'action' => 'getKecamatan']) ?>?kabupaten_id=' + id, kecamatanSelect);
+                                }
                                 updateAddress();
                             });
 
@@ -545,6 +557,7 @@
 
                                 if (id) {
                                     loadDropdown('<?= $this->Url->build(['controller' => 'Candidates', 'action' => 'getKelurahan']) ?>?kecamatan_id=' + id, kelurahanSelect);
+                                }
                                 updateAddress();
                             });
 
@@ -580,14 +593,19 @@
                                     addressField.value = currentAddress;
 
                             // Initial Load if values exist
+                                }
+                            }
                             if (propinsiSelect.value) {
                                 loadDropdown('<?= $this->Url->build(['controller' => 'Candidates', 'action' => 'getKabupaten']) ?>?propinsi_id=' + propinsiSelect.value, kabupatenSelect, selectedKabupaten, function() {
                                     if (selectedKabupaten) {
                                         loadDropdown('<?= $this->Url->build(['controller' => 'Candidates', 'action' => 'getKecamatan']) ?>?kabupaten_id=' + selectedKabupaten, kecamatanSelect, selectedKecamatan, function() {
                                             if (selectedKecamatan) {
                                                 loadDropdown('<?= $this->Url->build(['controller' => 'Candidates', 'action' => 'getKelurahan']) ?>?kecamatan_id=' + selectedKecamatan, kelurahanSelect, selectedKelurahan);
+                                            }
                                         });
+                                    }
                                 });
+                            }
                         });
                         </script>
 
@@ -1028,10 +1046,12 @@
 .progress-bar {
     font-size: 11px;
     line-height: 35px;
+}
 .cropper-view-box,
 .cropper-face {
     border-radius: 0;
-</style>
+
+}</style>
 
 <!-- Global Input Handling Script -->
 <script>
@@ -1053,12 +1073,15 @@ document.addEventListener('DOMContentLoaded', function() {
                 // Ignore errors for types that don't support selection
 
         // 2. Lowercase email inputs and kana fields
+            }
+        }
         if (target.matches('input[type="email"]') || target.matches('input[name*="kana"], textarea[name*="kana"]')) {
             target.value = target.value.toLowerCase();
             // Note: setSelectionRange is not supported on email inputs in some browsers
 
         // 3. Katakana Conversion (for fields with 'kana' in name)
         // We handle this in 'input' but check for composition to avoid breaking IME
+        }
         if (target.matches('input[name*="kana"], textarea[name*="kana"]')) {
             if (e.isComposing) return; // Skip if currently composing via IME
             
@@ -1069,6 +1092,8 @@ document.addEventListener('DOMContentLoaded', function() {
             
             if (original !== converted) {
                 target.value = converted;
+            }
+        }
     });
 
     // Handle IME Composition End (for Katakana conversion)
@@ -1082,6 +1107,8 @@ document.addEventListener('DOMContentLoaded', function() {
             
             if (original !== converted) {
                 target.value = converted;
+            }
+        }
     });
 
     // 3. Force Datepicker for 'date' fields (Run once on load)
@@ -1091,6 +1118,7 @@ document.addEventListener('DOMContentLoaded', function() {
         if (input.getAttribute('type') !== 'date') {
             input.setAttribute('type', 'date');
             console.log('Converted to date:', input.name);
+        }
     });
 });
 </script>

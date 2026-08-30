@@ -114,6 +114,7 @@ document.addEventListener('DOMContentLoaded', function() {
             showInstitution = true;
             type = 'VocationalTrainingInstitution';
 
+        }
         if (showInstitution) {
             institutionSection.style.display = 'block';
             typeSelect.value = type;
@@ -127,6 +128,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 penyanggaGroup.style.display = 'none';
                 soGroup.style.display = 'block';
                 penyanggaSelect.value = ''; // Reset other
+            }
         } else {
             institutionSection.style.display = 'none';
             typeSelect.value = '';
@@ -136,6 +138,8 @@ document.addEventListener('DOMContentLoaded', function() {
             soSelect.value = '';
 
     // Listen for role changes
+        }
+    }
     roleSelect.addEventListener('change', updateInstitutionVisibility);
 
     // Listen for institution selection

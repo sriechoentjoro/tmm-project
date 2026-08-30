@@ -358,8 +358,9 @@ class TraineesController extends AppController
         // REMOVED - Table 'master_interview_results' doesn't exist
         // $masterInterviewResults = $this->Trainees->MasterInterviewResults->find('list', ['limit' => 200]);
         // REMOVED - Table 'master_rejected_reasons' doesn't exist
-        // $masterRejectedReasons = $this->Trainees->MasterRejectedReasons->find('list', ['limit' => 200]);
-        $this->set(compact('trainee', 'candidates', 'apprenticeOrders', 'vocationalTrainingInstitutions', 'acceptanceOrganizations', 'masterGenders', 'masterReligions', 'masterMarriageStatuses', 'masterPropinsis', 'masterKabupatens', 'masterKecamatans', 'masterKelurahans', 'masterBloodTypes'));
+        // $masterRejectedReasons = \Cake\ORM\TableRegistry::getTableLocator()->get('MasterRejectedReasons')->find('list', ['limit' => 200]);
+        $masterRejectedReasons = \Cake\ORM\TableRegistry::getTableLocator()->get('MasterRejectedReasons')->find('list', ['limit' => 200]);
+        $this->set(compact('trainee', 'candidates', 'apprenticeOrders', 'vocationalTrainingInstitutions', 'acceptanceOrganizations', 'masterGenders', 'masterReligions', 'masterMarriageStatuses', 'masterPropinsis', 'masterKabupatens', 'masterKecamatans', 'masterKelurahans', 'masterBloodTypes', 'masterRejectedReasons'));
     }
 
     /**
@@ -438,8 +439,9 @@ class TraineesController extends AppController
         // REMOVED - Table 'master_interview_results' doesn't exist
         // $masterInterviewResults = $this->Trainees->MasterInterviewResults->find('list', ['limit' => 200]);
         // REMOVED - Table 'master_rejected_reasons' doesn't exist
-        // $masterRejectedReasons = $this->Trainees->MasterRejectedReasons->find('list', ['limit' => 200]);
-        $this->set(compact('trainee', 'candidates', 'apprenticeOrders', 'vocationalTrainingInstitutions', 'acceptanceOrganizations', 'masterGenders', 'masterReligions', 'masterMarriageStatuses', 'masterPropinsis', 'masterKabupatens', 'masterKecamatans', 'masterKelurahans', 'masterBloodTypes'));
+        // $masterRejectedReasons = \Cake\ORM\TableRegistry::getTableLocator()->get('MasterRejectedReasons')->find('list', ['limit' => 200]);
+        $masterRejectedReasons = \Cake\ORM\TableRegistry::getTableLocator()->get('MasterRejectedReasons')->find('list', ['limit' => 200]);
+        $this->set(compact('trainee', 'candidates', 'apprenticeOrders', 'vocationalTrainingInstitutions', 'acceptanceOrganizations', 'masterGenders', 'masterReligions', 'masterMarriageStatuses', 'masterPropinsis', 'masterKabupatens', 'masterKecamatans', 'masterKelurahans', 'masterBloodTypes', 'masterRejectedReasons'));
     }
 
     /**
@@ -1195,7 +1197,26 @@ class TraineesController extends AppController
     {
         $this->paginate = ['order' => ['Trainees.id' => 'DESC']];
         $trainees = $this->paginate($this->Trainees);
-        $this->set(compact('trainees'));
+
+        // Ringkasan kesiapan promosi
+        $cstats = \Cake\Datasource\ConnectionManager::get('cms_tmm_trainees')->execute(
+            'SELECT COUNT(*) AS total,
+                    SUM(is_candidate_pass = 1 AND is_training_pass = 1
+                        AND (is_apprenticeship_pass IS NULL OR is_apprenticeship_pass = 0)) AS ready,
+                    SUM(is_apprenticeship_pass = 1) AS promoted
+             FROM trainees'
+        )->fetch('assoc');
+
+        // Rata-rata skor test training per trainee (tabel terasosiasi)
+        $scoreMap = [];
+        foreach (\Cake\Datasource\ConnectionManager::get('cms_tmm_trainee_training_scorings')->execute(
+            'SELECT trainee_id, ROUND(AVG(score), 1) AS avg_score, COUNT(*) AS n
+             FROM trainee_training_test_scores GROUP BY trainee_id'
+        )->fetchAll('assoc') as $r) {
+            $scoreMap[$r['trainee_id']] = $r;
+        }
+
+        $this->set(compact('trainees', 'cstats', 'scoreMap'));
     }
 
     /**
@@ -1212,6 +1233,18 @@ class TraineesController extends AppController
              LIMIT 200"
         )->fetchAll('assoc');
 
-        $this->set(compact('histories'));
+        // Ringkasan: full pass vs partial, dan jumlah dokumen keberangkatan terisi
+        $hstats = ['total' => count($histories), 'full_pass' => 0];
+        foreach ($histories as $h) {
+            if ($h['is_candidate_pass'] && $h['is_training_pass'] && $h['is_apprenticeship_pass']) {
+                $hstats['full_pass']++;
+            }
+        }
+        $docs = $apprenticesConn->execute(
+            'SELECT COUNT(DISTINCT apprentice_id) AS n FROM cms_tmm_apprentice_documents.apprentice_record_coe_visas'
+        )->fetch('assoc');
+        $hstats['with_coe'] = (int)($docs['n'] ?? 0);
+
+        $this->set(compact('histories', 'hstats'));
     }
 }

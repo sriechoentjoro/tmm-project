@@ -29,7 +29,10 @@ class MasterKelurahansController extends AppController
         $masterpropinsis = $this->MasterKelurahans->MasterPropinsis->find('list')->limit(200)->toArray();
         $masterkabupatens = $this->MasterKelurahans->MasterKabupatens->find('list')->limit(200)->toArray();
         $masterkecamatans = $this->MasterKelurahans->MasterKecamatans->find('list')->limit(200)->toArray();
-        $this->set(compact('masterKelurahans', 'masterpropinsis', 'masterkabupatens', 'masterkecamatans'));
+                $propinsis = $masterpropinsis;
+        $kabupatens = $masterkabupatens;
+        $kecamatans = $masterkecamatans;
+$this->set(compact('masterKelurahans', 'masterpropinsis', 'masterkabupatens', 'masterkecamatans', 'propinsis', 'kabupatens', 'kecamatans'));
     }
 
 

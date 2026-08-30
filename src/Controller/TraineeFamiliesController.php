@@ -29,7 +29,9 @@ class TraineeFamiliesController extends AppController
         $trainees = $this->TraineeFamilies->Trainees->find('list')->limit(200)->toArray();
         $masterfamilyconnections = $this->TraineeFamilies->MasterFamilyConnections->find('list')->limit(200)->toArray();
         $masteroccupations = $this->TraineeFamilies->MasterOccupations->find('list')->limit(200)->toArray();
-        $this->set(compact('traineeFamilies', 'trainees', 'masterfamilyconnections', 'masteroccupations'));
+                $master_family_connections = $masterfamilyconnections;
+        $master_occupations = $masteroccupations;
+$this->set(compact('traineeFamilies', 'trainees', 'masterfamilyconnections', 'masteroccupations', 'master_family_connections', 'master_occupations'));
     }
 
 

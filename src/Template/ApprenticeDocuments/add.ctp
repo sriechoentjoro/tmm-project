@@ -19,7 +19,12 @@
         echo $this->Form->control('file_path');
         echo $this->Form->control('master_document_submission_status_id');
         echo $this->Form->control('uploaded_by');
-        echo $this->Form->control('uploaded_at');
+        echo $this->Form->control('uploaded_at', [
+            'type' => 'text',
+            'class' => 'form-control datepicker',
+            'placeholder' => 'YYYY-MM-DD',
+            'autocomplete' => 'off'
+        ]);
         echo $this->Form->control('notes');
         ?>
     </fieldset>

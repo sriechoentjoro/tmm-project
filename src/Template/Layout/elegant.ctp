@@ -44,6 +44,19 @@ $cacheBust = '?v=' . time();
     <!-- Bootstrap Datepicker for Date Fields -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
+    <script>
+    // Global fallback init so any input.datepicker gets a calendar, even on
+    // pages without their own datepicker setup script.
+    jQuery(function ($) {
+        $('input.datepicker').datepicker({
+            format: 'yyyy-mm-dd',
+            autoclose: true,
+            todayHighlight: true,
+            orientation: 'bottom auto',
+            container: 'body'
+        });
+    });
+    </script>
 
     <!-- Pretty Form - sectioned two-column layout for scaffolded add/edit forms -->
     <script src="<?= $staticAssetsUrl ?>/js/pretty-form.js<?= $cacheBust ?>"></script>

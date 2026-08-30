@@ -163,31 +163,40 @@ $this->assign('title', 'Dashboard');
     flex-wrap: wrap;
     margin-left: -10px;
     margin-right: -10px;
+}
 .col-md-3 {
     flex: 0 0 25%;
     max-width: 25%;
+}
 .col-md-6 {
     flex: 0 0 50%;
     max-width: 50%;
+}
 .col-md-12 {
     flex: 0 0 100%;
     max-width: 100%;
+}
 @media (max-width: 768px) {
     .col-md-3, .col-md-6 {
         flex: 0 0 100%;
         max-width: 100%;
+    }
+}
 .table {
     width: 100%;
     border-collapse: collapse;
+}
 .table th,
 .table td {
     padding: 10px;
     text-align: left;
     border-bottom: 1px solid #e0e0e0;
+}
 .table th {
     background: #f5f5f5;
     font-weight: 600;
-</style>
+
+}</style>
 
 
 <!-- Process Flow Help Button -->

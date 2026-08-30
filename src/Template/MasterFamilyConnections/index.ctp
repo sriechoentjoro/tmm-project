@@ -228,9 +228,11 @@
     border-radius: 0.25rem;
     box-shadow: 0 0.5rem 1rem rgba(0,0,0,.175);
 
+}
 .dropdown-menu.show {
     display: block;
 
+}
 .dropdown-item {
     display: block;
     width: 100%;
@@ -244,10 +246,12 @@
     background-color: transparent;
     border: 0;
 
+}
 .dropdown-item:hover {
     color: #16181b;
     background-color: #f8f9fa;
 
+}
 .dropdown-divider {
     height: 0;
     margin: 0.5rem 0;
@@ -255,15 +259,18 @@
     border-top: 1px solid #e9ecef;
 
 /* Action Buttons with Hover Effect */
+}
 .action-buttons-hover {
     display: flex;
     gap: 4px;
     opacity: 0;
     transition: opacity 0.2s ease-in-out;
 
+}
 tr:hover .action-buttons-hover {
     opacity: 1;
 
+}
 .btn-action-icon {
     display: inline-flex;
     align-items: center;
@@ -280,10 +287,12 @@ tr:hover .action-buttons-hover {
     border: none;
     cursor: pointer;
 
+}
 .btn-action-icon:hover {
     transform: translateY(-2px);
     box-shadow: 0 2px 4px rgba(0,0,0,0.2);
 
+}
 .btn-view-icon:hover { background-color: #3498db; color: #fff; }
 .btn-edit-icon:hover { background-color: #f39c12; color: #fff; }
 .btn-delete-icon:hover { background-color: #e74c3c; color: #fff; }
@@ -303,6 +312,7 @@ tr:hover .action-buttons-hover {
     text-decoration: none;
     transition: all 0.2s ease;
 
+}
 .btn-export-light:hover {
     background: linear-gradient(135deg, rgba(102, 126, 234, 0.2) 0%, rgba(118, 75, 162, 0.2) 100%);
     border-color: rgba(102, 126, 234, 0.5);
@@ -311,21 +321,25 @@ tr:hover .action-buttons-hover {
     color: #24292f;
 
 /* Drag to Scroll */
+}
 .table-scroll-wrapper.dragging {
     cursor: grabbing;
     user-select: none;
 
 /* Filter Input Styles */
+}
 .filter-input, .filter-operator, .filter-input-range {
     width: 100%;
     border: 1px solid #ddd;
     border-radius: 4px;
 
+}
 .filter-input:focus, .filter-operator:focus, .filter-input-range:focus {
     outline: none;
     border-color: #667eea;
     box-shadow: 0 0 0 2px rgba(102, 126, 234, 0.1);
-</style>
+
+}</style>
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {
@@ -343,14 +357,17 @@ document.addEventListener('DOMContentLoaded', function() {
         document.addEventListener('click', function(e) {
             if (!dropdownButton.contains(e.target) && !dropdownMenu.contains(e.target)) {
                 dropdownMenu.classList.remove('show');
+            }
         });
         
         dropdownMenu.addEventListener('click', function(e) {
             if (e.target.tagName === 'A' || e.target.closest('a')) {
                 setTimeout(() => dropdownMenu.classList.remove('show'), 100);
+            }
         });
     
     // Drag to Scroll
+    }
     const scrollContainer = document.querySelector('.table-scroll-wrapper');
     let isDown = false;
     let startX;
@@ -359,6 +376,7 @@ document.addEventListener('DOMContentLoaded', function() {
     scrollContainer.addEventListener('mousedown', function(e) {
         if (e.target.tagName === 'INPUT' || e.target.tagName === 'BUTTON' || e.target.tagName === 'A' || e.target.tagName === 'SELECT') {
             return;
+        }
         isDown = true;
         scrollContainer.classList.add('dragging');
         startX = e.pageX - scrollContainer.offsetLeft;
@@ -401,6 +419,7 @@ document.addEventListener('DOMContentLoaded', function() {
             } else if (rangeInput) {
                 rangeInput.style.display = 'none';
             
+            }
             filterTable();
         });
     });
@@ -449,6 +468,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     showRow = applyFilter(cellText, filterValue, operator, filterValue2);
                 } else {
                     showRow = applyFilter(cellText, filterValue, operator);
+                }
             });
             
             if (showRow) {
@@ -456,10 +476,12 @@ document.addEventListener('DOMContentLoaded', function() {
                 visibleCount++;
             } else {
                 row.style.display = 'none';
+            }
         });
         
         console.log('Filtered: ' + visibleCount + ' / ' + rows.length + ' rows visible');
     
+    }
     function applyFilter(cellText, filterValue, operator, filterValue2) {
         const cellVal = cellText.trim().toLowerCase();
         const filterVal = filterValue.trim().toLowerCase();
@@ -488,6 +510,8 @@ document.addEventListener('DOMContentLoaded', function() {
                     const filterNum2 = parseFloat(filterValue2);
                     if (!isNaN(filterNum2)) {
                         return cellNum >= filterNum && cellNum <= filterNum2;
+                    }
+                }
                 return cellVal.includes(filterVal);
             case 'like':
                 return cellVal.includes(filterVal);
@@ -500,6 +524,8 @@ document.addEventListener('DOMContentLoaded', function() {
             default:
                 return cellVal.includes(filterVal);
     
+        }
+    }
     function getColumnIndex(columnName) {
         const headerCells = document.querySelectorAll('.table thead th');
         for (let i = 0; i < headerCells.length; i++) {
@@ -508,7 +534,11 @@ document.addEventListener('DOMContentLoaded', function() {
                 const href = sortLink.getAttribute('href');
                 if (href && href.includes('sort=' + columnName)) {
                     return i;
+                }
+            }
+        }
         return -1;
+    }
 });
 </script>
 

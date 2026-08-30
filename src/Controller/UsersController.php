@@ -21,7 +21,7 @@ class UsersController extends AppController
     {
         parent::beforeFilter($event);
         // Allow login, logout and changeLanguage to be accessed without being logged in
-        $this->Auth->allow(['login', 'logout', 'changeLanguage', 'help']);
+        $this->Auth->allow(['login', 'logout', 'changeLanguage', 'help', 'guide']);
     }
 
     /**
@@ -30,6 +30,15 @@ class UsersController extends AppController
     public function help()
     {
         // This is just a view, no data processing needed
+    }
+
+    /**
+     * Guide method - full end-to-end TMM process-flow guide.
+     * Accessible from the login page (no authentication required).
+     */
+    public function guide()
+    {
+        $this->viewBuilder()->setLayout('process_flow');
     }
 
     /**

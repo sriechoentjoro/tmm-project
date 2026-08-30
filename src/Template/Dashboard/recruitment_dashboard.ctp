@@ -53,7 +53,7 @@
                                         <th>ID</th>
                                         <th>Name</th>
                                         <th>LPK Institution</th>
-                                        <th>Created</th>
+                                        <th>Code</th>
                                         <th>Actions</th>
                                     </tr>
                                 </thead>
@@ -61,9 +61,9 @@
                                     <?php foreach ($recentCandidates as $candidate): ?>
                                         <tr>
                                             <td><?= h($candidate->id) ?></td>
-                                            <td><?= h($candidate->full_name ?? 'N/A') ?></td>
+                                            <td><?= h($candidate->name ?? $candidate->full_name ?? 'N/A') ?></td>
                                             <td><?= h($candidate->vocational_training_institution->name ?? 'N/A') ?></td>
-                                            <td><?= h($candidate->created ? $candidate->created->format('Y-m-d') : 'N/A') ?></td>
+                                            <td><?= h($candidate->candidate_code ?? '-') ?></td>
                                             <td>
                                                 <?= $this->Html->link('<i class="fa fa-eye"></i>', 
                                                     ['controller' => 'Candidates', 'action' => 'view', $candidate->id], 
@@ -99,32 +99,39 @@
     transition: transform 0.2s;
     box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 
+}
 .stat-card:hover {
     transform: translateY(-3px);
     box-shadow: 0 4px 12px rgba(0,0,0,0.15);
 
+}
 .stat-card-blue {
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     color: white;
 
+}
 .stat-card-orange {
     background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
     color: white;
 
+}
 .stat-card-green {
     background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
     color: white;
 
+}
 .stat-card h3 {
     font-size: 36px;
     margin: 0;
     font-weight: bold;
 
+}
 .stat-card p {
     margin: 8px 0 0 0;
     font-size: 14px;
     opacity: 0.95;
 
+}
 .stat-card i {
     position: absolute;
     right: 20px;
@@ -132,5 +139,6 @@
     transform: translateY(-50%);
     font-size: 48px;
     opacity: 0.25;
-</style>
+
+}</style>
 

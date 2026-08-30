@@ -36,7 +36,33 @@ class LpkPhysicalTestsController extends AppController
 
         $this->paginate = ['limit' => 50];
         $candidates = $this->paginate($query);
-        $this->set(compact('candidates'));
+
+        // Ringkasan kebugaran (mengikuti filter institusi yang sama)
+        $statsQ = $this->getInstitutionFilteredQuery('Candidates', 'vocational_training_institution_id');
+        $stats = $statsQ->select([
+                'total'  => $statsQ->func()->count('*'),
+                'tested' => $statsQ->newExpr('SUM(CASE WHEN Candidates.fitness_score IS NOT NULL AND Candidates.fitness_score > 0 THEN 1 ELSE 0 END)'),
+                'high'   => $statsQ->newExpr('SUM(CASE WHEN Candidates.fitness_score >= 75 THEN 1 ELSE 0 END)'),
+                'mid'    => $statsQ->newExpr('SUM(CASE WHEN Candidates.fitness_score >= 50 AND Candidates.fitness_score < 75 THEN 1 ELSE 0 END)'),
+                'low'    => $statsQ->newExpr('SUM(CASE WHEN Candidates.fitness_score > 0 AND Candidates.fitness_score < 50 THEN 1 ELSE 0 END)'),
+                'avg_score' => $statsQ->newExpr('ROUND(AVG(NULLIF(Candidates.fitness_score, 0)), 1)'),
+            ])
+            ->first();
+
+        // Jumlah record pipeline terasosiasi per kandidat (placement test / interview / MCU)
+        $conn = \Cake\Datasource\ConnectionManager::get('cms_lpk_candidates');
+        $ptMap = $ivMap = $mcuMap = [];
+        foreach ($conn->execute('SELECT candidate_id AS cid, COUNT(*) AS n FROM candidate_record_placement_tests GROUP BY candidate_id')->fetchAll('assoc') as $r) {
+            $ptMap[$r['cid']] = $r['n'];
+        }
+        foreach ($conn->execute('SELECT applicant_id AS cid, COUNT(*) AS n FROM candidate_record_interviews GROUP BY applicant_id')->fetchAll('assoc') as $r) {
+            $ivMap[$r['cid']] = $r['n'];
+        }
+        foreach ($conn->execute('SELECT applicant_id AS cid, COUNT(*) AS n FROM candidate_record_medical_check_ups GROUP BY applicant_id')->fetchAll('assoc') as $r) {
+            $mcuMap[$r['cid']] = $r['n'];
+        }
+
+        $this->set(compact('candidates', 'stats', 'ptMap', 'ivMap', 'mcuMap'));
     }
 
     /**
