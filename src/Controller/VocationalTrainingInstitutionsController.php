@@ -51,7 +51,22 @@ class VocationalTrainingInstitutionsController extends AppController
         $master_kabupatens = $masterkabupatens;
         $master_kecamatans = $masterkecamatans;
         $master_kelurahans = $masterkelurahans;
-        $this->set(compact('vocationalTrainingInstitutions', 'masterpropinsis', 'masterkabupatens', 'masterkecamatans', 'masterkelurahans', 'master_propinsis', 'master_kabupatens', 'master_kecamatans', 'master_kelurahans'));
+        // Headline counts for the summary cards. The registration workflow is
+        // the point of this screen (create -> email link -> institution
+        // registers), so how many are still pending is the number that matters.
+        $table = $this->VocationalTrainingInstitutions;
+        $total = $table->find()->count();
+        $registered = $table->find()->where(['is_registered' => 1])->count();
+        $stats = [
+            'total' => $total,
+            'registered' => $registered,
+            'pending' => $total - $registered,
+            'special_skill' => $table->find()
+                ->where(['is_special_skill_support_institution' => 1])
+                ->count(),
+        ];
+
+        $this->set(compact('vocationalTrainingInstitutions', 'masterpropinsis', 'masterkabupatens', 'masterkecamatans', 'masterkelurahans', 'master_propinsis', 'master_kabupatens', 'master_kecamatans', 'master_kelurahans', 'stats'));
     }
 
 
@@ -103,11 +118,14 @@ class VocationalTrainingInstitutionsController extends AppController
     }
 
     /**
-     * Add method
+     * Create method
      *
-     * @return \Cake\Http\Response|null Redirects on successful add, renders view otherwise.
+     * Full registration form for a new institution. This is the canonical
+     * create action; add() redirects here so existing links keep working.
+     *
+     * @return \Cake\Http\Response|null Redirects on successful create, renders view otherwise.
      */
-    public function add()
+    public function create()
     {
         $vocationalTrainingInstitution = $this->VocationalTrainingInstitutions->newEntity();
         if ($this->request->is('post')) {
@@ -182,6 +200,19 @@ class VocationalTrainingInstitutionsController extends AppController
         $masterKecamatans = $this->VocationalTrainingInstitutions->MasterKecamatans->find('list', ['limit' => 200]);
         $masterKelurahans = $this->VocationalTrainingInstitutions->MasterKelurahans->find('list', ['limit' => 200]);
         $this->set(compact('vocationalTrainingInstitution', 'masterPropinsis', 'masterKabupatens', 'masterKecamatans', 'masterKelurahans'));
+    }
+
+    /**
+     * Add method
+     *
+     * Kept so existing links, bookmarks and menu entries pointing at /add do
+     * not break. The form itself lives at create().
+     *
+     * @return \Cake\Http\Response Always redirects to create().
+     */
+    public function add()
+    {
+        return $this->redirect(['action' => 'create']);
     }
 
     /**

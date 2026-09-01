@@ -123,8 +123,9 @@
                                             <small class="text-muted">(Format: YYYY-MM-DD)</small>
                                         </label>
                                         <?= $this->Form->control('license_expiry_date', [
-                                            'type' => 'date',
-                                            'class' => 'form-control',
+                                            'type' => 'text',
+                                            'class' => 'form-control datepicker',
+                                            'placeholder' => 'YYYY-MM-DD',
                                             'label' => false
                                         ]) ?>
                                     </div>
@@ -136,8 +137,9 @@
                                             <small class="text-muted">(Format: YYYY-MM-DD)</small>
                                         </label>
                                         <?= $this->Form->control('establishment_date', [
-                                            'type' => 'date',
-                                            'class' => 'form-control',
+                                            'type' => 'text',
+                                            'class' => 'form-control datepicker',
+                                            'placeholder' => 'YYYY-MM-DD',
                                             'label' => false
                                         ]) ?>
                                     </div>
