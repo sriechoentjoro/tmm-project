@@ -101,6 +101,56 @@
     </div>
 </div>
 
+<!-- Summary: registration progress is the point of this screen -->
+<?php $stats = isset($stats) ? $stats : ['total' => 0, 'registered' => 0, 'pending' => 0, 'special_skill' => 0]; ?>
+<style>
+.vti-stats { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 18px; }
+.vti-stats .stat {
+    flex: 1 1 160px; min-width: 160px;
+    border: 1px solid #d0d7de; border-left-width: 4px; border-radius: 8px;
+    background: #fff; padding: 12px 14px;
+}
+.vti-stats .stat .label {
+    display: block; font-size: 12px; color: #57606a; text-transform: uppercase;
+    letter-spacing: .04em; margin-bottom: 4px;
+}
+.vti-stats .stat .value { font-size: 24px; font-weight: 700; line-height: 1.1; color: #24292f; }
+.vti-stats .stat .sub { display: block; font-size: 12px; color: #57606a; margin-top: 2px; }
+.vti-stats .stat.is-total      { border-left-color: #57606a; }
+.vti-stats .stat.is-registered { border-left-color: #1a7f37; }
+.vti-stats .stat.is-pending    { border-left-color: #bf8700; }
+.vti-stats .stat.is-special    { border-left-color: #0969da; }
+.vti-badge {
+    display: inline-block; padding: 2px 8px; border-radius: 999px;
+    font-size: 12px; font-weight: 600; white-space: nowrap;
+}
+.vti-badge.ok      { background: #dafbe1; color: #1a7f37; }
+.vti-badge.pending { background: #fff8c5; color: #7d4e00; }
+.vti-badge.muted   { background: #eaeef2; color: #57606a; }
+</style>
+<div class="vti-stats">
+    <div class="stat is-total">
+        <span class="label"><?= __('Total Institutions') ?></span>
+        <span class="value"><?= $this->Number->format($stats['total']) ?></span>
+    </div>
+    <div class="stat is-registered">
+        <span class="label"><?= __('Registered') ?></span>
+        <span class="value"><?= $this->Number->format($stats['registered']) ?></span>
+        <span class="sub"><?= $stats['total'] > 0
+            ? $this->Number->toPercentage($stats['registered'] / $stats['total'] * 100, 0) . __(' of all')
+            : __('no records yet') ?></span>
+    </div>
+    <div class="stat is-pending">
+        <span class="label"><?= __('Awaiting Registration') ?></span>
+        <span class="value"><?= $this->Number->format($stats['pending']) ?></span>
+        <span class="sub"><?= __('invitation not completed') ?></span>
+    </div>
+    <div class="stat is-special">
+        <span class="label"><?= __('Special Skill Support') ?></span>
+        <span class="value"><?= $this->Number->format($stats['special_skill']) ?></span>
+    </div>
+</div>
+
 <!-- Table Container with Horizontal Scroll -->
 <div class="table-scroll-wrapper" style="overflow-x: auto; cursor: grab; -webkit-overflow-scrolling: touch; user-select: none;">
     <div class="vocationalTrainingInstitutions index content">
@@ -113,6 +163,7 @@
                     <th style="padding: 12px; border-bottom: 2px solid #667eea; white-space: nowrap;" scope="col"><?= $this->Paginator->sort('is_special_skill_support_institution') ?></th>
                     <th style="padding: 12px; border-bottom: 2px solid #667eea; white-space: nowrap;" scope="col"><?= $this->Paginator->sort('abbreviation') ?></th>
                     <th style="padding: 12px; border-bottom: 2px solid #667eea; white-space: nowrap;" scope="col"><?= $this->Paginator->sort('name') ?></th>
+                    <th style="padding: 12px; border-bottom: 2px solid #667eea; white-space: nowrap;" scope="col"><?= $this->Paginator->sort('is_registered', 'Registration') ?></th>
                     <th style="padding: 12px; border-bottom: 2px solid #667eea; white-space: nowrap;" scope="col"><?= $this->Paginator->sort('MasterPropinsis.title', 'Province') ?></th>
                     <th style="padding: 12px; border-bottom: 2px solid #667eea; white-space: nowrap;" scope="col"><?= $this->Paginator->sort('MasterKabupatens.title', 'City/District') ?></th>
                     <th style="padding: 12px; border-bottom: 2px solid #667eea; white-space: nowrap;" scope="col"><?= $this->Paginator->sort('MasterKecamatans.title', 'Subdistrict') ?></th>
@@ -172,6 +223,15 @@
                         <option value="ends_with">Ends With</option>
                     </select>
                     <input type="text" class="filter-input form-control form-control-sm" placeholder="Filter..." data-column="name" style="font-size: 0.85rem; padding: 4px;">
+                </td>
+                <td style="padding: 5px;">
+                    <select class="filter-operator form-control form-control-sm" data-column="is_registered" style="font-size: 0.75rem; padding: 2px 4px; margin-bottom: 2px;">
+                        <option value="like">LIKE</option>
+                        <option value="not_like">NOT LIKE</option>
+                        <option value="=">=</option>
+                        <option value="!=">!=</option>
+                    </select>
+                    <input type="text" class="filter-input form-control form-control-sm" placeholder="Registered / Pending" data-column="is_registered" style="font-size: 0.85rem; padding: 4px;">
                 </td>
                 <td style="padding: 5px;">
                     <select class="filter-input form-control form-control-sm" data-column="master_propinsi_id" data-type="select" style="font-size: 0.85rem; padding: 4px;">
@@ -282,9 +342,34 @@
                         </div>
                     </td>
                     <td style="padding: 8px; white-space: nowrap;"><?= $this->Number->format($vocationalTrainingInstitution->id) ?></td>
-                    <td style="padding: 8px; white-space: nowrap;"><?= h($vocationalTrainingInstitution->is_special_skill_support_institution) ?></td>
+                    <td style="padding: 8px; white-space: nowrap;">
+                        <?php if ($vocationalTrainingInstitution->is_special_skill_support_institution): ?>
+                            <span class="vti-badge ok"><?= __('Yes') ?></span>
+                        <?php else: ?>
+                            <span class="vti-badge muted"><?= __('No') ?></span>
+                        <?php endif; ?>
+                    </td>
                     <td style="padding: 8px; white-space: nowrap;"><?= h($vocationalTrainingInstitution->abbreviation) ?></td>
                     <td style="padding: 8px; white-space: nowrap;"><?= h($vocationalTrainingInstitution->name) ?></td>
+                    <td style="padding: 8px; white-space: nowrap;">
+                        <?php
+                        $isRegistered = (bool)$vocationalTrainingInstitution->is_registered;
+                        $expiresAt = $vocationalTrainingInstitution->token_expires_at;
+                        $tokenExpired = !$isRegistered && $expiresAt && $expiresAt->isPast();
+                        ?>
+                        <?php if ($isRegistered): ?>
+                            <span class="vti-badge ok"><i class="fas fa-check"></i> <?= __('Registered') ?></span>
+                            <?php if ($vocationalTrainingInstitution->registered_at): ?>
+                                <small class="text-muted d-block"><?= h($vocationalTrainingInstitution->registered_at->i18nFormat('yyyy-MM-dd')) ?></small>
+                            <?php endif; ?>
+                        <?php elseif ($tokenExpired): ?>
+                            <span class="vti-badge muted" title="<?= __('Invitation link expired - resend from the detail page') ?>">
+                                <i class="fas fa-hourglass-end"></i> <?= __('Link expired') ?>
+                            </span>
+                        <?php else: ?>
+                            <span class="vti-badge pending"><i class="fas fa-clock"></i> <?= __('Pending') ?></span>
+                        <?php endif; ?>
+                    </td>
                     <td style="padding: 8px; white-space: nowrap;"><?= $vocationalTrainingInstitution->has('master_propinsi') ? $this->Html->link($vocationalTrainingInstitution->master_propinsi->title, ['controller' => 'MasterPropinsis', 'action' => 'view', $vocationalTrainingInstitution->master_propinsi->id]) : '' ?></td>
                     <td style="padding: 8px; white-space: nowrap;"><?= $vocationalTrainingInstitution->has('master_kabupaten') ? $this->Html->link($vocationalTrainingInstitution->master_kabupaten->title, ['controller' => 'MasterKabupatens', 'action' => 'view', $vocationalTrainingInstitution->master_kabupaten->id]) : '' ?></td>
                     <td style="padding: 8px; white-space: nowrap;"><?= $vocationalTrainingInstitution->has('master_kecamatan') ? $this->Html->link($vocationalTrainingInstitution->master_kecamatan->title, ['controller' => 'MasterKecamatans', 'action' => 'view', $vocationalTrainingInstitution->master_kecamatan->id]) : '' ?></td>
@@ -293,7 +378,17 @@
                     <td style="padding: 8px; white-space: nowrap;"><?= h($vocationalTrainingInstitution->post_code) ?></td>
                     <td style="padding: 8px; white-space: nowrap;"><?= h($vocationalTrainingInstitution->director) ?></td>
                     <td style="padding: 8px; white-space: nowrap;"><?= h($vocationalTrainingInstitution->director_katakana) ?></td>
-                    <td style="padding: 8px; white-space: nowrap;"><?= h($vocationalTrainingInstitution->mou_file) ?></td>
+                    <td style="padding: 8px; white-space: nowrap;">
+                        <?php if (!empty($vocationalTrainingInstitution->mou_file)): ?>
+                            <a href="<?= $this->Url->build('/' . $vocationalTrainingInstitution->mou_file) ?>"
+                               target="_blank" rel="noopener"
+                               title="<?= h($vocationalTrainingInstitution->mou_file) ?>">
+                                <i class="fas fa-file-download"></i> <?= h(basename($vocationalTrainingInstitution->mou_file)) ?>
+                            </a>
+                        <?php else: ?>
+                            <span class="text-muted">&mdash;</span>
+                        <?php endif; ?>
+                    </td>
                 </tr>
                 <?php endforeach; ?>
             </tbody>

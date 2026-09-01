@@ -51,7 +51,22 @@ class VocationalTrainingInstitutionsController extends AppController
         $master_kabupatens = $masterkabupatens;
         $master_kecamatans = $masterkecamatans;
         $master_kelurahans = $masterkelurahans;
-        $this->set(compact('vocationalTrainingInstitutions', 'masterpropinsis', 'masterkabupatens', 'masterkecamatans', 'masterkelurahans', 'master_propinsis', 'master_kabupatens', 'master_kecamatans', 'master_kelurahans'));
+        // Headline counts for the summary cards. The registration workflow is
+        // the point of this screen (create -> email link -> institution
+        // registers), so how many are still pending is the number that matters.
+        $table = $this->VocationalTrainingInstitutions;
+        $total = $table->find()->count();
+        $registered = $table->find()->where(['is_registered' => 1])->count();
+        $stats = [
+            'total' => $total,
+            'registered' => $registered,
+            'pending' => $total - $registered,
+            'special_skill' => $table->find()
+                ->where(['is_special_skill_support_institution' => 1])
+                ->count(),
+        ];
+
+        $this->set(compact('vocationalTrainingInstitutions', 'masterpropinsis', 'masterkabupatens', 'masterkecamatans', 'masterkelurahans', 'master_propinsis', 'master_kabupatens', 'master_kecamatans', 'master_kelurahans', 'stats'));
     }
 
 
