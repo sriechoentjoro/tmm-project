@@ -6,7 +6,7 @@ $ErrorActionPreference = "Stop"
 
 # Configuration
 $mysqlUser = "root"
-$mysqlPassword = "62xe6zyr"
+$mysqlPassword = "YOUR_DB_PASSWORD"
 $mysqlHost = "localhost"
 $exportDir = "d:\xampp\htdocs\tmm\database_exports"
 $timestamp = Get-Date -Format "yyyyMMdd_HHmmss"
@@ -292,8 +292,8 @@ On Windows (Local):
    import_all.bat root your_mysql_password
 
 Or import individually:
-   mysql -u root -p62xe6zyr < cms_masters.sql
-   mysql -u root -p62xe6zyr < cms_lpk_candidates.sql
+   mysql -u root -pYOUR_DB_PASSWORD < cms_masters.sql
+   mysql -u root -pYOUR_DB_PASSWORD < cms_lpk_candidates.sql
    ... etc
 
 Features:

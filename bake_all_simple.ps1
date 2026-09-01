@@ -3,7 +3,7 @@ Write-Host "=== Baking All CMS Databases ===" -ForegroundColor Cyan
 Write-Host ""
 
 $mysqlUser = "root"
-$mysqlPass = "62xe6zyr"
+$mysqlPass = "YOUR_DB_PASSWORD"
 $mysqlHost = "localhost"
 
 # Database list

@@ -31,8 +31,8 @@ On Windows (Local):
    import_all.bat root your_mysql_password
 
 Or import individually:
-   mysql -u root -p62xe6zyr < cms_masters.sql
-   mysql -u root -p62xe6zyr < cms_lpk_candidates.sql
+   mysql -u root -pYOUR_DB_PASSWORD < cms_masters.sql
+   mysql -u root -pYOUR_DB_PASSWORD < cms_lpk_candidates.sql
    ... etc
 
 Features:

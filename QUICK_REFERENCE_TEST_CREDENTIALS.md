@@ -51,7 +51,7 @@ Password: lpk123
 
 ### Reset All Passwords:
 ```powershell
-Get-Content setup_test_credentials.sql | mysql -u root -p62xe6zyr
+Get-Content setup_test_credentials.sql | mysql -u root -pYOUR_DB_PASSWORD
 ```
 
 ### Generate New Password Hash:
@@ -125,10 +125,10 @@ Expected: Filtered by institution_id
 ### Login Failed?
 ```bash
 # Check user is active
-mysql -u root -p62xe6zyr -e "SELECT username, is_active FROM system_authentication_authorization.users WHERE username='admin';"
+mysql -u root -pYOUR_DB_PASSWORD -e "SELECT username, is_active FROM system_authentication_authorization.users WHERE username='admin';"
 
 # Reset password
-mysql -u root -p62xe6zyr -e "UPDATE system_authentication_authorization.users SET password='$2y$10$cka06dLU8frl88JDTPaHZug1RT9KiB9N54hxRnPvvUssJL1mSXJoG' WHERE username='admin';"
+mysql -u root -pYOUR_DB_PASSWORD -e "UPDATE system_authentication_authorization.users SET password='$2y$10$cka06dLU8frl88JDTPaHZug1RT9KiB9N54hxRnPvvUssJL1mSXJoG' WHERE username='admin';"
 ```
 
 ### Browser Still Saves Password?

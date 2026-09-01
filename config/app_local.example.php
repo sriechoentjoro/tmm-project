@@ -1,71 +1,58 @@
 <?php
-/*
- * Local configuration file to provide any overrides to your app.php configuration.
- * Copy and save this file as app_local.php and make changes as required.
- * Note: It is not recommended to commit files with credentials such as app_local.php
- * into source code version control.
+/**
+ * Local, machine-specific configuration — TEMPLATE.
+ *
+ * Copy this to config/app_local.php and fill in the real values:
+ *
+ *     cp config/app_local.example.php config/app_local.php
+ *     chmod 640 config/app_local.php        # readable by the web user only
+ *
+ * config/app_local.php is git-ignored and must NEVER be committed. This
+ * repository is public, so anything committed here is world-readable.
+ *
+ * config/app_datasources.php reads Datasources.default from this file when the
+ * matching environment variables are not set. Environment variables win when
+ * both are present, so a server can use either mechanism:
+ *
+ *     TMM_DB_HOST        TMM_SMTP_USERNAME     SECURITY_SALT
+ *     TMM_DB_USERNAME    TMM_SMTP_PASSWORD
+ *     TMM_DB_PASSWORD
+ *
+ * For php-fpm, set them in the pool config (env[TMM_DB_PASSWORD] = ...) —
+ * putenv() from a web request does not reach the config files.
+ *
+ * All 15 database connections share these credentials; only the database name
+ * differs per connection, and those names live in config/app_datasources.php.
  */
 return [
-    /*
-     * Debug Level:
-     *
-     * Production Mode:
-     * false: No error messages, errors, or warnings shown.
-     *
-     * Development Mode:
-     * true: Errors and warnings shown.
-     */
-    'debug' => filter_var(env('DEBUG', true), FILTER_VALIDATE_BOOLEAN),
-
-    /*
-     * Security and encryption configuration
-     *
-     * - salt - A random string used in security hashing methods.
-     *   The salt value is also used as the encryption key.
-     *   You should treat it as extremely sensitive data.
-     */
-    'Security' => [
-        'salt' => env('SECURITY_SALT', '__SALT__'),
-    ],
-
-    /*
-     * Connection information used by the ORM to connect
-     * to your application's datastores.
-     *
-     * See app.php for more configuration options.
-     */
     'Datasources' => [
         'default' => [
             'host' => 'localhost',
-            /*
-             * CakePHP will use the default DB port based on the driver selected
-             * MySQL on MAMP uses port 8889, MAMP users will want to uncomment
-             * the following line and set the port accordingly
-             */
             //'port' => 'non_standard_port_number',
-            'username' => 'my_app',
-            'password' => 'secret',
-            'database' => 'my_app',
-            'log' => true,
-            'url' => env('DATABASE_URL', null),
+            'username' => 'CHANGE_ME',
+            'password' => 'CHANGE_ME',
         ],
     ],
 
     /*
-     * Email configuration.
-     *
-     * Host and credential configuration in case you are using SmtpTransport
-     *
-     * See app.php for more configuration options.
+     * SMTP credentials for outgoing mail (registration links, notifications).
+     * For Gmail this is a 16-character App Password, not the account password.
      */
     'EmailTransport' => [
         'default' => [
-            'host' => 'localhost',
-            'port' => 25,
-            'username' => null,
-            'password' => null,
-            'client' => null,
-            'url' => env('EMAIL_TRANSPORT_DEFAULT_URL', null),
+            'username' => 'CHANGE_ME@example.com',
+            'password' => 'CHANGE_ME',
         ],
+    ],
+
+    /*
+     * Used to hash cookies, CSRF tokens and other security data. Generate a
+     * fresh random value per environment and keep it stable afterwards —
+     * changing it invalidates existing sessions and CSRF tokens.
+     *
+     *     php -r 'echo bin2hex(random_bytes(32)), PHP_EOL;'
+     */
+    'Security' => [
+        'salt' => 'CHANGE_ME',
     ],
 ];

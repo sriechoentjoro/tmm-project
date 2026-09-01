@@ -7,7 +7,7 @@
 $sqlDir = __DIR__ . '/tmp/sql';
 $host = 'localhost';
 $user = 'root';
-$pass = '62xe6zyr'; // XAMPP MySQL password
+$pass = 'YOUR_DB_PASSWORD'; // XAMPP MySQL password
 
 echo "=== DATABASE IMPORT SCRIPT ===\n\n";
 

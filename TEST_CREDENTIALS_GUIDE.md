@@ -184,7 +184,7 @@ php generate_test_passwords.php
 
 ### Reset All Test Passwords
 ```bash
-Get-Content setup_test_credentials.sql | mysql -u root -p62xe6zyr
+Get-Content setup_test_credentials.sql | mysql -u root -pYOUR_DB_PASSWORD
 ```
 
 ### Verify Active Users
