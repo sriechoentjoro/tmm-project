@@ -5,19 +5,53 @@ the internet, and stays readable in the git history even after it is deleted.
 
 ## What was exposed
 
-Credentials were committed in plaintext and are in the public history:
+Credentials were committed in plaintext and are in the public history. All of
+them have now been rotated or revoked on the production server:
 
 | Secret | Where it was | Status |
 |---|---|---|
-| MySQL password (user `tmm`, all 15 databases) | `config/app_datasources.php` + 20 other files | **Must be rotated** |
-| MySQL password (user `root`, older commits) | same files, earlier history | **Must be rotated** |
-| Gmail App Password | `config/app.php` (`EmailTransport`) | **Must be revoked** |
-| `Security.salt` | `config/app.php` — still the placeholder `__SALT__` | **Must be set** |
+| MySQL password (user `tmm`, all 15 databases) | `config/app_datasources.php` + 20 other files | Rotated |
+| MySQL password (user `root`, older commits) | same files, earlier history | Rotated (2026-08-29) |
+| Gmail App Password | `config/app.php` (`EmailTransport`) | Revoked and replaced |
+| `Security.salt` | `config/app.php` — was the placeholder `__SALT__` | Set to a random value |
 
-Removing them from the current files does **not** undo the exposure. They are
-in the history of a public repository and must be assumed compromised.
+Removing them from the current files does **not** undo the exposure. The old
+values are in the history of a public repository and must be assumed
+compromised — which is why they were rotated rather than merely deleted.
 
-## Step 1 — Rotate (do this first)
+Rotating `Security.salt` invalidated existing sessions and CSRF tokens, so
+users were logged out once. That is expected.
+
+## Still to do
+
+- **Deploy this branch to production.** Until then `config/app.php` and
+  `config/app_datasources.php` on the server still hold the **new** passwords
+  in files that git tracks. Deployment order matters — see below.
+- **Review the remaining `webroot/` debug scripts** (listed further down).
+  None of them hold credentials any more, but they are development scripts in
+  a publicly served directory.
+
+### Deploying this change to the server
+
+The server's working copy has local edits carrying the new secrets. Write them
+into the git-ignored file first, then discard the tracked edits, then pull:
+
+```bash
+cd /var/www/html/tmm
+cp config/app_local.example.php config/app_local.php
+# fill in the real values (DB password, SMTP user/password, salt)
+chown www-data:www-data config/app_local.php
+chmod 640 config/app_local.php
+
+git checkout -- config/app.php config/app_datasources.php
+git pull
+```
+
+Do **not** run `git add -A` in that directory before `config/app_local.php`
+exists and the tracked files are reverted — it would commit the new passwords
+back into the public repository.
+
+## How rotation was done (for reference)
 
 ### MySQL
 
@@ -26,6 +60,9 @@ in the history of a public repository and must be assumed compromised.
 ALTER USER 'tmm'@'localhost' IDENTIFIED BY 'a-new-strong-password';
 FLUSH PRIVILEGES;
 ```
+
+`ALTER USER ... IDENTIFIED BY` keeps the account's existing authentication
+plugin; MySQL 8 removed `SET PASSWORD ... = PASSWORD()`.
 
 Check whether MySQL is reachable from outside the host. If it is, restrict it:
 
@@ -36,24 +73,24 @@ ss -lntp | grep 3306      # 127.0.0.1:3306 = local only (good)
 
 ### Gmail App Password
 
-Revoke the old one at <https://myaccount.google.com/apppasswords> and generate
-a new one. The old value is public, so anyone can send mail as this account
-until it is revoked.
+Revoked at <https://myaccount.google.com/apppasswords> and regenerated. The old
+value is public, so anyone could have sent mail as this account until it was
+revoked.
 
 ### Security salt
 
-`config/app.php` uses `env('SECURITY_SALT', '__SALT__')`. If the environment
-variable is not set in production, the app is hashing cookies and CSRF tokens
-with the literal string `__SALT__`, which is in this public repository.
+`config/app.php` uses `env('SECURITY_SALT', '__SALT__')`. With the environment
+variable unset, the app was hashing cookies and CSRF tokens with the literal
+string `__SALT__`, which is in this public repository.
 
 ```bash
 php -r 'echo bin2hex(random_bytes(32)), PHP_EOL;'
 ```
 
-Changing it invalidates existing sessions and CSRF tokens — users are logged
-out once, which is expected.
+Note: user passwords were not affected. `DefaultPasswordHasher` uses bcrypt via
+`password_hash()`, which does not read `Security.salt`.
 
-## Step 2 — Configure the new values
+## Configuring the new values
 
 Credentials are no longer stored in tracked files. `config/app_datasources.php`
 reads them from the environment, falling back to `config/app_local.php`, which
@@ -101,11 +138,12 @@ TMM_DB_PASSWORD in the environment, or create config/app_local.php ...
 
 So a successful page load confirms the configuration is being read.
 
-## Step 3 — Consider the history
+## The history
 
-The values remain in the public git history. Options, in order of practicality:
+The old values remain in the public git history. Options, in order of
+practicality:
 
-1. **Rotate and move on** (recommended). Once rotated, the old values are
+1. **Rotate and move on** (what was done). Once rotated, the old values are
    worthless. Rewriting history on a public repository that others may have
    cloned buys little.
 2. **Make the repository private.** Limits future exposure but does not
@@ -151,3 +189,6 @@ through `webroot/index.php`.
 `.gitignore` now covers `config/app_local*.php` (except the example) and
 config backups (`*.backup`, `*.bak`, `*.before_*`, `*.disabled`). Before
 committing anything under `config/`, confirm it holds no real values.
+
+Backups of files that held old credentials belong outside the repository
+directory (for example `/root/`), never inside it.
