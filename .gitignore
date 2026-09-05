@@ -10,6 +10,19 @@
 /config/app.php.production
 /config/app_datasources.php.prod
 
+# Never commit credentials. This repository is public.
+# Real values belong in config/app_local.php (see app_local.example.php)
+# or in environment variables; see config/app_datasources.php.
+/config/app_local*.php
+!/config/app_local.example.php
+/config/*.backup
+/config/*.backup[0-9]
+/config/*.backup-*
+/config/*.bak
+/config/*.bak.*
+/config/*.before_*
+/config/*.disabled
+
 # Uploads (managed separately, too large for Git)
 /webroot/img/uploads/*
 /webroot/files/uploads/*

@@ -57,7 +57,7 @@ created            DATETIME NOT NULL              -- Creation timestamp
 
 **Execution Method:**
 ```powershell
-$env:MYSQL_PWD='62xe6zyr'
+$env:MYSQL_PWD='YOUR_DB_PASSWORD'
 Get-Content phase_3_4_simple_migration.sql | mysql -u root cms_authentication_authorization
 ```
 
