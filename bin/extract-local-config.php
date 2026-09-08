@@ -16,6 +16,11 @@
  *
  *     php bin/extract-local-config.php [--force] [--base-url=https://example.com]
  *
+ * It does not have to live in the application. Copied elsewhere it uses the
+ * current directory, or --root=/path/to/app when run from somewhere else again:
+ *
+ *     php /root/extract-local-config.php --root=/var/www/html/tmm
+ *
  * It refuses to overwrite an existing config/app_local.php unless --force is
  * given, and it refuses to write placeholder or empty credentials at all —
  * config/bootstrap.php loads app_local.php after app.php and the merged result
@@ -29,20 +34,59 @@ if (PHP_SAPI !== 'cli') {
     exit("This script is for the command line only.\n");
 }
 
-$root = dirname(__DIR__);
+$args = array_slice($argv, 1);
+$force = in_array('--force', $args, true);
+$baseUrl = null;
+$rootArg = null;
+foreach ($args as $arg) {
+    if (strpos($arg, '--base-url=') === 0) {
+        $baseUrl = substr($arg, strlen('--base-url='));
+    } elseif (strpos($arg, '--root=') === 0) {
+        $rootArg = rtrim(substr($arg, strlen('--root=')), '/');
+    }
+}
+
+/**
+ * The application root. This script is meant to be copied outside the
+ * application — downloaded to /root and run from there is the normal case —
+ * so it cannot assume it is sitting in the app's own bin/ directory.
+ *
+ * In order: an explicit --root=, the current directory, then the parent of
+ * wherever this file happens to live.
+ */
+$isAppRoot = function ($dir) {
+    return $dir !== ''
+        && is_file($dir . '/config/paths.php')
+        && is_file($dir . '/config/app.php')
+        && is_file($dir . '/vendor/autoload.php');
+};
+
+$root = null;
+foreach ([$rootArg, getcwd(), dirname(__DIR__)] as $candidate) {
+    if ($candidate !== null && $isAppRoot($candidate)) {
+        $root = $candidate;
+        break;
+    }
+}
+
+if ($root === null) {
+    fwrite(STDERR, sprintf(
+        "Could not find the application root.\n\n"
+        . "Looked for config/paths.php, config/app.php and vendor/autoload.php in:\n"
+        . "%s\n\n"
+        . "Run this from the application directory, or pass --root=/path/to/app.\n",
+        implode("\n", array_map(
+            function ($d) { return '  ' . ($d === null ? '(--root not given)' : $d); },
+            [$rootArg, getcwd(), dirname(__DIR__)]
+        ))
+    ));
+    exit(1);
+}
+
 chdir($root);
 
 require $root . '/config/paths.php';
 require $root . '/vendor/autoload.php';
-
-$args = array_slice($argv, 1);
-$force = in_array('--force', $args, true);
-$baseUrl = null;
-foreach ($args as $arg) {
-    if (strpos($arg, '--base-url=') === 0) {
-        $baseUrl = substr($arg, strlen('--base-url='));
-    }
-}
 
 $target = $root . '/config/app_local.php';
 if (file_exists($target) && !$force) {
