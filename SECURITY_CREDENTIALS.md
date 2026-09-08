@@ -22,30 +22,45 @@ compromised — which is why they were rotated rather than merely deleted.
 Rotating `Security.salt` invalidated existing sessions and CSRF tokens, so
 users were logged out once. That is expected.
 
+## Deployed
+
+Production runs this configuration as of 2026-09-08. Every credential lives in
+`config/app_local.php`, which is git-ignored; no tracked file holds a value.
+Verified on the server: all 15 connections resolve to the current password, a
+direct `PDO` connection to `cms_masters` succeeds, and the site returns 200.
+
+`Security.salt` was regenerated at the same time — the first value set by hand
+was 14 characters, well short of what `bin2hex(random_bytes(32))` produces.
+`App.fullBaseUrl` is `https://`, matching the scheme nginx redirects to; the
+`http://` it held before would have put a 301 in front of every link sent by
+email.
+
 ## Still to do
 
-- **Deploy this branch to production.** Until then `config/app.php` and
-  `config/app_datasources.php` on the server still hold the **new** passwords
-  in files that git tracks. Deployment order matters — see below.
 - **Review the remaining `webroot/` debug scripts** (listed further down).
   None of them hold credentials any more, but they are development scripts in
   a publicly served directory.
+- **Delete the old config backups** under `/root/` once there is no doubt the
+  deployment is stable. They contain pre-rotation passwords.
 
-### Deploying this change to the server
+### Deploying to another server
 
-The server's working copy has local edits carrying the new secrets. Write them
-into the git-ignored file first, then discard the tracked edits, then pull:
+`bin/extract-local-config.php` does the delicate part: it reads whatever
+`config/app.php` currently serves and writes `config/app_local.php` from it, so
+no value is retyped. Run it **before** reverting the tracked files, because the
+revert is what discards them.
 
 ```bash
-cd /var/www/html/tmm
-cp config/app_local.example.php config/app_local.php
-# fill in the real values (DB password, SMTP user/password, salt)
+cd /path/to/app
+php bin/extract-local-config.php --base-url=https://example.com
 chown www-data:www-data config/app_local.php
-chmod 640 config/app_local.php
 
 git checkout -- config/app.php config/app_datasources.php
 git pull
 ```
+
+Check `git branch --show-current` first: a working copy sitting on some other
+branch will report "Already up to date" and quietly deploy nothing.
 
 Do **not** run `git add -A` in that directory before `config/app_local.php`
 exists and the tracked files are reverted — it would commit the new passwords

@@ -111,11 +111,12 @@ return [
 
     /**
      * Email configuration.
-     * 
-     * IMPORTANT: For Gmail, you need to:
+     *
+     * Gmail requires an App Password, not the account password:
      * 1. Enable 2-Step Verification: https://myaccount.google.com/security
-     * 2. Create App Password: https://myaccount.google.com/apppasswords
-     * 3. Replace 'YOUR_APP_PASSWORD_HERE' below with the generated password
+     * 2. Create an App Password: https://myaccount.google.com/apppasswords
+     * 3. Put it in config/app_local.php, or set TMM_SMTP_PASSWORD in the
+     *    environment. Never write it in this file — the repository is public.
      */
     'EmailTransport' => [
         'default' => [
