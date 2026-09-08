@@ -69,12 +69,17 @@ class LpkRegistrationController extends AppController
         $institution = $this->VocationalTrainingInstitutions->newEntity();
 
         if ($this->request->is('post')) {
+            // mou_file arrives as an upload array; uploadFile() moves it and
+            // rewrites the request data with the stored path, so re-read after.
+            $this->uploadFile('VocationalTrainingInstitutions', 'mou_file', 'vocationaltraininginstitutions');
             $data = $this->request->getData();
-            
-            // Set initial status
-            $data['status'] = 'pending_verification';
-            
+
             $institution = $this->VocationalTrainingInstitutions->newEntity($data);
+
+            // Not a mass-assignable field, and only present on installations
+            // that ran database/migrations/stakeholder_management_schema.sql.
+            // Setting it directly is a no-op where the column is absent.
+            $institution->status = 'pending_verification';
 
             if ($this->VocationalTrainingInstitutions->save($institution)) {
                 try {
@@ -96,15 +101,15 @@ class LpkRegistrationController extends AppController
                         
                         $emailSent = $this->EmailService->sendEmail(
                             $institution->email,
-                            $institution->director_name,
+                            $institution->director,
                             'lpk_verification',
                             [
-                                'directorName' => $institution->director_name,
+                                'directorName' => $institution->director,
                                 'institutionName' => $institution->name,
-                                'registrationNumber' => $institution->registration_number,
+                                'registrationNumber' => $institution->abbreviation,
                                 'email' => $institution->email,
                                 'registeredByAdmin' => $this->Auth->user('fullname'),
-                                'registrationDate' => $institution->created->format('d F Y, H:i'),
+                                'registrationDate' => ($institution->created ?: Time::now())->format('d F Y, H:i'),
                                 'verificationUrl' => $verificationUrl
                             ]
                         );
@@ -142,8 +147,24 @@ class LpkRegistrationController extends AppController
                 return $this->redirect(['action' => 'index']);
             }
             
-            $this->Flash->error(__('Unable to register LPK. Please check the form and try again.'));
-            Log::error("Failed to save LPK registration", ['scope' => 'lpk_registration']);
+            // Without this the page fails silently whenever a required field has
+            // no input on the form: the message says "check the form" but there
+            // is nothing on the form to correct.
+            $messages = [];
+            foreach ($institution->getErrors() as $field => $fieldErrors) {
+                foreach ((array)$fieldErrors as $message) {
+                    $messages[] = $field . ': ' . (is_array($message) ? implode(', ', $message) : $message);
+                }
+            }
+            $this->Flash->error(
+                $messages
+                    ? __('Unable to register LPK. {0}', implode(' | ', $messages))
+                    : __('Unable to register LPK. Please check the form and try again.')
+            );
+            Log::error(
+                'Failed to save LPK registration: ' . json_encode($institution->getErrors()),
+                ['scope' => 'lpk_registration']
+            );
         }
 
         // Load dropdown data
@@ -345,7 +366,7 @@ class LpkRegistrationController extends AppController
                     $user = $this->Users->newEntity([
                         'username' => $username,
                         'email' => $institution->email,
-                        'full_name' => $institution->director_name,
+                        'full_name' => $institution->director,
                         'password' => $password,
                         'institution_id' => $institution->id,
                         'institution_type' => 'vocational_training',
@@ -371,10 +392,10 @@ class LpkRegistrationController extends AppController
                     $this->loadComponent('EmailService');
                     $this->EmailService->sendEmail(
                         $institution->email,
-                        $institution->director_name,
+                        $institution->director,
                         'lpk_welcome',
                         [
-                            'directorName' => $institution->director_name,
+                            'directorName' => $institution->director,
                             'institutionName' => $institution->name,
                             'username' => $user->username,
                             'email' => $institution->email,
@@ -450,15 +471,15 @@ class LpkRegistrationController extends AppController
             
             $emailSent = $this->EmailService->sendEmail(
                 $institution->email,
-                $institution->director_name,
+                $institution->director,
                 'lpk_verification',
                 [
-                    'directorName' => $institution->director_name,
+                    'directorName' => $institution->director,
                     'institutionName' => $institution->name,
-                    'registrationNumber' => $institution->registration_number,
+                    'registrationNumber' => $institution->abbreviation,
                     'email' => $institution->email,
                     'registeredByAdmin' => $this->Auth->user('fullname'),
-                    'registrationDate' => $institution->created->format('d F Y, H:i'),
+                    'registrationDate' => ($institution->created ?: Time::now())->format('d F Y, H:i'),
                     'verificationUrl' => $verificationUrl
                 ]
             );
