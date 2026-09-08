@@ -25,6 +25,20 @@
  * differs per connection, and those names live in config/app_datasources.php.
  */
 return [
+    /*
+     * Per-environment application settings. 'fullBaseUrl' is what CakePHP uses
+     * to build absolute URLs — in emails, redirects and Router::url(..., true).
+     * Leave it out (app.php defaults it to false) and CakePHP derives it from
+     * the request, which is usually right; set it when mail must point at the
+     * public hostname rather than whatever Host header arrived.
+     *
+     *     'App' => ['fullBaseUrl' => 'http://tmm-demo.example.com'],
+     *
+     * Note this is the only local file the app reads: config/bootstrap.php
+     * loads app_local.php and nothing else, so a file named app_local_<env>.php
+     * has no effect.
+     */
+
     'Datasources' => [
         'default' => [
             'host' => 'localhost',
