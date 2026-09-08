@@ -64,6 +64,81 @@ class EmailServiceComponent extends Component
     }
 
     /**
+     * Send one of the templates in src/Template/Email using the branded layout.
+     *
+     * The LpkRegistration flow builds its own view variables and its own
+     * verification URL, so it needs a plain "render this template and send it"
+     * call rather than one of the specific senders below, which construct the
+     * link themselves and require a User entity that does not exist yet at the
+     * point the first email goes out.
+     *
+     * Never throws: a missing template or a refused SMTP connection returns
+     * false, so a caller in the middle of a save is not left half-finished.
+     *
+     * @param string $to Recipient address
+     * @param string|null $name Recipient name, for the To header
+     * @param string $template Template name under src/Template/Email
+     * @param array $vars View variables the template expects
+     * @param string|null $subject Overrides the subject for the template
+     * @return bool Whether the message was handed to the transport
+     */
+    public function sendEmail($to, $name, $template, array $vars = [], $subject = null)
+    {
+        $subjects = [
+            'lpk_verification' => 'Verify Your LPK Account - TMM System',
+            'lpk_welcome' => 'Your LPK Account Is Active - TMM System',
+            'special_skill_verification' => 'Verify Your Institution Account - TMM System',
+            'verification_confirmation' => 'Email Verified - TMM System',
+            'admin_lpk_notification' => 'New LPK Registration - TMM System',
+        ];
+        if ($subject === null) {
+            $subject = isset($subjects[$template]) ? $subjects[$template] : 'TMM System Notification';
+        }
+
+        try {
+            // From comes from Email.default.from in config/app.php.
+            $email = new Email('default');
+            $email->setTo($to, $name !== null && $name !== '' ? $name : $to)
+                ->setSubject($subject)
+                ->setEmailFormat('both')
+                ->setViewVars($vars);
+            // Email::setTemplate()/setLayout() are deprecated since 3.7.
+            $email->viewBuilder()
+                ->setTemplate($template)
+                ->setLayout('email_branded');
+
+            $email->send();
+
+            $this->logEmail([
+                'recipient_email' => $to,
+                'recipient_name' => $name,
+                'subject' => $subject,
+                'email_type' => $template,
+                'status' => 'sent',
+                'sent_at' => date('Y-m-d H:i:s'),
+            ]);
+
+            return true;
+        } catch (\Throwable $e) {
+            // \Throwable, not \Exception: a missing template or a bad view
+            // variable raises an Error, and letting that escape kills the
+            // request after the record has already been written.
+            Log::error('Failed to send ' . $template . ' email to ' . $to . ': ' . $e->getMessage());
+
+            $this->logEmail([
+                'recipient_email' => $to,
+                'recipient_name' => $name,
+                'subject' => $subject,
+                'email_type' => $template,
+                'status' => 'failed',
+                'error_message' => $e->getMessage(),
+            ]);
+
+            return false;
+        }
+    }
+
+    /**
      * Send LPK verification email to institution owner
      *
      * @param object $user User entity

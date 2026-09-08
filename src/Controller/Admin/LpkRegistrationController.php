@@ -139,7 +139,9 @@ class LpkRegistrationController extends AppController
                         $this->Flash->error(__('LPK registered but failed to generate verification token.'));
                         Log::error("Failed to generate token for LPK: {$institution->name}", ['scope' => 'lpk_registration']);
                     }
-                } catch (\Exception $e) {
+                } catch (\Throwable $e) {  // \Error is not an \Exception; without this a
+                            // fatal here leaves the record saved and the
+                            // request dead, with no flash and no email.
                     $this->Flash->error(__('LPK registered but error occurred: {0}', $e->getMessage()));
                     Log::error("Error during LPK registration: " . $e->getMessage(), ['scope' => 'lpk_registration']);
                 }
@@ -311,7 +313,7 @@ class LpkRegistrationController extends AppController
         
         try {
             $institution = $this->VocationalTrainingInstitutions->get($id);
-        } catch (\Exception $e) {
+        } catch (\Throwable $e) {
             $this->Flash->error(__('Institution not found.'));
             Log::error("Institution not found: ID $id", ['scope' => 'lpk_registration']);
             return $this->redirect('/');
@@ -446,7 +448,7 @@ class LpkRegistrationController extends AppController
         
         try {
             $institution = $this->VocationalTrainingInstitutions->get($id);
-        } catch (\Exception $e) {
+        } catch (\Throwable $e) {
             $this->Flash->error(__('Institution not found.'));
             return $this->redirect('/');
         }
