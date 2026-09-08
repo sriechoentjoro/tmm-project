@@ -167,37 +167,56 @@ practicality:
    clone and requires a force-push. Only worth it combined with rotation, and
    it still cannot un-publish what has already been read.
 
-## Still in the web root
+## The web root
 
-`webroot/` is served directly, so anything there is reachable over HTTP. These
-were removed because they exposed credentials or configuration:
+`webroot/` is served directly, so anything there is reachable over HTTP.
+
+Removed in #4, because they exposed credentials or configuration:
 
 - `info.php` — was `phpinfo()`, printing the full environment
 - `simple_debug.php`, `test_login.php`, `test_password.php`, `update_passwords.php`
 
-These remain and are worth reviewing — they are development scripts sitting in
-a public directory:
+Removed after the deployment — 15 development scripts, none referenced by any
+application code:
 
 ```
-webroot/check_all_location_tables.php
-webroot/check_candidate_educations_schema.php
-webroot/check_candidates_schema.php
-webroot/check_db_data.php
-webroot/check_master_kabupatens_schema.php
-webroot/debug-apache.php
-webroot/debug_institutions.php
-webroot/debug_session.php
-webroot/direct_require_test.php
-webroot/final_test.php
-webroot/fix_file.php
-webroot/fix_token.php
-webroot/generate_hash.php
-webroot/migrate_candidate_education_location_data.php
-webroot/parse_test.php
+check_all_location_tables.php   debug_session.php    fix_token.php
+check_candidate_educations_schema.php                generate_hash.php
+check_candidates_schema.php     direct_require_test.php
+check_db_data.php               final_test.php       parse_test.php
+check_master_kabupatens_schema.php                   debug-apache.php
+debug_institutions.php          fix_file.php
+migrate_candidate_education_location_data.php
 ```
 
-None of them are needed for the application to run — CakePHP serves everything
-through `webroot/index.php`.
+Two of them were worse than mere clutter. `generate_hash.php` printed a bcrypt
+hash for `password123` together with the SQL to apply it:
+
+```sql
+UPDATE users SET password = '$hash' WHERE username = 'admin';
+```
+
+Anyone who loaded that page got a working credential and the exact statement to
+install it. And five of the scripts opened MySQL connections as `root` with an
+empty password — harmless on this server, where `root` has one, but they
+document the intent plainly enough.
+
+### Still there
+
+These remain and are the same kind of thing. They hold no credentials, and
+nothing in the application references them:
+
+```
+webroot/test_ajax_element.php
+webroot/test_apprentices.php
+webroot/test_opcache_cleared.php
+webroot/test_propinsi.php
+webroot/update_apprentices_data.php
+webroot/verify_db_associations.php
+```
+
+CakePHP serves everything through `webroot/index.php`; none of the above is
+needed for the application to run.
 
 ## Keeping it clean
 
