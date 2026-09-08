@@ -21,6 +21,9 @@ $cakeDescription = 'TMM: Apprentice Management Modules';
 <head>
     <?= $this->Html->charset() ?>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <?php // Read by JavaScript that POSTs without a form; empty when the CSRF
+          // middleware is not active, which is the correct value in that case. ?>
+    <meta name="csrfToken" content="<?= h($this->request->getAttribute('csrfToken')) ?>">
     <title>
         <?= $cakeDescription ?>:
         <?= $this->fetch('title') ?>

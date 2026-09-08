@@ -371,6 +371,7 @@ $statusCounts = $statusCounts ?? [];
     </div>
     <div style="padding:18px 22px">
       <form id="atForm" method="post" action="<?= $this->Url->build(['action'=>'saveAdditionalTraining']) ?>">
+        <input type="hidden" name="_csrfToken" value="<?= h($this->request->getAttribute('csrfToken')) ?>">
         <input type="hidden" id="atId" name="id">
         <div style="display:grid;gap:13px">
           <!-- Parent batch selector -->

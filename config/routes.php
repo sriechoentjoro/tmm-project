@@ -51,6 +51,17 @@ Router::scope('/', function (RouteBuilder $routes) {
         'httpOnly' => true,
     ]));
 
+    // Must come before any connect() in this scope: RouteBuilder::connect()
+    // copies the builder's middleware list onto the route as it is created, so
+    // routes connected above this line would carry no protection.
+    //
+    // The AJAX endpoints at the bottom of this file stay exempt because they
+    // live in their own scope. They keep matching ahead of the fallbacks below
+    // regardless of file order — RouteCollection::parseRequest sorts by static
+    // path prefix, longest first, so '/master-kabupatens/get-by-province' is
+    // tried before '/:controller/:action/*'.
+    $routes->applyMiddleware('csrf');
+
     /*
      * Apply a middleware to the current route scope.
      * Requires middleware to be registered through `Application::routes()` with `registerMiddleware()`
