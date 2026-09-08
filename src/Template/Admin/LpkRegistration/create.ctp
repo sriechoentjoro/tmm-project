@@ -84,19 +84,20 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label class="form-label">
-                                            <?= __('Registration Number') ?> 
+                                            <?= __('Username') ?> 
                                             <span class="text-danger">*</span>
-                                            <small class="text-muted">(Max 50 characters)</small>
+                                            <small class="text-muted">(Max 50 characters, letters and digits only)</small>
                                         </label>
-                                        <?= $this->Form->control('registration_number', [
-                                            'class' => 'form-control',
-                                            'placeholder' => __('Enter Registration Number'),
+                                        <?= $this->Form->control('username', [
+                                            'class' => 'form-control no-uppercase',
+                                            'placeholder' => __('e.g., lpkkaryamandiri'),
                                             'label' => false,
                                             'required' => true,
-                                            'maxlength' => 50
+                                            'maxlength' => 50,
+                                            'pattern' => '[A-Za-z0-9]+'
                                         ]) ?>
                                         <small class="form-text text-muted">
-                                            <i class="fas fa-info-circle"></i> Official registration number from government authority
+                                            <i class="fas fa-info-circle"></i> The login name this LPK will use once it sets a password
                                         </small>
                                     </div>
                                 </div>
@@ -105,41 +106,44 @@
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label class="form-label">
-                                            <?= __('License Number') ?>
+                                            <?= __('Abbreviation') ?>
+                                            <small class="text-muted">(Optional, max 11 characters)</small>
+                                        </label>
+                                        <?= $this->Form->control('abbreviation', [
+                                            'class' => 'form-control',
+                                            'placeholder' => __('e.g., LKM'),
+                                            'label' => false,
+                                            'maxlength' => 11
+                                        ]) ?>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label class="form-label">
+                                            <?= __('Director Name (Katakana)') ?>
                                             <small class="text-muted">(Optional)</small>
                                         </label>
-                                        <?= $this->Form->control('license_number', [
+                                        <?= $this->Form->control('director_katakana', [
                                             'class' => 'form-control',
-                                            'placeholder' => __('Enter License Number'),
+                                            'placeholder' => __('e.g., スリ クンチョロ'),
                                             'label' => false,
-                                            'maxlength' => 50
+                                            'maxlength' => 256
                                         ]) ?>
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label class="form-label">
-                                            <?= __('License Expiry Date') ?>
-                                            <small class="text-muted">(Format: YYYY-MM-DD)</small>
+                                            <?= __('Institution Type') ?>
                                         </label>
-                                        <?= $this->Form->control('license_expiry_date', [
-                                            'type' => 'text',
-                                            'class' => 'form-control datepicker',
-                                            'placeholder' => 'YYYY-MM-DD',
-                                            'label' => false
-                                        ]) ?>
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="form-group">
-                                        <label class="form-label">
-                                            <?= __('Establishment Date') ?>
-                                            <small class="text-muted">(Format: YYYY-MM-DD)</small>
-                                        </label>
-                                        <?= $this->Form->control('establishment_date', [
-                                            'type' => 'text',
-                                            'class' => 'form-control datepicker',
-                                            'placeholder' => 'YYYY-MM-DD',
+                                        <?= $this->Form->control('is_special_skill_support_institution', [
+                                            'type' => 'select',
+                                            'options' => [
+                                                0 => __('Vocational Training Institution (LPK)'),
+                                                1 => __('Special Skill Support Institution')
+                                            ],
+                                            'default' => 0,
+                                            'class' => 'form-control',
                                             'label' => false
                                         ]) ?>
                                     </div>
@@ -169,7 +173,7 @@
                                             <span class="text-danger">*</span>
                                             <small class="text-muted">(Max 256 characters)</small>
                                         </label>
-                                        <?= $this->Form->control('director_name', [
+                                        <?= $this->Form->control('director', [
                                             'class' => 'form-control',
                                             'placeholder' => __('Enter Director Full Name'),
                                             'label' => false,
@@ -204,34 +208,23 @@
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="col-md-6">
+                                <div class="col-md-12">
                                     <div class="form-group">
                                         <label class="form-label">
-                                            <?= __('Phone Number') ?>
-                                            <small class="text-muted">(Optional)</small>
+                                            <?= __('MOU Document') ?>
+                                            <span class="text-danger">*</span>
+                                            <small class="text-muted">(PDF or image)</small>
                                         </label>
-                                        <?= $this->Form->control('phone', [
-                                            'type' => 'tel',
-                                            'class' => 'form-control',
-                                            'placeholder' => __('Enter Phone Number'),
+                                        <?= $this->Form->control('mou_file', [
+                                            'type' => 'file',
+                                            'class' => 'form-control-file',
                                             'label' => false,
-                                            'maxlength' => 20
+                                            'required' => true,
+                                            'accept' => '.pdf,.jpg,.jpeg,.png'
                                         ]) ?>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label class="form-label">
-                                            <?= __('Website') ?>
-                                            <small class="text-muted">(Optional)</small>
-                                        </label>
-                                        <?= $this->Form->control('website', [
-                                            'type' => 'url',
-                                            'class' => 'form-control',
-                                            'placeholder' => __('https://www.lpk-example.com'),
-                                            'label' => false,
-                                            'maxlength' => 256
-                                        ]) ?>
+                                        <small class="form-text text-muted">
+                                            <i class="fas fa-file-signature"></i> Signed memorandum of understanding. Required — the record cannot be saved without it.
+                                        </small>
                                     </div>
                                 </div>
                             </div>
@@ -241,7 +234,7 @@
                                         <label class="form-label">
                                             <?= __('Address') ?> 
                                             <span class="text-danger">*</span>
-                                            <small class="text-muted">(Max 500 characters)</small>
+                                            <small class="text-muted">(Max 256 characters)</small>
                                         </label>
                                         <?= $this->Form->control('address', [
                                             'type' => 'textarea',
@@ -250,7 +243,7 @@
                                             'label' => false,
                                             'required' => true,
                                             'rows' => 3,
-                                            'maxlength' => 500
+                                            'maxlength' => 256
                                         ]) ?>
                                         <small class="form-text text-muted">
                                             <i class="fas fa-home"></i> Complete address including street name, number, RT/RW
@@ -345,7 +338,7 @@
                                             <?= __('Postal Code') ?>
                                             <small class="text-muted">(5 digits)</small>
                                         </label>
-                                        <?= $this->Form->control('postal_code', [
+                                        <?= $this->Form->control('post_code', [
                                             'type' => 'text',
                                             'class' => 'form-control',
                                             'placeholder' => __('e.g., 12345'),
