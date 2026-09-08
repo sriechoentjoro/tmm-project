@@ -111,9 +111,8 @@ class EmailServiceComponent extends Component
 
             $this->logEmail([
                 'recipient_email' => $to,
-                'recipient_name' => $name,
                 'subject' => $subject,
-                'email_type' => $template,
+                'template_key' => $template,
                 'status' => 'sent',
                 'sent_at' => date('Y-m-d H:i:s'),
             ]);
@@ -127,9 +126,8 @@ class EmailServiceComponent extends Component
 
             $this->logEmail([
                 'recipient_email' => $to,
-                'recipient_name' => $name,
                 'subject' => $subject,
-                'email_type' => $template,
+                'template_key' => $template,
                 'status' => 'failed',
                 'error_message' => $e->getMessage(),
             ]);
@@ -177,12 +175,8 @@ class EmailServiceComponent extends Component
             // Log email
             $this->logEmail([
                 'recipient_email' => $user->email,
-                'recipient_name' => $institution->name,
                 'subject' => 'Verify Your LPK Account - TMM System',
-                'email_type' => 'lpk_verification',
-                'stakeholder_type' => 'lpk',
-                'stakeholder_id' => $institution->id,
-                'user_id' => $user->id,
+                'template_key' => 'lpk_verification',
                 'status' => 'sent',
                 'sent_at' => date('Y-m-d H:i:s')
             ]);
@@ -195,12 +189,8 @@ class EmailServiceComponent extends Component
             // Log failed attempt
             $this->logEmail([
                 'recipient_email' => $user->email,
-                'recipient_name' => $institution->name,
                 'subject' => 'Verify Your LPK Account - TMM System',
-                'email_type' => 'lpk_verification',
-                'stakeholder_type' => 'lpk',
-                'stakeholder_id' => $institution->id,
-                'user_id' => $user->id,
+                'template_key' => 'lpk_verification',
                 'status' => 'failed',
                 'error_message' => $e->getMessage()
             ]);
@@ -253,12 +243,8 @@ class EmailServiceComponent extends Component
                 // Log email
                 $this->logEmail([
                     'recipient_email' => $admin->email,
-                    'recipient_name' => $admin->fullname,
                     'subject' => 'New LPK Registration - Pending Verification',
-                    'email_type' => 'admin_notification',
-                    'stakeholder_type' => 'lpk',
-                    'stakeholder_id' => $institution->id,
-                    'user_id' => $admin->id,
+                    'template_key' => 'admin_notification',
                     'status' => 'sent',
                     'sent_at' => date('Y-m-d H:i:s')
                 ]);
@@ -310,12 +296,8 @@ class EmailServiceComponent extends Component
             // Log email
             $this->logEmail([
                 'recipient_email' => $user->email,
-                'recipient_name' => $institution->name,
                 'subject' => 'Verify Your Special Skill Institution Account - TMM System',
-                'email_type' => 'special_skill_verification',
-                'stakeholder_type' => 'special_skill',
-                'stakeholder_id' => $institution->id,
-                'user_id' => $user->id,
+                'template_key' => 'special_skill_verification',
                 'status' => 'sent',
                 'sent_at' => date('Y-m-d H:i:s')
             ]);
@@ -328,12 +310,8 @@ class EmailServiceComponent extends Component
             // Log failed attempt
             $this->logEmail([
                 'recipient_email' => $user->email,
-                'recipient_name' => $institution->name,
                 'subject' => 'Verify Your Special Skill Institution Account - TMM System',
-                'email_type' => 'special_skill_verification',
-                'stakeholder_type' => 'special_skill',
-                'stakeholder_id' => $institution->id,
-                'user_id' => $user->id,
+                'template_key' => 'special_skill_verification',
                 'status' => 'failed',
                 'error_message' => $e->getMessage()
             ]);
