@@ -61,10 +61,24 @@ return [
      *     'host' => 'ssl://smtp.gmail.com',   // implicit TLS instead of STARTTLS
      *     'port' => 465,
      *
-     * If both 587 and 465 are blocked, no Gmail setting will help — the mail
-     * has to leave through a provider-permitted relay (SendGrid, Mailgun,
-     * Amazon SES, or the host's own smarthost), which is a host/port change
-     * here plus that service's credentials.
+     * On this server all three SMTP ports (25, 465, 587) time out, so no Gmail
+     * setting helps. The mail leaves over HTTPS instead, through
+     * App\Mailer\Transport\HttpApiTransport — port 443 is open, which is how
+     * the server reaches GitHub. Replace the whole block with:
+     *
+     *     'EmailTransport' => [
+     *         'default' => [
+     *             'className' => 'App\Mailer\Transport\HttpApiTransport',
+     *             'service'   => 'brevo',   // brevo | resend | sendgrid | mailgun
+     *             'apiKey'    => 'the-api-key',
+     *             //'domain'  => 'example.com',  // mailgun only
+     *             //'region'  => 'eu',           // mailgun only
+     *         ],
+     *     ],
+     *
+     * Whichever service you pick, its sender address has to be verified with
+     * that service first, or the API rejects the message. The reason it gives
+     * is recorded in email_logs.error_message.
      */
     'EmailTransport' => [
         'default' => [
