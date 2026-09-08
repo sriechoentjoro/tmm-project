@@ -51,11 +51,27 @@ return [
     /*
      * SMTP credentials for outgoing mail (registration links, notifications).
      * For Gmail this is a 16-character App Password, not the account password.
+     *
+     * config/app.php sends through smtp.gmail.com:587 with STARTTLS. Many VPS
+     * providers block outbound SMTP ports to limit spam; the symptom is
+     * "Connection timed out" in email_logs, with no authentication attempted.
+     * config/bootstrap.php merges this file over app.php, so the host and port
+     * can be redirected here without touching a tracked file:
+     *
+     *     'host' => 'ssl://smtp.gmail.com',   // implicit TLS instead of STARTTLS
+     *     'port' => 465,
+     *
+     * If both 587 and 465 are blocked, no Gmail setting will help — the mail
+     * has to leave through a provider-permitted relay (SendGrid, Mailgun,
+     * Amazon SES, or the host's own smarthost), which is a host/port change
+     * here plus that service's credentials.
      */
     'EmailTransport' => [
         'default' => [
             'username' => 'CHANGE_ME@example.com',
             'password' => 'CHANGE_ME',
+            //'host' => 'ssl://smtp.gmail.com',
+            //'port' => 465,
         ],
     ],
 
