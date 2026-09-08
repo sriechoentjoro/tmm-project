@@ -51,11 +51,41 @@ return [
     /*
      * SMTP credentials for outgoing mail (registration links, notifications).
      * For Gmail this is a 16-character App Password, not the account password.
+     *
+     * config/app.php sends through smtp.gmail.com:587 with STARTTLS. Many VPS
+     * providers block outbound SMTP ports to limit spam; the symptom is
+     * "Connection timed out" in email_logs, with no authentication attempted.
+     * config/bootstrap.php merges this file over app.php, so the host and port
+     * can be redirected here without touching a tracked file:
+     *
+     *     'host' => 'ssl://smtp.gmail.com',   // implicit TLS instead of STARTTLS
+     *     'port' => 465,
+     *
+     * On this server all three SMTP ports (25, 465, 587) time out, so no Gmail
+     * setting helps. The mail leaves over HTTPS instead, through
+     * App\Mailer\Transport\HttpApiTransport — port 443 is open, which is how
+     * the server reaches GitHub. Replace the whole block with:
+     *
+     *     'EmailTransport' => [
+     *         'default' => [
+     *             'className' => 'App\Mailer\Transport\HttpApiTransport',
+     *             'service'   => 'brevo',   // brevo | resend | sendgrid | mailgun
+     *             'apiKey'    => 'the-api-key',
+     *             //'domain'  => 'example.com',  // mailgun only
+     *             //'region'  => 'eu',           // mailgun only
+     *         ],
+     *     ],
+     *
+     * Whichever service you pick, its sender address has to be verified with
+     * that service first, or the API rejects the message. The reason it gives
+     * is recorded in email_logs.error_message.
      */
     'EmailTransport' => [
         'default' => [
             'username' => 'CHANGE_ME@example.com',
             'password' => 'CHANGE_ME',
+            //'host' => 'ssl://smtp.gmail.com',
+            //'port' => 465,
         ],
     ],
 
