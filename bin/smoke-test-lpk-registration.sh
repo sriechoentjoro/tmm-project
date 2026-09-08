@@ -16,8 +16,16 @@
 #   ADMIN_USER / ADMIN_PASS   prompted for if unset
 #   LPK_EMAIL   default srikuncoro@yahoo.com
 #   KEEP=1      keep the temporary directory for inspection
+#   KEEP_ROWS=1 do not delete rows left by previous runs
 #
-# It creates a real record. Delete it afterwards if this is not a test system.
+# Rows this script created before are removed first, so each run starts clean.
+# Without that the run is not repeatable: buildRules() requires a unique email,
+# so a second run with the same address always fails on that rule whatever the
+# code does, and the result says nothing about whether the page works.
+#
+# Only rows whose username starts with "smoketest" are touched — the ones this
+# script creates. It still creates a real record; delete it afterwards if this
+# is not a test system.
 #
 set -u
 
@@ -65,9 +73,9 @@ flash_from() {
     sed -e 's#<script[^>]*>#\n#g' -e 's#</script>#\n#g' -e 's/<[^>]*>/\n/g' "$1" \
         | sed -e 's/^[[:space:]]*//' -e 's/[[:space:]]*$//' \
         | grep -vE '^$' > "$text"
-    if grep -E 'LPK registered|Unable to register|could not be saved|verification email|check the form|error occurred' "$text" \
+    if grep -E 'LPK registered successfully|LPK registered but|Unable to register LPK|could not be saved' "$text" \
         | head -6 | sed 's/^/  /' | grep -q .; then
-        grep -E 'LPK registered|Unable to register|could not be saved|verification email|check the form|error occurred' "$text" \
+        grep -E 'LPK registered successfully|LPK registered but|Unable to register LPK|could not be saved' "$text" \
             | head -6 | sed 's/^/  /'
         return 0
     fi
@@ -78,12 +86,25 @@ flash_from() {
 say "0. Target"
 echo "  $BASE_URL${RESOLVE_TO:+  (pinned to $RESOLVE_TO)}"
 
-say "1. Admin credentials"
+say "1. Clean up rows from previous runs"
+if [ "${KEEP_ROWS:-0}" = 1 ]; then
+    echo "  skipped (KEEP_ROWS=1)"
+else
+    php -r '
+    $c = include "config/app_local.php";
+    $d = $c["Datasources"]["default"];
+    $pdo = new PDO("mysql:host={$d["host"]};dbname=cms_tmm_stakeholders;charset=utf8mb4", $d["username"], $d["password"]);
+    $n = $pdo->exec("DELETE FROM vocational_training_institutions WHERE username LIKE \"smoketest%\"");
+    echo "removed: " . (int)$n . "\n";
+    ' 2>&1 | sed 's/^/  /'
+fi
+
+say "2. Admin credentials"
 if [ -z "${ADMIN_USER:-}" ]; then read -r -p "  admin username: " ADMIN_USER; fi
 if [ -z "${ADMIN_PASS:-}" ]; then read -r -s -p "  admin password: " ADMIN_PASS; echo; fi
 [ -n "$ADMIN_USER" ] && [ -n "$ADMIN_PASS" ] || fail "username and password are required"
 
-say "2. Login"
+say "3. Login"
 read -r code url <<<"$(fetch /users/login "$WORK/login.html")"
 echo "  GET /users/login -> $code  $url"
 [ "$code" = 200 ] || fail "expected 200 after following redirects"
@@ -106,7 +127,7 @@ code="$("${CURL[@]}" -o "$WORK/after-login.html" -w '%{http_code}' \
     "$BASE_URL/users/login")"
 echo "  POST /users/login -> $code"
 
-say "3. Open the create form"
+say "4. Open the create form"
 read -r code url <<<"$(fetch /admin/lpk-registration/create "$WORK/create.html")"
 echo "  GET /admin/lpk-registration/create -> $code  $url"
 case "$url" in
@@ -126,7 +147,7 @@ TOKEN="$(csrf_from "$WORK/create.html")"
 FORM_TOKEN=()
 [ -n "$TOKEN" ] && FORM_TOKEN=(-F "_csrfToken=$TOKEN")
 
-say "4. Pick a valid province / city / subdistrict / village chain"
+say "5. Pick a valid province / city / subdistrict / village chain"
 # buildRules() has existsIn on all four, so read a real chain from cms_masters.
 CHAIN="$(php -r '
 $c = include "config/app_local.php";
@@ -147,7 +168,7 @@ fi
 read -r PROP KAB KEC KEL <<<"$CHAIN"
 echo "  propinsi=$PROP kabupaten=$KAB kecamatan=$KEC kelurahan=$KEL"
 
-say "5. Submit"
+say "6. Submit"
 printf '%%PDF-1.4\n1 0 obj<</Type/Catalog>>endobj\ntrailer<</Root 1 0 R>>\n%%%%EOF\n' > "$WORK/mou.pdf"
 code="$("${CURL[@]}" -o "$WORK/result.html" -w '%{http_code}' \
     "${FORM_TOKEN[@]+"${FORM_TOKEN[@]}"}" \
@@ -168,7 +189,7 @@ code="$("${CURL[@]}" -o "$WORK/result.html" -w '%{http_code}' \
     "$BASE_URL/admin/lpk-registration/create")"
 echo "  POST -> $code"
 
-say "6. Result"
+say "7. Result"
 flash_from "$WORK/result.html"
 if [ "$code" = 500 ]; then
     echo
@@ -176,7 +197,7 @@ if [ "$code" = 500 ]; then
     tail -20 logs/error.log 2>/dev/null | sed 's/^/    /'
 fi
 
-say "7. Was the row written?"
+say "8. Was the row written?"
 LPK_EMAIL="$LPK_EMAIL" php -r '
 $c = include "config/app_local.php";
 $d = $c["Datasources"]["default"];
@@ -192,7 +213,26 @@ foreach ($rows as $r) {
 }
 ' 2>&1 | sed 's/^/  /'
 
-say "8. Registration log"
+say "9. Email log"
+LPK_EMAIL="$LPK_EMAIL" php -r '
+$c = include "config/app_local.php";
+$d = $c["Datasources"]["default"];
+try {
+    $pdo = new PDO("mysql:host={$d["host"]};dbname=cms_authentication_authorization;charset=utf8mb4", $d["username"], $d["password"]);
+    $st = $pdo->prepare("SELECT template_key, status, error_message, created
+                         FROM email_logs WHERE recipient_email = ? ORDER BY id DESC LIMIT 3");
+    $st->execute([getenv("LPK_EMAIL")]);
+    $rows = $st->fetchAll(PDO::FETCH_ASSOC);
+    if (!$rows) { echo "no email_logs row for that address\n"; }
+    foreach ($rows as $r) {
+        printf("%-20s %-8s %s\n", $r["template_key"], $r["status"], $r["error_message"] ?: "");
+    }
+} catch (\Throwable $e) {
+    echo "could not read email_logs: " . $e->getMessage() . "\n";
+}
+' 2>&1 | sed 's/^/  /'
+
+say "10. Registration log"
 grep -a "lpk_registration" logs/*.log 2>/dev/null | tail -5 | sed 's/^/  /' || echo "  (nothing logged)"
 
 echo
