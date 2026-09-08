@@ -201,22 +201,24 @@ install it. And five of the scripts opened MySQL connections as `root` with an
 empty password — harmless on this server, where `root` has one, but they
 document the intent plainly enough.
 
-### Still there
+### Also removed
 
-These remain and are the same kind of thing. They hold no credentials, and
-nothing in the application references them:
+Six more of the same kind, missed by the original inventory because they
+arrived with the production snapshot after it was written:
 
 ```
-webroot/test_ajax_element.php
-webroot/test_apprentices.php
-webroot/test_opcache_cleared.php
-webroot/test_propinsi.php
-webroot/update_apprentices_data.php
-webroot/verify_db_associations.php
+webroot/test_ajax_element.php      webroot/test_propinsi.php
+webroot/test_apprentices.php       webroot/update_apprentices_data.php
+webroot/test_opcache_cleared.php   webroot/verify_db_associations.php
 ```
 
-CakePHP serves everything through `webroot/index.php`; none of the above is
-needed for the application to run.
+`update_apprentices_data.php` was the one that mattered: it called
+`updateAll()` on the apprentices table, so loading the URL rewrote rows. No
+authentication, no confirmation. The rest booted the framework and printed
+schema, association or OPcache detail.
+
+`webroot/` now holds `index.php` and static assets only — CakePHP serves every
+request through `index.php`, so nothing else belongs there.
 
 ## Keeping it clean
 
