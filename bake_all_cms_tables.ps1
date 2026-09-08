@@ -68,7 +68,7 @@ Write-Host "Fetching table lists from databases..." -ForegroundColor Cyan
 foreach ($db in $databases.Keys) {
     if ($databases[$db].Count -eq 0) {
         $query = "SELECT table_name FROM information_schema.tables WHERE table_schema='$db' AND table_type='BASE TABLE' ORDER BY table_name;"
-        $tables = mysql -u root -p62xe6zyr -N -e $query
+        $tables = mysql -u root -pYOUR_DB_PASSWORD -N -e $query
         
         $tableList = @()
         foreach ($table in $tables) {

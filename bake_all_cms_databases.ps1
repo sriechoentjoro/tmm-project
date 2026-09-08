@@ -15,7 +15,7 @@ Write-Host ""
 
 # MySQL connection details
 $mysqlUser = "root"
-$mysqlPass = "62xe6zyr"
+$mysqlPass = "YOUR_DB_PASSWORD"
 $mysqlHost = "localhost"
 
 # Database to connection mapping

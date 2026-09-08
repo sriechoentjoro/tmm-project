@@ -123,8 +123,10 @@ return [
             'host' => 'smtp.gmail.com',
             'port' => 587,
             'timeout' => 30,
-            'username' => 'sriechoentjoro@gmail.com',
-            'password' => 'unqqevrzplpwysnk', // Replace with 16-character app password from Google
+            // Credentials come from the environment. This file is in a public
+            // repository, so nothing secret may be written here.
+            'username' => env('TMM_SMTP_USERNAME', null),
+            'password' => env('TMM_SMTP_PASSWORD', null),
             'tls' => true,
         ],
         // Fallback to PHP mail() if SMTP fails

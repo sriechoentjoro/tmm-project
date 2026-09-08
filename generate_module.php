@@ -9,7 +9,7 @@
  */
 
 $dbUser = 'tmm';
-$dbPass = '62xe6zyr';
+$dbPass = 'YOUR_DB_PASSWORD';
 
 // name, singular, table, database (= connection name), readonly, templatesOnly
 $modules = [

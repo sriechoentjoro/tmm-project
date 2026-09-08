@@ -39,12 +39,12 @@ Write-Host "Step 2: Updating password in all datasources..." -ForegroundColor Gr
 $content = Get-Content $tempFile -Raw
 
 # Count occurrences before
-$oldPasswordPattern = "'password' => '62xe6zyr'"
+$oldPasswordPattern = "'password' => 'YOUR_DB_PASSWORD'"
 $occurrences = ([regex]::Matches($content, [regex]::Escape($oldPasswordPattern))).Count
 Write-Host "Found $occurrences password entries to update" -ForegroundColor Cyan
 
 # Replace all password occurrences
-$newContent = $content -replace [regex]::Escape("'password' => '62xe6zyr'"), "'password' => '$NewPassword'"
+$newContent = $content -replace [regex]::Escape("'password' => 'YOUR_DB_PASSWORD'"), "'password' => '$NewPassword'"
 
 # Save updated content
 $utf8NoBom = New-Object System.Text.UTF8Encoding $false

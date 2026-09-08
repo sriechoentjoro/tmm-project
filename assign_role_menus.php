@@ -6,7 +6,7 @@
 
 $pdo = new PDO(
     'mysql:host=127.0.0.1;port=3306;dbname=cms_authentication_authorization;charset=utf8mb4',
-    'tmm_user', '62xe6zyr',
+    'tmm_user', 'YOUR_DB_PASSWORD',
     [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]
 );
 

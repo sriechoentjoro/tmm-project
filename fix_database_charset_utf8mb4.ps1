@@ -17,7 +17,7 @@ $databases = @(
 )
 
 $mysqlUser = 'root'
-$mysqlPass = '62xe6zyr'
+$mysqlPass = 'YOUR_DB_PASSWORD'
 
 Write-Host "=== Converting All Databases to UTF8MB4 ===" -ForegroundColor Cyan
 
