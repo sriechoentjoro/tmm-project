@@ -5516,3 +5516,673 @@ msgstr "Tidak ada lembaga ditemukan."
 msgid "VocationalTrainingInstitutionStories"
 msgstr "Riwayat Lembaga Pelatihan Kerja"
 
+
+msgid "Pass"
+msgstr "Lulus"
+
+msgid "Fail"
+msgstr "Tidak Lulus"
+
+msgid "Certificates"
+msgstr "Sertifikat"
+
+msgid "Average Score"
+msgstr "Nilai Rata-rata"
+
+msgid "Test Date"
+msgstr "Tanggal Ujian"
+
+msgid "Score"
+msgstr "Nilai"
+
+msgid "Add Trainee Certificate"
+msgstr "Tambah Sertifikat Trainee"
+
+msgid "Edit Trainee Certificate"
+msgstr "Ubah Sertifikat Trainee"
+
+msgid "Trainee Certificates"
+msgstr "Sertifikat Trainee"
+
+msgid "Issue Certificate"
+msgstr "Terbitkan Sertifikat"
+
+msgid "Scoring"
+msgstr "Penilaian"
+
+msgid "Daily Entry"
+msgstr "Entri Harian"
+
+msgid "Score Summary"
+msgstr "Ringkasan Nilai"
+
+msgid "Pass/Fail Report"
+msgstr "Laporan Lulus/Tidak Lulus"
+
+msgid "With Test Scores"
+msgstr "Dengan Nilai Ujian"
+
+msgid "No Scores Yet"
+msgstr "Belum Ada Nilai"
+
+msgid "Certificate No."
+msgstr "No. Sertifikat"
+
+msgid "Issue Date"
+msgstr "Tanggal Terbit"
+
+msgid "Grade"
+msgstr "Predikat"
+
+msgid "Search trainee…"
+msgstr "Cari trainee…"
+
+msgid "Batch…"
+msgstr "Angkatan…"
+
+msgid "Cert no…"
+msgstr "No. sertifikat…"
+
+msgid "A/B/C…"
+msgstr "A/B/C…"
+
+msgid "No certificates issued yet."
+msgstr "Belum ada sertifikat yang diterbitkan."
+
+msgid "View certificate"
+msgstr "Lihat sertifikat"
+
+msgid "Print certificate"
+msgstr "Cetak sertifikat"
+
+msgid "Edit certificate"
+msgstr "Ubah sertifikat"
+
+msgid "View test scores"
+msgstr "Lihat nilai ujian"
+
+msgid "No scores"
+msgstr "Tidak ada nilai"
+
+msgid "Showing {0} certificate(s)"
+msgstr "Menampilkan {0} sertifikat"
+
+msgid "This is to certify that"
+msgstr "Dengan ini menyatakan bahwa"
+
+msgid "Certificate of"
+msgstr "Sertifikat"
+
+msgid "Completion"
+msgstr "Kelulusan"
+
+msgid "has been awarded to"
+msgstr "diberikan kepada"
+
+msgid "Trainee Code"
+msgstr "Kode Trainee"
+
+msgid "for successfully completing the"
+msgstr "atas keberhasilan menyelesaikan"
+
+msgid "Trainee Training Programme"
+msgstr "Program Pelatihan Trainee"
+
+msgid "comprising"
+msgstr "yang terdiri atas"
+
+msgid "competency test(s)"
+msgstr "uji kompetensi"
+
+msgid "achieving an overall average score of"
+msgstr "dengan nilai rata-rata keseluruhan"
+
+msgid "Tests Taken"
+msgstr "Ujian Diikuti"
+
+msgid "Authorised Signatory"
+msgstr "Pejabat Berwenang"
+
+msgid "Test Score Detail"
+msgstr "Detail Nilai Ujian"
+
+msgid "Competency"
+msgstr "Kompetensi"
+
+msgid "Overall Average"
+msgstr "Rata-rata Keseluruhan"
+
+msgid "Generated"
+msgstr "Dibuat"
+
+msgid "TMM Trainee Management System"
+msgstr "Sistem Manajemen Trainee TMM"
+
+msgid "Related"
+msgstr "Terkait"
+
+msgid "All Certificates"
+msgstr "Semua Sertifikat"
+
+msgid "Certificate Detail"
+msgstr "Detail Sertifikat"
+
+msgid "Print Certificate"
+msgstr "Cetak Sertifikat"
+
+msgid "Training Batch"
+msgstr "Angkatan Pelatihan"
+
+msgid "Recorded"
+msgstr "Tercatat"
+
+msgid "Test Score Summary"
+msgstr "Ringkasan Nilai Ujian"
+
+msgid "Failed"
+msgstr "Tidak Lulus"
+
+msgid "from avg score"
+msgstr "dari nilai rata-rata"
+
+msgid "No test scores recorded yet for this trainee."
+msgstr "Belum ada nilai ujian yang tercatat untuk trainee ini."
+
+msgid "Add Score"
+msgstr "Tambah Nilai"
+
+msgid "Score History"
+msgstr "Riwayat Nilai"
+
+msgid "No scores on record."
+msgstr "Tidak ada nilai tercatat."
+
+msgid "Edit score"
+msgstr "Ubah nilai"
+
+
+msgid "Add Lpk Physical Test"
+msgstr "Tambah Tes Fisik LPK"
+
+msgid "Edit Lpk Physical Test"
+msgstr "Ubah Tes Fisik LPK"
+
+msgid "Physical Fitness Test Scoring"
+msgstr "Penilaian Tes Kebugaran Fisik"
+
+msgid "Score: Push-ups (max 40 pts) + Sit-ups (max 30 pts) + 2.4 km Run (30 pts) = 100 pts total"
+msgstr "Nilai: Push-up (maks 40 poin) + Sit-up (maks 30 poin) + Lari 2,4 km (30 poin) = total 100 poin"
+
+msgid "Tested"
+msgstr "Sudah Dites"
+
+msgid "Not Tested Yet"
+msgstr "Belum Dites"
+
+msgid "High ≥75 · Mid 50–74 · Low <50"
+msgstr "Tinggi ≥75 · Sedang 50–74 · Rendah <50"
+
+msgid "Filter by name / code / LPK…"
+msgstr "Saring menurut nama / kode / LPK…"
+
+msgid "Pipeline chips: PT = Placement Test, IV = Interview, MCU = Medical Check-Up"
+msgstr "Penanda alur: PT = Tes Penempatan, IV = Wawancara, MCU = Pemeriksaan Kesehatan"
+
+msgid "Push-ups"
+msgstr "Push-up"
+
+msgid "Sit-ups"
+msgstr "Sit-up"
+
+msgid "Run (min:sec)"
+msgstr "Lari (menit:detik)"
+
+msgid "Fitness Score /100"
+msgstr "Nilai Kebugaran /100"
+
+msgid "Next Steps"
+msgstr "Langkah Berikutnya"
+
+msgid "No test"
+msgstr "Belum dites"
+
+msgid "Enter Score"
+msgstr "Masukkan Nilai"
+
+msgid "{0} placement test(s) recorded"
+msgstr "{0} tes penempatan tercatat"
+
+msgid "No placement test yet"
+msgstr "Belum ada tes penempatan"
+
+msgid "{0} interview(s) recorded"
+msgstr "{0} wawancara tercatat"
+
+msgid "No interview yet"
+msgstr "Belum ada wawancara"
+
+msgid "{0} medical check-up(s) recorded"
+msgstr "{0} pemeriksaan kesehatan tercatat"
+
+msgid "No MCU yet"
+msgstr "Belum ada pemeriksaan kesehatan"
+
+msgid "No candidates found."
+msgstr "Tidak ada kandidat ditemukan."
+
+msgid "prev"
+msgstr "sebelumnya"
+
+msgid "Physical Fitness Test"
+msgstr "Tes Kebugaran Fisik"
+
+msgid "Current Fitness Score"
+msgstr "Nilai Kebugaran Saat Ini"
+
+msgid "Scoring Reference"
+msgstr "Acuan Penilaian"
+
+msgid "Score = number of reps, capped at 40"
+msgstr "Nilai = jumlah repetisi, maksimal 40"
+
+msgid "Score = number of reps, capped at 30"
+msgstr "Nilai = jumlah repetisi, maksimal 30"
+
+msgid "2.4 km Run"
+msgstr "Lari 2,4 km"
+
+msgid "Time"
+msgstr "Waktu"
+
+msgid "Points"
+msgstr "Poin"
+
+msgid "View Only — your role can view but not change scores"
+msgstr "Hanya Lihat — peran Anda dapat melihat tetapi tidak mengubah nilai"
+
+msgid "Push-ups (reps)"
+msgstr "Push-up (repetisi)"
+
+msgid "Sit-ups (reps)"
+msgstr "Sit-up (repetisi)"
+
+msgid "Run — minutes"
+msgstr "Lari — menit"
+
+msgid "seconds"
+msgstr "detik"
+
+msgid "Notes / Observations"
+msgstr "Catatan / Pengamatan"
+
+msgid "40+ reps = full 40 pts"
+msgstr "40+ repetisi = 40 poin penuh"
+
+msgid "30+ reps = full 30 pts"
+msgstr "30+ repetisi = 30 poin penuh"
+
+msgid "2.4 km Run — minutes"
+msgstr "Lari 2,4 km — menit"
+
+msgid "Calculated Fitness Score / 100"
+msgstr "Nilai Kebugaran Terhitung / 100"
+
+msgid "Optional notes about the test session, candidate condition, etc."
+msgstr "Catatan opsional tentang sesi tes, kondisi kandidat, dan sebagainya."
+
+msgid "Save Score"
+msgstr "Simpan Nilai"
+
+msgid "Lpk Physical Test"
+msgstr "Tes Fisik LPK"
+
+msgid "Placement Test Set Id"
+msgstr "ID Set Tes Penempatan"
+
+msgid "Total Points"
+msgstr "Total Poin"
+
+msgid "Passing Score"
+msgstr "Nilai Kelulusan"
+
+msgid "Is Passed"
+msgstr "Lulus"
+
+msgid "Test Duration Minutes"
+msgstr "Durasi Tes (menit)"
+
+msgid "Started At"
+msgstr "Dimulai Pada"
+
+msgid "Completed At"
+msgstr "Selesai Pada"
+
+msgid "Graded By"
+msgstr "Dinilai Oleh"
+
+msgid "Graded At"
+msgstr "Dinilai Pada"
+
+
+msgid "Master Training Competency Id"
+msgstr "ID Kompetensi Pelatihan"
+
+msgid "Master Training Test Score Grade Id"
+msgstr "ID Predikat Nilai Ujian"
+
+msgid "Enter Test Score"
+msgstr "Masukkan Nilai Ujian"
+
+msgid "Record a competency test result for a trainee"
+msgstr "Catat hasil uji kompetensi untuk seorang trainee"
+
+msgid "Trainee & Test Date"
+msgstr "Trainee & Tanggal Ujian"
+
+msgid "Test Module / Competency"
+msgstr "Modul Ujian / Kompetensi"
+
+msgid "-- Select Competency --"
+msgstr "-- Pilih Kompetensi --"
+
+msgid "Score & Grade"
+msgstr "Nilai & Predikat"
+
+msgid "auto-detected"
+msgstr "terdeteksi otomatis"
+
+msgid "Enter score to auto-detect grade"
+msgstr "Masukkan nilai untuk mendeteksi predikat otomatis"
+
+msgid "Back to Daily Entry"
+msgstr "Kembali ke Entri Harian"
+
+msgid "Range"
+msgstr "Rentang"
+
+msgid "Unable to detect grade. Enter a score between 0 and 100."
+msgstr "Predikat tidak dapat dideteksi. Masukkan nilai antara 0 dan 100."
+
+msgid "Daily Score Entry"
+msgstr "Entri Nilai Harian"
+
+msgid "Enter New Score"
+msgstr "Masukkan Nilai Baru"
+
+msgid "No dates yet"
+msgstr "Belum ada tanggal"
+
+msgid "Most Recent"
+msgstr "Terbaru"
+
+msgid "Scores"
+msgstr "Nilai"
+
+msgid "Average"
+msgstr "Rata-rata"
+
+msgid "Passed (≥60)"
+msgstr "Lulus (≥60)"
+
+msgid "Failed (<60)"
+msgstr "Tidak Lulus (<60)"
+
+msgid "Search competency…"
+msgstr "Cari kompetensi…"
+
+msgid "No scores recorded for {0}."
+msgstr "Tidak ada nilai tercatat untuk {0}."
+
+msgid "No scores recorded yet."
+msgstr "Belum ada nilai tercatat."
+
+msgid "Certificate issued"
+msgstr "Sertifikat diterbitkan"
+
+msgid "No certificate yet"
+msgstr "Belum ada sertifikat"
+
+msgid "Edit Test Score"
+msgstr "Ubah Nilai Ujian"
+
+msgid "Update the competency test result for this trainee"
+msgstr "Perbarui hasil uji kompetensi trainee ini"
+
+msgid "Trainee Test Scores"
+msgstr "Nilai Ujian Trainee"
+
+msgid "YYYY-MM-DD"
+msgstr "TTTT-BB-HH"
+
+msgid "Page {{page}} of {{pages}}, {{count}} records total"
+msgstr "Halaman {{page}} dari {{pages}}, total {{count}} data"
+
+msgid "Pass / Fail Report"
+msgstr "Laporan Lulus / Tidak Lulus"
+
+msgid "Average score per trainee · pass threshold: 60"
+msgstr "Nilai rata-rata per trainee · ambang kelulusan: 60"
+
+msgid "Total Tests"
+msgstr "Total Ujian"
+
+msgid "Tests Passed"
+msgstr "Ujian Lulus"
+
+msgid "Tests Failed"
+msgstr "Ujian Tidak Lulus"
+
+msgid "Pass Rate"
+msgstr "Tingkat Kelulusan"
+
+msgid "Pass / Fail"
+msgstr "Lulus / Tidak Lulus"
+
+msgid "pass"
+msgstr "lulus"
+
+msgid "fail"
+msgstr "tidak lulus"
+
+msgid "Trainee Training Test Score"
+msgstr "Nilai Ujian Pelatihan Trainee"
+
+
+msgid "Passed Apprenticeship"
+msgstr "Lulus Pemagangan"
+
+msgid "List Master Genders"
+msgstr "Daftar Jenis Kelamin"
+
+msgid "List Master Religions"
+msgstr "Daftar Agama"
+
+msgid "List Master Marriage Statuses"
+msgstr "Daftar Status Pernikahan"
+
+msgid "List Master Blood Types"
+msgstr "Daftar Golongan Darah"
+
+msgid ">"
+msgstr ">"
+
+msgid "<"
+msgstr "<"
+
+msgid ">="
+msgstr ">="
+
+msgid "<="
+msgstr "<="
+
+msgid "List Master Rejected Reasons"
+msgstr "Daftar Alasan Penolakan"
+
+msgid "Filter by name / code…"
+msgstr "Saring menurut nama / kode…"
+
+msgid "All Apprentices"
+msgstr "Semua Pemagang"
+
+msgid "Minimum 8 characters, include uppercase, lowercase, number & symbol"
+msgstr "Minimal 8 karakter, memuat huruf besar, huruf kecil, angka & simbol"
+
+msgid "Module Catalog"
+msgstr "Katalog Modul"
+
+msgid "Create Program"
+msgstr "Buat Program"
+
+msgid "Curriculum Breakdown"
+msgstr "Rincian Kurikulum"
+
+msgid "Parent Training Batch"
+msgstr "Angkatan Pelatihan Induk"
+
+msgid "Enroll a Trainee"
+msgstr "Daftarkan Trainee"
+
+msgid "Enrolled Trainees"
+msgstr "Trainee Terdaftar"
+
+msgid "No trainees enrolled yet"
+msgstr "Belum ada trainee terdaftar"
+
+msgid "Gender Distribution"
+msgstr "Sebaran Jenis Kelamin"
+
+msgid "Enter your name in Katakana (カタカナ). Example: タナカ タロウ"
+msgstr "Masukkan nama Anda dalam Katakana (カタカナ). Contoh: タナカ タロウ"
+
+msgid "Enter birth place in Katakana. Example: トウキョウ"
+msgstr "Masukkan tempat lahir dalam Katakana. Contoh: トウキョウ"
+
+msgid "Format: user@example.com"
+msgstr "Format: pengguna@contoh.com"
+
+msgid "Trainee → Apprentice"
+msgstr "Trainee → Pemagang"
+
+msgid "Test Scores"
+msgstr "Nilai Ujian"
+
+msgid "Ready for Promotion"
+msgstr "Siap Dipromosikan"
+
+msgid "Training Avg"
+msgstr "Rata-rata Pelatihan"
+
+msgid "Candidate & training passed — ready to promote"
+msgstr "Seleksi kandidat & pelatihan lulus — siap dipromosikan"
+
+msgid "{0} test(s)"
+msgstr "{0} ujian"
+
+msgid "Full Pass (3 stages)"
+msgstr "Lulus Penuh (3 tahap)"
+
+msgid "Has COE / Visa Record"
+msgstr "Ada Data COE / Visa"
+
+msgid "Origin"
+msgstr "Asal"
+
+msgid "Apprenticeship"
+msgstr "Pemagangan"
+
+msgid "Trainee #{0}"
+msgstr "Trainee #{0}"
+
+msgid "TraineeCertifications"
+msgstr "Sertifikasi Trainee"
+
+msgid "TraineeCourses"
+msgstr "Kursus Trainee"
+
+msgid "TraineeEducations"
+msgstr "Pendidikan Trainee"
+
+msgid "TraineeExperiences"
+msgstr "Pengalaman Trainee"
+
+msgid "TraineeFamilies"
+msgstr "Keluarga Trainee"
+
+msgid "TraineeFamilyStories"
+msgstr "Riwayat Keluarga Trainee"
+
+msgid "Related TraineeCertifications"
+msgstr "Sertifikasi Trainee Terkait"
+
+msgid "Filter Trainee Id"
+msgstr "Saring menurut ID Trainee"
+
+msgid "No Related TraineeCertifications"
+msgstr "Tidak Ada Sertifikasi Trainee Terkait"
+
+msgid "There are no related TraineeCertifications for this Trainee."
+msgstr "Tidak ada sertifikasi terkait untuk trainee ini."
+
+msgid "Add First TraineeCertification"
+msgstr "Tambah Sertifikasi Pertama"
+
+msgid "Related TraineeCourses"
+msgstr "Kursus Trainee Terkait"
+
+msgid "No Related TraineeCourses"
+msgstr "Tidak Ada Kursus Trainee Terkait"
+
+msgid "There are no related TraineeCourses for this Trainee."
+msgstr "Tidak ada kursus terkait untuk trainee ini."
+
+msgid "Add First TraineeCourse"
+msgstr "Tambah Kursus Pertama"
+
+msgid "Related TraineeEducations"
+msgstr "Pendidikan Trainee Terkait"
+
+msgid "No Related TraineeEducations"
+msgstr "Tidak Ada Pendidikan Trainee Terkait"
+
+msgid "There are no related TraineeEducations for this Trainee."
+msgstr "Tidak ada data pendidikan terkait untuk trainee ini."
+
+msgid "Add First TraineeEducation"
+msgstr "Tambah Pendidikan Pertama"
+
+msgid "Related TraineeExperiences"
+msgstr "Pengalaman Trainee Terkait"
+
+msgid "No Related TraineeExperiences"
+msgstr "Tidak Ada Pengalaman Trainee Terkait"
+
+msgid "There are no related TraineeExperiences for this Trainee."
+msgstr "Tidak ada pengalaman terkait untuk trainee ini."
+
+msgid "Add First TraineeExperience"
+msgstr "Tambah Pengalaman Pertama"
+
+msgid "Related TraineeFamilies"
+msgstr "Keluarga Trainee Terkait"
+
+msgid "No Related TraineeFamilies"
+msgstr "Tidak Ada Keluarga Trainee Terkait"
+
+msgid "There are no related TraineeFamilies for this Trainee."
+msgstr "Tidak ada data keluarga terkait untuk trainee ini."
+
+msgid "Add First TraineeFamily"
+msgstr "Tambah Keluarga Pertama"
+
+msgid "Related TraineeFamilyStories"
+msgstr "Riwayat Keluarga Trainee Terkait"
+
+msgid "No Related TraineeFamilyStories"
+msgstr "Tidak Ada Riwayat Keluarga Terkait"
+
+msgid "There are no related TraineeFamilyStories for this Trainee."
+msgstr "Tidak ada riwayat keluarga terkait untuk trainee ini."
+
+msgid "Add First TraineeFamilyStory"
+msgstr "Tambah Riwayat Keluarga Pertama"
+

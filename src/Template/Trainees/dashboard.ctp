@@ -139,7 +139,7 @@ $statusLabel = [
   <div class="tdb-header">
     <div class="tdb-logo"><i class="fas fa-graduation-cap"></i></div>
     <div>
-      <h1>Training Dashboard</h1>
+      <h1> <?= __('Training Dashboard') ?></h1>
       <p>TMM Training Division — Program Overview &amp; KPIs</p>
     </div>
     <div class="tdb-date-badge"><i class="fas fa-calendar-day"></i> <?= date('d M Y') ?></div>
@@ -193,7 +193,7 @@ $statusLabel = [
 
   <!-- ── Pipeline ── -->
   <div class="tdb-section">
-    <div class="tdb-section-title"><i class="fas fa-stream"></i> Participant Pipeline</div>
+    <div class="tdb-section-title"><i class="fas fa-stream"></i> <?= __('Participant Pipeline') ?></div>
     <div class="tdb-card">
       <div class="pipeline">
         <div class="pipe-step" style="--pc:#42a5f5">
@@ -225,25 +225,25 @@ $statusLabel = [
 
     <!-- Quick Actions -->
     <div class="tdb-card">
-      <h3><i class="fas fa-bolt" style="color:#fb8c00"></i> Quick Actions</h3>
+      <h3><i class="fas fa-bolt" style="color:#fb8c00"></i> <?= __('Quick Actions') ?></h3>
       <div class="quick-actions">
         <a class="qa-btn" style="--qc:#00acc1" href="<?= $this->Url->build(['controller'=>'Trainees','action'=>'index']) ?>">
-          <i class="fas fa-users"></i> Trainee List
+          <i class="fas fa-users"></i> <?= __('Trainee List') ?>
         </a>
         <a class="qa-btn" style="--qc:#1e88e5" href="<?= $this->Url->build(['controller'=>'Trainings','action'=>'index']) ?>">
           <i class="fas fa-layer-group"></i> Batches
         </a>
         <a class="qa-btn" style="--qc:#43a047" href="<?= $this->Url->build(['controller'=>'TraineeTrainingTestScores','action'=>'daily']) ?>">
-          <i class="fas fa-pencil-alt"></i> Daily Scores
+          <i class="fas fa-pencil-alt"></i> <?= __('Daily Scores') ?>
         </a>
         <a class="qa-btn" style="--qc:#8e24aa" href="<?= $this->Url->build(['controller'=>'TraineeTrainingTestScores','action'=>'report']) ?>">
-          <i class="fas fa-chart-bar"></i> Score Report
+          <i class="fas fa-chart-bar"></i> <?= __('Score Report') ?>
         </a>
         <a class="qa-btn" style="--qc:#f4511e" href="<?= $this->Url->build(['controller'=>'Trainees','action'=>'promoteToApprentice']) ?>">
           <i class="fas fa-rocket"></i> Promote
         </a>
         <a class="qa-btn" style="--qc:#00897b" href="<?= $this->Url->build(['controller'=>'TraineeCertificates','action'=>'index']) ?>">
-          <i class="fas fa-certificate"></i> Certificates
+          <i class="fas fa-certificate"></i> <?= __('Certificates') ?>
         </a>
         <a class="qa-btn" style="--qc:#546e7a" href="<?= $this->Url->build(['controller'=>'TraineeNameCards','action'=>'index']) ?>">
           <i class="fas fa-id-card"></i> Name Cards
@@ -256,7 +256,7 @@ $statusLabel = [
 
     <!-- Upcoming Departures -->
     <div class="tdb-card">
-      <h3><i class="fas fa-plane-departure" style="color:#1e88e5"></i> Upcoming Departures</h3>
+      <h3><i class="fas fa-plane-departure" style="color:#1e88e5"></i> <?= __('Upcoming Departures') ?></h3>
       <?php if (empty($upcomingDepartures)): ?>
         <p style="color:#90a4ae;font-size:12px;text-align:center;padding:20px 0">No upcoming departures scheduled</p>
       <?php else: ?>
@@ -278,7 +278,7 @@ $statusLabel = [
         </ul>
       <?php endif; ?>
       <hr style="border:none;border-top:1px solid #f0f0f0;margin:12px 0">
-      <h3 style="margin-top:0"><i class="fas fa-venus-mars" style="color:#8e24aa"></i> Gender Distribution</h3>
+      <h3 style="margin-top:0"><i class="fas fa-venus-mars" style="color:#8e24aa"></i> <?= __('Gender Distribution') ?></h3>
       <div class="gender-chart">
         <?php
           $maleAngle  = $total > 0 ? ($male / $total * 251.2) : 0;
@@ -309,7 +309,7 @@ $statusLabel = [
   <!-- ── New Training Batches ── -->
   <?php if (!empty($batches)): ?>
   <div class="tdb-section">
-    <div class="tdb-section-title"><i class="fas fa-calendar-alt"></i> Training Batch Schedule</div>
+    <div class="tdb-section-title"><i class="fas fa-calendar-alt"></i> <?= __('Training Batch Schedule') ?></div>
     <div class="batch-cards">
       <?php foreach ($batches as $b):
         $sc = $statusColor[$b['status']] ?? '#90a4ae';
@@ -366,7 +366,7 @@ $statusLabel = [
   <!-- ── Legacy Trainee Batches ── -->
   <?php if (!empty($traineeBatches)): ?>
   <div class="tdb-section">
-    <div class="tdb-section-title"><i class="fas fa-plane"></i> Japan Training Batches</div>
+    <div class="tdb-section-title"><i class="fas fa-plane"></i> <?= __('Japan Training Batches') ?></div>
     <div class="tdb-card" style="padding:0">
       <table class="batch-table">
         <thead>
@@ -420,7 +420,7 @@ $statusLabel = [
 
   <!-- ── Trainee Cards ── -->
   <div class="tdb-section">
-    <div class="tdb-section-title"><i class="fas fa-id-badge"></i> All Trainees</div>
+    <div class="tdb-section-title"><i class="fas fa-id-badge"></i> <?= __('All Trainees') ?></div>
     <div class="trainee-grid">
       <?php foreach ($traineeList as $t):
         $gColor = ($t['master_gender_id'] == 1) ? '#1e88e5' : '#e91e8c';
@@ -448,8 +448,7 @@ $statusLabel = [
       <?php endforeach; ?>
       <?php if (empty($traineeList)): ?>
         <div style="grid-column:1/-1;text-align:center;padding:40px;color:#90a4ae">
-          <i class="fas fa-users" style="font-size:40px;margin-bottom:12px;display:block"></i>
-          No trainees found. <a href="<?= $this->Url->build(['controller'=>'Trainees','action'=>'add']) ?>">Add the first trainee</a>.
+          <i class="fas fa-users" style="font-size:40px;margin-bottom:12px;display:block"></i> <?= __('No trainees found.') ?> <a href="<?= $this->Url->build(['controller'=>'Trainees','action'=>'add']) ?>">Add the first trainee</a>.
         </div>
       <?php endif; ?>
     </div>

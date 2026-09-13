@@ -167,8 +167,7 @@ use Cake\Utility\Inflector;
                             'maxlength' => 256
                         ]) ?>
                         <small class="form-text text-muted">
-                            <i class="fas fa-info-circle"></i> Enter your name in Katakana (カタカナ). Example: タナカ タロウ
-                        </small>
+                            <i class="fas fa-info-circle"></i> <?= __('Enter your name in Katakana (カタカナ). Example: タナカ タロウ') ?></small>
                     </div>
                     <div class="col-12 mb-3">
                         <label class="form-label"><?= __('Master Gender Id') ?></label>
@@ -217,8 +216,7 @@ use Cake\Utility\Inflector;
                             'maxlength' => 256
                         ]) ?>
                         <small class="form-text text-muted">
-                            <i class="fas fa-info-circle"></i> Enter birth place in Katakana. Example: トウキョウ
-                        </small>
+                            <i class="fas fa-info-circle"></i> <?= __('Enter birth place in Katakana. Example: トウキョウ') ?></small>
                     </div>
                     <div class="col-12 mb-3">
                         <label class="form-label"><?= __('Birth Date') ?></label>
@@ -254,7 +252,7 @@ use Cake\Utility\Inflector;
                             'placeholder' => __('Enter Email'),
                             'label' => false
                         ]) ?>
-                        <small class="text-muted">Format: user@example.com</small>
+                        <small class="text-muted"> <?= __('Format: user@example.com') ?></small>
                     </div>
                     <script>
                     $(document).ready(function() {
@@ -321,7 +319,7 @@ use Cake\Utility\Inflector;
                                     </div>
                                 </div>
                                 <div class="address-loading" style="display: none;">
-                                    <i class="fas fa-spinner fa-spin"></i> Loading options...
+                                    <i class="fas fa-spinner fa-spin"></i> <?= __('Loading options...') ?>
                                 </div>
                             </div>
                         </div>
@@ -461,7 +459,7 @@ use Cake\Utility\Inflector;
                             'label' => false,
                             'autocomplete' => 'new-password'
                         ]) ?>
-                        <small class="text-muted">Minimum 8 characters, include uppercase, lowercase, number & symbol</small>
+                        <small class="text-muted"> <?= __('Minimum 8 characters, include uppercase, lowercase, number & symbol') ?></small>
                     </div>
                     <div class="col-12 mb-3">
                         <label class="form-label"><?= __('Saving Goal Amount') ?></label>
@@ -623,7 +621,7 @@ use Cake\Utility\Inflector;
                             'label' => false,
                             'autocomplete' => 'new-password'
                         ]) ?>
-                        <small class="text-muted">Minimum 8 characters, include uppercase, lowercase, number & symbol</small>
+                        <small class="text-muted"> <?= __('Minimum 8 characters, include uppercase, lowercase, number & symbol') ?></small>
                     </div>
                     <div class="col-12 mb-3">
                         <label class="form-label"><?= __('Is Apprenticeship Pass') ?></label>
@@ -634,7 +632,7 @@ use Cake\Utility\Inflector;
                             'label' => false,
                             'autocomplete' => 'new-password'
                         ]) ?>
-                        <small class="text-muted">Minimum 8 characters, include uppercase, lowercase, number & symbol</small>
+                        <small class="text-muted"> <?= __('Minimum 8 characters, include uppercase, lowercase, number & symbol') ?></small>
                     </div>
                     <div class="col-12 mb-3">
                         <label class="form-label"><?= __('Master Rejected Reason Id') ?></label>
