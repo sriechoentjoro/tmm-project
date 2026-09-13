@@ -6765,3 +6765,686 @@ msgstr "アイコン"
 msgid "Sub-menus"
 msgstr "サブメニュー"
 
+
+msgid "-- Select Apprentice Id --"
+msgstr "-- 技能実習生を選択 --"
+
+msgid "-- Select Kabupaten/City --"
+msgstr "-- 県・市を選択 --"
+
+msgid "-- Select Master Employee Status Id --"
+msgstr "-- 雇用形態を選択 --"
+
+msgid "-- Select Master Family Connection Id --"
+msgstr "-- 続柄を選択 --"
+
+msgid "-- Select Master Occupation Id --"
+msgstr "-- 職業を選択 --"
+
+msgid "-- Select Master Strata Id --"
+msgstr "-- 学歴区分を選択 --"
+
+msgid "Add First AcceptanceOrganization"
+msgstr "最初の受入機関を追加"
+
+msgid "Add Post-Apprentice Record"
+msgstr "実習修了者の記録を追加"
+
+msgid "Additional Notes"
+msgstr "補足メモ"
+
+msgid "Alumni after returning home"
+msgstr "帰国後の修了生"
+
+msgid "Any additional context, observations, or follow-up actions…"
+msgstr "補足の背景・所見・今後の対応など…"
+
+msgid "Apprentice & Return Date"
+msgstr "技能実習生と帰国日"
+
+msgid "Apprentice Education"
+msgstr "技能実習生の学歴"
+
+msgid "Apprentice Educations"
+msgstr "技能実習生の学歴"
+
+msgid "Apprentice Experience"
+msgstr "技能実習生の職歴"
+
+msgid "Apprentice Experiences"
+msgstr "技能実習生の職歴"
+
+msgid "Apprentice Families"
+msgstr "技能実習生の家族"
+
+msgid "Apprentice Family"
+msgstr "技能実習生の家族"
+
+msgid "Area"
+msgstr "地域"
+
+msgid "Candidate Education"
+msgstr "候補者の学歴"
+
+msgid "Candidate Educations"
+msgstr "候補者の学歴"
+
+msgid "Capital"
+msgstr "県庁所在地"
+
+msgid "College Entry Date"
+msgstr "大学入学日"
+
+msgid "College Graduate Date"
+msgstr "大学卒業日"
+
+msgid "College Major"
+msgstr "専攻"
+
+msgid "College Name"
+msgstr "学校名"
+
+msgid "Company or organisation name"
+msgstr "会社名または団体名"
+
+msgid "Edit Post Apprentice"
+msgstr "実習修了者の記録を編集"
+
+msgid "Employer"
+msgstr "勤務先"
+
+msgid "Employer / Organisation"
+msgstr "勤務先・所属団体"
+
+msgid "Employment Awards"
+msgstr "表彰歴"
+
+msgid "Employment Detail"
+msgstr "勤務内容"
+
+msgid "Enter Apprentice Education Information"
+msgstr "技能実習生の学歴情報を入力"
+
+msgid "Enter Apprentice Experience Information"
+msgstr "技能実習生の職歴情報を入力"
+
+msgid "Enter Apprentice Family Information"
+msgstr "技能実習生の家族情報を入力"
+
+msgid "Enter Area"
+msgstr "地域を入力"
+
+msgid "Enter Candidate Education Information"
+msgstr "候補者の学歴情報を入力"
+
+msgid "Enter Capital"
+msgstr "県庁所在地を入力"
+
+msgid "Enter College Major"
+msgstr "専攻を入力"
+
+msgid "Enter College Name"
+msgstr "学校名を入力"
+
+msgid "Enter Employment Awards"
+msgstr "表彰歴を入力"
+
+msgid "Enter Employment End Year"
+msgstr "退職年を入力"
+
+msgid "Enter Employment Start Year"
+msgstr "入社年を入力"
+
+msgid "Enter Job Detail"
+msgstr "職務内容を入力"
+
+msgid "Enter Master Japan Prefecture Information"
+msgstr "都道府県の情報を入力"
+
+msgid "Enter Prefecture Jpg"
+msgstr "都道府県の画像を入力"
+
+msgid "Enter Termination Reasons"
+msgstr "退職理由を入力"
+
+msgid "Enter Trainee Education Information"
+msgstr "研修生の学歴情報を入力"
+
+msgid "Enter Trainee Experience Information"
+msgstr "研修生の職歴情報を入力"
+
+msgid "Filter Address"
+msgstr "住所で絞り込み"
+
+msgid "Filter Master Japan Prefecture Id"
+msgstr "都道府県で絞り込み"
+
+msgid "Filter Post Code"
+msgstr "郵便番号で絞り込み"
+
+msgid "Filter by name / employer / status…"
+msgstr "氏名・勤務先・ステータスで絞り込み…"
+
+msgid "Job title or role"
+msgstr "役職または職種"
+
+msgid "List Apprentice Educations"
+msgstr "技能実習生の学歴一覧"
+
+msgid "List Apprentice Experiences"
+msgstr "技能実習生の職歴一覧"
+
+msgid "List Apprentice Families"
+msgstr "技能実習生の家族一覧"
+
+msgid "List Candidate Educations"
+msgstr "候補者の学歴一覧"
+
+msgid "List Master Employee Statuses"
+msgstr "雇用形態の一覧"
+
+msgid "List Master Family Connections"
+msgstr "続柄の一覧"
+
+msgid "List Master Japan Prefectures"
+msgstr "都道府県の一覧"
+
+msgid "List Master Occupations"
+msgstr "職業の一覧"
+
+msgid "List Master Stratas"
+msgstr "学歴区分の一覧"
+
+msgid "List MasterEmployeeStatuses"
+msgstr "雇用形態の一覧"
+
+msgid "List MasterFamilyConnections"
+msgstr "続柄の一覧"
+
+msgid "List MasterOccupations"
+msgstr "職業の一覧"
+
+msgid "List MasterStratas"
+msgstr "学歴区分の一覧"
+
+msgid "List Post Apprentices"
+msgstr "実習修了者の一覧"
+
+msgid "List Trainee Educations"
+msgstr "研修生の学歴一覧"
+
+msgid "List Trainee Experiences"
+msgstr "研修生の職歴一覧"
+
+msgid "Master Employee Status Id"
+msgstr "雇用形態ID"
+
+msgid "Master Japan Prefecture"
+msgstr "都道府県"
+
+msgid "Master Japan Prefectures"
+msgstr "都道府県"
+
+msgid "Master Occupation Id"
+msgstr "職業ID"
+
+msgid "New Apprentice Education"
+msgstr "技能実習生の学歴を新規作成"
+
+msgid "New Apprentice Experience"
+msgstr "技能実習生の職歴を新規作成"
+
+msgid "New Apprentice Family"
+msgstr "技能実習生の家族を新規作成"
+
+msgid "New Master Employee Status"
+msgstr "雇用形態を新規作成"
+
+msgid "New Master Family Connection"
+msgstr "続柄を新規作成"
+
+msgid "New Master Japan Prefecture"
+msgstr "都道府県を新規作成"
+
+msgid "New Master Occupation"
+msgstr "職業を新規作成"
+
+msgid "New Master Strata"
+msgstr "学歴区分を新規作成"
+
+msgid "New MasterEmployeeStatus"
+msgstr "雇用形態を新規作成"
+
+msgid "New MasterFamilyConnection"
+msgstr "続柄を新規作成"
+
+msgid "New MasterOccupation"
+msgstr "職業を新規作成"
+
+msgid "New MasterStrata"
+msgstr "学歴区分を新規作成"
+
+msgid "New Trainee Education"
+msgstr "研修生の学歴を新規作成"
+
+msgid "New Trainee Experience"
+msgstr "研修生の職歴を新規作成"
+
+msgid "No Related AcceptanceOrganizations"
+msgstr "関連する受入機関はありません"
+
+msgid "No alumni records yet. Use \"Add New\" to start tracking returned apprentices."
+msgstr "修了生の記録はまだありません。「新規追加」から帰国した実習生の記録を始めてください。"
+
+msgid "Position / Role"
+msgstr "役職・職種"
+
+msgid "Post Apprentice"
+msgstr "実習修了者"
+
+msgid "Post Apprentices"
+msgstr "実習修了者"
+
+msgid "Prefecture Jpg"
+msgstr "都道府県の画像"
+
+msgid "Related AcceptanceOrganizations"
+msgstr "関連する受入機関"
+
+msgid "Return Date"
+msgstr "帰国日"
+
+msgid "Save Apprentice Education"
+msgstr "技能実習生の学歴を保存"
+
+msgid "Save Apprentice Experience"
+msgstr "技能実習生の職歴を保存"
+
+msgid "Save Apprentice Family"
+msgstr "技能実習生の家族を保存"
+
+msgid "Save Candidate Education"
+msgstr "候補者の学歴を保存"
+
+msgid "Save Master Japan Prefecture"
+msgstr "都道府県を保存"
+
+msgid "Save Trainee Education"
+msgstr "研修生の学歴を保存"
+
+msgid "Save Trainee Experience"
+msgstr "研修生の職歴を保存"
+
+msgid "Select College Entry Date"
+msgstr "大学入学日を選択"
+
+msgid "Select College Graduate Date"
+msgstr "大学卒業日を選択"
+
+msgid "Termination Reasons"
+msgstr "退職理由"
+
+msgid "There are no related AcceptanceOrganizations for this Master Japan Prefecture."
+msgstr "この都道府県に関連する受入機関はありません。"
+
+msgid "Total Alumni Tracked"
+msgstr "追跡中の修了生総数"
+
+msgid "Track the apprentice's status, employment, and activities after completing the programme"
+msgstr "プログラム修了後の実習生の状況・就業・活動を記録します"
+
+msgid "Trainee Education"
+msgstr "研修生の学歴"
+
+msgid "Trainee Educations"
+msgstr "研修生の学歴"
+
+msgid "Trainee Experience"
+msgstr "研修生の職歴"
+
+msgid "Trainee Experiences"
+msgstr "研修生の職歴"
+
+
+msgid "-- Select Master Document Submission Status Id --"
+msgstr "-- 書類提出ステータスを選択 --"
+
+msgid "-- Select Master Medical Check Up Result Id --"
+msgstr "-- 健康診断結果を選択 --"
+
+msgid "Add Interview for {0}"
+msgstr "{0} の面接を追加"
+
+msgid "Add MCU Result for {0}"
+msgstr "{0} の健康診断結果を追加"
+
+msgid "All scores complete — candidate can be promoted to trainee"
+msgstr "全評価が完了 — 候補者を研修生へ昇格できます"
+
+msgid "Apprentice Document Management Dashboard"
+msgstr "技能実習生の書類管理ダッシュボード"
+
+msgid "Apprentice Document Management Dashboards"
+msgstr "技能実習生の書類管理ダッシュボード"
+
+msgid "Apprentice Record Medical Check Up"
+msgstr "技能実習生の健康診断記録"
+
+msgid "Apprentice Record Medical Check Ups"
+msgstr "技能実習生の健康診断記録"
+
+msgid "Apprentice Submission Document"
+msgstr "技能実習生の提出書類"
+
+msgid "Apprentice Submission Documents"
+msgstr "技能実習生の提出書類"
+
+msgid "Assigned to Order"
+msgstr "オーダーへ割当済み"
+
+msgid "Assigned to apprenticeship order"
+msgstr "実習オーダーへ割り当て済み"
+
+msgid "Averages"
+msgstr "平均"
+
+msgid "Avg Interview"
+msgstr "面接平均"
+
+msgid "Avg MCU"
+msgstr "健康診断平均"
+
+msgid "Avg Test"
+msgstr "試験平均"
+
+msgid "Candidate Document Management Dashboard Detail"
+msgstr "候補者の書類管理ダッシュボード詳細"
+
+msgid "Candidate Document Management Dashboard Details"
+msgstr "候補者の書類管理ダッシュボード詳細"
+
+msgid "Candidate Integrated Scoring"
+msgstr "候補者の総合評価"
+
+msgid "Candidate → Trainee"
+msgstr "候補者 → 研修生"
+
+msgid "Combined placement test, interview, medical check-up and fitness scores per candidate."
+msgstr "候補者ごとの配置試験・面接・健康診断・体力の各評価をまとめたものです。"
+
+msgid "Complete (PT+IV+MCU)"
+msgstr "完了（PT+IV+MCU）"
+
+msgid "Dashboard Id"
+msgstr "ダッシュボードID"
+
+msgid "End Date"
+msgstr "終了日"
+
+msgid "Enter Apprentice Document Management Dashboard Information"
+msgstr "技能実習生の書類管理ダッシュボード情報を入力"
+
+msgid "Enter Apprentice Record Medical Check Up Information"
+msgstr "技能実習生の健康診断情報を入力"
+
+msgid "Enter Apprentice Submission Document Information"
+msgstr "技能実習生の提出書類情報を入力"
+
+msgid "Enter Apprenticeship Submission Document Id"
+msgstr "実習提出書類IDを入力"
+
+msgid "Enter Candidate Document Management Dashboard Detail Information"
+msgstr "候補者の書類ダッシュボード詳細情報を入力"
+
+msgid "Enter Clinic"
+msgstr "医療機関を入力"
+
+msgid "Enter Comment"
+msgstr "コメントを入力"
+
+msgid "Enter Dashboard Id"
+msgstr "ダッシュボードIDを入力"
+
+msgid "Enter Document Type"
+msgstr "書類の種類を入力"
+
+msgid "Enter Format"
+msgstr "形式を入力"
+
+msgid "Enter Master Apprentice Submission Document Information"
+msgstr "提出書類マスタの情報を入力"
+
+msgid "Enter Master Apprenticeship Submission Document Category Id"
+msgstr "提出書類カテゴリIDを入力"
+
+msgid "Enter Notes"
+msgstr "備考を入力"
+
+msgid "Enter Status"
+msgstr "ステータスを入力"
+
+msgid "Enter Title Jp"
+msgstr "日本語タイトルを入力"
+
+msgid "Enter Total Documents"
+msgstr "書類の総数を入力"
+
+msgid "Enter Total Missing"
+msgstr "未提出数を入力"
+
+msgid "Enter Total Pending"
+msgstr "保留数を入力"
+
+msgid "Enter Total Ready"
+msgstr "完了数を入力"
+
+msgid "Enter Training Information"
+msgstr "研修情報を入力"
+
+msgid "Enter Training Title"
+msgstr "研修タイトルを入力"
+
+msgid "Enter Uploaded By"
+msgstr "アップロード者を入力"
+
+msgid "Enter detailed description of the training program"
+msgstr "研修プログラムの詳細を入力してください"
+
+msgid "Enter instructor name"
+msgstr "講師名を入力してください"
+
+msgid "Enter maximum number of participants"
+msgstr "参加者の上限人数を入力してください"
+
+msgid "Enter status (e.g., Planned, Ongoing, Completed)"
+msgstr "ステータスを入力（例：予定、実施中、完了）"
+
+msgid "Enter training location (e.g., Training Center Jakarta)"
+msgstr "研修場所を入力（例：ジャカルタ研修センター）"
+
+msgid "Fitness"
+msgstr "体力"
+
+msgid "Instructor"
+msgstr "講師"
+
+msgid "Interviews"
+msgstr "面接"
+
+msgid "Is Required"
+msgstr "必須"
+
+msgid "Is Translation Required"
+msgstr "翻訳の要否"
+
+msgid "Last Updated"
+msgstr "最終更新"
+
+msgid "List Apprentice Document Management Dashboards"
+msgstr "技能実習生の書類管理ダッシュボード一覧"
+
+msgid "List Apprentice Record Medical Check Ups"
+msgstr "技能実習生の健康診断一覧"
+
+msgid "List Apprentice Submission Documents"
+msgstr "技能実習生の提出書類一覧"
+
+msgid "List Candidate Document Management Dashboard Details"
+msgstr "候補者の書類ダッシュボード詳細一覧"
+
+msgid "List Master Apprentice Submission Documents"
+msgstr "提出書類マスタの一覧"
+
+msgid "List Master Document Submission Statuses"
+msgstr "書類提出ステータスの一覧"
+
+msgid "List Master Medical Check Up Results"
+msgstr "健康診断結果の一覧"
+
+msgid "List MasterDocumentSubmissionStatuses"
+msgstr "書類提出ステータスの一覧"
+
+msgid "List MasterMedicalCheckUpResults"
+msgstr "健康診断結果の一覧"
+
+msgid "List Trainings"
+msgstr "研修の一覧"
+
+msgid "Master Apprentice Submission Document"
+msgstr "提出書類マスタ"
+
+msgid "Master Apprentice Submission Documents"
+msgstr "提出書類マスタ"
+
+msgid "Master Apprenticeship Submission Document Category Id"
+msgstr "提出書類カテゴリID"
+
+msgid "Max Participants"
+msgstr "定員"
+
+msgid "New Apprentice Document Management Dashboard"
+msgstr "書類管理ダッシュボードを新規作成"
+
+msgid "New Apprentice Record Medical Check Up"
+msgstr "健康診断記録を新規作成"
+
+msgid "New Apprentice Submission Document"
+msgstr "提出書類を新規作成"
+
+msgid "New Candidate Document Management Dashboard Detail"
+msgstr "候補者の書類ダッシュボード詳細を新規作成"
+
+msgid "New Master Apprentice Submission Document"
+msgstr "提出書類マスタを新規作成"
+
+msgid "New Master Document Submission Status"
+msgstr "書類提出ステータスを新規作成"
+
+msgid "New Master Medical Check Up Result"
+msgstr "健康診断結果を新規作成"
+
+msgid "New MasterDocumentSubmissionStatus"
+msgstr "書類提出ステータスを新規作成"
+
+msgid "New MasterMedicalCheckUpResult"
+msgstr "健康診断結果を新規作成"
+
+msgid "New Training"
+msgstr "研修を新規作成"
+
+msgid "None"
+msgstr "なし"
+
+msgid "Not Scored Yet"
+msgstr "未評価"
+
+msgid "Origin Candidate"
+msgstr "元の候補者"
+
+msgid "Partially Scored"
+msgstr "一部評価済み"
+
+msgid "Passed apprenticeship selection"
+msgstr "実習選考に合格"
+
+msgid "Passed → Apprentice"
+msgstr "合格 → 技能実習生"
+
+msgid "Physical Tests"
+msgstr "体力テスト"
+
+msgid "Pipeline Stage"
+msgstr "進捗段階"
+
+msgid "Promoted to Trainee"
+msgstr "研修生へ昇格済み"
+
+msgid "Promoted to trainee"
+msgstr "研修生へ昇格済み"
+
+msgid "Readiness"
+msgstr "準備状況"
+
+msgid "Rec"
+msgstr "推奨"
+
+msgid "Save Apprentice Document Management Dashboard"
+msgstr "書類管理ダッシュボードを保存"
+
+msgid "Save Apprentice Record Medical Check Up"
+msgstr "健康診断記録を保存"
+
+msgid "Save Apprentice Submission Document"
+msgstr "提出書類を保存"
+
+msgid "Save Candidate Document Management Dashboard Detail"
+msgstr "候補者の書類ダッシュボード詳細を保存"
+
+msgid "Save Master Apprentice Submission Document"
+msgstr "提出書類マスタを保存"
+
+msgid "Save Training"
+msgstr "研修を保存"
+
+msgid "Select Date Issued"
+msgstr "発行日を選択"
+
+msgid "Select End Date (YYYY-MM-DD)"
+msgstr "終了日を選択（YYYY-MM-DD）"
+
+msgid "Select Last Updated"
+msgstr "最終更新日を選択"
+
+msgid "Select Start Date (YYYY-MM-DD)"
+msgstr "開始日を選択（YYYY-MM-DD）"
+
+msgid "Select Updated At"
+msgstr "更新日時を選択"
+
+msgid "Start Date"
+msgstr "開始日"
+
+msgid "Title Jp"
+msgstr "日本語タイトル"
+
+msgid "Total Documents"
+msgstr "書類の総数"
+
+msgid "Total Missing"
+msgstr "未提出数"
+
+msgid "Total Pending"
+msgstr "保留数"
+
+msgid "Total Ready"
+msgstr "完了数"
+
+msgid "Trainings"
+msgstr "研修"
+
+msgid "Updated At"
+msgstr "更新日時"
+
+msgid "Upload Document for {0}"
+msgstr "{0} の書類をアップロード"
+
