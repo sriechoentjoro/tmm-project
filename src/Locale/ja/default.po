@@ -7448,3 +7448,1342 @@ msgstr "更新日時"
 msgid "Upload Document for {0}"
 msgstr "{0} の書類をアップロード"
 
+
+msgid "-- Select Candidate --"
+msgstr "-- 候補者を選択 --"
+
+msgid "-- Select Kabupaten Id --"
+msgstr "-- 県・市IDを選択 --"
+
+msgid "-- Select Kecamatan Id --"
+msgstr "-- 郡IDを選択 --"
+
+msgid "Add Apprentice Document"
+msgstr "技能実習生の書類を追加"
+
+msgid "Add Apprentice Flight"
+msgstr "技能実習生のフライトを追加"
+
+msgid "Add Candidate Submission Document"
+msgstr "候補者の提出書類を追加"
+
+msgid "Add Document"
+msgstr "書類を追加"
+
+msgid "Add Email Template"
+msgstr "メールテンプレートを追加"
+
+msgid "Add Master Currency"
+msgstr "通貨を追加"
+
+msgid "Add Master Payment Method"
+msgstr "支払方法を追加"
+
+msgid "Add Master Training Competency"
+msgstr "研修技能項目を追加"
+
+msgid "Add Master Training Test Score Grade"
+msgstr "評定を追加"
+
+msgid "Add Master Transaction Category"
+msgstr "取引区分を追加"
+
+msgid "Add Role"
+msgstr "役割を追加"
+
+msgid "Add Trainee Name Card"
+msgstr "研修生の名刺を追加"
+
+msgid "Add Trainee Score Average"
+msgstr "研修生の平均点を追加"
+
+msgid "Apprentice Certification"
+msgstr "技能実習生の資格"
+
+msgid "Apprentice Certifications"
+msgstr "技能実習生の資格"
+
+msgid "Apprentice Course"
+msgstr "技能実習生の受講歴"
+
+msgid "Apprentice Courses"
+msgstr "技能実習生の受講歴"
+
+msgid "Apprentice Document"
+msgstr "技能実習生の書類"
+
+msgid "Apprentice Documents"
+msgstr "技能実習生の書類"
+
+msgid "Apprentice Family Stories"
+msgstr "技能実習生の家族記録"
+
+msgid "Apprentice Family Story"
+msgstr "技能実習生の家族記録"
+
+msgid "Apprentice Flight"
+msgstr "技能実習生のフライト"
+
+msgid "Apprentice Flights"
+msgstr "技能実習生のフライト"
+
+msgid "Apprentice Record Coe Visa"
+msgstr "技能実習生のCOE・ビザ記録"
+
+msgid "Apprentice Record Coe Visas"
+msgstr "技能実習生のCOE・ビザ記録"
+
+msgid "Apprentice Record Pasport"
+msgstr "技能実習生のパスポート記録"
+
+msgid "Apprentice Record Pasports"
+msgstr "技能実習生のパスポート記録"
+
+msgid "Candidate Certification"
+msgstr "候補者の資格"
+
+msgid "Candidate Certifications"
+msgstr "候補者の資格"
+
+msgid "Candidate Course"
+msgstr "候補者の受講歴"
+
+msgid "Candidate Courses"
+msgstr "候補者の受講歴"
+
+msgid "Candidate Document"
+msgstr "候補者の書類"
+
+msgid "Candidate Document Categories"
+msgstr "候補者の書類カテゴリ"
+
+msgid "Candidate Document Category"
+msgstr "候補者の書類カテゴリ"
+
+msgid "Candidate Documents Master List"
+msgstr "候補者の書類マスタ一覧"
+
+msgid "Candidate Experience"
+msgstr "候補者の職歴"
+
+msgid "Candidate Experiences"
+msgstr "候補者の職歴"
+
+msgid "Candidate Families"
+msgstr "候補者の家族"
+
+msgid "Candidate Family"
+msgstr "候補者の家族"
+
+msgid "Candidate Record Medical Check Up"
+msgstr "候補者の健康診断記録"
+
+msgid "Candidate Record Medical Check Ups"
+msgstr "候補者の健康診断記録"
+
+msgid "Candidate Submission Document"
+msgstr "候補者の提出書類"
+
+msgid "Category Id"
+msgstr "カテゴリID"
+
+msgid "Cooperative Association Story"
+msgstr "協同組合の記録"
+
+msgid "Cost Per Hour"
+msgstr "時間単価"
+
+msgid "Delete Role"
+msgstr "役割を削除"
+
+msgid "Edit Apprentice Document"
+msgstr "技能実習生の書類を編集"
+
+msgid "Edit Apprentice Flight"
+msgstr "技能実習生のフライトを編集"
+
+msgid "Edit Candidate Submission Document"
+msgstr "候補者の提出書類を編集"
+
+msgid "Edit Email Template"
+msgstr "メールテンプレートを編集"
+
+msgid "Edit Master Currency"
+msgstr "通貨を編集"
+
+msgid "Edit Master Payment Method"
+msgstr "支払方法を編集"
+
+msgid "Edit Master Training Competency"
+msgstr "研修技能項目を編集"
+
+msgid "Edit Master Training Test Score Grade"
+msgstr "評定を編集"
+
+msgid "Edit Master Transaction Category"
+msgstr "取引区分を編集"
+
+msgid "Edit Role"
+msgstr "役割を編集"
+
+msgid "Edit Trainee Name Card"
+msgstr "研修生の名刺を編集"
+
+msgid "Edit Trainee Score Average"
+msgstr "研修生の平均点を編集"
+
+msgid "Email Template"
+msgstr "メールテンプレート"
+
+msgid "Eng"
+msgstr "英語"
+
+msgid "Enter Apprentice Certification Information"
+msgstr "技能実習生の資格の情報を入力"
+
+msgid "Enter Apprentice Course Information"
+msgstr "技能実習生の受講歴の情報を入力"
+
+msgid "Enter Apprentice Family Story Information"
+msgstr "技能実習生の家族記録の情報を入力"
+
+msgid "Enter Apprentice Record Coe Visa Information"
+msgstr "技能実習生のCOE・ビザ記録の情報を入力"
+
+msgid "Enter Apprentice Record Pasport Information"
+msgstr "技能実習生のパスポート記録の情報を入力"
+
+msgid "Enter Candidate Certification Information"
+msgstr "候補者の資格の情報を入力"
+
+msgid "Enter Candidate Course Information"
+msgstr "候補者の受講歴の情報を入力"
+
+msgid "Enter Candidate Document Category Information"
+msgstr "候補者の書類カテゴリの情報を入力"
+
+msgid "Enter Candidate Document Information"
+msgstr "候補者の書類の情報を入力"
+
+msgid "Enter Candidate Documents Master List Information"
+msgstr "候補者の書類マスタ一覧の情報を入力"
+
+msgid "Enter Candidate Experience Information"
+msgstr "候補者の職歴の情報を入力"
+
+msgid "Enter Candidate Family Information"
+msgstr "候補者の家族の情報を入力"
+
+msgid "Enter Candidate Record Medical Check Up Information"
+msgstr "候補者の健康診断記録の情報を入力"
+
+msgid "Enter Category Id"
+msgstr "カテゴリIDを入力"
+
+msgid "Enter Code"
+msgstr "コードを入力"
+
+msgid "Enter Cooperative Association Story Information"
+msgstr "協同組合の記録の情報を入力"
+
+msgid "Enter Cost Per Hour"
+msgstr "時間単価を入力"
+
+msgid "Enter Course Major Id"
+msgstr "専攻IDを入力"
+
+msgid "Enter Course Year"
+msgstr "受講年を入力"
+
+msgid "Enter Description"
+msgstr "説明を入力"
+
+msgid "Enter Details"
+msgstr "詳細を入力"
+
+msgid "Enter Eng"
+msgstr "英語を入力"
+
+msgid "Enter Expires"
+msgstr "有効期限を入力"
+
+msgid "Enter Family Category"
+msgstr "家族区分を入力"
+
+msgid "Enter Ind"
+msgstr "インドネシア語を入力"
+
+msgid "Enter Institution Name"
+msgstr "機関名を入力"
+
+msgid "Enter Jpn"
+msgstr "日本語を入力"
+
+msgid "Enter Kode Kabupaten"
+msgstr "県・市コードを入力"
+
+msgid "Enter Kode Kecamatan"
+msgstr "郡コードを入力"
+
+msgid "Enter Kode Kelurahan"
+msgstr "村・町コードを入力"
+
+msgid "Enter Kode Pos"
+msgstr "郵便番号を入力"
+
+msgid "Enter Master Apprentice Coe Type Information"
+msgstr "COE種別の情報を入力"
+
+msgid "Enter Master Apprentice Departure Document Information"
+msgstr "出国書類の情報を入力"
+
+msgid "Enter Master Apprentice Submission Document Category Information"
+msgstr "提出書類カテゴリの情報を入力"
+
+msgid "Enter Master Blood Type Information"
+msgstr "血液型の情報を入力"
+
+msgid "Enter Master Candidate Interview Type Information"
+msgstr "面接種別の情報を入力"
+
+msgid "Enter Master Coe Type Id"
+msgstr "COE種別IDを入力"
+
+msgid "Enter Master Course Major Id"
+msgstr "専攻IDを入力"
+
+msgid "Enter Master Department Information"
+msgstr "部署の情報を入力"
+
+msgid "Enter Master Document Preparedness Status Information"
+msgstr "書類準備ステータスの情報を入力"
+
+msgid "Enter Master Document Submission Status Information"
+msgstr "書類提出ステータスの情報を入力"
+
+msgid "Enter Master Employee Status Information"
+msgstr "雇用形態の情報を入力"
+
+msgid "Enter Master Employment Position Information"
+msgstr "職位の情報を入力"
+
+msgid "Enter Master Family Connection Information"
+msgstr "続柄の情報を入力"
+
+msgid "Enter Master Gender Information"
+msgstr "性別の情報を入力"
+
+msgid "Enter Master Icon Information"
+msgstr "アイコンの情報を入力"
+
+msgid "Enter Master Interview Result Information"
+msgstr "面接結果の情報を入力"
+
+msgid "Enter Master Job Category Information"
+msgstr "職種の情報を入力"
+
+msgid "Enter Master Kabupaten Information"
+msgstr "県・市の情報を入力"
+
+msgid "Enter Master Kecamatan Information"
+msgstr "郡の情報を入力"
+
+msgid "Enter Master Kelurahan Information"
+msgstr "村・町の情報を入力"
+
+msgid "Enter Master Marriage Status Information"
+msgstr "婚姻状況の情報を入力"
+
+msgid "Enter Master Medical Check Up Result Information"
+msgstr "健康診断結果の情報を入力"
+
+msgid "Enter Master Occupation Category Information"
+msgstr "職業分類の情報を入力"
+
+msgid "Enter Master Occupation Information"
+msgstr "職業の情報を入力"
+
+msgid "Enter Master Propinsi Information"
+msgstr "州の情報を入力"
+
+msgid "Enter Master Rejected Reason Information"
+msgstr "不採用理由の情報を入力"
+
+msgid "Enter Master Religion Information"
+msgstr "宗教の情報を入力"
+
+msgid "Enter Master Strata Information"
+msgstr "学歴区分の情報を入力"
+
+msgid "Enter Master Translation Information"
+msgstr "翻訳の情報を入力"
+
+msgid "Enter Medical Check Up Result Id"
+msgstr "健康診断結果IDを入力"
+
+msgid "Enter Occupation Category Id"
+msgstr "職業分類IDを入力"
+
+msgid "Enter Place Issue"
+msgstr "発行地を入力"
+
+msgid "Enter Place Visa Issued"
+msgstr "ビザ発行地を入力"
+
+msgid "Enter Session Information"
+msgstr "セッションの情報を入力"
+
+msgid "Enter Slug"
+msgstr "スラッグを入力"
+
+msgid "Enter Sort"
+msgstr "並び順を入力"
+
+msgid "Enter Title Eng"
+msgstr "英語タイトルを入力"
+
+msgid "Enter Title Jpg"
+msgstr "タイトル画像を入力"
+
+msgid "Enter Title Kanji"
+msgstr "漢字タイトルを入力"
+
+msgid "Enter Trainee Certification Information"
+msgstr "研修生の資格の情報を入力"
+
+msgid "Enter Trainee Course Information"
+msgstr "研修生の受講歴の情報を入力"
+
+msgid "Enter Trainee Family Information"
+msgstr "研修生の家族の情報を入力"
+
+msgid "Enter Trainee Family Story Information"
+msgstr "研修生の家族記録の情報を入力"
+
+msgid "Enter Vocational Training Institution Id"
+msgstr "職業訓練機関IDを入力"
+
+msgid "Family Category"
+msgstr "家族区分"
+
+msgid "Ind"
+msgstr "インドネシア語"
+
+msgid "Jpn"
+msgstr "日本語"
+
+msgid "List Apprentice Certifications"
+msgstr "技能実習生の資格の一覧"
+
+msgid "List Apprentice Courses"
+msgstr "技能実習生の受講歴の一覧"
+
+msgid "List Apprentice Family Stories"
+msgstr "技能実習生の家族記録の一覧"
+
+msgid "List Apprentice Record Coe Visas"
+msgstr "技能実習生のCOE・ビザ記録の一覧"
+
+msgid "List Apprentice Record Pasports"
+msgstr "技能実習生のパスポート記録の一覧"
+
+msgid "List Candidate Certifications"
+msgstr "候補者の資格の一覧"
+
+msgid "List Candidate Courses"
+msgstr "候補者の受講歴の一覧"
+
+msgid "List Candidate Document Categories"
+msgstr "候補者の書類カテゴリの一覧"
+
+msgid "List Candidate Documents"
+msgstr "候補者の書類の一覧"
+
+msgid "List Candidate Documents Master List"
+msgstr "候補者の書類マスタ一覧の一覧"
+
+msgid "List Candidate Experiences"
+msgstr "候補者の職歴の一覧"
+
+msgid "List Candidate Families"
+msgstr "候補者の家族の一覧"
+
+msgid "List Candidate Record Medical Check Ups"
+msgstr "候補者の健康診断記録の一覧"
+
+msgid "List Cooperative Association Stories"
+msgstr "協同組合の記録の一覧"
+
+msgid "List Master Apprentice Coe Types"
+msgstr "COE種別の一覧"
+
+msgid "List Master Apprentice Departure Documents"
+msgstr "出国書類の一覧"
+
+msgid "List Master Apprentice Submission Document Categories"
+msgstr "提出書類カテゴリの一覧"
+
+msgid "List Master Candidate Interview Types"
+msgstr "面接種別の一覧"
+
+msgid "List Master Departments"
+msgstr "部署の一覧"
+
+msgid "List Master Document Preparedness Statuses"
+msgstr "書類準備ステータスの一覧"
+
+msgid "List Master Employment Positions"
+msgstr "職位の一覧"
+
+msgid "List Master Icons"
+msgstr "アイコンの一覧"
+
+msgid "List Master Interview Results"
+msgstr "面接結果の一覧"
+
+msgid "List Master Occupation Categories"
+msgstr "職業分類の一覧"
+
+msgid "List Master Translations"
+msgstr "翻訳の一覧"
+
+msgid "List Roles"
+msgstr "役割の一覧"
+
+msgid "List Sessions"
+msgstr "セッションの一覧"
+
+msgid "List Trainee Certifications"
+msgstr "研修生の資格の一覧"
+
+msgid "List Trainee Courses"
+msgstr "研修生の受講歴の一覧"
+
+msgid "List Trainee Families"
+msgstr "研修生の家族の一覧"
+
+msgid "List Trainee Family Stories"
+msgstr "研修生の家族記録の一覧"
+
+msgid "Master Apprentice Coe Type"
+msgstr "COE種別"
+
+msgid "Master Apprentice Coe Types"
+msgstr "COE種別"
+
+msgid "Master Apprentice Departure Document"
+msgstr "出国書類"
+
+msgid "Master Apprentice Departure Documents"
+msgstr "出国書類"
+
+msgid "Master Apprentice Submission Document Categories"
+msgstr "提出書類カテゴリ"
+
+msgid "Master Apprentice Submission Document Category"
+msgstr "提出書類カテゴリ"
+
+msgid "Master Blood Type"
+msgstr "血液型"
+
+msgid "Master Candidate Interview Type"
+msgstr "面接種別"
+
+msgid "Master Candidate Interview Types"
+msgstr "面接種別"
+
+msgid "Master Coe Type Id"
+msgstr "COE種別ID"
+
+msgid "Master Currency"
+msgstr "通貨"
+
+msgid "Master Department"
+msgstr "部署"
+
+msgid "Master Departments"
+msgstr "部署"
+
+msgid "Master Document Preparedness Status"
+msgstr "書類準備ステータス"
+
+msgid "Master Document Preparedness Statuses"
+msgstr "書類準備ステータス"
+
+msgid "Master Document Submission Status"
+msgstr "書類提出ステータス"
+
+msgid "Master Employee Status"
+msgstr "雇用形態"
+
+msgid "Master Employment Position"
+msgstr "職位"
+
+msgid "Master Employment Positions"
+msgstr "職位"
+
+msgid "Master Family Connection"
+msgstr "続柄"
+
+msgid "Master Gender"
+msgstr "性別"
+
+msgid "Master Icon"
+msgstr "アイコン"
+
+msgid "Master Icons"
+msgstr "アイコン"
+
+msgid "Master Interview Result"
+msgstr "面接結果"
+
+msgid "Master Interview Results"
+msgstr "面接結果"
+
+msgid "Master Job Category"
+msgstr "職種"
+
+msgid "Master Kabupaten"
+msgstr "県・市"
+
+msgid "Master Kecamatan"
+msgstr "郡"
+
+msgid "Master Kelurahan"
+msgstr "村・町"
+
+msgid "Master Marriage Status"
+msgstr "婚姻状況"
+
+msgid "Master Medical Check Up Result"
+msgstr "健康診断結果"
+
+msgid "Master Occupation"
+msgstr "職業"
+
+msgid "Master Occupation Categories"
+msgstr "職業分類"
+
+msgid "Master Occupation Category"
+msgstr "職業分類"
+
+msgid "Master Payment Method"
+msgstr "支払方法"
+
+msgid "Master Propinsi"
+msgstr "州"
+
+msgid "Master Rejected Reason"
+msgstr "不採用理由"
+
+msgid "Master Religion"
+msgstr "宗教"
+
+msgid "Master Strata"
+msgstr "学歴区分"
+
+msgid "Master Training Competency"
+msgstr "研修技能項目"
+
+msgid "Master Training Test Score Grade"
+msgstr "評定"
+
+msgid "Master Transaction Category"
+msgstr "取引区分"
+
+msgid "Master Translation"
+msgstr "翻訳"
+
+msgid "Master Translations"
+msgstr "翻訳"
+
+msgid "Medical Check Up Result Id"
+msgstr "健康診断結果ID"
+
+msgid "New Apprentice Certification"
+msgstr "技能実習生の資格を新規作成"
+
+msgid "New Apprentice Course"
+msgstr "技能実習生の受講歴を新規作成"
+
+msgid "New Apprentice Family Story"
+msgstr "技能実習生の家族記録を新規作成"
+
+msgid "New Apprentice Record Coe Visa"
+msgstr "技能実習生のCOE・ビザ記録を新規作成"
+
+msgid "New Apprentice Record Pasport"
+msgstr "技能実習生のパスポート記録を新規作成"
+
+msgid "New Candidate Document Category"
+msgstr "候補者の書類カテゴリを新規作成"
+
+msgid "New Candidate Documents Master List"
+msgstr "候補者の書類マスタ一覧を新規作成"
+
+msgid "New Candidate Record Medical Check Up"
+msgstr "候補者の健康診断記録を新規作成"
+
+msgid "New Cooperative Association Story"
+msgstr "協同組合の記録を新規作成"
+
+msgid "New Master Apprentice Coe Type"
+msgstr "COE種別を新規作成"
+
+msgid "New Master Apprentice Departure Document"
+msgstr "出国書類を新規作成"
+
+msgid "New Master Apprentice Submission Document Category"
+msgstr "提出書類カテゴリを新規作成"
+
+msgid "New Master Candidate Interview Type"
+msgstr "面接種別を新規作成"
+
+msgid "New Master Department"
+msgstr "部署を新規作成"
+
+msgid "New Master Document Preparedness Status"
+msgstr "書類準備ステータスを新規作成"
+
+msgid "New Master Employment Position"
+msgstr "職位を新規作成"
+
+msgid "New Master Icon"
+msgstr "アイコンを新規作成"
+
+msgid "New Master Interview Result"
+msgstr "面接結果を新規作成"
+
+msgid "New Master Occupation Category"
+msgstr "職業分類を新規作成"
+
+msgid "New Master Translation"
+msgstr "翻訳を新規作成"
+
+msgid "New Role"
+msgstr "役割を新規作成"
+
+msgid "New Session"
+msgstr "セッションを新規作成"
+
+msgid "New Trainee Certification"
+msgstr "研修生の資格を新規作成"
+
+msgid "New Trainee Course"
+msgstr "研修生の受講歴を新規作成"
+
+msgid "New Trainee Family"
+msgstr "研修生の家族を新規作成"
+
+msgid "New Trainee Family Story"
+msgstr "研修生の家族記録を新規作成"
+
+msgid "Occupation Category Id"
+msgstr "職業分類ID"
+
+msgid "Related Users"
+msgstr "関連するユーザー"
+
+msgid "Save Apprentice Certification"
+msgstr "技能実習生の資格を保存"
+
+msgid "Save Apprentice Course"
+msgstr "技能実習生の受講歴を保存"
+
+msgid "Save Apprentice Family Story"
+msgstr "技能実習生の家族記録を保存"
+
+msgid "Save Apprentice Record Coe Visa"
+msgstr "技能実習生のCOE・ビザ記録を保存"
+
+msgid "Save Apprentice Record Pasport"
+msgstr "技能実習生のパスポート記録を保存"
+
+msgid "Save Candidate Certification"
+msgstr "候補者の資格を保存"
+
+msgid "Save Candidate Course"
+msgstr "候補者の受講歴を保存"
+
+msgid "Save Candidate Document"
+msgstr "候補者の書類を保存"
+
+msgid "Save Candidate Document Category"
+msgstr "候補者の書類カテゴリを保存"
+
+msgid "Save Candidate Documents Master List"
+msgstr "候補者の書類マスタ一覧を保存"
+
+msgid "Save Candidate Experience"
+msgstr "候補者の職歴を保存"
+
+msgid "Save Candidate Family"
+msgstr "候補者の家族を保存"
+
+msgid "Save Candidate Record Medical Check Up"
+msgstr "候補者の健康診断記録を保存"
+
+msgid "Save Cooperative Association Story"
+msgstr "協同組合の記録を保存"
+
+msgid "Save Master Apprentice Coe Type"
+msgstr "COE種別を保存"
+
+msgid "Save Master Apprentice Departure Document"
+msgstr "出国書類を保存"
+
+msgid "Save Master Apprentice Submission Document Category"
+msgstr "提出書類カテゴリを保存"
+
+msgid "Save Master Blood Type"
+msgstr "血液型を保存"
+
+msgid "Save Master Candidate Interview Type"
+msgstr "面接種別を保存"
+
+msgid "Save Master Department"
+msgstr "部署を保存"
+
+msgid "Save Master Document Preparedness Status"
+msgstr "書類準備ステータスを保存"
+
+msgid "Save Master Document Submission Status"
+msgstr "書類提出ステータスを保存"
+
+msgid "Save Master Employee Status"
+msgstr "雇用形態を保存"
+
+msgid "Save Master Employment Position"
+msgstr "職位を保存"
+
+msgid "Save Master Family Connection"
+msgstr "続柄を保存"
+
+msgid "Save Master Gender"
+msgstr "性別を保存"
+
+msgid "Save Master Icon"
+msgstr "アイコンを保存"
+
+msgid "Save Master Interview Result"
+msgstr "面接結果を保存"
+
+msgid "Save Master Job Category"
+msgstr "職種を保存"
+
+msgid "Save Master Kabupaten"
+msgstr "県・市を保存"
+
+msgid "Save Master Kecamatan"
+msgstr "郡を保存"
+
+msgid "Save Master Kelurahan"
+msgstr "村・町を保存"
+
+msgid "Save Master Marriage Status"
+msgstr "婚姻状況を保存"
+
+msgid "Save Master Medical Check Up Result"
+msgstr "健康診断結果を保存"
+
+msgid "Save Master Occupation"
+msgstr "職業を保存"
+
+msgid "Save Master Occupation Category"
+msgstr "職業分類を保存"
+
+msgid "Save Master Propinsi"
+msgstr "州を保存"
+
+msgid "Save Master Rejected Reason"
+msgstr "不採用理由を保存"
+
+msgid "Save Master Religion"
+msgstr "宗教を保存"
+
+msgid "Save Master Strata"
+msgstr "学歴区分を保存"
+
+msgid "Save Master Translation"
+msgstr "翻訳を保存"
+
+msgid "Save Role Assignments"
+msgstr "役割の割り当てを保存"
+
+msgid "Save Session"
+msgstr "セッションを保存"
+
+msgid "Save Trainee Certification"
+msgstr "研修生の資格を保存"
+
+msgid "Save Trainee Course"
+msgstr "研修生の受講歴を保存"
+
+msgid "Save Trainee Family"
+msgstr "研修生の家族を保存"
+
+msgid "Save Trainee Family Story"
+msgstr "研修生の家族記録を保存"
+
+msgid "Select Candidate"
+msgstr "候補者を選択"
+
+msgid "Select Certification Date"
+msgstr "資格取得日を選択"
+
+msgid "Select Date Coe Received"
+msgstr "COE受領日を選択"
+
+msgid "Select Date Issue"
+msgstr "発行日を選択"
+
+msgid "Select Date Paid"
+msgstr "支払日を選択"
+
+msgid "Select Date Received"
+msgstr "受領日を選択"
+
+msgid "Select Date Visa Application"
+msgstr "ビザ申請日を選択"
+
+msgid "Select Date Visa Received"
+msgstr "ビザ受領日を選択"
+
+msgid "Select Roles"
+msgstr "役割を選択"
+
+msgid "Select Updated"
+msgstr "更新日時を選択"
+
+msgid "Session"
+msgstr "セッション"
+
+msgid "Sessions"
+msgstr "セッション"
+
+msgid "Title Eng"
+msgstr "英語タイトル"
+
+msgid "Title Kanji"
+msgstr "漢字タイトル"
+
+msgid "Trainee Certification"
+msgstr "研修生の資格"
+
+msgid "Trainee Certifications"
+msgstr "研修生の資格"
+
+msgid "Trainee Course"
+msgstr "研修生の受講歴"
+
+msgid "Trainee Courses"
+msgstr "研修生の受講歴"
+
+msgid "Trainee Families"
+msgstr "研修生の家族"
+
+msgid "Trainee Family"
+msgstr "研修生の家族"
+
+msgid "Trainee Family Stories"
+msgstr "研修生の家族記録"
+
+msgid "Trainee Family Story"
+msgstr "研修生の家族記録"
+
+msgid "Trainee Name Card"
+msgstr "研修生の名刺"
+
+msgid "Trainee Score Average"
+msgstr "研修生の平均点"
+
+msgid "Add {0} for {1}"
+msgstr "{1} の{0}を追加"
+
+msgid "All apprentices"
+msgstr "すべての技能実習生"
+
+msgid "Apprentice Ticket Id"
+msgstr "技能実習生のチケットID"
+
+msgid "Are you sure you want to remove the role \"{0}\" from this user?"
+msgstr "このユーザーから役割「{0}」を外してもよろしいですか？"
+
+msgid "Arrival Airport Id"
+msgstr "到着空港ID"
+
+msgid "Arrival Datetime"
+msgstr "到着日時"
+
+msgid "Assign Roles"
+msgstr "役割を割り当て"
+
+msgid "Assign Roles to: "
+msgstr "役割の割り当て先: "
+
+msgid "Assigned Roles"
+msgstr "割り当て済みの役割"
+
+msgid "Back to Users"
+msgstr "ユーザー一覧へ戻る"
+
+msgid "Batch Print"
+msgstr "一括印刷"
+
+msgid "Body Html"
+msgstr "本文（HTML）"
+
+msgid "Body Text"
+msgstr "本文（テキスト）"
+
+msgid "By document type"
+msgstr "書類の種類別"
+
+msgid "Candidate Document Submission Checklist"
+msgstr "候補者の書類提出チェックリスト"
+
+msgid "Candidate Submission Documents"
+msgstr "候補者の提出書類"
+
+msgid "Candidates by Institution"
+msgstr "機関別の候補者"
+
+msgid "Candidates by Month"
+msgstr "月別の候補者"
+
+msgid "Chart of accounts grouped by type, with balances posted from journals."
+msgstr "種類別に分類した勘定科目一覧と、仕訳から転記された残高です。"
+
+msgid "Checklist status is stored per candidate"
+msgstr "チェックリストの状態は候補者ごとに保存されます"
+
+msgid "Clone"
+msgstr "複製"
+
+msgid "Clone access from"
+msgstr "アクセス権の複製元"
+
+msgid "Cost Records"
+msgstr "費用の記録"
+
+msgid "Country"
+msgstr "国"
+
+msgid "Currency Code"
+msgstr "通貨コード"
+
+msgid "Departure Airport Id"
+msgstr "出発空港ID"
+
+msgid "Departure Datetime"
+msgstr "出発日時"
+
+msgid "Document Id"
+msgstr "書類ID"
+
+msgid "Document Master List"
+msgstr "書類マスタ一覧"
+
+msgid "Documents submitted for apprentices in Japan will appear here."
+msgstr "日本にいる技能実習生の提出書類がここに表示されます。"
+
+msgid "Edit leg {0}"
+msgstr "区間 {0} を編集"
+
+msgid "Eligible Candidates"
+msgstr "対象となる候補者"
+
+msgid "Email Templates"
+msgstr "メールテンプレート"
+
+msgid "Emails Sent"
+msgstr "送信済みメール"
+
+msgid "Enter Title Hiragana (Hiragana)"
+msgstr "ひらがなタイトルを入力"
+
+msgid "Enter detailed description of this interview result"
+msgstr "この面接結果の詳細な説明を入力してください"
+
+msgid "Enter image filename (e.g., result_icon.jpg)"
+msgstr "画像ファイル名を入力（例：result_icon.jpg）"
+
+msgid "Enter interview result title"
+msgstr "面接結果のタイトルを入力"
+
+msgid "Error"
+msgstr "エラー"
+
+msgid "Filter by trainee / type / status…"
+msgstr "研修生・種類・ステータスで絞り込み…"
+
+msgid "Financial and operational reporting - {0} of {1} journals posted"
+msgstr "財務・業務レポート - 仕訳 {1} 件中 {0} 件を転記済み"
+
+msgid "Foreign Key"
+msgstr "外部キー"
+
+msgid "Generate {0} posted journal entries from these source records?"
+msgstr "これらの元データから転記済み仕訳を {0} 件作成しますか？"
+
+msgid "Here are all the management functions and features available for your role. Click any card to get started."
+msgstr "現在の役割で利用できる管理機能の一覧です。カードをクリックして開始してください。"
+
+msgid "Ip Address"
+msgstr "IPアドレス"
+
+msgid "It only carries header totals (Debit {0} / Credit {1})."
+msgstr "ヘッダーの合計のみを保持します（借方 {0} / 貸方 {1}）。"
+
+msgid "Layover in {0}"
+msgstr "{0} で乗り継ぎ"
+
+msgid "Master Airline Id"
+msgstr "航空会社ID"
+
+msgid "Master Blood Types"
+msgstr "血液型"
+
+msgid "Master Currencies"
+msgstr "通貨"
+
+msgid "Master Document Submission Statuses"
+msgstr "書類提出ステータス"
+
+msgid "Master Employee Statuses"
+msgstr "雇用形態"
+
+msgid "Master Family Connections"
+msgstr "続柄"
+
+msgid "Master Genders"
+msgstr "性別"
+
+msgid "Master Job Categories"
+msgstr "職種"
+
+msgid "Master Kabupatens"
+msgstr "県・市"
+
+msgid "Master Kecamatans"
+msgstr "郡"
+
+msgid "Master Kelurahans"
+msgstr "村・町"
+
+msgid "Master Marriage Statuses"
+msgstr "婚姻状況"
+
+msgid "Master Medical Check Up Results"
+msgstr "健康診断結果"
+
+msgid "Master Occupations"
+msgstr "職業"
+
+msgid "Master Payment Methods"
+msgstr "支払方法"
+
+msgid "Master Propinsis"
+msgstr "州"
+
+msgid "Master Rejected Reasons"
+msgstr "不採用理由"
+
+msgid "Master Religions"
+msgstr "宗教"
+
+msgid "Master Stratas"
+msgstr "学歴区分"
+
+msgid "Master Training Competencies"
+msgstr "研修技能項目"
+
+msgid "Master Training Test Score Grades"
+msgstr "評定"
+
+msgid "Master Transaction Categories"
+msgstr "取引区分"
+
+msgid "Max Score"
+msgstr "最高点"
+
+msgid "Min Score"
+msgstr "最低点"
+
+msgid "Missing account {0} or {1} in the Chart of Accounts."
+msgstr "勘定科目一覧に {0} または {1} がありません。"
+
+msgid "Missing {0} document(s):"
+msgstr "不足書類 {0} 件："
+
+msgid "Model"
+msgstr "モデル"
+
+msgid "No Batch"
+msgstr "バッチなし"
+
+msgid "No apprentice documents yet."
+msgstr "技能実習生の書類はまだありません。"
+
+msgid "No candidate data available yet"
+msgstr "候補者のデータはまだありません"
+
+msgid "No email templates yet."
+msgstr "メールテンプレートはまだありません。"
+
+msgid "No features have been assigned to your role yet. Please contact your administrator."
+msgstr "現在の役割にはまだ機能が割り当てられていません。管理者にご連絡ください。"
+
+msgid "No trainee data available yet"
+msgstr "研修生のデータはまだありません"
+
+msgid "No {0} accounts."
+msgstr "{0} の勘定科目はありません。"
+
+msgid "No {0} entries."
+msgstr "{0} の記録はありません。"
+
+msgid "Open checklist for {0}"
+msgstr "{0} のチェックリストを開く"
+
+msgid "Owes {0}"
+msgstr "未払 {0}"
+
+msgid "Passed selection"
+msgstr "選考通過"
+
+msgid "Please select a candidate above to view and update the document checklist."
+msgstr "上で候補者を選択すると、書類チェックリストの確認と更新ができます。"
+
+msgid "Print / Save PDF"
+msgstr "印刷・PDF保存"
+
+msgid "Print All"
+msgstr "すべて印刷"
+
+msgid "Print Card"
+msgstr "カードを印刷"
+
+msgid "Role Count"
+msgstr "役割数"
+
+msgid "Role ID"
+msgstr "役割ID"
+
+msgid "Role Menu Access"
+msgstr "役割別のメニュー権限"
+
+msgid "Role Name"
+msgstr "役割名"
+
+msgid "Save Assignments for"
+msgstr "割り当てを保存："
+
+msgid "Score Average"
+msgstr "平均点"
+
+msgid "Select a candidate to see at a glance which documents have been uploaded. Use the switches to mark documents as submitted."
+msgstr "候補者を選ぶと、どの書類がアップロード済みか一目で確認できます。スイッチで提出済みに切り替えてください。"
+
+msgid "Select a trainee to print a single card, or print an entire batch"
+msgstr "研修生を選んで1枚だけ印刷するか、バッチ全体を印刷できます"
+
+msgid "Sent"
+msgstr "送信済み"
+
+msgid "Submission Date"
+msgstr "提出日"
+
+msgid "Submission documents for apprentices in Japan"
+msgstr "日本にいる技能実習生の提出書類"
+
+msgid "Template Key"
+msgstr "テンプレートキー"
+
+msgid "Templates"
+msgstr "テンプレート"
+
+msgid "There are no related CandidateRecordInterviews for this Master Candidate Interview Type."
+msgstr "この面接種別に関連する面接記録はありません。"
+
+msgid "Tick the menus a role may see. Saving also grants the role permission to open the page each menu links to."
+msgstr "役割が閲覧できるメニューにチェックを入れてください。保存すると、各メニューのリンク先ページを開く権限も付与されます。"
+
+msgid "Title Hiragana"
+msgstr "ひらがなタイトル"
+
+msgid "Total Billed"
+msgstr "請求総額"
+
+msgid "Trainee Name Cards"
+msgstr "研修生の名刺"
+
+msgid "Trainee Score Averages"
+msgstr "研修生の平均点"
+
+msgid "Trainees by Status"
+msgstr "ステータス別の研修生"
+
+msgid "Training Passed"
+msgstr "研修合格"
+
+msgid "User Agent"
+msgstr "ユーザーエージェント"
+
+msgid "User Id"
+msgstr "ユーザーID"
+
+msgid "User-Role Assignments"
+msgstr "ユーザーと役割の割り当て"
+
+msgid "Valid Until"
+msgstr "有効期限"
+
+msgid "Variables"
+msgstr "変数"
+
+msgid "View Assignments"
+msgstr "割り当てを表示"
+
+msgid "View Role"
+msgstr "役割を表示"
+
+msgid "Vocational Training Institution Stories"
+msgstr "職業訓練機関の記録"
+
+msgid "Welcome, {0}"
+msgstr "ようこそ、{0} さん"
+
+msgid "balance"
+msgstr "残高"
+
+msgid "cards per page"
+msgstr "1ページあたりの枚数"
+
+msgid "clear all"
+msgstr "すべて解除"
+
+msgid "feature(s)"
+msgstr "機能"
+
+msgid "inactive"
+msgstr "無効"
+
+msgid "select all"
+msgstr "すべて選択"
+
+msgid "select category"
+msgstr "カテゴリを選択"
+
+msgid "to"
+msgstr "～"
+
+msgid "total"
+msgstr "合計"
+
+msgid "unused"
+msgstr "未使用"
+
+msgid "{0} of {1} required documents collected"
+msgstr "必要書類 {1} 件中 {0} 件を収集済み"
+
