@@ -103,7 +103,7 @@
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="col-md-4">
+                                <div class="col-md-6">
                                     <div class="form-group">
                                         <label class="form-label">
                                             <?= __('Abbreviation') ?>
@@ -117,21 +117,7 @@
                                         ]) ?>
                                     </div>
                                 </div>
-                                <div class="col-md-4">
-                                    <div class="form-group">
-                                        <label class="form-label">
-                                            <?= __('Director Name (Katakana)') ?>
-                                            <small class="text-muted">(Optional)</small>
-                                        </label>
-                                        <?= $this->Form->control('director_katakana', [
-                                            'class' => 'form-control',
-                                            'placeholder' => __('e.g., スリ クンチョロ'),
-                                            'label' => false,
-                                            'maxlength' => 256
-                                        ]) ?>
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
+                                <div class="col-md-6">
                                     <div class="form-group">
                                         <label class="form-label">
                                             <?= __('Institution Type') ?>
@@ -208,6 +194,22 @@
                                 </div>
                             </div>
                             <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="form-label">
+                                            <?= __('Director Name (Katakana)') ?>
+                                            <small class="text-muted">(Optional)</small>
+                                        </label>
+                                        <?= $this->Form->control('director_katakana', [
+                                            'class' => 'form-control',
+                                            'placeholder' => __('e.g., スリ クンチョロ'),
+                                            'label' => false,
+                                            'maxlength' => 256
+                                        ]) ?>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label class="form-label">
@@ -224,29 +226,6 @@
                                         ]) ?>
                                         <small class="form-text text-muted">
                                             <i class="fas fa-file-signature"></i> Signed memorandum of understanding. Required — the record cannot be saved without it.
-                                        </small>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <div class="form-group">
-                                        <label class="form-label">
-                                            <?= __('Address') ?> 
-                                            <span class="text-danger">*</span>
-                                            <small class="text-muted">(Max 256 characters)</small>
-                                        </label>
-                                        <?= $this->Form->control('address', [
-                                            'type' => 'textarea',
-                                            'class' => 'form-control',
-                                            'placeholder' => __('Enter Complete Address'),
-                                            'label' => false,
-                                            'required' => true,
-                                            'rows' => 3,
-                                            'maxlength' => 256
-                                        ]) ?>
-                                        <small class="form-text text-muted">
-                                            <i class="fas fa-home"></i> Complete address including street name, number, RT/RW
                                         </small>
                                     </div>
                                 </div>
@@ -328,6 +307,29 @@
                                             'label' => false,
                                             'id' => 'master-kelurahan-id'
                                         ]) ?>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label class="form-label">
+                                            <?= __('Address') ?> 
+                                            <span class="text-danger">*</span>
+                                            <small class="text-muted">(Max 256 characters)</small>
+                                        </label>
+                                        <?= $this->Form->control('address', [
+                                            'type' => 'textarea',
+                                            'class' => 'form-control',
+                                            'placeholder' => __('Enter Complete Address'),
+                                            'label' => false,
+                                            'required' => true,
+                                            'rows' => 3,
+                                            'maxlength' => 256
+                                        ]) ?>
+                                        <small class="form-text text-muted">
+                                            <i class="fas fa-home"></i> Complete address including street name, number, RT/RW
+                                        </small>
                                     </div>
                                 </div>
                             </div>
