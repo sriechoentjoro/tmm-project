@@ -21,13 +21,17 @@ return [
     /**
      * Debug Level:
      *
-     * Production Mode:
-     * false: No error messages, errors, or warnings shown.
+     * false (production): visitors get a generic error page; the stack trace
+     * goes to logs/error.log.
+     * true (development): the stack trace, file paths and code excerpts are
+     * rendered into the page instead.
      *
-     * Development Mode:
-     * true: Errors and warnings shown.
+     * The default is false deliberately. A server that forgets to set DEBUG is
+     * then safe rather than exposed, which is the right way round for a
+     * public site. Turn it on for one machine with DEBUG in the environment,
+     * or 'debug' => true in config/app_local.php.
      */
-    'debug' => filter_var(env('DEBUG', true), FILTER_VALIDATE_BOOLEAN),
+    'debug' => filter_var(env('DEBUG', false), FILTER_VALIDATE_BOOLEAN),
 
     /**
      * Configure basic information about the application.
