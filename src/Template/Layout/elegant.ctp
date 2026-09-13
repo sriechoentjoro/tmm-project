@@ -1019,8 +1019,6 @@ $cacheBust = '?v=' . time();
                     return;
                 }
                 
-                console.log('âœ… SUCCESS: Initializing', tabLinks.length, 'tab links and', tabPanes.length, 'tab panes');
-                console.log('ðŸ“ Container:', isDocument ? 'document (full page)' : 'element (modal/container)');
                 
                 // Remove existing click handlers to avoid duplicates
                 tabLinks.forEach(link => {
@@ -1049,7 +1047,6 @@ $cacheBust = '?v=' . time();
                         e.preventDefault();
                         e.stopPropagation();
                         
-                        console.log('ðŸ–±ï¸  Tab clicked:', this.getAttribute('data-tab'));
                         
                         const targetTab = this.getAttribute('data-tab');
                         if (!targetTab) {

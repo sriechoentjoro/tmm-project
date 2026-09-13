@@ -113,20 +113,20 @@
     <div class="print-controls no-print" style="margin-bottom: 20px;">
         <div style="background: #e8f0fe; padding: 20px; border-radius: 8px; margin-bottom: 20px; border: 2px solid #667eea;">
             <div style="font-size: 16px; font-weight: bold; color: #667eea; margin-bottom: 12px;">
-                ðŸ“„ How to Save as PDF
+                📄 How to Save as PDF
             </div>
             <ul style="margin: 10px 0 0 20px; color: #333; font-size: 12pt; line-height: 2;">
-                <li><strong>Chrome/Edge:</strong> Click "Print" below â†’ Destination: <em>"Save as PDF"</em> â†’ Save</li>
-                <li><strong>Firefox:</strong> Click "Print" below â†’ Printer: <em>"Microsoft Print to PDF"</em> â†’ Save</li>
+                <li><strong>Chrome/Edge:</strong> Click "Print" below → Destination: <em>"Save as PDF"</em> → Save</li>
+                <li><strong>Firefox:</strong> Click "Print" below → Printer: <em>"Microsoft Print to PDF"</em> → Save</li>
                 <li><strong>Quick Shortcut:</strong> Press <kbd>Ctrl+P</kbd> then select PDF as printer destination</li>
             </ul>
         </div>
         <div style="text-align: right;">
             <button onclick="window.print()" style="padding: 12px 28px; font-size: 13pt; cursor: pointer; background: #667eea; color: white; border: none; border-radius: 6px;">
-                ðŸ–¨ï¸ Print / Save as PDF
+                🖨️ Print / Save as PDF
             </button>
             <button onclick="window.close()" style="padding: 12px 28px; font-size: 13pt; cursor: pointer; margin-left: 10px; background: #6c757d; color: white; border: none; border-radius: 6px;">
-                âœ– Close
+                ✖ Close
             </button>
         </div>
     </div>
