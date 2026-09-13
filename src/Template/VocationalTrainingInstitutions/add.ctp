@@ -70,7 +70,7 @@ $staticAssetsUrl = $protocol . '://' . $host . '/static-assets';
                             'maxlength' => 50
                         ]) ?>
                         <small class="form-text text-muted">
-                            <i class="fas fa-info-circle"></i> Short code or abbreviation for the institution.
+                            <i class="fas fa-info-circle"></i> <?= __('Short code or abbreviation for the institution.') ?>
                         </small>
                     </div>
                     <div class="col-12 mb-3">
@@ -87,7 +87,7 @@ $staticAssetsUrl = $protocol . '://' . $host . '/static-assets';
                             'maxlength' => 256
                         ]) ?>
                         <small class="form-text text-muted">
-                            <i class="fas fa-building"></i> Full official name of the vocational training institution.
+                            <i class="fas fa-building"></i> <?= __('Full official name of the vocational training institution.') ?>
                         </small>
                     </div>
                     <div class="col-md-12 mb-3">
@@ -142,7 +142,7 @@ $staticAssetsUrl = $protocol . '://' . $host . '/static-assets';
                                     </div>
                                 </div>
                                 <div class="address-loading" style="display: none;">
-                                    <i class="fas fa-spinner fa-spin"></i> Loading options...
+                                    <i class="fas fa-spinner fa-spin"></i> <?= __('Loading options...') ?>
                                 </div>
                             </div>
                         </div>
@@ -160,7 +160,7 @@ $staticAssetsUrl = $protocol . '://' . $host . '/static-assets';
                             'maxlength' => 256
                         ]) ?>
                         <small class="form-text text-muted">
-                            <i class="fas fa-map-marked-alt"></i> Full street address including building name/number.
+                            <i class="fas fa-map-marked-alt"></i> <?= __('Full street address including building name/number.') ?>
                         </small>
                     </div>
                     <div class="col-12 mb-3">
@@ -175,7 +175,7 @@ $staticAssetsUrl = $protocol . '://' . $host . '/static-assets';
                             'maxlength' => 10
                         ]) ?>
                         <small class="form-text text-muted">
-                            <i class="fas fa-mail-bulk"></i> Postal code for the address.
+                            <i class="fas fa-mail-bulk"></i> <?= __('Postal code for the address.') ?>
                         </small>
                     </div>
                     <div class="col-12 mb-3">
@@ -190,7 +190,7 @@ $staticAssetsUrl = $protocol . '://' . $host . '/static-assets';
                             'maxlength' => 256
                         ]) ?>
                         <small class="form-text text-muted">
-                            <i class="fas fa-user-tie"></i> Full name of the institution's director/head.
+                            <i class="fas fa-user-tie"></i> <?= __('Full name of the institution\'s director/head.') ?>
                         </small>
                     </div>
                     <div class="col-12 mb-3">
@@ -200,13 +200,12 @@ $staticAssetsUrl = $protocol . '://' . $host . '/static-assets';
                         </label>
                         <?= $this->Form->control('director_katakana', [
                             'class' => 'form-control katakana-input',
-                            'placeholder' => __('ã‚«ã‚¿ã‚«ãƒŠã§åå‰ã‚’å…¥åŠ›ã—ã¦ãã ã•ã„'),
+                            'placeholder' => __('Enter the name in Katakana'),
                             'label' => false,
                             'maxlength' => 256
                         ]) ?>
                         <small class="form-text text-muted">
-                            <i class="fas fa-info-circle"></i> Enter director's name in Katakana (ã‚«ã‚¿ã‚«ãƒŠ). Example: ãƒ¤ãƒžãƒ€ ãƒãƒŠã‚³
-                        </small>
+                            <i class="fas fa-info-circle"></i> <?= __('Enter the director\'s name in Katakana. Example: ヤマダ ハナコ') ?></small>
                     </div>
                     <div class="col-12 mb-3">
                         <label class="form-label"><?= __('Mou File') ?></label>
@@ -221,7 +220,7 @@ $staticAssetsUrl = $protocol . '://' . $host . '/static-assets';
                                 <a href="<?= $this->Url->build('/' . $vocationalTrainingInstitution->mou_file, ['fullBase' => true]) ?>" 
                                    target="_blank" 
                                    class="btn btn-sm btn-info">
-                                    <i class="fas fa-download"></i> Download Current File
+                                    <i class="fas fa-download"></i> <?= __('Download Current File') ?>
                                 </a>
                             </div>
                         <?php endif; ?>
