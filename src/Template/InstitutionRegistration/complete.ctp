@@ -16,11 +16,11 @@
             <div class="card shadow">
                 <div class="card-body text-center p-5">
                     <i class="fas fa-clock fa-4x text-warning mb-4"></i>
-                    <h2 class="mb-3">Registration Link Expired</h2>
+                    <h2 class="mb-3"><?= __('Registration Link Expired') ?></h2>
                     <p class="lead">This registration link has expired.</p>
                     <p>Please contact the system administrator to request a new registration link.</p>
                     <div class="mt-4">
-                        <p><strong>Institution:</strong> <?= h($institution->name ?? $institution->company_name) ?></p>
+                        <p><strong><?= __('Institution:') ?></strong> <?= h($institution->name ?? $institution->company_name) ?></p>
                         <p><strong>Email:</strong> <?= h($institution->email) ?></p>
                     </div>
                 </div>
@@ -97,7 +97,7 @@
                     
                     <div class="alert alert-info">
                         <i class="fas fa-shield-alt"></i>
-                        <strong>Create a secure password</strong><br>
+                        <strong><?= __('Create a secure password') ?></strong><br>
                         Your password must be at least 8 characters long and should include uppercase, lowercase, numbers, and symbols.
                     </div>
 
@@ -137,7 +137,7 @@
 
                     <!-- Password Requirements Checklist -->
                     <div class="password-requirements mb-4 p-3 border rounded">
-                        <h6 class="mb-2">Password Requirements:</h6>
+                        <h6 class="mb-2"><?= __('Password Requirements:') ?></h6>
                         <ul class="list-unstyled mb-0">
                             <li id="req-length">
                                 <i class="fas fa-circle text-muted"></i>
@@ -164,7 +164,7 @@
 
                     <div class="form-actions">
                         <?= $this->Form->button(
-                            '<i class="fas fa-check-circle"></i> Complete Registration',
+                            '<i class="fas fa-check-circle"></i> ' . __('Complete Registration'),
                             [
                                 'class' => 'btn btn-primary btn-lg btn-block',
                                 'id' => 'submit-btn',

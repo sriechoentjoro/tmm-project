@@ -170,7 +170,7 @@ return String(text).replace(/[&<>"']/g,function(m){return map[m];});
 }
 
 var h='<div class="ajax-info" style="padding:10px;background:#e9ecef;margin-bottom:10px;">';
-h+='<strong>Total Records:</strong> '+totalRecords+' | ';
+h+='<strong><?= __('Total Records:') ?></strong> '+totalRecords+' | ';
 var totalPages2=Math.ceil(totalRecords/limit);
 h+='<strong>Page:</strong> '+currentPage+' of '+totalPages2+' | ';
 var showStart=Math.min((currentPage-1)*limit+1,totalRecords);

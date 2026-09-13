@@ -21,7 +21,7 @@
                     <!-- User Info Summary -->
                     <div class="alert alert-info">
                         <strong><i class="fa fa-user"></i> User:</strong> <?= h($user->username) ?> (<?= h($user->email) ?>)<br>
-                        <strong><i class="fa fa-id-badge"></i> Current Roles:</strong> 
+                        <strong><i class="fa fa-id-badge"></i> <?= __('Current Roles:') ?></strong> 
                         <?php if (!empty($user->roles)): ?>
                             <?php foreach ($user->roles as $role): ?>
                                 <span class="badge badge-info"><?= h($role->name) ?></span>
@@ -44,7 +44,7 @@
                                 'label' => 'Available Roles (Hold Ctrl/Cmd to select multiple)'
                             ]) ?>
                             <small class="form-text text-muted">
-                                <i class="fa fa-info-circle"></i> Select one or more roles to assign to this user. 
+                                <i class="fa fa-info-circle"></i> <?= __('Select one or more roles to assign to this user.') ?> 
                                 Hold Ctrl (Windows/Linux) or Cmd (Mac) to select multiple roles.
                             </small>
                         </div>
@@ -52,7 +52,7 @@
                         <!-- Role Descriptions -->
                         <div class="card mt-3">
                             <div class="card-header">
-                                <strong>Role Descriptions</strong>
+                                <strong><?= __('Role Descriptions') ?></strong>
                             </div>
                             <div class="card-body">
                                 <table class="table table-sm table-bordered">

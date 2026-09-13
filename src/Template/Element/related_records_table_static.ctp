@@ -98,7 +98,7 @@ $foreignValue = isset($foreignValue) ? $foreignValue : null; // e.g., $apprentic
     <?php if ($totalRecords > 0): ?>
         <!-- Info Bar -->
         <div class="static-info">
-            <strong>Total Records:</strong> <?= number_format($totalRecords) ?> | 
+            <strong><?= __('Total Records:') ?></strong> <?= number_format($totalRecords) ?> | 
             <strong>Page:</strong> <?= $currentPage ?> of <?= $totalPages ?> | 
             <strong>Showing:</strong> <?= min(($currentPage - 1) * $limit + 1, $totalRecords) ?>-<?= min($currentPage * $limit, $totalRecords) ?>
         </div>
@@ -250,7 +250,7 @@ $foreignValue = isset($foreignValue) ? $foreignValue : null; // e.g., $apprentic
 
     <?php else: ?>
         <div class="alert alert-info" style="margin: 20px 0;">
-            <strong>No records found.</strong>
+            <strong><?= __('No records found.') ?></strong>
             <?php if ($addUrl): ?>
                 <?= $this->Html->link('Add New', $addUrl, ['class' => 'btn btn-sm btn-primary', 'style' => 'margin-left: 10px;']) ?>
             <?php endif; ?>
@@ -352,7 +352,7 @@ $foreignValue = isset($foreignValue) ? $foreignValue : null; // e.g., $apprentic
             
             // Show loading indicator
             }
-            tbody.innerHTML = '<tr><td colspan="100" style="text-align:center;padding:40px;"><i class="fas fa-spinner fa-spin"></i> Searching...</td></tr>';
+            tbody.innerHTML = '<tr><td colspan="100" style="text-align:center;padding:40px;"><i class="fas fa-spinner fa-spin"></i> <?= __('Searching...') ?></td></tr>';
             
             // Hide pagination during load
             var paginationDiv = container.querySelector('.static-pagination');
@@ -411,7 +411,7 @@ $foreignValue = isset($foreignValue) ? $foreignValue : null; // e.g., $apprentic
                         }
                         var infoDiv = container.querySelector('.static-info');
                         if (infoDiv) {
-                            var filterText = hasFilters ? '<strong style="color:#007bff;">Filtered Results:</strong> ' : '<strong>Total Records:</strong> ';
+                            var filterText = hasFilters ? '<strong style="color:#007bff;">Filtered Results:</strong> ' : '<strong><?= __('Total Records:') ?></strong> ';
                             infoDiv.innerHTML = filterText + data.total + ' records | ' +
                                               '<strong>Page:</strong> ' + data.page + ' of ' + data.pages + ' | ' +
                                               '<strong>Showing:</strong> ' + ((data.page - 1) * 50 + 1) + '-' + 

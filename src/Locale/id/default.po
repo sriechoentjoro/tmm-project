@@ -8787,3 +8787,648 @@ msgstr "tidak terpakai"
 msgid "{0} of {1} required documents collected"
 msgstr "{0} dari {1} dokumen wajib terkumpul"
 
+msgid "Only active organizations can accept new apprenticeship assignments."
+msgstr "Hanya organisasi aktif yang dapat menerima penugasan pemagangan baru."
+
+msgid "Registration Process Overview"
+msgstr "Ikhtisar Proses Pendaftaran"
+
+msgid "LPK Registration"
+msgstr "Pendaftaran LPK"
+
+msgid "Visual Process Flow"
+msgstr "Alur Proses Visual"
+
+msgid "Database Relationships"
+msgstr "Relasi Basis Data"
+
+msgid "Status Values:"
+msgstr "Nilai Status:"
+
+msgid "Token Lifecycle:"
+msgstr "Siklus Hidup Token:"
+
+msgid "Determines user role and permissions (admin, lpk, candidate, etc.)"
+msgstr "Menentukan peran dan hak akses pengguna (admin, lpk, kandidat, dll.)"
+
+msgid "Important Guidelines"
+msgstr "Panduan Penting"
+
+msgid "Email Uniqueness:"
+msgstr "Keunikan Email:"
+
+msgid "Required Fields:"
+msgstr "Field Wajib:"
+
+msgid "Geographic Cascade:"
+msgstr "Rantai Wilayah:"
+
+msgid "Token Expiry:"
+msgstr "Kedaluwarsa Token:"
+
+msgid "One-Time Use:"
+msgstr "Sekali Pakai:"
+
+msgid "Status Flow:"
+msgstr "Alur Status:"
+
+msgid "Password Encryption:"
+msgstr "Enkripsi Kata Sandi:"
+
+msgid "Token Security:"
+msgstr "Keamanan Token:"
+
+msgid "Email Verification:"
+msgstr "Verifikasi Email:"
+
+msgid "CSRF Protection:"
+msgstr "Perlindungan CSRF:"
+
+msgid "Session Management:"
+msgstr "Pengelolaan Sesi:"
+
+msgid "Cross-Database Architecture"
+msgstr "Arsitektur Lintas Basis Data"
+
+msgid "Stakeholder Management Dashboard"
+msgstr "Dasbor Manajemen Pemangku Kepentingan"
+
+msgid "Export Statistics"
+msgstr "Ekspor Statistik"
+
+msgid "Pending Verifications"
+msgstr "Verifikasi Tertunda"
+
+msgid "Pending Approvals"
+msgstr "Persetujuan Tertunda"
+
+msgid "All types combined"
+msgstr "Semua jenis digabung"
+
+msgid "Verified & Active"
+msgstr "Terverifikasi & Aktif"
+
+msgid "Awaiting Email Verification"
+msgstr "Menunggu Verifikasi Email"
+
+msgid "Temporarily Inactive"
+msgstr "Tidak Aktif Sementara"
+
+msgid "Stakeholder Type Distribution"
+msgstr "Distribusi Jenis Pemangku Kepentingan"
+
+msgid "Status Distribution by Type"
+msgstr "Distribusi Status per Jenis"
+
+msgid "Registration Trend (Last 6 Months)"
+msgstr "Tren Pendaftaran (6 Bulan Terakhir)"
+
+msgid "Recent Activities"
+msgstr "Aktivitas Terbaru"
+
+msgid "Pending Email Verifications"
+msgstr "Verifikasi Email Tertunda"
+
+msgid "Enter your name in Katakana"
+msgstr "Masukkan nama Anda dalam Katakana"
+
+msgid "Enter birth place in Katakana. Example:"
+msgstr "Masukkan tempat lahir dalam Katakana. Contoh:"
+
+msgid "File Preview"
+msgstr "Pratinjau Berkas"
+
+msgid "Current File:"
+msgstr "Berkas Saat Ini:"
+
+msgid "Could not preview PDF"
+msgstr "Tidak dapat menampilkan pratinjau PDF"
+
+msgid "Word Document"
+msgstr "Dokumen Word"
+
+msgid "Excel Document"
+msgstr "Dokumen Excel"
+
+msgid "Archive File"
+msgstr "Berkas Arsip"
+
+msgid "File Selected"
+msgstr "Berkas Terpilih"
+
+msgid "Enter your national identity number (KTP). Must be 16 digits."
+msgstr "Masukkan nomor induk kependudukan (KTP) Anda. Harus 16 digit."
+
+msgid "Enter your full name as it appears on your identity card."
+msgstr "Masukkan nama lengkap Anda sesuai kartu identitas."
+
+msgid "Enter the city or district where you were born."
+msgstr "Masukkan kota atau kabupaten tempat Anda lahir."
+
+msgid "Click to select date from calendar. Format: Year-Month-Day (e.g., 1990-05-15)"
+msgstr "Klik untuk memilih tanggal dari kalender. Format: Tahun-Bulan-Hari (contoh: 1990-05-15)"
+
+msgid "Enter your mobile phone number without spaces or dashes."
+msgstr "Masukkan nomor telepon seluler Anda tanpa spasi atau tanda hubung."
+
+msgid "Emergency contact number (family member or close relative)."
+msgstr "Nomor kontak darurat (anggota keluarga atau kerabat dekat)."
+
+msgid "Enter your complete residential address including street name, RT/RW, and house number."
+msgstr "Masukkan alamat tempat tinggal lengkap termasuk nama jalan, RT/RW, dan nomor rumah."
+
+msgid "Candidates by Status"
+msgstr "Kandidat menurut Status"
+
+msgid "Candidates by Host Company"
+msgstr "Kandidat menurut Perusahaan Penerima"
+
+msgid "Candidates by Supervising Company"
+msgstr "Kandidat menurut Perusahaan Pengawas"
+
+msgid "View All Candidates"
+msgstr "Lihat Semua Kandidat"
+
+msgid "Register New Candidate"
+msgstr "Daftarkan Kandidat Baru"
+
+msgid "Document Submission"
+msgstr "Pengajuan Dokumen"
+
+msgid "Candidate Registration Wizard"
+msgstr "Panduan Pendaftaran Kandidat"
+
+msgid "Step 1: Identity Number Verification"
+msgstr "Langkah 1: Verifikasi Nomor Identitas"
+
+msgid "Duplicate Prevention"
+msgstr "Pencegahan Duplikasi"
+
+msgid "Identity Number (NIK/KTP)"
+msgstr "Nomor Identitas (NIK/KTP)"
+
+msgid "Must be exactly 16 digits"
+msgstr "Harus tepat 16 digit"
+
+msgid "Numbers only"
+msgstr "Hanya angka"
+
+msgid "Duplicate Found"
+msgstr "Duplikat Ditemukan"
+
+msgid "This identity number is already registered:"
+msgstr "Nomor identitas ini sudah terdaftar:"
+
+msgid "Date of Birth"
+msgstr "Tanggal Lahir"
+
+msgid "Check & Continue"
+msgstr "Periksa & Lanjutkan"
+
+msgid "Step 2: Upload Passport Photo"
+msgstr "Langkah 2: Unggah Foto Paspor"
+
+msgid "Photo Requirements"
+msgstr "Persyaratan Foto"
+
+msgid "Select a clear passport-style photo"
+msgstr "Pilih foto bergaya paspor yang jelas"
+
+msgid "Cropped Preview:"
+msgstr "Pratinjau Hasil Potong:"
+
+msgid "Square passport photo ready"
+msgstr "Foto paspor persegi siap"
+
+msgid "Instructions:"
+msgstr "Petunjuk:"
+
+msgid "Crop & Continue"
+msgstr "Potong & Lanjutkan"
+
+msgid "Step 3: Complete Candidate Information"
+msgstr "Langkah 3: Lengkapi Informasi Kandidat"
+
+msgid "Required Fields"
+msgstr "Field Wajib"
+
+msgid "Please fix the following errors:"
+msgstr "Harap perbaiki kesalahan berikut:"
+
+msgid "As per identity card"
+msgstr "Sesuai kartu identitas"
+
+msgid "Japanese katakana format (optional)"
+msgstr "Format katakana Jepang (opsional)"
+
+msgid "Family or close contact"
+msgstr "Keluarga atau kontak dekat"
+
+msgid "Street, RT/RW"
+msgstr "Jalan, RT/RW"
+
+msgid "Personal Attributes"
+msgstr "Atribut Pribadi"
+
+msgid "Save & Continue"
+msgstr "Simpan & Lanjutkan"
+
+msgid "Step 4: Education History"
+msgstr "Langkah 4: Riwayat Pendidikan"
+
+msgid "Education Requirements"
+msgstr "Persyaratan Pendidikan"
+
+msgid "At least 1 education entry is required."
+msgstr "Minimal 1 entri pendidikan wajib diisi."
+
+msgid "Add More Education"
+msgstr "Tambah Pendidikan Lain"
+
+msgid "Step 5: Work Experience"
+msgstr "Langkah 5: Pengalaman Kerja"
+
+msgid "Work Experience (Optional)"
+msgstr "Pengalaman Kerja (Opsional)"
+
+msgid "Add Work Experience"
+msgstr "Tambah Pengalaman Kerja"
+
+msgid "Continue"
+msgstr "Lanjutkan"
+
+msgid "Step 6: Family Information"
+msgstr "Langkah 6: Informasi Keluarga"
+
+msgid "Add Family Member"
+msgstr "Tambah Anggota Keluarga"
+
+msgid "Step 7: Certifications"
+msgstr "Langkah 7: Sertifikasi"
+
+msgid "Certifications (Optional)"
+msgstr "Sertifikasi (Opsional)"
+
+msgid "Add Certification"
+msgstr "Tambah Sertifikasi"
+
+msgid "Step 8: Courses & Training"
+msgstr "Langkah 8: Kursus & Pelatihan"
+
+msgid "Training Courses (Optional)"
+msgstr "Kursus Pelatihan (Opsional)"
+
+msgid "Continue to Review"
+msgstr "Lanjutkan ke Tinjauan"
+
+msgid "Step 9: Review & Submit"
+msgstr "Langkah 9: Tinjau & Kirim"
+
+msgid "Final Review"
+msgstr "Tinjauan Akhir"
+
+msgid "Validation Errors:"
+msgstr "Kesalahan Validasi:"
+
+msgid "Birth Place & Date"
+msgstr "Tempat & Tanggal Lahir"
+
+msgid "Mobile Phone"
+msgstr "Telepon Seluler"
+
+msgid "Emergency Contact"
+msgstr "Kontak Darurat"
+
+msgid "Submit Registration"
+msgstr "Kirim Pendaftaran"
+
+msgid "Invalid Step"
+msgstr "Langkah Tidak Valid"
+
+msgid "Receipts (Paid Off)"
+msgstr "Kuitansi (Lunas)"
+
+msgid "Pre-Departure Pipeline"
+msgstr "Alur Pra-Keberangkatan"
+
+msgid "Document Readiness per Trainee"
+msgstr "Kesiapan Dokumen per Trainee"
+
+msgid "Submissions by Category"
+msgstr "Pengajuan menurut Kategori"
+
+msgid "Recent Document Submissions"
+msgstr "Pengajuan Dokumen Terbaru"
+
+msgid "Add Submission Document"
+msgstr "Tambah Dokumen Pengajuan"
+
+msgid "Add New Candidate"
+msgstr "Tambah Kandidat Baru"
+
+msgid "Add Organization"
+msgstr "Tambah Organisasi"
+
+msgid "LPK Dashboard"
+msgstr "Dasbor LPK"
+
+msgid "No Institution"
+msgstr "Tanpa Lembaga"
+
+msgid "View Documents"
+msgstr "Lihat Dokumen"
+
+msgid "Management Dashboard"
+msgstr "Dasbor Manajemen"
+
+msgid "Candidate Overview"
+msgstr "Ikhtisar Kandidat"
+
+msgid "Trainee Status"
+msgstr "Status Trainee"
+
+msgid "View Candidates"
+msgstr "Lihat Kandidat"
+
+msgid "View Trainees"
+msgstr "Lihat Trainee"
+
+msgid "View Organizations"
+msgstr "Lihat Organisasi"
+
+msgid "View Reports"
+msgstr "Lihat Laporan"
+
+msgid "TMM Recruitment Dashboard"
+msgstr "Dasbor Rekrutmen TMM"
+
+msgid "Add Candidate"
+msgstr "Tambah Kandidat"
+
+msgid "LPK Institution"
+msgstr "Lembaga LPK"
+
+msgid "Generated by TMM Apprentice Management System"
+msgstr "Dihasilkan oleh Sistem Manajemen Pemagangan TMM"
+
+msgid "Total Records:"
+msgstr "Total Data:"
+
+msgid "No records found."
+msgstr "Tidak ada data ditemukan."
+
+msgid "Searching..."
+msgstr "Mencari..."
+
+msgid "New LPK Registration - Action Required"
+msgstr "Pendaftaran LPK Baru - Perlu Tindakan"
+
+msgid "Institution Details:"
+msgstr "Detail Lembaga:"
+
+msgid "Registration Number:"
+msgstr "Nomor Pendaftaran:"
+
+msgid "What You Should Do:"
+msgstr "Yang Perlu Anda Lakukan:"
+
+msgid "Review institution details"
+msgstr "Tinjau detail lembaga"
+
+msgid "Monitor verification status"
+msgstr "Pantau status verifikasi"
+
+msgid "Check for suspicious activity"
+msgstr "Periksa aktivitas yang mencurigakan"
+
+msgid "Complete additional fields"
+msgstr "Lengkapi field tambahan"
+
+msgid "Approve or reject"
+msgstr "Setujui atau tolak"
+
+msgid "Manage Candidates:"
+msgstr "Kelola Kandidat:"
+
+msgid "Track Training Progress:"
+msgstr "Lacak Kemajuan Pelatihan:"
+
+msgid "Submit Apprentice Orders:"
+msgstr "Kirim Pesanan Pemagangan:"
+
+msgid "Export Reports:"
+msgstr "Ekspor Laporan:"
+
+msgid "Dashboard Analytics:"
+msgstr "Analitik Dasbor:"
+
+msgid "Document Management:"
+msgstr "Pengelolaan Dokumen:"
+
+msgid "Communication Hub:"
+msgstr "Pusat Komunikasi:"
+
+msgid "Update Your Profile:"
+msgstr "Perbarui Profil Anda:"
+
+msgid "Add Candidates:"
+msgstr "Tambah Kandidat:"
+
+msgid "Upload Documents:"
+msgstr "Unggah Dokumen:"
+
+msgid "Explore Features:"
+msgstr "Jelajahi Fitur:"
+
+msgid "Contact Support:"
+msgstr "Hubungi Dukungan:"
+
+msgid "Welcome to TMM System,"
+msgstr "Selamat datang di Sistem TMM,"
+
+msgid "Your Temporary Login Credentials:"
+msgstr "Kredensial Login Sementara Anda:"
+
+msgid "Temporary Password:"
+msgstr "Kata Sandi Sementara:"
+
+msgid "What Happens Next"
+msgstr "Apa yang Terjadi Selanjutnya"
+
+msgid "Click the verification link"
+msgstr "Klik tautan verifikasi"
+
+msgid "Change your password"
+msgstr "Ubah kata sandi Anda"
+
+msgid "Complete your profile"
+msgstr "Lengkapi profil Anda"
+
+msgid "TMM System Administrator"
+msgstr "Administrator Sistem TMM"
+
+msgid "Email Verified Successfully"
+msgstr "Email Berhasil Diverifikasi"
+
+msgid "Your Account Information:"
+msgstr "Informasi Akun Anda:"
+
+msgid "Institution:"
+msgstr "Lembaga:"
+
+msgid "Account Type:"
+msgstr "Jenis Akun:"
+
+msgid "Log in to your account"
+msgstr "Masuk ke akun Anda"
+
+msgid "Complete your profile information"
+msgstr "Lengkapi informasi profil Anda"
+
+msgid "Explore the dashboard"
+msgstr "Jelajahi dasbor"
+
+msgid "Start managing"
+msgstr "Mulai mengelola"
+
+msgid "Registration Link Expired"
+msgstr "Tautan Pendaftaran Kedaluwarsa"
+
+msgid "Create a secure password"
+msgstr "Buat kata sandi yang aman"
+
+msgid "Complete Registration"
+msgstr "Selesaikan Pendaftaran"
+
+msgid "TMM Apprentice System"
+msgstr "Sistem Pemagangan TMM"
+
+msgid "TMM Apprentice Management System"
+msgstr "Sistem Manajemen Pemagangan TMM"
+
+msgid "Quick Shortcut:"
+msgstr "Jalan Pintas Cepat:"
+
+msgid "Optional image filename associated with this interview result."
+msgstr "Nama berkas gambar opsional yang terkait dengan hasil wawancara ini."
+
+msgid "Provide additional details or criteria for this interview result category."
+msgstr "Berikan detail atau kriteria tambahan untuk kategori hasil wawancara ini."
+
+msgid "Enter a descriptive title for this interview result category."
+msgstr "Masukkan judul yang deskriptif untuk kategori hasil wawancara ini."
+
+msgid "Status Breakdown"
+msgstr "Rincian Status"
+
+msgid "Apprentice Roster"
+msgstr "Daftar Peserta Pemagangan"
+
+msgid "Pipeline Funnel"
+msgstr "Corong Alur"
+
+msgid "Candidate Breakdown"
+msgstr "Rincian Kandidat"
+
+msgid "Registrations by Year"
+msgstr "Pendaftaran menurut Tahun"
+
+msgid "Interview Results"
+msgstr "Hasil Wawancara"
+
+msgid "Training Batches"
+msgstr "Angkatan Pelatihan"
+
+msgid "Active Training Batches"
+msgstr "Angkatan Pelatihan Aktif"
+
+msgid "Quick Navigation"
+msgstr "Navigasi Cepat"
+
+msgid "Trainee Overview"
+msgstr "Ikhtisar Trainee"
+
+msgid "Test Score Analysis"
+msgstr "Analisis Nilai Ujian"
+
+msgid "Trainee Performance"
+msgstr "Kinerja Trainee"
+
+msgid "Enter a descriptive title for this training program."
+msgstr "Masukkan judul yang deskriptif untuk program pelatihan ini."
+
+msgid "Provide details about the training content, objectives, and requirements."
+msgstr "Berikan detail tentang materi, tujuan, dan persyaratan pelatihan."
+
+msgid "Click to select date from calendar. Format: Year-Month-Day (e.g., 2024-01-15)"
+msgstr "Klik untuk memilih tanggal dari kalender. Format: Tahun-Bulan-Hari (contoh: 2024-01-15)"
+
+msgid "Click to select date from calendar. Format: Year-Month-Day (e.g., 2024-03-15)"
+msgstr "Klik untuk memilih tanggal dari kalender. Format: Tahun-Bulan-Hari (contoh: 2024-03-15)"
+
+msgid "Specify the physical location or venue where the training will be held."
+msgstr "Sebutkan lokasi atau tempat pelaksanaan pelatihan."
+
+msgid "Name of the instructor or trainer conducting this training."
+msgstr "Nama instruktur atau pelatih yang memimpin pelatihan ini."
+
+msgid "Maximum number of participants allowed in this training session."
+msgstr "Jumlah maksimum peserta yang diizinkan dalam sesi pelatihan ini."
+
+msgid "Current status of the training (e.g., Planned, Ongoing, Completed, Cancelled)."
+msgstr "Status pelatihan saat ini (misalnya Direncanakan, Berjalan, Selesai, Dibatalkan)."
+
+msgid "Location Shifting"
+msgstr "Perpindahan Lokasi"
+
+msgid "Shift Location"
+msgstr "Pindahkan Lokasi"
+
+msgid "Current Roles:"
+msgstr "Peran Saat Ini:"
+
+msgid "Select one or more roles to assign to this user."
+msgstr "Pilih satu atau lebih peran untuk diberikan kepada pengguna ini."
+
+msgid "Role Descriptions"
+msgstr "Deskripsi Peran"
+
+msgid "User Information"
+msgstr "Informasi Pengguna"
+
+msgid "No roles assigned"
+msgstr "Belum ada peran yang diberikan"
+
+msgid "Hold Ctrl/Cmd to select multiple roles."
+msgstr "Tahan Ctrl/Cmd untuk memilih beberapa peran."
+
+msgid "Institution Assignment"
+msgstr "Penugasan Lembaga"
+
+msgid "Select the institution this user belongs to."
+msgstr "Pilih lembaga tempat pengguna ini bernaung."
+
+msgid "Order Sharing"
+msgstr "Pembagian Pesanan"
+
+msgid "Submission Docs"
+msgstr "Dokumen Pengajuan"
+
+msgid "Installments"
+msgstr "Angsuran"
+
+msgid "Pipeline Report"
+msgstr "Laporan Alur"
+
+msgid "Your full name as it appears on official documents."
+msgstr "Nama lengkap Anda sesuai dokumen resmi."
+
+msgid "Username cannot be changed after account creation."
+msgstr "Nama pengguna tidak dapat diubah setelah akun dibuat."
+
+msgid "Enter a valid email address for notifications."
+msgstr "Masukkan alamat email yang valid untuk notifikasi."
+
+msgid "Upload a clear photo of yourself (JPG or PNG format)."
+msgstr "Unggah foto diri Anda yang jelas (format JPG atau PNG)."
+

@@ -38,7 +38,7 @@ $progressColor = function ($percent) {
 <div class="dashboard documentation-dashboard">
     <div class="row">
         <div class="col-md-12">
-            <h2><i class="fa fa-folder-open"></i> Documentation Dashboard</h2>
+            <h2><i class="fa fa-folder-open"></i> <?= __('Documentation Dashboard') ?></h2>
             <p class="text-muted">Pre-departure document management for trainees going to Japan 🇯🇵</p>
         </div>
     </div>
@@ -80,7 +80,7 @@ $progressColor = function ($percent) {
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">
-                    <h4><i class="fa fa-road"></i> Pre-Departure Pipeline</h4>
+                    <h4><i class="fa fa-road"></i> <?= __('Pre-Departure Pipeline') ?></h4>
                 </div>
                 <div class="card-body">
                     <div class="pipeline">
@@ -140,7 +140,7 @@ $progressColor = function ($percent) {
         <div class="col-md-7">
             <div class="card">
                 <div class="card-header d-flex justify-content-between align-items-center">
-                    <h4><i class="fa fa-tasks"></i> Document Readiness per Trainee</h4>
+                    <h4><i class="fa fa-tasks"></i> <?= __('Document Readiness per Trainee') ?></h4>
                     <?= $this->Html->link('Checklist',
                         ['controller' => 'TraineeSubmissionDocuments', 'action' => 'checklist'],
                         ['class' => 'btn btn-sm btn-primary']) ?>
@@ -185,7 +185,7 @@ $progressColor = function ($percent) {
         <div class="col-md-5">
             <div class="card">
                 <div class="card-header">
-                    <h4><i class="fa fa-pie-chart"></i> Submissions by Category</h4>
+                    <h4><i class="fa fa-pie-chart"></i> <?= __('Submissions by Category') ?></h4>
                 </div>
                 <div class="card-body">
                     <?php if (!empty($categoryProgress)): ?>
@@ -223,9 +223,9 @@ $progressColor = function ($percent) {
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header d-flex justify-content-between align-items-center">
-                    <h4><i class="fa fa-history"></i> Recent Document Submissions</h4>
+                    <h4><i class="fa fa-history"></i> <?= __('Recent Document Submissions') ?></h4>
                     <div>
-                        <?= $this->Html->link('<i class="fa fa-plus-circle"></i> Add Submission',
+                        <?= $this->Html->link('<i class="fa fa-plus-circle"></i> ' . __('Add Submission'),
                             ['controller' => 'TraineeSubmissionDocuments', 'action' => 'add'],
                             ['escape' => false, 'class' => 'btn btn-sm btn-success']) ?>
                         <?= $this->Html->link('<i class="fa fa-th-list"></i> View All',
@@ -350,31 +350,31 @@ $progressColor = function ($percent) {
         <div class="col-md-5">
             <div class="card">
                 <div class="card-header">
-                    <h4><i class="fa fa-bolt"></i> Quick Actions</h4>
+                    <h4><i class="fa fa-bolt"></i> <?= __('Quick Actions') ?></h4>
                 </div>
                 <div class="card-body quick-actions">
-                    <?= $this->Html->link('<i class="fa fa-plus-circle"></i> Add Submission Document',
+                    <?= $this->Html->link('<i class="fa fa-plus-circle"></i> ' . __('Add Submission Document'),
                         ['controller' => 'TraineeSubmissionDocuments', 'action' => 'add'],
                         ['escape' => false, 'class' => 'btn btn-success btn-block']) ?>
-                    <?= $this->Html->link('<i class="fa fa-check-square-o"></i> Document Checklist',
+                    <?= $this->Html->link('<i class="fa fa-check-square-o"></i> ' . __('Document Checklist'),
                         ['controller' => 'TraineeSubmissionDocuments', 'action' => 'checklist'],
                         ['escape' => false, 'class' => 'btn btn-primary btn-block']) ?>
-                    <?= $this->Html->link('<i class="fa fa-line-chart"></i> Progress Tracking',
+                    <?= $this->Html->link('<i class="fa fa-line-chart"></i> ' . __('Progress Tracking'),
                         ['controller' => 'TraineeSubmissionDocuments', 'action' => 'progress'],
                         ['escape' => false, 'class' => 'btn btn-primary btn-block']) ?>
-                    <?= $this->Html->link('<i class="fa fa-id-card-o"></i> Passport Records',
+                    <?= $this->Html->link('<i class="fa fa-id-card-o"></i> ' . __('Passport Records'),
                         ['controller' => 'TraineeRecordPasports', 'action' => 'index'],
                         ['escape' => false, 'class' => 'btn btn-primary btn-block']) ?>
                     <?= $this->Html->link('<i class="fa fa-file-text-o"></i> COE &amp; Visa Records',
                         ['controller' => 'TraineeRecordCoeVisas', 'action' => 'index'],
                         ['escape' => false, 'class' => 'btn btn-primary btn-block']) ?>
-                    <?= $this->Html->link('<i class="fa fa-heartbeat"></i> Medical Check-Ups',
+                    <?= $this->Html->link('<i class="fa fa-heartbeat"></i> ' . __('Medical Check-Ups'),
                         ['controller' => 'TraineeRecordMedicalCheckUps', 'action' => 'index'],
                         ['escape' => false, 'class' => 'btn btn-primary btn-block']) ?>
                     <?= $this->Html->link('<i class="fa fa-plane"></i> Tickets &amp; Flights',
                         ['controller' => 'Tickets', 'action' => 'index'],
                         ['escape' => false, 'class' => 'btn btn-info btn-block']) ?>
-                    <?= $this->Html->link('<i class="fa fa-folder-open-o"></i> Departure Documents',
+                    <?= $this->Html->link('<i class="fa fa-folder-open-o"></i> ' . __('Departure Documents'),
                         ['controller' => 'TraineeDocuments', 'action' => 'departure'],
                         ['escape' => false, 'class' => 'btn btn-secondary btn-block']) ?>
                 </div>

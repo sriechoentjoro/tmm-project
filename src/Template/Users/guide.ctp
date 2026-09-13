@@ -101,7 +101,7 @@ $roleColor = [
             </div>
             <p><?= __('Register each LPK partner, then create its login user and verify the email so the LPK can operate independently.') ?></p>
             <div class="meta">
-                <a class="tmg-menu" href="/vocational-training-institutions"><i class="fas fa-list"></i> Vocational Training Institutions</a>
+                <a class="tmg-menu" href="/vocational-training-institutions"><i class="fas fa-list"></i> <?= __('Vocational Training Institutions') ?></a>
                 <a class="tmg-menu" href="/vocational-training-institutions/verify"><i class="fas fa-clipboard-check"></i> Verify</a>
             </div>
             <ul class="tmg-sub">
@@ -117,7 +117,7 @@ $roleColor = [
                 <h4><?= __('AO — Acceptance Organization') ?><small>受入機関 / Uke-ire Kikan</small></h4>
             </div>
             <p><?= __('The company in Japan that will accept the interns. Record its profile and job needs.') ?></p>
-            <div class="meta"><a class="tmg-menu" href="/acceptance-organizations"><i class="fas fa-list"></i> Acceptance Organizations</a></div>
+            <div class="meta"><a class="tmg-menu" href="/acceptance-organizations"><i class="fas fa-list"></i> <?= __('Acceptance Organizations') ?></a></div>
         </div>
         <div class="tmg-step">
             <span class="tmg-step-n">1c</span>
@@ -126,7 +126,7 @@ $roleColor = [
                 <h4><?= __('Kumiai — Cooperative Association') ?><small>協同組合 / Kyōdō Kumiai</small></h4>
             </div>
             <p><?= __('The supervising cooperative that mediates between the AO and the sending side.') ?></p>
-            <div class="meta"><a class="tmg-menu" href="/cooperative-associations"><i class="fas fa-list"></i> Cooperative Associations</a></div>
+            <div class="meta"><a class="tmg-menu" href="/cooperative-associations"><i class="fas fa-list"></i> <?= __('Cooperative Associations') ?></a></div>
         </div>
         <div class="tmg-step">
             <span class="tmg-step-n">1d</span>
@@ -135,7 +135,7 @@ $roleColor = [
                 <h4><?= __('Special Skill Support Institution') ?><small>登録支援機関 / Registered Support Org</small></h4>
             </div>
             <p><?= __('For the Specified Skilled Worker (SSW) route — the registered support organisation.') ?></p>
-            <div class="meta"><a class="tmg-menu" href="/special-skill-support-institutions"><i class="fas fa-list"></i> Special Skill Support Institutions</a></div>
+            <div class="meta"><a class="tmg-menu" href="/special-skill-support-institutions"><i class="fas fa-list"></i> <?= __('Special Skill Support Institutions') ?></a></div>
         </div>
     </div>
 </div>
@@ -166,10 +166,10 @@ $roleColor = [
             <span class="tmg-step-n">2b</span>
             <div class="tmg-step-top">
                 <div class="tmg-step-ico" style="background:<?= $roleColor['lpk'] ?>"><i class="fas fa-share-nodes"></i></div>
-                <h4><?= __('Share Order to LPK') ?><small>Order Sharing</small></h4>
+                <h4><?= __('Share Order to LPK') ?><small><?= __('Order Sharing') ?></small></h4>
             </div>
             <p><?= __('Distribute the order to one or more LPK so they can start recruiting candidates against it.') ?></p>
-            <div class="meta"><a class="tmg-menu" href="/apprentice-orders"><i class="fas fa-share"></i> Apprentice Orders → Share</a></div>
+            <div class="meta"><a class="tmg-menu" href="/apprentice-orders"><i class="fas fa-share"></i> <?= __('Apprentice Orders') ?> → Share</a></div>
         </div>
     </div>
 </div>
@@ -209,7 +209,7 @@ $roleColor = [
     </div>
     <ul class="tmg-sub" style="margin-top:14px">
         <li><?= __('Integrated Scoring combines placement test + interview + MCU into a readiness view.') ?></li>
-        <li><?= __('When a candidate passes, promote them — they become a Trainee and move to the training phase.') ?> <a class="tmg-menu" href="/candidates/promotion-history"><i class="fas fa-history"></i> Promotion History</a></li>
+        <li><?= __('When a candidate passes, promote them — they become a Trainee and move to the training phase.') ?> <a class="tmg-menu" href="/candidates/promotion-history"><i class="fas fa-history"></i> <?= __('Promotion History') ?></a></li>
     </ul>
 </div>
 
@@ -279,7 +279,7 @@ $roleColor = [
             <div class="meta">
                 <a class="tmg-menu" href="/trainee-record-coe-visas"><i class="fas fa-id-card"></i> COE / Visa</a>
                 <a class="tmg-menu" href="/trainee-record-pasports"><i class="fas fa-passport"></i> Passport</a>
-                <a class="tmg-menu" href="/trainee-submission-documents/index"><i class="fas fa-folder"></i> Submission Docs</a>
+                <a class="tmg-menu" href="/trainee-submission-documents/index"><i class="fas fa-folder"></i> <?= __('Submission Docs') ?></a>
             </div>
         </div>
         <div class="tmg-step">
@@ -303,7 +303,7 @@ $roleColor = [
             <p><?= __('Record document costs and manage trainee installment payments and receipts.') ?></p>
             <div class="meta">
                 <a class="tmg-menu" href="/trainee-submission-documents/costs"><i class="fas fa-file-invoice-dollar"></i> Doc Costs</a>
-                <a class="tmg-menu" href="/trainee-installments/tracking"><i class="fas fa-wallet"></i> Installments</a>
+                <a class="tmg-menu" href="/trainee-installments/tracking"><i class="fas fa-wallet"></i> <?= __('Installments') ?></a>
             </div>
         </div>
     </div>
@@ -338,7 +338,7 @@ $roleColor = [
                 <h4><?= __('Post-Apprentice — Return to Indonesia') ?></h4>
             </div>
             <p><?= __('When the programme ends and the apprentice returns home, track their alumni status (employed, self-employed, continuing study…).') ?></p>
-            <div class="meta"><a class="tmg-menu" href="/post-apprentices/index"><i class="fas fa-user-clock"></i> Post Apprentices</a></div>
+            <div class="meta"><a class="tmg-menu" href="/post-apprentices/index"><i class="fas fa-user-clock"></i> <?= __('Post Apprentices') ?></a></div>
         </div>
         <div class="tmg-step">
             <span class="tmg-step-n">6c</span>
@@ -349,7 +349,7 @@ $roleColor = [
             <p><?= __('Management monitors the whole pipeline through department dashboards and reports at any time.') ?></p>
             <div class="meta">
                 <a class="tmg-menu" href="/dashboard/executive"><i class="fas fa-gauge-high"></i> Executive</a>
-                <a class="tmg-menu" href="/reports/candidate-pipeline"><i class="fas fa-diagram-project"></i> Pipeline Report</a>
+                <a class="tmg-menu" href="/reports/candidate-pipeline"><i class="fas fa-diagram-project"></i> <?= __('Pipeline Report') ?></a>
             </div>
         </div>
     </div>

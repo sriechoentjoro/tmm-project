@@ -130,7 +130,7 @@ $total = count($batches);
   <div class="ls-hero">
     <div class="ls-hero-top">
       <div>
-        <h1><i class="fas fa-exchange-alt"></i> Location Shifting</h1>
+        <h1><i class="fas fa-exchange-alt"></i> <?= __('Location Shifting') ?></h1>
         <div class="ls-hero-sub">Manage training batch locations — track and update location assignments per batch</div>
       </div>
       <div style="display:flex;gap:8px;flex-wrap:wrap">
@@ -280,7 +280,7 @@ $total = count($batches);
       <!-- Footer actions -->
       <div class="ls-card-footer">
         <a class="ls-act la-shift" href="<?= $this->Url->build(['controller'=>'Trainings','action'=>'edit',$b->id]) ?>">
-          <i class="fas fa-exchange-alt"></i> Shift Location
+          <i class="fas fa-exchange-alt"></i> <?= __('Shift Location') ?>
         </a>
         <a class="ls-act la-view" href="<?= $this->Url->build(['controller'=>'Trainings','action'=>'view',$b->id]) ?>">
           <i class="fas fa-eye"></i> View

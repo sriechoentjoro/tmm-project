@@ -228,7 +228,7 @@ use Cake\Utility\Inflector;
                             'label' => false,
                             'autocomplete' => 'new-password'
                         ]) ?>
-                        <small class="text-muted">Minimum 8 characters, include uppercase, lowercase, number & symbol</small>
+                        <small class="text-muted"><?= __('Minimum 8 characters, include uppercase, lowercase, number & symbol') ?></small>
                     </div>
                     <div class="col-12 mb-3">
                         <label class="form-label"><?= __('Saving Goal Amount') ?></label>
@@ -390,7 +390,7 @@ use Cake\Utility\Inflector;
                             'label' => false,
                             'autocomplete' => 'new-password'
                         ]) ?>
-                        <small class="text-muted">Minimum 8 characters, include uppercase, lowercase, number & symbol</small>
+                        <small class="text-muted"><?= __('Minimum 8 characters, include uppercase, lowercase, number & symbol') ?></small>
                     </div>
                     <div class="col-12 mb-3">
                         <label class="form-label"><?= __('Is Apprenticeship Pass') ?></label>
@@ -401,7 +401,7 @@ use Cake\Utility\Inflector;
                             'label' => false,
                             'autocomplete' => 'new-password'
                         ]) ?>
-                        <small class="text-muted">Minimum 8 characters, include uppercase, lowercase, number & symbol</small>
+                        <small class="text-muted"><?= __('Minimum 8 characters, include uppercase, lowercase, number & symbol') ?></small>
                     </div>
                     <div class="col-12 mb-3">
                         <label class="form-label"><?= __('Master Rejected Reason Id') ?></label>

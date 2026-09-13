@@ -12,7 +12,7 @@
             <div class="card shadow mb-4">
                 <div class="card-body">
                     <h3 class="text-center mb-4">
-                        <i class="fa fa-user-plus"></i> Candidate Registration Wizard
+                        <i class="fa fa-user-plus"></i> <?= __('Candidate Registration Wizard') ?>
                     </h3>
                     
                     <div class="progress" style="height: 35px;">
@@ -56,12 +56,12 @@
                 <!-- ========== STEP 1: Identity Number Check ========== -->
                 <div class="card shadow mb-4">
                     <div class="card-header py-3 bg-primary text-white">
-                        <h5 class="m-0"><i class="fa fa-id-card"></i> Step 1: Identity Number Verification</h5>
+                        <h5 class="m-0"><i class="fa fa-id-card"></i> <?= __('Step 1: Identity Number Verification') ?></h5>
                     </div>
                     <div class="card-body">
                         <div class="alert alert-info">
-                            <h5><i class="fa fa-info-circle"></i> Duplicate Prevention</h5>
-                            <p class="mb-0">Enter the candidate's <strong>Identity Number (NIK/KTP)</strong> to check if they are already registered in the system.</p>
+                            <h5><i class="fa fa-info-circle"></i> <?= __('Duplicate Prevention') ?></h5>
+                            <p class="mb-0">Enter the candidate's <strong><?= __('Identity Number (NIK/KTP)') ?></strong> to check if they are already registered in the system.</p>
                         </div>
 
                         <?= $this->Form->create(null, ['url' => ['action' => 'wizard', '?' => ['step' => 1]]]) ?>
@@ -78,22 +78,22 @@
                                    value="<?= h($wizardData['identity_number'] ?? '') ?>"
                                    required>
                             <small class="form-text text-muted">
-                                <i class="fa fa-check-circle text-success"></i> Must be exactly 16 digits<br>
-                                <i class="fa fa-check-circle text-success"></i> Numbers only
+                                <i class="fa fa-check-circle text-success"></i> <?= __('Must be exactly 16 digits') ?><br>
+                                <i class="fa fa-check-circle text-success"></i> <?= __('Numbers only') ?>
                             </small>
                         </div>
 
                         <?php if (isset($existingCandidate)): ?>
                             <div class="alert alert-danger">
-                                <h5><i class="fa fa-exclamation-triangle"></i> Duplicate Found!</h5>
-                                <p><strong>This identity number is already registered:</strong></p>
+                                <h5><i class="fa fa-exclamation-triangle"></i> <?= __('Duplicate Found') ?>!</h5>
+                                <p><strong><?= __('This identity number is already registered:') ?></strong></p>
                                 <table class="table table-sm table-bordered bg-white">
                                     <tr>
                                         <th width="30%">Name</th>
                                         <td><?= h($existingCandidate->name) ?></td>
                                     </tr>
                                     <tr>
-                                        <th>Date of Birth</th>
+                                        <th><?= __('Date of Birth') ?></th>
                                         <td><?= h($existingCandidate->birth_date) ?></td>
                                     </tr>
                                     <tr>
@@ -106,7 +106,7 @@
                         <?php endif; ?>
 
                         <div class="mt-4">
-                            <?= $this->Form->button(__('<i class="fa fa-check"></i> Check & Continue'), ['class' => 'btn btn-primary btn-lg', 'escape' => false]) ?>
+                            <?= $this->Form->button('<i class="fa fa-check"></i> ' . __('Check & Continue'), ['class' => 'btn btn-primary btn-lg', 'escape' => false]) ?>
                             <?= $this->Html->link(__('Cancel'), ['action' => 'index'], ['class' => 'btn btn-secondary']) ?>
                         </div>
                         <?= $this->Form->end() ?>
@@ -117,11 +117,11 @@
                 <!-- ========== STEP 2: Photo Upload & Crop ========== -->
                 <div class="card shadow mb-4">
                     <div class="card-header py-3 bg-primary text-white">
-                        <h5 class="m-0"><i class="fa fa-camera"></i> Step 2: Upload Passport Photo</h5>
+                        <h5 class="m-0"><i class="fa fa-camera"></i> <?= __('Step 2: Upload Passport Photo') ?></h5>
                     </div>
                     <div class="card-body">
                         <div class="alert alert-info">
-                            <h5><i class="fa fa-info-circle"></i> Photo Requirements</h5>
+                            <h5><i class="fa fa-info-circle"></i> <?= __('Photo Requirements') ?></h5>
                             <ul class="mb-0">
                                 <li><strong>Format:</strong> JPG, PNG, or GIF</li>
                                 <li><strong>Size:</strong> Maximum 5MB</li>
@@ -142,7 +142,7 @@
                                            class="form-control-file" 
                                            accept="image/*">
                                     <small class="form-text text-muted">
-                                        <i class="fa fa-lightbulb"></i> Select a clear passport-style photo
+                                        <i class="fa fa-lightbulb"></i> <?= __('Select a clear passport-style photo') ?>
                                     </small>
                                 </div>
                                 
@@ -154,16 +154,16 @@
                             <div class="col-md-6">
                                 <h5 class="border-bottom pb-2 mb-3">2. Crop Photo (Square)</h5>
                                 <div id="cropped-preview-container" style="display: none;">
-                                    <p class="text-muted"><i class="fa fa-scissors"></i> Cropped Preview:</p>
+                                    <p class="text-muted"><i class="fa fa-scissors"></i> <?= __('Cropped Preview:') ?></p>
                                     <div style="width: 200px; height: 200px; border: 2px solid #ddd; overflow: hidden; margin: 0 auto;">
                                         <img id="cropped-preview" style="width: 100%;">
                                     </div>
                                     <p class="text-center mt-2">
-                                        <small class="text-success"><i class="fa fa-check-circle"></i> Square passport photo ready</small>
+                                        <small class="text-success"><i class="fa fa-check-circle"></i> <?= __('Square passport photo ready') ?></small>
                                     </p>
                                 </div>
                                 <div id="crop-instructions" class="alert alert-warning">
-                                    <i class="fa fa-hand-pointer"></i> <strong>Instructions:</strong>
+                                    <i class="fa fa-hand-pointer"></i> <strong><?= __('Instructions:') ?></strong>
                                     <ol class="mb-0">
                                         <li>Select a photo file from your device</li>
                                         <li>Drag the crop box to position</li>
@@ -179,7 +179,7 @@
                         <div class="mt-4">
                             <?= $this->Html->link(__('<i class="fa fa-arrow-left"></i> Back'), ['action' => 'wizard', '?' => ['step' => 1]], ['class' => 'btn btn-secondary', 'escape' => false]) ?>
                             <button type="button" id="crop-button" class="btn btn-success btn-lg" disabled>
-                                <i class="fa fa-crop"></i> Crop & Continue
+                                <i class="fa fa-crop"></i> <?= __('Crop & Continue') ?>
                             </button>
                         </div>
                         <?= $this->Form->end() ?>
@@ -279,17 +279,17 @@
                 <!-- ========== STEP 3: Complete Candidate Information ========== -->
                 <div class="card shadow mb-4">
                     <div class="card-header py-3 bg-primary text-white">
-                        <h5 class="m-0"><i class="fa fa-user-edit"></i> Step 3: Complete Candidate Information</h5>
+                        <h5 class="m-0"><i class="fa fa-user-edit"></i> <?= __('Step 3: Complete Candidate Information') ?></h5>
                     </div>
                     <div class="card-body">
                         <div class="alert alert-info">
-                            <h5><i class="fa fa-info-circle"></i> Required Fields</h5>
+                            <h5><i class="fa fa-info-circle"></i> <?= __('Required Fields') ?></h5>
                             <p class="mb-0">Fields marked with <span class="text-danger">*</span> are required. Please fill all information accurately.</p>
                         </div>
 
                         <?php if (isset($validationErrors) && !empty($validationErrors)): ?>
                             <div class="alert alert-danger">
-                                <h5><i class="fa fa-exclamation-triangle"></i> Please fix the following errors:</h5>
+                                <h5><i class="fa fa-exclamation-triangle"></i> <?= __('Please fix the following errors:') ?></h5>
                                 <ul class="mb-0">
                                     <?php foreach ($validationErrors as $error): ?>
                                         <li><?= h($error) ?></li>
@@ -301,20 +301,20 @@
                         <?= $this->Form->create(null, ['url' => ['action' => 'wizard', '?' => ['step' => 3]]]) ?>
                         
                         <!-- Basic Information -->
-                        <h4 class="border-bottom pb-2 mb-3 mt-4"><i class="fa fa-user"></i> Basic Information</h4>
+                        <h4 class="border-bottom pb-2 mb-3 mt-4"><i class="fa fa-user"></i> <?= __('Basic Information') ?></h4>
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label>Full Name <span class="text-danger">*</span></label>
                                     <input type="text" name="name" class="form-control" value="<?= h($wizardData['name'] ?? '') ?>" required>
-                                    <small class="text-muted"><i class="fa fa-check-circle text-success"></i> As per identity card</small>
+                                    <small class="text-muted"><i class="fa fa-check-circle text-success"></i> <?= __('As per identity card') ?></small>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label>Name (Katakana)</label>
                                     <input type="text" name="name_katakana" class="form-control" value="<?= h($wizardData['name_katakana'] ?? '') ?>">
-                                    <small class="text-muted">Japanese katakana format (optional)</small>
+                                    <small class="text-muted"><?= __('Japanese katakana format (optional)') ?></small>
                                 </div>
                             </div>
                         </div>
@@ -391,7 +391,7 @@
                         </div>
 
                         <!-- Contact Information -->
-                        <h4 class="border-bottom pb-2 mb-3 mt-4"><i class="fa fa-phone"></i> Contact Information</h4>
+                        <h4 class="border-bottom pb-2 mb-3 mt-4"><i class="fa fa-phone"></i> <?= __('Contact Information') ?></h4>
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
@@ -404,7 +404,7 @@
                                 <div class="form-group">
                                     <label>Emergency Contact <span class="text-danger">*</span></label>
                                     <input type="tel" name="telephone_emergency" class="form-control" value="<?= h($wizardData['telephone_emergency'] ?? '') ?>" required>
-                                    <small class="text-muted"><i class="fa fa-check-circle text-success"></i> Family or close contact</small>
+                                    <small class="text-muted"><i class="fa fa-check-circle text-success"></i> <?= __('Family or close contact') ?></small>
                                 </div>
                             </div>
                         </div>
@@ -473,7 +473,7 @@
                                 <div class="form-group">
                                     <label>Full Address <span class="text-danger">*</span></label>
                                     <textarea name="address" id="address-field" class="form-control" rows="3" required><?= h($wizardData['address'] ?? '') ?></textarea>
-                                    <small class="text-muted"><i class="fa fa-check-circle text-success"></i> Street, RT/RW</small>
+                                    <small class="text-muted"><i class="fa fa-check-circle text-success"></i> <?= __('Street, RT/RW') ?></small>
                                 </div>
                             </div>
                         </div>
@@ -611,7 +611,7 @@
 
 
                         <!-- Personal Attributes -->
-                        <h4 class="border-bottom pb-2 mb-3 mt-4"><i class="fa fa-heartbeat"></i> Personal Attributes</h4>
+                        <h4 class="border-bottom pb-2 mb-3 mt-4"><i class="fa fa-heartbeat"></i> <?= __('Personal Attributes') ?></h4>
                         <div class="row">
                             <div class="col-md-4">
                                 <div class="form-group">
@@ -664,7 +664,7 @@
                         </div>
 
                         <!-- Additional Information -->
-                        <h4 class="border-bottom pb-2 mb-3 mt-4"><i class="fa fa-info"></i> Additional Information</h4>
+                        <h4 class="border-bottom pb-2 mb-3 mt-4"><i class="fa fa-info"></i> <?= __('Additional Information') ?></h4>
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
@@ -691,7 +691,7 @@
 
                         <div class="mt-4">
                             <?= $this->Html->link(__('<i class="fa fa-arrow-left"></i> Back'), ['action' => 'wizard', '?' => ['step' => 2]], ['class' => 'btn btn-secondary', 'escape' => false]) ?>
-                            <?= $this->Form->button(__('<i class="fa fa-save"></i> Save & Continue'), ['class' => 'btn btn-primary btn-lg', 'escape' => false]) ?>
+                            <?= $this->Form->button('<i class="fa fa-save"></i> ' . __('Save & Continue'), ['class' => 'btn btn-primary btn-lg', 'escape' => false]) ?>
                         </div>
                         <?= $this->Form->end() ?>
                     </div>
@@ -701,12 +701,12 @@
                 <!-- ========== STEP 4: Education History ========== -->
                 <div class="card shadow mb-4">
                     <div class="card-header py-3 bg-primary text-white">
-                        <h5 class="m-0"><i class="fa fa-graduation-cap"></i> Step 4: Education History</h5>
+                        <h5 class="m-0"><i class="fa fa-graduation-cap"></i> <?= __('Step 4: Education History') ?></h5>
                     </div>
                     <div class="card-body">
                         <div class="alert alert-info">
-                            <h5><i class="fa fa-info-circle"></i> Education Requirements</h5>
-                            <p class="mb-0"><strong>At least 1 education entry is required.</strong> Add all your educational background starting from the highest level.</p>
+                            <h5><i class="fa fa-info-circle"></i> <?= __('Education Requirements') ?></h5>
+                            <p class="mb-0"><strong><?= __('At least 1 education entry is required.') ?></strong> Add all your educational background starting from the highest level.</p>
                         </div>
 
                         <?= $this->Form->create(null, ['url' => ['action' => 'wizard', '?' => ['step' => 4]]]) ?>
@@ -716,12 +716,12 @@
                         </div>
 
                         <button type="button" class="btn btn-success mb-3" onclick="addEducationEntry()">
-                            <i class="fa fa-plus"></i> Add More Education
+                            <i class="fa fa-plus"></i> <?= __('Add More Education') ?>
                         </button>
 
                         <div class="mt-4">
                             <?= $this->Html->link(__('<i class="fa fa-arrow-left"></i> Back'), ['action' => 'wizard', '?' => ['step' => 3]], ['class' => 'btn btn-secondary', 'escape' => false]) ?>
-                            <?= $this->Form->button(__('<i class="fa fa-save"></i> Save & Continue'), ['class' => 'btn btn-primary btn-lg', 'escape' => false]) ?>
+                            <?= $this->Form->button('<i class="fa fa-save"></i> ' . __('Save & Continue'), ['class' => 'btn btn-primary btn-lg', 'escape' => false]) ?>
                         </div>
                         <?= $this->Form->end() ?>
                     </div>
@@ -739,11 +739,11 @@
                 <!-- ========== STEP 5: Work Experience ========== -->
                 <div class="card shadow mb-4">
                     <div class="card-header py-3 bg-primary text-white">
-                        <h5 class="m-0"><i class="fa fa-briefcase"></i> Step 5: Work Experience</h5>
+                        <h5 class="m-0"><i class="fa fa-briefcase"></i> <?= __('Step 5: Work Experience') ?></h5>
                     </div>
                     <div class="card-body">
                         <div class="alert alert-info">
-                            <h5><i class="fa fa-info-circle"></i> Work Experience (Optional)</h5>
+                            <h5><i class="fa fa-info-circle"></i> <?= __('Work Experience (Optional)') ?></h5>
                             <p class="mb-0">Add your work experience if applicable. You can skip this step if you have no work experience.</p>
                         </div>
 
@@ -754,12 +754,12 @@
                         </div>
 
                         <button type="button" class="btn btn-success mb-3" onclick="addExperienceEntry()">
-                            <i class="fa fa-plus"></i> Add Work Experience
+                            <i class="fa fa-plus"></i> <?= __('Add Work Experience') ?>
                         </button>
 
                         <div class="mt-4">
                             <?= $this->Html->link(__('<i class="fa fa-arrow-left"></i> Back'), ['action' => 'wizard', '?' => ['step' => 4]], ['class' => 'btn btn-secondary', 'escape' => false]) ?>
-                            <?= $this->Form->button(__('<i class="fa fa-arrow-right"></i> Continue'), ['class' => 'btn btn-primary btn-lg', 'escape' => false]) ?>
+                            <?= $this->Form->button('<i class="fa fa-arrow-right"></i> ' . __('Continue'), ['class' => 'btn btn-primary btn-lg', 'escape' => false]) ?>
                         </div>
                         <?= $this->Form->end() ?>
                     </div>
@@ -771,11 +771,11 @@
                 <!-- ========== STEP 6: Family Information ========== -->
                 <div class="card shadow mb-4">
                     <div class="card-header py-3 bg-primary text-white">
-                        <h5 class="m-0"><i class="fa fa-users"></i> Step 6: Family Information</h5>
+                        <h5 class="m-0"><i class="fa fa-users"></i> <?= __('Step 6: Family Information') ?></h5>
                     </div>
                     <div class="card-body">
                         <div class="alert alert-warning">
-                            <h5><i class="fa fa-exclamation-triangle"></i> Recommendation</h5>
+                            <h5><i class="fa fa-exclamation-triangle"></i> <?= __('Recommendation') ?></h5>
                             <p class="mb-0">It is <strong>recommended to add at least 2 family members</strong> (Father & Mother). This information is important for emergency contacts.</p>
                         </div>
 
@@ -786,12 +786,12 @@
                         </div>
 
                         <button type="button" class="btn btn-success mb-3" onclick="addFamilyEntry()">
-                            <i class="fa fa-plus"></i> Add Family Member
+                            <i class="fa fa-plus"></i> <?= __('Add Family Member') ?>
                         </button>
 
                         <div class="mt-4">
                             <?= $this->Html->link(__('<i class="fa fa-arrow-left"></i> Back'), ['action' => 'wizard', '?' => ['step' => 5]], ['class' => 'btn btn-secondary', 'escape' => false]) ?>
-                            <?= $this->Form->button(__('<i class="fa fa-arrow-right"></i> Continue'), ['class' => 'btn btn-primary btn-lg', 'escape' => false]) ?>
+                            <?= $this->Form->button('<i class="fa fa-arrow-right"></i> ' . __('Continue'), ['class' => 'btn btn-primary btn-lg', 'escape' => false]) ?>
                         </div>
                         <?= $this->Form->end() ?>
                     </div>
@@ -810,11 +810,11 @@
                 <!-- ========== STEP 7: Certifications ========== -->
                 <div class="card shadow mb-4">
                     <div class="card-header py-3 bg-primary text-white">
-                        <h5 class="m-0"><i class="fa fa-certificate"></i> Step 7: Certifications</h5>
+                        <h5 class="m-0"><i class="fa fa-certificate"></i> <?= __('Step 7: Certifications') ?></h5>
                     </div>
                     <div class="card-body">
                         <div class="alert alert-info">
-                            <h5><i class="fa fa-info-circle"></i> Certifications (Optional)</h5>
+                            <h5><i class="fa fa-info-circle"></i> <?= __('Certifications (Optional)') ?></h5>
                             <p class="mb-0">Add any professional certifications, licenses, or skill certificates you have obtained.</p>
                         </div>
 
@@ -825,12 +825,12 @@
                         </div>
 
                         <button type="button" class="btn btn-success mb-3" onclick="addCertificationEntry()">
-                            <i class="fa fa-plus"></i> Add Certification
+                            <i class="fa fa-plus"></i> <?= __('Add Certification') ?>
                         </button>
 
                         <div class="mt-4">
                             <?= $this->Html->link(__('<i class="fa fa-arrow-left"></i> Back'), ['action' => 'wizard', '?' => ['step' => 6]], ['class' => 'btn btn-secondary', 'escape' => false]) ?>
-                            <?= $this->Form->button(__('<i class="fa fa-arrow-right"></i> Continue'), ['class' => 'btn btn-primary btn-lg', 'escape' => false]) ?>
+                            <?= $this->Form->button('<i class="fa fa-arrow-right"></i> ' . __('Continue'), ['class' => 'btn btn-primary btn-lg', 'escape' => false]) ?>
                         </div>
                         <?= $this->Form->end() ?>
                     </div>
@@ -842,11 +842,11 @@
                 <!-- ========== STEP 8: Courses/Training ========== -->
                 <div class="card shadow mb-4">
                     <div class="card-header py-3 bg-primary text-white">
-                        <h5 class="m-0"><i class="fa fa-book"></i> Step 8: Courses & Training</h5>
+                        <h5 class="m-0"><i class="fa fa-book"></i> <?= __('Step 8: Courses & Training') ?></h5>
                     </div>
                     <div class="card-body">
                         <div class="alert alert-info">
-                            <h5><i class="fa fa-info-circle"></i> Training Courses (Optional)</h5>
+                            <h5><i class="fa fa-info-circle"></i> <?= __('Training Courses (Optional)') ?></h5>
                             <p class="mb-0">Add any training courses, workshops, or professional development programs you have completed.</p>
                         </div>
 
@@ -862,7 +862,7 @@
 
                         <div class="mt-4">
                             <?= $this->Html->link(__('<i class="fa fa-arrow-left"></i> Back'), ['action' => 'wizard', '?' => ['step' => 7]], ['class' => 'btn btn-secondary', 'escape' => false]) ?>
-                            <?= $this->Form->button(__('<i class="fa fa-arrow-right"></i> Continue to Review'), ['class' => 'btn btn-primary btn-lg', 'escape' => false]) ?>
+                            <?= $this->Form->button('<i class="fa fa-arrow-right"></i> ' . __('Continue to Review'), ['class' => 'btn btn-primary btn-lg', 'escape' => false]) ?>
                         </div>
                         <?= $this->Form->end() ?>
                     </div>
@@ -874,17 +874,17 @@
                 <!-- ========== STEP 9: Review & Submit ========== -->
                 <div class="card shadow mb-4">
                     <div class="card-header py-3 bg-success text-white">
-                        <h5 class="m-0"><i class="fa fa-check-circle"></i> Step 9: Review & Submit</h5>
+                        <h5 class="m-0"><i class="fa fa-check-circle"></i> <?= __('Step 9: Review & Submit') ?></h5>
                     </div>
                     <div class="card-body">
                         <div class="alert alert-success">
-                            <h5><i class="fa fa-check-circle"></i> Final Review</h5>
+                            <h5><i class="fa fa-check-circle"></i> <?= __('Final Review') ?></h5>
                             <p class="mb-0">Please review all information carefully before submitting. You can go back to any step to make changes.</p>
                         </div>
 
                         <?php if (isset($errors) && !empty($errors)): ?>
                             <div class="alert alert-danger">
-                                <h5><i class="fa fa-exclamation-triangle"></i> Validation Errors:</h5>
+                                <h5><i class="fa fa-exclamation-triangle"></i> <?= __('Validation Errors:') ?></h5>
                                 <ul class="mb-0">
                                     <?php foreach ($errors as $field => $fieldErrors): ?>
                                         <?php foreach ($fieldErrors as $error): ?>
@@ -904,10 +904,10 @@
                         <?php endif; ?>
 
                         <!-- Basic Information -->
-                        <h4 class="border-bottom pb-2 mb-3"><i class="fa fa-user"></i> Basic Information</h4>
+                        <h4 class="border-bottom pb-2 mb-3"><i class="fa fa-user"></i> <?= __('Basic Information') ?></h4>
                         <table class="table table-bordered">
                             <tr>
-                                <th width="30%">Identity Number</th>
+                                <th width="30%"><?= __('Identity Number') ?></th>
                                 <td><?= h($wizardData['identity_number'] ?? '') ?></td>
                             </tr>
                             <tr>
@@ -915,7 +915,7 @@
                                 <td><?= h($wizardData['name'] ?? '') ?></td>
                             </tr>
                             <tr>
-                                <th>Birth Place & Date</th>
+                                <th><?= __('Birth Place & Date') ?></th>
                                 <td><?= h($wizardData['birth_place'] ?? '') ?>, <?= h($wizardData['birth_date'] ?? '') ?></td>
                             </tr>
                             <tr>
@@ -927,20 +927,20 @@
                                 <td><?= isset($wizardData['master_religion_id']) && isset($masterReligions[$wizardData['master_religion_id']]) ? h($masterReligions[$wizardData['master_religion_id']]) : '' ?></td>
                             </tr>
                             <tr>
-                                <th>Marriage Status</th>
+                                <th><?= __('Marriage Status') ?></th>
                                 <td><?= isset($wizardData['master_marriage_status_id']) && isset($masterMarriageStatuses[$wizardData['master_marriage_status_id']]) ? h($masterMarriageStatuses[$wizardData['master_marriage_status_id']]) : '' ?></td>
                             </tr>
                         </table>
 
                         <!-- Contact Information -->
-                        <h4 class="border-bottom pb-2 mb-3 mt-4"><i class="fa fa-phone"></i> Contact Information</h4>
+                        <h4 class="border-bottom pb-2 mb-3 mt-4"><i class="fa fa-phone"></i> <?= __('Contact Information') ?></h4>
                         <table class="table table-bordered">
                             <tr>
-                                <th width="30%">Mobile Phone</th>
+                                <th width="30%"><?= __('Mobile Phone') ?></th>
                                 <td><?= h($wizardData['telephone_mobile'] ?? '') ?></td>
                             </tr>
                             <tr>
-                                <th>Emergency Contact</th>
+                                <th><?= __('Emergency Contact') ?></th>
                                 <td><?= h($wizardData['telephone_emergency'] ?? '') ?></td>
                             </tr>
                             <tr>
@@ -954,7 +954,7 @@
                         </table>
 
                         <!-- Education History -->
-                        <h4 class="border-bottom pb-2 mb-3 mt-4"><i class="fa fa-graduation-cap"></i> Education History (<?= count($wizardData['educations'] ?? []) ?>)</h4>
+                        <h4 class="border-bottom pb-2 mb-3 mt-4"><i class="fa fa-graduation-cap"></i> <?= __('Education History') ?> (<?= count($wizardData['educations'] ?? []) ?>)</h4>
                         <?php if (!empty($wizardData['educations'])): ?>
                             <?php foreach ($wizardData['educations'] as $index => $edu): ?>
                                 <div class="card mb-2">
@@ -970,7 +970,7 @@
 
                         <!-- Work Experience -->
                         <?php if (!empty($wizardData['experiences'])): ?>
-                            <h4 class="border-bottom pb-2 mb-3 mt-4"><i class="fa fa-briefcase"></i> Work Experience (<?= count($wizardData['experiences']) ?>)</h4>
+                            <h4 class="border-bottom pb-2 mb-3 mt-4"><i class="fa fa-briefcase"></i> <?= __('Work Experience') ?> (<?= count($wizardData['experiences']) ?>)</h4>
                             <?php foreach ($wizardData['experiences'] as $index => $exp): ?>
                                 <div class="card mb-2">
                                     <div class="card-body">
@@ -982,7 +982,7 @@
 
                         <!-- Family Information -->
                         <?php if (!empty($wizardData['families'])): ?>
-                            <h4 class="border-bottom pb-2 mb-3 mt-4"><i class="fa fa-users"></i> Family Information (<?= count($wizardData['families']) ?>)</h4>
+                            <h4 class="border-bottom pb-2 mb-3 mt-4"><i class="fa fa-users"></i> <?= __('Family Information') ?> (<?= count($wizardData['families']) ?>)</h4>
                             <?php foreach ($wizardData['families'] as $index => $fam): ?>
                                 <div class="card mb-2">
                                     <div class="card-body">
@@ -994,7 +994,7 @@
 
                         <!-- Certifications -->
                         <?php if (!empty($wizardData['certifications'])): ?>
-                            <h4 class="border-bottom pb-2 mb-3 mt-4"><i class="fa fa-certificate"></i> Certifications (<?= count($wizardData['certifications']) ?>)</h4>
+                            <h4 class="border-bottom pb-2 mb-3 mt-4"><i class="fa fa-certificate"></i> <?= __('Certifications') ?> (<?= count($wizardData['certifications']) ?>)</h4>
                             <?php foreach ($wizardData['certifications'] as $index => $cert): ?>
                                 <div class="card mb-2">
                                     <div class="card-body">
@@ -1006,7 +1006,7 @@
 
                         <!-- Courses -->
                         <?php if (!empty($wizardData['courses'])): ?>
-                            <h4 class="border-bottom pb-2 mb-3 mt-4"><i class="fa fa-book"></i> Courses & Training (<?= count($wizardData['courses']) ?>)</h4>
+                            <h4 class="border-bottom pb-2 mb-3 mt-4"><i class="fa fa-book"></i> <?= __('Courses & Training') ?> (<?= count($wizardData['courses']) ?>)</h4>
                             <?php foreach ($wizardData['courses'] as $index => $course): ?>
                                 <div class="card mb-2">
                                     <div class="card-body">
@@ -1018,8 +1018,8 @@
 
                         <?= $this->Form->create(null, ['url' => ['action' => 'wizard', '?' => ['step' => 9]]]) ?>
                         <div class="mt-4">
-                            <?= $this->Html->link(__('<i class="fa fa-arrow-left"></i> Back to Edit'), ['action' => 'wizard', '?' => ['step' => 8]], ['class' => 'btn btn-secondary', 'escape' => false]) ?>
-                            <?= $this->Form->button(__('<i class="fa fa-check"></i> Submit Registration'), ['class' => 'btn btn-success btn-lg', 'escape' => false]) ?>
+                            <?= $this->Html->link('<i class="fa fa-arrow-left"></i> ' . __('Back to Edit'), ['action' => 'wizard', '?' => ['step' => 8]], ['class' => 'btn btn-secondary', 'escape' => false]) ?>
+                            <?= $this->Form->button('<i class="fa fa-check"></i> ' . __('Submit Registration'), ['class' => 'btn btn-success btn-lg', 'escape' => false]) ?>
                         </div>
                         <?= $this->Form->end() ?>
                     </div>
@@ -1029,7 +1029,7 @@
                 <!-- Fallback for invalid steps -->
                 <div class="card shadow mb-4">
                     <div class="card-header py-3 bg-danger text-white">
-                        <h5 class="m-0"><i class="fa fa-exclamation-triangle"></i> Invalid Step</h5>
+                        <h5 class="m-0"><i class="fa fa-exclamation-triangle"></i> <?= __('Invalid Step') ?></h5>
                     </div>
                     <div class="card-body">
                         <p>The requested step is invalid. Please start from the beginning.</p>

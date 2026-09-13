@@ -8787,3 +8787,648 @@ msgstr "未使用"
 msgid "{0} of {1} required documents collected"
 msgstr "必要書類 {1} 件中 {0} 件を収集済み"
 
+msgid "Only active organizations can accept new apprenticeship assignments."
+msgstr "有効な団体のみが新しい実習配属を受け入れることができます。"
+
+msgid "Registration Process Overview"
+msgstr "登録プロセスの概要"
+
+msgid "LPK Registration"
+msgstr "LPK登録"
+
+msgid "Visual Process Flow"
+msgstr "プロセスフロー図"
+
+msgid "Database Relationships"
+msgstr "データベースの関連"
+
+msgid "Status Values:"
+msgstr "ステータス値："
+
+msgid "Token Lifecycle:"
+msgstr "トークンのライフサイクル："
+
+msgid "Determines user role and permissions (admin, lpk, candidate, etc.)"
+msgstr "ユーザーの役割と権限を決定します（admin、lpk、candidate など）"
+
+msgid "Important Guidelines"
+msgstr "重要なガイドライン"
+
+msgid "Email Uniqueness:"
+msgstr "メールアドレスの一意性："
+
+msgid "Required Fields:"
+msgstr "必須フィールド："
+
+msgid "Geographic Cascade:"
+msgstr "地域の階層："
+
+msgid "Token Expiry:"
+msgstr "トークンの有効期限："
+
+msgid "One-Time Use:"
+msgstr "一回限りの使用："
+
+msgid "Status Flow:"
+msgstr "ステータスの流れ："
+
+msgid "Password Encryption:"
+msgstr "パスワードの暗号化："
+
+msgid "Token Security:"
+msgstr "トークンのセキュリティ："
+
+msgid "Email Verification:"
+msgstr "メール認証："
+
+msgid "CSRF Protection:"
+msgstr "CSRF保護："
+
+msgid "Session Management:"
+msgstr "セッション管理："
+
+msgid "Cross-Database Architecture"
+msgstr "データベース横断アーキテクチャ"
+
+msgid "Stakeholder Management Dashboard"
+msgstr "ステークホルダー管理ダッシュボード"
+
+msgid "Export Statistics"
+msgstr "統計をエクスポート"
+
+msgid "Pending Verifications"
+msgstr "保留中の認証"
+
+msgid "Pending Approvals"
+msgstr "保留中の承認"
+
+msgid "All types combined"
+msgstr "全種類の合計"
+
+msgid "Verified & Active"
+msgstr "認証済み・有効"
+
+msgid "Awaiting Email Verification"
+msgstr "メール認証待ち"
+
+msgid "Temporarily Inactive"
+msgstr "一時的に無効"
+
+msgid "Stakeholder Type Distribution"
+msgstr "ステークホルダー種別の分布"
+
+msgid "Status Distribution by Type"
+msgstr "種別ごとのステータス分布"
+
+msgid "Registration Trend (Last 6 Months)"
+msgstr "登録推移（過去6か月）"
+
+msgid "Recent Activities"
+msgstr "最近の活動"
+
+msgid "Pending Email Verifications"
+msgstr "保留中のメール認証"
+
+msgid "Enter your name in Katakana"
+msgstr "お名前をカタカナで入力してください"
+
+msgid "Enter birth place in Katakana. Example:"
+msgstr "出生地をカタカナで入力してください。例："
+
+msgid "File Preview"
+msgstr "ファイルのプレビュー"
+
+msgid "Current File:"
+msgstr "現在のファイル："
+
+msgid "Could not preview PDF"
+msgstr "PDFをプレビューできませんでした"
+
+msgid "Word Document"
+msgstr "Word文書"
+
+msgid "Excel Document"
+msgstr "Excel文書"
+
+msgid "Archive File"
+msgstr "アーカイブファイル"
+
+msgid "File Selected"
+msgstr "ファイルを選択しました"
+
+msgid "Enter your national identity number (KTP). Must be 16 digits."
+msgstr "国民身分証番号（KTP）を入力してください。16桁である必要があります。"
+
+msgid "Enter your full name as it appears on your identity card."
+msgstr "身分証明書に記載されているとおりの氏名を入力してください。"
+
+msgid "Enter the city or district where you were born."
+msgstr "出生した市または県を入力してください。"
+
+msgid "Click to select date from calendar. Format: Year-Month-Day (e.g., 1990-05-15)"
+msgstr "クリックしてカレンダーから日付を選択してください。形式：年-月-日（例：1990-05-15）"
+
+msgid "Enter your mobile phone number without spaces or dashes."
+msgstr "携帯電話番号をスペースやハイフンなしで入力してください。"
+
+msgid "Emergency contact number (family member or close relative)."
+msgstr "緊急連絡先の番号（家族または近親者）。"
+
+msgid "Enter your complete residential address including street name, RT/RW, and house number."
+msgstr "通り名、RT/RW、番地を含む居住地の住所を完全に入力してください。"
+
+msgid "Candidates by Status"
+msgstr "ステータス別の候補者"
+
+msgid "Candidates by Host Company"
+msgstr "受入企業別の候補者"
+
+msgid "Candidates by Supervising Company"
+msgstr "監理団体別の候補者"
+
+msgid "View All Candidates"
+msgstr "すべての候補者を表示"
+
+msgid "Register New Candidate"
+msgstr "新しい候補者を登録"
+
+msgid "Document Submission"
+msgstr "書類の提出"
+
+msgid "Candidate Registration Wizard"
+msgstr "候補者登録ウィザード"
+
+msgid "Step 1: Identity Number Verification"
+msgstr "ステップ1：身分証番号の確認"
+
+msgid "Duplicate Prevention"
+msgstr "重複の防止"
+
+msgid "Identity Number (NIK/KTP)"
+msgstr "身分証番号（NIK/KTP）"
+
+msgid "Must be exactly 16 digits"
+msgstr "ちょうど16桁である必要があります"
+
+msgid "Numbers only"
+msgstr "数字のみ"
+
+msgid "Duplicate Found"
+msgstr "重複が見つかりました"
+
+msgid "This identity number is already registered:"
+msgstr "この身分証番号はすでに登録されています："
+
+msgid "Date of Birth"
+msgstr "生年月日"
+
+msgid "Check & Continue"
+msgstr "確認して続行"
+
+msgid "Step 2: Upload Passport Photo"
+msgstr "ステップ2：パスポート写真のアップロード"
+
+msgid "Photo Requirements"
+msgstr "写真の要件"
+
+msgid "Select a clear passport-style photo"
+msgstr "鮮明なパスポート形式の写真を選択してください"
+
+msgid "Cropped Preview:"
+msgstr "切り抜きのプレビュー："
+
+msgid "Square passport photo ready"
+msgstr "正方形のパスポート写真の準備ができました"
+
+msgid "Instructions:"
+msgstr "手順："
+
+msgid "Crop & Continue"
+msgstr "切り抜いて続行"
+
+msgid "Step 3: Complete Candidate Information"
+msgstr "ステップ3：候補者情報の入力"
+
+msgid "Required Fields"
+msgstr "必須フィールド"
+
+msgid "Please fix the following errors:"
+msgstr "次のエラーを修正してください："
+
+msgid "As per identity card"
+msgstr "身分証明書のとおり"
+
+msgid "Japanese katakana format (optional)"
+msgstr "日本語のカタカナ表記（任意）"
+
+msgid "Family or close contact"
+msgstr "家族または近しい連絡先"
+
+msgid "Street, RT/RW"
+msgstr "通り名、RT/RW"
+
+msgid "Personal Attributes"
+msgstr "個人属性"
+
+msgid "Save & Continue"
+msgstr "保存して続行"
+
+msgid "Step 4: Education History"
+msgstr "ステップ4：学歴"
+
+msgid "Education Requirements"
+msgstr "学歴の要件"
+
+msgid "At least 1 education entry is required."
+msgstr "学歴は1件以上入力してください。"
+
+msgid "Add More Education"
+msgstr "学歴を追加"
+
+msgid "Step 5: Work Experience"
+msgstr "ステップ5：職歴"
+
+msgid "Work Experience (Optional)"
+msgstr "職歴（任意）"
+
+msgid "Add Work Experience"
+msgstr "職歴を追加"
+
+msgid "Continue"
+msgstr "続行"
+
+msgid "Step 6: Family Information"
+msgstr "ステップ6：家族情報"
+
+msgid "Add Family Member"
+msgstr "家族を追加"
+
+msgid "Step 7: Certifications"
+msgstr "ステップ7：資格"
+
+msgid "Certifications (Optional)"
+msgstr "資格（任意）"
+
+msgid "Add Certification"
+msgstr "資格を追加"
+
+msgid "Step 8: Courses & Training"
+msgstr "ステップ8：講座・研修"
+
+msgid "Training Courses (Optional)"
+msgstr "研修講座（任意）"
+
+msgid "Continue to Review"
+msgstr "確認画面へ進む"
+
+msgid "Step 9: Review & Submit"
+msgstr "ステップ9：確認して送信"
+
+msgid "Final Review"
+msgstr "最終確認"
+
+msgid "Validation Errors:"
+msgstr "入力エラー："
+
+msgid "Birth Place & Date"
+msgstr "出生地・生年月日"
+
+msgid "Mobile Phone"
+msgstr "携帯電話"
+
+msgid "Emergency Contact"
+msgstr "緊急連絡先"
+
+msgid "Submit Registration"
+msgstr "登録を送信"
+
+msgid "Invalid Step"
+msgstr "無効なステップ"
+
+msgid "Receipts (Paid Off)"
+msgstr "領収書（完済）"
+
+msgid "Pre-Departure Pipeline"
+msgstr "出国前のパイプライン"
+
+msgid "Document Readiness per Trainee"
+msgstr "研修生ごとの書類準備状況"
+
+msgid "Submissions by Category"
+msgstr "カテゴリ別の提出"
+
+msgid "Recent Document Submissions"
+msgstr "最近の書類提出"
+
+msgid "Add Submission Document"
+msgstr "提出書類を追加"
+
+msgid "Add New Candidate"
+msgstr "新しい候補者を追加"
+
+msgid "Add Organization"
+msgstr "団体を追加"
+
+msgid "LPK Dashboard"
+msgstr "LPKダッシュボード"
+
+msgid "No Institution"
+msgstr "機関なし"
+
+msgid "View Documents"
+msgstr "書類を表示"
+
+msgid "Management Dashboard"
+msgstr "管理ダッシュボード"
+
+msgid "Candidate Overview"
+msgstr "候補者の概要"
+
+msgid "Trainee Status"
+msgstr "研修生のステータス"
+
+msgid "View Candidates"
+msgstr "候補者を表示"
+
+msgid "View Trainees"
+msgstr "研修生を表示"
+
+msgid "View Organizations"
+msgstr "団体を表示"
+
+msgid "View Reports"
+msgstr "レポートを表示"
+
+msgid "TMM Recruitment Dashboard"
+msgstr "TMM採用ダッシュボード"
+
+msgid "Add Candidate"
+msgstr "候補者を追加"
+
+msgid "LPK Institution"
+msgstr "LPK機関"
+
+msgid "Generated by TMM Apprentice Management System"
+msgstr "TMM実習生管理システムにより作成"
+
+msgid "Total Records:"
+msgstr "総件数："
+
+msgid "No records found."
+msgstr "該当するデータがありません。"
+
+msgid "Searching..."
+msgstr "検索中..."
+
+msgid "New LPK Registration - Action Required"
+msgstr "新しいLPK登録 - 対応が必要です"
+
+msgid "Institution Details:"
+msgstr "機関の詳細："
+
+msgid "Registration Number:"
+msgstr "登録番号："
+
+msgid "What You Should Do:"
+msgstr "対応いただきたいこと："
+
+msgid "Review institution details"
+msgstr "機関の詳細を確認する"
+
+msgid "Monitor verification status"
+msgstr "認証状況を監視する"
+
+msgid "Check for suspicious activity"
+msgstr "不審な活動がないか確認する"
+
+msgid "Complete additional fields"
+msgstr "追加のフィールドを入力する"
+
+msgid "Approve or reject"
+msgstr "承認または却下する"
+
+msgid "Manage Candidates:"
+msgstr "候補者の管理："
+
+msgid "Track Training Progress:"
+msgstr "研修の進捗の把握："
+
+msgid "Submit Apprentice Orders:"
+msgstr "実習生オーダーの提出："
+
+msgid "Export Reports:"
+msgstr "レポートの出力："
+
+msgid "Dashboard Analytics:"
+msgstr "ダッシュボード分析："
+
+msgid "Document Management:"
+msgstr "書類の管理："
+
+msgid "Communication Hub:"
+msgstr "コミュニケーションの拠点："
+
+msgid "Update Your Profile:"
+msgstr "プロフィールの更新："
+
+msgid "Add Candidates:"
+msgstr "候補者の追加："
+
+msgid "Upload Documents:"
+msgstr "書類のアップロード："
+
+msgid "Explore Features:"
+msgstr "機能の確認："
+
+msgid "Contact Support:"
+msgstr "サポートへの問い合わせ："
+
+msgid "Welcome to TMM System,"
+msgstr "TMMシステムへようこそ、"
+
+msgid "Your Temporary Login Credentials:"
+msgstr "仮のログイン情報："
+
+msgid "Temporary Password:"
+msgstr "仮パスワード："
+
+msgid "What Happens Next"
+msgstr "次に行うこと"
+
+msgid "Click the verification link"
+msgstr "認証リンクをクリックする"
+
+msgid "Change your password"
+msgstr "パスワードを変更する"
+
+msgid "Complete your profile"
+msgstr "プロフィールを入力する"
+
+msgid "TMM System Administrator"
+msgstr "TMMシステム管理者"
+
+msgid "Email Verified Successfully"
+msgstr "メール認証が完了しました"
+
+msgid "Your Account Information:"
+msgstr "アカウント情報："
+
+msgid "Institution:"
+msgstr "機関："
+
+msgid "Account Type:"
+msgstr "アカウント種別："
+
+msgid "Log in to your account"
+msgstr "アカウントにログインする"
+
+msgid "Complete your profile information"
+msgstr "プロフィール情報を入力する"
+
+msgid "Explore the dashboard"
+msgstr "ダッシュボードを確認する"
+
+msgid "Start managing"
+msgstr "管理を始める"
+
+msgid "Registration Link Expired"
+msgstr "登録リンクの有効期限が切れました"
+
+msgid "Create a secure password"
+msgstr "安全なパスワードを作成してください"
+
+msgid "Complete Registration"
+msgstr "登録を完了する"
+
+msgid "TMM Apprentice System"
+msgstr "TMM実習生システム"
+
+msgid "TMM Apprentice Management System"
+msgstr "TMM実習生管理システム"
+
+msgid "Quick Shortcut:"
+msgstr "ショートカット："
+
+msgid "Optional image filename associated with this interview result."
+msgstr "この面接結果に関連する画像ファイル名（任意）。"
+
+msgid "Provide additional details or criteria for this interview result category."
+msgstr "この面接結果カテゴリの詳細または基準を入力してください。"
+
+msgid "Enter a descriptive title for this interview result category."
+msgstr "この面接結果カテゴリの分かりやすい名称を入力してください。"
+
+msgid "Status Breakdown"
+msgstr "ステータスの内訳"
+
+msgid "Apprentice Roster"
+msgstr "実習生名簿"
+
+msgid "Pipeline Funnel"
+msgstr "パイプラインのファネル"
+
+msgid "Candidate Breakdown"
+msgstr "候補者の内訳"
+
+msgid "Registrations by Year"
+msgstr "年別の登録数"
+
+msgid "Interview Results"
+msgstr "面接結果"
+
+msgid "Training Batches"
+msgstr "研修バッチ"
+
+msgid "Active Training Batches"
+msgstr "実施中の研修バッチ"
+
+msgid "Quick Navigation"
+msgstr "クイックナビゲーション"
+
+msgid "Trainee Overview"
+msgstr "研修生の概要"
+
+msgid "Test Score Analysis"
+msgstr "試験成績の分析"
+
+msgid "Trainee Performance"
+msgstr "研修生の成績"
+
+msgid "Enter a descriptive title for this training program."
+msgstr "この研修プログラムの分かりやすい名称を入力してください。"
+
+msgid "Provide details about the training content, objectives, and requirements."
+msgstr "研修の内容、目的、要件について詳しく入力してください。"
+
+msgid "Click to select date from calendar. Format: Year-Month-Day (e.g., 2024-01-15)"
+msgstr "クリックしてカレンダーから日付を選択してください。形式：年-月-日（例：2024-01-15）"
+
+msgid "Click to select date from calendar. Format: Year-Month-Day (e.g., 2024-03-15)"
+msgstr "クリックしてカレンダーから日付を選択してください。形式：年-月-日（例：2024-03-15）"
+
+msgid "Specify the physical location or venue where the training will be held."
+msgstr "研修を実施する場所または会場を入力してください。"
+
+msgid "Name of the instructor or trainer conducting this training."
+msgstr "この研修を担当する講師または指導員の氏名。"
+
+msgid "Maximum number of participants allowed in this training session."
+msgstr "この研修に参加できる最大人数。"
+
+msgid "Current status of the training (e.g., Planned, Ongoing, Completed, Cancelled)."
+msgstr "研修の現在のステータス（計画中、実施中、完了、中止など）。"
+
+msgid "Location Shifting"
+msgstr "配属先の変更"
+
+msgid "Shift Location"
+msgstr "配属先を変更"
+
+msgid "Current Roles:"
+msgstr "現在の役割："
+
+msgid "Select one or more roles to assign to this user."
+msgstr "このユーザーに割り当てる役割を1つ以上選択してください。"
+
+msgid "Role Descriptions"
+msgstr "役割の説明"
+
+msgid "User Information"
+msgstr "ユーザー情報"
+
+msgid "No roles assigned"
+msgstr "割り当てられた役割はありません"
+
+msgid "Hold Ctrl/Cmd to select multiple roles."
+msgstr "複数の役割を選択するには Ctrl/Cmd を押しながら選択してください。"
+
+msgid "Institution Assignment"
+msgstr "所属機関の割り当て"
+
+msgid "Select the institution this user belongs to."
+msgstr "このユーザーが所属する機関を選択してください。"
+
+msgid "Order Sharing"
+msgstr "オーダーの共有"
+
+msgid "Submission Docs"
+msgstr "提出書類"
+
+msgid "Installments"
+msgstr "分割払い"
+
+msgid "Pipeline Report"
+msgstr "パイプラインレポート"
+
+msgid "Your full name as it appears on official documents."
+msgstr "公的書類に記載されているとおりの氏名。"
+
+msgid "Username cannot be changed after account creation."
+msgstr "ユーザー名はアカウント作成後に変更できません。"
+
+msgid "Enter a valid email address for notifications."
+msgstr "通知用の有効なメールアドレスを入力してください。"
+
+msgid "Upload a clear photo of yourself (JPG or PNG format)."
+msgstr "本人の鮮明な写真をアップロードしてください（JPGまたはPNG形式）。"
+

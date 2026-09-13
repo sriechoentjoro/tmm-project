@@ -1,7 +1,7 @@
 <div class="dashboard lpk-dashboard">
     <div class="row">
         <div class="col-md-12">
-            <h2>LPK Dashboard - <?= h(isset($stats['institutionName']) ? $stats['institutionName'] : 'No Institution') ?></h2>
+            <h2><?= __('LPK Dashboard') ?> - <?= h(isset($stats['institutionName']) ? $stats['institutionName'] : __('No Institution')) ?></h2>
             <p class="text-muted">Institution-specific candidate management</p>
         </div>
     </div>
@@ -34,7 +34,7 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header d-flex justify-content-between align-items-center">
-                    <h4>Recent Candidates</h4>
+                    <h4><?= __('Recent Candidates') ?></h4>
                     <?= $this->Html->link('View All', ['controller' => 'Candidates', 'action' => 'index'], ['class' => 'btn btn-sm btn-primary']) ?>
                 </div>
                 <div class="card-body">
@@ -89,16 +89,16 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">
-                    <h4>Quick Actions</h4>
+                    <h4><?= __('Quick Actions') ?></h4>
                 </div>
                 <div class="card-body">
-                    <?= $this->Html->link('<i class="fa fa-plus-circle"></i> Add New Candidate', 
+                    <?= $this->Html->link('<i class="fa fa-plus-circle"></i> ' . __('Add New Candidate'), 
                         ['controller' => 'Candidates', 'action' => 'add'], 
                         ['escape' => false, 'class' => 'btn btn-success btn-lg']) ?>
-                    <?= $this->Html->link('<i class="fa fa-list"></i> View All Candidates', 
+                    <?= $this->Html->link('<i class="fa fa-list"></i> ' . __('View All Candidates'), 
                         ['controller' => 'Candidates', 'action' => 'index'], 
                         ['escape' => false, 'class' => 'btn btn-primary btn-lg']) ?>
-                    <?= $this->Html->link('<i class="fa fa-file-text"></i> View Documents', 
+                    <?= $this->Html->link('<i class="fa fa-file-text"></i> ' . __('View Documents'), 
                         ['controller' => 'CandidateDocuments', 'action' => 'index'], 
                         ['escape' => false, 'class' => 'btn btn-info btn-lg']) ?>
                 </div>

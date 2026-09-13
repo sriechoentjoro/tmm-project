@@ -1,7 +1,7 @@
 <div class="dashboard recruitment-dashboard">
     <div class="row">
         <div class="col-md-12">
-            <h2><i class="fa fa-user-plus"></i> TMM Recruitment Dashboard</h2>
+            <h2><i class="fa fa-user-plus"></i> <?= __('TMM Recruitment Dashboard') ?></h2>
             <p class="text-muted">Candidate and recruitment order management</p>
         </div>
     </div>
@@ -34,9 +34,9 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header d-flex justify-content-between align-items-center">
-                    <h4><i class="fa fa-list"></i> Recent Candidates</h4>
+                    <h4><i class="fa fa-list"></i> <?= __('Recent Candidates') ?></h4>
                     <div>
-                        <?= $this->Html->link('<i class="fa fa-plus-circle"></i> Add Candidate', 
+                        <?= $this->Html->link('<i class="fa fa-plus-circle"></i> ' . __('Add Candidate'), 
                             ['controller' => 'Candidates', 'action' => 'add'], 
                             ['escape' => false, 'class' => 'btn btn-sm btn-success']) ?>
                         <?= $this->Html->link('<i class="fa fa-th-list"></i> View All', 
@@ -52,7 +52,7 @@
                                     <tr>
                                         <th>ID</th>
                                         <th>Name</th>
-                                        <th>LPK Institution</th>
+                                        <th><?= __('LPK Institution') ?></th>
                                         <th>Code</th>
                                         <th>Actions</th>
                                     </tr>

@@ -118,7 +118,7 @@
             <ul style="margin: 10px 0 0 20px; color: #333; font-size: 12pt; line-height: 2;">
                 <li><strong>Chrome/Edge:</strong> Click "Print" below → Destination: <em>"Save as PDF"</em> → Save</li>
                 <li><strong>Firefox:</strong> Click "Print" below → Printer: <em>"Microsoft Print to PDF"</em> → Save</li>
-                <li><strong>Quick Shortcut:</strong> Press <kbd>Ctrl+P</kbd> then select PDF as printer destination</li>
+                <li><strong><?= __('Quick Shortcut:') ?></strong> Press <kbd>Ctrl+P</kbd> then select PDF as printer destination</li>
             </ul>
         </div>
         <div style="text-align: right;">

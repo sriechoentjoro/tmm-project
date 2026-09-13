@@ -17,7 +17,7 @@
                     </div>
                 </div>
                 <div class="card-body">
-                    <h5 class="mb-3">User Information</h5>
+                    <h5 class="mb-3"><?= __('User Information') ?></h5>
                     <table class="table table-bordered">
                         <tr>
                             <th width="30%"><?= __('Username') ?></th>
@@ -53,7 +53,7 @@
         <div class="col-md-12">
             <div class="card shadow mb-4">
                 <div class="card-header py-3">
-                    <h6 class="m-0 font-weight-bold text-primary">Assigned Roles (<?= count($user->roles) ?>)</h6>
+                    <h6 class="m-0 font-weight-bold text-primary"><?= __('Assigned Roles') ?> (<?= count($user->roles) ?>)</h6>
                 </div>
                 <div class="card-body">
                     <?php if (!empty($user->roles)): ?>
@@ -91,7 +91,7 @@
                     </div>
                     <?php else: ?>
                     <div class="alert alert-warning">
-                        <i class="fa fa-exclamation-triangle"></i> <strong>No roles assigned</strong><br>
+                        <i class="fa fa-exclamation-triangle"></i> <strong><?= __('No roles assigned') ?></strong><br>
                         This user has no roles assigned. Click "Assign Roles" to add roles.
                     </div>
                     <?php endif; ?>

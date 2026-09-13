@@ -1,4 +1,4 @@
-<h2>Welcome to TMM System, <?= h($institutionName) ?>!</h2>
+<h2><?= __('Welcome to TMM System,') ?> <?= h($institutionName) ?>!</h2>
 
 <p>Dear <strong><?= h($userName) ?></strong>,</p>
 
@@ -8,19 +8,19 @@
 </p>
 
 <div class="info-box">
-    <strong>Institution Details:</strong>
+    <strong><?= __('Institution Details:') ?></strong>
     <p style="margin: 5px 0;">
         <strong>Name:</strong> <?= h($institutionName) ?><br>
         <strong>Email:</strong> <?= h($email) ?><br>
-        <strong>Registration Number:</strong> <?= h($registrationNumber) ?>
+        <strong><?= __('Registration Number:') ?></strong> <?= h($registrationNumber) ?>
     </p>
 </div>
 
 <div class="info-box">
-    <strong>Your Temporary Login Credentials:</strong>
+    <strong><?= __('Your Temporary Login Credentials:') ?></strong>
     <p style="margin: 5px 0;">
         <strong>Email:</strong> <?= h($email) ?><br>
-        <strong>Temporary Password:</strong> <span style="font-family: monospace; background: #fff3cd; padding: 5px 10px; border-radius: 4px;"><?= h($temporaryPassword) ?></span>
+        <strong><?= __('Temporary Password:') ?></strong> <span style="font-family: monospace; background: #fff3cd; padding: 5px 10px; border-radius: 4px;"><?= h($temporaryPassword) ?></span>
     </p>
 </div>
 
@@ -39,13 +39,13 @@
 
 <div class="divider"></div>
 
-<h3 style="color: #667eea; font-size: 18px;">What Happens Next?</h3>
+<h3 style="color: #667eea; font-size: 18px;"><?= __('What Happens Next') ?>?</h3>
 
 <ol style="padding-left: 20px; color: #555;">
-    <li><strong>Click the verification link</strong> above to confirm your email address</li>
+    <li><strong><?= __('Click the verification link') ?></strong> above to confirm your email address</li>
     <li><strong>Log in</strong> using your email and temporary password</li>
-    <li><strong>Change your password</strong> to a secure password of your choice</li>
-    <li><strong>Complete your profile</strong> and start managing trainees</li>
+    <li><strong><?= __('Change your password') ?></strong> to a secure password of your choice</li>
+    <li><strong><?= __('Complete your profile') ?></strong> and start managing trainees</li>
 </ol>
 
 <div class="success-box">
@@ -65,5 +65,5 @@
 
 <p style="margin-top: 30px;">
     Best regards,<br>
-    <strong>TMM System Administrator</strong>
+    <strong><?= __('TMM System Administrator') ?></strong>
 </p>

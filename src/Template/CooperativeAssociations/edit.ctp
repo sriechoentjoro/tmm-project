@@ -104,7 +104,7 @@ $staticAssetsUrl = $protocol . '://' . $host . '/static-assets';
                             'label' => false
                         ]) ?>
                         <small class="form-text text-muted">
-                            <i class="fas fa-info-circle"></i> Active associations can manage cooperative member organizations.
+                            <i class="fas fa-info-circle"></i> <?= __('Active associations can manage cooperative member organizations.') ?>
                         </small>
                     </div>
                 </div>

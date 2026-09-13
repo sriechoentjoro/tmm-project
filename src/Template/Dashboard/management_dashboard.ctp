@@ -1,7 +1,7 @@
 <div class="dashboard management-dashboard">
     <div class="row">
         <div class="col-md-12">
-            <h2><i class="fa fa-bar-chart"></i> Management Dashboard</h2>
+            <h2><i class="fa fa-bar-chart"></i> <?= __('Management Dashboard') ?></h2>
             <p class="text-muted">Read-only system overview and analytics</p>
         </div>
     </div>
@@ -40,7 +40,7 @@
         <div class="col-md-6">
             <div class="card">
                 <div class="card-header">
-                    <h4><i class="fa fa-pie-chart"></i> Candidate Overview</h4>
+                    <h4><i class="fa fa-pie-chart"></i> <?= __('Candidate Overview') ?></h4>
                 </div>
                 <div class="card-body">
                     <?php
@@ -75,7 +75,7 @@
         <div class="col-md-6">
             <div class="card">
                 <div class="card-header">
-                    <h4><i class="fa fa-pie-chart"></i> Trainee Status</h4>
+                    <h4><i class="fa fa-pie-chart"></i> <?= __('Trainee Status') ?></h4>
                 </div>
                 <div class="card-body">
                     <?php
@@ -116,28 +116,28 @@
                     <div class="row">
                         <div class="col-md-3">
                             <?= $this->Html->link(
-                                '<i class="fa fa-users fa-3x"></i><br><br>View Candidates',
+                                '<i class="fa fa-users fa-3x"></i><br><br>' . __('View Candidates'),
                                 ['controller' => 'Candidates', 'action' => 'index'],
                                 ['escape' => false, 'class' => 'quick-link-box']
                             ) ?>
                         </div>
                         <div class="col-md-3">
                             <?= $this->Html->link(
-                                '<i class="fa fa-graduation-cap fa-3x"></i><br><br>View Trainees',
+                                '<i class="fa fa-graduation-cap fa-3x"></i><br><br>' . __('View Trainees'),
                                 ['controller' => 'Trainees', 'action' => 'index'],
                                 ['escape' => false, 'class' => 'quick-link-box']
                             ) ?>
                         </div>
                         <div class="col-md-3">
                             <?= $this->Html->link(
-                                '<i class="fa fa-building fa-3x"></i><br><br>View Organizations',
+                                '<i class="fa fa-building fa-3x"></i><br><br>' . __('View Organizations'),
                                 ['controller' => 'AcceptanceOrganizations', 'action' => 'index'],
                                 ['escape' => false, 'class' => 'quick-link-box']
                             ) ?>
                         </div>
                         <div class="col-md-3">
                             <?= $this->Html->link(
-                                '<i class="fa fa-file-text fa-3x"></i><br><br>View Reports',
+                                '<i class="fa fa-file-text fa-3x"></i><br><br>' . __('View Reports'),
                                 ['controller' => 'Reports', 'action' => 'index'],
                                 ['escape' => false, 'class' => 'quick-link-box']
                             ) ?>

@@ -100,7 +100,7 @@ $batchStatusMeta = [
 <div class="tp-hero">
   <div style="display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:10px">
     <div>
-      <div class="tp-hero-title"><i class="fas fa-chart-line"></i> Training Progress</div>
+      <div class="tp-hero-title"><i class="fas fa-chart-line"></i> <?= __('Training Progress') ?></div>
       <div class="tp-hero-sub">Trainee performance overview and batch status · <?= $today ?></div>
     </div>
     <div style="font-size:11px;opacity:.65;text-align:right;line-height:1.7">
@@ -125,7 +125,7 @@ $batchStatusMeta = [
   <!-- Pass Rate card -->
   <div class="tp-card">
     <div class="tp-card-hdr">
-      <h3 class="tp-card-title"><i class="fas fa-user-graduate" style="color:#2e7d32"></i> Trainee Overview</h3>
+      <h3 class="tp-card-title"><i class="fas fa-user-graduate" style="color:#2e7d32"></i> <?= __('Trainee Overview') ?></h3>
       <span class="tp-badge" style="background:#e8f5e9;color:#2e7d32"><?= $progress['total'] ?> total</span>
     </div>
     <div class="tp-card-body">
@@ -196,7 +196,7 @@ $batchStatusMeta = [
   <!-- Test score stats -->
   <div class="tp-card">
     <div class="tp-card-hdr">
-      <h3 class="tp-card-title"><i class="fas fa-clipboard-check" style="color:#1565c0"></i> Test Score Analysis</h3>
+      <h3 class="tp-card-title"><i class="fas fa-clipboard-check" style="color:#1565c0"></i> <?= __('Test Score Analysis') ?></h3>
       <span class="tp-badge" style="background:#e3f2fd;color:#1565c0"><?= $scoreStats['total_scores'] ?? 0 ?> tests</span>
     </div>
     <div class="tp-card-body">
@@ -285,7 +285,7 @@ $batchStatusMeta = [
 
 <!-- Per-Trainee Cards -->
 <?php if (!empty($traineeRows)): ?>
-<div class="tp-section-lbl"><i class="fas fa-id-card"></i> Trainee Performance</div>
+<div class="tp-section-lbl"><i class="fas fa-id-card"></i> <?= __('Trainee Performance') ?></div>
 <div class="tp-trainee-grid">
   <?php foreach ($traineeRows as $tr):
     $score = $scoreMap[$tr['id']] ?? null;
@@ -349,7 +349,7 @@ $batchStatusMeta = [
 <?php endif; ?>
 
 <!-- Training Batches -->
-<div class="tp-section-lbl" style="margin-top:22px"><i class="fas fa-layer-group"></i> Training Batches</div>
+<div class="tp-section-lbl" style="margin-top:22px"><i class="fas fa-layer-group"></i> <?= __('Training Batches') ?></div>
 <div class="tp-card">
   <div class="tp-card-hdr">
     <h3 class="tp-card-title"><i class="fas fa-layer-group" style="color:#1565c0"></i> All Batches</h3>

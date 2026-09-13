@@ -55,7 +55,7 @@ use Cake\Utility\Inflector;
                             'maxlength' => 256
                         ]) ?>
                         <small class="form-text text-muted">
-                            <i class="fas fa-info-circle"></i> Enter a descriptive title for this training program.
+                            <i class="fas fa-info-circle"></i> <?= __('Enter a descriptive title for this training program.') ?>
                         </small>
                     </div>
                     <div class="col-12 mb-3">
@@ -71,7 +71,7 @@ use Cake\Utility\Inflector;
                             'label' => false
                         ]) ?>
                         <small class="form-text text-muted">
-                            <i class="fas fa-align-left"></i> Provide details about the training content, objectives, and requirements.
+                            <i class="fas fa-align-left"></i> <?= __('Provide details about the training content, objectives, and requirements.') ?>
                         </small>
                     </div>
                     <div class="col-12 mb-3">
@@ -88,7 +88,7 @@ use Cake\Utility\Inflector;
                             'value' => !empty($training->start_date) ? $training->start_date->format('Y-m-d') : ''
                         ]) ?>
                         <small class="form-text text-muted">
-                            <i class="fas fa-calendar-alt"></i> Click to select date from calendar. Format: Year-Month-Day (e.g., 2024-01-15)
+                            <i class="fas fa-calendar-alt"></i> <?= __('Click to select date from calendar. Format: Year-Month-Day (e.g., 2024-01-15)') ?>
                         </small>
                     </div>
                     <div class="col-12 mb-3">
@@ -105,7 +105,7 @@ use Cake\Utility\Inflector;
                             'value' => !empty($training->end_date) ? $training->end_date->format('Y-m-d') : ''
                         ]) ?>
                         <small class="form-text text-muted">
-                            <i class="fas fa-calendar-alt"></i> Click to select date from calendar. Format: Year-Month-Day (e.g., 2024-03-15)
+                            <i class="fas fa-calendar-alt"></i> <?= __('Click to select date from calendar. Format: Year-Month-Day (e.g., 2024-03-15)') ?>
                         </small>
                     </div>
                     <div class="col-12 mb-3">
@@ -120,7 +120,7 @@ use Cake\Utility\Inflector;
                             'maxlength' => 256
                         ]) ?>
                         <small class="form-text text-muted">
-                            <i class="fas fa-map-marker-alt"></i> Specify the physical location or venue where the training will be held.
+                            <i class="fas fa-map-marker-alt"></i> <?= __('Specify the physical location or venue where the training will be held.') ?>
                         </small>
                     </div>
                     <div class="col-12 mb-3">
@@ -135,7 +135,7 @@ use Cake\Utility\Inflector;
                             'maxlength' => 256
                         ]) ?>
                         <small class="form-text text-muted">
-                            <i class="fas fa-chalkboard-teacher"></i> Name of the instructor or trainer conducting this training.
+                            <i class="fas fa-chalkboard-teacher"></i> <?= __('Name of the instructor or trainer conducting this training.') ?>
                         </small>
                     </div>
                     <div class="col-12 mb-3">
@@ -151,7 +151,7 @@ use Cake\Utility\Inflector;
                             'min' => 1
                         ]) ?>
                         <small class="form-text text-muted">
-                            <i class="fas fa-users"></i> Maximum number of participants allowed in this training session.
+                            <i class="fas fa-users"></i> <?= __('Maximum number of participants allowed in this training session.') ?>
                         </small>
                     </div>
                     <div class="col-12 mb-3">
@@ -166,7 +166,7 @@ use Cake\Utility\Inflector;
                             'maxlength' => 50
                         ]) ?>
                         <small class="form-text text-muted">
-                            <i class="fas fa-flag"></i> Current status of the training (e.g., Planned, Ongoing, Completed, Cancelled).
+                            <i class="fas fa-flag"></i> <?= __('Current status of the training (e.g., Planned, Ongoing, Completed, Cancelled).') ?>
                         </small>
                     </div>
                 </div>

@@ -102,7 +102,7 @@ $batchStatusMeta = [
 <div class="cp-hero">
   <div style="display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:10px">
     <div>
-      <div class="cp-hero-title"><i class="fas fa-filter"></i> Candidate Pipeline</div>
+      <div class="cp-hero-title"><i class="fas fa-filter"></i> <?= __('Candidate Pipeline') ?></div>
       <div class="cp-hero-sub">End-to-end view of recruitment to post-apprenticeship · As of <?= $today ?></div>
     </div>
     <div style="font-size:11px;opacity:.6;text-align:right;line-height:1.6">
@@ -126,7 +126,7 @@ $batchStatusMeta = [
   <!-- Funnel -->
   <div class="cp-card">
     <div class="cp-card-hdr">
-      <h3 class="cp-card-title"><i class="fas fa-filter" style="color:#1565c0"></i> Pipeline Funnel</h3>
+      <h3 class="cp-card-title"><i class="fas fa-filter" style="color:#1565c0"></i> <?= __('Pipeline Funnel') ?></h3>
       <span class="cp-badge" style="background:#e3f2fd;color:#1565c0"><?= count($pipeline) ?> stages</span>
     </div>
     <div class="cp-funnel">
@@ -166,7 +166,7 @@ $batchStatusMeta = [
   <!-- Candidate Detail -->
   <div class="cp-card">
     <div class="cp-card-hdr">
-      <h3 class="cp-card-title"><i class="fas fa-users" style="color:#1565c0"></i> Candidate Breakdown</h3>
+      <h3 class="cp-card-title"><i class="fas fa-users" style="color:#1565c0"></i> <?= __('Candidate Breakdown') ?></h3>
       <span class="cp-badge" style="background:#e3f2fd;color:#1565c0"><?= number_format($cStats['total']) ?> total</span>
     </div>
     <div class="cp-card-body">
@@ -227,7 +227,7 @@ $batchStatusMeta = [
       <?php if (!empty($cByYear)): ?>
       <div style="margin-top:16px">
         <div style="font-size:11px;font-weight:700;color:#78909c;margin-bottom:8px;text-transform:uppercase;letter-spacing:.5px">
-          <i class="fas fa-chart-bar"></i> Registrations by Year
+          <i class="fas fa-chart-bar"></i> <?= __('Registrations by Year') ?>
         </div>
         <?php
           $maxYr = max(1, ...array_column($cByYear, 'cnt'));
@@ -255,7 +255,7 @@ $batchStatusMeta = [
   <!-- Interview Results -->
   <div class="cp-card">
     <div class="cp-card-hdr">
-      <h3 class="cp-card-title"><i class="fas fa-comments" style="color:#6a1b9a"></i> Interview Results</h3>
+      <h3 class="cp-card-title"><i class="fas fa-comments" style="color:#6a1b9a"></i> <?= __('Interview Results') ?></h3>
       <span class="cp-badge" style="background:#f3e5f5;color:#6a1b9a"><?= number_format($cStats['interviewed']) ?> done</span>
     </div>
     <div class="cp-card-body">
@@ -447,10 +447,10 @@ $batchStatusMeta = [
 
 <!-- Training Batches -->
 <?php if (!empty($batches)): ?>
-<div class="cp-section-label"><i class="fas fa-layer-group"></i> Training Batches</div>
+<div class="cp-section-label"><i class="fas fa-layer-group"></i> <?= __('Training Batches') ?></div>
 <div class="cp-card">
   <div class="cp-card-hdr">
-    <h3 class="cp-card-title"><i class="fas fa-layer-group" style="color:#1565c0"></i> Active Training Batches</h3>
+    <h3 class="cp-card-title"><i class="fas fa-layer-group" style="color:#1565c0"></i> <?= __('Active Training Batches') ?></h3>
     <a href="<?= $this->Url->build(['controller'=>'Trainings','action'=>'index']) ?>"
        style="font-size:11px;font-weight:700;color:#1565c0;text-decoration:none">View all →</a>
   </div>
@@ -501,7 +501,7 @@ $batchStatusMeta = [
 <?php endif; ?>
 
 <!-- Quick nav -->
-<div class="cp-section-label" style="margin-top:20px"><i class="fas fa-link"></i> Quick Navigation</div>
+<div class="cp-section-label" style="margin-top:20px"><i class="fas fa-link"></i> <?= __('Quick Navigation') ?></div>
 <div style="display:flex;gap:10px;flex-wrap:wrap">
   <?php $links = [
     ['controller'=>'Candidates',  'action'=>'index', 'icon'=>'fa-users',            'label'=>'All Candidates',  'color'=>'#1565c0','bg'=>'#e3f2fd'],
