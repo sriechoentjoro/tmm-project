@@ -265,8 +265,8 @@ $fields = collection($fields)
                             <option value="!=">!=</option>
                             <option value="<">&lt;</option>
                             <option value=">">&gt;</option>
-                            <option value="<=">â‰¤</option>
-                            <option value=">=">â‰¥</option>
+                            <option value="<=">≤</option>
+                            <option value=">=">≥</option>
                             <option value="between">Between</option>
                         </select>
                         <input type="<%= $filterType %>" class="filter-input form-control form-control-sm" placeholder="<%= $placeholder %>" data-column="<%= $filterColumn %>" data-type="<%= $filterType %>" style="font-size: 0.85rem;">
@@ -283,8 +283,8 @@ $fields = collection($fields)
                             <option value="!=">!=</option>
                             <option value="<">&lt;</option>
                             <option value=">">&gt;</option>
-                            <option value="<=">â‰¤</option>
-                            <option value=">=">â‰¥</option>
+                            <option value="<=">≤</option>
+                            <option value=">=">≥</option>
                             <option value="between">Between</option>
                         </select>
                         <input type="<%= $filterType %>" class="filter-input form-control form-control-sm" data-column="<%= $filterColumn %>" data-type="<%= $filterType %>" style="font-size: 0.85rem;">

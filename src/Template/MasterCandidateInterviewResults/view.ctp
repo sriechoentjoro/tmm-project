@@ -626,7 +626,7 @@ if (typeof window.initializeTabSwitching === 'undefined') {
             }
         }
         if (tabLinks.length === 0 || tabPanes.length === 0) {
-            console.error('ÃƒÂ¢Ã‚ÂÃ…â€™ No tabs found! TabLinks:', tabLinks.length, 'TabPanes:', tabPanes.length);
+            console.error('❌ No tabs found! TabLinks:', tabLinks.length, 'TabPanes:', tabPanes.length);
             console.error('Container:', viewContainer);
             if (isDocument) {
                 console.error('View wrapper:', document.querySelector('.view-content-wrapper[data-view-template="true"]'));
@@ -634,8 +634,8 @@ if (typeof window.initializeTabSwitching === 'undefined') {
             return;
         
         }
-        console.log('ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¦ SUCCESS: Initializing', tabLinks.length, 'tab links and', tabPanes.length, 'tab panes');
-        console.log('ÃƒÂ°Ã…Â¸Ã¢â‚¬Å“Ã‚Â Container:', isDocument ? 'document (full page)' : 'element (modal/container)');
+        console.log('✅ SUCCESS: Initializing', tabLinks.length, 'tab links and', tabPanes.length, 'tab panes');
+        console.log('📍 Container:', isDocument ? 'document (full page)' : 'element (modal/container)');
         
         // Remove existing click handlers to avoid duplicates
         tabLinks.forEach(link => {
@@ -666,13 +666,13 @@ if (typeof window.initializeTabSwitching === 'undefined') {
                 e.preventDefault();
                 e.stopPropagation();
                 
-                console.log('ÃƒÂ°Ã…Â¸Ã¢â‚¬â€œÃ‚Â±ÃƒÂ¯Ã‚Â¸Ã‚Â  Tab clicked:', this.getAttribute('data-tab'));
+                console.log('🖱️  Tab clicked:', this.getAttribute('data-tab'));
                 
                 // Get target tab
                 const targetTab = this.getAttribute('data-tab');
                 
                 if (!targetTab) {
-                    console.error('ÃƒÂ¢Ã‚ÂÃ…â€™ No data-tab attribute found on clicked element');
+                    console.error('❌ No data-tab attribute found on clicked element');
                     return;
                 
                 // Remove active class from all tabs and panes in this container
@@ -699,9 +699,9 @@ if (typeof window.initializeTabSwitching === 'undefined') {
                 }
                 if (targetPane) {
                     targetPane.classList.add('active');
-                    console.log('ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¦ Activated pane:', targetTab);
+                    console.log('✅ Activated pane:', targetTab);
                 } else {
-                    console.error('ÃƒÂ¢Ã‚ÂÃ…â€™ Target pane not found:', targetTab);
+                    console.error('❌ Target pane not found:', targetTab);
                     console.error('Available panes:', freshTabPanes ? Array.from(freshTabPanes).map(p => p.id) : 'none');
                 
                 // Store active tab in sessionStorage (optional)
@@ -1628,7 +1628,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
         
-        console.log('ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¦ Dropdown menu initialized on view page');
+        console.log('✅ Dropdown menu initialized on view page');
     }
 });
 </script>
