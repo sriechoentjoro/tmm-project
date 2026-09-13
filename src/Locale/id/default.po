@@ -7448,3 +7448,1342 @@ msgstr "Diperbarui Pada"
 msgid "Upload Document for {0}"
 msgstr "Unggah Dokumen untuk {0}"
 
+
+msgid "-- Select Candidate --"
+msgstr "-- Pilih Kandidat --"
+
+msgid "-- Select Kabupaten Id --"
+msgstr "-- Pilih ID Kabupaten/Kota --"
+
+msgid "-- Select Kecamatan Id --"
+msgstr "-- Pilih ID Kecamatan --"
+
+msgid "Add Apprentice Document"
+msgstr "Tambah Dokumen Pemagang"
+
+msgid "Add Apprentice Flight"
+msgstr "Tambah Penerbangan Pemagang"
+
+msgid "Add Candidate Submission Document"
+msgstr "Tambah Dokumen Penyerahan Kandidat"
+
+msgid "Add Document"
+msgstr "Tambah Dokumen"
+
+msgid "Add Email Template"
+msgstr "Tambah Templat Email"
+
+msgid "Add Master Currency"
+msgstr "Tambah Mata Uang"
+
+msgid "Add Master Payment Method"
+msgstr "Tambah Metode Pembayaran"
+
+msgid "Add Master Training Competency"
+msgstr "Tambah Kompetensi Pelatihan"
+
+msgid "Add Master Training Test Score Grade"
+msgstr "Tambah Predikat Nilai Ujian"
+
+msgid "Add Master Transaction Category"
+msgstr "Tambah Kategori Transaksi"
+
+msgid "Add Role"
+msgstr "Tambah Peran"
+
+msgid "Add Trainee Name Card"
+msgstr "Tambah Kartu Nama Trainee"
+
+msgid "Add Trainee Score Average"
+msgstr "Tambah Rata-rata Nilai Trainee"
+
+msgid "Apprentice Certification"
+msgstr "Sertifikasi Pemagang"
+
+msgid "Apprentice Certifications"
+msgstr "Sertifikasi Pemagang"
+
+msgid "Apprentice Course"
+msgstr "Kursus Pemagang"
+
+msgid "Apprentice Courses"
+msgstr "Kursus Pemagang"
+
+msgid "Apprentice Document"
+msgstr "Dokumen Pemagang"
+
+msgid "Apprentice Documents"
+msgstr "Dokumen Pemagang"
+
+msgid "Apprentice Family Stories"
+msgstr "Riwayat Keluarga Pemagang"
+
+msgid "Apprentice Family Story"
+msgstr "Riwayat Keluarga Pemagang"
+
+msgid "Apprentice Flight"
+msgstr "Penerbangan Pemagang"
+
+msgid "Apprentice Flights"
+msgstr "Penerbangan Pemagang"
+
+msgid "Apprentice Record Coe Visa"
+msgstr "Rekaman COE / Visa Pemagang"
+
+msgid "Apprentice Record Coe Visas"
+msgstr "Rekaman COE / Visa Pemagang"
+
+msgid "Apprentice Record Pasport"
+msgstr "Rekaman Paspor Pemagang"
+
+msgid "Apprentice Record Pasports"
+msgstr "Rekaman Paspor Pemagang"
+
+msgid "Candidate Certification"
+msgstr "Sertifikasi Kandidat"
+
+msgid "Candidate Certifications"
+msgstr "Sertifikasi Kandidat"
+
+msgid "Candidate Course"
+msgstr "Kursus Kandidat"
+
+msgid "Candidate Courses"
+msgstr "Kursus Kandidat"
+
+msgid "Candidate Document"
+msgstr "Dokumen Kandidat"
+
+msgid "Candidate Document Categories"
+msgstr "Kategori Dokumen Kandidat"
+
+msgid "Candidate Document Category"
+msgstr "Kategori Dokumen Kandidat"
+
+msgid "Candidate Documents Master List"
+msgstr "Daftar Induk Dokumen Kandidat"
+
+msgid "Candidate Experience"
+msgstr "Pengalaman Kandidat"
+
+msgid "Candidate Experiences"
+msgstr "Pengalaman Kandidat"
+
+msgid "Candidate Families"
+msgstr "Keluarga Kandidat"
+
+msgid "Candidate Family"
+msgstr "Keluarga Kandidat"
+
+msgid "Candidate Record Medical Check Up"
+msgstr "Rekaman Pemeriksaan Kesehatan Kandidat"
+
+msgid "Candidate Record Medical Check Ups"
+msgstr "Rekaman Pemeriksaan Kesehatan Kandidat"
+
+msgid "Candidate Submission Document"
+msgstr "Dokumen Penyerahan Kandidat"
+
+msgid "Category Id"
+msgstr "ID Kategori"
+
+msgid "Cooperative Association Story"
+msgstr "Riwayat Asosiasi Koperasi"
+
+msgid "Cost Per Hour"
+msgstr "Biaya per Jam"
+
+msgid "Delete Role"
+msgstr "Hapus Peran"
+
+msgid "Edit Apprentice Document"
+msgstr "Ubah Dokumen Pemagang"
+
+msgid "Edit Apprentice Flight"
+msgstr "Ubah Penerbangan Pemagang"
+
+msgid "Edit Candidate Submission Document"
+msgstr "Ubah Dokumen Penyerahan Kandidat"
+
+msgid "Edit Email Template"
+msgstr "Ubah Templat Email"
+
+msgid "Edit Master Currency"
+msgstr "Ubah Mata Uang"
+
+msgid "Edit Master Payment Method"
+msgstr "Ubah Metode Pembayaran"
+
+msgid "Edit Master Training Competency"
+msgstr "Ubah Kompetensi Pelatihan"
+
+msgid "Edit Master Training Test Score Grade"
+msgstr "Ubah Predikat Nilai Ujian"
+
+msgid "Edit Master Transaction Category"
+msgstr "Ubah Kategori Transaksi"
+
+msgid "Edit Role"
+msgstr "Ubah Peran"
+
+msgid "Edit Trainee Name Card"
+msgstr "Ubah Kartu Nama Trainee"
+
+msgid "Edit Trainee Score Average"
+msgstr "Ubah Rata-rata Nilai Trainee"
+
+msgid "Email Template"
+msgstr "Templat Email"
+
+msgid "Eng"
+msgstr "Inggris"
+
+msgid "Enter Apprentice Certification Information"
+msgstr "Masukkan Informasi Sertifikasi Pemagang"
+
+msgid "Enter Apprentice Course Information"
+msgstr "Masukkan Informasi Kursus Pemagang"
+
+msgid "Enter Apprentice Family Story Information"
+msgstr "Masukkan Informasi Riwayat Keluarga Pemagang"
+
+msgid "Enter Apprentice Record Coe Visa Information"
+msgstr "Masukkan Informasi Rekaman COE / Visa Pemagang"
+
+msgid "Enter Apprentice Record Pasport Information"
+msgstr "Masukkan Informasi Rekaman Paspor Pemagang"
+
+msgid "Enter Candidate Certification Information"
+msgstr "Masukkan Informasi Sertifikasi Kandidat"
+
+msgid "Enter Candidate Course Information"
+msgstr "Masukkan Informasi Kursus Kandidat"
+
+msgid "Enter Candidate Document Category Information"
+msgstr "Masukkan Informasi Kategori Dokumen Kandidat"
+
+msgid "Enter Candidate Document Information"
+msgstr "Masukkan Informasi Dokumen Kandidat"
+
+msgid "Enter Candidate Documents Master List Information"
+msgstr "Masukkan Informasi Daftar Induk Dokumen Kandidat"
+
+msgid "Enter Candidate Experience Information"
+msgstr "Masukkan Informasi Pengalaman Kandidat"
+
+msgid "Enter Candidate Family Information"
+msgstr "Masukkan Informasi Keluarga Kandidat"
+
+msgid "Enter Candidate Record Medical Check Up Information"
+msgstr "Masukkan Informasi Rekaman Pemeriksaan Kesehatan Kandidat"
+
+msgid "Enter Category Id"
+msgstr "Masukkan ID Kategori"
+
+msgid "Enter Code"
+msgstr "Masukkan Kode"
+
+msgid "Enter Cooperative Association Story Information"
+msgstr "Masukkan Informasi Riwayat Asosiasi Koperasi"
+
+msgid "Enter Cost Per Hour"
+msgstr "Masukkan Biaya per Jam"
+
+msgid "Enter Course Major Id"
+msgstr "Masukkan ID Jurusan Kursus"
+
+msgid "Enter Course Year"
+msgstr "Masukkan Tahun Kursus"
+
+msgid "Enter Description"
+msgstr "Masukkan Deskripsi"
+
+msgid "Enter Details"
+msgstr "Masukkan Detail"
+
+msgid "Enter Eng"
+msgstr "Masukkan Inggris"
+
+msgid "Enter Expires"
+msgstr "Masukkan Kedaluwarsa"
+
+msgid "Enter Family Category"
+msgstr "Masukkan Kategori Keluarga"
+
+msgid "Enter Ind"
+msgstr "Masukkan Indonesia"
+
+msgid "Enter Institution Name"
+msgstr "Masukkan Nama Lembaga"
+
+msgid "Enter Jpn"
+msgstr "Masukkan Jepang"
+
+msgid "Enter Kode Kabupaten"
+msgstr "Masukkan Kode Kabupaten"
+
+msgid "Enter Kode Kecamatan"
+msgstr "Masukkan Kode Kecamatan"
+
+msgid "Enter Kode Kelurahan"
+msgstr "Masukkan Kode Kelurahan"
+
+msgid "Enter Kode Pos"
+msgstr "Masukkan Kode Pos"
+
+msgid "Enter Master Apprentice Coe Type Information"
+msgstr "Masukkan Informasi Jenis COE Pemagang"
+
+msgid "Enter Master Apprentice Departure Document Information"
+msgstr "Masukkan Informasi Dokumen Keberangkatan Pemagang"
+
+msgid "Enter Master Apprentice Submission Document Category Information"
+msgstr "Masukkan Informasi Kategori Dokumen Penyerahan"
+
+msgid "Enter Master Blood Type Information"
+msgstr "Masukkan Informasi Golongan Darah"
+
+msgid "Enter Master Candidate Interview Type Information"
+msgstr "Masukkan Informasi Jenis Wawancara Kandidat"
+
+msgid "Enter Master Coe Type Id"
+msgstr "Masukkan ID Jenis COE"
+
+msgid "Enter Master Course Major Id"
+msgstr "Masukkan ID Jurusan"
+
+msgid "Enter Master Department Information"
+msgstr "Masukkan Informasi Departemen"
+
+msgid "Enter Master Document Preparedness Status Information"
+msgstr "Masukkan Informasi Status Kesiapan Dokumen"
+
+msgid "Enter Master Document Submission Status Information"
+msgstr "Masukkan Informasi Status Penyerahan Dokumen"
+
+msgid "Enter Master Employee Status Information"
+msgstr "Masukkan Informasi Status Kepegawaian"
+
+msgid "Enter Master Employment Position Information"
+msgstr "Masukkan Informasi Posisi Pekerjaan"
+
+msgid "Enter Master Family Connection Information"
+msgstr "Masukkan Informasi Hubungan Keluarga"
+
+msgid "Enter Master Gender Information"
+msgstr "Masukkan Informasi Jenis Kelamin"
+
+msgid "Enter Master Icon Information"
+msgstr "Masukkan Informasi Ikon"
+
+msgid "Enter Master Interview Result Information"
+msgstr "Masukkan Informasi Hasil Wawancara"
+
+msgid "Enter Master Job Category Information"
+msgstr "Masukkan Informasi Kategori Pekerjaan"
+
+msgid "Enter Master Kabupaten Information"
+msgstr "Masukkan Informasi Kabupaten/Kota"
+
+msgid "Enter Master Kecamatan Information"
+msgstr "Masukkan Informasi Kecamatan"
+
+msgid "Enter Master Kelurahan Information"
+msgstr "Masukkan Informasi Kelurahan/Desa"
+
+msgid "Enter Master Marriage Status Information"
+msgstr "Masukkan Informasi Status Pernikahan"
+
+msgid "Enter Master Medical Check Up Result Information"
+msgstr "Masukkan Informasi Hasil Pemeriksaan Kesehatan"
+
+msgid "Enter Master Occupation Category Information"
+msgstr "Masukkan Informasi Kategori Pekerjaan"
+
+msgid "Enter Master Occupation Information"
+msgstr "Masukkan Informasi Pekerjaan"
+
+msgid "Enter Master Propinsi Information"
+msgstr "Masukkan Informasi Provinsi"
+
+msgid "Enter Master Rejected Reason Information"
+msgstr "Masukkan Informasi Alasan Penolakan"
+
+msgid "Enter Master Religion Information"
+msgstr "Masukkan Informasi Agama"
+
+msgid "Enter Master Strata Information"
+msgstr "Masukkan Informasi Jenjang Pendidikan"
+
+msgid "Enter Master Translation Information"
+msgstr "Masukkan Informasi Terjemahan"
+
+msgid "Enter Medical Check Up Result Id"
+msgstr "Masukkan ID Hasil Pemeriksaan Kesehatan"
+
+msgid "Enter Occupation Category Id"
+msgstr "Masukkan ID Kategori Pekerjaan"
+
+msgid "Enter Place Issue"
+msgstr "Masukkan Tempat Terbit"
+
+msgid "Enter Place Visa Issued"
+msgstr "Masukkan Tempat Visa Diterbitkan"
+
+msgid "Enter Session Information"
+msgstr "Masukkan Informasi Sesi"
+
+msgid "Enter Slug"
+msgstr "Masukkan Slug"
+
+msgid "Enter Sort"
+msgstr "Masukkan Urutan"
+
+msgid "Enter Title Eng"
+msgstr "Masukkan Judul (Inggris)"
+
+msgid "Enter Title Jpg"
+msgstr "Masukkan Gambar Judul"
+
+msgid "Enter Title Kanji"
+msgstr "Masukkan Judul (Kanji)"
+
+msgid "Enter Trainee Certification Information"
+msgstr "Masukkan Informasi Sertifikasi Trainee"
+
+msgid "Enter Trainee Course Information"
+msgstr "Masukkan Informasi Kursus Trainee"
+
+msgid "Enter Trainee Family Information"
+msgstr "Masukkan Informasi Keluarga Trainee"
+
+msgid "Enter Trainee Family Story Information"
+msgstr "Masukkan Informasi Riwayat Keluarga Trainee"
+
+msgid "Enter Vocational Training Institution Id"
+msgstr "Masukkan ID Lembaga Pelatihan Kerja"
+
+msgid "Family Category"
+msgstr "Kategori Keluarga"
+
+msgid "Ind"
+msgstr "Indonesia"
+
+msgid "Jpn"
+msgstr "Jepang"
+
+msgid "List Apprentice Certifications"
+msgstr "Daftar Sertifikasi Pemagang"
+
+msgid "List Apprentice Courses"
+msgstr "Daftar Kursus Pemagang"
+
+msgid "List Apprentice Family Stories"
+msgstr "Daftar Riwayat Keluarga Pemagang"
+
+msgid "List Apprentice Record Coe Visas"
+msgstr "Daftar Rekaman COE / Visa Pemagang"
+
+msgid "List Apprentice Record Pasports"
+msgstr "Daftar Rekaman Paspor Pemagang"
+
+msgid "List Candidate Certifications"
+msgstr "Daftar Sertifikasi Kandidat"
+
+msgid "List Candidate Courses"
+msgstr "Daftar Kursus Kandidat"
+
+msgid "List Candidate Document Categories"
+msgstr "Daftar Kategori Dokumen Kandidat"
+
+msgid "List Candidate Documents"
+msgstr "Daftar Dokumen Kandidat"
+
+msgid "List Candidate Documents Master List"
+msgstr "Daftar Daftar Induk Dokumen Kandidat"
+
+msgid "List Candidate Experiences"
+msgstr "Daftar Pengalaman Kandidat"
+
+msgid "List Candidate Families"
+msgstr "Daftar Keluarga Kandidat"
+
+msgid "List Candidate Record Medical Check Ups"
+msgstr "Daftar Rekaman Pemeriksaan Kesehatan Kandidat"
+
+msgid "List Cooperative Association Stories"
+msgstr "Daftar Riwayat Asosiasi Koperasi"
+
+msgid "List Master Apprentice Coe Types"
+msgstr "Daftar Jenis COE Pemagang"
+
+msgid "List Master Apprentice Departure Documents"
+msgstr "Daftar Dokumen Keberangkatan Pemagang"
+
+msgid "List Master Apprentice Submission Document Categories"
+msgstr "Daftar Kategori Dokumen Penyerahan"
+
+msgid "List Master Candidate Interview Types"
+msgstr "Daftar Jenis Wawancara Kandidat"
+
+msgid "List Master Departments"
+msgstr "Daftar Departemen"
+
+msgid "List Master Document Preparedness Statuses"
+msgstr "Daftar Status Kesiapan Dokumen"
+
+msgid "List Master Employment Positions"
+msgstr "Daftar Posisi Pekerjaan"
+
+msgid "List Master Icons"
+msgstr "Daftar Ikon"
+
+msgid "List Master Interview Results"
+msgstr "Daftar Hasil Wawancara"
+
+msgid "List Master Occupation Categories"
+msgstr "Daftar Kategori Pekerjaan"
+
+msgid "List Master Translations"
+msgstr "Daftar Terjemahan"
+
+msgid "List Roles"
+msgstr "Daftar Peran"
+
+msgid "List Sessions"
+msgstr "Daftar Sesi"
+
+msgid "List Trainee Certifications"
+msgstr "Daftar Sertifikasi Trainee"
+
+msgid "List Trainee Courses"
+msgstr "Daftar Kursus Trainee"
+
+msgid "List Trainee Families"
+msgstr "Daftar Keluarga Trainee"
+
+msgid "List Trainee Family Stories"
+msgstr "Daftar Riwayat Keluarga Trainee"
+
+msgid "Master Apprentice Coe Type"
+msgstr "Jenis COE Pemagang"
+
+msgid "Master Apprentice Coe Types"
+msgstr "Jenis COE Pemagang"
+
+msgid "Master Apprentice Departure Document"
+msgstr "Dokumen Keberangkatan Pemagang"
+
+msgid "Master Apprentice Departure Documents"
+msgstr "Dokumen Keberangkatan Pemagang"
+
+msgid "Master Apprentice Submission Document Categories"
+msgstr "Kategori Dokumen Penyerahan"
+
+msgid "Master Apprentice Submission Document Category"
+msgstr "Kategori Dokumen Penyerahan"
+
+msgid "Master Blood Type"
+msgstr "Golongan Darah"
+
+msgid "Master Candidate Interview Type"
+msgstr "Jenis Wawancara Kandidat"
+
+msgid "Master Candidate Interview Types"
+msgstr "Jenis Wawancara Kandidat"
+
+msgid "Master Coe Type Id"
+msgstr "ID Jenis COE"
+
+msgid "Master Currency"
+msgstr "Mata Uang"
+
+msgid "Master Department"
+msgstr "Departemen"
+
+msgid "Master Departments"
+msgstr "Departemen"
+
+msgid "Master Document Preparedness Status"
+msgstr "Status Kesiapan Dokumen"
+
+msgid "Master Document Preparedness Statuses"
+msgstr "Status Kesiapan Dokumen"
+
+msgid "Master Document Submission Status"
+msgstr "Status Penyerahan Dokumen"
+
+msgid "Master Employee Status"
+msgstr "Status Kepegawaian"
+
+msgid "Master Employment Position"
+msgstr "Posisi Pekerjaan"
+
+msgid "Master Employment Positions"
+msgstr "Posisi Pekerjaan"
+
+msgid "Master Family Connection"
+msgstr "Hubungan Keluarga"
+
+msgid "Master Gender"
+msgstr "Jenis Kelamin"
+
+msgid "Master Icon"
+msgstr "Ikon"
+
+msgid "Master Icons"
+msgstr "Ikon"
+
+msgid "Master Interview Result"
+msgstr "Hasil Wawancara"
+
+msgid "Master Interview Results"
+msgstr "Hasil Wawancara"
+
+msgid "Master Job Category"
+msgstr "Kategori Pekerjaan"
+
+msgid "Master Kabupaten"
+msgstr "Kabupaten/Kota"
+
+msgid "Master Kecamatan"
+msgstr "Kecamatan"
+
+msgid "Master Kelurahan"
+msgstr "Kelurahan/Desa"
+
+msgid "Master Marriage Status"
+msgstr "Status Pernikahan"
+
+msgid "Master Medical Check Up Result"
+msgstr "Hasil Pemeriksaan Kesehatan"
+
+msgid "Master Occupation"
+msgstr "Pekerjaan"
+
+msgid "Master Occupation Categories"
+msgstr "Kategori Pekerjaan"
+
+msgid "Master Occupation Category"
+msgstr "Kategori Pekerjaan"
+
+msgid "Master Payment Method"
+msgstr "Metode Pembayaran"
+
+msgid "Master Propinsi"
+msgstr "Provinsi"
+
+msgid "Master Rejected Reason"
+msgstr "Alasan Penolakan"
+
+msgid "Master Religion"
+msgstr "Agama"
+
+msgid "Master Strata"
+msgstr "Jenjang Pendidikan"
+
+msgid "Master Training Competency"
+msgstr "Kompetensi Pelatihan"
+
+msgid "Master Training Test Score Grade"
+msgstr "Predikat Nilai Ujian"
+
+msgid "Master Transaction Category"
+msgstr "Kategori Transaksi"
+
+msgid "Master Translation"
+msgstr "Terjemahan"
+
+msgid "Master Translations"
+msgstr "Terjemahan"
+
+msgid "Medical Check Up Result Id"
+msgstr "ID Hasil Pemeriksaan Kesehatan"
+
+msgid "New Apprentice Certification"
+msgstr "Sertifikasi Pemagang Baru"
+
+msgid "New Apprentice Course"
+msgstr "Kursus Pemagang Baru"
+
+msgid "New Apprentice Family Story"
+msgstr "Riwayat Keluarga Pemagang Baru"
+
+msgid "New Apprentice Record Coe Visa"
+msgstr "Rekaman COE / Visa Pemagang Baru"
+
+msgid "New Apprentice Record Pasport"
+msgstr "Rekaman Paspor Pemagang Baru"
+
+msgid "New Candidate Document Category"
+msgstr "Kategori Dokumen Kandidat Baru"
+
+msgid "New Candidate Documents Master List"
+msgstr "Daftar Induk Dokumen Kandidat Baru"
+
+msgid "New Candidate Record Medical Check Up"
+msgstr "Rekaman Pemeriksaan Kesehatan Kandidat Baru"
+
+msgid "New Cooperative Association Story"
+msgstr "Riwayat Asosiasi Koperasi Baru"
+
+msgid "New Master Apprentice Coe Type"
+msgstr "Jenis COE Pemagang Baru"
+
+msgid "New Master Apprentice Departure Document"
+msgstr "Dokumen Keberangkatan Pemagang Baru"
+
+msgid "New Master Apprentice Submission Document Category"
+msgstr "Kategori Dokumen Penyerahan Baru"
+
+msgid "New Master Candidate Interview Type"
+msgstr "Jenis Wawancara Kandidat Baru"
+
+msgid "New Master Department"
+msgstr "Departemen Baru"
+
+msgid "New Master Document Preparedness Status"
+msgstr "Status Kesiapan Dokumen Baru"
+
+msgid "New Master Employment Position"
+msgstr "Posisi Pekerjaan Baru"
+
+msgid "New Master Icon"
+msgstr "Ikon Baru"
+
+msgid "New Master Interview Result"
+msgstr "Hasil Wawancara Baru"
+
+msgid "New Master Occupation Category"
+msgstr "Kategori Pekerjaan Baru"
+
+msgid "New Master Translation"
+msgstr "Terjemahan Baru"
+
+msgid "New Role"
+msgstr "Peran Baru"
+
+msgid "New Session"
+msgstr "Sesi Baru"
+
+msgid "New Trainee Certification"
+msgstr "Sertifikasi Trainee Baru"
+
+msgid "New Trainee Course"
+msgstr "Kursus Trainee Baru"
+
+msgid "New Trainee Family"
+msgstr "Keluarga Trainee Baru"
+
+msgid "New Trainee Family Story"
+msgstr "Riwayat Keluarga Trainee Baru"
+
+msgid "Occupation Category Id"
+msgstr "ID Kategori Pekerjaan"
+
+msgid "Related Users"
+msgstr "Pengguna Terkait"
+
+msgid "Save Apprentice Certification"
+msgstr "Simpan Sertifikasi Pemagang"
+
+msgid "Save Apprentice Course"
+msgstr "Simpan Kursus Pemagang"
+
+msgid "Save Apprentice Family Story"
+msgstr "Simpan Riwayat Keluarga Pemagang"
+
+msgid "Save Apprentice Record Coe Visa"
+msgstr "Simpan Rekaman COE / Visa Pemagang"
+
+msgid "Save Apprentice Record Pasport"
+msgstr "Simpan Rekaman Paspor Pemagang"
+
+msgid "Save Candidate Certification"
+msgstr "Simpan Sertifikasi Kandidat"
+
+msgid "Save Candidate Course"
+msgstr "Simpan Kursus Kandidat"
+
+msgid "Save Candidate Document"
+msgstr "Simpan Dokumen Kandidat"
+
+msgid "Save Candidate Document Category"
+msgstr "Simpan Kategori Dokumen Kandidat"
+
+msgid "Save Candidate Documents Master List"
+msgstr "Simpan Daftar Induk Dokumen Kandidat"
+
+msgid "Save Candidate Experience"
+msgstr "Simpan Pengalaman Kandidat"
+
+msgid "Save Candidate Family"
+msgstr "Simpan Keluarga Kandidat"
+
+msgid "Save Candidate Record Medical Check Up"
+msgstr "Simpan Rekaman Pemeriksaan Kesehatan Kandidat"
+
+msgid "Save Cooperative Association Story"
+msgstr "Simpan Riwayat Asosiasi Koperasi"
+
+msgid "Save Master Apprentice Coe Type"
+msgstr "Simpan Jenis COE Pemagang"
+
+msgid "Save Master Apprentice Departure Document"
+msgstr "Simpan Dokumen Keberangkatan Pemagang"
+
+msgid "Save Master Apprentice Submission Document Category"
+msgstr "Simpan Kategori Dokumen Penyerahan"
+
+msgid "Save Master Blood Type"
+msgstr "Simpan Golongan Darah"
+
+msgid "Save Master Candidate Interview Type"
+msgstr "Simpan Jenis Wawancara Kandidat"
+
+msgid "Save Master Department"
+msgstr "Simpan Departemen"
+
+msgid "Save Master Document Preparedness Status"
+msgstr "Simpan Status Kesiapan Dokumen"
+
+msgid "Save Master Document Submission Status"
+msgstr "Simpan Status Penyerahan Dokumen"
+
+msgid "Save Master Employee Status"
+msgstr "Simpan Status Kepegawaian"
+
+msgid "Save Master Employment Position"
+msgstr "Simpan Posisi Pekerjaan"
+
+msgid "Save Master Family Connection"
+msgstr "Simpan Hubungan Keluarga"
+
+msgid "Save Master Gender"
+msgstr "Simpan Jenis Kelamin"
+
+msgid "Save Master Icon"
+msgstr "Simpan Ikon"
+
+msgid "Save Master Interview Result"
+msgstr "Simpan Hasil Wawancara"
+
+msgid "Save Master Job Category"
+msgstr "Simpan Kategori Pekerjaan"
+
+msgid "Save Master Kabupaten"
+msgstr "Simpan Kabupaten/Kota"
+
+msgid "Save Master Kecamatan"
+msgstr "Simpan Kecamatan"
+
+msgid "Save Master Kelurahan"
+msgstr "Simpan Kelurahan/Desa"
+
+msgid "Save Master Marriage Status"
+msgstr "Simpan Status Pernikahan"
+
+msgid "Save Master Medical Check Up Result"
+msgstr "Simpan Hasil Pemeriksaan Kesehatan"
+
+msgid "Save Master Occupation"
+msgstr "Simpan Pekerjaan"
+
+msgid "Save Master Occupation Category"
+msgstr "Simpan Kategori Pekerjaan"
+
+msgid "Save Master Propinsi"
+msgstr "Simpan Provinsi"
+
+msgid "Save Master Rejected Reason"
+msgstr "Simpan Alasan Penolakan"
+
+msgid "Save Master Religion"
+msgstr "Simpan Agama"
+
+msgid "Save Master Strata"
+msgstr "Simpan Jenjang Pendidikan"
+
+msgid "Save Master Translation"
+msgstr "Simpan Terjemahan"
+
+msgid "Save Role Assignments"
+msgstr "Simpan Penetapan Peran"
+
+msgid "Save Session"
+msgstr "Simpan Sesi"
+
+msgid "Save Trainee Certification"
+msgstr "Simpan Sertifikasi Trainee"
+
+msgid "Save Trainee Course"
+msgstr "Simpan Kursus Trainee"
+
+msgid "Save Trainee Family"
+msgstr "Simpan Keluarga Trainee"
+
+msgid "Save Trainee Family Story"
+msgstr "Simpan Riwayat Keluarga Trainee"
+
+msgid "Select Candidate"
+msgstr "Pilih Kandidat"
+
+msgid "Select Certification Date"
+msgstr "Pilih Tanggal Sertifikasi"
+
+msgid "Select Date Coe Received"
+msgstr "Pilih Tanggal COE Diterima"
+
+msgid "Select Date Issue"
+msgstr "Pilih Tanggal Terbit"
+
+msgid "Select Date Paid"
+msgstr "Pilih Tanggal Pembayaran"
+
+msgid "Select Date Received"
+msgstr "Pilih Tanggal Diterima"
+
+msgid "Select Date Visa Application"
+msgstr "Pilih Tanggal Pengajuan Visa"
+
+msgid "Select Date Visa Received"
+msgstr "Pilih Tanggal Visa Diterima"
+
+msgid "Select Roles"
+msgstr "Pilih Peran"
+
+msgid "Select Updated"
+msgstr "Pilih Diperbarui"
+
+msgid "Session"
+msgstr "Sesi"
+
+msgid "Sessions"
+msgstr "Sesi"
+
+msgid "Title Eng"
+msgstr "Judul (Inggris)"
+
+msgid "Title Kanji"
+msgstr "Judul (Kanji)"
+
+msgid "Trainee Certification"
+msgstr "Sertifikasi Trainee"
+
+msgid "Trainee Certifications"
+msgstr "Sertifikasi Trainee"
+
+msgid "Trainee Course"
+msgstr "Kursus Trainee"
+
+msgid "Trainee Courses"
+msgstr "Kursus Trainee"
+
+msgid "Trainee Families"
+msgstr "Keluarga Trainee"
+
+msgid "Trainee Family"
+msgstr "Keluarga Trainee"
+
+msgid "Trainee Family Stories"
+msgstr "Riwayat Keluarga Trainee"
+
+msgid "Trainee Family Story"
+msgstr "Riwayat Keluarga Trainee"
+
+msgid "Trainee Name Card"
+msgstr "Kartu Nama Trainee"
+
+msgid "Trainee Score Average"
+msgstr "Rata-rata Nilai Trainee"
+
+msgid "Add {0} for {1}"
+msgstr "Tambah {0} untuk {1}"
+
+msgid "All apprentices"
+msgstr "Semua pemagang"
+
+msgid "Apprentice Ticket Id"
+msgstr "ID Tiket Pemagang"
+
+msgid "Are you sure you want to remove the role \"{0}\" from this user?"
+msgstr "Yakin ingin mencabut peran \"{0}\" dari pengguna ini?"
+
+msgid "Arrival Airport Id"
+msgstr "ID Bandara Kedatangan"
+
+msgid "Arrival Datetime"
+msgstr "Waktu Kedatangan"
+
+msgid "Assign Roles"
+msgstr "Tetapkan Peran"
+
+msgid "Assign Roles to: "
+msgstr "Tetapkan Peran untuk: "
+
+msgid "Assigned Roles"
+msgstr "Peran yang Ditetapkan"
+
+msgid "Back to Users"
+msgstr "Kembali ke Daftar Pengguna"
+
+msgid "Batch Print"
+msgstr "Cetak Sekaligus"
+
+msgid "Body Html"
+msgstr "Isi (HTML)"
+
+msgid "Body Text"
+msgstr "Isi (Teks)"
+
+msgid "By document type"
+msgstr "Menurut jenis dokumen"
+
+msgid "Candidate Document Submission Checklist"
+msgstr "Daftar Periksa Penyerahan Dokumen Kandidat"
+
+msgid "Candidate Submission Documents"
+msgstr "Dokumen Penyerahan Kandidat"
+
+msgid "Candidates by Institution"
+msgstr "Kandidat menurut Lembaga"
+
+msgid "Candidates by Month"
+msgstr "Kandidat menurut Bulan"
+
+msgid "Chart of accounts grouped by type, with balances posted from journals."
+msgstr "Bagan akun dikelompokkan menurut jenis, dengan saldo yang diposting dari jurnal."
+
+msgid "Checklist status is stored per candidate"
+msgstr "Status daftar periksa disimpan per kandidat"
+
+msgid "Clone"
+msgstr "Duplikat"
+
+msgid "Clone access from"
+msgstr "Duplikat akses dari"
+
+msgid "Cost Records"
+msgstr "Catatan Biaya"
+
+msgid "Country"
+msgstr "Negara"
+
+msgid "Currency Code"
+msgstr "Kode Mata Uang"
+
+msgid "Departure Airport Id"
+msgstr "ID Bandara Keberangkatan"
+
+msgid "Departure Datetime"
+msgstr "Waktu Keberangkatan"
+
+msgid "Document Id"
+msgstr "ID Dokumen"
+
+msgid "Document Master List"
+msgstr "Daftar Induk Dokumen"
+
+msgid "Documents submitted for apprentices in Japan will appear here."
+msgstr "Dokumen yang diserahkan untuk pemagang di Jepang akan muncul di sini."
+
+msgid "Edit leg {0}"
+msgstr "Ubah segmen {0}"
+
+msgid "Eligible Candidates"
+msgstr "Kandidat yang Memenuhi Syarat"
+
+msgid "Email Templates"
+msgstr "Templat Email"
+
+msgid "Emails Sent"
+msgstr "Email Terkirim"
+
+msgid "Enter Title Hiragana (Hiragana)"
+msgstr "Masukkan Judul (Hiragana)"
+
+msgid "Enter detailed description of this interview result"
+msgstr "Masukkan deskripsi rinci hasil wawancara ini"
+
+msgid "Enter image filename (e.g., result_icon.jpg)"
+msgstr "Masukkan nama berkas gambar (mis., result_icon.jpg)"
+
+msgid "Enter interview result title"
+msgstr "Masukkan judul hasil wawancara"
+
+msgid "Error"
+msgstr "Kesalahan"
+
+msgid "Filter by trainee / type / status…"
+msgstr "Saring menurut trainee / jenis / status…"
+
+msgid "Financial and operational reporting - {0} of {1} journals posted"
+msgstr "Pelaporan keuangan dan operasional - {0} dari {1} jurnal telah diposting"
+
+msgid "Foreign Key"
+msgstr "Kunci Asing"
+
+msgid "Generate {0} posted journal entries from these source records?"
+msgstr "Buat {0} entri jurnal terposting dari data sumber ini?"
+
+msgid "Here are all the management functions and features available for your role. Click any card to get started."
+msgstr "Berikut semua fungsi dan fitur pengelolaan yang tersedia untuk peran Anda. Klik kartu mana pun untuk memulai."
+
+msgid "Ip Address"
+msgstr "Alamat IP"
+
+msgid "It only carries header totals (Debit {0} / Credit {1})."
+msgstr "Hanya memuat total header (Debit {0} / Kredit {1})."
+
+msgid "Layover in {0}"
+msgstr "Transit di {0}"
+
+msgid "Master Airline Id"
+msgstr "ID Maskapai"
+
+msgid "Master Blood Types"
+msgstr "Golongan Darah"
+
+msgid "Master Currencies"
+msgstr "Mata Uang"
+
+msgid "Master Document Submission Statuses"
+msgstr "Status Penyerahan Dokumen"
+
+msgid "Master Employee Statuses"
+msgstr "Status Kepegawaian"
+
+msgid "Master Family Connections"
+msgstr "Hubungan Keluarga"
+
+msgid "Master Genders"
+msgstr "Jenis Kelamin"
+
+msgid "Master Job Categories"
+msgstr "Kategori Pekerjaan"
+
+msgid "Master Kabupatens"
+msgstr "Kabupaten/Kota"
+
+msgid "Master Kecamatans"
+msgstr "Kecamatan"
+
+msgid "Master Kelurahans"
+msgstr "Kelurahan/Desa"
+
+msgid "Master Marriage Statuses"
+msgstr "Status Pernikahan"
+
+msgid "Master Medical Check Up Results"
+msgstr "Hasil Pemeriksaan Kesehatan"
+
+msgid "Master Occupations"
+msgstr "Pekerjaan"
+
+msgid "Master Payment Methods"
+msgstr "Metode Pembayaran"
+
+msgid "Master Propinsis"
+msgstr "Provinsi"
+
+msgid "Master Rejected Reasons"
+msgstr "Alasan Penolakan"
+
+msgid "Master Religions"
+msgstr "Agama"
+
+msgid "Master Stratas"
+msgstr "Jenjang Pendidikan"
+
+msgid "Master Training Competencies"
+msgstr "Kompetensi Pelatihan"
+
+msgid "Master Training Test Score Grades"
+msgstr "Predikat Nilai Ujian"
+
+msgid "Master Transaction Categories"
+msgstr "Kategori Transaksi"
+
+msgid "Max Score"
+msgstr "Nilai Maksimal"
+
+msgid "Min Score"
+msgstr "Nilai Minimal"
+
+msgid "Missing account {0} or {1} in the Chart of Accounts."
+msgstr "Akun {0} atau {1} tidak ada di Bagan Akun."
+
+msgid "Missing {0} document(s):"
+msgstr "Kurang {0} dokumen:"
+
+msgid "Model"
+msgstr "Model"
+
+msgid "No Batch"
+msgstr "Tanpa Angkatan"
+
+msgid "No apprentice documents yet."
+msgstr "Belum ada dokumen pemagang."
+
+msgid "No candidate data available yet"
+msgstr "Belum ada data kandidat"
+
+msgid "No email templates yet."
+msgstr "Belum ada templat email."
+
+msgid "No features have been assigned to your role yet. Please contact your administrator."
+msgstr "Belum ada fitur yang ditetapkan untuk peran Anda. Silakan hubungi administrator."
+
+msgid "No trainee data available yet"
+msgstr "Belum ada data trainee"
+
+msgid "No {0} accounts."
+msgstr "Tidak ada akun {0}."
+
+msgid "No {0} entries."
+msgstr "Tidak ada entri {0}."
+
+msgid "Open checklist for {0}"
+msgstr "Buka daftar periksa untuk {0}"
+
+msgid "Owes {0}"
+msgstr "Tunggakan {0}"
+
+msgid "Passed selection"
+msgstr "Lulus seleksi"
+
+msgid "Please select a candidate above to view and update the document checklist."
+msgstr "Silakan pilih kandidat di atas untuk melihat dan memperbarui daftar periksa dokumen."
+
+msgid "Print / Save PDF"
+msgstr "Cetak / Simpan PDF"
+
+msgid "Print All"
+msgstr "Cetak Semua"
+
+msgid "Print Card"
+msgstr "Cetak Kartu"
+
+msgid "Role Count"
+msgstr "Jumlah Peran"
+
+msgid "Role ID"
+msgstr "ID Peran"
+
+msgid "Role Menu Access"
+msgstr "Akses Menu per Peran"
+
+msgid "Role Name"
+msgstr "Nama Peran"
+
+msgid "Save Assignments for"
+msgstr "Simpan Penetapan untuk"
+
+msgid "Score Average"
+msgstr "Rata-rata Nilai"
+
+msgid "Select a candidate to see at a glance which documents have been uploaded. Use the switches to mark documents as submitted."
+msgstr "Pilih kandidat untuk melihat sekilas dokumen mana yang sudah diunggah. Gunakan sakelar untuk menandai dokumen sebagai telah diserahkan."
+
+msgid "Select a trainee to print a single card, or print an entire batch"
+msgstr "Pilih trainee untuk mencetak satu kartu, atau cetak satu angkatan sekaligus"
+
+msgid "Sent"
+msgstr "Terkirim"
+
+msgid "Submission Date"
+msgstr "Tanggal Penyerahan"
+
+msgid "Submission documents for apprentices in Japan"
+msgstr "Dokumen penyerahan untuk pemagang di Jepang"
+
+msgid "Template Key"
+msgstr "Kunci Templat"
+
+msgid "Templates"
+msgstr "Templat"
+
+msgid "There are no related CandidateRecordInterviews for this Master Candidate Interview Type."
+msgstr "Tidak ada rekaman wawancara terkait untuk jenis wawancara ini."
+
+msgid "Tick the menus a role may see. Saving also grants the role permission to open the page each menu links to."
+msgstr "Centang menu yang boleh dilihat sebuah peran. Menyimpan sekaligus memberi peran itu izin membuka halaman yang dituju tiap menu."
+
+msgid "Title Hiragana"
+msgstr "Judul (Hiragana)"
+
+msgid "Total Billed"
+msgstr "Total Ditagihkan"
+
+msgid "Trainee Name Cards"
+msgstr "Kartu Nama Trainee"
+
+msgid "Trainee Score Averages"
+msgstr "Rata-rata Nilai Trainee"
+
+msgid "Trainees by Status"
+msgstr "Trainee menurut Status"
+
+msgid "Training Passed"
+msgstr "Pelatihan Lulus"
+
+msgid "User Agent"
+msgstr "User Agent"
+
+msgid "User Id"
+msgstr "ID Pengguna"
+
+msgid "User-Role Assignments"
+msgstr "Penetapan Pengguna-Peran"
+
+msgid "Valid Until"
+msgstr "Berlaku Sampai"
+
+msgid "Variables"
+msgstr "Variabel"
+
+msgid "View Assignments"
+msgstr "Lihat Penetapan"
+
+msgid "View Role"
+msgstr "Lihat Peran"
+
+msgid "Vocational Training Institution Stories"
+msgstr "Riwayat Lembaga Pelatihan Kerja"
+
+msgid "Welcome, {0}"
+msgstr "Selamat datang, {0}"
+
+msgid "balance"
+msgstr "saldo"
+
+msgid "cards per page"
+msgstr "kartu per halaman"
+
+msgid "clear all"
+msgstr "hapus semua"
+
+msgid "feature(s)"
+msgstr "fitur"
+
+msgid "inactive"
+msgstr "nonaktif"
+
+msgid "select all"
+msgstr "pilih semua"
+
+msgid "select category"
+msgstr "pilih kategori"
+
+msgid "to"
+msgstr "sampai"
+
+msgid "total"
+msgstr "total"
+
+msgid "unused"
+msgstr "tidak terpakai"
+
+msgid "{0} of {1} required documents collected"
+msgstr "{0} dari {1} dokumen wajib terkumpul"
+
