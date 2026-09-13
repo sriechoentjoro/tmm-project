@@ -137,11 +137,11 @@ $currentLang = $this->request->getSession()->read('Config.language') ?: 'ind';
     <div class="alert-info-custom">
         <i class="fas fa-info-circle"></i>
         <?php if ($currentLang === 'ind'): ?>
-            <strong>Apprentice Family Stories</strong> adalah modul untuk mengelola data terkait Apprentice Family Stories dalam sistem TMM.
+            <strong>Riwayat Keluarga Pemagang</strong> adalah modul untuk mengelola data terkait Riwayat Keluarga Pemagang dalam sistem TMM.
         <?php elseif ($currentLang === 'eng'): ?>
             <strong>Apprentice Family Stories</strong> is a module for managing Apprentice Family Stories data in the TMM system.
         <?php else: ?>
-            <strong>Apprentice Family Stories</strong>は、TMMシステムでApprentice Family Stories データを管理するモジュールです。
+            <strong>技能実習生の家族記録</strong>は、TMMシステムで技能実習生の家族記録データを管理するモジュールです。
         <?php endif; ?>
     </div>
     
@@ -189,11 +189,11 @@ $currentLang = $this->request->getSession()->read('Config.language') ?: 'ind';
                         <?php endif; ?>:
                     </strong>
                     <?php if ($currentLang === 'ind'): ?>
-                        Mengisi formulir data Apprentice Family Stories
+                        Mengisi formulir data Riwayat Keluarga Pemagang
                     <?php elseif ($currentLang === 'eng'): ?>
                         Fill out Apprentice Family Stories data form
                     <?php else: ?>
-                        Apprentice Family Stories データフォームに記入する
+                        技能実習生の家族記録データフォームに記入する
                     <?php endif; ?>
                     <br>
                     

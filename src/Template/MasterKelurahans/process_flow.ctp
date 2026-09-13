@@ -137,11 +137,11 @@ $currentLang = $this->request->getSession()->read('Config.language') ?: 'ind';
     <div class="alert-info-custom">
         <i class="fas fa-info-circle"></i>
         <?php if ($currentLang === 'ind'): ?>
-            <strong>Master Kelurahans</strong> adalah modul untuk mengelola data terkait Master Kelurahans dalam sistem TMM.
+            <strong>Kelurahan/Desa</strong> adalah modul untuk mengelola data terkait Kelurahan/Desa dalam sistem TMM.
         <?php elseif ($currentLang === 'eng'): ?>
             <strong>Master Kelurahans</strong> is a module for managing Master Kelurahans data in the TMM system.
         <?php else: ?>
-            <strong>Master Kelurahans</strong>は、TMMシステムでMaster Kelurahans データを管理するモジュールです。
+            <strong>村・町</strong>は、TMMシステムで村・町データを管理するモジュールです。
         <?php endif; ?>
     </div>
     
@@ -189,11 +189,11 @@ $currentLang = $this->request->getSession()->read('Config.language') ?: 'ind';
                         <?php endif; ?>:
                     </strong>
                     <?php if ($currentLang === 'ind'): ?>
-                        Mengisi formulir data Master Kelurahans
+                        Mengisi formulir data Kelurahan/Desa
                     <?php elseif ($currentLang === 'eng'): ?>
                         Fill out Master Kelurahans data form
                     <?php else: ?>
-                        Master Kelurahans データフォームに記入する
+                        村・町データフォームに記入する
                     <?php endif; ?>
                     <br>
                     

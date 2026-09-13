@@ -137,11 +137,11 @@ $currentLang = $this->request->getSession()->read('Config.language') ?: 'ind';
     <div class="alert-info-custom">
         <i class="fas fa-info-circle"></i>
         <?php if ($currentLang === 'ind'): ?>
-            <strong>Master Icons</strong> adalah modul untuk mengelola data terkait Master Icons dalam sistem TMM.
+            <strong>Ikon</strong> adalah modul untuk mengelola data terkait Ikon dalam sistem TMM.
         <?php elseif ($currentLang === 'eng'): ?>
             <strong>Master Icons</strong> is a module for managing Master Icons data in the TMM system.
         <?php else: ?>
-            <strong>Master Icons</strong>は、TMMシステムでMaster Icons データを管理するモジュールです。
+            <strong>アイコン</strong>は、TMMシステムでアイコンデータを管理するモジュールです。
         <?php endif; ?>
     </div>
     
@@ -189,11 +189,11 @@ $currentLang = $this->request->getSession()->read('Config.language') ?: 'ind';
                         <?php endif; ?>:
                     </strong>
                     <?php if ($currentLang === 'ind'): ?>
-                        Mengisi formulir data Master Icons
+                        Mengisi formulir data Ikon
                     <?php elseif ($currentLang === 'eng'): ?>
                         Fill out Master Icons data form
                     <?php else: ?>
-                        Master Icons データフォームに記入する
+                        アイコンデータフォームに記入する
                     <?php endif; ?>
                     <br>
                     

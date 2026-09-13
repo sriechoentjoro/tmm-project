@@ -137,11 +137,11 @@ $currentLang = $this->request->getSession()->read('Config.language') ?: 'ind';
     <div class="alert-info-custom">
         <i class="fas fa-info-circle"></i>
         <?php if ($currentLang === 'ind'): ?>
-            <strong>Master Transaction Categories</strong> adalah modul untuk mengelola data terkait Master Transaction Categories dalam sistem TMM.
+            <strong>Kategori Transaksi</strong> adalah modul untuk mengelola data terkait Kategori Transaksi dalam sistem TMM.
         <?php elseif ($currentLang === 'eng'): ?>
             <strong>Master Transaction Categories</strong> is a module for managing Master Transaction Categories data in the TMM system.
         <?php else: ?>
-            <strong>Master Transaction Categories</strong>は、TMMシステムでMaster Transaction Categories データを管理するモジュールです。
+            <strong>取引区分</strong>は、TMMシステムで取引区分データを管理するモジュールです。
         <?php endif; ?>
     </div>
     
@@ -189,11 +189,11 @@ $currentLang = $this->request->getSession()->read('Config.language') ?: 'ind';
                         <?php endif; ?>:
                     </strong>
                     <?php if ($currentLang === 'ind'): ?>
-                        Mengisi formulir data Master Transaction Categories
+                        Mengisi formulir data Kategori Transaksi
                     <?php elseif ($currentLang === 'eng'): ?>
                         Fill out Master Transaction Categories data form
                     <?php else: ?>
-                        Master Transaction Categories データフォームに記入する
+                        取引区分データフォームに記入する
                     <?php endif; ?>
                     <br>
                     

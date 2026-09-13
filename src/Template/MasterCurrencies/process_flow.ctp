@@ -137,11 +137,11 @@ $currentLang = $this->request->getSession()->read('Config.language') ?: 'ind';
     <div class="alert-info-custom">
         <i class="fas fa-info-circle"></i>
         <?php if ($currentLang === 'ind'): ?>
-            <strong>Master Currencies</strong> adalah modul untuk mengelola data terkait Master Currencies dalam sistem TMM.
+            <strong>Mata Uang</strong> adalah modul untuk mengelola data terkait Mata Uang dalam sistem TMM.
         <?php elseif ($currentLang === 'eng'): ?>
             <strong>Master Currencies</strong> is a module for managing Master Currencies data in the TMM system.
         <?php else: ?>
-            <strong>Master Currencies</strong>は、TMMシステムでMaster Currencies データを管理するモジュールです。
+            <strong>通貨</strong>は、TMMシステムで通貨データを管理するモジュールです。
         <?php endif; ?>
     </div>
     
@@ -189,11 +189,11 @@ $currentLang = $this->request->getSession()->read('Config.language') ?: 'ind';
                         <?php endif; ?>:
                     </strong>
                     <?php if ($currentLang === 'ind'): ?>
-                        Mengisi formulir data Master Currencies
+                        Mengisi formulir data Mata Uang
                     <?php elseif ($currentLang === 'eng'): ?>
                         Fill out Master Currencies data form
                     <?php else: ?>
-                        Master Currencies データフォームに記入する
+                        通貨データフォームに記入する
                     <?php endif; ?>
                     <br>
                     

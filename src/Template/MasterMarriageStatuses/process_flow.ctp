@@ -137,11 +137,11 @@ $currentLang = $this->request->getSession()->read('Config.language') ?: 'ind';
     <div class="alert-info-custom">
         <i class="fas fa-info-circle"></i>
         <?php if ($currentLang === 'ind'): ?>
-            <strong>Master Marriage Statuses</strong> adalah modul untuk mengelola data terkait Master Marriage Statuses dalam sistem TMM.
+            <strong>Status Pernikahan</strong> adalah modul untuk mengelola data terkait Status Pernikahan dalam sistem TMM.
         <?php elseif ($currentLang === 'eng'): ?>
             <strong>Master Marriage Statuses</strong> is a module for managing Master Marriage Statuses data in the TMM system.
         <?php else: ?>
-            <strong>Master Marriage Statuses</strong>は、TMMシステムでMaster Marriage Statuses データを管理するモジュールです。
+            <strong>婚姻状況</strong>は、TMMシステムで婚姻状況データを管理するモジュールです。
         <?php endif; ?>
     </div>
     
@@ -189,11 +189,11 @@ $currentLang = $this->request->getSession()->read('Config.language') ?: 'ind';
                         <?php endif; ?>:
                     </strong>
                     <?php if ($currentLang === 'ind'): ?>
-                        Mengisi formulir data Master Marriage Statuses
+                        Mengisi formulir data Status Pernikahan
                     <?php elseif ($currentLang === 'eng'): ?>
                         Fill out Master Marriage Statuses data form
                     <?php else: ?>
-                        Master Marriage Statuses データフォームに記入する
+                        婚姻状況データフォームに記入する
                     <?php endif; ?>
                     <br>
                     

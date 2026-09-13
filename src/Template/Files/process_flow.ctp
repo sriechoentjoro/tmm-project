@@ -137,11 +137,11 @@ $currentLang = $this->request->getSession()->read('Config.language') ?: 'ind';
     <div class="alert-info-custom">
         <i class="fas fa-info-circle"></i>
         <?php if ($currentLang === 'ind'): ?>
-            <strong>Files</strong> adalah modul untuk mengelola data terkait Files dalam sistem TMM.
+            <strong>Berkas</strong> adalah modul untuk mengelola data terkait Berkas dalam sistem TMM.
         <?php elseif ($currentLang === 'eng'): ?>
             <strong>Files</strong> is a module for managing Files data in the TMM system.
         <?php else: ?>
-            <strong>Files</strong>は、TMMシステムでFiles データを管理するモジュールです。
+            <strong>ファイル</strong>は、TMMシステムでファイルデータを管理するモジュールです。
         <?php endif; ?>
     </div>
     
@@ -189,11 +189,11 @@ $currentLang = $this->request->getSession()->read('Config.language') ?: 'ind';
                         <?php endif; ?>:
                     </strong>
                     <?php if ($currentLang === 'ind'): ?>
-                        Mengisi formulir data Files
+                        Mengisi formulir data Berkas
                     <?php elseif ($currentLang === 'eng'): ?>
                         Fill out Files data form
                     <?php else: ?>
-                        Files データフォームに記入する
+                        ファイルデータフォームに記入する
                     <?php endif; ?>
                     <br>
                     

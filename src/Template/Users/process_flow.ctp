@@ -137,11 +137,11 @@ $currentLang = $this->request->getSession()->read('Config.language') ?: 'ind';
     <div class="alert-info-custom">
         <i class="fas fa-info-circle"></i>
         <?php if ($currentLang === 'ind'): ?>
-            <strong>Users</strong> adalah modul untuk mengelola data terkait Users dalam sistem TMM.
+            <strong>Pengguna</strong> adalah modul untuk mengelola data terkait Pengguna dalam sistem TMM.
         <?php elseif ($currentLang === 'eng'): ?>
             <strong>Users</strong> is a module for managing Users data in the TMM system.
         <?php else: ?>
-            <strong>Users</strong>は、TMMシステムでUsers データを管理するモジュールです。
+            <strong>ユーザー</strong>は、TMMシステムでユーザーデータを管理するモジュールです。
         <?php endif; ?>
     </div>
     
@@ -189,11 +189,11 @@ $currentLang = $this->request->getSession()->read('Config.language') ?: 'ind';
                         <?php endif; ?>:
                     </strong>
                     <?php if ($currentLang === 'ind'): ?>
-                        Mengisi formulir data Users
+                        Mengisi formulir data Pengguna
                     <?php elseif ($currentLang === 'eng'): ?>
                         Fill out Users data form
                     <?php else: ?>
-                        Users データフォームに記入する
+                        ユーザーデータフォームに記入する
                     <?php endif; ?>
                     <br>
                     

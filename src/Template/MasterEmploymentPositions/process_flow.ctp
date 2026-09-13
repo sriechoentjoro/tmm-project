@@ -137,11 +137,11 @@ $currentLang = $this->request->getSession()->read('Config.language') ?: 'ind';
     <div class="alert-info-custom">
         <i class="fas fa-info-circle"></i>
         <?php if ($currentLang === 'ind'): ?>
-            <strong>Master Employment Positions</strong> adalah modul untuk mengelola data terkait Master Employment Positions dalam sistem TMM.
+            <strong>Posisi Pekerjaan</strong> adalah modul untuk mengelola data terkait Posisi Pekerjaan dalam sistem TMM.
         <?php elseif ($currentLang === 'eng'): ?>
             <strong>Master Employment Positions</strong> is a module for managing Master Employment Positions data in the TMM system.
         <?php else: ?>
-            <strong>Master Employment Positions</strong>は、TMMシステムでMaster Employment Positions データを管理するモジュールです。
+            <strong>職位</strong>は、TMMシステムで職位データを管理するモジュールです。
         <?php endif; ?>
     </div>
     
@@ -189,11 +189,11 @@ $currentLang = $this->request->getSession()->read('Config.language') ?: 'ind';
                         <?php endif; ?>:
                     </strong>
                     <?php if ($currentLang === 'ind'): ?>
-                        Mengisi formulir data Master Employment Positions
+                        Mengisi formulir data Posisi Pekerjaan
                     <?php elseif ($currentLang === 'eng'): ?>
                         Fill out Master Employment Positions data form
                     <?php else: ?>
-                        Master Employment Positions データフォームに記入する
+                        職位データフォームに記入する
                     <?php endif; ?>
                     <br>
                     

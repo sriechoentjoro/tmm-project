@@ -137,11 +137,11 @@ $currentLang = $this->request->getSession()->read('Config.language') ?: 'ind';
     <div class="alert-info-custom">
         <i class="fas fa-info-circle"></i>
         <?php if ($currentLang === 'ind'): ?>
-            <strong>Apprentice Submission Documents</strong> adalah modul untuk mengelola data terkait Apprentice Submission Documents dalam sistem TMM.
+            <strong>Dokumen Penyerahan Pemagang</strong> adalah modul untuk mengelola data terkait Dokumen Penyerahan Pemagang dalam sistem TMM.
         <?php elseif ($currentLang === 'eng'): ?>
             <strong>Apprentice Submission Documents</strong> is a module for managing Apprentice Submission Documents data in the TMM system.
         <?php else: ?>
-            <strong>Apprentice Submission Documents</strong>は、TMMシステムでApprentice Submission Documents データを管理するモジュールです。
+            <strong>技能実習生の提出書類</strong>は、TMMシステムで技能実習生の提出書類データを管理するモジュールです。
         <?php endif; ?>
     </div>
     
@@ -189,11 +189,11 @@ $currentLang = $this->request->getSession()->read('Config.language') ?: 'ind';
                         <?php endif; ?>:
                     </strong>
                     <?php if ($currentLang === 'ind'): ?>
-                        Mengisi formulir data Apprentice Submission Documents
+                        Mengisi formulir data Dokumen Penyerahan Pemagang
                     <?php elseif ($currentLang === 'eng'): ?>
                         Fill out Apprentice Submission Documents data form
                     <?php else: ?>
-                        Apprentice Submission Documents データフォームに記入する
+                        技能実習生の提出書類データフォームに記入する
                     <?php endif; ?>
                     <br>
                     

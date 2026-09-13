@@ -137,11 +137,11 @@ $currentLang = $this->request->getSession()->read('Config.language') ?: 'ind';
     <div class="alert-info-custom">
         <i class="fas fa-info-circle"></i>
         <?php if ($currentLang === 'ind'): ?>
-            <strong>Trainee Certifications</strong> adalah modul untuk mengelola data terkait Trainee Certifications dalam sistem TMM.
+            <strong>Sertifikasi Trainee</strong> adalah modul untuk mengelola data terkait Sertifikasi Trainee dalam sistem TMM.
         <?php elseif ($currentLang === 'eng'): ?>
             <strong>Trainee Certifications</strong> is a module for managing Trainee Certifications data in the TMM system.
         <?php else: ?>
-            <strong>Trainee Certifications</strong>は、TMMシステムでTrainee Certifications データを管理するモジュールです。
+            <strong>研修生の資格</strong>は、TMMシステムで研修生の資格データを管理するモジュールです。
         <?php endif; ?>
     </div>
     
@@ -189,11 +189,11 @@ $currentLang = $this->request->getSession()->read('Config.language') ?: 'ind';
                         <?php endif; ?>:
                     </strong>
                     <?php if ($currentLang === 'ind'): ?>
-                        Mengisi formulir data Trainee Certifications
+                        Mengisi formulir data Sertifikasi Trainee
                     <?php elseif ($currentLang === 'eng'): ?>
                         Fill out Trainee Certifications data form
                     <?php else: ?>
-                        Trainee Certifications データフォームに記入する
+                        研修生の資格データフォームに記入する
                     <?php endif; ?>
                     <br>
                     

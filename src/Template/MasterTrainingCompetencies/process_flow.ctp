@@ -137,11 +137,11 @@ $currentLang = $this->request->getSession()->read('Config.language') ?: 'ind';
     <div class="alert-info-custom">
         <i class="fas fa-info-circle"></i>
         <?php if ($currentLang === 'ind'): ?>
-            <strong>Master Training Competencies</strong> adalah modul untuk mengelola data terkait Master Training Competencies dalam sistem TMM.
+            <strong>Kompetensi Pelatihan</strong> adalah modul untuk mengelola data terkait Kompetensi Pelatihan dalam sistem TMM.
         <?php elseif ($currentLang === 'eng'): ?>
             <strong>Master Training Competencies</strong> is a module for managing Master Training Competencies data in the TMM system.
         <?php else: ?>
-            <strong>Master Training Competencies</strong>は、TMMシステムでMaster Training Competencies データを管理するモジュールです。
+            <strong>研修技能項目</strong>は、TMMシステムで研修技能項目データを管理するモジュールです。
         <?php endif; ?>
     </div>
     
@@ -189,11 +189,11 @@ $currentLang = $this->request->getSession()->read('Config.language') ?: 'ind';
                         <?php endif; ?>:
                     </strong>
                     <?php if ($currentLang === 'ind'): ?>
-                        Mengisi formulir data Master Training Competencies
+                        Mengisi formulir data Kompetensi Pelatihan
                     <?php elseif ($currentLang === 'eng'): ?>
                         Fill out Master Training Competencies data form
                     <?php else: ?>
-                        Master Training Competencies データフォームに記入する
+                        研修技能項目データフォームに記入する
                     <?php endif; ?>
                     <br>
                     

@@ -137,11 +137,11 @@ $currentLang = $this->request->getSession()->read('Config.language') ?: 'ind';
     <div class="alert-info-custom">
         <i class="fas fa-info-circle"></i>
         <?php if ($currentLang === 'ind'): ?>
-            <strong>Trainee Score Averages</strong> adalah modul untuk mengelola data terkait Trainee Score Averages dalam sistem TMM.
+            <strong>Rata-rata Nilai Trainee</strong> adalah modul untuk mengelola data terkait Rata-rata Nilai Trainee dalam sistem TMM.
         <?php elseif ($currentLang === 'eng'): ?>
             <strong>Trainee Score Averages</strong> is a module for managing Trainee Score Averages data in the TMM system.
         <?php else: ?>
-            <strong>Trainee Score Averages</strong>は、TMMシステムでTrainee Score Averages データを管理するモジュールです。
+            <strong>研修生の平均点</strong>は、TMMシステムで研修生の平均点データを管理するモジュールです。
         <?php endif; ?>
     </div>
     
@@ -189,11 +189,11 @@ $currentLang = $this->request->getSession()->read('Config.language') ?: 'ind';
                         <?php endif; ?>:
                     </strong>
                     <?php if ($currentLang === 'ind'): ?>
-                        Mengisi formulir data Trainee Score Averages
+                        Mengisi formulir data Rata-rata Nilai Trainee
                     <?php elseif ($currentLang === 'eng'): ?>
                         Fill out Trainee Score Averages data form
                     <?php else: ?>
-                        Trainee Score Averages データフォームに記入する
+                        研修生の平均点データフォームに記入する
                     <?php endif; ?>
                     <br>
                     

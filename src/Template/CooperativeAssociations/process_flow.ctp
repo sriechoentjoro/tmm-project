@@ -137,11 +137,11 @@ $currentLang = $this->request->getSession()->read('Config.language') ?: 'ind';
     <div class="alert-info-custom">
         <i class="fas fa-info-circle"></i>
         <?php if ($currentLang === 'ind'): ?>
-            <strong>Cooperative Associations</strong> adalah modul untuk mengelola data terkait Cooperative Associations dalam sistem TMM.
+            <strong>Asosiasi Koperasi</strong> adalah modul untuk mengelola data terkait Asosiasi Koperasi dalam sistem TMM.
         <?php elseif ($currentLang === 'eng'): ?>
             <strong>Cooperative Associations</strong> is a module for managing Cooperative Associations data in the TMM system.
         <?php else: ?>
-            <strong>Cooperative Associations</strong>は、TMMシステムでCooperative Associations データを管理するモジュールです。
+            <strong>協同組合</strong>は、TMMシステムで協同組合データを管理するモジュールです。
         <?php endif; ?>
     </div>
     
@@ -189,11 +189,11 @@ $currentLang = $this->request->getSession()->read('Config.language') ?: 'ind';
                         <?php endif; ?>:
                     </strong>
                     <?php if ($currentLang === 'ind'): ?>
-                        Mengisi formulir data Cooperative Associations
+                        Mengisi formulir data Asosiasi Koperasi
                     <?php elseif ($currentLang === 'eng'): ?>
                         Fill out Cooperative Associations data form
                     <?php else: ?>
-                        Cooperative Associations データフォームに記入する
+                        協同組合データフォームに記入する
                     <?php endif; ?>
                     <br>
                     

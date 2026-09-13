@@ -137,11 +137,11 @@ $currentLang = $this->request->getSession()->read('Config.language') ?: 'ind';
     <div class="alert-info-custom">
         <i class="fas fa-info-circle"></i>
         <?php if ($currentLang === 'ind'): ?>
-            <strong>Acceptance Organizations</strong> adalah modul untuk mengelola data terkait Acceptance Organizations dalam sistem TMM.
+            <strong>Organisasi Penerima</strong> adalah modul untuk mengelola data terkait Organisasi Penerima dalam sistem TMM.
         <?php elseif ($currentLang === 'eng'): ?>
             <strong>Acceptance Organizations</strong> is a module for managing Acceptance Organizations data in the TMM system.
         <?php else: ?>
-            <strong>Acceptance Organizations</strong>は、TMMシステムでAcceptance Organizations データを管理するモジュールです。
+            <strong>受入団体</strong>は、TMMシステムで受入団体データを管理するモジュールです。
         <?php endif; ?>
     </div>
     
@@ -189,11 +189,11 @@ $currentLang = $this->request->getSession()->read('Config.language') ?: 'ind';
                         <?php endif; ?>:
                     </strong>
                     <?php if ($currentLang === 'ind'): ?>
-                        Mengisi formulir data Acceptance Organizations
+                        Mengisi formulir data Organisasi Penerima
                     <?php elseif ($currentLang === 'eng'): ?>
                         Fill out Acceptance Organizations data form
                     <?php else: ?>
-                        Acceptance Organizations データフォームに記入する
+                        受入団体データフォームに記入する
                     <?php endif; ?>
                     <br>
                     

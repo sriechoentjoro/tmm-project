@@ -137,11 +137,11 @@ $currentLang = $this->request->getSession()->read('Config.language') ?: 'ind';
     <div class="alert-info-custom">
         <i class="fas fa-info-circle"></i>
         <?php if ($currentLang === 'ind'): ?>
-            <strong>Institution Registration</strong> adalah modul untuk mengelola data terkait Institution Registration dalam sistem TMM.
+            <strong>Pendaftaran Lembaga</strong> adalah modul untuk mengelola data terkait Pendaftaran Lembaga dalam sistem TMM.
         <?php elseif ($currentLang === 'eng'): ?>
             <strong>Institution Registration</strong> is a module for managing Institution Registration data in the TMM system.
         <?php else: ?>
-            <strong>Institution Registration</strong>は、TMMシステムでInstitution Registration データを管理するモジュールです。
+            <strong>機関の登録</strong>は、TMMシステムで機関の登録データを管理するモジュールです。
         <?php endif; ?>
     </div>
     
@@ -189,11 +189,11 @@ $currentLang = $this->request->getSession()->read('Config.language') ?: 'ind';
                         <?php endif; ?>:
                     </strong>
                     <?php if ($currentLang === 'ind'): ?>
-                        Mengisi formulir data Institution Registration
+                        Mengisi formulir data Pendaftaran Lembaga
                     <?php elseif ($currentLang === 'eng'): ?>
                         Fill out Institution Registration data form
                     <?php else: ?>
-                        Institution Registration データフォームに記入する
+                        機関の登録データフォームに記入する
                     <?php endif; ?>
                     <br>
                     

@@ -137,11 +137,11 @@ $currentLang = $this->request->getSession()->read('Config.language') ?: 'ind';
     <div class="alert-info-custom">
         <i class="fas fa-info-circle"></i>
         <?php if ($currentLang === 'ind'): ?>
-            <strong>Master Stratas</strong> adalah modul untuk mengelola data terkait Master Stratas dalam sistem TMM.
+            <strong>Jenjang Pendidikan</strong> adalah modul untuk mengelola data terkait Jenjang Pendidikan dalam sistem TMM.
         <?php elseif ($currentLang === 'eng'): ?>
             <strong>Master Stratas</strong> is a module for managing Master Stratas data in the TMM system.
         <?php else: ?>
-            <strong>Master Stratas</strong>は、TMMシステムでMaster Stratas データを管理するモジュールです。
+            <strong>学歴区分</strong>は、TMMシステムで学歴区分データを管理するモジュールです。
         <?php endif; ?>
     </div>
     
@@ -189,11 +189,11 @@ $currentLang = $this->request->getSession()->read('Config.language') ?: 'ind';
                         <?php endif; ?>:
                     </strong>
                     <?php if ($currentLang === 'ind'): ?>
-                        Mengisi formulir data Master Stratas
+                        Mengisi formulir data Jenjang Pendidikan
                     <?php elseif ($currentLang === 'eng'): ?>
                         Fill out Master Stratas data form
                     <?php else: ?>
-                        Master Stratas データフォームに記入する
+                        学歴区分データフォームに記入する
                     <?php endif; ?>
                     <br>
                     

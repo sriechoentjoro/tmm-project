@@ -137,11 +137,11 @@ $currentLang = $this->request->getSession()->read('Config.language') ?: 'ind';
     <div class="alert-info-custom">
         <i class="fas fa-info-circle"></i>
         <?php if ($currentLang === 'ind'): ?>
-            <strong>Master Job Categories</strong> adalah modul untuk mengelola data terkait Master Job Categories dalam sistem TMM.
+            <strong>Kategori Pekerjaan</strong> adalah modul untuk mengelola data terkait Kategori Pekerjaan dalam sistem TMM.
         <?php elseif ($currentLang === 'eng'): ?>
             <strong>Master Job Categories</strong> is a module for managing Master Job Categories data in the TMM system.
         <?php else: ?>
-            <strong>Master Job Categories</strong>は、TMMシステムでMaster Job Categories データを管理するモジュールです。
+            <strong>職種</strong>は、TMMシステムで職種データを管理するモジュールです。
         <?php endif; ?>
     </div>
     
@@ -189,11 +189,11 @@ $currentLang = $this->request->getSession()->read('Config.language') ?: 'ind';
                         <?php endif; ?>:
                     </strong>
                     <?php if ($currentLang === 'ind'): ?>
-                        Mengisi formulir data Master Job Categories
+                        Mengisi formulir data Kategori Pekerjaan
                     <?php elseif ($currentLang === 'eng'): ?>
                         Fill out Master Job Categories data form
                     <?php else: ?>
-                        Master Job Categories データフォームに記入する
+                        職種データフォームに記入する
                     <?php endif; ?>
                     <br>
                     

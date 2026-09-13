@@ -137,11 +137,11 @@ $currentLang = $this->request->getSession()->read('Config.language') ?: 'ind';
     <div class="alert-info-custom">
         <i class="fas fa-info-circle"></i>
         <?php if ($currentLang === 'ind'): ?>
-            <strong>Apprentice Flights</strong> adalah modul untuk mengelola data terkait Apprentice Flights dalam sistem TMM.
+            <strong>Penerbangan Pemagang</strong> adalah modul untuk mengelola data terkait Penerbangan Pemagang dalam sistem TMM.
         <?php elseif ($currentLang === 'eng'): ?>
             <strong>Apprentice Flights</strong> is a module for managing Apprentice Flights data in the TMM system.
         <?php else: ?>
-            <strong>Apprentice Flights</strong>は、TMMシステムでApprentice Flights データを管理するモジュールです。
+            <strong>技能実習生のフライト</strong>は、TMMシステムで技能実習生のフライトデータを管理するモジュールです。
         <?php endif; ?>
     </div>
     
@@ -189,11 +189,11 @@ $currentLang = $this->request->getSession()->read('Config.language') ?: 'ind';
                         <?php endif; ?>:
                     </strong>
                     <?php if ($currentLang === 'ind'): ?>
-                        Mengisi formulir data Apprentice Flights
+                        Mengisi formulir data Penerbangan Pemagang
                     <?php elseif ($currentLang === 'eng'): ?>
                         Fill out Apprentice Flights data form
                     <?php else: ?>
-                        Apprentice Flights データフォームに記入する
+                        技能実習生のフライトデータフォームに記入する
                     <?php endif; ?>
                     <br>
                     

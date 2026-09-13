@@ -137,11 +137,11 @@ $currentLang = $this->request->getSession()->read('Config.language') ?: 'ind';
     <div class="alert-info-custom">
         <i class="fas fa-info-circle"></i>
         <?php if ($currentLang === 'ind'): ?>
-            <strong>Master Departments</strong> adalah modul untuk mengelola data terkait Master Departments dalam sistem TMM.
+            <strong>Departemen</strong> adalah modul untuk mengelola data terkait Departemen dalam sistem TMM.
         <?php elseif ($currentLang === 'eng'): ?>
             <strong>Master Departments</strong> is a module for managing Master Departments data in the TMM system.
         <?php else: ?>
-            <strong>Master Departments</strong>は、TMMシステムでMaster Departments データを管理するモジュールです。
+            <strong>部署</strong>は、TMMシステムで部署データを管理するモジュールです。
         <?php endif; ?>
     </div>
     
@@ -189,11 +189,11 @@ $currentLang = $this->request->getSession()->read('Config.language') ?: 'ind';
                         <?php endif; ?>:
                     </strong>
                     <?php if ($currentLang === 'ind'): ?>
-                        Mengisi formulir data Master Departments
+                        Mengisi formulir data Departemen
                     <?php elseif ($currentLang === 'eng'): ?>
                         Fill out Master Departments data form
                     <?php else: ?>
-                        Master Departments データフォームに記入する
+                        部署データフォームに記入する
                     <?php endif; ?>
                     <br>
                     

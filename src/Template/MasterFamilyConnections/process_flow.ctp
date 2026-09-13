@@ -137,11 +137,11 @@ $currentLang = $this->request->getSession()->read('Config.language') ?: 'ind';
     <div class="alert-info-custom">
         <i class="fas fa-info-circle"></i>
         <?php if ($currentLang === 'ind'): ?>
-            <strong>Master Family Connections</strong> adalah modul untuk mengelola data terkait Master Family Connections dalam sistem TMM.
+            <strong>Hubungan Keluarga</strong> adalah modul untuk mengelola data terkait Hubungan Keluarga dalam sistem TMM.
         <?php elseif ($currentLang === 'eng'): ?>
             <strong>Master Family Connections</strong> is a module for managing Master Family Connections data in the TMM system.
         <?php else: ?>
-            <strong>Master Family Connections</strong>は、TMMシステムでMaster Family Connections データを管理するモジュールです。
+            <strong>続柄</strong>は、TMMシステムで続柄データを管理するモジュールです。
         <?php endif; ?>
     </div>
     
@@ -189,11 +189,11 @@ $currentLang = $this->request->getSession()->read('Config.language') ?: 'ind';
                         <?php endif; ?>:
                     </strong>
                     <?php if ($currentLang === 'ind'): ?>
-                        Mengisi formulir data Master Family Connections
+                        Mengisi formulir data Hubungan Keluarga
                     <?php elseif ($currentLang === 'eng'): ?>
                         Fill out Master Family Connections data form
                     <?php else: ?>
-                        Master Family Connections データフォームに記入する
+                        続柄データフォームに記入する
                     <?php endif; ?>
                     <br>
                     

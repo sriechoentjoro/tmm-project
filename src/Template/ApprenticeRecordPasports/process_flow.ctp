@@ -137,11 +137,11 @@ $currentLang = $this->request->getSession()->read('Config.language') ?: 'ind';
     <div class="alert-info-custom">
         <i class="fas fa-info-circle"></i>
         <?php if ($currentLang === 'ind'): ?>
-            <strong>Apprentice Record Pasports</strong> adalah modul untuk mengelola data terkait Apprentice Record Pasports dalam sistem TMM.
+            <strong>Rekaman Paspor Pemagang</strong> adalah modul untuk mengelola data terkait Rekaman Paspor Pemagang dalam sistem TMM.
         <?php elseif ($currentLang === 'eng'): ?>
             <strong>Apprentice Record Pasports</strong> is a module for managing Apprentice Record Pasports data in the TMM system.
         <?php else: ?>
-            <strong>Apprentice Record Pasports</strong>は、TMMシステムでApprentice Record Pasports データを管理するモジュールです。
+            <strong>技能実習生のパスポート記録</strong>は、TMMシステムで技能実習生のパスポート記録データを管理するモジュールです。
         <?php endif; ?>
     </div>
     
@@ -189,11 +189,11 @@ $currentLang = $this->request->getSession()->read('Config.language') ?: 'ind';
                         <?php endif; ?>:
                     </strong>
                     <?php if ($currentLang === 'ind'): ?>
-                        Mengisi formulir data Apprentice Record Pasports
+                        Mengisi formulir data Rekaman Paspor Pemagang
                     <?php elseif ($currentLang === 'eng'): ?>
                         Fill out Apprentice Record Pasports data form
                     <?php else: ?>
-                        Apprentice Record Pasports データフォームに記入する
+                        技能実習生のパスポート記録データフォームに記入する
                     <?php endif; ?>
                     <br>
                     

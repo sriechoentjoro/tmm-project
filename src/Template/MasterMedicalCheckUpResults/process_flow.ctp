@@ -137,11 +137,11 @@ $currentLang = $this->request->getSession()->read('Config.language') ?: 'ind';
     <div class="alert-info-custom">
         <i class="fas fa-info-circle"></i>
         <?php if ($currentLang === 'ind'): ?>
-            <strong>Master Medical Check Up Results</strong> adalah modul untuk mengelola data terkait Master Medical Check Up Results dalam sistem TMM.
+            <strong>Hasil Pemeriksaan Kesehatan</strong> adalah modul untuk mengelola data terkait Hasil Pemeriksaan Kesehatan dalam sistem TMM.
         <?php elseif ($currentLang === 'eng'): ?>
             <strong>Master Medical Check Up Results</strong> is a module for managing Master Medical Check Up Results data in the TMM system.
         <?php else: ?>
-            <strong>Master Medical Check Up Results</strong>は、TMMシステムでMaster Medical Check Up Results データを管理するモジュールです。
+            <strong>健康診断結果</strong>は、TMMシステムで健康診断結果データを管理するモジュールです。
         <?php endif; ?>
     </div>
     
@@ -189,11 +189,11 @@ $currentLang = $this->request->getSession()->read('Config.language') ?: 'ind';
                         <?php endif; ?>:
                     </strong>
                     <?php if ($currentLang === 'ind'): ?>
-                        Mengisi formulir data Master Medical Check Up Results
+                        Mengisi formulir data Hasil Pemeriksaan Kesehatan
                     <?php elseif ($currentLang === 'eng'): ?>
                         Fill out Master Medical Check Up Results data form
                     <?php else: ?>
-                        Master Medical Check Up Results データフォームに記入する
+                        健康診断結果データフォームに記入する
                     <?php endif; ?>
                     <br>
                     

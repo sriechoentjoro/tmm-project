@@ -137,11 +137,11 @@ $currentLang = $this->request->getSession()->read('Config.language') ?: 'ind';
     <div class="alert-info-custom">
         <i class="fas fa-info-circle"></i>
         <?php if ($currentLang === 'ind'): ?>
-            <strong>Master Candidate Interview Types</strong> adalah modul untuk mengelola data terkait Master Candidate Interview Types dalam sistem TMM.
+            <strong>Jenis Wawancara Kandidat</strong> adalah modul untuk mengelola data terkait Jenis Wawancara Kandidat dalam sistem TMM.
         <?php elseif ($currentLang === 'eng'): ?>
             <strong>Master Candidate Interview Types</strong> is a module for managing Master Candidate Interview Types data in the TMM system.
         <?php else: ?>
-            <strong>Master Candidate Interview Types</strong>は、TMMシステムでMaster Candidate Interview Types データを管理するモジュールです。
+            <strong>面接種別</strong>は、TMMシステムで面接種別データを管理するモジュールです。
         <?php endif; ?>
     </div>
     
@@ -189,11 +189,11 @@ $currentLang = $this->request->getSession()->read('Config.language') ?: 'ind';
                         <?php endif; ?>:
                     </strong>
                     <?php if ($currentLang === 'ind'): ?>
-                        Mengisi formulir data Master Candidate Interview Types
+                        Mengisi formulir data Jenis Wawancara Kandidat
                     <?php elseif ($currentLang === 'eng'): ?>
                         Fill out Master Candidate Interview Types data form
                     <?php else: ?>
-                        Master Candidate Interview Types データフォームに記入する
+                        面接種別データフォームに記入する
                     <?php endif; ?>
                     <br>
                     

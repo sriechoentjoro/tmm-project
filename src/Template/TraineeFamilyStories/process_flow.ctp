@@ -137,11 +137,11 @@ $currentLang = $this->request->getSession()->read('Config.language') ?: 'ind';
     <div class="alert-info-custom">
         <i class="fas fa-info-circle"></i>
         <?php if ($currentLang === 'ind'): ?>
-            <strong>Trainee Family Stories</strong> adalah modul untuk mengelola data terkait Trainee Family Stories dalam sistem TMM.
+            <strong>Riwayat Keluarga Trainee</strong> adalah modul untuk mengelola data terkait Riwayat Keluarga Trainee dalam sistem TMM.
         <?php elseif ($currentLang === 'eng'): ?>
             <strong>Trainee Family Stories</strong> is a module for managing Trainee Family Stories data in the TMM system.
         <?php else: ?>
-            <strong>Trainee Family Stories</strong>は、TMMシステムでTrainee Family Stories データを管理するモジュールです。
+            <strong>研修生の家族記録</strong>は、TMMシステムで研修生の家族記録データを管理するモジュールです。
         <?php endif; ?>
     </div>
     
@@ -189,11 +189,11 @@ $currentLang = $this->request->getSession()->read('Config.language') ?: 'ind';
                         <?php endif; ?>:
                     </strong>
                     <?php if ($currentLang === 'ind'): ?>
-                        Mengisi formulir data Trainee Family Stories
+                        Mengisi formulir data Riwayat Keluarga Trainee
                     <?php elseif ($currentLang === 'eng'): ?>
                         Fill out Trainee Family Stories data form
                     <?php else: ?>
-                        Trainee Family Stories データフォームに記入する
+                        研修生の家族記録データフォームに記入する
                     <?php endif; ?>
                     <br>
                     

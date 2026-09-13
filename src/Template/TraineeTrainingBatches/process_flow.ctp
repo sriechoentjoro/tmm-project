@@ -137,11 +137,11 @@ $currentLang = $this->request->getSession()->read('Config.language') ?: 'ind';
     <div class="alert-info-custom">
         <i class="fas fa-info-circle"></i>
         <?php if ($currentLang === 'ind'): ?>
-            <strong>Trainee Training Batches</strong> adalah modul untuk mengelola data terkait Trainee Training Batches dalam sistem TMM.
+            <strong>Angkatan Pelatihan Trainee</strong> adalah modul untuk mengelola data terkait Angkatan Pelatihan Trainee dalam sistem TMM.
         <?php elseif ($currentLang === 'eng'): ?>
             <strong>Trainee Training Batches</strong> is a module for managing Trainee Training Batches data in the TMM system.
         <?php else: ?>
-            <strong>Trainee Training Batches</strong>は、TMMシステムでTrainee Training Batches データを管理するモジュールです。
+            <strong>研修生の研修バッチ</strong>は、TMMシステムで研修生の研修バッチデータを管理するモジュールです。
         <?php endif; ?>
     </div>
     
@@ -189,11 +189,11 @@ $currentLang = $this->request->getSession()->read('Config.language') ?: 'ind';
                         <?php endif; ?>:
                     </strong>
                     <?php if ($currentLang === 'ind'): ?>
-                        Mengisi formulir data Trainee Training Batches
+                        Mengisi formulir data Angkatan Pelatihan Trainee
                     <?php elseif ($currentLang === 'eng'): ?>
                         Fill out Trainee Training Batches data form
                     <?php else: ?>
-                        Trainee Training Batches データフォームに記入する
+                        研修生の研修バッチデータフォームに記入する
                     <?php endif; ?>
                     <br>
                     

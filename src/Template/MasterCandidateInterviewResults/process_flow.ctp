@@ -137,11 +137,11 @@ $currentLang = $this->request->getSession()->read('Config.language') ?: 'ind';
     <div class="alert-info-custom">
         <i class="fas fa-info-circle"></i>
         <?php if ($currentLang === 'ind'): ?>
-            <strong>Master Candidate Interview Results</strong> adalah modul untuk mengelola data terkait Master Candidate Interview Results dalam sistem TMM.
+            <strong>Hasil Wawancara Kandidat</strong> adalah modul untuk mengelola data terkait Hasil Wawancara Kandidat dalam sistem TMM.
         <?php elseif ($currentLang === 'eng'): ?>
             <strong>Master Candidate Interview Results</strong> is a module for managing Master Candidate Interview Results data in the TMM system.
         <?php else: ?>
-            <strong>Master Candidate Interview Results</strong>は、TMMシステムでMaster Candidate Interview Results データを管理するモジュールです。
+            <strong>候補者面接結果</strong>は、TMMシステムで候補者面接結果データを管理するモジュールです。
         <?php endif; ?>
     </div>
     
@@ -189,11 +189,11 @@ $currentLang = $this->request->getSession()->read('Config.language') ?: 'ind';
                         <?php endif; ?>:
                     </strong>
                     <?php if ($currentLang === 'ind'): ?>
-                        Mengisi formulir data Master Candidate Interview Results
+                        Mengisi formulir data Hasil Wawancara Kandidat
                     <?php elseif ($currentLang === 'eng'): ?>
                         Fill out Master Candidate Interview Results data form
                     <?php else: ?>
-                        Master Candidate Interview Results データフォームに記入する
+                        候補者面接結果データフォームに記入する
                     <?php endif; ?>
                     <br>
                     

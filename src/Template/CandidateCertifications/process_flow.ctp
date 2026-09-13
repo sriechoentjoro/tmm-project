@@ -137,11 +137,11 @@ $currentLang = $this->request->getSession()->read('Config.language') ?: 'ind';
     <div class="alert-info-custom">
         <i class="fas fa-info-circle"></i>
         <?php if ($currentLang === 'ind'): ?>
-            <strong>Candidate Certifications</strong> adalah modul untuk mengelola data terkait Candidate Certifications dalam sistem TMM.
+            <strong>Sertifikasi Kandidat</strong> adalah modul untuk mengelola data terkait Sertifikasi Kandidat dalam sistem TMM.
         <?php elseif ($currentLang === 'eng'): ?>
             <strong>Candidate Certifications</strong> is a module for managing Candidate Certifications data in the TMM system.
         <?php else: ?>
-            <strong>Candidate Certifications</strong>は、TMMシステムでCandidate Certifications データを管理するモジュールです。
+            <strong>候補者の資格</strong>は、TMMシステムで候補者の資格データを管理するモジュールです。
         <?php endif; ?>
     </div>
     
@@ -189,11 +189,11 @@ $currentLang = $this->request->getSession()->read('Config.language') ?: 'ind';
                         <?php endif; ?>:
                     </strong>
                     <?php if ($currentLang === 'ind'): ?>
-                        Mengisi formulir data Candidate Certifications
+                        Mengisi formulir data Sertifikasi Kandidat
                     <?php elseif ($currentLang === 'eng'): ?>
                         Fill out Candidate Certifications data form
                     <?php else: ?>
-                        Candidate Certifications データフォームに記入する
+                        候補者の資格データフォームに記入する
                     <?php endif; ?>
                     <br>
                     

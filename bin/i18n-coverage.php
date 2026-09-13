@@ -11,6 +11,12 @@
  *             English source is returned unchanged
  *   unwrapped the string is not in __() at all and can never be translated
  *
+ * Text inside a <?php if ($currentLang === 'ind'): ?> branch counts as
+ * neither. The process-flow pages write their prose once per language that
+ * way instead of calling __(), so the literal in the Indonesian arm is
+ * Indonesian and already switches correctly; reporting it as unwrapped would
+ * put ~420 phantom entries in the total and hide the real gaps behind them.
+ *
  * Usage:
  *     php bin/i18n-coverage.php                 summary per area
  *     php bin/i18n-coverage.php --area=Users    list one area's missing strings
@@ -88,6 +94,39 @@ function areaOf($root, $path)
     return count($parts) > 1 ? $parts[0] : 'root';
 }
 
+/**
+ * Line numbers (1-based) that sit inside a $currentLang branch.
+ *
+ * Those arms hold prose already written per language, so a bare literal there
+ * is translated copy, not a gap. The blocks do not nest in these templates,
+ * but a depth counter keeps an inner if/endif from closing the outer one.
+ */
+function branchLines(array $lines)
+{
+    $inside = [];
+    $depth = 0;
+    foreach ($lines as $n => $line) {
+        $opens = preg_match("/\bif\s*\(\s*\\\$currentLang\s*===/", $line);
+        $closes = preg_match('/\bendif\b/', $line);
+        if ($opens && $depth === 0) {
+            $depth = 1;
+            continue;
+        }
+        if ($depth > 0) {
+            if (preg_match('/\bif\s*\(/', $line) && !preg_match('/\belseif\b/', $line)) {
+                $depth++;
+            }
+            if ($closes) {
+                $depth--;
+                continue;
+            }
+            $inside[$n + 1] = true;
+        }
+    }
+
+    return $inside;
+}
+
 $files = templates($root);
 
 $used = [];        // msgid => [area => true]
@@ -95,6 +134,7 @@ $unwrapped = [];   // area => [ [file, line, text], ... ]
 foreach ($files as $path) {
     $area = areaOf($root, $path);
     $lines = file($path);
+    $branch = branchLines($lines);
     foreach ($lines as $n => $line) {
         if (preg_match_all("/__\(\s*'((?:[^'\\\\]|\\\\.)*)'/", $line, $m)) {
             foreach ($m[1] as $id) {
@@ -104,6 +144,9 @@ foreach ($files as $path) {
         // Prose sitting straight in the markup: after an icon, inside a
         // heading or a hint, never reaching __(). Deliberately conservative —
         // it looks only where UI copy actually lives.
+        if (isset($branch[$n + 1])) {
+            continue;
+        }
         if (preg_match_all('#(?:</i>|<br>|<strong>|<small[^>]*>|<th[^>]*>|<h[1-6][^>]*>)\s*([A-Z][A-Za-z0-9 ,./()\'&%:+-]{11,})#', $line, $m)) {
             foreach ($m[1] as $text) {
                 $text = trim($text);
@@ -183,7 +226,13 @@ if (isset($opts['area']) && $opts['area'] !== true) {
 }
 
 // -------------------------------------------------------------- summary ----
+// Seed from both maps. Building $areas from $used alone drops any area whose
+// templates never call __() at all - exactly the areas most in need of the
+// report - and their unwrapped literals went missing from the total with them.
 $areas = [];
+foreach (array_keys($unwrapped) as $area) {
+    $areas[$area] = ['total' => 0];
+}
 foreach ($used as $id => $as) {
     foreach ($as as $area => $_) {
         $areas[$area]['total'] = ($areas[$area]['total'] ?? 0) + 1;

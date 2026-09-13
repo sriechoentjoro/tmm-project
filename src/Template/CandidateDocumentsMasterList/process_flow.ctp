@@ -137,11 +137,11 @@ $currentLang = $this->request->getSession()->read('Config.language') ?: 'ind';
     <div class="alert-info-custom">
         <i class="fas fa-info-circle"></i>
         <?php if ($currentLang === 'ind'): ?>
-            <strong>Candidate Documents Master List</strong> adalah modul untuk mengelola data terkait Candidate Documents Master List dalam sistem TMM.
+            <strong>Daftar Induk Dokumen Kandidat</strong> adalah modul untuk mengelola data terkait Daftar Induk Dokumen Kandidat dalam sistem TMM.
         <?php elseif ($currentLang === 'eng'): ?>
             <strong>Candidate Documents Master List</strong> is a module for managing Candidate Documents Master List data in the TMM system.
         <?php else: ?>
-            <strong>Candidate Documents Master List</strong>は、TMMシステムでCandidate Documents Master List データを管理するモジュールです。
+            <strong>候補者の書類マスタ一覧</strong>は、TMMシステムで候補者の書類マスタ一覧データを管理するモジュールです。
         <?php endif; ?>
     </div>
     
@@ -189,11 +189,11 @@ $currentLang = $this->request->getSession()->read('Config.language') ?: 'ind';
                         <?php endif; ?>:
                     </strong>
                     <?php if ($currentLang === 'ind'): ?>
-                        Mengisi formulir data Candidate Documents Master List
+                        Mengisi formulir data Daftar Induk Dokumen Kandidat
                     <?php elseif ($currentLang === 'eng'): ?>
                         Fill out Candidate Documents Master List data form
                     <?php else: ?>
-                        Candidate Documents Master List データフォームに記入する
+                        候補者の書類マスタ一覧データフォームに記入する
                     <?php endif; ?>
                     <br>
                     

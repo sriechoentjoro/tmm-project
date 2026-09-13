@@ -137,11 +137,11 @@ $currentLang = $this->request->getSession()->read('Config.language') ?: 'ind';
     <div class="alert-info-custom">
         <i class="fas fa-info-circle"></i>
         <?php if ($currentLang === 'ind'): ?>
-            <strong>Trainees</strong> adalah modul untuk mengelola data terkait Trainees dalam sistem TMM.
+            <strong>Trainee</strong> adalah modul untuk mengelola data terkait Trainee dalam sistem TMM.
         <?php elseif ($currentLang === 'eng'): ?>
             <strong>Trainees</strong> is a module for managing Trainees data in the TMM system.
         <?php else: ?>
-            <strong>Trainees</strong>は、TMMシステムでTrainees データを管理するモジュールです。
+            <strong>研修生</strong>は、TMMシステムで研修生データを管理するモジュールです。
         <?php endif; ?>
     </div>
     
@@ -189,11 +189,11 @@ $currentLang = $this->request->getSession()->read('Config.language') ?: 'ind';
                         <?php endif; ?>:
                     </strong>
                     <?php if ($currentLang === 'ind'): ?>
-                        Mengisi formulir data Trainees
+                        Mengisi formulir data Trainee
                     <?php elseif ($currentLang === 'eng'): ?>
                         Fill out Trainees data form
                     <?php else: ?>
-                        Trainees データフォームに記入する
+                        研修生データフォームに記入する
                     <?php endif; ?>
                     <br>
                     

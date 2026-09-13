@@ -137,11 +137,11 @@ $currentLang = $this->request->getSession()->read('Config.language') ?: 'ind';
     <div class="alert-info-custom">
         <i class="fas fa-info-circle"></i>
         <?php if ($currentLang === 'ind'): ?>
-            <strong>Trainee Experiences</strong> adalah modul untuk mengelola data terkait Trainee Experiences dalam sistem TMM.
+            <strong>Pengalaman Kerja Trainee</strong> adalah modul untuk mengelola data terkait Pengalaman Kerja Trainee dalam sistem TMM.
         <?php elseif ($currentLang === 'eng'): ?>
             <strong>Trainee Experiences</strong> is a module for managing Trainee Experiences data in the TMM system.
         <?php else: ?>
-            <strong>Trainee Experiences</strong>は、TMMシステムでTrainee Experiences データを管理するモジュールです。
+            <strong>研修生の職歴</strong>は、TMMシステムで研修生の職歴データを管理するモジュールです。
         <?php endif; ?>
     </div>
     
@@ -189,11 +189,11 @@ $currentLang = $this->request->getSession()->read('Config.language') ?: 'ind';
                         <?php endif; ?>:
                     </strong>
                     <?php if ($currentLang === 'ind'): ?>
-                        Mengisi formulir data Trainee Experiences
+                        Mengisi formulir data Pengalaman Kerja Trainee
                     <?php elseif ($currentLang === 'eng'): ?>
                         Fill out Trainee Experiences data form
                     <?php else: ?>
-                        Trainee Experiences データフォームに記入する
+                        研修生の職歴データフォームに記入する
                     <?php endif; ?>
                     <br>
                     

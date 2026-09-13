@@ -137,11 +137,11 @@ $currentLang = $this->request->getSession()->read('Config.language') ?: 'ind';
     <div class="alert-info-custom">
         <i class="fas fa-info-circle"></i>
         <?php if ($currentLang === 'ind'): ?>
-            <strong>Master Occupations</strong> adalah modul untuk mengelola data terkait Master Occupations dalam sistem TMM.
+            <strong>Pekerjaan</strong> adalah modul untuk mengelola data terkait Pekerjaan dalam sistem TMM.
         <?php elseif ($currentLang === 'eng'): ?>
             <strong>Master Occupations</strong> is a module for managing Master Occupations data in the TMM system.
         <?php else: ?>
-            <strong>Master Occupations</strong>は、TMMシステムでMaster Occupations データを管理するモジュールです。
+            <strong>職業</strong>は、TMMシステムで職業データを管理するモジュールです。
         <?php endif; ?>
     </div>
     
@@ -189,11 +189,11 @@ $currentLang = $this->request->getSession()->read('Config.language') ?: 'ind';
                         <?php endif; ?>:
                     </strong>
                     <?php if ($currentLang === 'ind'): ?>
-                        Mengisi formulir data Master Occupations
+                        Mengisi formulir data Pekerjaan
                     <?php elseif ($currentLang === 'eng'): ?>
                         Fill out Master Occupations data form
                     <?php else: ?>
-                        Master Occupations データフォームに記入する
+                        職業データフォームに記入する
                     <?php endif; ?>
                     <br>
                     

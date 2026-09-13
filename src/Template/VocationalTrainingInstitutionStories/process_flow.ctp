@@ -137,11 +137,11 @@ $currentLang = $this->request->getSession()->read('Config.language') ?: 'ind';
     <div class="alert-info-custom">
         <i class="fas fa-info-circle"></i>
         <?php if ($currentLang === 'ind'): ?>
-            <strong>Vocational Training Institution Stories</strong> adalah modul untuk mengelola data terkait Vocational Training Institution Stories dalam sistem TMM.
+            <strong>Riwayat Lembaga Pelatihan Kerja</strong> adalah modul untuk mengelola data terkait Riwayat Lembaga Pelatihan Kerja dalam sistem TMM.
         <?php elseif ($currentLang === 'eng'): ?>
             <strong>Vocational Training Institution Stories</strong> is a module for managing Vocational Training Institution Stories data in the TMM system.
         <?php else: ?>
-            <strong>Vocational Training Institution Stories</strong>は、TMMシステムでVocational Training Institution Stories データを管理するモジュールです。
+            <strong>職業訓練機関の記録</strong>は、TMMシステムで職業訓練機関の記録データを管理するモジュールです。
         <?php endif; ?>
     </div>
     
@@ -189,11 +189,11 @@ $currentLang = $this->request->getSession()->read('Config.language') ?: 'ind';
                         <?php endif; ?>:
                     </strong>
                     <?php if ($currentLang === 'ind'): ?>
-                        Mengisi formulir data Vocational Training Institution Stories
+                        Mengisi formulir data Riwayat Lembaga Pelatihan Kerja
                     <?php elseif ($currentLang === 'eng'): ?>
                         Fill out Vocational Training Institution Stories data form
                     <?php else: ?>
-                        Vocational Training Institution Stories データフォームに記入する
+                        職業訓練機関の記録データフォームに記入する
                     <?php endif; ?>
                     <br>
                     

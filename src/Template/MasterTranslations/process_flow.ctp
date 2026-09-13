@@ -137,11 +137,11 @@ $currentLang = $this->request->getSession()->read('Config.language') ?: 'ind';
     <div class="alert-info-custom">
         <i class="fas fa-info-circle"></i>
         <?php if ($currentLang === 'ind'): ?>
-            <strong>Master Translations</strong> adalah modul untuk mengelola data terkait Master Translations dalam sistem TMM.
+            <strong>Terjemahan</strong> adalah modul untuk mengelola data terkait Terjemahan dalam sistem TMM.
         <?php elseif ($currentLang === 'eng'): ?>
             <strong>Master Translations</strong> is a module for managing Master Translations data in the TMM system.
         <?php else: ?>
-            <strong>Master Translations</strong>は、TMMシステムでMaster Translations データを管理するモジュールです。
+            <strong>翻訳</strong>は、TMMシステムで翻訳データを管理するモジュールです。
         <?php endif; ?>
     </div>
     
@@ -189,11 +189,11 @@ $currentLang = $this->request->getSession()->read('Config.language') ?: 'ind';
                         <?php endif; ?>:
                     </strong>
                     <?php if ($currentLang === 'ind'): ?>
-                        Mengisi formulir data Master Translations
+                        Mengisi formulir data Terjemahan
                     <?php elseif ($currentLang === 'eng'): ?>
                         Fill out Master Translations data form
                     <?php else: ?>
-                        Master Translations データフォームに記入する
+                        翻訳データフォームに記入する
                     <?php endif; ?>
                     <br>
                     

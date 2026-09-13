@@ -137,11 +137,11 @@ $currentLang = $this->request->getSession()->read('Config.language') ?: 'ind';
     <div class="alert-info-custom">
         <i class="fas fa-info-circle"></i>
         <?php if ($currentLang === 'ind'): ?>
-            <strong>Master Training Test Score Grades</strong> adalah modul untuk mengelola data terkait Master Training Test Score Grades dalam sistem TMM.
+            <strong>Predikat Nilai Ujian</strong> adalah modul untuk mengelola data terkait Predikat Nilai Ujian dalam sistem TMM.
         <?php elseif ($currentLang === 'eng'): ?>
             <strong>Master Training Test Score Grades</strong> is a module for managing Master Training Test Score Grades data in the TMM system.
         <?php else: ?>
-            <strong>Master Training Test Score Grades</strong>は、TMMシステムでMaster Training Test Score Grades データを管理するモジュールです。
+            <strong>評定</strong>は、TMMシステムで評定データを管理するモジュールです。
         <?php endif; ?>
     </div>
     
@@ -189,11 +189,11 @@ $currentLang = $this->request->getSession()->read('Config.language') ?: 'ind';
                         <?php endif; ?>:
                     </strong>
                     <?php if ($currentLang === 'ind'): ?>
-                        Mengisi formulir data Master Training Test Score Grades
+                        Mengisi formulir data Predikat Nilai Ujian
                     <?php elseif ($currentLang === 'eng'): ?>
                         Fill out Master Training Test Score Grades data form
                     <?php else: ?>
-                        Master Training Test Score Grades データフォームに記入する
+                        評定データフォームに記入する
                     <?php endif; ?>
                     <br>
                     

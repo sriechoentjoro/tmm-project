@@ -137,11 +137,11 @@ $currentLang = $this->request->getSession()->read('Config.language') ?: 'ind';
     <div class="alert-info-custom">
         <i class="fas fa-info-circle"></i>
         <?php if ($currentLang === 'ind'): ?>
-            <strong>Master Payment Methods</strong> adalah modul untuk mengelola data terkait Master Payment Methods dalam sistem TMM.
+            <strong>Metode Pembayaran</strong> adalah modul untuk mengelola data terkait Metode Pembayaran dalam sistem TMM.
         <?php elseif ($currentLang === 'eng'): ?>
             <strong>Master Payment Methods</strong> is a module for managing Master Payment Methods data in the TMM system.
         <?php else: ?>
-            <strong>Master Payment Methods</strong>は、TMMシステムでMaster Payment Methods データを管理するモジュールです。
+            <strong>支払方法</strong>は、TMMシステムで支払方法データを管理するモジュールです。
         <?php endif; ?>
     </div>
     
@@ -189,11 +189,11 @@ $currentLang = $this->request->getSession()->read('Config.language') ?: 'ind';
                         <?php endif; ?>:
                     </strong>
                     <?php if ($currentLang === 'ind'): ?>
-                        Mengisi formulir data Master Payment Methods
+                        Mengisi formulir data Metode Pembayaran
                     <?php elseif ($currentLang === 'eng'): ?>
                         Fill out Master Payment Methods data form
                     <?php else: ?>
-                        Master Payment Methods データフォームに記入する
+                        支払方法データフォームに記入する
                     <?php endif; ?>
                     <br>
                     
