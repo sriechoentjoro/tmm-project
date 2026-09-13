@@ -42,10 +42,10 @@
                     <div class="alert alert-info" role="alert">
                         <i class="fas fa-info-circle"></i>
                         <strong><?= __('Registration Process:') ?></strong><br>
-                        1. Fill in LPK information below<br>
-                        2. System will send verification email to the provided email address<br>
-                        3. LPK director clicks verification link (valid for 24 hours)<br>
-                        4. LPK sets password to activate account
+                        <?= __('1. Fill in LPK information below') ?><br>
+                        <?= __('2. System will send verification email to the provided email address') ?><br>
+                        <?= __('3. LPK director clicks verification link (valid for 24 hours)') ?><br>
+                        <?= __('4. LPK sets password to activate account') ?>
                     </div>
 
                     <!-- Basic Information Section -->
@@ -77,7 +77,7 @@
                                             'maxlength' => 256
                                         ]) ?>
                                         <small class="form-text text-muted">
-                                            <i class="fas fa-info-circle"></i> Full official name of the vocational training institution
+                                            <i class="fas fa-info-circle"></i> <?= __('Full official name of the vocational training institution') ?>
                                         </small>
                                     </div>
                                 </div>
@@ -97,7 +97,7 @@
                                             'pattern' => '[A-Za-z0-9]+'
                                         ]) ?>
                                         <small class="form-text text-muted">
-                                            <i class="fas fa-info-circle"></i> The login name this LPK will use once it sets a password
+                                            <i class="fas fa-info-circle"></i> <?= __('The login name this LPK will use once it sets a password') ?>
                                         </small>
                                     </div>
                                 </div>
@@ -167,7 +167,7 @@
                                             'maxlength' => 256
                                         ]) ?>
                                         <small class="form-text text-muted">
-                                            <i class="fas fa-user"></i> Full name of the institution director
+                                            <i class="fas fa-user"></i> <?= __('Full name of the institution director') ?>
                                         </small>
                                     </div>
                                 </div>
@@ -187,7 +187,7 @@
                                             'id' => 'lpk-email'
                                         ]) ?>
                                         <small class="form-text text-muted">
-                                            <i class="fas fa-envelope"></i> Verification email will be sent to this address
+                                            <i class="fas fa-envelope"></i> <?= __('Verification email will be sent to this address') ?>
                                         </small>
                                         <div id="email-check-result"></div>
                                     </div>
@@ -225,7 +225,7 @@
                                             'accept' => '.pdf,.jpg,.jpeg,.png'
                                         ]) ?>
                                         <small class="form-text text-muted">
-                                            <i class="fas fa-file-signature"></i> Signed memorandum of understanding. Required — the record cannot be saved without it.
+                                            <i class="fas fa-file-signature"></i> <?= __('Signed memorandum of understanding. Required to save the record.') ?>
                                         </small>
                                     </div>
                                 </div>
@@ -328,7 +328,7 @@
                                             'maxlength' => 256
                                         ]) ?>
                                         <small class="form-text text-muted">
-                                            <i class="fas fa-home"></i> Complete address including street name, number, RT/RW
+                                            <i class="fas fa-home"></i> <?= __('Complete address including street name, number, RT/RW') ?>
                                         </small>
                                     </div>
                                 </div>
@@ -460,12 +460,12 @@ $(document).ready(function() {
         
         if (email.length > 0 && email.includes('@')) {
             emailCheckTimeout = setTimeout(function() {
-                resultDiv.html('<small class="text-muted"><i class="fas fa-spinner fa-spin"></i> Checking email...</small>');
+                resultDiv.html('<small class="text-muted"><i class="fas fa-spinner fa-spin"></i> <?= __('Checking email...') ?></small>');
                 
                 // TODO: AJAX call to check if email exists
                 // For now, just show validation message
                 setTimeout(function() {
-                    resultDiv.html('<small class="text-success"><i class="fas fa-check-circle"></i> Email format is valid</small>');
+                    resultDiv.html('<small class="text-success"><i class="fas fa-check-circle"></i> <?= __('Email format is valid') ?></small>');
                 }, 500);
             }, 500);
         } else {
@@ -477,7 +477,7 @@ $(document).ready(function() {
     $('#lpkRegistrationForm').on('submit', function(e) {
         var btn = $('#submit-btn');
         btn.prop('disabled', true);
-        btn.html('<i class="fas fa-spinner fa-spin"></i> Sending verification email...');
+        btn.html('<i class="fas fa-spinner fa-spin"></i> <?= __('Sending verification email...') ?>');
     });
 });
 </script>

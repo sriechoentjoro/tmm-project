@@ -4596,3 +4596,163 @@ msgstr "募集中"
 
 msgid "Ongoing"
 msgstr "進行中"
+
+msgid "Register New LPK (Vocational Training Institution)"
+msgstr "新規LPK（職業訓練機関）登録"
+
+msgid "Registration Process:"
+msgstr "登録の流れ:"
+
+msgid "1. Fill in LPK information below"
+msgstr "1. 下記のLPK情報を入力します"
+
+msgid "2. System will send verification email to the provided email address"
+msgstr "2. 入力されたメールアドレスに確認メールが送信されます"
+
+msgid "3. LPK director clicks verification link (valid for 24 hours)"
+msgstr "3. LPK代表者が確認リンクをクリックします（24時間有効）"
+
+msgid "4. LPK sets password to activate account"
+msgstr "4. LPKがパスワードを設定してアカウントを有効化します"
+
+msgid "Enter LPK Name (e.g., LPK Karya Mandiri)"
+msgstr "LPK名を入力（例：LPK Karya Mandiri）"
+
+msgid "Full official name of the vocational training institution"
+msgstr "職業訓練機関の正式名称"
+
+msgid "e.g., lpkkaryamandiri"
+msgstr "例：lpkkaryamandiri"
+
+msgid "The login name this LPK will use once it sets a password"
+msgstr "パスワード設定後にこのLPKが使用するログイン名"
+
+msgid "e.g., LKM"
+msgstr "例：LKM"
+
+msgid "Institution Type"
+msgstr "機関の種類"
+
+msgid "Vocational Training Institution (LPK)"
+msgstr "職業訓練機関（LPK）"
+
+msgid "Director Name"
+msgstr "代表者名"
+
+msgid "Enter Director Full Name"
+msgstr "代表者の氏名を入力"
+
+msgid "Full name of the institution director"
+msgstr "機関代表者の氏名"
+
+msgid "Email Address"
+msgstr "メールアドレス"
+
+msgid "director@lpk-example.com"
+msgstr "director@lpk-example.com"
+
+msgid "Verification email will be sent to this address"
+msgstr "このアドレスに確認メールが送信されます"
+
+msgid "Director Name (Katakana)"
+msgstr "代表者名（カタカナ）"
+
+msgid "e.g., スリ クンチョロ"
+msgstr "例：スリ クンチョロ"
+
+msgid "MOU Document"
+msgstr "MOU書類"
+
+msgid "Signed memorandum of understanding. Required to save the record."
+msgstr "署名済みの覚書。保存するには必須です。"
+
+msgid "Geographic Location"
+msgstr "所在地"
+
+msgid "City/District"
+msgstr "県・市"
+
+msgid "-- Select City/District --"
+msgstr "-- 県・市を選択 --"
+
+msgid "Subdistrict"
+msgstr "郡"
+
+msgid "-- Select Subdistrict --"
+msgstr "-- 郡を選択 --"
+
+msgid "Village"
+msgstr "村・町"
+
+msgid "-- Select Village --"
+msgstr "-- 村・町を選択 --"
+
+msgid "Enter Complete Address"
+msgstr "住所をすべて入力してください"
+
+msgid "Complete address including street name, number, RT/RW"
+msgstr "通り名・番地・RT/RWを含む完全な住所"
+
+msgid "Postal Code"
+msgstr "郵便番号"
+
+msgid "Register LPK & Send Verification Email"
+msgstr "LPKを登録して確認メールを送信"
+
+msgid "Checking email..."
+msgstr "メールを確認しています..."
+
+msgid "Email format is valid"
+msgstr "メール形式は有効です"
+
+msgid "Sending verification email..."
+msgstr "確認メールを送信しています..."
+
+msgid "LPK Registration Management"
+msgstr "LPK登録管理"
+
+msgid "Register New LPK"
+msgstr "新規LPK登録"
+
+msgid "Registration Status:"
+msgstr "登録ステータス:"
+
+msgid "Pending Verification"
+msgstr "確認待ち"
+
+msgid "Waiting for email verification"
+msgstr "メール確認待ち"
+
+msgid "Verified"
+msgstr "確認済み"
+
+msgid "Email verified, password not set"
+msgstr "メール確認済み、パスワード未設定"
+
+msgid "Account activated, can login"
+msgstr "アカウント有効、ログイン可能"
+
+msgid "Reg. Number"
+msgstr "登録番号"
+
+msgid "View Details"
+msgstr "詳細を表示"
+
+msgid "Resend Verification Email"
+msgstr "確認メールを再送"
+
+msgid "Resend verification email to {0}?"
+msgstr "{0} に確認メールを再送しますか？"
+
+msgid "Set Password"
+msgstr "パスワードを設定"
+
+msgid "Showing {{start}} to {{end}} of {{count}} entries"
+msgstr "{{count}} 件中 {{start}}〜{{end}} 件を表示"
+
+msgid "No LPK registrations found"
+msgstr "LPK登録が見つかりません"
+
+msgid "Click \"Register New LPK\" to add your first registration."
+msgstr "「新規LPK登録」をクリックして最初の登録を追加してください。"
+
