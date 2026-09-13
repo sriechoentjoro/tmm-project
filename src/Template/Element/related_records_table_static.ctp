@@ -126,16 +126,16 @@ $foreignValue = isset($foreignValue) ? $foreignValue : null; // e.g., $apprentic
                                             data-field="<?= h($fieldName) ?>"
                                             title="Filter operator">
                                         <?php if ($fieldType === 'file' || $fieldType === 'image'): ?>
-                                            <option value="file_exists">ðŸ“ Exists</option>
-                                            <option value="file_not_exists">âŒ Missing</option>
+                                            <option value="file_exists">📁 Exists</option>
+                                            <option value="file_not_exists">❌ Missing</option>
                                             <option value="contains">Contains</option>
                                         <?php elseif ($fieldType === 'number' || $fieldType === 'date' || $fieldType === 'datetime'): ?>
                                             <option value="equals">=</option>
-                                            <option value="not_equals">â‰ </option>
+                                            <option value="not_equals">≠</option>
                                             <option value="greater_than">&gt;</option>
                                             <option value="less_than">&lt;</option>
-                                            <option value="greater_equal">â‰¥</option>
-                                            <option value="less_equal">â‰¤</option>
+                                            <option value="greater_equal">≥</option>
+                                            <option value="less_equal">≤</option>
                                             <option value="contains">Contains</option>
                                         <?php else: ?>
                                             <option value="contains">Contains</option>
@@ -177,14 +177,14 @@ $foreignValue = isset($foreignValue) ? $foreignValue : null; // e.g., $apprentic
                                         <?php else: ?>
                                             <svg width="60" height="60" viewBox="0 0 60 60" style="border:1px dashed #dc3545;border-radius:3px;">
                                                 <rect width="60" height="60" fill="#fff5f5"/>
-                                                <text x="30" y="25" font-size="24" text-anchor="middle" fill="#dc3545">ðŸ–¼</text>
+                                                <text x="30" y="25" font-size="24" text-anchor="middle" fill="#dc3545">🖼</text>
                                                 <text x="30" y="45" font-size="10" text-anchor="middle" fill="#dc3545">Missing</text>
                                             </svg>
                                         <?php endif; ?>
                                     <?php elseif ($type === 'image' && empty($value)): ?>
                                         <svg width="60" height="60" viewBox="0 0 60 60" style="border:1px dashed #999;border-radius:3px;">
                                             <rect width="60" height="60" fill="#f8f9fa"/>
-                                            <text x="30" y="30" font-size="24" text-anchor="middle" fill="#999">ðŸ“·</text>
+                                            <text x="30" y="30" font-size="24" text-anchor="middle" fill="#999">📷</text>
                                             <text x="30" y="50" font-size="9" text-anchor="middle" fill="#999">No Image</text>
                                         </svg>
                                     <?php elseif ($type === 'file' && !empty($value)): ?>
@@ -285,7 +285,7 @@ $foreignValue = isset($foreignValue) ? $foreignValue : null; // e.g., $apprentic
     var currentFilters = {};
     var originalTableContent = tbody.innerHTML; // Store original data
     
-    console.log('ðŸ“¦ Original table has ' + tbody.querySelectorAll('tr').length + ' rows');
+    console.log('📦 Original table has ' + tbody.querySelectorAll('tr').length + ' rows');
     
     function performAjaxSearch(page) {
         page = page || 1;
@@ -301,11 +301,11 @@ $foreignValue = isset($foreignValue) ? $foreignValue : null; // e.g., $apprentic
                 }
             });
             
-            console.log('ðŸ” All inputs empty?', allEmpty);
+            console.log('🔍 All inputs empty?', allEmpty);
             
             // If all inputs are empty, restore original data
             if (allEmpty) {
-                console.log('âœ… Restoring original data (all filters cleared)');
+                console.log('✅ Restoring original data (all filters cleared)');
                 tbody.innerHTML = originalTableContent;
                 var paginationDiv = container.querySelector('.static-pagination');
                 if (paginationDiv) paginationDiv.style.display = 'none';
@@ -338,7 +338,7 @@ $foreignValue = isset($foreignValue) ? $foreignValue : null; // e.g., $apprentic
             
             currentFilters = filters;
             
-            console.log('ðŸ” hasFilters:', hasFilters, 'filters:', filters);
+            console.log('🔍 hasFilters:', hasFilters, 'filters:', filters);
             
             // Build query parameters
             var params = {
@@ -399,7 +399,7 @@ $foreignValue = isset($foreignValue) ? $foreignValue : null; // e.g., $apprentic
                                 if (record.image_photo) {
                                     row += '<td><img src="/' + record.image_photo + '" style="max-width:60px;max-height:60px;object-fit:cover;border-radius:3px;" /></td>';
                                 } else {
-                                    row += '<td><svg width="60" height="60" viewBox="0 0 60 60" style="border:1px dashed #999;border-radius:3px;"><rect width="60" height="60" fill="#f8f9fa"/><text x="30" y="30" font-size="24" text-anchor="middle" fill="#999">ðŸ“·</text></svg></td>';
+                                    row += '<td><svg width="60" height="60" viewBox="0 0 60 60" style="border:1px dashed #999;border-radius:3px;"><rect width="60" height="60" fill="#f8f9fa"/><text x="30" y="30" font-size="24" text-anchor="middle" fill="#999">📷</text></svg></td>';
                                 
                                 }
                                 row += '<td><a href="/apprentices/view/' + record.id + '" class="btn btn-xs btn-info">View</a></td>';
@@ -482,7 +482,7 @@ $foreignValue = isset($foreignValue) ? $foreignValue : null; // e.g., $apprentic
         select.addEventListener('change', function() { performAjaxSearch(1); });
     });
     
-    console.log('âœ… Server-side AJAX search with pagination initialized for <?= h($tabId) ?>');
+    console.log('✅ Server-side AJAX search with pagination initialized for <?= h($tabId) ?>');
     
     <?php else: ?>
     // CLIENT-SIDE FILTERING (fallback if no AJAX URL provided)
@@ -581,7 +581,7 @@ $foreignValue = isset($foreignValue) ? $foreignValue : null; // e.g., $apprentic
         select.addEventListener('change', applyFilters);
     });
     
-    console.log('âœ… Client-side filtering initialized for <?= h($tabId) ?>');
+    console.log('✅ Client-side filtering initialized for <?= h($tabId) ?>');
     <?php endif; ?>
     
 })();

@@ -110,13 +110,13 @@ $currentLang = $this->request->getSession()->read('Config.language') ?: 'ind';
     <!-- Language Switcher Buttons -->
     <div class="language-switcher">
         <a href="?lang=ind" class="lang-btn <?= $currentLang === 'ind' ? 'active' : '' ?>">
-            ðŸ‡®ðŸ‡© Indonesian
+            🇮🇩 Indonesian
         </a>
         <a href="?lang=eng" class="lang-btn <?= $currentLang === 'eng' ? 'active' : '' ?>">
-            ðŸ‡¬ðŸ‡§ English
+            🇬🇧 English
         </a>
         <a href="?lang=jpn" class="lang-btn <?= $currentLang === 'jpn' ? 'active' : '' ?>">
-            ðŸ‡¯ðŸ‡µ æ—¥æœ¬èªž
+            🇯🇵 日本語
         </a>
     </div>
 
@@ -130,7 +130,7 @@ $currentLang = $this->request->getSession()->read('Config.language') ?: 'ind';
         <?php elseif ($currentLang === 'eng'): ?>
             Process Overview
         <?php else: ?>
-            ãƒ—ãƒ­ã‚»ã‚¹æ¦‚è¦
+            プロセス概要
         <?php endif; ?>
     </h2>
     
@@ -141,7 +141,7 @@ $currentLang = $this->request->getSession()->read('Config.language') ?: 'ind';
         <?php elseif ($currentLang === 'eng'): ?>
             <strong>Trainee Installments</strong> is a module for managing Trainee Installments data in the TMM system.
         <?php else: ?>
-            <strong>Trainee Installments</strong>ã¯ã€TMMã‚·ã‚¹ãƒ†ãƒ ã§Trainee Installments ãƒ‡ãƒ¼ã‚¿ã‚’ç®¡ç†ã™ã‚‹ãƒ¢ã‚¸ãƒ¥ãƒ¼ãƒ«ã§ã™ã€‚
+            <strong>Trainee Installments</strong>は、TMMシステムでTrainee Installments データを管理するモジュールです。
         <?php endif; ?>
     </div>
     
@@ -156,7 +156,7 @@ $currentLang = $this->request->getSession()->read('Config.language') ?: 'ind';
                     <?php elseif ($currentLang === 'eng'): ?>
                         Step 1: Data Input
                     <?php else: ?>
-                        ã‚¹ãƒ†ãƒƒãƒ—1ï¼šãƒ‡ãƒ¼ã‚¿å…¥åŠ›
+                        ステップ1：データ入力
                     <?php endif; ?>
                     <span class="database-indicator">traineeinstallments</span>
                 </div>
@@ -167,7 +167,7 @@ $currentLang = $this->request->getSession()->read('Config.language') ?: 'ind';
                         <?php elseif ($currentLang === 'eng'): ?>
                             Who
                         <?php else: ?>
-                            èª°ãŒ
+                            誰が
                         <?php endif; ?>:
                     </strong> 
                     <?php if ($currentLang === 'ind'): ?>
@@ -175,7 +175,7 @@ $currentLang = $this->request->getSession()->read('Config.language') ?: 'ind';
                     <?php elseif ($currentLang === 'eng'): ?>
                         Administrator or Operator
                     <?php else: ?>
-                        ç®¡ç†è€…ã¾ãŸã¯ã‚ªãƒšãƒ¬ãƒ¼ã‚¿ãƒ¼
+                        管理者またはオペレーター
                     <?php endif; ?>
                     <br>
                     
@@ -185,7 +185,7 @@ $currentLang = $this->request->getSession()->read('Config.language') ?: 'ind';
                         <?php elseif ($currentLang === 'eng'): ?>
                             Action
                         <?php else: ?>
-                            ã‚¢ã‚¯ã‚·ãƒ§ãƒ³
+                            アクション
                         <?php endif; ?>:
                     </strong>
                     <?php if ($currentLang === 'ind'): ?>
@@ -193,7 +193,7 @@ $currentLang = $this->request->getSession()->read('Config.language') ?: 'ind';
                     <?php elseif ($currentLang === 'eng'): ?>
                         Fill out Trainee Installments data form
                     <?php else: ?>
-                        Trainee Installments ãƒ‡ãƒ¼ã‚¿ãƒ•ã‚©ãƒ¼ãƒ ã«è¨˜å…¥ã™ã‚‹
+                        Trainee Installments データフォームに記入する
                     <?php endif; ?>
                     <br>
                     
@@ -203,7 +203,7 @@ $currentLang = $this->request->getSession()->read('Config.language') ?: 'ind';
                         <?php elseif ($currentLang === 'eng'): ?>
                             Result
                         <?php else: ?>
-                            çµæžœ
+                            結果
                         <?php endif; ?>:
                     </strong>
                     <?php if ($currentLang === 'ind'): ?>
@@ -211,7 +211,7 @@ $currentLang = $this->request->getSession()->read('Config.language') ?: 'ind';
                     <?php elseif ($currentLang === 'eng'): ?>
                         Data saved to database
                     <?php else: ?>
-                        ãƒ‡ãƒ¼ã‚¿ãŒãƒ‡ãƒ¼ã‚¿ãƒ™ãƒ¼ã‚¹ã«ä¿å­˜ã•ã‚Œã‚‹
+                        データがデータベースに保存される
                     <?php endif; ?>
                 </div>
             </div>
@@ -228,17 +228,17 @@ $currentLang = $this->request->getSession()->read('Config.language') ?: 'ind';
         <?php elseif ($currentLang === 'eng'): ?>
             Visual Process Flow
         <?php else: ?>
-            ãƒ“ã‚¸ãƒ¥ã‚¢ãƒ«ãƒ•ãƒ­ãƒ¼å›³
+            ビジュアルフロー図
         <?php endif; ?>
     </h2>
     
     <div class="mermaid">
 graph TD
-    A[<?php echo $currentLang === 'ind' ? 'Input Data' : ($currentLang === 'eng' ? 'Data Input' : 'ãƒ‡ãƒ¼ã‚¿å…¥åŠ›'); ?>] --> B[<?php echo $currentLang === 'ind' ? 'Validasi' : ($currentLang === 'eng' ? 'Validation' : 'æ¤œè¨¼'); ?>]
-    B --> C{<?php echo $currentLang === 'ind' ? 'Valid?' : ($currentLang === 'eng' ? 'Valid?' : 'æœ‰åŠ¹ï¼Ÿ'); ?>}
-    C -->|<?php echo $currentLang === 'ind' ? 'Ya' : ($currentLang === 'eng' ? 'Yes' : 'ã¯ã„'); ?>| D[<?php echo $currentLang === 'ind' ? 'Simpan ke Database' : ($currentLang === 'eng' ? 'Save to Database' : 'ãƒ‡ãƒ¼ã‚¿ãƒ™ãƒ¼ã‚¹ã«ä¿å­˜'); ?>]
-    C -->|<?php echo $currentLang === 'ind' ? 'Tidak' : ($currentLang === 'eng' ? 'No' : 'ã„ã„ãˆ'); ?>| A
-    D --> E[<?php echo $currentLang === 'ind' ? 'Selesai' : ($currentLang === 'eng' ? 'Done' : 'å®Œäº†'); ?>]
+    A[<?php echo $currentLang === 'ind' ? 'Input Data' : ($currentLang === 'eng' ? 'Data Input' : 'データ入力'); ?>] --> B[<?php echo $currentLang === 'ind' ? 'Validasi' : ($currentLang === 'eng' ? 'Validation' : '検証'); ?>]
+    B --> C{<?php echo $currentLang === 'ind' ? 'Valid?' : ($currentLang === 'eng' ? 'Valid?' : '有効？'); ?>}
+    C -->|<?php echo $currentLang === 'ind' ? 'Ya' : ($currentLang === 'eng' ? 'Yes' : 'はい'); ?>| D[<?php echo $currentLang === 'ind' ? 'Simpan ke Database' : ($currentLang === 'eng' ? 'Save to Database' : 'データベースに保存'); ?>]
+    C -->|<?php echo $currentLang === 'ind' ? 'Tidak' : ($currentLang === 'eng' ? 'No' : 'いいえ'); ?>| A
+    D --> E[<?php echo $currentLang === 'ind' ? 'Selesai' : ($currentLang === 'eng' ? 'Done' : '完了'); ?>]
     
     style A fill:#e3f2fd
     style E fill:#c8e6c9
@@ -254,7 +254,7 @@ graph TD
         <?php elseif ($currentLang === 'eng'): ?>
             Important Guidelines
         <?php else: ?>
-            é‡è¦ãªã‚¬ã‚¤ãƒ‰ãƒ©ã‚¤ãƒ³
+            重要なガイドライン
         <?php endif; ?>
     </h2>
     
@@ -274,11 +274,11 @@ graph TD
                 <li>Contact administrator if you encounter any issues</li>
             </ul>
         <?php else: ?>
-            <h4>é‡è¦ãªæ³¨æ„äº‹é …ï¼š</h4>
+            <h4>重要な注意事項：</h4>
             <ul>
-                <li>ã™ã¹ã¦ã®å¿…é ˆãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ãŒæ­£ã—ãå…¥åŠ›ã•ã‚Œã¦ã„ã‚‹ã“ã¨ã‚’ç¢ºèªã—ã¦ãã ã•ã„</li>
-                <li>ä¿å­˜ã™ã‚‹å‰ã«ãƒ‡ãƒ¼ã‚¿æ¤œè¨¼ã‚’ç¢ºèªã—ã¦ãã ã•ã„</li>
-                <li>å•é¡ŒãŒç™ºç”Ÿã—ãŸå ´åˆã¯ç®¡ç†è€…ã«é€£çµ¡ã—ã¦ãã ã•ã„</li>
+                <li>すべての必須フィールドが正しく入力されていることを確認してください</li>
+                <li>保存する前にデータ検証を確認してください</li>
+                <li>問題が発生した場合は管理者に連絡してください</li>
             </ul>
         <?php endif; ?>
     </div>

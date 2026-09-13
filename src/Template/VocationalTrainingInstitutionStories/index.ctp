@@ -94,8 +94,8 @@
                         <option value="!=">!=</option>
                         <option value="<">&lt;</option>
                         <option value=">">&gt;</option>
-                        <option value="<=">â‰¤</option>
-                        <option value=">=">â‰¥</option>
+                        <option value="<=">≤</option>
+                        <option value=">=">≥</option>
                         <option value="between">Between</option>
                     </select>
                     <input type="number" class="filter-input form-control form-control-sm" placeholder="Filter..." data-column="id" style="font-size: 0.85rem; padding: 4px;">
@@ -115,8 +115,8 @@
                         <option value="!=">!=</option>
                         <option value="<">&lt;</option>
                         <option value=">">&gt;</option>
-                        <option value="<=">â‰¤</option>
-                        <option value=">=">â‰¥</option>
+                        <option value="<=">≤</option>
+                        <option value=">=">≥</option>
                         <option value="between">Between</option>
                     </select>
                     <input type="date" class="filter-input form-control form-control-sm" data-column="date_occurrence" style="font-size: 0.85rem; padding: 4px;">

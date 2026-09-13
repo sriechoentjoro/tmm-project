@@ -112,10 +112,10 @@ $title = isset($title) ? $title : 'Related Records';
 }</style>
 
 <script>
-console.log('ðŸš€ AJAX Element Loading - Version 2.0 - <?= date('H:i:s') ?>');
+console.log('🚀 AJAX Element Loading - Version 2.0 - <?= date('H:i:s') ?>');
 (function(){
 var c=document.getElementById('<?= h($tabId) ?>-ajax');
-if(!c){console.error('âŒ Container not found for <?= h($tabId) ?>-ajax');return;}
+if(!c){console.error('❌ Container not found for <?= h($tabId) ?>-ajax');return;}
 var tabPane=document.getElementById('<?= h($tabId) ?>-pane');
 var loaded=false,currentPage=1,limit=50,totalRecords=0,columnFilters={};
 
@@ -123,7 +123,7 @@ var loaded=false,currentPage=1,limit=50,totalRecords=0,columnFilters={};
 c.addEventListener('click',function(e){
 if(e.target.classList.contains('page-btn')&&!e.target.disabled){
 var page=parseInt(e.target.dataset.page);
-console.log('ðŸ“„ Pagination clicked, loading page:',page);
+console.log('📄 Pagination clicked, loading page:',page);
 load(page);
 }
 });
@@ -142,25 +142,25 @@ page=page||currentPage;
 var l=c.querySelector('.loading'),d=c.querySelector('.content');
 if(l)l.style.display='block';if(d)d.style.display='none';
 
-console.log('ðŸ”„ Fetching page:',page,'Filters:',columnFilters);
-console.log('ðŸŒ URL:',buildUrl(page));
+console.log('🔄 Fetching page:',page,'Filters:',columnFilters);
+console.log('🌐 URL:',buildUrl(page));
 fetch(buildUrl(page)).then(function(r){
-console.log('ðŸ“¡ Response status:',r.status,r.statusText);
+console.log('📡 Response status:',r.status,r.statusText);
 if(!r.ok)throw new Error('HTTP '+r.status);
 return r.json();
 }).then(function(data){
-console.log('ðŸ“¦ Raw Data:',data);
-console.log('âœ… Success:',data.success);
-console.log('ðŸ“Š Data array:',data.data);
-console.log('ðŸ“ Data length:',data.data ? data.data.length : 0);
+console.log('📦 Raw Data:',data);
+console.log('✅ Success:',data.success);
+console.log('📊 Data array:',data.data);
+console.log('📏 Data length:',data.data ? data.data.length : 0);
 if(l)l.style.display='none';
 
 if(data.success&&data.data){
-console.log('âœ… Entering render block');
+console.log('✅ Entering render block');
 totalRecords=data.pagination.total||0;
 currentPage=page;
 var cols=JSON.parse(c.dataset.columns||'[]');
-console.log('ðŸ“‹ Columns config:',cols);
+console.log('📋 Columns config:',cols);
 
 // HTML escape helper
 function escapeHtml(text){
@@ -226,8 +226,8 @@ h+='<tr><td colspan="'+totalCols+'" class="text-center text-muted" style="paddin
 }else{
 data.data.forEach(function(row,idx){
 if(idx===0){
-console.log('ðŸ” First row data sample:',row);
-console.log('ðŸ” Available fields:',Object.keys(row));
+console.log('🔍 First row data sample:',row);
+console.log('🔍 Available fields:',Object.keys(row));
 }
 h+='<tr>';
 cols.forEach(function(col){
@@ -291,14 +291,14 @@ h+='<button class="page-btn" data-page="'+nextPage+'"'+(currentPage>=totalPages?
 h+='<button class="page-btn" data-page="'+totalPages+'"'+(currentPage>=totalPages?' disabled':'')+'>Last</button>';
 h+='</div></div>';
 
-console.log('ðŸŽ¨ Generated HTML length:',h.length);
-console.log('ðŸ“ HTML preview:',h.substring(0,200));
+console.log('🎨 Generated HTML length:',h.length);
+console.log('📝 HTML preview:',h.substring(0,200));
 
 if(d){
-console.log('âœ… Content div found, inserting HTML...');
+console.log('✅ Content div found, inserting HTML...');
 d.innerHTML=h;
 d.style.display='block';
-console.log('âœ… HTML inserted and displayed');
+console.log('✅ HTML inserted and displayed');
 
 // Auto-filter: Attach debounced event listeners
 setTimeout(function(){
@@ -313,7 +313,7 @@ if(value||operator.value==='file_exists'||operator.value==='file_not_exists'){
 columnFilters[field]={operator:operator?operator.value:'contains',value:value};
 }
 });
-console.log('ðŸ” Auto-applying filters:',columnFilters);
+console.log('🔍 Auto-applying filters:',columnFilters);
 load(1); // Reset to page 1 when filtering
 }
 
@@ -342,15 +342,15 @@ applyFilters();
 });
 },100);
 }else{
-console.log('âŒ No content div found!');
+console.log('❌ No content div found!');
 }
 }else{
-console.log('âš ï¸ Data invalid - success:',data.success,'data exists:',!!data.data);
+console.log('⚠️ Data invalid - success:',data.success,'data exists:',!!data.data);
 if(d){d.innerHTML='<div class="alert alert-warning">No data available</div>';d.style.display='block';}
 }
 }).catch(function(e){
-console.error('âŒ Fetch Error:',e);
-console.error('âŒ Error stack:',e.stack);
+console.error('❌ Fetch Error:',e);
+console.error('❌ Error stack:',e.stack);
 if(l)l.style.display='none';
 if(d){d.innerHTML='<div class="alert alert-danger">Error loading data: '+e.message+'</div>';d.style.display='block';}
 });
@@ -361,14 +361,14 @@ c.loadPage=function(p){load(p);};
 
 // MutationObserver for tab visibility
 if(tabPane){
-console.log('ðŸ” Tab pane found for <?= h($tabId) ?>:', tabPane);
+console.log('🔍 Tab pane found for <?= h($tabId) ?>:', tabPane);
 var observer=new MutationObserver(function(mutations){
 mutations.forEach(function(mutation){
 if(mutation.type==='attributes'){
 var isVisible=tabPane.style.display!=='none'&&window.getComputedStyle(tabPane).display!=='none';
-console.log('ðŸ” Tab visibility changed for <?= h($tabId) ?>:', isVisible, 'loaded:', loaded);
+console.log('🔍 Tab visibility changed for <?= h($tabId) ?>:', isVisible, 'loaded:', loaded);
 if(isVisible&&!loaded){
-console.log('âœ… Loading data for <?= h($tabId) ?>');
+console.log('✅ Loading data for <?= h($tabId) ?>');
 load(1);
 }
 }
@@ -376,13 +376,13 @@ load(1);
 });
 observer.observe(tabPane,{attributes:true,attributeFilter:['style','class']});
 var initiallyVisible = window.getComputedStyle(tabPane).display!=='none';
-console.log('ðŸ” Initial visibility for <?= h($tabId) ?>:', initiallyVisible);
+console.log('🔍 Initial visibility for <?= h($tabId) ?>:', initiallyVisible);
 if(initiallyVisible){setTimeout(function(){
-console.log('âœ… Auto-loading <?= h($tabId) ?> (initially visible)');
+console.log('✅ Auto-loading <?= h($tabId) ?> (initially visible)');
 load(1);
 },100);}
 }else{
-console.error('âŒ Tab pane NOT found for <?= h($tabId) ?>');
+console.error('❌ Tab pane NOT found for <?= h($tabId) ?>');
 }
 })();
 </script>

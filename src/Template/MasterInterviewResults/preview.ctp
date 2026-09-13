@@ -126,10 +126,10 @@ use Cake\Utility\Inflector;
             <!-- Validation Summary -->
             <div class="validation-summary <?= empty($validationErrors) ? 'passed' : 'failed' ?>">
                 <?php if (empty($validationErrors)): ?>
-                    <h4 style="color: #28a745;">âœ“ All Validation Passed!</h4>
+                    <h4 style="color: #28a745;">✓ All Validation Passed!</h4>
                     <p><?= __('Your data meets all requirements and is ready to be saved.') ?></p>
                 <?php else: ?>
-                    <h4 style="color: #dc3545;">âš  Validation Errors Found</h4>
+                    <h4 style="color: #dc3545;">⚠ Validation Errors Found</h4>
                     <p><strong><?= count($validationErrors) ?> field(s)</strong> need attention before saving.</p>
                 <?php endif; ?>
             </div>
@@ -237,7 +237,7 @@ use Cake\Utility\Inflector;
                     <?php if ($hasError): ?>
                         <div class="validation-error">
                             <?php foreach ($validationErrors[$field] as $error): ?>
-                                <div class="error-message">âŒ <?= h($error) ?></div>
+                                <div class="error-message">❌ <?= h($error) ?></div>
                             <?php endforeach; ?>
                         </div>
                     <?php endif; ?>
