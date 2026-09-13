@@ -137,11 +137,11 @@ $currentLang = $this->request->getSession()->read('Config.language') ?: 'ind';
     <div class="alert-info-custom">
         <i class="fas fa-info-circle"></i>
         <?php if ($currentLang === 'ind'): ?>
-            <strong>Candidate Experiences</strong> adalah modul untuk mengelola data terkait Candidate Experiences dalam sistem TMM.
+            <strong>Pengalaman Kandidat</strong> adalah modul untuk mengelola data terkait Pengalaman Kandidat dalam sistem TMM.
         <?php elseif ($currentLang === 'eng'): ?>
             <strong>Candidate Experiences</strong> is a module for managing Candidate Experiences data in the TMM system.
         <?php else: ?>
-            <strong>Candidate Experiences</strong>は、TMMシステムでCandidate Experiences データを管理するモジュールです。
+            <strong>候補者の職歴</strong>は、TMMシステムで候補者の職歴データを管理するモジュールです。
         <?php endif; ?>
     </div>
     
@@ -189,11 +189,11 @@ $currentLang = $this->request->getSession()->read('Config.language') ?: 'ind';
                         <?php endif; ?>:
                     </strong>
                     <?php if ($currentLang === 'ind'): ?>
-                        Mengisi formulir data Candidate Experiences
+                        Mengisi formulir data Pengalaman Kandidat
                     <?php elseif ($currentLang === 'eng'): ?>
                         Fill out Candidate Experiences data form
                     <?php else: ?>
-                        Candidate Experiences データフォームに記入する
+                        候補者の職歴データフォームに記入する
                     <?php endif; ?>
                     <br>
                     

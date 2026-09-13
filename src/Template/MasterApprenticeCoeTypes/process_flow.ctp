@@ -137,11 +137,11 @@ $currentLang = $this->request->getSession()->read('Config.language') ?: 'ind';
     <div class="alert-info-custom">
         <i class="fas fa-info-circle"></i>
         <?php if ($currentLang === 'ind'): ?>
-            <strong>Master Apprentice Coe Types</strong> adalah modul untuk mengelola data terkait Master Apprentice Coe Types dalam sistem TMM.
+            <strong>Jenis COE Pemagang</strong> adalah modul untuk mengelola data terkait Jenis COE Pemagang dalam sistem TMM.
         <?php elseif ($currentLang === 'eng'): ?>
             <strong>Master Apprentice Coe Types</strong> is a module for managing Master Apprentice Coe Types data in the TMM system.
         <?php else: ?>
-            <strong>Master Apprentice Coe Types</strong>は、TMMシステムでMaster Apprentice Coe Types データを管理するモジュールです。
+            <strong>COE種別</strong>は、TMMシステムでCOE種別データを管理するモジュールです。
         <?php endif; ?>
     </div>
     
@@ -189,11 +189,11 @@ $currentLang = $this->request->getSession()->read('Config.language') ?: 'ind';
                         <?php endif; ?>:
                     </strong>
                     <?php if ($currentLang === 'ind'): ?>
-                        Mengisi formulir data Master Apprentice Coe Types
+                        Mengisi formulir data Jenis COE Pemagang
                     <?php elseif ($currentLang === 'eng'): ?>
                         Fill out Master Apprentice Coe Types data form
                     <?php else: ?>
-                        Master Apprentice Coe Types データフォームに記入する
+                        COE種別データフォームに記入する
                     <?php endif; ?>
                     <br>
                     

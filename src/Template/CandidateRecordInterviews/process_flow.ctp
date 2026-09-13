@@ -137,11 +137,11 @@ $currentLang = $this->request->getSession()->read('Config.language') ?: 'ind';
     <div class="alert-info-custom">
         <i class="fas fa-info-circle"></i>
         <?php if ($currentLang === 'ind'): ?>
-            <strong>Candidate Record Interviews</strong> adalah modul untuk mengelola data terkait Candidate Record Interviews dalam sistem TMM.
+            <strong>Rekaman Wawancara Kandidat</strong> adalah modul untuk mengelola data terkait Rekaman Wawancara Kandidat dalam sistem TMM.
         <?php elseif ($currentLang === 'eng'): ?>
             <strong>Candidate Record Interviews</strong> is a module for managing Candidate Record Interviews data in the TMM system.
         <?php else: ?>
-            <strong>Candidate Record Interviews</strong>は、TMMシステムでCandidate Record Interviews データを管理するモジュールです。
+            <strong>候補者の面接記録</strong>は、TMMシステムで候補者の面接記録データを管理するモジュールです。
         <?php endif; ?>
     </div>
     
@@ -189,11 +189,11 @@ $currentLang = $this->request->getSession()->read('Config.language') ?: 'ind';
                         <?php endif; ?>:
                     </strong>
                     <?php if ($currentLang === 'ind'): ?>
-                        Mengisi formulir data Candidate Record Interviews
+                        Mengisi formulir data Rekaman Wawancara Kandidat
                     <?php elseif ($currentLang === 'eng'): ?>
                         Fill out Candidate Record Interviews data form
                     <?php else: ?>
-                        Candidate Record Interviews データフォームに記入する
+                        候補者の面接記録データフォームに記入する
                     <?php endif; ?>
                     <br>
                     

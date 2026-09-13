@@ -137,11 +137,11 @@ $currentLang = $this->request->getSession()->read('Config.language') ?: 'ind';
     <div class="alert-info-custom">
         <i class="fas fa-info-circle"></i>
         <?php if ($currentLang === 'ind'): ?>
-            <strong>Candidate Documents</strong> adalah modul untuk mengelola data terkait Candidate Documents dalam sistem TMM.
+            <strong>Dokumen Kandidat</strong> adalah modul untuk mengelola data terkait Dokumen Kandidat dalam sistem TMM.
         <?php elseif ($currentLang === 'eng'): ?>
             <strong>Candidate Documents</strong> is a module for managing Candidate Documents data in the TMM system.
         <?php else: ?>
-            <strong>Candidate Documents</strong>は、TMMシステムでCandidate Documents データを管理するモジュールです。
+            <strong>候補者の書類</strong>は、TMMシステムで候補者の書類データを管理するモジュールです。
         <?php endif; ?>
     </div>
     
@@ -189,11 +189,11 @@ $currentLang = $this->request->getSession()->read('Config.language') ?: 'ind';
                         <?php endif; ?>:
                     </strong>
                     <?php if ($currentLang === 'ind'): ?>
-                        Mengisi formulir data Candidate Documents
+                        Mengisi formulir data Dokumen Kandidat
                     <?php elseif ($currentLang === 'eng'): ?>
                         Fill out Candidate Documents data form
                     <?php else: ?>
-                        Candidate Documents データフォームに記入する
+                        候補者の書類データフォームに記入する
                     <?php endif; ?>
                     <br>
                     

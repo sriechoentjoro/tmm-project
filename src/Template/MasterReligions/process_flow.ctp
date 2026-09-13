@@ -137,11 +137,11 @@ $currentLang = $this->request->getSession()->read('Config.language') ?: 'ind';
     <div class="alert-info-custom">
         <i class="fas fa-info-circle"></i>
         <?php if ($currentLang === 'ind'): ?>
-            <strong>Master Religions</strong> adalah modul untuk mengelola data terkait Master Religions dalam sistem TMM.
+            <strong>Agama</strong> adalah modul untuk mengelola data terkait Agama dalam sistem TMM.
         <?php elseif ($currentLang === 'eng'): ?>
             <strong>Master Religions</strong> is a module for managing Master Religions data in the TMM system.
         <?php else: ?>
-            <strong>Master Religions</strong>は、TMMシステムでMaster Religions データを管理するモジュールです。
+            <strong>宗教</strong>は、TMMシステムで宗教データを管理するモジュールです。
         <?php endif; ?>
     </div>
     
@@ -189,11 +189,11 @@ $currentLang = $this->request->getSession()->read('Config.language') ?: 'ind';
                         <?php endif; ?>:
                     </strong>
                     <?php if ($currentLang === 'ind'): ?>
-                        Mengisi formulir data Master Religions
+                        Mengisi formulir data Agama
                     <?php elseif ($currentLang === 'eng'): ?>
                         Fill out Master Religions data form
                     <?php else: ?>
-                        Master Religions データフォームに記入する
+                        宗教データフォームに記入する
                     <?php endif; ?>
                     <br>
                     

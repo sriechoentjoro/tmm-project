@@ -137,11 +137,11 @@ $currentLang = $this->request->getSession()->read('Config.language') ?: 'ind';
     <div class="alert-info-custom">
         <i class="fas fa-info-circle"></i>
         <?php if ($currentLang === 'ind'): ?>
-            <strong>Apprentice Record Coe Visas</strong> adalah modul untuk mengelola data terkait Apprentice Record Coe Visas dalam sistem TMM.
+            <strong>Rekaman COE / Visa Pemagang</strong> adalah modul untuk mengelola data terkait Rekaman COE / Visa Pemagang dalam sistem TMM.
         <?php elseif ($currentLang === 'eng'): ?>
             <strong>Apprentice Record Coe Visas</strong> is a module for managing Apprentice Record Coe Visas data in the TMM system.
         <?php else: ?>
-            <strong>Apprentice Record Coe Visas</strong>は、TMMシステムでApprentice Record Coe Visas データを管理するモジュールです。
+            <strong>技能実習生のCOE・ビザ記録</strong>は、TMMシステムで技能実習生のCOE・ビザ記録データを管理するモジュールです。
         <?php endif; ?>
     </div>
     
@@ -189,11 +189,11 @@ $currentLang = $this->request->getSession()->read('Config.language') ?: 'ind';
                         <?php endif; ?>:
                     </strong>
                     <?php if ($currentLang === 'ind'): ?>
-                        Mengisi formulir data Apprentice Record Coe Visas
+                        Mengisi formulir data Rekaman COE / Visa Pemagang
                     <?php elseif ($currentLang === 'eng'): ?>
                         Fill out Apprentice Record Coe Visas data form
                     <?php else: ?>
-                        Apprentice Record Coe Visas データフォームに記入する
+                        技能実習生のCOE・ビザ記録データフォームに記入する
                     <?php endif; ?>
                     <br>
                     

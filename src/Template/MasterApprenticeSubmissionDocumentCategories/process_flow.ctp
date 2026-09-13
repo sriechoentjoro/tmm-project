@@ -137,11 +137,11 @@ $currentLang = $this->request->getSession()->read('Config.language') ?: 'ind';
     <div class="alert-info-custom">
         <i class="fas fa-info-circle"></i>
         <?php if ($currentLang === 'ind'): ?>
-            <strong>Master Apprentice Submission Document Categories</strong> adalah modul untuk mengelola data terkait Master Apprentice Submission Document Categories dalam sistem TMM.
+            <strong>Kategori Dokumen Penyerahan</strong> adalah modul untuk mengelola data terkait Kategori Dokumen Penyerahan dalam sistem TMM.
         <?php elseif ($currentLang === 'eng'): ?>
             <strong>Master Apprentice Submission Document Categories</strong> is a module for managing Master Apprentice Submission Document Categories data in the TMM system.
         <?php else: ?>
-            <strong>Master Apprentice Submission Document Categories</strong>は、TMMシステムでMaster Apprentice Submission Document Categories データを管理するモジュールです。
+            <strong>提出書類カテゴリ</strong>は、TMMシステムで提出書類カテゴリデータを管理するモジュールです。
         <?php endif; ?>
     </div>
     
@@ -189,11 +189,11 @@ $currentLang = $this->request->getSession()->read('Config.language') ?: 'ind';
                         <?php endif; ?>:
                     </strong>
                     <?php if ($currentLang === 'ind'): ?>
-                        Mengisi formulir data Master Apprentice Submission Document Categories
+                        Mengisi formulir data Kategori Dokumen Penyerahan
                     <?php elseif ($currentLang === 'eng'): ?>
                         Fill out Master Apprentice Submission Document Categories data form
                     <?php else: ?>
-                        Master Apprentice Submission Document Categories データフォームに記入する
+                        提出書類カテゴリデータフォームに記入する
                     <?php endif; ?>
                     <br>
                     

@@ -137,11 +137,11 @@ $currentLang = $this->request->getSession()->read('Config.language') ?: 'ind';
     <div class="alert-info-custom">
         <i class="fas fa-info-circle"></i>
         <?php if ($currentLang === 'ind'): ?>
-            <strong>Master Japan Prefectures</strong> adalah modul untuk mengelola data terkait Master Japan Prefectures dalam sistem TMM.
+            <strong>Prefektur Jepang</strong> adalah modul untuk mengelola data terkait Prefektur Jepang dalam sistem TMM.
         <?php elseif ($currentLang === 'eng'): ?>
             <strong>Master Japan Prefectures</strong> is a module for managing Master Japan Prefectures data in the TMM system.
         <?php else: ?>
-            <strong>Master Japan Prefectures</strong>は、TMMシステムでMaster Japan Prefectures データを管理するモジュールです。
+            <strong>都道府県</strong>は、TMMシステムで都道府県データを管理するモジュールです。
         <?php endif; ?>
     </div>
     
@@ -189,11 +189,11 @@ $currentLang = $this->request->getSession()->read('Config.language') ?: 'ind';
                         <?php endif; ?>:
                     </strong>
                     <?php if ($currentLang === 'ind'): ?>
-                        Mengisi formulir data Master Japan Prefectures
+                        Mengisi formulir data Prefektur Jepang
                     <?php elseif ($currentLang === 'eng'): ?>
                         Fill out Master Japan Prefectures data form
                     <?php else: ?>
-                        Master Japan Prefectures データフォームに記入する
+                        都道府県データフォームに記入する
                     <?php endif; ?>
                     <br>
                     

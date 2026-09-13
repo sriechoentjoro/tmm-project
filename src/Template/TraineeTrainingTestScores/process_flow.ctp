@@ -137,11 +137,11 @@ $currentLang = $this->request->getSession()->read('Config.language') ?: 'ind';
     <div class="alert-info-custom">
         <i class="fas fa-info-circle"></i>
         <?php if ($currentLang === 'ind'): ?>
-            <strong>Trainee Training Test Scores</strong> adalah modul untuk mengelola data terkait Trainee Training Test Scores dalam sistem TMM.
+            <strong>Nilai Ujian Pelatihan Trainee</strong> adalah modul untuk mengelola data terkait Nilai Ujian Pelatihan Trainee dalam sistem TMM.
         <?php elseif ($currentLang === 'eng'): ?>
             <strong>Trainee Training Test Scores</strong> is a module for managing Trainee Training Test Scores data in the TMM system.
         <?php else: ?>
-            <strong>Trainee Training Test Scores</strong>は、TMMシステムでTrainee Training Test Scores データを管理するモジュールです。
+            <strong>研修生の研修試験成績</strong>は、TMMシステムで研修生の研修試験成績データを管理するモジュールです。
         <?php endif; ?>
     </div>
     
@@ -189,11 +189,11 @@ $currentLang = $this->request->getSession()->read('Config.language') ?: 'ind';
                         <?php endif; ?>:
                     </strong>
                     <?php if ($currentLang === 'ind'): ?>
-                        Mengisi formulir data Trainee Training Test Scores
+                        Mengisi formulir data Nilai Ujian Pelatihan Trainee
                     <?php elseif ($currentLang === 'eng'): ?>
                         Fill out Trainee Training Test Scores data form
                     <?php else: ?>
-                        Trainee Training Test Scores データフォームに記入する
+                        研修生の研修試験成績データフォームに記入する
                     <?php endif; ?>
                     <br>
                     

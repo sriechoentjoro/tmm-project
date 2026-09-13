@@ -137,11 +137,11 @@ $currentLang = $this->request->getSession()->read('Config.language') ?: 'ind';
     <div class="alert-info-custom">
         <i class="fas fa-info-circle"></i>
         <?php if ($currentLang === 'ind'): ?>
-            <strong>Master Document Submission Statuses</strong> adalah modul untuk mengelola data terkait Master Document Submission Statuses dalam sistem TMM.
+            <strong>Status Penyerahan Dokumen</strong> adalah modul untuk mengelola data terkait Status Penyerahan Dokumen dalam sistem TMM.
         <?php elseif ($currentLang === 'eng'): ?>
             <strong>Master Document Submission Statuses</strong> is a module for managing Master Document Submission Statuses data in the TMM system.
         <?php else: ?>
-            <strong>Master Document Submission Statuses</strong>は、TMMシステムでMaster Document Submission Statuses データを管理するモジュールです。
+            <strong>書類提出ステータス</strong>は、TMMシステムで書類提出ステータスデータを管理するモジュールです。
         <?php endif; ?>
     </div>
     
@@ -189,11 +189,11 @@ $currentLang = $this->request->getSession()->read('Config.language') ?: 'ind';
                         <?php endif; ?>:
                     </strong>
                     <?php if ($currentLang === 'ind'): ?>
-                        Mengisi formulir data Master Document Submission Statuses
+                        Mengisi formulir data Status Penyerahan Dokumen
                     <?php elseif ($currentLang === 'eng'): ?>
                         Fill out Master Document Submission Statuses data form
                     <?php else: ?>
-                        Master Document Submission Statuses データフォームに記入する
+                        書類提出ステータスデータフォームに記入する
                     <?php endif; ?>
                     <br>
                     

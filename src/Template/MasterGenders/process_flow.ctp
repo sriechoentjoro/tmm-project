@@ -137,11 +137,11 @@ $currentLang = $this->request->getSession()->read('Config.language') ?: 'ind';
     <div class="alert-info-custom">
         <i class="fas fa-info-circle"></i>
         <?php if ($currentLang === 'ind'): ?>
-            <strong>Master Genders</strong> adalah modul untuk mengelola data terkait Master Genders dalam sistem TMM.
+            <strong>Jenis Kelamin</strong> adalah modul untuk mengelola data terkait Jenis Kelamin dalam sistem TMM.
         <?php elseif ($currentLang === 'eng'): ?>
             <strong>Master Genders</strong> is a module for managing Master Genders data in the TMM system.
         <?php else: ?>
-            <strong>Master Genders</strong>は、TMMシステムでMaster Genders データを管理するモジュールです。
+            <strong>性別</strong>は、TMMシステムで性別データを管理するモジュールです。
         <?php endif; ?>
     </div>
     
@@ -189,11 +189,11 @@ $currentLang = $this->request->getSession()->read('Config.language') ?: 'ind';
                         <?php endif; ?>:
                     </strong>
                     <?php if ($currentLang === 'ind'): ?>
-                        Mengisi formulir data Master Genders
+                        Mengisi formulir data Jenis Kelamin
                     <?php elseif ($currentLang === 'eng'): ?>
                         Fill out Master Genders data form
                     <?php else: ?>
-                        Master Genders データフォームに記入する
+                        性別データフォームに記入する
                     <?php endif; ?>
                     <br>
                     

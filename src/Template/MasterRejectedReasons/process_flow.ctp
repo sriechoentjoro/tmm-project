@@ -137,11 +137,11 @@ $currentLang = $this->request->getSession()->read('Config.language') ?: 'ind';
     <div class="alert-info-custom">
         <i class="fas fa-info-circle"></i>
         <?php if ($currentLang === 'ind'): ?>
-            <strong>Master Rejected Reasons</strong> adalah modul untuk mengelola data terkait Master Rejected Reasons dalam sistem TMM.
+            <strong>Alasan Penolakan</strong> adalah modul untuk mengelola data terkait Alasan Penolakan dalam sistem TMM.
         <?php elseif ($currentLang === 'eng'): ?>
             <strong>Master Rejected Reasons</strong> is a module for managing Master Rejected Reasons data in the TMM system.
         <?php else: ?>
-            <strong>Master Rejected Reasons</strong>は、TMMシステムでMaster Rejected Reasons データを管理するモジュールです。
+            <strong>不採用理由</strong>は、TMMシステムで不採用理由データを管理するモジュールです。
         <?php endif; ?>
     </div>
     
@@ -189,11 +189,11 @@ $currentLang = $this->request->getSession()->read('Config.language') ?: 'ind';
                         <?php endif; ?>:
                     </strong>
                     <?php if ($currentLang === 'ind'): ?>
-                        Mengisi formulir data Master Rejected Reasons
+                        Mengisi formulir data Alasan Penolakan
                     <?php elseif ($currentLang === 'eng'): ?>
                         Fill out Master Rejected Reasons data form
                     <?php else: ?>
-                        Master Rejected Reasons データフォームに記入する
+                        不採用理由データフォームに記入する
                     <?php endif; ?>
                     <br>
                     

@@ -137,11 +137,11 @@ $currentLang = $this->request->getSession()->read('Config.language') ?: 'ind';
     <div class="alert-info-custom">
         <i class="fas fa-info-circle"></i>
         <?php if ($currentLang === 'ind'): ?>
-            <strong>Sessions</strong> adalah modul untuk mengelola data terkait Sessions dalam sistem TMM.
+            <strong>Sesi</strong> adalah modul untuk mengelola data terkait Sesi dalam sistem TMM.
         <?php elseif ($currentLang === 'eng'): ?>
             <strong>Sessions</strong> is a module for managing Sessions data in the TMM system.
         <?php else: ?>
-            <strong>Sessions</strong>は、TMMシステムでSessions データを管理するモジュールです。
+            <strong>セッション</strong>は、TMMシステムでセッションデータを管理するモジュールです。
         <?php endif; ?>
     </div>
     
@@ -189,11 +189,11 @@ $currentLang = $this->request->getSession()->read('Config.language') ?: 'ind';
                         <?php endif; ?>:
                     </strong>
                     <?php if ($currentLang === 'ind'): ?>
-                        Mengisi formulir data Sessions
+                        Mengisi formulir data Sesi
                     <?php elseif ($currentLang === 'eng'): ?>
                         Fill out Sessions data form
                     <?php else: ?>
-                        Sessions データフォームに記入する
+                        セッションデータフォームに記入する
                     <?php endif; ?>
                     <br>
                     

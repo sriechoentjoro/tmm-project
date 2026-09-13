@@ -137,11 +137,11 @@ $currentLang = $this->request->getSession()->read('Config.language') ?: 'ind';
     <div class="alert-info-custom">
         <i class="fas fa-info-circle"></i>
         <?php if ($currentLang === 'ind'): ?>
-            <strong>Master Apprentice Departure Documents</strong> adalah modul untuk mengelola data terkait Master Apprentice Departure Documents dalam sistem TMM.
+            <strong>Dokumen Keberangkatan Pemagang</strong> adalah modul untuk mengelola data terkait Dokumen Keberangkatan Pemagang dalam sistem TMM.
         <?php elseif ($currentLang === 'eng'): ?>
             <strong>Master Apprentice Departure Documents</strong> is a module for managing Master Apprentice Departure Documents data in the TMM system.
         <?php else: ?>
-            <strong>Master Apprentice Departure Documents</strong>は、TMMシステムでMaster Apprentice Departure Documents データを管理するモジュールです。
+            <strong>出国書類</strong>は、TMMシステムで出国書類データを管理するモジュールです。
         <?php endif; ?>
     </div>
     
@@ -189,11 +189,11 @@ $currentLang = $this->request->getSession()->read('Config.language') ?: 'ind';
                         <?php endif; ?>:
                     </strong>
                     <?php if ($currentLang === 'ind'): ?>
-                        Mengisi formulir data Master Apprentice Departure Documents
+                        Mengisi formulir data Dokumen Keberangkatan Pemagang
                     <?php elseif ($currentLang === 'eng'): ?>
                         Fill out Master Apprentice Departure Documents data form
                     <?php else: ?>
-                        Master Apprentice Departure Documents データフォームに記入する
+                        出国書類データフォームに記入する
                     <?php endif; ?>
                     <br>
                     

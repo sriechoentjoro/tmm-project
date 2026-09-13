@@ -137,11 +137,11 @@ $currentLang = $this->request->getSession()->read('Config.language') ?: 'ind';
     <div class="alert-info-custom">
         <i class="fas fa-info-circle"></i>
         <?php if ($currentLang === 'ind'): ?>
-            <strong>Candidate Courses</strong> adalah modul untuk mengelola data terkait Candidate Courses dalam sistem TMM.
+            <strong>Kursus Kandidat</strong> adalah modul untuk mengelola data terkait Kursus Kandidat dalam sistem TMM.
         <?php elseif ($currentLang === 'eng'): ?>
             <strong>Candidate Courses</strong> is a module for managing Candidate Courses data in the TMM system.
         <?php else: ?>
-            <strong>Candidate Courses</strong>は、TMMシステムでCandidate Courses データを管理するモジュールです。
+            <strong>候補者の受講歴</strong>は、TMMシステムで候補者の受講歴データを管理するモジュールです。
         <?php endif; ?>
     </div>
     
@@ -189,11 +189,11 @@ $currentLang = $this->request->getSession()->read('Config.language') ?: 'ind';
                         <?php endif; ?>:
                     </strong>
                     <?php if ($currentLang === 'ind'): ?>
-                        Mengisi formulir data Candidate Courses
+                        Mengisi formulir data Kursus Kandidat
                     <?php elseif ($currentLang === 'eng'): ?>
                         Fill out Candidate Courses data form
                     <?php else: ?>
-                        Candidate Courses データフォームに記入する
+                        候補者の受講歴データフォームに記入する
                     <?php endif; ?>
                     <br>
                     

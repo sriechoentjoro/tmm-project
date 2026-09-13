@@ -137,11 +137,11 @@ $currentLang = $this->request->getSession()->read('Config.language') ?: 'ind';
     <div class="alert-info-custom">
         <i class="fas fa-info-circle"></i>
         <?php if ($currentLang === 'ind'): ?>
-            <strong>Roles</strong> adalah modul untuk mengelola data terkait Roles dalam sistem TMM.
+            <strong>Peran</strong> adalah modul untuk mengelola data terkait Peran dalam sistem TMM.
         <?php elseif ($currentLang === 'eng'): ?>
             <strong>Roles</strong> is a module for managing Roles data in the TMM system.
         <?php else: ?>
-            <strong>Roles</strong>は、TMMシステムでRoles データを管理するモジュールです。
+            <strong>役割</strong>は、TMMシステムで役割データを管理するモジュールです。
         <?php endif; ?>
     </div>
     
@@ -189,11 +189,11 @@ $currentLang = $this->request->getSession()->read('Config.language') ?: 'ind';
                         <?php endif; ?>:
                     </strong>
                     <?php if ($currentLang === 'ind'): ?>
-                        Mengisi formulir data Roles
+                        Mengisi formulir data Peran
                     <?php elseif ($currentLang === 'eng'): ?>
                         Fill out Roles data form
                     <?php else: ?>
-                        Roles データフォームに記入する
+                        役割データフォームに記入する
                     <?php endif; ?>
                     <br>
                     

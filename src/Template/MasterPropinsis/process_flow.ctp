@@ -137,11 +137,11 @@ $currentLang = $this->request->getSession()->read('Config.language') ?: 'ind';
     <div class="alert-info-custom">
         <i class="fas fa-info-circle"></i>
         <?php if ($currentLang === 'ind'): ?>
-            <strong>Master Propinsis</strong> adalah modul untuk mengelola data terkait Master Propinsis dalam sistem TMM.
+            <strong>Provinsi</strong> adalah modul untuk mengelola data terkait Provinsi dalam sistem TMM.
         <?php elseif ($currentLang === 'eng'): ?>
             <strong>Master Propinsis</strong> is a module for managing Master Propinsis data in the TMM system.
         <?php else: ?>
-            <strong>Master Propinsis</strong>は、TMMシステムでMaster Propinsis データを管理するモジュールです。
+            <strong>州</strong>は、TMMシステムで州データを管理するモジュールです。
         <?php endif; ?>
     </div>
     
@@ -189,11 +189,11 @@ $currentLang = $this->request->getSession()->read('Config.language') ?: 'ind';
                         <?php endif; ?>:
                     </strong>
                     <?php if ($currentLang === 'ind'): ?>
-                        Mengisi formulir data Master Propinsis
+                        Mengisi formulir data Provinsi
                     <?php elseif ($currentLang === 'eng'): ?>
                         Fill out Master Propinsis data form
                     <?php else: ?>
-                        Master Propinsis データフォームに記入する
+                        州データフォームに記入する
                     <?php endif; ?>
                     <br>
                     

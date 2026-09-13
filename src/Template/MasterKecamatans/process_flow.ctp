@@ -137,11 +137,11 @@ $currentLang = $this->request->getSession()->read('Config.language') ?: 'ind';
     <div class="alert-info-custom">
         <i class="fas fa-info-circle"></i>
         <?php if ($currentLang === 'ind'): ?>
-            <strong>Master Kecamatans</strong> adalah modul untuk mengelola data terkait Master Kecamatans dalam sistem TMM.
+            <strong>Kecamatan</strong> adalah modul untuk mengelola data terkait Kecamatan dalam sistem TMM.
         <?php elseif ($currentLang === 'eng'): ?>
             <strong>Master Kecamatans</strong> is a module for managing Master Kecamatans data in the TMM system.
         <?php else: ?>
-            <strong>Master Kecamatans</strong>は、TMMシステムでMaster Kecamatans データを管理するモジュールです。
+            <strong>郡</strong>は、TMMシステムで郡データを管理するモジュールです。
         <?php endif; ?>
     </div>
     
@@ -189,11 +189,11 @@ $currentLang = $this->request->getSession()->read('Config.language') ?: 'ind';
                         <?php endif; ?>:
                     </strong>
                     <?php if ($currentLang === 'ind'): ?>
-                        Mengisi formulir data Master Kecamatans
+                        Mengisi formulir data Kecamatan
                     <?php elseif ($currentLang === 'eng'): ?>
                         Fill out Master Kecamatans data form
                     <?php else: ?>
-                        Master Kecamatans データフォームに記入する
+                        郡データフォームに記入する
                     <?php endif; ?>
                     <br>
                     

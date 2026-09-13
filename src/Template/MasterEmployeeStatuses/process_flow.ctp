@@ -137,11 +137,11 @@ $currentLang = $this->request->getSession()->read('Config.language') ?: 'ind';
     <div class="alert-info-custom">
         <i class="fas fa-info-circle"></i>
         <?php if ($currentLang === 'ind'): ?>
-            <strong>Master Employee Statuses</strong> adalah modul untuk mengelola data terkait Master Employee Statuses dalam sistem TMM.
+            <strong>Status Kepegawaian</strong> adalah modul untuk mengelola data terkait Status Kepegawaian dalam sistem TMM.
         <?php elseif ($currentLang === 'eng'): ?>
             <strong>Master Employee Statuses</strong> is a module for managing Master Employee Statuses data in the TMM system.
         <?php else: ?>
-            <strong>Master Employee Statuses</strong>は、TMMシステムでMaster Employee Statuses データを管理するモジュールです。
+            <strong>雇用形態</strong>は、TMMシステムで雇用形態データを管理するモジュールです。
         <?php endif; ?>
     </div>
     
@@ -189,11 +189,11 @@ $currentLang = $this->request->getSession()->read('Config.language') ?: 'ind';
                         <?php endif; ?>:
                     </strong>
                     <?php if ($currentLang === 'ind'): ?>
-                        Mengisi formulir data Master Employee Statuses
+                        Mengisi formulir data Status Kepegawaian
                     <?php elseif ($currentLang === 'eng'): ?>
                         Fill out Master Employee Statuses data form
                     <?php else: ?>
-                        Master Employee Statuses データフォームに記入する
+                        雇用形態データフォームに記入する
                     <?php endif; ?>
                     <br>
                     

@@ -137,11 +137,11 @@ $currentLang = $this->request->getSession()->read('Config.language') ?: 'ind';
     <div class="alert-info-custom">
         <i class="fas fa-info-circle"></i>
         <?php if ($currentLang === 'ind'): ?>
-            <strong>User Roles</strong> adalah modul untuk mengelola data terkait User Roles dalam sistem TMM.
+            <strong>Peran Pengguna</strong> adalah modul untuk mengelola data terkait Peran Pengguna dalam sistem TMM.
         <?php elseif ($currentLang === 'eng'): ?>
             <strong>User Roles</strong> is a module for managing User Roles data in the TMM system.
         <?php else: ?>
-            <strong>User Roles</strong>は、TMMシステムでUser Roles データを管理するモジュールです。
+            <strong>ユーザーの役割</strong>は、TMMシステムでユーザーの役割データを管理するモジュールです。
         <?php endif; ?>
     </div>
     
@@ -189,11 +189,11 @@ $currentLang = $this->request->getSession()->read('Config.language') ?: 'ind';
                         <?php endif; ?>:
                     </strong>
                     <?php if ($currentLang === 'ind'): ?>
-                        Mengisi formulir data User Roles
+                        Mengisi formulir data Peran Pengguna
                     <?php elseif ($currentLang === 'eng'): ?>
                         Fill out User Roles data form
                     <?php else: ?>
-                        User Roles データフォームに記入する
+                        ユーザーの役割データフォームに記入する
                     <?php endif; ?>
                     <br>
                     

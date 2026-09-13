@@ -137,11 +137,11 @@ $currentLang = $this->request->getSession()->read('Config.language') ?: 'ind';
     <div class="alert-info-custom">
         <i class="fas fa-info-circle"></i>
         <?php if ($currentLang === 'ind'): ?>
-            <strong>Apprentice Document Management Dashboards</strong> adalah modul untuk mengelola data terkait Apprentice Document Management Dashboards dalam sistem TMM.
+            <strong>Dasbor Pengelolaan Dokumen Pemagang</strong> adalah modul untuk mengelola data terkait Dasbor Pengelolaan Dokumen Pemagang dalam sistem TMM.
         <?php elseif ($currentLang === 'eng'): ?>
             <strong>Apprentice Document Management Dashboards</strong> is a module for managing Apprentice Document Management Dashboards data in the TMM system.
         <?php else: ?>
-            <strong>Apprentice Document Management Dashboards</strong>は、TMMシステムでApprentice Document Management Dashboards データを管理するモジュールです。
+            <strong>技能実習生書類管理ダッシュボード</strong>は、TMMシステムで技能実習生書類管理ダッシュボードデータを管理するモジュールです。
         <?php endif; ?>
     </div>
     
@@ -189,11 +189,11 @@ $currentLang = $this->request->getSession()->read('Config.language') ?: 'ind';
                         <?php endif; ?>:
                     </strong>
                     <?php if ($currentLang === 'ind'): ?>
-                        Mengisi formulir data Apprentice Document Management Dashboards
+                        Mengisi formulir data Dasbor Pengelolaan Dokumen Pemagang
                     <?php elseif ($currentLang === 'eng'): ?>
                         Fill out Apprentice Document Management Dashboards data form
                     <?php else: ?>
-                        Apprentice Document Management Dashboards データフォームに記入する
+                        技能実習生書類管理ダッシュボードデータフォームに記入する
                     <?php endif; ?>
                     <br>
                     

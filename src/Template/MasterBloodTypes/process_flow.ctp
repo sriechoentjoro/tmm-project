@@ -137,11 +137,11 @@ $currentLang = $this->request->getSession()->read('Config.language') ?: 'ind';
     <div class="alert-info-custom">
         <i class="fas fa-info-circle"></i>
         <?php if ($currentLang === 'ind'): ?>
-            <strong>Master Blood Types</strong> adalah modul untuk mengelola data terkait Master Blood Types dalam sistem TMM.
+            <strong>Golongan Darah</strong> adalah modul untuk mengelola data terkait Golongan Darah dalam sistem TMM.
         <?php elseif ($currentLang === 'eng'): ?>
             <strong>Master Blood Types</strong> is a module for managing Master Blood Types data in the TMM system.
         <?php else: ?>
-            <strong>Master Blood Types</strong>は、TMMシステムでMaster Blood Types データを管理するモジュールです。
+            <strong>血液型</strong>は、TMMシステムで血液型データを管理するモジュールです。
         <?php endif; ?>
     </div>
     
@@ -189,11 +189,11 @@ $currentLang = $this->request->getSession()->read('Config.language') ?: 'ind';
                         <?php endif; ?>:
                     </strong>
                     <?php if ($currentLang === 'ind'): ?>
-                        Mengisi formulir data Master Blood Types
+                        Mengisi formulir data Golongan Darah
                     <?php elseif ($currentLang === 'eng'): ?>
                         Fill out Master Blood Types data form
                     <?php else: ?>
-                        Master Blood Types データフォームに記入する
+                        血液型データフォームに記入する
                     <?php endif; ?>
                     <br>
                     

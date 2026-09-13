@@ -137,11 +137,11 @@ $currentLang = $this->request->getSession()->read('Config.language') ?: 'ind';
     <div class="alert-info-custom">
         <i class="fas fa-info-circle"></i>
         <?php if ($currentLang === 'ind'): ?>
-            <strong>Apprentice Record Medical Check Ups</strong> adalah modul untuk mengelola data terkait Apprentice Record Medical Check Ups dalam sistem TMM.
+            <strong>Rekaman Pemeriksaan Kesehatan Pemagang</strong> adalah modul untuk mengelola data terkait Rekaman Pemeriksaan Kesehatan Pemagang dalam sistem TMM.
         <?php elseif ($currentLang === 'eng'): ?>
             <strong>Apprentice Record Medical Check Ups</strong> is a module for managing Apprentice Record Medical Check Ups data in the TMM system.
         <?php else: ?>
-            <strong>Apprentice Record Medical Check Ups</strong>は、TMMシステムでApprentice Record Medical Check Ups データを管理するモジュールです。
+            <strong>技能実習生の健康診断記録</strong>は、TMMシステムで技能実習生の健康診断記録データを管理するモジュールです。
         <?php endif; ?>
     </div>
     
@@ -189,11 +189,11 @@ $currentLang = $this->request->getSession()->read('Config.language') ?: 'ind';
                         <?php endif; ?>:
                     </strong>
                     <?php if ($currentLang === 'ind'): ?>
-                        Mengisi formulir data Apprentice Record Medical Check Ups
+                        Mengisi formulir data Rekaman Pemeriksaan Kesehatan Pemagang
                     <?php elseif ($currentLang === 'eng'): ?>
                         Fill out Apprentice Record Medical Check Ups data form
                     <?php else: ?>
-                        Apprentice Record Medical Check Ups データフォームに記入する
+                        技能実習生の健康診断記録データフォームに記入する
                     <?php endif; ?>
                     <br>
                     

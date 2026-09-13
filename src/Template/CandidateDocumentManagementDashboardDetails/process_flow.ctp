@@ -137,11 +137,11 @@ $currentLang = $this->request->getSession()->read('Config.language') ?: 'ind';
     <div class="alert-info-custom">
         <i class="fas fa-info-circle"></i>
         <?php if ($currentLang === 'ind'): ?>
-            <strong>Candidate Document Management Dashboard Details</strong> adalah modul untuk mengelola data terkait Candidate Document Management Dashboard Details dalam sistem TMM.
+            <strong>Detail Dasbor Pengelolaan Dokumen Kandidat</strong> adalah modul untuk mengelola data terkait Detail Dasbor Pengelolaan Dokumen Kandidat dalam sistem TMM.
         <?php elseif ($currentLang === 'eng'): ?>
             <strong>Candidate Document Management Dashboard Details</strong> is a module for managing Candidate Document Management Dashboard Details data in the TMM system.
         <?php else: ?>
-            <strong>Candidate Document Management Dashboard Details</strong>は、TMMシステムでCandidate Document Management Dashboard Details データを管理するモジュールです。
+            <strong>候補者書類管理ダッシュボードの詳細</strong>は、TMMシステムで候補者書類管理ダッシュボードの詳細データを管理するモジュールです。
         <?php endif; ?>
     </div>
     
@@ -189,11 +189,11 @@ $currentLang = $this->request->getSession()->read('Config.language') ?: 'ind';
                         <?php endif; ?>:
                     </strong>
                     <?php if ($currentLang === 'ind'): ?>
-                        Mengisi formulir data Candidate Document Management Dashboard Details
+                        Mengisi formulir data Detail Dasbor Pengelolaan Dokumen Kandidat
                     <?php elseif ($currentLang === 'eng'): ?>
                         Fill out Candidate Document Management Dashboard Details data form
                     <?php else: ?>
-                        Candidate Document Management Dashboard Details データフォームに記入する
+                        候補者書類管理ダッシュボードの詳細データフォームに記入する
                     <?php endif; ?>
                     <br>
                     

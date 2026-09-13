@@ -137,11 +137,11 @@ $currentLang = $this->request->getSession()->read('Config.language') ?: 'ind';
     <div class="alert-info-custom">
         <i class="fas fa-info-circle"></i>
         <?php if ($currentLang === 'ind'): ?>
-            <strong>Special Skill Support Institutions</strong> adalah modul untuk mengelola data terkait Special Skill Support Institutions dalam sistem TMM.
+            <strong>Lembaga Pendukung Keterampilan Khusus</strong> adalah modul untuk mengelola data terkait Lembaga Pendukung Keterampilan Khusus dalam sistem TMM.
         <?php elseif ($currentLang === 'eng'): ?>
             <strong>Special Skill Support Institutions</strong> is a module for managing Special Skill Support Institutions data in the TMM system.
         <?php else: ?>
-            <strong>Special Skill Support Institutions</strong>は、TMMシステムでSpecial Skill Support Institutions データを管理するモジュールです。
+            <strong>特定技能支援機関</strong>は、TMMシステムで特定技能支援機関データを管理するモジュールです。
         <?php endif; ?>
     </div>
     
@@ -189,11 +189,11 @@ $currentLang = $this->request->getSession()->read('Config.language') ?: 'ind';
                         <?php endif; ?>:
                     </strong>
                     <?php if ($currentLang === 'ind'): ?>
-                        Mengisi formulir data Special Skill Support Institutions
+                        Mengisi formulir data Lembaga Pendukung Keterampilan Khusus
                     <?php elseif ($currentLang === 'eng'): ?>
                         Fill out Special Skill Support Institutions data form
                     <?php else: ?>
-                        Special Skill Support Institutions データフォームに記入する
+                        特定技能支援機関データフォームに記入する
                     <?php endif; ?>
                     <br>
                     

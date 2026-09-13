@@ -24,11 +24,11 @@ $currentLang = $this->request->getSession()->read('Config.language') ?: 'ind';
     <div class="alert-info-custom">
         <i class="fas fa-info-circle"></i>
         <?php if ($currentLang === 'ind'): ?>
-            <strong>Stakeholder Dashboard</strong> adalah modul untuk mengelola data terkait Stakeholder Dashboard dalam sistem TMM.
+            <strong>Dasbor Pemangku Kepentingan</strong> adalah modul untuk mengelola data terkait Dasbor Pemangku Kepentingan dalam sistem TMM.
         <?php elseif ($currentLang === 'eng'): ?>
             <strong>Stakeholder Dashboard</strong> is a module for managing Stakeholder Dashboard data in the TMM system.
         <?php else: ?>
-            <strong>Stakeholder Dashboard</strong>は、TMMシステムでStakeholder Dashboard データを管理するモジュールです。
+            <strong>ステークホルダーダッシュボード</strong>は、TMMシステムでステークホルダーダッシュボードデータを管理するモジュールです。
         <?php endif; ?>
     </div>
     
@@ -76,11 +76,11 @@ $currentLang = $this->request->getSession()->read('Config.language') ?: 'ind';
                         <?php endif; ?>:
                     </strong>
                     <?php if ($currentLang === 'ind'): ?>
-                        Mengisi formulir data Stakeholder Dashboard
+                        Mengisi formulir data Dasbor Pemangku Kepentingan
                     <?php elseif ($currentLang === 'eng'): ?>
                         Fill out Stakeholder Dashboard data form
                     <?php else: ?>
-                        Stakeholder Dashboard データフォームに記入する
+                        ステークホルダーダッシュボードデータフォームに記入する
                     <?php endif; ?>
                     <br>
                     

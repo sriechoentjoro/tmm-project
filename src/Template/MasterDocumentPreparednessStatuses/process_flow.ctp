@@ -137,11 +137,11 @@ $currentLang = $this->request->getSession()->read('Config.language') ?: 'ind';
     <div class="alert-info-custom">
         <i class="fas fa-info-circle"></i>
         <?php if ($currentLang === 'ind'): ?>
-            <strong>Master Document Preparedness Statuses</strong> adalah modul untuk mengelola data terkait Master Document Preparedness Statuses dalam sistem TMM.
+            <strong>Status Kesiapan Dokumen</strong> adalah modul untuk mengelola data terkait Status Kesiapan Dokumen dalam sistem TMM.
         <?php elseif ($currentLang === 'eng'): ?>
             <strong>Master Document Preparedness Statuses</strong> is a module for managing Master Document Preparedness Statuses data in the TMM system.
         <?php else: ?>
-            <strong>Master Document Preparedness Statuses</strong>は、TMMシステムでMaster Document Preparedness Statuses データを管理するモジュールです。
+            <strong>書類準備ステータス</strong>は、TMMシステムで書類準備ステータスデータを管理するモジュールです。
         <?php endif; ?>
     </div>
     
@@ -189,11 +189,11 @@ $currentLang = $this->request->getSession()->read('Config.language') ?: 'ind';
                         <?php endif; ?>:
                     </strong>
                     <?php if ($currentLang === 'ind'): ?>
-                        Mengisi formulir data Master Document Preparedness Statuses
+                        Mengisi formulir data Status Kesiapan Dokumen
                     <?php elseif ($currentLang === 'eng'): ?>
                         Fill out Master Document Preparedness Statuses data form
                     <?php else: ?>
-                        Master Document Preparedness Statuses データフォームに記入する
+                        書類準備ステータスデータフォームに記入する
                     <?php endif; ?>
                     <br>
                     

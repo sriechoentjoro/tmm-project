@@ -137,11 +137,11 @@ $currentLang = $this->request->getSession()->read('Config.language') ?: 'ind';
     <div class="alert-info-custom">
         <i class="fas fa-info-circle"></i>
         <?php if ($currentLang === 'ind'): ?>
-            <strong>Candidate Families</strong> adalah modul untuk mengelola data terkait Candidate Families dalam sistem TMM.
+            <strong>Keluarga Kandidat</strong> adalah modul untuk mengelola data terkait Keluarga Kandidat dalam sistem TMM.
         <?php elseif ($currentLang === 'eng'): ?>
             <strong>Candidate Families</strong> is a module for managing Candidate Families data in the TMM system.
         <?php else: ?>
-            <strong>Candidate Families</strong>は、TMMシステムでCandidate Families データを管理するモジュールです。
+            <strong>候補者の家族</strong>は、TMMシステムで候補者の家族データを管理するモジュールです。
         <?php endif; ?>
     </div>
     
@@ -189,11 +189,11 @@ $currentLang = $this->request->getSession()->read('Config.language') ?: 'ind';
                         <?php endif; ?>:
                     </strong>
                     <?php if ($currentLang === 'ind'): ?>
-                        Mengisi formulir data Candidate Families
+                        Mengisi formulir data Keluarga Kandidat
                     <?php elseif ($currentLang === 'eng'): ?>
                         Fill out Candidate Families data form
                     <?php else: ?>
-                        Candidate Families データフォームに記入する
+                        候補者の家族データフォームに記入する
                     <?php endif; ?>
                     <br>
                     

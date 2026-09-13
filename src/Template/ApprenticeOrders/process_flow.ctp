@@ -137,11 +137,11 @@ $currentLang = $this->request->getSession()->read('Config.language') ?: 'ind';
     <div class="alert-info-custom">
         <i class="fas fa-info-circle"></i>
         <?php if ($currentLang === 'ind'): ?>
-            <strong>Apprentice Orders</strong> adalah modul untuk mengelola data terkait Apprentice Orders dalam sistem TMM.
+            <strong>Pesanan Pemagang</strong> adalah modul untuk mengelola data terkait Pesanan Pemagang dalam sistem TMM.
         <?php elseif ($currentLang === 'eng'): ?>
             <strong>Apprentice Orders</strong> is a module for managing Apprentice Orders data in the TMM system.
         <?php else: ?>
-            <strong>Apprentice Orders</strong>は、TMMシステムでApprentice Orders データを管理するモジュールです。
+            <strong>技能実習生のオーダー</strong>は、TMMシステムで技能実習生のオーダーデータを管理するモジュールです。
         <?php endif; ?>
     </div>
     
@@ -189,11 +189,11 @@ $currentLang = $this->request->getSession()->read('Config.language') ?: 'ind';
                         <?php endif; ?>:
                     </strong>
                     <?php if ($currentLang === 'ind'): ?>
-                        Mengisi formulir data Apprentice Orders
+                        Mengisi formulir data Pesanan Pemagang
                     <?php elseif ($currentLang === 'eng'): ?>
                         Fill out Apprentice Orders data form
                     <?php else: ?>
-                        Apprentice Orders データフォームに記入する
+                        技能実習生のオーダーデータフォームに記入する
                     <?php endif; ?>
                     <br>
                     

@@ -137,11 +137,11 @@ $currentLang = $this->request->getSession()->read('Config.language') ?: 'ind';
     <div class="alert-info-custom">
         <i class="fas fa-info-circle"></i>
         <?php if ($currentLang === 'ind'): ?>
-            <strong>Candidate Record Medical Check Ups</strong> adalah modul untuk mengelola data terkait Candidate Record Medical Check Ups dalam sistem TMM.
+            <strong>Rekaman Pemeriksaan Kesehatan Kandidat</strong> adalah modul untuk mengelola data terkait Rekaman Pemeriksaan Kesehatan Kandidat dalam sistem TMM.
         <?php elseif ($currentLang === 'eng'): ?>
             <strong>Candidate Record Medical Check Ups</strong> is a module for managing Candidate Record Medical Check Ups data in the TMM system.
         <?php else: ?>
-            <strong>Candidate Record Medical Check Ups</strong>は、TMMシステムでCandidate Record Medical Check Ups データを管理するモジュールです。
+            <strong>候補者の健康診断記録</strong>は、TMMシステムで候補者の健康診断記録データを管理するモジュールです。
         <?php endif; ?>
     </div>
     
@@ -189,11 +189,11 @@ $currentLang = $this->request->getSession()->read('Config.language') ?: 'ind';
                         <?php endif; ?>:
                     </strong>
                     <?php if ($currentLang === 'ind'): ?>
-                        Mengisi formulir data Candidate Record Medical Check Ups
+                        Mengisi formulir data Rekaman Pemeriksaan Kesehatan Kandidat
                     <?php elseif ($currentLang === 'eng'): ?>
                         Fill out Candidate Record Medical Check Ups data form
                     <?php else: ?>
-                        Candidate Record Medical Check Ups データフォームに記入する
+                        候補者の健康診断記録データフォームに記入する
                     <?php endif; ?>
                     <br>
                     

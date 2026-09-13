@@ -137,11 +137,11 @@ $currentLang = $this->request->getSession()->read('Config.language') ?: 'ind';
     <div class="alert-info-custom">
         <i class="fas fa-info-circle"></i>
         <?php if ($currentLang === 'ind'): ?>
-            <strong>Stakeholders</strong> adalah modul untuk mengelola data terkait Stakeholders dalam sistem TMM.
+            <strong>Pemangku Kepentingan</strong> adalah modul untuk mengelola data terkait Pemangku Kepentingan dalam sistem TMM.
         <?php elseif ($currentLang === 'eng'): ?>
             <strong>Stakeholders</strong> is a module for managing Stakeholders data in the TMM system.
         <?php else: ?>
-            <strong>Stakeholders</strong>は、TMMシステムでStakeholders データを管理するモジュールです。
+            <strong>ステークホルダー</strong>は、TMMシステムでステークホルダーデータを管理するモジュールです。
         <?php endif; ?>
     </div>
     
@@ -189,11 +189,11 @@ $currentLang = $this->request->getSession()->read('Config.language') ?: 'ind';
                         <?php endif; ?>:
                     </strong>
                     <?php if ($currentLang === 'ind'): ?>
-                        Mengisi formulir data Stakeholders
+                        Mengisi formulir data Pemangku Kepentingan
                     <?php elseif ($currentLang === 'eng'): ?>
                         Fill out Stakeholders data form
                     <?php else: ?>
-                        Stakeholders データフォームに記入する
+                        ステークホルダーデータフォームに記入する
                     <?php endif; ?>
                     <br>
                     

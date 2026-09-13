@@ -137,11 +137,11 @@ $currentLang = $this->request->getSession()->read('Config.language') ?: 'ind';
     <div class="alert-info-custom">
         <i class="fas fa-info-circle"></i>
         <?php if ($currentLang === 'ind'): ?>
-            <strong>Master Kabupatens</strong> adalah modul untuk mengelola data terkait Master Kabupatens dalam sistem TMM.
+            <strong>Kabupaten/Kota</strong> adalah modul untuk mengelola data terkait Kabupaten/Kota dalam sistem TMM.
         <?php elseif ($currentLang === 'eng'): ?>
             <strong>Master Kabupatens</strong> is a module for managing Master Kabupatens data in the TMM system.
         <?php else: ?>
-            <strong>Master Kabupatens</strong>は、TMMシステムでMaster Kabupatens データを管理するモジュールです。
+            <strong>県・市</strong>は、TMMシステムで県・市データを管理するモジュールです。
         <?php endif; ?>
     </div>
     
@@ -189,11 +189,11 @@ $currentLang = $this->request->getSession()->read('Config.language') ?: 'ind';
                         <?php endif; ?>:
                     </strong>
                     <?php if ($currentLang === 'ind'): ?>
-                        Mengisi formulir data Master Kabupatens
+                        Mengisi formulir data Kabupaten/Kota
                     <?php elseif ($currentLang === 'eng'): ?>
                         Fill out Master Kabupatens data form
                     <?php else: ?>
-                        Master Kabupatens データフォームに記入する
+                        県・市データフォームに記入する
                     <?php endif; ?>
                     <br>
                     

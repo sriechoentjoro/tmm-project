@@ -137,11 +137,11 @@ $currentLang = $this->request->getSession()->read('Config.language') ?: 'ind';
     <div class="alert-info-custom">
         <i class="fas fa-info-circle"></i>
         <?php if ($currentLang === 'ind'): ?>
-            <strong>Acceptance Organization Stories</strong> adalah modul untuk mengelola data terkait Acceptance Organization Stories dalam sistem TMM.
+            <strong>Riwayat Organisasi Penerima</strong> adalah modul untuk mengelola data terkait Riwayat Organisasi Penerima dalam sistem TMM.
         <?php elseif ($currentLang === 'eng'): ?>
             <strong>Acceptance Organization Stories</strong> is a module for managing Acceptance Organization Stories data in the TMM system.
         <?php else: ?>
-            <strong>Acceptance Organization Stories</strong>は、TMMシステムでAcceptance Organization Stories データを管理するモジュールです。
+            <strong>受入団体の記録</strong>は、TMMシステムで受入団体の記録データを管理するモジュールです。
         <?php endif; ?>
     </div>
     
@@ -189,11 +189,11 @@ $currentLang = $this->request->getSession()->read('Config.language') ?: 'ind';
                         <?php endif; ?>:
                     </strong>
                     <?php if ($currentLang === 'ind'): ?>
-                        Mengisi formulir data Acceptance Organization Stories
+                        Mengisi formulir data Riwayat Organisasi Penerima
                     <?php elseif ($currentLang === 'eng'): ?>
                         Fill out Acceptance Organization Stories data form
                     <?php else: ?>
-                        Acceptance Organization Stories データフォームに記入する
+                        受入団体の記録データフォームに記入する
                     <?php endif; ?>
                     <br>
                     
