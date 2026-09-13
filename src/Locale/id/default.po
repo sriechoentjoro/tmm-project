@@ -6765,3 +6765,686 @@ msgstr "Ikon"
 msgid "Sub-menus"
 msgstr "Submenu"
 
+
+msgid "-- Select Apprentice Id --"
+msgstr "-- Pilih Pemagang --"
+
+msgid "-- Select Kabupaten/City --"
+msgstr "-- Pilih Kabupaten/Kota --"
+
+msgid "-- Select Master Employee Status Id --"
+msgstr "-- Pilih Status Kepegawaian --"
+
+msgid "-- Select Master Family Connection Id --"
+msgstr "-- Pilih Hubungan Keluarga --"
+
+msgid "-- Select Master Occupation Id --"
+msgstr "-- Pilih Pekerjaan --"
+
+msgid "-- Select Master Strata Id --"
+msgstr "-- Pilih Jenjang Pendidikan --"
+
+msgid "Add First AcceptanceOrganization"
+msgstr "Tambah Organisasi Penerima Pertama"
+
+msgid "Add Post-Apprentice Record"
+msgstr "Tambah Data Pasca-Pemagangan"
+
+msgid "Additional Notes"
+msgstr "Catatan Tambahan"
+
+msgid "Alumni after returning home"
+msgstr "Alumni setelah kembali ke tanah air"
+
+msgid "Any additional context, observations, or follow-up actions…"
+msgstr "Konteks tambahan, pengamatan, atau tindak lanjut lainnya…"
+
+msgid "Apprentice & Return Date"
+msgstr "Pemagang & Tanggal Kepulangan"
+
+msgid "Apprentice Education"
+msgstr "Pendidikan Pemagang"
+
+msgid "Apprentice Educations"
+msgstr "Pendidikan Pemagang"
+
+msgid "Apprentice Experience"
+msgstr "Pengalaman Pemagang"
+
+msgid "Apprentice Experiences"
+msgstr "Pengalaman Pemagang"
+
+msgid "Apprentice Families"
+msgstr "Keluarga Pemagang"
+
+msgid "Apprentice Family"
+msgstr "Keluarga Pemagang"
+
+msgid "Area"
+msgstr "Wilayah"
+
+msgid "Candidate Education"
+msgstr "Pendidikan Kandidat"
+
+msgid "Candidate Educations"
+msgstr "Pendidikan Kandidat"
+
+msgid "Capital"
+msgstr "Ibu Kota"
+
+msgid "College Entry Date"
+msgstr "Tanggal Masuk Perguruan Tinggi"
+
+msgid "College Graduate Date"
+msgstr "Tanggal Lulus Perguruan Tinggi"
+
+msgid "College Major"
+msgstr "Jurusan"
+
+msgid "College Name"
+msgstr "Nama Perguruan Tinggi"
+
+msgid "Company or organisation name"
+msgstr "Nama perusahaan atau organisasi"
+
+msgid "Edit Post Apprentice"
+msgstr "Ubah Data Pasca-Pemagangan"
+
+msgid "Employer"
+msgstr "Pemberi Kerja"
+
+msgid "Employer / Organisation"
+msgstr "Pemberi Kerja / Organisasi"
+
+msgid "Employment Awards"
+msgstr "Penghargaan Kerja"
+
+msgid "Employment Detail"
+msgstr "Rincian Pekerjaan"
+
+msgid "Enter Apprentice Education Information"
+msgstr "Masukkan Informasi Pendidikan Pemagang"
+
+msgid "Enter Apprentice Experience Information"
+msgstr "Masukkan Informasi Pengalaman Pemagang"
+
+msgid "Enter Apprentice Family Information"
+msgstr "Masukkan Informasi Keluarga Pemagang"
+
+msgid "Enter Area"
+msgstr "Masukkan Wilayah"
+
+msgid "Enter Candidate Education Information"
+msgstr "Masukkan Informasi Pendidikan Kandidat"
+
+msgid "Enter Capital"
+msgstr "Masukkan Ibu Kota"
+
+msgid "Enter College Major"
+msgstr "Masukkan Jurusan"
+
+msgid "Enter College Name"
+msgstr "Masukkan Nama Perguruan Tinggi"
+
+msgid "Enter Employment Awards"
+msgstr "Masukkan Penghargaan Kerja"
+
+msgid "Enter Employment End Year"
+msgstr "Masukkan Tahun Berakhir Kerja"
+
+msgid "Enter Employment Start Year"
+msgstr "Masukkan Tahun Mulai Kerja"
+
+msgid "Enter Job Detail"
+msgstr "Masukkan Rincian Pekerjaan"
+
+msgid "Enter Master Japan Prefecture Information"
+msgstr "Masukkan Informasi Prefektur Jepang"
+
+msgid "Enter Prefecture Jpg"
+msgstr "Masukkan Gambar Prefektur"
+
+msgid "Enter Termination Reasons"
+msgstr "Masukkan Alasan Berhenti"
+
+msgid "Enter Trainee Education Information"
+msgstr "Masukkan Informasi Pendidikan Trainee"
+
+msgid "Enter Trainee Experience Information"
+msgstr "Masukkan Informasi Pengalaman Trainee"
+
+msgid "Filter Address"
+msgstr "Saring menurut Alamat"
+
+msgid "Filter Master Japan Prefecture Id"
+msgstr "Saring menurut Prefektur Jepang"
+
+msgid "Filter Post Code"
+msgstr "Saring menurut Kode Pos"
+
+msgid "Filter by name / employer / status…"
+msgstr "Saring menurut nama / pemberi kerja / status…"
+
+msgid "Job title or role"
+msgstr "Jabatan atau peran"
+
+msgid "List Apprentice Educations"
+msgstr "Daftar Pendidikan Pemagang"
+
+msgid "List Apprentice Experiences"
+msgstr "Daftar Pengalaman Pemagang"
+
+msgid "List Apprentice Families"
+msgstr "Daftar Keluarga Pemagang"
+
+msgid "List Candidate Educations"
+msgstr "Daftar Pendidikan Kandidat"
+
+msgid "List Master Employee Statuses"
+msgstr "Daftar Status Kepegawaian"
+
+msgid "List Master Family Connections"
+msgstr "Daftar Hubungan Keluarga"
+
+msgid "List Master Japan Prefectures"
+msgstr "Daftar Prefektur Jepang"
+
+msgid "List Master Occupations"
+msgstr "Daftar Pekerjaan"
+
+msgid "List Master Stratas"
+msgstr "Daftar Jenjang Pendidikan"
+
+msgid "List MasterEmployeeStatuses"
+msgstr "Daftar Status Kepegawaian"
+
+msgid "List MasterFamilyConnections"
+msgstr "Daftar Hubungan Keluarga"
+
+msgid "List MasterOccupations"
+msgstr "Daftar Pekerjaan"
+
+msgid "List MasterStratas"
+msgstr "Daftar Jenjang Pendidikan"
+
+msgid "List Post Apprentices"
+msgstr "Daftar Pasca-Pemagang"
+
+msgid "List Trainee Educations"
+msgstr "Daftar Pendidikan Trainee"
+
+msgid "List Trainee Experiences"
+msgstr "Daftar Pengalaman Trainee"
+
+msgid "Master Employee Status Id"
+msgstr "ID Status Kepegawaian"
+
+msgid "Master Japan Prefecture"
+msgstr "Prefektur Jepang"
+
+msgid "Master Japan Prefectures"
+msgstr "Prefektur Jepang"
+
+msgid "Master Occupation Id"
+msgstr "ID Pekerjaan"
+
+msgid "New Apprentice Education"
+msgstr "Pendidikan Pemagang Baru"
+
+msgid "New Apprentice Experience"
+msgstr "Pengalaman Pemagang Baru"
+
+msgid "New Apprentice Family"
+msgstr "Keluarga Pemagang Baru"
+
+msgid "New Master Employee Status"
+msgstr "Status Kepegawaian Baru"
+
+msgid "New Master Family Connection"
+msgstr "Hubungan Keluarga Baru"
+
+msgid "New Master Japan Prefecture"
+msgstr "Prefektur Jepang Baru"
+
+msgid "New Master Occupation"
+msgstr "Pekerjaan Baru"
+
+msgid "New Master Strata"
+msgstr "Jenjang Pendidikan Baru"
+
+msgid "New MasterEmployeeStatus"
+msgstr "Status Kepegawaian Baru"
+
+msgid "New MasterFamilyConnection"
+msgstr "Hubungan Keluarga Baru"
+
+msgid "New MasterOccupation"
+msgstr "Pekerjaan Baru"
+
+msgid "New MasterStrata"
+msgstr "Jenjang Pendidikan Baru"
+
+msgid "New Trainee Education"
+msgstr "Pendidikan Trainee Baru"
+
+msgid "New Trainee Experience"
+msgstr "Pengalaman Trainee Baru"
+
+msgid "No Related AcceptanceOrganizations"
+msgstr "Tidak Ada Organisasi Penerima Terkait"
+
+msgid "No alumni records yet. Use \"Add New\" to start tracking returned apprentices."
+msgstr "Belum ada data alumni. Gunakan \"Tambah Baru\" untuk mulai memantau pemagang yang telah pulang."
+
+msgid "Position / Role"
+msgstr "Jabatan / Peran"
+
+msgid "Post Apprentice"
+msgstr "Pasca-Pemagang"
+
+msgid "Post Apprentices"
+msgstr "Pasca-Pemagang"
+
+msgid "Prefecture Jpg"
+msgstr "Gambar Prefektur"
+
+msgid "Related AcceptanceOrganizations"
+msgstr "Organisasi Penerima Terkait"
+
+msgid "Return Date"
+msgstr "Tanggal Kepulangan"
+
+msgid "Save Apprentice Education"
+msgstr "Simpan Pendidikan Pemagang"
+
+msgid "Save Apprentice Experience"
+msgstr "Simpan Pengalaman Pemagang"
+
+msgid "Save Apprentice Family"
+msgstr "Simpan Keluarga Pemagang"
+
+msgid "Save Candidate Education"
+msgstr "Simpan Pendidikan Kandidat"
+
+msgid "Save Master Japan Prefecture"
+msgstr "Simpan Prefektur Jepang"
+
+msgid "Save Trainee Education"
+msgstr "Simpan Pendidikan Trainee"
+
+msgid "Save Trainee Experience"
+msgstr "Simpan Pengalaman Trainee"
+
+msgid "Select College Entry Date"
+msgstr "Pilih Tanggal Masuk Perguruan Tinggi"
+
+msgid "Select College Graduate Date"
+msgstr "Pilih Tanggal Lulus Perguruan Tinggi"
+
+msgid "Termination Reasons"
+msgstr "Alasan Berhenti"
+
+msgid "There are no related AcceptanceOrganizations for this Master Japan Prefecture."
+msgstr "Tidak ada organisasi penerima terkait untuk prefektur ini."
+
+msgid "Total Alumni Tracked"
+msgstr "Total Alumni Terpantau"
+
+msgid "Track the apprentice's status, employment, and activities after completing the programme"
+msgstr "Pantau status, pekerjaan, dan aktivitas pemagang setelah menyelesaikan program"
+
+msgid "Trainee Education"
+msgstr "Pendidikan Trainee"
+
+msgid "Trainee Educations"
+msgstr "Pendidikan Trainee"
+
+msgid "Trainee Experience"
+msgstr "Pengalaman Trainee"
+
+msgid "Trainee Experiences"
+msgstr "Pengalaman Trainee"
+
+
+msgid "-- Select Master Document Submission Status Id --"
+msgstr "-- Pilih Status Penyerahan Dokumen --"
+
+msgid "-- Select Master Medical Check Up Result Id --"
+msgstr "-- Pilih Hasil Pemeriksaan Kesehatan --"
+
+msgid "Add Interview for {0}"
+msgstr "Tambah Wawancara untuk {0}"
+
+msgid "Add MCU Result for {0}"
+msgstr "Tambah Hasil Pemeriksaan Kesehatan untuk {0}"
+
+msgid "All scores complete — candidate can be promoted to trainee"
+msgstr "Semua nilai lengkap — kandidat dapat dipromosikan menjadi trainee"
+
+msgid "Apprentice Document Management Dashboard"
+msgstr "Dasbor Manajemen Dokumen Pemagang"
+
+msgid "Apprentice Document Management Dashboards"
+msgstr "Dasbor Manajemen Dokumen Pemagang"
+
+msgid "Apprentice Record Medical Check Up"
+msgstr "Rekaman Pemeriksaan Kesehatan Pemagang"
+
+msgid "Apprentice Record Medical Check Ups"
+msgstr "Rekaman Pemeriksaan Kesehatan Pemagang"
+
+msgid "Apprentice Submission Document"
+msgstr "Dokumen Penyerahan Pemagang"
+
+msgid "Apprentice Submission Documents"
+msgstr "Dokumen Penyerahan Pemagang"
+
+msgid "Assigned to Order"
+msgstr "Ditugaskan ke Pesanan"
+
+msgid "Assigned to apprenticeship order"
+msgstr "Ditugaskan ke pesanan pemagangan"
+
+msgid "Averages"
+msgstr "Rata-rata"
+
+msgid "Avg Interview"
+msgstr "Rata-rata Wawancara"
+
+msgid "Avg MCU"
+msgstr "Rata-rata Pemeriksaan Kesehatan"
+
+msgid "Avg Test"
+msgstr "Rata-rata Ujian"
+
+msgid "Candidate Document Management Dashboard Detail"
+msgstr "Detail Dasbor Manajemen Dokumen Kandidat"
+
+msgid "Candidate Document Management Dashboard Details"
+msgstr "Detail Dasbor Manajemen Dokumen Kandidat"
+
+msgid "Candidate Integrated Scoring"
+msgstr "Penilaian Terpadu Kandidat"
+
+msgid "Candidate → Trainee"
+msgstr "Kandidat → Trainee"
+
+msgid "Combined placement test, interview, medical check-up and fitness scores per candidate."
+msgstr "Gabungan nilai tes penempatan, wawancara, pemeriksaan kesehatan, dan kebugaran per kandidat."
+
+msgid "Complete (PT+IV+MCU)"
+msgstr "Lengkap (PT+IV+MCU)"
+
+msgid "Dashboard Id"
+msgstr "ID Dasbor"
+
+msgid "End Date"
+msgstr "Tanggal Selesai"
+
+msgid "Enter Apprentice Document Management Dashboard Information"
+msgstr "Masukkan Informasi Dasbor Manajemen Dokumen Pemagang"
+
+msgid "Enter Apprentice Record Medical Check Up Information"
+msgstr "Masukkan Informasi Pemeriksaan Kesehatan Pemagang"
+
+msgid "Enter Apprentice Submission Document Information"
+msgstr "Masukkan Informasi Dokumen Penyerahan Pemagang"
+
+msgid "Enter Apprenticeship Submission Document Id"
+msgstr "Masukkan ID Dokumen Penyerahan Pemagangan"
+
+msgid "Enter Candidate Document Management Dashboard Detail Information"
+msgstr "Masukkan Informasi Detail Dasbor Dokumen Kandidat"
+
+msgid "Enter Clinic"
+msgstr "Masukkan Klinik"
+
+msgid "Enter Comment"
+msgstr "Masukkan Komentar"
+
+msgid "Enter Dashboard Id"
+msgstr "Masukkan ID Dasbor"
+
+msgid "Enter Document Type"
+msgstr "Masukkan Jenis Dokumen"
+
+msgid "Enter Format"
+msgstr "Masukkan Format"
+
+msgid "Enter Master Apprentice Submission Document Information"
+msgstr "Masukkan Informasi Master Dokumen Penyerahan"
+
+msgid "Enter Master Apprenticeship Submission Document Category Id"
+msgstr "Masukkan ID Kategori Dokumen Penyerahan"
+
+msgid "Enter Notes"
+msgstr "Masukkan Catatan"
+
+msgid "Enter Status"
+msgstr "Masukkan Status"
+
+msgid "Enter Title Jp"
+msgstr "Masukkan Judul (Jepang)"
+
+msgid "Enter Total Documents"
+msgstr "Masukkan Total Dokumen"
+
+msgid "Enter Total Missing"
+msgstr "Masukkan Total Belum Ada"
+
+msgid "Enter Total Pending"
+msgstr "Masukkan Total Tertunda"
+
+msgid "Enter Total Ready"
+msgstr "Masukkan Total Siap"
+
+msgid "Enter Training Information"
+msgstr "Masukkan Informasi Pelatihan"
+
+msgid "Enter Training Title"
+msgstr "Masukkan Judul Pelatihan"
+
+msgid "Enter Uploaded By"
+msgstr "Masukkan Diunggah Oleh"
+
+msgid "Enter detailed description of the training program"
+msgstr "Masukkan deskripsi rinci program pelatihan"
+
+msgid "Enter instructor name"
+msgstr "Masukkan nama instruktur"
+
+msgid "Enter maximum number of participants"
+msgstr "Masukkan jumlah peserta maksimal"
+
+msgid "Enter status (e.g., Planned, Ongoing, Completed)"
+msgstr "Masukkan status (mis., Direncanakan, Berjalan, Selesai)"
+
+msgid "Enter training location (e.g., Training Center Jakarta)"
+msgstr "Masukkan lokasi pelatihan (mis., Pusat Pelatihan Jakarta)"
+
+msgid "Fitness"
+msgstr "Kebugaran"
+
+msgid "Instructor"
+msgstr "Instruktur"
+
+msgid "Interviews"
+msgstr "Wawancara"
+
+msgid "Is Required"
+msgstr "Wajib"
+
+msgid "Is Translation Required"
+msgstr "Perlu Terjemahan"
+
+msgid "Last Updated"
+msgstr "Terakhir Diperbarui"
+
+msgid "List Apprentice Document Management Dashboards"
+msgstr "Daftar Dasbor Manajemen Dokumen Pemagang"
+
+msgid "List Apprentice Record Medical Check Ups"
+msgstr "Daftar Pemeriksaan Kesehatan Pemagang"
+
+msgid "List Apprentice Submission Documents"
+msgstr "Daftar Dokumen Penyerahan Pemagang"
+
+msgid "List Candidate Document Management Dashboard Details"
+msgstr "Daftar Detail Dasbor Dokumen Kandidat"
+
+msgid "List Master Apprentice Submission Documents"
+msgstr "Daftar Master Dokumen Penyerahan"
+
+msgid "List Master Document Submission Statuses"
+msgstr "Daftar Status Penyerahan Dokumen"
+
+msgid "List Master Medical Check Up Results"
+msgstr "Daftar Hasil Pemeriksaan Kesehatan"
+
+msgid "List MasterDocumentSubmissionStatuses"
+msgstr "Daftar Status Penyerahan Dokumen"
+
+msgid "List MasterMedicalCheckUpResults"
+msgstr "Daftar Hasil Pemeriksaan Kesehatan"
+
+msgid "List Trainings"
+msgstr "Daftar Pelatihan"
+
+msgid "Master Apprentice Submission Document"
+msgstr "Master Dokumen Penyerahan"
+
+msgid "Master Apprentice Submission Documents"
+msgstr "Master Dokumen Penyerahan"
+
+msgid "Master Apprenticeship Submission Document Category Id"
+msgstr "ID Kategori Dokumen Penyerahan"
+
+msgid "Max Participants"
+msgstr "Peserta Maksimal"
+
+msgid "New Apprentice Document Management Dashboard"
+msgstr "Dasbor Manajemen Dokumen Pemagang Baru"
+
+msgid "New Apprentice Record Medical Check Up"
+msgstr "Pemeriksaan Kesehatan Pemagang Baru"
+
+msgid "New Apprentice Submission Document"
+msgstr "Dokumen Penyerahan Pemagang Baru"
+
+msgid "New Candidate Document Management Dashboard Detail"
+msgstr "Detail Dasbor Dokumen Kandidat Baru"
+
+msgid "New Master Apprentice Submission Document"
+msgstr "Master Dokumen Penyerahan Baru"
+
+msgid "New Master Document Submission Status"
+msgstr "Status Penyerahan Dokumen Baru"
+
+msgid "New Master Medical Check Up Result"
+msgstr "Hasil Pemeriksaan Kesehatan Baru"
+
+msgid "New MasterDocumentSubmissionStatus"
+msgstr "Status Penyerahan Dokumen Baru"
+
+msgid "New MasterMedicalCheckUpResult"
+msgstr "Hasil Pemeriksaan Kesehatan Baru"
+
+msgid "New Training"
+msgstr "Pelatihan Baru"
+
+msgid "None"
+msgstr "Tidak ada"
+
+msgid "Not Scored Yet"
+msgstr "Belum Dinilai"
+
+msgid "Origin Candidate"
+msgstr "Kandidat Asal"
+
+msgid "Partially Scored"
+msgstr "Dinilai Sebagian"
+
+msgid "Passed apprenticeship selection"
+msgstr "Lulus seleksi pemagangan"
+
+msgid "Passed → Apprentice"
+msgstr "Lulus → Pemagang"
+
+msgid "Physical Tests"
+msgstr "Tes Fisik"
+
+msgid "Pipeline Stage"
+msgstr "Tahap Alur"
+
+msgid "Promoted to Trainee"
+msgstr "Dipromosikan ke Trainee"
+
+msgid "Promoted to trainee"
+msgstr "Dipromosikan ke trainee"
+
+msgid "Readiness"
+msgstr "Kesiapan"
+
+msgid "Rec"
+msgstr "Rek"
+
+msgid "Save Apprentice Document Management Dashboard"
+msgstr "Simpan Dasbor Manajemen Dokumen Pemagang"
+
+msgid "Save Apprentice Record Medical Check Up"
+msgstr "Simpan Pemeriksaan Kesehatan Pemagang"
+
+msgid "Save Apprentice Submission Document"
+msgstr "Simpan Dokumen Penyerahan Pemagang"
+
+msgid "Save Candidate Document Management Dashboard Detail"
+msgstr "Simpan Detail Dasbor Dokumen Kandidat"
+
+msgid "Save Master Apprentice Submission Document"
+msgstr "Simpan Master Dokumen Penyerahan"
+
+msgid "Save Training"
+msgstr "Simpan Pelatihan"
+
+msgid "Select Date Issued"
+msgstr "Pilih Tanggal Terbit"
+
+msgid "Select End Date (YYYY-MM-DD)"
+msgstr "Pilih Tanggal Selesai (TTTT-BB-HH)"
+
+msgid "Select Last Updated"
+msgstr "Pilih Tanggal Terakhir Diperbarui"
+
+msgid "Select Start Date (YYYY-MM-DD)"
+msgstr "Pilih Tanggal Mulai (TTTT-BB-HH)"
+
+msgid "Select Updated At"
+msgstr "Pilih Tanggal Diperbarui"
+
+msgid "Start Date"
+msgstr "Tanggal Mulai"
+
+msgid "Title Jp"
+msgstr "Judul (Jepang)"
+
+msgid "Total Documents"
+msgstr "Total Dokumen"
+
+msgid "Total Missing"
+msgstr "Total Belum Ada"
+
+msgid "Total Pending"
+msgstr "Total Tertunda"
+
+msgid "Total Ready"
+msgstr "Total Siap"
+
+msgid "Trainings"
+msgstr "Pelatihan"
+
+msgid "Updated At"
+msgstr "Diperbarui Pada"
+
+msgid "Upload Document for {0}"
+msgstr "Unggah Dokumen untuk {0}"
+
