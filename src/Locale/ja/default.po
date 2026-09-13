@@ -6186,3 +6186,582 @@ msgstr "この研修生に関連する家族記録はありません。"
 msgid "Add First TraineeFamilyStory"
 msgstr "最初の家族記録を追加"
 
+
+msgid "List CooperativeAssociations"
+msgstr "協同組合の一覧"
+
+msgid "New CooperativeAssociation"
+msgstr "協同組合を新規作成"
+
+msgid "List MasterJobCategories"
+msgstr "職種の一覧"
+
+msgid "New MasterJobCategory"
+msgstr "職種を新規作成"
+
+msgid "Enter Apprentice Order Information"
+msgstr "実習生オーダーの情報を入力"
+
+msgid "-- Select Cooperative Association Id --"
+msgstr "-- 協同組合を選択 --"
+
+msgid "Enter Male Trainee Number"
+msgstr "男性研修生の人数を入力"
+
+msgid "Enter Female Trainee Number"
+msgstr "女性研修生の人数を入力"
+
+msgid "Job Category Id"
+msgstr "職種ID"
+
+msgid "-- Select Job Category Id --"
+msgstr "-- 職種を選択 --"
+
+msgid "Enter Departure Year"
+msgstr "出発年を入力"
+
+msgid "Enter Departure Month"
+msgstr "出発月を入力"
+
+msgid "Is Practical Test Required"
+msgstr "実技試験の要否"
+
+msgid "Other Requirements"
+msgstr "その他の要件"
+
+msgid "Enter Other Requirements"
+msgstr "その他の要件を入力"
+
+msgid "Save Apprentice Order"
+msgstr "実習生オーダーを保存"
+
+msgid "Update Apprentice Order"
+msgstr "実習生オーダーを更新"
+
+msgid "List Master Job Categories"
+msgstr "職種の一覧"
+
+msgid "New Master Job Category"
+msgstr "職種を新規作成"
+
+msgid "Order Statistics"
+msgstr "オーダーの統計"
+
+msgid "All Orders"
+msgstr "すべてのオーダー"
+
+msgid "New Order"
+msgstr "新規オーダー"
+
+msgid "Total Orders"
+msgstr "オーダー総数"
+
+msgid "Requested Trainees"
+msgstr "依頼された研修生"
+
+msgid "Assigned Trainees"
+msgstr "割当済みの研修生"
+
+msgid "Overall Fulfillment"
+msgstr "全体の充足率"
+
+msgid "Fulfillment per Order — requested vs assigned vs passed"
+msgstr "オーダー別の充足状況 — 依頼数・割当数・合格数"
+
+msgid "Kumiai"
+msgstr "組合"
+
+msgid "Requested"
+msgstr "依頼数"
+
+msgid "Assigned"
+msgstr "割当数"
+
+msgid "No orders yet."
+msgstr "オーダーはまだありません。"
+
+msgid "Top Kumiai (Cooperative Associations)"
+msgstr "上位の組合（協同組合）"
+
+msgid "Orders"
+msgstr "オーダー"
+
+msgid "(not set)"
+msgstr "（未設定）"
+
+msgid "No data."
+msgstr "データがありません。"
+
+msgid "Top Acceptance Organizations"
+msgstr "上位の受入機関"
+
+msgid "Top Job Categories"
+msgstr "上位の職種"
+
+msgid "Job Category"
+msgstr "職種"
+
+msgid "By Departure Year"
+msgstr "出発年別"
+
+msgid "CooperativeAssociations"
+msgstr "協同組合"
+
+msgid "MasterJobCategories"
+msgstr "職種"
+
+msgid "Download File"
+msgstr "ファイルをダウンロード"
+
+msgid "Open in New Tab"
+msgstr "新しいタブで開く"
+
+msgid "Related Records: Apprentices"
+msgstr "関連レコード：技能実習生"
+
+msgid "CooperativeAssociation Details"
+msgstr "協同組合の詳細"
+
+msgid "No CooperativeAssociation Associated"
+msgstr "関連する協同組合はありません"
+
+msgid "This record is not associated with any CooperativeAssociation."
+msgstr "このレコードに紐づく協同組合はありません。"
+
+msgid "MasterJobCategory Details"
+msgstr "職種の詳細"
+
+msgid "Sort"
+msgstr "並び替え"
+
+msgid "No MasterJobCategory Associated"
+msgstr "関連する職種はありません"
+
+msgid "This record is not associated with any MasterJobCategory."
+msgstr "このレコードに紐づく職種はありません。"
+
+
+msgid "Enter Comments"
+msgstr "コメントを入力"
+
+msgid "List Candidate Record Interviews"
+msgstr "候補者面接記録の一覧"
+
+msgid "Enter Candidate Record Interview Information"
+msgstr "候補者面接記録の情報を入力"
+
+msgid "Applicant Id"
+msgstr "応募者ID"
+
+msgid "Enter Applicant Id"
+msgstr "応募者IDを入力"
+
+msgid "Master Candidate Interview Type Id"
+msgstr "面接種別ID"
+
+msgid "Select Master Candidate Interview Type Id"
+msgstr "面接種別を選択"
+
+msgid "Date Interview"
+msgstr "面接日"
+
+msgid "Select Date Interview"
+msgstr "面接日を選択"
+
+msgid "Date Interview Result"
+msgstr "面接結果の日付"
+
+msgid "Select Date Interview Result"
+msgstr "面接結果の日付を選択"
+
+msgid "Save Candidate Record Interview"
+msgstr "候補者面接記録を保存"
+
+msgid "Interview with Acceptance Organization — Scoring"
+msgstr "受入機関との面接 — 採点"
+
+msgid "All Interview Records"
+msgstr "すべての面接記録"
+
+msgid "Current Interview Score / 100"
+msgstr "現在の面接点 / 100"
+
+msgid "Recommended: PASS"
+msgstr "推奨：合格"
+
+msgid "Recommended: RESERVED"
+msgstr "推奨：保留"
+
+msgid "Recommended: FAIL"
+msgstr "推奨：不合格"
+
+msgid "View Only — your role can view but not record interview scores"
+msgstr "閲覧のみ — 現在の役割では面接点を記録できません"
+
+msgid "Record New Interview Session"
+msgstr "新しい面接を記録"
+
+msgid "Interview Date"
+msgstr "面接日"
+
+msgid "Result Notification Date"
+msgstr "結果通知日"
+
+msgid "Politeness / Manner (礼儀)"
+msgstr "礼儀・マナー"
+
+msgid "Bowing, greeting, respectful behavior"
+msgstr "お辞儀・挨拶・敬意ある振る舞い"
+
+msgid "Communication (コミュニケーション)"
+msgstr "コミュニケーション"
+
+msgid "Clarity, listening, expressiveness"
+msgstr "明瞭さ・傾聴・表現力"
+
+msgid "Motivation (意欲)"
+msgstr "意欲"
+
+msgid "Drive, enthusiasm, goals"
+msgstr "熱意・意気込み・目標"
+
+msgid "Adaptability (適応力)"
+msgstr "適応力"
+
+msgid "Flexibility, openness to new environment"
+msgstr "柔軟性・新しい環境への順応"
+
+msgid "Technical Skill (技術)"
+msgstr "技術"
+
+msgid "Relevant skills, training background"
+msgstr "関連する技能・研修歴"
+
+msgid "Total Interview Score / 100"
+msgstr "面接の合計点 / 100"
+
+msgid "≥ 70 = Recommended Pass &nbsp;|&nbsp; 50–69 = Reserved &nbsp;|&nbsp; < 50 = Fail"
+msgstr "≥ 70 = 合格推奨 &nbsp;|&nbsp; 50–69 = 保留 &nbsp;|&nbsp; < 50 = 不合格"
+
+msgid "Recommendation"
+msgstr "推奨判定"
+
+msgid "Reserved"
+msgstr "保留"
+
+msgid "Interview Notes (Internal)"
+msgstr "面接メモ（社内用）"
+
+msgid "Notes for TMM internal use"
+msgstr "TMM社内用のメモ"
+
+msgid "Notes for Acceptance Organization (Japanese)"
+msgstr "受入機関向けメモ（日本語）"
+
+msgid "Save Interview Record"
+msgstr "面接記録を保存"
+
+msgid "Past Interview Records"
+msgstr "過去の面接記録"
+
+msgid "New Candidate Record Interview"
+msgstr "候補者面接記録を新規作成"
+
+msgid "List Master Candidate Interview Results"
+msgstr "面接結果区分の一覧"
+
+msgid "New Master Candidate Interview Result"
+msgstr "面接結果区分を新規作成"
+
+msgid "Candidate Record Interviews"
+msgstr "候補者面接記録"
+
+msgid "Candidate Record Interview"
+msgstr "候補者面接記録"
+
+
+msgid "List Stories"
+msgstr "記録の一覧"
+
+msgid "Add Apprentice Story"
+msgstr "実習生の記録を追加"
+
+msgid "Document a learning experience, challenge, or insight from an apprentice"
+msgstr "実習生の学び・課題・気づきを記録します"
+
+msgid "-- Select Apprentice --"
+msgstr "-- 技能実習生を選択 --"
+
+msgid "Date of Occurrence"
+msgstr "発生日"
+
+msgid "Story Title"
+msgstr "記録のタイトル"
+
+msgid "Enter a clear, descriptive title for this story"
+msgstr "内容がわかる明確なタイトルを入力してください"
+
+msgid "Problem Detail"
+msgstr "問題の詳細"
+
+msgid "e.g. Technical, Attitude, Communication"
+msgstr "例：技術、態度、コミュニケーション"
+
+msgid "Describe the problem or situation in detail…"
+msgstr "問題や状況を詳しく記入してください…"
+
+msgid "Resolution & Learning"
+msgstr "解決と学び"
+
+msgid "What action was taken to resolve the problem?"
+msgstr "問題を解決するためにどのような対応をしましたか？"
+
+msgid "Inference / Lesson Learned"
+msgstr "所見・学んだこと"
+
+msgid "What lesson or insight was gained?"
+msgstr "どのような学びや気づきが得られましたか？"
+
+msgid "Supporting Image"
+msgstr "参考画像"
+
+msgid "Click or drag an image here to upload"
+msgstr "クリックまたは画像をドラッグしてアップロード"
+
+msgid "JPG, PNG, GIF — max 5 MB"
+msgstr "JPG・PNG・GIF — 最大5MB"
+
+msgid "Save Story"
+msgstr "記録を保存"
+
+msgid "Image must be smaller than 5 MB."
+msgstr "画像は5MB未満にしてください。"
+
+msgid "Edit Apprentice Story"
+msgstr "実習生の記録を編集"
+
+msgid "Apprentice Stories"
+msgstr "実習生の記録"
+
+msgid "Problem & solution records"
+msgstr "問題と解決の記録"
+
+msgid "Total Stories"
+msgstr "記録の総数"
+
+msgid "Unclassified"
+msgstr "未分類"
+
+msgid "Filter by title / apprentice / classification…"
+msgstr "タイトル・実習生・分類で絞り込み…"
+
+msgid "Image"
+msgstr "画像"
+
+msgid "No stories yet."
+msgstr "記録はまだありません。"
+
+msgid "Apprentice Story"
+msgstr "実習生の記録"
+
+msgid "List CandidateRecordInterviews"
+msgstr "候補者面接記録の一覧"
+
+msgid "New CandidateRecordInterview"
+msgstr "候補者面接記録を新規作成"
+
+msgid "Enter Master Candidate Interview Result Information"
+msgstr "面接結果区分の情報を入力"
+
+msgid "Save Master Candidate Interview Result"
+msgstr "面接結果区分を保存"
+
+msgid "Master Candidate Interview Results"
+msgstr "面接結果区分"
+
+msgid "Master Candidate Interview Result"
+msgstr "面接結果区分"
+
+msgid "CandidateRecordInterviews"
+msgstr "候補者面接記録"
+
+msgid "Related CandidateRecordInterviews"
+msgstr "関連する候補者面接記録"
+
+msgid "Filter Applicant Id"
+msgstr "応募者IDで絞り込み"
+
+msgid "Filter Master Candidate Interview Type Id"
+msgstr "面接種別で絞り込み"
+
+msgid "Filter Date Interview"
+msgstr "面接日で絞り込み"
+
+msgid "No Related CandidateRecordInterviews"
+msgstr "関連する面接記録はありません"
+
+msgid "There are no related CandidateRecordInterviews for this Master Candidate Interview Result."
+msgstr "この面接結果区分に関連する面接記録はありません。"
+
+msgid "Add First CandidateRecordInterview"
+msgstr "最初の面接記録を追加"
+
+msgid "Related Candidates"
+msgstr "関連する候補者"
+
+msgid "Filter Apprenticeship Order Id"
+msgstr "実習オーダーIDで絞り込み"
+
+msgid "Filter Candidate Code"
+msgstr "候補者コードで絞り込み"
+
+msgid "Filter Acceptance Organization Id"
+msgstr "受入機関IDで絞り込み"
+
+msgid "No Related Candidates"
+msgstr "関連する候補者はいません"
+
+msgid "There are no related Candidates for this Master Candidate Interview Result."
+msgstr "この面接結果区分に関連する候補者はいません。"
+
+msgid "Add First Candidate"
+msgstr "最初の候補者を追加"
+
+msgid "List Trainee Training Batches"
+msgstr "研修バッチの一覧"
+
+msgid "Enter Trainee Training Batch Information"
+msgstr "研修バッチの情報を入力"
+
+msgid "Batch Name"
+msgstr "バッチ名"
+
+msgid "Enter Batch Name"
+msgstr "バッチ名を入力"
+
+msgid "Departure Plan Date"
+msgstr "出発予定日"
+
+msgid "Select Departure Plan Date"
+msgstr "出発予定日を選択"
+
+msgid "Is Training Location Moved"
+msgstr "研修場所の移転有無"
+
+msgid "Training Term Of Months"
+msgstr "研修期間（月）"
+
+msgid "Enter Training Term Of Months"
+msgstr "研修期間（月）を入力"
+
+msgid "Origin Training Location"
+msgstr "当初の研修場所"
+
+msgid "Enter Origin Training Location"
+msgstr "当初の研修場所を入力"
+
+msgid "Moved Training Location"
+msgstr "移転後の研修場所"
+
+msgid "Enter Moved Training Location"
+msgstr "移転後の研修場所を入力"
+
+msgid "Origin Start Plan Date"
+msgstr "当初の開始予定日"
+
+msgid "Select Origin Start Plan Date"
+msgstr "当初の開始予定日を選択"
+
+msgid "Origin Finish Plan Date"
+msgstr "当初の終了予定日"
+
+msgid "Select Origin Finish Plan Date"
+msgstr "当初の終了予定日を選択"
+
+msgid "Moved Start Plan Date"
+msgstr "移転後の開始予定日"
+
+msgid "Select Moved Start Plan Date"
+msgstr "移転後の開始予定日を選択"
+
+msgid "Moved Finished Plan Date"
+msgstr "移転後の終了予定日"
+
+msgid "Select Moved Finished Plan Date"
+msgstr "移転後の終了予定日を選択"
+
+msgid "Save Trainee Training Batch"
+msgstr "研修バッチを保存"
+
+msgid "New Trainee Training Batch"
+msgstr "研修バッチを新規作成"
+
+msgid "Trainee Training Batches"
+msgstr "研修バッチ"
+
+msgid "Trainee Training Batch"
+msgstr "研修バッチ"
+
+msgid "Add Menu"
+msgstr "メニューを追加"
+
+msgid "Back to Menus"
+msgstr "メニュー一覧へ戻る"
+
+msgid "Save Menu"
+msgstr "メニューを保存"
+
+msgid "Edit Menu"
+msgstr "メニューを編集"
+
+msgid "Role Access"
+msgstr "役割のアクセス権"
+
+msgid "Toggle activates/deactivates a link, Move changes its category (children follow). Click a role dot to grant/revoke access instantly."
+msgstr "切替でリンクの有効・無効を変更し、移動でカテゴリを変更します（子メニューも追随）。役割のドットをクリックすると即座に権限を付与・取消できます。"
+
+msgid "Parent"
+msgstr "親"
+
+msgid "URL / Controller::Action"
+msgstr "URL / コントローラー::アクション"
+
+msgid "Move to Category"
+msgstr "カテゴリへ移動"
+
+msgid "Move Parent"
+msgstr "親を移動"
+
+msgid "Deactivate"
+msgstr "無効にする"
+
+msgid "Activate"
+msgstr "有効にする"
+
+msgid "Delete menu \"{0}\"?"
+msgstr "メニュー「{0}」を削除しますか？"
+
+msgid "Move"
+msgstr "移動"
+
+msgid "Granted Actions"
+msgstr "許可された操作"
+
+msgid "Use * for all actions, or comma-separated list: index,view,add,edit,delete"
+msgstr "すべての操作は * を、個別指定はカンマ区切りで：index,view,add,edit,delete"
+
+msgid "Set All (*)"
+msgstr "すべて設定 (*)"
+
+msgid "Menu"
+msgstr "メニュー"
+
+msgid "URL"
+msgstr "URL"
+
+msgid "Icon"
+msgstr "アイコン"
+
+msgid "Sub-menus"
+msgstr "サブメニュー"
+
