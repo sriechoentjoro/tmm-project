@@ -160,7 +160,7 @@ $statusCounts = $statusCounts ?? [];
     <i class="fas fa-list-alt"></i> Programs (<?= count($additionalTrainings) ?>)
   </button>
   <button class="at-tab" onclick="switchTab('modules',this)">
-    <i class="fas fa-book-open"></i> Module Catalog (<?= $totalModules ?>)
+    <i class="fas fa-book-open"></i> <?= __('Module Catalog') ?> (<?= $totalModules ?>)
   </button>
 </div>
 
@@ -179,7 +179,7 @@ $statusCounts = $statusCounts ?? [];
         <?php if ($_canManage): ?>
           <button type="button" onclick="openAddModal()"
                   style="display:inline-flex;align-items:center;gap:6px;padding:8px 18px;border-radius:8px;background:#1a237e;color:#fff;border:none;cursor:pointer;font-size:13px;font-weight:700">
-            <i class="fas fa-plus"></i> Create Program
+            <i class="fas fa-plus"></i> <?= __('Create Program') ?>
           </button>
         <?php endif; ?>
       </div>
@@ -302,7 +302,7 @@ $statusCounts = $statusCounts ?? [];
   <!-- Breakdown -->
   <div style="background:#fff;border:1px solid #e1e8f0;border-radius:12px;margin-bottom:18px;overflow:hidden">
     <div style="padding:12px 18px;border-bottom:1px solid #f0f4f8;background:#fafbfc;display:flex;align-items:center;justify-content:space-between">
-      <span style="font-size:14px;font-weight:700;color:#1a237e"><i class="fas fa-chart-bar"></i> Curriculum Breakdown</span>
+      <span style="font-size:14px;font-weight:700;color:#1a237e"><i class="fas fa-chart-bar"></i> <?= __('Curriculum Breakdown') ?></span>
       <span style="font-size:11px;font-weight:700;background:#e8eaf6;color:#1a237e;padding:3px 10px;border-radius:12px"><?= $totalHours ?>h across <?= $totalModules ?> modules</span>
     </div>
     <div style="padding:16px 20px">
@@ -377,7 +377,7 @@ $statusCounts = $statusCounts ?? [];
           <!-- Parent batch selector -->
           <div>
             <label style="font-size:12px;font-weight:700;color:#546e7a;display:block;margin-bottom:5px">
-              <i class="fas fa-layer-group" style="color:#5c6bc0"></i> Parent Training Batch <span style="color:#e53935">*</span>
+              <i class="fas fa-layer-group" style="color:#5c6bc0"></i> <?= __('Parent Training Batch') ?> <span style="color:#e53935">*</span>
             </label>
             <select id="atBatch" name="training_id" required
                     style="width:100%;padding:9px 10px;border:1.5px solid #c5cae9;border-radius:8px;font-size:13px;background:#fff;box-sizing:border-box">
@@ -456,7 +456,7 @@ $statusCounts = $statusCounts ?? [];
 
     <!-- Enroll new -->
     <div style="padding:14px 22px;border-bottom:1px solid #f0f4f8;background:#f8fbff">
-      <div style="font-size:12px;font-weight:700;color:#37474f;margin-bottom:7px"><i class="fas fa-user-plus" style="color:#5c6bc0"></i> Enroll a Trainee</div>
+      <div style="font-size:12px;font-weight:700;color:#37474f;margin-bottom:7px"><i class="fas fa-user-plus" style="color:#5c6bc0"></i> <?= __('Enroll a Trainee') ?></div>
       <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap">
         <select id="enrollTraineeSelect"
                 style="flex:1;min-width:200px;padding:8px 10px;border:1.5px solid #c5cae9;border-radius:8px;font-size:12px;background:#fff">
@@ -476,7 +476,7 @@ $statusCounts = $statusCounts ?? [];
 
     <!-- Enrolled table -->
     <div style="padding:14px 22px">
-      <div style="font-size:12px;font-weight:700;color:#37474f;margin-bottom:8px"><i class="fas fa-users" style="color:#5c6bc0"></i> Enrolled Trainees</div>
+      <div style="font-size:12px;font-weight:700;color:#37474f;margin-bottom:8px"><i class="fas fa-users" style="color:#5c6bc0"></i> <?= __('Enrolled Trainees') ?></div>
       <table class="enroll-tbl">
         <thead>
           <tr>
@@ -487,7 +487,7 @@ $statusCounts = $statusCounts ?? [];
         <tbody id="enrollTableBody"></tbody>
       </table>
       <div id="enrollEmpty" style="display:none;text-align:center;padding:22px;color:#90a4ae;font-size:12px">
-        <i class="fas fa-user-slash" style="font-size:22px;margin-bottom:5px;display:block;opacity:.4"></i>No trainees enrolled yet
+        <i class="fas fa-user-slash" style="font-size:22px;margin-bottom:5px;display:block;opacity:.4"></i> <?= __('No trainees enrolled yet') ?>
       </div>
     </div>
 

@@ -5516,3 +5516,673 @@ msgstr "機関が見つかりません。"
 msgid "VocationalTrainingInstitutionStories"
 msgstr "職業訓練機関の記録"
 
+
+msgid "Pass"
+msgstr "合格"
+
+msgid "Fail"
+msgstr "不合格"
+
+msgid "Certificates"
+msgstr "修了証"
+
+msgid "Average Score"
+msgstr "平均点"
+
+msgid "Test Date"
+msgstr "試験日"
+
+msgid "Score"
+msgstr "点数"
+
+msgid "Add Trainee Certificate"
+msgstr "研修生修了証を追加"
+
+msgid "Edit Trainee Certificate"
+msgstr "研修生修了証を編集"
+
+msgid "Trainee Certificates"
+msgstr "研修生修了証"
+
+msgid "Issue Certificate"
+msgstr "修了証を発行"
+
+msgid "Scoring"
+msgstr "評価"
+
+msgid "Daily Entry"
+msgstr "日次入力"
+
+msgid "Score Summary"
+msgstr "点数の概要"
+
+msgid "Pass/Fail Report"
+msgstr "合否レポート"
+
+msgid "With Test Scores"
+msgstr "試験結果あり"
+
+msgid "No Scores Yet"
+msgstr "点数がまだありません"
+
+msgid "Certificate No."
+msgstr "修了証番号"
+
+msgid "Issue Date"
+msgstr "発行日"
+
+msgid "Grade"
+msgstr "評定"
+
+msgid "Search trainee…"
+msgstr "研修生を検索…"
+
+msgid "Batch…"
+msgstr "バッチ…"
+
+msgid "Cert no…"
+msgstr "修了証番号…"
+
+msgid "A/B/C…"
+msgstr "A/B/C…"
+
+msgid "No certificates issued yet."
+msgstr "まだ修了証は発行されていません。"
+
+msgid "View certificate"
+msgstr "修了証を表示"
+
+msgid "Print certificate"
+msgstr "修了証を印刷"
+
+msgid "Edit certificate"
+msgstr "修了証を編集"
+
+msgid "View test scores"
+msgstr "試験結果を表示"
+
+msgid "No scores"
+msgstr "点数なし"
+
+msgid "Showing {0} certificate(s)"
+msgstr "{0} 件の修了証を表示"
+
+msgid "This is to certify that"
+msgstr "以下のとおり証明します"
+
+msgid "Certificate of"
+msgstr "修了証"
+
+msgid "Completion"
+msgstr "修了"
+
+msgid "has been awarded to"
+msgstr "次の者に授与する"
+
+msgid "Trainee Code"
+msgstr "研修生コード"
+
+msgid "for successfully completing the"
+msgstr "次の課程を修了したことにより"
+
+msgid "Trainee Training Programme"
+msgstr "研修生育成プログラム"
+
+msgid "comprising"
+msgstr "内訳"
+
+msgid "competency test(s)"
+msgstr "技能テスト"
+
+msgid "achieving an overall average score of"
+msgstr "総合平均点"
+
+msgid "Tests Taken"
+msgstr "受験数"
+
+msgid "Authorised Signatory"
+msgstr "署名者"
+
+msgid "Test Score Detail"
+msgstr "試験結果の詳細"
+
+msgid "Competency"
+msgstr "技能項目"
+
+msgid "Overall Average"
+msgstr "総合平均"
+
+msgid "Generated"
+msgstr "作成日時"
+
+msgid "TMM Trainee Management System"
+msgstr "TMM研修生管理システム"
+
+msgid "Related"
+msgstr "関連"
+
+msgid "All Certificates"
+msgstr "すべての修了証"
+
+msgid "Certificate Detail"
+msgstr "修了証の詳細"
+
+msgid "Print Certificate"
+msgstr "修了証を印刷"
+
+msgid "Training Batch"
+msgstr "研修バッチ"
+
+msgid "Recorded"
+msgstr "記録日時"
+
+msgid "Test Score Summary"
+msgstr "試験結果の概要"
+
+msgid "Failed"
+msgstr "不合格"
+
+msgid "from avg score"
+msgstr "平均点より"
+
+msgid "No test scores recorded yet for this trainee."
+msgstr "この研修生の試験結果はまだ記録されていません。"
+
+msgid "Add Score"
+msgstr "点数を追加"
+
+msgid "Score History"
+msgstr "点数の履歴"
+
+msgid "No scores on record."
+msgstr "記録された点数はありません。"
+
+msgid "Edit score"
+msgstr "点数を編集"
+
+
+msgid "Add Lpk Physical Test"
+msgstr "LPK体力テストを追加"
+
+msgid "Edit Lpk Physical Test"
+msgstr "LPK体力テストを編集"
+
+msgid "Physical Fitness Test Scoring"
+msgstr "体力テストの採点"
+
+msgid "Score: Push-ups (max 40 pts) + Sit-ups (max 30 pts) + 2.4 km Run (30 pts) = 100 pts total"
+msgstr "配点：腕立て伏せ（最大40点）＋ 腹筋（最大30点）＋ 2.4km走（30点）＝ 合計100点"
+
+msgid "Tested"
+msgstr "実施済み"
+
+msgid "Not Tested Yet"
+msgstr "未実施"
+
+msgid "High ≥75 · Mid 50–74 · Low <50"
+msgstr "高 ≥75 · 中 50–74 · 低 <50"
+
+msgid "Filter by name / code / LPK…"
+msgstr "氏名・コード・LPKで絞り込み…"
+
+msgid "Pipeline chips: PT = Placement Test, IV = Interview, MCU = Medical Check-Up"
+msgstr "進捗の略号：PT＝配置試験、IV＝面接、MCU＝健康診断"
+
+msgid "Push-ups"
+msgstr "腕立て伏せ"
+
+msgid "Sit-ups"
+msgstr "腹筋"
+
+msgid "Run (min:sec)"
+msgstr "走（分:秒）"
+
+msgid "Fitness Score /100"
+msgstr "体力点 /100"
+
+msgid "Next Steps"
+msgstr "次のステップ"
+
+msgid "No test"
+msgstr "テストなし"
+
+msgid "Enter Score"
+msgstr "点数を入力"
+
+msgid "{0} placement test(s) recorded"
+msgstr "配置試験 {0} 件を記録済み"
+
+msgid "No placement test yet"
+msgstr "配置試験はまだありません"
+
+msgid "{0} interview(s) recorded"
+msgstr "面接 {0} 件を記録済み"
+
+msgid "No interview yet"
+msgstr "面接はまだありません"
+
+msgid "{0} medical check-up(s) recorded"
+msgstr "健康診断 {0} 件を記録済み"
+
+msgid "No MCU yet"
+msgstr "健康診断はまだありません"
+
+msgid "No candidates found."
+msgstr "候補者が見つかりません。"
+
+msgid "prev"
+msgstr "前へ"
+
+msgid "Physical Fitness Test"
+msgstr "体力テスト"
+
+msgid "Current Fitness Score"
+msgstr "現在の体力点"
+
+msgid "Scoring Reference"
+msgstr "採点基準"
+
+msgid "Score = number of reps, capped at 40"
+msgstr "点数＝回数（上限40）"
+
+msgid "Score = number of reps, capped at 30"
+msgstr "点数＝回数（上限30）"
+
+msgid "2.4 km Run"
+msgstr "2.4km走"
+
+msgid "Time"
+msgstr "タイム"
+
+msgid "Points"
+msgstr "点"
+
+msgid "View Only — your role can view but not change scores"
+msgstr "閲覧のみ — 現在の役割では点数の変更はできません"
+
+msgid "Push-ups (reps)"
+msgstr "腕立て伏せ（回）"
+
+msgid "Sit-ups (reps)"
+msgstr "腹筋（回）"
+
+msgid "Run — minutes"
+msgstr "走 — 分"
+
+msgid "seconds"
+msgstr "秒"
+
+msgid "Notes / Observations"
+msgstr "備考・所見"
+
+msgid "40+ reps = full 40 pts"
+msgstr "40回以上＝満点の40点"
+
+msgid "30+ reps = full 30 pts"
+msgstr "30回以上＝満点の30点"
+
+msgid "2.4 km Run — minutes"
+msgstr "2.4km走 — 分"
+
+msgid "Calculated Fitness Score / 100"
+msgstr "算出された体力点 / 100"
+
+msgid "Optional notes about the test session, candidate condition, etc."
+msgstr "テストの実施状況や候補者の体調などの任意メモ。"
+
+msgid "Save Score"
+msgstr "点数を保存"
+
+msgid "Lpk Physical Test"
+msgstr "LPK体力テスト"
+
+msgid "Placement Test Set Id"
+msgstr "配置試験セットID"
+
+msgid "Total Points"
+msgstr "合計点"
+
+msgid "Passing Score"
+msgstr "合格点"
+
+msgid "Is Passed"
+msgstr "合否"
+
+msgid "Test Duration Minutes"
+msgstr "試験時間（分）"
+
+msgid "Started At"
+msgstr "開始日時"
+
+msgid "Completed At"
+msgstr "完了日時"
+
+msgid "Graded By"
+msgstr "採点者"
+
+msgid "Graded At"
+msgstr "採点日時"
+
+
+msgid "Master Training Competency Id"
+msgstr "研修技能項目ID"
+
+msgid "Master Training Test Score Grade Id"
+msgstr "評定ID"
+
+msgid "Enter Test Score"
+msgstr "試験結果を入力"
+
+msgid "Record a competency test result for a trainee"
+msgstr "研修生の技能テスト結果を記録します"
+
+msgid "Trainee & Test Date"
+msgstr "研修生と試験日"
+
+msgid "Test Module / Competency"
+msgstr "試験モジュール・技能項目"
+
+msgid "-- Select Competency --"
+msgstr "-- 技能項目を選択 --"
+
+msgid "Score & Grade"
+msgstr "点数と評定"
+
+msgid "auto-detected"
+msgstr "自動判定"
+
+msgid "Enter score to auto-detect grade"
+msgstr "点数を入力すると評定が自動判定されます"
+
+msgid "Back to Daily Entry"
+msgstr "日次入力へ戻る"
+
+msgid "Range"
+msgstr "範囲"
+
+msgid "Unable to detect grade. Enter a score between 0 and 100."
+msgstr "評定を判定できません。0〜100の点数を入力してください。"
+
+msgid "Daily Score Entry"
+msgstr "日次点数入力"
+
+msgid "Enter New Score"
+msgstr "新しい点数を入力"
+
+msgid "No dates yet"
+msgstr "日付がまだありません"
+
+msgid "Most Recent"
+msgstr "最新"
+
+msgid "Scores"
+msgstr "点数"
+
+msgid "Average"
+msgstr "平均"
+
+msgid "Passed (≥60)"
+msgstr "合格（≥60）"
+
+msgid "Failed (<60)"
+msgstr "不合格（<60）"
+
+msgid "Search competency…"
+msgstr "技能項目を検索…"
+
+msgid "No scores recorded for {0}."
+msgstr "{0} の点数は記録されていません。"
+
+msgid "No scores recorded yet."
+msgstr "点数はまだ記録されていません。"
+
+msgid "Certificate issued"
+msgstr "修了証発行済み"
+
+msgid "No certificate yet"
+msgstr "修了証はまだありません"
+
+msgid "Edit Test Score"
+msgstr "試験結果を編集"
+
+msgid "Update the competency test result for this trainee"
+msgstr "この研修生の技能テスト結果を更新します"
+
+msgid "Trainee Test Scores"
+msgstr "研修生の試験結果"
+
+msgid "YYYY-MM-DD"
+msgstr "YYYY-MM-DD"
+
+msgid "Page {{page}} of {{pages}}, {{count}} records total"
+msgstr "{{pages}} ページ中 {{page}} ページ、全 {{count}} 件"
+
+msgid "Pass / Fail Report"
+msgstr "合否レポート"
+
+msgid "Average score per trainee · pass threshold: 60"
+msgstr "研修生ごとの平均点 · 合格ライン：60"
+
+msgid "Total Tests"
+msgstr "試験総数"
+
+msgid "Tests Passed"
+msgstr "合格数"
+
+msgid "Tests Failed"
+msgstr "不合格数"
+
+msgid "Pass Rate"
+msgstr "合格率"
+
+msgid "Pass / Fail"
+msgstr "合否"
+
+msgid "pass"
+msgstr "合格"
+
+msgid "fail"
+msgstr "不合格"
+
+msgid "Trainee Training Test Score"
+msgstr "研修生の技能テスト結果"
+
+
+msgid "Passed Apprenticeship"
+msgstr "実習修了"
+
+msgid "List Master Genders"
+msgstr "性別の一覧"
+
+msgid "List Master Religions"
+msgstr "宗教の一覧"
+
+msgid "List Master Marriage Statuses"
+msgstr "婚姻状況の一覧"
+
+msgid "List Master Blood Types"
+msgstr "血液型の一覧"
+
+msgid ">"
+msgstr ">"
+
+msgid "<"
+msgstr "<"
+
+msgid ">="
+msgstr ">="
+
+msgid "<="
+msgstr "<="
+
+msgid "List Master Rejected Reasons"
+msgstr "不採用理由の一覧"
+
+msgid "Filter by name / code…"
+msgstr "氏名・コードで絞り込み…"
+
+msgid "All Apprentices"
+msgstr "すべての技能実習生"
+
+msgid "Minimum 8 characters, include uppercase, lowercase, number & symbol"
+msgstr "8文字以上。大文字・小文字・数字・記号を含めてください"
+
+msgid "Module Catalog"
+msgstr "モジュール一覧"
+
+msgid "Create Program"
+msgstr "プログラムを作成"
+
+msgid "Curriculum Breakdown"
+msgstr "カリキュラムの内訳"
+
+msgid "Parent Training Batch"
+msgstr "親となる研修バッチ"
+
+msgid "Enroll a Trainee"
+msgstr "研修生を登録"
+
+msgid "Enrolled Trainees"
+msgstr "登録済みの研修生"
+
+msgid "No trainees enrolled yet"
+msgstr "登録された研修生はまだいません"
+
+msgid "Gender Distribution"
+msgstr "男女の内訳"
+
+msgid "Enter your name in Katakana (カタカナ). Example: タナカ タロウ"
+msgstr "氏名をカタカナで入力してください。例：タナカ タロウ"
+
+msgid "Enter birth place in Katakana. Example: トウキョウ"
+msgstr "出生地をカタカナで入力してください。例：トウキョウ"
+
+msgid "Format: user@example.com"
+msgstr "形式: user@example.com"
+
+msgid "Trainee → Apprentice"
+msgstr "研修生 → 技能実習生"
+
+msgid "Test Scores"
+msgstr "試験結果"
+
+msgid "Ready for Promotion"
+msgstr "昇格可能"
+
+msgid "Training Avg"
+msgstr "研修平均"
+
+msgid "Candidate & training passed — ready to promote"
+msgstr "候補者審査と研修に合格 — 昇格可能です"
+
+msgid "{0} test(s)"
+msgstr "試験 {0} 件"
+
+msgid "Full Pass (3 stages)"
+msgstr "全3段階合格"
+
+msgid "Has COE / Visa Record"
+msgstr "COE・ビザ記録あり"
+
+msgid "Origin"
+msgstr "出身"
+
+msgid "Apprenticeship"
+msgstr "技能実習"
+
+msgid "Trainee #{0}"
+msgstr "研修生 #{0}"
+
+msgid "TraineeCertifications"
+msgstr "研修生の資格"
+
+msgid "TraineeCourses"
+msgstr "研修生の受講歴"
+
+msgid "TraineeEducations"
+msgstr "研修生の学歴"
+
+msgid "TraineeExperiences"
+msgstr "研修生の職歴"
+
+msgid "TraineeFamilies"
+msgstr "研修生の家族"
+
+msgid "TraineeFamilyStories"
+msgstr "研修生の家族記録"
+
+msgid "Related TraineeCertifications"
+msgstr "関連する研修生の資格"
+
+msgid "Filter Trainee Id"
+msgstr "研修生IDで絞り込み"
+
+msgid "No Related TraineeCertifications"
+msgstr "関連する研修生の資格はありません"
+
+msgid "There are no related TraineeCertifications for this Trainee."
+msgstr "この研修生に関連する資格はありません。"
+
+msgid "Add First TraineeCertification"
+msgstr "最初の資格を追加"
+
+msgid "Related TraineeCourses"
+msgstr "関連する研修生の受講歴"
+
+msgid "No Related TraineeCourses"
+msgstr "関連する受講歴はありません"
+
+msgid "There are no related TraineeCourses for this Trainee."
+msgstr "この研修生に関連する受講歴はありません。"
+
+msgid "Add First TraineeCourse"
+msgstr "最初の受講歴を追加"
+
+msgid "Related TraineeEducations"
+msgstr "関連する研修生の学歴"
+
+msgid "No Related TraineeEducations"
+msgstr "関連する学歴はありません"
+
+msgid "There are no related TraineeEducations for this Trainee."
+msgstr "この研修生に関連する学歴はありません。"
+
+msgid "Add First TraineeEducation"
+msgstr "最初の学歴を追加"
+
+msgid "Related TraineeExperiences"
+msgstr "関連する研修生の職歴"
+
+msgid "No Related TraineeExperiences"
+msgstr "関連する職歴はありません"
+
+msgid "There are no related TraineeExperiences for this Trainee."
+msgstr "この研修生に関連する職歴はありません。"
+
+msgid "Add First TraineeExperience"
+msgstr "最初の職歴を追加"
+
+msgid "Related TraineeFamilies"
+msgstr "関連する研修生の家族"
+
+msgid "No Related TraineeFamilies"
+msgstr "関連する家族情報はありません"
+
+msgid "There are no related TraineeFamilies for this Trainee."
+msgstr "この研修生に関連する家族情報はありません。"
+
+msgid "Add First TraineeFamily"
+msgstr "最初の家族情報を追加"
+
+msgid "Related TraineeFamilyStories"
+msgstr "関連する研修生の家族記録"
+
+msgid "No Related TraineeFamilyStories"
+msgstr "関連する家族記録はありません"
+
+msgid "There are no related TraineeFamilyStories for this Trainee."
+msgstr "この研修生に関連する家族記録はありません。"
+
+msgid "Add First TraineeFamilyStory"
+msgstr "最初の家族記録を追加"
+
