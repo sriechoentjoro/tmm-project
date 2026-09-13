@@ -4756,3 +4756,603 @@ msgstr "LPK登録が見つかりません"
 msgid "Click \"Register New LPK\" to add your first registration."
 msgstr "「新規LPK登録」をクリックして最初の登録を追加してください。"
 
+
+msgid "Action"
+msgstr "操作"
+
+msgid "Delete ticket #{0}? This cannot be undone."
+msgstr "チケット #{0} を削除しますか？この操作は取り消せません。"
+
+msgid "Remove flight leg {0}?"
+msgstr "フライト区間 {0} を削除しますか？"
+
+msgid "Delete COE / visa record #{0}? This cannot be undone."
+msgstr "COE・ビザ記録 #{0} を削除しますか？この操作は取り消せません。"
+
+msgid "Delete medical check-up #{0}? This cannot be undone."
+msgstr "健康診断記録 #{0} を削除しますか？この操作は取り消せません。"
+
+msgid "Delete passport record #{0}? This cannot be undone."
+msgstr "パスポート記録 #{0} を削除しますか？この操作は取り消せません。"
+
+msgid "Home"
+msgstr "ホーム"
+
+msgid "Process Flow"
+msgstr "処理フロー"
+
+msgid "Image not found"
+msgstr "画像が見つかりません"
+
+msgid "File not found"
+msgstr "ファイルが見つかりません"
+
+msgid "Current Photo"
+msgstr "現在の写真"
+
+msgid "Crop Photo (4:6 Ratio - Passport Size)"
+msgstr "写真のトリミング（4:6 比率・パスポートサイズ）"
+
+msgid "Apply Crop"
+msgstr "トリミングを適用"
+
+msgid "Cropped Preview (will be uploaded)"
+msgstr "トリミング後のプレビュー（アップロードされます）"
+
+msgid "Re-crop"
+msgstr "再トリミング"
+
+msgid "Menu Details"
+msgstr "メニュー詳細"
+
+msgid "(choose category)"
+msgstr "（カテゴリを選択）"
+
+msgid "...or type a new category"
+msgstr "...または新しいカテゴリを入力"
+
+msgid "Overrides the select above"
+msgstr "上の選択より優先されます"
+
+msgid "(top level)"
+msgstr "（最上位）"
+
+msgid "Parent Menu"
+msgstr "親メニュー"
+
+msgid "Sort Order"
+msgstr "並び順"
+
+msgid "URL &amp; Access Control"
+msgstr "URL・アクセス制御"
+
+msgid "URL (e.g. /candidates or # for parent)"
+msgstr "URL（例：/candidates、親メニューは #）"
+
+msgid "Controller"
+msgstr "コントローラー"
+
+msgid "Auto-filled from URL"
+msgstr "URLから自動入力されます"
+
+msgid "Re-derive Controller &amp; Action from URL"
+msgstr "URLからコントローラーとアクションを再取得"
+
+msgid "Derive"
+msgstr "取得"
+
+msgid "Appearance &amp; Settings"
+msgstr "表示・設定"
+
+msgid "Icon class (e.g. fas fa-users)"
+msgstr "アイコンクラス（例：fas fa-users）"
+
+msgid "Link Target"
+msgstr "リンク先"
+
+msgid "Source"
+msgstr "ソース"
+
+msgid "Record ID"
+msgstr "レコードID"
+
+msgid "Promoted By"
+msgstr "昇格実施者"
+
+msgid "No promotion history recorded yet."
+msgstr "昇格履歴はまだありません。"
+
+msgid "Operational and available for use"
+msgstr "稼働中で利用可能"
+
+msgid "Temporarily inactive - under review"
+msgstr "一時停止中・審査中"
+
+msgid "Showing the latest 50 records."
+msgstr "最新50件を表示しています。"
+
+
+msgid "Are you sure you want to delete # {0}?"
+msgstr "# {0} を削除してもよろしいですか？"
+
+msgid "Order"
+msgstr "オーダー"
+
+msgid "user@example.com"
+msgstr "user@example.com"
+
+msgid "Submit"
+msgstr "送信"
+
+msgid "Training"
+msgstr "研修"
+
+msgid "Edit User"
+msgstr "ユーザーを編集"
+
+msgid "Institution ID"
+msgstr "機関ID"
+
+msgid "Add User"
+msgstr "ユーザーを追加"
+
+msgid "List Users"
+msgstr "ユーザー一覧"
+
+msgid "System Process Guide"
+msgstr "システム業務ガイド"
+
+msgid "End-to-End Process Flow"
+msgstr "全体の処理フロー"
+
+msgid "This guide walks through the entire TMM (Technical Intern & Specified Skilled Worker) journey — from setting up stakeholders and apprentice orders, through candidate recruitment & selection at the LPK, training, documentation & departure to Japan, and finally the return home. Each step shows the responsible role, the menu path, and how the data connects."
+msgstr "本ガイドは、TMM（技能実習・特定技能）の全行程を順に説明します — 関係機関と実習生オーダーの設定、LPKでの候補者募集・選考、研修、書類手続きと日本への出発、そして帰国まで。各ステップに担当する役割、メニューの場所、データのつながりを示しています。"
+
+msgid "Set Up Stakeholders"
+msgstr "関係機関の登録"
+
+msgid "Register every partner organisation before any order"
+msgstr "オーダーの前にすべての提携組織を登録します"
+
+msgid "LPK — Vocational Training Institution"
+msgstr "LPK — 職業訓練機関"
+
+msgid "Register each LPK partner, then create its login user and verify the email so the LPK can operate independently."
+msgstr "提携するLPKを登録し、ログインユーザーを作成してメールを確認すると、LPKが単独で操作できるようになります。"
+
+msgid "Create institution record (name, address, contacts)"
+msgstr "機関情報を作成（名称・住所・連絡先）"
+
+msgid "Create LPK user account & assign role"
+msgstr "LPKユーザーアカウントを作成し役割を割り当て"
+
+msgid "Email verification → LPK activates & sets password"
+msgstr "メール確認 → LPKが有効化しパスワードを設定"
+
+msgid "AO — Acceptance Organization"
+msgstr "AO — 受入機関"
+
+msgid "The company in Japan that will accept the interns. Record its profile and job needs."
+msgstr "実習生を受け入れる日本の企業です。企業情報と求人内容を登録します。"
+
+msgid "Kumiai — Cooperative Association"
+msgstr "組合 — 協同組合"
+
+msgid "The supervising cooperative that mediates between the AO and the sending side."
+msgstr "受入機関と送出し側の間を仲介する監理団体です。"
+
+msgid "For the Specified Skilled Worker (SSW) route — the registered support organisation."
+msgstr "特定技能（SSW）ルートの場合 — 登録支援機関です。"
+
+msgid "Create Apprentice Order & Share to LPK"
+msgstr "実習生オーダーを作成しLPKへ配分"
+
+msgid "Create Apprentice Order"
+msgstr "実習生オーダーを作成"
+
+msgid "Define how many interns are needed (male/female), the job category, and link the Kumiai + Acceptance Organization."
+msgstr "必要な実習生の人数（男女別）と職種を決め、組合と受入機関を紐づけます。"
+
+msgid "Share Order to LPK"
+msgstr "オーダーをLPKへ配分"
+
+msgid "Distribute the order to one or more LPK so they can start recruiting candidates against it."
+msgstr "オーダーを一つ以上のLPKへ配分し、候補者の募集を開始できるようにします。"
+
+msgid "Recruitment & Selection Pipeline"
+msgstr "募集・選考の流れ"
+
+msgid "LPK only sees its own candidates"
+msgstr "LPKは自機関の候補者のみ閲覧できます"
+
+msgid "Collect Candidates"
+msgstr "候補者の登録"
+
+msgid "Enter each applicant with personal data, family, education & experience, then upload their documents."
+msgstr "応募者ごとに個人情報・家族・学歴・職歴を入力し、書類をアップロードします。"
+
+msgid "Selection stages (each recorded per candidate, then combined into an integrated score):"
+msgstr "選考の各段階（候補者ごとに記録し、総合評価にまとめます）："
+
+msgid "Medical Check-Up"
+msgstr "健康診断"
+
+msgid "Integrated Scoring"
+msgstr "総合評価"
+
+msgid "Promote → Trainee"
+msgstr "昇格 → 研修生"
+
+msgid "Integrated Scoring combines placement test + interview + MCU into a readiness view."
+msgstr "総合評価は、配置試験・面接・健康診断をまとめて準備状況を示します。"
+
+msgid "When a candidate passes, promote them — they become a Trainee and move to the training phase."
+msgstr "候補者が合格したら昇格させます — 研修生となり研修段階へ進みます。"
+
+msgid "Training Batches & Modules"
+msgstr "研修バッチとモジュール"
+
+msgid "Group trainees into batches and enrol them in training modules (language, skills, culture)."
+msgstr "研修生をバッチに分け、研修モジュール（語学・技能・文化）に登録します。"
+
+msgid "Daily & Test Scores"
+msgstr "日次評価とテスト結果"
+
+msgid "Record daily scores and periodic competency test results to track each trainee's progress."
+msgstr "日々の評価と定期的な技能テストの結果を記録し、研修生ごとの進捗を追跡します。"
+
+msgid "Promote → Apprentice"
+msgstr "昇格 → 技能実習生"
+
+msgid "Trainees who pass candidate + training checks are promoted to Apprentice, ready for departure."
+msgstr "候補者審査と研修審査に合格した研修生は技能実習生に昇格し、出発準備が整います。"
+
+msgid "Documentation & Departure to Japan"
+msgstr "書類手続きと日本への出発"
+
+msgid "Prepare Certificate of Eligibility, visa, passport and pre-departure medical records for each apprentice."
+msgstr "実習生ごとに在留資格認定証明書・ビザ・パスポート・出発前の健康記録を準備します。"
+
+msgid "Ticketing & Flights"
+msgstr "航空券とフライト"
+
+msgid "Arrange flights, transit legs and departure schedules."
+msgstr "フライト・乗継区間・出発スケジュールを手配します。"
+
+msgid "Costs & Installments"
+msgstr "費用と分割払い"
+
+msgid "Record document costs and manage trainee installment payments and receipts."
+msgstr "書類費用を記録し、研修生の分割払いと領収書を管理します。"
+
+msgid "Apprenticeship in Japan → Return Home"
+msgstr "日本での実習 → 帰国"
+
+msgid "Track apprentices during their placement in Japan, including kaizen / problem-solving stories."
+msgstr "日本での配属期間中の実習生を追跡します。改善（カイゼン）や問題解決の記録も含みます。"
+
+msgid "Post-Apprentice — Return to Indonesia"
+msgstr "実習修了後 — インドネシアへ帰国"
+
+msgid "When the programme ends and the apprentice returns home, track their alumni status (employed, self-employed, continuing study…)."
+msgstr "プログラム終了後に帰国した実習生の進路（就職・自営業・進学など）を追跡します。"
+
+msgid "Dashboards & Reports"
+msgstr "ダッシュボードとレポート"
+
+msgid "Management monitors the whole pipeline through department dashboards and reports at any time."
+msgstr "経営層は部門別ダッシュボードとレポートで全体の流れをいつでも把握できます。"
+
+msgid "For developers / debuggers"
+msgstr "開発者・調査担当者向け"
+
+msgid "The pipeline spans 15 dedicated databases (cms_*). Stakeholders live in"
+msgstr "この流れは15個の専用データベース（cms_*）にまたがります。関係機関は"
+
+msgid "candidates in"
+msgstr "候補者は"
+
+msgid "trainees in"
+msgstr "研修生は"
+
+msgid "apprentices in"
+msgstr "技能実習生は"
+
+msgid "finance in"
+msgstr "会計は"
+
+msgid "A person keeps the same identity as they flow Candidate → Trainee → Apprentice → Post-Apprentice via linking IDs (candidate_id, trainee_id, apprenticeship_order_id)."
+msgstr "候補者 → 研修生 → 技能実習生 → 実習修了者と進んでも、連結ID（candidate_id、trainee_id、apprenticeship_order_id）によって同一人物として扱われます。"
+
+msgid "Access is role-filtered: LPK users only see their own institution's candidates."
+msgstr "アクセスは役割で絞り込まれます。LPKユーザーは自機関の候補者のみ閲覧できます。"
+
+msgid "Stakeholders"
+msgstr "関係機関"
+
+msgid "Selection"
+msgstr "選考"
+
+msgid "Return Home"
+msgstr "帰国"
+
+msgid "Back to Login"
+msgstr "ログイン画面へ戻る"
+
+msgid "System accounts, roles and access"
+msgstr "システムアカウント・役割・アクセス権"
+
+msgid "Name, username or email…"
+msgstr "氏名・ユーザー名・メールアドレス…"
+
+msgid "User"
+msgstr "ユーザー"
+
+msgid "Delete user {0}? This cannot be undone."
+msgstr "ユーザー {0} を削除しますか？この操作は取り消せません。"
+
+msgid "no role"
+msgstr "役割なし"
+
+msgid "No users match the current filter."
+msgstr "現在の条件に一致するユーザーはいません。"
+
+msgid "No users yet."
+msgstr "ユーザーはまだ登録されていません。"
+
+msgid "Login"
+msgstr "ログイン"
+
+msgid "New here? See the full TMM flow: stakeholders → order → recruitment → training → departure → return."
+msgstr "はじめての方へ：TMMの全体の流れをご覧ください。関係機関 → オーダー → 募集 → 研修 → 出発 → 帰国。"
+
+msgid "My Profile"
+msgstr "マイプロフィール"
+
+msgid "Edit Profile"
+msgstr "プロフィールを編集"
+
+msgid "Profile Information"
+msgstr "プロフィール情報"
+
+msgid "Account Security"
+msgstr "アカウントのセキュリティ"
+
+msgid "To change your password, please contact the system administrator."
+msgstr "パスワードの変更はシステム管理者にご連絡ください。"
+
+msgid "Account Settings"
+msgstr "アカウント設定"
+
+msgid "Note: You cannot change your roles or institution assignment. Contact administrator for these changes."
+msgstr "注意：役割や所属機関はご自身では変更できません。変更が必要な場合は管理者にご連絡ください。"
+
+msgid "Enter your full name"
+msgstr "氏名を入力してください"
+
+msgid "Profile Photo"
+msgstr "プロフィール写真"
+
+msgid "Current profile photo"
+msgstr "現在のプロフィール写真"
+
+msgid "Upload New Photo"
+msgstr "新しい写真をアップロード"
+
+msgid "User Detail"
+msgstr "ユーザー詳細"
+
+msgid "Account profile and access"
+msgstr "アカウント情報とアクセス権"
+
+msgid "Delete user {0}?"
+msgstr "ユーザー {0} を削除しますか？"
+
+msgid "All Users"
+msgstr "すべてのユーザー"
+
+msgid "Disabled"
+msgstr "無効"
+
+msgid "No role assigned"
+msgstr "役割が未割り当て"
+
+msgid "User ID"
+msgstr "ユーザーID"
+
+msgid "Email Verified"
+msgstr "メール確認済み"
+
+msgid "Not verified"
+msgstr "未確認"
+
+msgid "Institution & Meta"
+msgstr "所属機関とメタ情報"
+
+msgid "Last Modified"
+msgstr "最終更新"
+
+
+msgid "Set Your Password"
+msgstr "パスワードを設定してください"
+
+msgid "Institution Information"
+msgstr "機関情報"
+
+msgid "Name:"
+msgstr "名称:"
+
+msgid "Email:"
+msgstr "メールアドレス:"
+
+msgid "Password Requirements:"
+msgstr "パスワードの要件:"
+
+msgid "At least 8 characters"
+msgstr "8文字以上"
+
+msgid "At least one uppercase letter (A-Z)"
+msgstr "大文字を1文字以上（A-Z）"
+
+msgid "At least one lowercase letter (a-z)"
+msgstr "小文字を1文字以上（a-z）"
+
+msgid "At least one number (0-9)"
+msgstr "数字を1文字以上（0-9）"
+
+msgid "At least one special character (!@#$%^&*)"
+msgstr "記号を1文字以上（!@#$%^&*）"
+
+msgid "Enter your password"
+msgstr "パスワードを入力してください"
+
+msgid "Password Strength:"
+msgstr "パスワードの強度:"
+
+msgid "No password"
+msgstr "パスワード未入力"
+
+msgid "Confirm Password"
+msgstr "パスワードの確認"
+
+msgid "Re-enter your password"
+msgstr "パスワードをもう一度入力してください"
+
+msgid "I agree to the "
+msgstr "同意します："
+
+msgid "Terms and Conditions"
+msgstr "利用規約"
+
+msgid "Activate Account"
+msgstr "アカウントを有効化"
+
+msgid "By activating your account, you will be able to login and access the TMM system."
+msgstr "アカウントを有効化すると、TMMシステムにログインして利用できるようになります。"
+
+msgid "Need Help?"
+msgstr "お困りですか？"
+
+msgid "If you encounter any issues, please contact:"
+msgstr "問題が発生した場合は、こちらまでご連絡ください："
+
+msgid "Email: support@asahifamily.id"
+msgstr "メール: support@asahifamily.id"
+
+msgid "Phone: +62 21 1234 5678"
+msgstr "電話: +62 21 1234 5678"
+
+msgid "1. Account Usage"
+msgstr "1. アカウントの利用"
+
+msgid "You agree to use this account only for authorized purposes within the TMM system."
+msgstr "本アカウントは、TMMシステム内で許可された目的にのみ使用することに同意するものとします。"
+
+msgid "2. Data Privacy"
+msgstr "2. データのプライバシー"
+
+msgid "All data entered into the system will be handled according to applicable privacy laws and regulations."
+msgstr "システムに入力されたすべてのデータは、適用される個人情報保護に関する法令に従って取り扱われます。"
+
+msgid "3. Security"
+msgstr "3. セキュリティ"
+
+msgid "You are responsible for maintaining the confidentiality of your password and account."
+msgstr "パスワードおよびアカウントの機密保持はご本人の責任となります。"
+
+msgid "4. Compliance"
+msgstr "4. 法令遵守"
+
+msgid "You must comply with all applicable laws and regulations when using this system."
+msgstr "本システムの利用にあたっては、適用されるすべての法令を遵守してください。"
+
+msgid "5. Account Termination"
+msgstr "5. アカウントの停止"
+
+msgid "We reserve the right to terminate accounts that violate these terms."
+msgstr "本規約に違反したアカウントを停止する権利を留保します。"
+
+msgid "Close"
+msgstr "閉じる"
+
+msgid "Email Verified Successfully!"
+msgstr "メールアドレスの確認が完了しました！"
+
+msgid "Your email address has been verified."
+msgstr "メールアドレスが確認されました。"
+
+msgid "Institution: {0}"
+msgstr "機関: {0}"
+
+msgid "Email: {0}"
+msgstr "メールアドレス: {0}"
+
+msgid "Next Step: Set your password to activate your account"
+msgstr "次のステップ：パスワードを設定してアカウントを有効化してください"
+
+msgid "Redirecting to password setup in:"
+msgstr "パスワード設定画面へ移動します:"
+
+msgid "Continue to Password Setup"
+msgstr "パスワード設定へ進む"
+
+msgid "Invalid Verification Link"
+msgstr "確認リンクが無効です"
+
+msgid "This verification link is invalid, expired, or has already been used."
+msgstr "この確認リンクは無効か、有効期限が切れているか、すでに使用されています。"
+
+msgid "Possible Reasons:"
+msgstr "考えられる原因:"
+
+msgid "The link has expired (valid for 24 hours only)"
+msgstr "リンクの有効期限が切れています（有効期間は24時間）"
+
+msgid "The link has already been used"
+msgstr "リンクはすでに使用されています"
+
+msgid "The link is incomplete or corrupted"
+msgstr "リンクが不完全または破損しています"
+
+msgid "Your email has already been verified"
+msgstr "メールアドレスはすでに確認済みです"
+
+msgid "Request New Link"
+msgstr "新しいリンクを請求"
+
+msgid "Contact Support"
+msgstr "サポートに問い合わせる"
+
+msgid "Institution Not Found"
+msgstr "機関が見つかりません"
+
+msgid "The institution associated with this verification link could not be found."
+msgstr "この確認リンクに紐づく機関が見つかりませんでした。"
+
+msgid "This may indicate a system error. Please contact support for assistance."
+msgstr "システム上の問題の可能性があります。サポートまでお問い合わせください。"
+
+msgid "Verification Error"
+msgstr "確認エラー"
+
+msgid "An error occurred while verifying your email."
+msgstr "メールアドレスの確認中にエラーが発生しました。"
+
+msgid "Please try again or contact support if the problem persists."
+msgstr "もう一度お試しください。解決しない場合はサポートまでご連絡ください。"
+
+msgid "Try Again"
+msgstr "再試行"
+
+msgid "Loading..."
+msgstr "読み込み中..."
+
+msgid "Verifying Your Email..."
+msgstr "メールアドレスを確認しています..."
+
+msgid "Please wait while we verify your email address."
+msgstr "メールアドレスを確認しています。しばらくお待ちください。"
+
+msgid "Office Hours: Monday - Friday, 9:00 AM - 5:00 PM WIB"
+msgstr "営業時間: 月曜〜金曜 9:00〜17:00（西部インドネシア時間）"
+
