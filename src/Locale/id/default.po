@@ -4756,3 +4756,603 @@ msgstr "Tidak ada pendaftaran LPK"
 msgid "Click \"Register New LPK\" to add your first registration."
 msgstr "Klik \"Daftarkan LPK Baru\" untuk menambahkan pendaftaran pertama."
 
+
+msgid "Action"
+msgstr "Aksi"
+
+msgid "Delete ticket #{0}? This cannot be undone."
+msgstr "Hapus tiket #{0}? Tindakan ini tidak dapat dibatalkan."
+
+msgid "Remove flight leg {0}?"
+msgstr "Hapus segmen penerbangan {0}?"
+
+msgid "Delete COE / visa record #{0}? This cannot be undone."
+msgstr "Hapus data COE / visa #{0}? Tindakan ini tidak dapat dibatalkan."
+
+msgid "Delete medical check-up #{0}? This cannot be undone."
+msgstr "Hapus data pemeriksaan kesehatan #{0}? Tindakan ini tidak dapat dibatalkan."
+
+msgid "Delete passport record #{0}? This cannot be undone."
+msgstr "Hapus data paspor #{0}? Tindakan ini tidak dapat dibatalkan."
+
+msgid "Home"
+msgstr "Beranda"
+
+msgid "Process Flow"
+msgstr "Alur Proses"
+
+msgid "Image not found"
+msgstr "Gambar tidak ditemukan"
+
+msgid "File not found"
+msgstr "Berkas tidak ditemukan"
+
+msgid "Current Photo"
+msgstr "Foto Saat Ini"
+
+msgid "Crop Photo (4:6 Ratio - Passport Size)"
+msgstr "Potong Foto (Rasio 4:6 - Ukuran Paspor)"
+
+msgid "Apply Crop"
+msgstr "Terapkan Pemotongan"
+
+msgid "Cropped Preview (will be uploaded)"
+msgstr "Pratinjau Hasil Potong (akan diunggah)"
+
+msgid "Re-crop"
+msgstr "Potong Ulang"
+
+msgid "Menu Details"
+msgstr "Detail Menu"
+
+msgid "(choose category)"
+msgstr "(pilih kategori)"
+
+msgid "...or type a new category"
+msgstr "...atau ketik kategori baru"
+
+msgid "Overrides the select above"
+msgstr "Menimpa pilihan di atas"
+
+msgid "(top level)"
+msgstr "(tingkat teratas)"
+
+msgid "Parent Menu"
+msgstr "Menu Induk"
+
+msgid "Sort Order"
+msgstr "Urutan"
+
+msgid "URL &amp; Access Control"
+msgstr "URL &amp; Kontrol Akses"
+
+msgid "URL (e.g. /candidates or # for parent)"
+msgstr "URL (mis. /candidates atau # untuk menu induk)"
+
+msgid "Controller"
+msgstr "Controller"
+
+msgid "Auto-filled from URL"
+msgstr "Terisi otomatis dari URL"
+
+msgid "Re-derive Controller &amp; Action from URL"
+msgstr "Turunkan Ulang Controller &amp; Action dari URL"
+
+msgid "Derive"
+msgstr "Turunkan"
+
+msgid "Appearance &amp; Settings"
+msgstr "Tampilan &amp; Pengaturan"
+
+msgid "Icon class (e.g. fas fa-users)"
+msgstr "Kelas ikon (mis. fas fa-users)"
+
+msgid "Link Target"
+msgstr "Target Tautan"
+
+msgid "Source"
+msgstr "Sumber"
+
+msgid "Record ID"
+msgstr "ID Data"
+
+msgid "Promoted By"
+msgstr "Dipromosikan Oleh"
+
+msgid "No promotion history recorded yet."
+msgstr "Belum ada riwayat promosi."
+
+msgid "Operational and available for use"
+msgstr "Beroperasi dan siap digunakan"
+
+msgid "Temporarily inactive - under review"
+msgstr "Nonaktif sementara - sedang ditinjau"
+
+msgid "Showing the latest 50 records."
+msgstr "Menampilkan 50 data terbaru."
+
+
+msgid "Are you sure you want to delete # {0}?"
+msgstr "Yakin ingin menghapus # {0}?"
+
+msgid "Order"
+msgstr "Pesanan"
+
+msgid "user@example.com"
+msgstr "pengguna@contoh.com"
+
+msgid "Submit"
+msgstr "Kirim"
+
+msgid "Training"
+msgstr "Pelatihan"
+
+msgid "Edit User"
+msgstr "Ubah Pengguna"
+
+msgid "Institution ID"
+msgstr "ID Lembaga"
+
+msgid "Add User"
+msgstr "Tambah Pengguna"
+
+msgid "List Users"
+msgstr "Daftar Pengguna"
+
+msgid "System Process Guide"
+msgstr "Panduan Proses Sistem"
+
+msgid "End-to-End Process Flow"
+msgstr "Alur Proses Menyeluruh"
+
+msgid "This guide walks through the entire TMM (Technical Intern & Specified Skilled Worker) journey — from setting up stakeholders and apprentice orders, through candidate recruitment & selection at the LPK, training, documentation & departure to Japan, and finally the return home. Each step shows the responsible role, the menu path, and how the data connects."
+msgstr "Panduan ini menelusuri seluruh perjalanan TMM (Pemagangan Teknis & Pekerja Berketerampilan Spesifik) — mulai dari penyiapan pemangku kepentingan dan pesanan pemagangan, rekrutmen & seleksi kandidat di LPK, pelatihan, dokumentasi & keberangkatan ke Jepang, hingga kepulangan. Setiap langkah menunjukkan peran yang bertanggung jawab, jalur menunya, dan bagaimana datanya saling terhubung."
+
+msgid "Set Up Stakeholders"
+msgstr "Siapkan Pemangku Kepentingan"
+
+msgid "Register every partner organisation before any order"
+msgstr "Daftarkan setiap organisasi mitra sebelum ada pesanan"
+
+msgid "LPK — Vocational Training Institution"
+msgstr "LPK — Lembaga Pelatihan Kerja"
+
+msgid "Register each LPK partner, then create its login user and verify the email so the LPK can operate independently."
+msgstr "Daftarkan setiap LPK mitra, lalu buat akun masuknya dan verifikasi emailnya agar LPK dapat beroperasi mandiri."
+
+msgid "Create institution record (name, address, contacts)"
+msgstr "Buat data lembaga (nama, alamat, kontak)"
+
+msgid "Create LPK user account & assign role"
+msgstr "Buat akun pengguna LPK & tetapkan perannya"
+
+msgid "Email verification → LPK activates & sets password"
+msgstr "Verifikasi email → LPK mengaktifkan akun & menetapkan kata sandi"
+
+msgid "AO — Acceptance Organization"
+msgstr "AO — Organisasi Penerima"
+
+msgid "The company in Japan that will accept the interns. Record its profile and job needs."
+msgstr "Perusahaan di Jepang yang akan menerima pemagang. Catat profil dan kebutuhan pekerjaannya."
+
+msgid "Kumiai — Cooperative Association"
+msgstr "Kumiai — Asosiasi Koperasi"
+
+msgid "The supervising cooperative that mediates between the AO and the sending side."
+msgstr "Koperasi pengawas yang menjembatani AO dengan pihak pengirim."
+
+msgid "For the Specified Skilled Worker (SSW) route — the registered support organisation."
+msgstr "Untuk jalur Pekerja Berketerampilan Spesifik (SSW) — organisasi pendukung terdaftar."
+
+msgid "Create Apprentice Order & Share to LPK"
+msgstr "Buat Pesanan Pemagangan & Bagikan ke LPK"
+
+msgid "Create Apprentice Order"
+msgstr "Buat Pesanan Pemagangan"
+
+msgid "Define how many interns are needed (male/female), the job category, and link the Kumiai + Acceptance Organization."
+msgstr "Tentukan jumlah pemagang yang dibutuhkan (pria/wanita), kategori pekerjaan, lalu hubungkan dengan Kumiai + Organisasi Penerima."
+
+msgid "Share Order to LPK"
+msgstr "Bagikan Pesanan ke LPK"
+
+msgid "Distribute the order to one or more LPK so they can start recruiting candidates against it."
+msgstr "Salurkan pesanan ke satu atau beberapa LPK agar mereka dapat mulai merekrut kandidat."
+
+msgid "Recruitment & Selection Pipeline"
+msgstr "Alur Rekrutmen & Seleksi"
+
+msgid "LPK only sees its own candidates"
+msgstr "LPK hanya melihat kandidatnya sendiri"
+
+msgid "Collect Candidates"
+msgstr "Kumpulkan Kandidat"
+
+msgid "Enter each applicant with personal data, family, education & experience, then upload their documents."
+msgstr "Masukkan setiap pelamar beserta data pribadi, keluarga, pendidikan & pengalaman, lalu unggah dokumennya."
+
+msgid "Selection stages (each recorded per candidate, then combined into an integrated score):"
+msgstr "Tahapan seleksi (dicatat per kandidat, lalu digabung menjadi nilai terpadu):"
+
+msgid "Medical Check-Up"
+msgstr "Pemeriksaan Kesehatan"
+
+msgid "Integrated Scoring"
+msgstr "Penilaian Terpadu"
+
+msgid "Promote → Trainee"
+msgstr "Promosikan → Trainee"
+
+msgid "Integrated Scoring combines placement test + interview + MCU into a readiness view."
+msgstr "Penilaian Terpadu menggabungkan tes penempatan + wawancara + MCU menjadi gambaran kesiapan."
+
+msgid "When a candidate passes, promote them — they become a Trainee and move to the training phase."
+msgstr "Ketika kandidat lulus, promosikan — ia menjadi Trainee dan masuk ke tahap pelatihan."
+
+msgid "Training Batches & Modules"
+msgstr "Angkatan & Modul Pelatihan"
+
+msgid "Group trainees into batches and enrol them in training modules (language, skills, culture)."
+msgstr "Kelompokkan trainee ke dalam angkatan dan daftarkan ke modul pelatihan (bahasa, keterampilan, budaya)."
+
+msgid "Daily & Test Scores"
+msgstr "Nilai Harian & Ujian"
+
+msgid "Record daily scores and periodic competency test results to track each trainee's progress."
+msgstr "Catat nilai harian dan hasil uji kompetensi berkala untuk memantau kemajuan tiap trainee."
+
+msgid "Promote → Apprentice"
+msgstr "Promosikan → Pemagang"
+
+msgid "Trainees who pass candidate + training checks are promoted to Apprentice, ready for departure."
+msgstr "Trainee yang lolos pemeriksaan kandidat + pelatihan dipromosikan menjadi Pemagang, siap berangkat."
+
+msgid "Documentation & Departure to Japan"
+msgstr "Dokumentasi & Keberangkatan ke Jepang"
+
+msgid "Prepare Certificate of Eligibility, visa, passport and pre-departure medical records for each apprentice."
+msgstr "Siapkan Certificate of Eligibility, visa, paspor, dan rekam medis prakeberangkatan untuk tiap pemagang."
+
+msgid "Ticketing & Flights"
+msgstr "Tiket & Penerbangan"
+
+msgid "Arrange flights, transit legs and departure schedules."
+msgstr "Atur penerbangan, segmen transit, dan jadwal keberangkatan."
+
+msgid "Costs & Installments"
+msgstr "Biaya & Angsuran"
+
+msgid "Record document costs and manage trainee installment payments and receipts."
+msgstr "Catat biaya dokumen serta kelola pembayaran angsuran dan kuitansi trainee."
+
+msgid "Apprenticeship in Japan → Return Home"
+msgstr "Pemagangan di Jepang → Kepulangan"
+
+msgid "Track apprentices during their placement in Japan, including kaizen / problem-solving stories."
+msgstr "Pantau pemagang selama penempatan di Jepang, termasuk cerita kaizen / penyelesaian masalah."
+
+msgid "Post-Apprentice — Return to Indonesia"
+msgstr "Pasca-Pemagangan — Kembali ke Indonesia"
+
+msgid "When the programme ends and the apprentice returns home, track their alumni status (employed, self-employed, continuing study…)."
+msgstr "Ketika program berakhir dan pemagang pulang, pantau status alumninya (bekerja, wirausaha, melanjutkan studi…)."
+
+msgid "Dashboards & Reports"
+msgstr "Dasbor & Laporan"
+
+msgid "Management monitors the whole pipeline through department dashboards and reports at any time."
+msgstr "Manajemen memantau seluruh alur melalui dasbor departemen dan laporan kapan saja."
+
+msgid "For developers / debuggers"
+msgstr "Untuk pengembang / penelusuran masalah"
+
+msgid "The pipeline spans 15 dedicated databases (cms_*). Stakeholders live in"
+msgstr "Alur ini tersebar di 15 basis data khusus (cms_*). Pemangku kepentingan berada di"
+
+msgid "candidates in"
+msgstr "kandidat di"
+
+msgid "trainees in"
+msgstr "trainee di"
+
+msgid "apprentices in"
+msgstr "pemagang di"
+
+msgid "finance in"
+msgstr "keuangan di"
+
+msgid "A person keeps the same identity as they flow Candidate → Trainee → Apprentice → Post-Apprentice via linking IDs (candidate_id, trainee_id, apprenticeship_order_id)."
+msgstr "Satu orang mempertahankan identitas yang sama saat mengalir Kandidat → Trainee → Pemagang → Pasca-Pemagang melalui ID penghubung (candidate_id, trainee_id, apprenticeship_order_id)."
+
+msgid "Access is role-filtered: LPK users only see their own institution's candidates."
+msgstr "Akses disaring berdasarkan peran: pengguna LPK hanya melihat kandidat lembaganya sendiri."
+
+msgid "Stakeholders"
+msgstr "Pemangku Kepentingan"
+
+msgid "Selection"
+msgstr "Seleksi"
+
+msgid "Return Home"
+msgstr "Kepulangan"
+
+msgid "Back to Login"
+msgstr "Kembali ke Halaman Masuk"
+
+msgid "System accounts, roles and access"
+msgstr "Akun sistem, peran, dan akses"
+
+msgid "Name, username or email…"
+msgstr "Nama, nama pengguna, atau email…"
+
+msgid "User"
+msgstr "Pengguna"
+
+msgid "Delete user {0}? This cannot be undone."
+msgstr "Hapus pengguna {0}? Tindakan ini tidak dapat dibatalkan."
+
+msgid "no role"
+msgstr "tanpa peran"
+
+msgid "No users match the current filter."
+msgstr "Tidak ada pengguna yang cocok dengan filter ini."
+
+msgid "No users yet."
+msgstr "Belum ada pengguna."
+
+msgid "Login"
+msgstr "Masuk"
+
+msgid "New here? See the full TMM flow: stakeholders → order → recruitment → training → departure → return."
+msgstr "Baru di sini? Lihat alur TMM lengkap: pemangku kepentingan → pesanan → rekrutmen → pelatihan → keberangkatan → kepulangan."
+
+msgid "My Profile"
+msgstr "Profil Saya"
+
+msgid "Edit Profile"
+msgstr "Ubah Profil"
+
+msgid "Profile Information"
+msgstr "Informasi Profil"
+
+msgid "Account Security"
+msgstr "Keamanan Akun"
+
+msgid "To change your password, please contact the system administrator."
+msgstr "Untuk mengubah kata sandi, hubungi administrator sistem."
+
+msgid "Account Settings"
+msgstr "Pengaturan Akun"
+
+msgid "Note: You cannot change your roles or institution assignment. Contact administrator for these changes."
+msgstr "Catatan: Anda tidak dapat mengubah peran atau penetapan lembaga sendiri. Hubungi administrator untuk perubahan tersebut."
+
+msgid "Enter your full name"
+msgstr "Masukkan nama lengkap Anda"
+
+msgid "Profile Photo"
+msgstr "Foto Profil"
+
+msgid "Current profile photo"
+msgstr "Foto profil saat ini"
+
+msgid "Upload New Photo"
+msgstr "Unggah Foto Baru"
+
+msgid "User Detail"
+msgstr "Detail Pengguna"
+
+msgid "Account profile and access"
+msgstr "Profil akun dan akses"
+
+msgid "Delete user {0}?"
+msgstr "Hapus pengguna {0}?"
+
+msgid "All Users"
+msgstr "Semua Pengguna"
+
+msgid "Disabled"
+msgstr "Dinonaktifkan"
+
+msgid "No role assigned"
+msgstr "Belum ada peran"
+
+msgid "User ID"
+msgstr "ID Pengguna"
+
+msgid "Email Verified"
+msgstr "Email Terverifikasi"
+
+msgid "Not verified"
+msgstr "Belum terverifikasi"
+
+msgid "Institution & Meta"
+msgstr "Lembaga & Metadata"
+
+msgid "Last Modified"
+msgstr "Terakhir Diubah"
+
+
+msgid "Set Your Password"
+msgstr "Tetapkan Kata Sandi Anda"
+
+msgid "Institution Information"
+msgstr "Informasi Lembaga"
+
+msgid "Name:"
+msgstr "Nama:"
+
+msgid "Email:"
+msgstr "Email:"
+
+msgid "Password Requirements:"
+msgstr "Syarat Kata Sandi:"
+
+msgid "At least 8 characters"
+msgstr "Minimal 8 karakter"
+
+msgid "At least one uppercase letter (A-Z)"
+msgstr "Minimal satu huruf besar (A-Z)"
+
+msgid "At least one lowercase letter (a-z)"
+msgstr "Minimal satu huruf kecil (a-z)"
+
+msgid "At least one number (0-9)"
+msgstr "Minimal satu angka (0-9)"
+
+msgid "At least one special character (!@#$%^&*)"
+msgstr "Minimal satu karakter khusus (!@#$%^&*)"
+
+msgid "Enter your password"
+msgstr "Masukkan kata sandi Anda"
+
+msgid "Password Strength:"
+msgstr "Kekuatan Kata Sandi:"
+
+msgid "No password"
+msgstr "Belum ada kata sandi"
+
+msgid "Confirm Password"
+msgstr "Konfirmasi Kata Sandi"
+
+msgid "Re-enter your password"
+msgstr "Masukkan ulang kata sandi Anda"
+
+msgid "I agree to the "
+msgstr "Saya menyetujui "
+
+msgid "Terms and Conditions"
+msgstr "Syarat dan Ketentuan"
+
+msgid "Activate Account"
+msgstr "Aktifkan Akun"
+
+msgid "By activating your account, you will be able to login and access the TMM system."
+msgstr "Dengan mengaktifkan akun, Anda dapat masuk dan mengakses sistem TMM."
+
+msgid "Need Help?"
+msgstr "Butuh Bantuan?"
+
+msgid "If you encounter any issues, please contact:"
+msgstr "Jika Anda menemui kendala, silakan hubungi:"
+
+msgid "Email: support@asahifamily.id"
+msgstr "Email: support@asahifamily.id"
+
+msgid "Phone: +62 21 1234 5678"
+msgstr "Telepon: +62 21 1234 5678"
+
+msgid "1. Account Usage"
+msgstr "1. Penggunaan Akun"
+
+msgid "You agree to use this account only for authorized purposes within the TMM system."
+msgstr "Anda setuju menggunakan akun ini hanya untuk keperluan yang sah di dalam sistem TMM."
+
+msgid "2. Data Privacy"
+msgstr "2. Privasi Data"
+
+msgid "All data entered into the system will be handled according to applicable privacy laws and regulations."
+msgstr "Seluruh data yang dimasukkan ke sistem akan ditangani sesuai peraturan dan undang-undang privasi yang berlaku."
+
+msgid "3. Security"
+msgstr "3. Keamanan"
+
+msgid "You are responsible for maintaining the confidentiality of your password and account."
+msgstr "Anda bertanggung jawab menjaga kerahasiaan kata sandi dan akun Anda."
+
+msgid "4. Compliance"
+msgstr "4. Kepatuhan"
+
+msgid "You must comply with all applicable laws and regulations when using this system."
+msgstr "Anda wajib mematuhi seluruh hukum dan peraturan yang berlaku saat menggunakan sistem ini."
+
+msgid "5. Account Termination"
+msgstr "5. Penghentian Akun"
+
+msgid "We reserve the right to terminate accounts that violate these terms."
+msgstr "Kami berhak menghentikan akun yang melanggar ketentuan ini."
+
+msgid "Close"
+msgstr "Tutup"
+
+msgid "Email Verified Successfully!"
+msgstr "Email Berhasil Diverifikasi!"
+
+msgid "Your email address has been verified."
+msgstr "Alamat email Anda telah diverifikasi."
+
+msgid "Institution: {0}"
+msgstr "Lembaga: {0}"
+
+msgid "Email: {0}"
+msgstr "Email: {0}"
+
+msgid "Next Step: Set your password to activate your account"
+msgstr "Langkah Berikutnya: Tetapkan kata sandi untuk mengaktifkan akun Anda"
+
+msgid "Redirecting to password setup in:"
+msgstr "Mengalihkan ke penetapan kata sandi dalam:"
+
+msgid "Continue to Password Setup"
+msgstr "Lanjut ke Penetapan Kata Sandi"
+
+msgid "Invalid Verification Link"
+msgstr "Tautan Verifikasi Tidak Valid"
+
+msgid "This verification link is invalid, expired, or has already been used."
+msgstr "Tautan verifikasi ini tidak valid, sudah kedaluwarsa, atau telah digunakan."
+
+msgid "Possible Reasons:"
+msgstr "Kemungkinan Penyebab:"
+
+msgid "The link has expired (valid for 24 hours only)"
+msgstr "Tautan sudah kedaluwarsa (hanya berlaku 24 jam)"
+
+msgid "The link has already been used"
+msgstr "Tautan sudah pernah digunakan"
+
+msgid "The link is incomplete or corrupted"
+msgstr "Tautan tidak lengkap atau rusak"
+
+msgid "Your email has already been verified"
+msgstr "Email Anda sudah diverifikasi sebelumnya"
+
+msgid "Request New Link"
+msgstr "Minta Tautan Baru"
+
+msgid "Contact Support"
+msgstr "Hubungi Dukungan"
+
+msgid "Institution Not Found"
+msgstr "Lembaga Tidak Ditemukan"
+
+msgid "The institution associated with this verification link could not be found."
+msgstr "Lembaga yang terkait dengan tautan verifikasi ini tidak ditemukan."
+
+msgid "This may indicate a system error. Please contact support for assistance."
+msgstr "Ini mungkin menandakan kesalahan sistem. Silakan hubungi dukungan untuk bantuan."
+
+msgid "Verification Error"
+msgstr "Kesalahan Verifikasi"
+
+msgid "An error occurred while verifying your email."
+msgstr "Terjadi kesalahan saat memverifikasi email Anda."
+
+msgid "Please try again or contact support if the problem persists."
+msgstr "Silakan coba lagi, atau hubungi dukungan jika masalah berlanjut."
+
+msgid "Try Again"
+msgstr "Coba Lagi"
+
+msgid "Loading..."
+msgstr "Memuat..."
+
+msgid "Verifying Your Email..."
+msgstr "Memverifikasi Email Anda..."
+
+msgid "Please wait while we verify your email address."
+msgstr "Mohon tunggu, kami sedang memverifikasi alamat email Anda."
+
+msgid "Office Hours: Monday - Friday, 9:00 AM - 5:00 PM WIB"
+msgstr "Jam Kerja: Senin - Jumat, 09.00 - 17.00 WIB"
+
