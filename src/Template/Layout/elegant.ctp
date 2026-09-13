@@ -523,9 +523,9 @@ $cacheBust = '?v=' . time();
                                 <i class="fas fa-caret-down"></i>
                             </a>
                             <ul class="header-dropdown" style="display: none; position: absolute; top: 100%; right: 0; background: white; min-width: 150px; box-shadow: 0 2px 5px rgba(0,0,0,0.2); border-radius: 4px; padding: 5px 0; z-index: 1000; list-style: none;">
-                                <li><?= $this->Html->link('🇮🇩 Indonesia', ['controller' => 'Users', 'action' => 'changeLanguage', 'ind'], ['style' => 'display: block; padding: 8px 15px; color: #333; text-decoration: none;']) ?></li>
-                                <li><?= $this->Html->link('🇬🇧 English', ['controller' => 'Users', 'action' => 'changeLanguage', 'eng'], ['style' => 'display: block; padding: 8px 15px; color: #333; text-decoration: none;']) ?></li>
-                                <li><?= $this->Html->link('🇯🇵 日本語', ['controller' => 'Users', 'action' => 'changeLanguage', 'jpn'], ['style' => 'display: block; padding: 8px 15px; color: #333; text-decoration: none;']) ?></li>
+                                <li><?= $this->Html->link('🇮🇩 Indonesia', ['prefix' => false, 'controller' => 'Users', 'action' => 'changeLanguage', 'ind'], ['style' => 'display: block; padding: 8px 15px; color: #333; text-decoration: none;']) ?></li>
+                                <li><?= $this->Html->link('🇬🇧 English', ['prefix' => false, 'controller' => 'Users', 'action' => 'changeLanguage', 'eng'], ['style' => 'display: block; padding: 8px 15px; color: #333; text-decoration: none;']) ?></li>
+                                <li><?= $this->Html->link('🇯🇵 日本語', ['prefix' => false, 'controller' => 'Users', 'action' => 'changeLanguage', 'jpn'], ['style' => 'display: block; padding: 8px 15px; color: #333; text-decoration: none;']) ?></li>
                             </ul>
                         </li>
                         
@@ -569,10 +569,10 @@ $cacheBust = '?v=' . time();
                                 <i class="fas fa-caret-down" style="margin-left: 5px; color: white;"></i>
                             </a>
                             <ul class="header-dropdown" style="display: none; position: absolute; top: 100%; right: 0; background: white; min-width: 180px; box-shadow: 0 2px 5px rgba(0,0,0,0.2); border-radius: 4px; padding: 5px 0; z-index: 1000; list-style: none;">
-                                <li><?= $this->Html->link('<i class="fas fa-user"></i> Profile', ['controller' => 'Users', 'action' => 'profile'], ['escape' => false, 'style' => 'display: block; padding: 8px 15px; color: #333; text-decoration: none;']) ?></li>
-                                <li><?= $this->Html->link('<i class="fas fa-cog"></i> Settings', ['controller' => 'Users', 'action' => 'settings'], ['escape' => false, 'style' => 'display: block; padding: 8px 15px; color: #333; text-decoration: none;']) ?></li>
+                                <li><?= $this->Html->link('<i class="fas fa-user"></i> Profile', ['prefix' => false, 'controller' => 'Users', 'action' => 'profile'], ['escape' => false, 'style' => 'display: block; padding: 8px 15px; color: #333; text-decoration: none;']) ?></li>
+                                <li><?= $this->Html->link('<i class="fas fa-cog"></i> Settings', ['prefix' => false, 'controller' => 'Users', 'action' => 'settings'], ['escape' => false, 'style' => 'display: block; padding: 8px 15px; color: #333; text-decoration: none;']) ?></li>
                                 <li style="border-top: 1px solid #eee; margin: 5px 0;"></li>
-                                <li><?= $this->Html->link('<i class="fas fa-sign-out-alt"></i> Logout', ['controller' => 'Users', 'action' => 'logout'], ['escape' => false, 'style' => 'display: block; padding: 8px 15px; color: #d33c44; text-decoration: none;']) ?></li>
+                                <li><?= $this->Html->link('<i class="fas fa-sign-out-alt"></i> Logout', ['prefix' => false, 'controller' => 'Users', 'action' => 'logout'], ['escape' => false, 'style' => 'display: block; padding: 8px 15px; color: #d33c44; text-decoration: none;']) ?></li>
                             </ul>
                         </li>
                     <?php else: ?>
@@ -580,7 +580,7 @@ $cacheBust = '?v=' . time();
                         <li>
                             <?= $this->Html->link(
                                 '<i class="fas fa-sign-in-alt"></i> Login',
-                                ['controller' => 'Users', 'action' => 'login'],
+                                ['prefix' => false, 'controller' => 'Users', 'action' => 'login'],
                                 ['escape' => false, 'style' => 'color: white; text-decoration: none; font-weight: bold; font-size: 16px; border: 1px solid white; padding: 5px 15px; border-radius: 4px;']
                             ) ?>
                         </li>
