@@ -14,7 +14,7 @@
         <div class="col-md-4">
             <div class="card">
                 <div class="card-header bg-primary text-white">
-                    <h4><i class="fas fa-chart-line"></i> Candidates by Status</h4>
+                    <h4><i class="fas fa-chart-line"></i> <?= __('Candidates by Status') ?></h4>
                 </div>
                 <div class="card-body">
                     <table class="table table-striped">
@@ -41,7 +41,7 @@
         <div class="col-md-4">
             <div class="card">
                 <div class="card-header bg-success text-white">
-                    <h4><i class="fas fa-building"></i> Candidates by Host Company</h4>
+                    <h4><i class="fas fa-building"></i> <?= __('Candidates by Host Company') ?></h4>
                 </div>
                 <div class="card-body">
                     <table class="table table-striped">
@@ -68,7 +68,7 @@
         <div class="col-md-4">
             <div class="card">
                 <div class="card-header bg-info text-white">
-                    <h4><i class="fas fa-user-tie"></i> Candidates by Supervising Company</h4>
+                    <h4><i class="fas fa-user-tie"></i> <?= __('Candidates by Supervising Company') ?></h4>
                 </div>
                 <div class="card-body">
                     <table class="table table-striped">
@@ -96,21 +96,21 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header bg-dark text-white">
-                    <h4><i class="fas fa-chart-line"></i> Quick Actions</h4>
+                    <h4><i class="fas fa-chart-line"></i> <?= __('Quick Actions') ?></h4>
                 </div>
                 <div class="card-body">
                     <?= $this->Html->link(
-                        '<i class="fas fa-users"></i> View All Candidates',
+                        '<i class="fas fa-users"></i> ' . __('View All Candidates'),
                         ['action' => 'index'],
                         ['class' => 'btn btn-primary mr-2', 'escape' => false]
                     ) ?>
                     <?= $this->Html->link(
-                        '<i class="fas fa-user-plus"></i> Register New Candidate',
+                        '<i class="fas fa-user-plus"></i> ' . __('Register New Candidate'),
                         ['action' => 'wizard'],
                         ['class' => 'btn btn-success mr-2', 'escape' => false]
                     ) ?>
                     <?= $this->Html->link(
-                        '<i class="fas fa-file-upload"></i> Document Submission',
+                        '<i class="fas fa-file-upload"></i> ' . __('Document Submission'),
                         ['controller' => 'CandidateDocuments', 'action' => 'index'],
                         ['class' => 'btn btn-info', 'escape' => false]
                     ) ?>

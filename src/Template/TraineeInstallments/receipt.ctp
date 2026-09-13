@@ -120,7 +120,7 @@ $category = $installment->has('master_transaction_category') ? $installment->mas
     </div>
 
     <div class="receipt-footer">
-        <strong>TMM Apprentice Management System</strong>
+        <strong><?= __('TMM Apprentice Management System') ?></strong>
         <div><?= __('Printed on') ?>: <?= date('l, d F Y H:i:s') ?></div>
         <div class="footer-note"><?= __('This document is a system-generated payment record.') ?></div>
     </div>

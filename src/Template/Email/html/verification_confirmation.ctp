@@ -1,4 +1,4 @@
-<h2>Email Verified Successfully!</h2>
+<h2><?= __('Email Verified Successfully') ?>!</h2>
 
 <p>Dear <strong><?= h($userName) ?></strong>,</p>
 
@@ -12,11 +12,11 @@
 </p>
 
 <div class="info-box">
-    <strong>Your Account Information:</strong>
+    <strong><?= __('Your Account Information:') ?></strong>
     <p style="margin: 5px 0;">
-        <strong>Institution:</strong> <?= h($institutionName) ?><br>
+        <strong><?= __('Institution:') ?></strong> <?= h($institutionName) ?><br>
         <strong>Email:</strong> <?= h($email) ?><br>
-        <strong>Account Type:</strong> <?= h($institutionType) ?><br>
+        <strong><?= __('Account Type:') ?></strong> <?= h($institutionType) ?><br>
         <strong>Status:</strong> <span style="color: #28a745; font-weight: 600;">Verified ✓</span>
     </p>
 </div>
@@ -39,11 +39,11 @@
 <h3 style="color: #667eea; font-size: 18px;">Next Steps:</h3>
 
 <ol style="padding-left: 20px; color: #555;">
-    <li><strong>Log in to your account</strong> using your email and temporary password</li>
-    <li><strong>Change your password</strong> immediately for security</li>
-    <li><strong>Complete your profile information</strong> to unlock all features</li>
-    <li><strong>Explore the dashboard</strong> and familiarize yourself with the system</li>
-    <li><strong>Start managing</strong> your <?= $institutionType === 'LPK' ? 'candidates' : 'trainees' ?></li>
+    <li><strong><?= __('Log in to your account') ?></strong> using your email and temporary password</li>
+    <li><strong><?= __('Change your password') ?></strong> immediately for security</li>
+    <li><strong><?= __('Complete your profile information') ?></strong> to unlock all features</li>
+    <li><strong><?= __('Explore the dashboard') ?></strong> and familiarize yourself with the system</li>
+    <li><strong><?= __('Start managing') ?></strong> your <?= $institutionType === 'LPK' ? 'candidates' : 'trainees' ?></li>
 </ol>
 
 <?php if ($institutionType === 'LPK'): ?>
@@ -79,5 +79,5 @@
 
 <p style="margin-top: 30px;">
     Welcome aboard!<br>
-    <strong>TMM System Administrator</strong>
+    <strong><?= __('TMM System Administrator') ?></strong>
 </p>

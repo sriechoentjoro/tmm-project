@@ -16,13 +16,13 @@ $this->assign('title', 'Stakeholder Management Dashboard');
         <div class="row align-items-center">
             <div class="col-md-6">
                 <h1 class="page-title">
-                    <i class="fas fa-users-cog"></i> Stakeholder Management Dashboard
+                    <i class="fas fa-users-cog"></i> <?= __('Stakeholder Management Dashboard') ?>
                 </h1>
                 <p class="text-muted">Monitor and manage all stakeholder types from one central location</p>
             </div>
             <div class="col-md-6 text-right">
                 <?= $this->Html->link(
-                    '<i class="fas fa-download"></i> Export Statistics',
+                    '<i class="fas fa-download"></i> ' . __('Export Statistics'),
                     ['action' => 'exportStatistics'],
                     ['class' => 'btn btn-primary', 'escape' => false]
                 ) ?>
@@ -41,7 +41,7 @@ $this->assign('title', 'Stakeholder Management Dashboard');
         <?php if ($statistics['overall']['total_pending_verifications'] > 0): ?>
         <div class="col-md-6">
             <div class="alert alert-warning alert-dismissible fade show" role="alert">
-                <h5 class="alert-heading"><i class="fas fa-exclamation-triangle"></i> Pending Verifications</h5>
+                <h5 class="alert-heading"><i class="fas fa-exclamation-triangle"></i> <?= __('Pending Verifications') ?></h5>
                 <p>
                     <strong><?= $statistics['overall']['total_pending_verifications'] ?></strong> institution(s) are waiting for email verification.
                 </p>
@@ -59,7 +59,7 @@ $this->assign('title', 'Stakeholder Management Dashboard');
         <?php if ($pendingApprovals->count() > 0): ?>
         <div class="col-md-6">
             <div class="alert alert-info alert-dismissible fade show" role="alert">
-                <h5 class="alert-heading"><i class="fas fa-clock"></i> Pending Approvals</h5>
+                <h5 class="alert-heading"><i class="fas fa-clock"></i> <?= __('Pending Approvals') ?></h5>
                 <p>
                     <strong><?= $pendingApprovals->count() ?></strong> approval request(s) require your review.
                 </p>
@@ -88,7 +88,7 @@ $this->assign('title', 'Stakeholder Management Dashboard');
                     <div class="stat-content">
                         <h3 class="stat-number"><?= h($statistics['overall']['total_stakeholders']) ?></h3>
                         <p class="stat-label">Total Stakeholders</p>
-                        <small class="text-muted">All types combined</small>
+                        <small class="text-muted"><?= __('All types combined') ?></small>
                     </div>
                 </div>
             </div>
@@ -202,7 +202,7 @@ $this->assign('title', 'Stakeholder Management Dashboard');
                     <div class="stat-content">
                         <h3 class="stat-number"><?= h($statistics['overall']['total_active']) ?></h3>
                         <p class="stat-label">Active Stakeholders</p>
-                        <small class="text-success">Verified & Active</small>
+                        <small class="text-success"><?= __('Verified & Active') ?></small>
                     </div>
                 </div>
             </div>
@@ -218,7 +218,7 @@ $this->assign('title', 'Stakeholder Management Dashboard');
                     <div class="stat-content">
                         <h3 class="stat-number"><?= h($statistics['overall']['total_pending_verifications']) ?></h3>
                         <p class="stat-label">Pending Verifications</p>
-                        <small class="text-warning">Awaiting Email Verification</small>
+                        <small class="text-warning"><?= __('Awaiting Email Verification') ?></small>
                     </div>
                 </div>
             </div>
@@ -234,7 +234,7 @@ $this->assign('title', 'Stakeholder Management Dashboard');
                     <div class="stat-content">
                         <h3 class="stat-number"><?= h($statistics['overall']['total_suspended']) ?></h3>
                         <p class="stat-label">Suspended Stakeholders</p>
-                        <small class="text-danger">Temporarily Inactive</small>
+                        <small class="text-danger"><?= __('Temporarily Inactive') ?></small>
                     </div>
                 </div>
             </div>
@@ -248,7 +248,7 @@ $this->assign('title', 'Stakeholder Management Dashboard');
             <div class="card">
                 <div class="card-header">
                     <h5 class="card-title mb-0">
-                        <i class="fas fa-chart-pie"></i> Stakeholder Type Distribution
+                        <i class="fas fa-chart-pie"></i> <?= __('Stakeholder Type Distribution') ?>
                     </h5>
                 </div>
                 <div class="card-body">
@@ -262,7 +262,7 @@ $this->assign('title', 'Stakeholder Management Dashboard');
             <div class="card">
                 <div class="card-header">
                     <h5 class="card-title mb-0">
-                        <i class="fas fa-chart-bar"></i> Status Distribution by Type
+                        <i class="fas fa-chart-bar"></i> <?= __('Status Distribution by Type') ?>
                     </h5>
                 </div>
                 <div class="card-body">
@@ -278,7 +278,7 @@ $this->assign('title', 'Stakeholder Management Dashboard');
             <div class="card">
                 <div class="card-header">
                     <h5 class="card-title mb-0">
-                        <i class="fas fa-chart-line"></i> Registration Trend (Last 6 Months)
+                        <i class="fas fa-chart-line"></i> <?= __('Registration Trend (Last 6 Months)') ?>
                     </h5>
                 </div>
                 <div class="card-body">
@@ -295,7 +295,7 @@ $this->assign('title', 'Stakeholder Management Dashboard');
             <div class="card">
                 <div class="card-header">
                     <h5 class="card-title mb-0">
-                        <i class="fas fa-history"></i> Recent Activities
+                        <i class="fas fa-history"></i> <?= __('Recent Activities') ?>
                     </h5>
                 </div>
                 <div class="card-body p-0">
@@ -346,7 +346,7 @@ $this->assign('title', 'Stakeholder Management Dashboard');
             <div class="card mb-3" id="pending-verifications">
                 <div class="card-header">
                     <h5 class="card-title mb-0">
-                        <i class="fas fa-envelope-open-text"></i> Pending Email Verifications
+                        <i class="fas fa-envelope-open-text"></i> <?= __('Pending Email Verifications') ?>
                         <span class="badge badge-warning ml-2"><?= $pendingVerifications->count() ?></span>
                     </h5>
                 </div>
@@ -402,7 +402,7 @@ $this->assign('title', 'Stakeholder Management Dashboard');
             <div class="card" id="pending-approvals">
                 <div class="card-header">
                     <h5 class="card-title mb-0">
-                        <i class="fas fa-clipboard-check"></i> Pending Approvals
+                        <i class="fas fa-clipboard-check"></i> <?= __('Pending Approvals') ?>
                         <span class="badge badge-info ml-2"><?= $pendingApprovals->count() ?></span>
                     </h5>
                 </div>

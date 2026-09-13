@@ -97,7 +97,7 @@ use Cake\Utility\Inflector;
                             'maxlength' => 256
                         ]) ?>
                         <small class="form-text text-muted">
-                            <i class="fas fa-info-circle"></i> Unique identifier code for this candidate.
+                            <i class="fas fa-info-circle"></i> <?= __('Unique identifier code for this candidate.') ?>
                         </small>
                     </div>
                     <div class="col-12 mb-3">
@@ -132,7 +132,7 @@ use Cake\Utility\Inflector;
                             'maxlength' => 16
                         ]) ?>
                         <small class="form-text text-muted">
-                            <i class="fas fa-info-circle"></i> Enter your national identity number (KTP). Must be 16 digits.
+                            <i class="fas fa-info-circle"></i> <?= __('Enter your national identity number (KTP). Must be 16 digits.') ?>
                         </small>
                     </div>
                     <div class="col-12 mb-3">
@@ -149,7 +149,7 @@ use Cake\Utility\Inflector;
                             'maxlength' => 256
                         ]) ?>
                         <small class="form-text text-muted">
-                            <i class="fas fa-info-circle"></i> Enter your full name as it appears on your identity card.
+                            <i class="fas fa-info-circle"></i> <?= __('Enter your full name as it appears on your identity card.') ?>
                         </small>
                     </div>
                     <div class="col-12 mb-3">
@@ -164,7 +164,7 @@ use Cake\Utility\Inflector;
                             'maxlength' => 256
                         ]) ?>
                         <small class="form-text text-muted">
-                            <i class="fas fa-info-circle"></i> Enter your name in Katakana (カタカナ). Example: タナカ タロウ
+                            <i class="fas fa-info-circle"></i> <?= __('Enter your name in Katakana') ?> (カタカナ). Example: タナカ タロウ
                         </small>
                     </div>
                     <div class="col-12 mb-3">
@@ -208,7 +208,7 @@ use Cake\Utility\Inflector;
                             'maxlength' => 100
                         ]) ?>
                         <small class="form-text text-muted">
-                            <i class="fas fa-info-circle"></i> Enter the city or district where you were born.
+                            <i class="fas fa-info-circle"></i> <?= __('Enter the city or district where you were born.') ?>
                         </small>
                     </div>
                     <div class="col-12 mb-3">
@@ -238,7 +238,7 @@ use Cake\Utility\Inflector;
                             'required' => true
                         ]) ?>
                         <small class="form-text text-muted">
-                            <i class="fas fa-calendar-alt"></i> Click to select date from calendar. Format: Year-Month-Day (e.g., 1990-05-15)
+                            <i class="fas fa-calendar-alt"></i> <?= __('Click to select date from calendar. Format: Year-Month-Day (e.g., 1990-05-15)') ?>
                         </small>
                     </div>
                     <div class="col-12 mb-3">
@@ -254,7 +254,7 @@ use Cake\Utility\Inflector;
                             'type' => 'tel'
                         ]) ?>
                         <small class="form-text text-muted">
-                            <i class="fas fa-phone"></i> Enter your mobile phone number without spaces or dashes.
+                            <i class="fas fa-phone"></i> <?= __('Enter your mobile phone number without spaces or dashes.') ?>
                         </small>
                     </div>
                     <div class="col-12 mb-3">
@@ -272,7 +272,7 @@ use Cake\Utility\Inflector;
                             'type' => 'tel'
                         ]) ?>
                         <small class="form-text text-muted">
-                            <i class="fas fa-exclamation-triangle"></i> Emergency contact number (family member or close relative).
+                            <i class="fas fa-exclamation-triangle"></i> <?= __('Emergency contact number (family member or close relative).') ?>
                         </small>
                     </div>
                     <div class="col-12 mb-3">
@@ -353,7 +353,7 @@ use Cake\Utility\Inflector;
                                     </div>
                                 </div>
                                 <div class="address-loading" style="display: none;">
-                                    <i class="fas fa-spinner fa-spin"></i> Loading options...
+                                    <i class="fas fa-spinner fa-spin"></i> <?= __('Loading options...') ?>
                                 </div>
                             </div>
                         </div>
@@ -389,7 +389,7 @@ use Cake\Utility\Inflector;
                             'rows' => 3
                         ]) ?>
                         <small class="form-text text-muted">
-                            <i class="fas fa-home"></i> Enter your complete residential address including street name, RT/RW, and house number.
+                            <i class="fas fa-home"></i> <?= __('Enter your complete residential address including street name, RT/RW, and house number.') ?>
                         </small>
                     </div>
                     <div class="col-12 mb-3">
@@ -646,7 +646,7 @@ use Cake\Utility\Inflector;
                             'label' => false,
                             'autocomplete' => 'new-password'
                         ]) ?>
-                        <small class="text-muted">Minimum 8 characters, include uppercase, lowercase, number & symbol</small>
+                        <small class="text-muted"><?= __('Minimum 8 characters, include uppercase, lowercase, number & symbol') ?></small>
                     </div>
                     <div class="col-12 mb-3">
                         <label class="form-label"><?= __('Is Apprenticeship Pass') ?></label>
@@ -657,7 +657,7 @@ use Cake\Utility\Inflector;
                             'label' => false,
                             'autocomplete' => 'new-password'
                         ]) ?>
-                        <small class="text-muted">Minimum 8 characters, include uppercase, lowercase, number & symbol</small>
+                        <small class="text-muted"><?= __('Minimum 8 characters, include uppercase, lowercase, number & symbol') ?></small>
                     </div>
                     <div class="col-12 mb-3">
                         <label class="form-label"><?= __('Master Rejected Reason Id') ?></label>

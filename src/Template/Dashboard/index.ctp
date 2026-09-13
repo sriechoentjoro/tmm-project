@@ -54,7 +54,7 @@ $this->assign('title', 'Dashboard');
         <div class="col-md-6" style="padding: 10px;">
             <div class="card" style="padding: 20px; border-radius: 10px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
                 <h3 style="margin-top: 0; color: #667eea;">
-                    <i class="fas fa-users"></i> Recent Candidates
+                    <i class="fas fa-users"></i> <?= __('Recent Candidates') ?>
                 </h3>
                 <?php if (!empty($recentCandidates)): ?>
                 <table class="table" style="margin-top: 15px;">
@@ -94,7 +94,7 @@ $this->assign('title', 'Dashboard');
         <div class="col-md-6" style="padding: 10px;">
             <div class="card" style="padding: 20px; border-radius: 10px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
                 <h3 style="margin-top: 0; color: #f5576c;">
-                    <i class="fas fa-user-graduate"></i> Recent Trainees
+                    <i class="fas fa-user-graduate"></i> <?= __('Recent Trainees') ?>
                 </h3>
                 <?php if (!empty($recentTrainees)): ?>
                 <table class="table" style="margin-top: 15px;">
@@ -102,7 +102,7 @@ $this->assign('title', 'Dashboard');
                         <tr>
                             <th>ID</th>
                             <th>Name</th>
-                            <th>Organization</th>
+                            <th><?= __('Organization') ?></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -134,20 +134,20 @@ $this->assign('title', 'Dashboard');
     <div class="row" style="margin: 20px 0;">
         <div class="col-md-12" style="padding: 10px;">
             <div class="card" style="padding: 20px; border-radius: 10px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); background: #f8f9fa;">
-                <h3 style="margin-top: 0;">Quick Actions</h3>
+                <h3 style="margin-top: 0;"><?= __('Quick Actions') ?></h3>
                 <div style="display: flex; gap: 10px; flex-wrap: wrap;">
                     <?= $this->Html->link(
-                        '<i class="fas fa-user-plus"></i> Add New Candidate',
+                        '<i class="fas fa-user-plus"></i> ' . __('Add New Candidate'),
                         ['controller' => 'Candidates', 'action' => 'add'],
                         ['class' => 'button', 'escape' => false, 'style' => 'background: #667eea; color: white;']
                     ) ?>
                     <?= $this->Html->link(
-                        '<i class="fas fa-file-alt"></i> New Apprentice Order',
+                        '<i class="fas fa-file-alt"></i> ' . __('New Apprentice Order'),
                         ['controller' => 'ApprenticeOrders', 'action' => 'add'],
                         ['class' => 'button', 'escape' => false, 'style' => 'background: #4facfe; color: white;']
                     ) ?>
                     <?= $this->Html->link(
-                        '<i class="fas fa-building"></i> Add Organization',
+                        '<i class="fas fa-building"></i> ' . __('Add Organization'),
                         ['controller' => 'AcceptanceOrganizations', 'action' => 'add'],
                         ['class' => 'button', 'escape' => false, 'style' => 'background: #fa709a; color: white;']
                     ) ?>

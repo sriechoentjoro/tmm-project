@@ -51,7 +51,7 @@ use Cake\Utility\Inflector;
                             'maxlength' => 256
                         ]) ?>
                         <small class="form-text text-muted">
-                            <i class="fas fa-image"></i> Optional image filename associated with this interview result.
+                            <i class="fas fa-image"></i> <?= __('Optional image filename associated with this interview result.') ?>
                         </small>
                     </div>
                     <div class="col-12 mb-3">
@@ -67,7 +67,7 @@ use Cake\Utility\Inflector;
                             'label' => false
                         ]) ?>
                         <small class="form-text text-muted">
-                            <i class="fas fa-align-left"></i> Provide additional details or criteria for this interview result category.
+                            <i class="fas fa-align-left"></i> <?= __('Provide additional details or criteria for this interview result category.') ?>
                         </small>
                     </div>
                 </div>

@@ -106,7 +106,7 @@ $staticAssetsUrl = $protocol . '://' . $host . '/static-assets';
                             'label' => false
                         ]) ?>
                         <small class="form-text text-muted">
-                            <i class="fas fa-info-circle"></i> Only active organizations can accept new apprenticeship assignments.
+                            <i class="fas fa-info-circle"></i> <?= __('Only active organizations can accept new apprenticeship assignments.') ?>
                         </small>
                     </div>
                 </div>

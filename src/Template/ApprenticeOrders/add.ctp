@@ -62,7 +62,7 @@ $staticAssetsUrl = $protocol . '://' . $host . '/static-assets';
                                 <a href="<?= $this->Url->build('/' . $apprenticeOrder->reference_file, ['fullBase' => true]) ?>" 
                                    target="_blank" 
                                    class="btn btn-sm btn-info">
-                                    <i class="fas fa-download"></i> Download Current File
+                                    <i class="fas fa-download"></i> <?= __('Download Current File') ?>
                                 </a>
                             </div>
                         <?php endif; ?>

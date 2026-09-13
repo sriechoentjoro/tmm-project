@@ -74,7 +74,7 @@ $staticAssetsUrl = $protocol . '://' . $host . '/static-assets';
                                 <a href="<?= $this->Url->build('/' . $candidateDocument->file_name, ['fullBase' => true]) ?>" 
                                    target="_blank" 
                                    class="btn btn-sm btn-info">
-                                    <i class="fas fa-download"></i> Download Current File
+                                    <i class="fas fa-download"></i> <?= __('Download Current File') ?>
                                 </a>
                             </div>
                         <?php endif; ?>
@@ -84,7 +84,7 @@ $staticAssetsUrl = $protocol . '://' . $host . '/static-assets';
                     <div id="file-preview-container" class="col-12 mb-3" style="display: none;">
                         <div class="card" style="border: 2px solid #667eea;">
                             <div class="card-header" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
-                                <i class="fas fa-eye"></i> File Preview
+                                <i class="fas fa-eye"></i> <?= __('File Preview') ?>
                             </div>
                             <div class="card-body">
                                 <div id="file-preview-content"></div>

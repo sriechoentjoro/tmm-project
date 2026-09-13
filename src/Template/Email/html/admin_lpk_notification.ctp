@@ -1,4 +1,4 @@
-<h2>New LPK Registration - Action Required</h2>
+<h2><?= __('New LPK Registration - Action Required') ?></h2>
 
 <p>Dear <strong><?= h($adminName) ?></strong>,</p>
 
@@ -8,11 +8,11 @@
 </p>
 
 <div class="info-box">
-    <strong>Institution Details:</strong>
+    <strong><?= __('Institution Details:') ?></strong>
     <p style="margin: 5px 0;">
         <strong>Name:</strong> <?= h($institutionName) ?><br>
         <strong>Email:</strong> <?= h($email) ?><br>
-        <strong>Registration Number:</strong> <?= h($registrationNumber) ?><br>
+        <strong><?= __('Registration Number:') ?></strong> <?= h($registrationNumber) ?><br>
         <strong>Status:</strong> <span style="color: #ffc107; font-weight: 600;"><?= h($status) ?></span>
     </p>
 </div>
@@ -33,14 +33,14 @@
 
 <div class="divider"></div>
 
-<h3 style="color: #667eea; font-size: 18px;">What You Should Do:</h3>
+<h3 style="color: #667eea; font-size: 18px;"><?= __('What You Should Do:') ?></h3>
 
 <ol style="padding-left: 20px; color: #555;">
-    <li><strong>Review institution details</strong> for accuracy and completeness</li>
-    <li><strong>Monitor verification status</strong> - user has 24 hours to verify</li>
-    <li><strong>Check for suspicious activity</strong> or invalid information</li>
-    <li><strong>Complete additional fields</strong> if needed after verification</li>
-    <li><strong>Approve or reject</strong> the registration based on your review</li>
+    <li><strong><?= __('Review institution details') ?></strong> for accuracy and completeness</li>
+    <li><strong><?= __('Monitor verification status') ?></strong> - user has 24 hours to verify</li>
+    <li><strong><?= __('Check for suspicious activity') ?></strong> or invalid information</li>
+    <li><strong><?= __('Complete additional fields') ?></strong> if needed after verification</li>
+    <li><strong><?= __('Approve or reject') ?></strong> the registration based on your review</li>
 </ol>
 
 <div class="success-box">

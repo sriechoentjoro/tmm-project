@@ -11,11 +11,11 @@ $this->layout = 'process_flow';
 
 <!-- Process Overview -->
 <div class="flow-section">
-    <h2><i class="fas fa-clipboard-list"></i> Registration Process Overview</h2>
+    <h2><i class="fas fa-clipboard-list"></i> <?= __('Registration Process Overview') ?></h2>
     
     <div class="alert-info-custom">
         <i class="fas fa-info-circle"></i>
-        <strong>LPK Registration</strong> is a 3-step wizard process to register new Vocational Training Institutions (Lembaga Pelatihan Kerja) into the system with email verification and secure account creation.
+        <strong><?= __('LPK Registration') ?></strong> is a 3-step wizard process to register new Vocational Training Institutions (Lembaga Pelatihan Kerja) into the system with email verification and secure account creation.
     </div>
     
     <div class="workflow-steps">
@@ -75,7 +75,7 @@ $this->layout = 'process_flow';
 
 <!-- Process Flow Diagram -->
 <div class="flow-section">
-    <h2><i class="fas fa-sitemap"></i> Visual Process Flow</h2>
+    <h2><i class="fas fa-sitemap"></i> <?= __('Visual Process Flow') ?></h2>
     
     <div class="mermaid">
 graph TD
@@ -113,7 +113,7 @@ graph TD
 
 <!-- Database Relationships -->
 <div class="flow-section">
-    <h2><i class="fas fa-database"></i> Database Relationships</h2>
+    <h2><i class="fas fa-database"></i> <?= __('Database Relationships') ?></h2>
     
     <div class="mermaid">
 erDiagram
@@ -260,7 +260,7 @@ erDiagram
             </li>
         </ul>
         
-        <h3>Status Values:</h3>
+        <h3><?= __('Status Values:') ?></h3>
         <div class="field-list">
             <div class="field-item" style="border-left-color: #fbbf24;">
                 <span class="field-name">pending_verification</span>
@@ -328,7 +328,7 @@ erDiagram
             </div>
         </div>
         
-        <h3>Token Lifecycle:</h3>
+        <h3><?= __('Token Lifecycle:') ?></h3>
         <div class="workflow-steps">
             <div class="workflow-step" style="border-left-color: #34d399;">
                 <span class="step-number" style="background: #34d399;">✓</span>
@@ -415,7 +415,7 @@ erDiagram
                 <strong>StakeholderGroups</strong> 
                 <code>stakeholder_group_id</code> → <code>stakeholder_groups.id</code>
                 <span class="database-indicator">cms_authentication_authorization</span>
-                <br><small>Determines user role and permissions (admin, lpk, candidate, etc.)</small>
+                <br><small><?= __('Determines user role and permissions (admin, lpk, candidate, etc.)') ?></small>
             </li>
         </ul>
     </div>
@@ -423,35 +423,35 @@ erDiagram
 
 <!-- Important Notes -->
 <div class="flow-section">
-    <h2><i class="fas fa-exclamation-triangle"></i> Important Guidelines</h2>
+    <h2><i class="fas fa-exclamation-triangle"></i> <?= __('Important Guidelines') ?></h2>
     
     <div class="table-info" style="border-left-color: #f59e0b;">
         <h4>⚠️ Data Entry Rules:</h4>
         <ul style="line-height: 2;">
-            <li><strong>Email Uniqueness:</strong> Each LPK must have unique email address</li>
-            <li><strong>Required Fields:</strong> Name, Email, Director Name must be filled</li>
-            <li><strong>Geographic Cascade:</strong> Province → City → District → Village (optional but recommended)</li>
-            <li><strong>Token Expiry:</strong> Verification links expire after 24 hours</li>
-            <li><strong>One-Time Use:</strong> Each token can only be used once</li>
-            <li><strong>Status Flow:</strong> pending_verification → email_verified → active (cannot skip steps)</li>
+            <li><strong><?= __('Email Uniqueness:') ?></strong> Each LPK must have unique email address</li>
+            <li><strong><?= __('Required Fields:') ?></strong> Name, Email, Director Name must be filled</li>
+            <li><strong><?= __('Geographic Cascade:') ?></strong> Province → City → District → Village (optional but recommended)</li>
+            <li><strong><?= __('Token Expiry:') ?></strong> Verification links expire after 24 hours</li>
+            <li><strong><?= __('One-Time Use:') ?></strong> Each token can only be used once</li>
+            <li><strong><?= __('Status Flow:') ?></strong> pending_verification → email_verified → active (cannot skip steps)</li>
         </ul>
     </div>
     
     <div class="table-info" style="border-left-color: #10b981;">
         <h4>✅ Security Features:</h4>
         <ul style="line-height: 2;">
-            <li><strong>Password Encryption:</strong> Bcrypt hashing with salt</li>
-            <li><strong>Token Security:</strong> 64-character random tokens (URL-safe)</li>
-            <li><strong>Email Verification:</strong> Ensures valid email ownership</li>
-            <li><strong>CSRF Protection:</strong> All forms protected against cross-site attacks</li>
-            <li><strong>Session Management:</strong> Secure session handling with timeout</li>
+            <li><strong><?= __('Password Encryption:') ?></strong> Bcrypt hashing with salt</li>
+            <li><strong><?= __('Token Security:') ?></strong> 64-character random tokens (URL-safe)</li>
+            <li><strong><?= __('Email Verification:') ?></strong> Ensures valid email ownership</li>
+            <li><strong><?= __('CSRF Protection:') ?></strong> All forms protected against cross-site attacks</li>
+            <li><strong><?= __('Session Management:') ?></strong> Secure session handling with timeout</li>
         </ul>
     </div>
 </div>
 
 <!-- Cross-Database Relationships -->
 <div class="flow-section">
-    <h2><i class="fas fa-network-wired"></i> Cross-Database Architecture</h2>
+    <h2><i class="fas fa-network-wired"></i> <?= __('Cross-Database Architecture') ?></h2>
     
     <div class="alert-info-custom">
         <i class="fas fa-info-circle"></i>

@@ -38,7 +38,7 @@
                                 'placeholder' => __('Enter your full name')
                             ]) ?>
                             <small class="form-text text-muted">
-                                <i class="fas fa-info-circle"></i> Your full name as it appears on official documents.
+                                <i class="fas fa-info-circle"></i> <?= __('Your full name as it appears on official documents.') ?>
                             </small>
                         </div>
                         
@@ -54,7 +54,7 @@
                                 'value' => $user->username
                             ]) ?>
                             <small class="form-text text-muted">
-                                <i class="fas fa-info-circle"></i> Username cannot be changed after account creation.
+                                <i class="fas fa-info-circle"></i> <?= __('Username cannot be changed after account creation.') ?>
                             </small>
                         </div>
                         
@@ -70,7 +70,7 @@
                                 'placeholder' => __('user@example.com')
                             ]) ?>
                             <small class="form-text text-muted">
-                                <i class="fas fa-envelope"></i> Enter a valid email address for notifications.
+                                <i class="fas fa-envelope"></i> <?= __('Enter a valid email address for notifications.') ?>
                             </small>
                         </div>
                     </fieldset>
@@ -99,7 +99,7 @@
                                 'accept' => 'image/jpeg,image/png,image/jpg'
                             ]) ?>
                             <small class="form-text text-muted">
-                                <i class="fas fa-camera"></i> Upload a clear photo of yourself (JPG or PNG format).
+                                <i class="fas fa-camera"></i> <?= __('Upload a clear photo of yourself (JPG or PNG format).') ?>
                             </small>
                         </div>
                     </fieldset>

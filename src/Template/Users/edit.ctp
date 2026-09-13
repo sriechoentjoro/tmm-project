@@ -45,14 +45,14 @@
                             'multiple' => true,
                             'id' => 'role-select'
                         ]) ?>
-                        <small class="form-text text-muted">Hold Ctrl/Cmd to select multiple roles.</small>
+                        <small class="form-text text-muted"><?= __('Hold Ctrl/Cmd to select multiple roles.') ?></small>
                     </div>
                     
                     <hr>
                     <div id="institution-section" style="display: none;">
-                        <h6 class="text-secondary">Institution Assignment</h6>
+                        <h6 class="text-secondary"><?= __('Institution Assignment') ?></h6>
                         <div class="alert alert-info p-2">
-                            <small><i class="fa fa-info-circle"></i> Select the institution this user belongs to.</small>
+                            <small><i class="fa fa-info-circle"></i> <?= __('Select the institution this user belongs to.') ?></small>
                         </div>
                         
                         <div class="form-group">

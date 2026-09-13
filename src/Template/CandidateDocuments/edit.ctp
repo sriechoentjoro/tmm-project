@@ -76,7 +76,7 @@ $staticAssetsUrl = $protocol . '://' . $host . '/static-assets';
                         <div id="file-preview-container" class="mt-3" style="display: none;">
                             <div class="card" style="border: 2px solid #667eea; border-radius: 8px;">
                                 <div class="card-header" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 10px 15px;">
-                                    <strong><i class="fas fa-eye"></i> File Preview</strong>
+                                    <strong><i class="fas fa-eye"></i> <?= __('File Preview') ?></strong>
                                 </div>
                                 <div class="card-body" style="padding: 15px;">
                                     <div id="file-preview-content" style="text-align: center;"></div>
@@ -87,7 +87,7 @@ $staticAssetsUrl = $protocol . '://' . $host . '/static-assets';
                         
                         <?php if (!empty($candidateDocument->file_name)): ?>
                             <div class="mt-2">
-                                <strong class="text-muted d-block mb-2"><i class="fas fa-file"></i> Current File:</strong>
+                                <strong class="text-muted d-block mb-2"><i class="fas fa-file"></i> <?= __('Current File:') ?></strong>
                                 <?= $this->element('file_viewer', [
                                     'filePath' => $candidateDocument->file_name,
                                     'showPreview' => false
@@ -228,7 +228,7 @@ window.previewFile = function(input) {
                             });
                         });
                     }).catch(function(error) {
-                        loadingDiv.innerHTML = '<p style="color: #dc3545;"><i class="fas fa-exclamation-triangle"></i> Could not preview PDF</p>';
+                        loadingDiv.innerHTML = '<p style="color: #dc3545;"><i class="fas fa-exclamation-triangle"></i> <?= __('Could not preview PDF') ?></p>';
                     });
                 }
             };
@@ -237,7 +237,7 @@ window.previewFile = function(input) {
             previewContent.innerHTML = `
                 <div style="background: #f8f9fa; padding: 30px; border-radius: 8px;">
                     <i class="fas fa-file-word" style="font-size: 64px; color: #2980B9;"></i>
-                    <p style="margin-top: 15px; color: #495057;"><strong>Word Document</strong></p>
+                    <p style="margin-top: 15px; color: #495057;"><strong><?= __('Word Document') ?></strong></p>
                     <p style="font-size: 12px; color: #6c757d;">Preview will be available after upload</p>
                 </div>
             `;
@@ -245,7 +245,7 @@ window.previewFile = function(input) {
             previewContent.innerHTML = `
                 <div style="background: #f8f9fa; padding: 30px; border-radius: 8px;">
                     <i class="fas fa-file-excel" style="font-size: 64px; color: #27AE60;"></i>
-                    <p style="margin-top: 15px; color: #495057;"><strong>Excel Document</strong></p>
+                    <p style="margin-top: 15px; color: #495057;"><strong><?= __('Excel Document') ?></strong></p>
                     <p style="font-size: 12px; color: #6c757d;">Preview will be available after upload</p>
                 </div>
             `;
@@ -253,7 +253,7 @@ window.previewFile = function(input) {
             previewContent.innerHTML = `
                 <div style="background: #f8f9fa; padding: 30px; border-radius: 8px;">
                     <i class="fas fa-file-archive" style="font-size: 64px; color: #95A5A6;"></i>
-                    <p style="margin-top: 15px; color: #495057;"><strong>Archive File</strong></p>
+                    <p style="margin-top: 15px; color: #495057;"><strong><?= __('Archive File') ?></strong></p>
                     <p style="font-size: 12px; color: #6c757d;">Compressed file ready for upload</p>
                 </div>
             `;
@@ -291,7 +291,7 @@ ${preview}${textContent.length > 1000 ? '\n\n... (truncated - showing first 1000
             previewContent.innerHTML = `
                 <div style="background: #f8f9fa; padding: 30px; border-radius: 8px;">
                     <i class="fas fa-file" style="font-size: 64px; color: #34495E;"></i>
-                    <p style="margin-top: 15px; color: #495057;"><strong>File Selected</strong></p>
+                    <p style="margin-top: 15px; color: #495057;"><strong><?= __('File Selected') ?></strong></p>
                     <p style="font-size: 12px; color: #6c757d;">Ready for upload</p>
                 </div>
             `;

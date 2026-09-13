@@ -99,7 +99,7 @@ $staticAssetsUrl = $protocol . '://' . $host . '/static-assets';
                                     </div>
                                 </div>
                                 <div class="address-loading" style="display: none;">
-                                    <i class="fas fa-spinner fa-spin"></i> Loading options...
+                                    <i class="fas fa-spinner fa-spin"></i> <?= __('Loading options...') ?>
                                 </div>
                             </div>
                         </div>
@@ -174,7 +174,7 @@ $staticAssetsUrl = $protocol . '://' . $host . '/static-assets';
                                     </div>
                                 </div>
                                 <div class="address-loading" style="display: none;">
-                                    <i class="fas fa-spinner fa-spin"></i> Loading options...
+                                    <i class="fas fa-spinner fa-spin"></i> <?= __('Loading options...') ?>
                                 </div>
                             </div>
                         </div>

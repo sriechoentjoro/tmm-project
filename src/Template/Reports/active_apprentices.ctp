@@ -115,7 +115,7 @@ $preparing = $total - $inJapan - $completed;
 <div class="aa-hero">
   <div style="display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:10px">
     <div>
-      <div class="aa-hero-title"><i class="fas fa-plane-departure"></i> Active Apprentices</div>
+      <div class="aa-hero-title"><i class="fas fa-plane-departure"></i> <?= __('Active Apprentices') ?></div>
       <div class="aa-hero-sub">Current apprenticeship roster — Japan deployment status · <?= $today->format('d M Y') ?></div>
     </div>
     <a href="<?= $this->Url->build(['controller'=>'Apprentices','action'=>'index']) ?>"
@@ -140,7 +140,7 @@ $preparing = $total - $inJapan - $completed;
   <!-- Status breakdown -->
   <div class="aa-card">
     <div class="aa-card-hdr">
-      <h3 class="aa-card-title"><i class="fas fa-chart-pie" style="color:#e65100"></i> Status Breakdown</h3>
+      <h3 class="aa-card-title"><i class="fas fa-chart-pie" style="color:#e65100"></i> <?= __('Status Breakdown') ?></h3>
       <span class="aa-badge" style="background:#fff3e0;color:#e65100"><?= $total ?> total</span>
     </div>
     <div class="aa-card-body">
@@ -198,7 +198,7 @@ $preparing = $total - $inJapan - $completed;
   <!-- Apprentice Orders -->
   <div class="aa-card">
     <div class="aa-card-hdr">
-      <h3 class="aa-card-title"><i class="fas fa-file-contract" style="color:#1565c0"></i> Apprentice Orders</h3>
+      <h3 class="aa-card-title"><i class="fas fa-file-contract" style="color:#1565c0"></i> <?= __('Apprentice Orders') ?></h3>
       <span class="aa-badge" style="background:#e3f2fd;color:#1565c0"><?= count($orders) ?> orders</span>
     </div>
     <?php if (empty($orders)): ?>
@@ -238,7 +238,7 @@ $preparing = $total - $inJapan - $completed;
 </div>
 
 <!-- Apprentice Cards / Table -->
-<div class="aa-section-lbl"><i class="fas fa-id-card"></i> Apprentice Roster (<?= count($apprentices) ?>)</div>
+<div class="aa-section-lbl"><i class="fas fa-id-card"></i> <?= __('Apprentice Roster') ?> (<?= count($apprentices) ?>)</div>
 
 <!-- Toolbar -->
 <div class="aa-toolbar">
@@ -391,7 +391,7 @@ $preparing = $total - $inJapan - $completed;
     <i class="fas fa-plane-departure"></i>
     <div style="font-size:15px;font-weight:700;color:#546e7a;margin-bottom:5px">No Apprentices Yet</div>
     <div style="font-size:12px;margin-bottom:14px">Apprentices will appear here once trainees are promoted.</div>
-    <?= $this->Html->link('<i class="fas fa-list"></i> View Trainees', ['controller'=>'Trainees','action'=>'index'], ['escape'=>false,'style'=>'display:inline-flex;align-items:center;gap:6px;padding:8px 16px;border-radius:8px;background:#e65100;color:#fff;font-size:12px;font-weight:700;text-decoration:none']) ?>
+    <?= $this->Html->link('<i class="fas fa-list"></i> ' . __('View Trainees'), ['controller'=>'Trainees','action'=>'index'], ['escape'=>false,'style'=>'display:inline-flex;align-items:center;gap:6px;padding:8px 16px;border-radius:8px;background:#e65100;color:#fff;font-size:12px;font-weight:700;text-decoration:none']) ?>
   </div>
 </div>
 <?php endif; ?>

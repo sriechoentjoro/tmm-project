@@ -241,13 +241,13 @@
             <div class="features-box">
                 <h3>📊 What You Can Do with Your Account</h3>
                 <ul>
-                    <li><strong>Manage Candidates:</strong> Register and manage trainee candidate profiles and documents</li>
-                    <li><strong>Track Training Progress:</strong> Monitor candidate training stages and assessments</li>
-                    <li><strong>Submit Apprentice Orders:</strong> Create and submit apprenticeship placement orders</li>
-                    <li><strong>Export Reports:</strong> Generate and download candidate data in various formats (CSV, Excel, PDF)</li>
-                    <li><strong>Dashboard Analytics:</strong> View statistics and insights about your training programs</li>
-                    <li><strong>Document Management:</strong> Upload and manage certificates, licenses, and training documents</li>
-                    <li><strong>Communication Hub:</strong> Direct messaging with system administrators and coordinators</li>
+                    <li><strong><?= __('Manage Candidates:') ?></strong> Register and manage trainee candidate profiles and documents</li>
+                    <li><strong><?= __('Track Training Progress:') ?></strong> Monitor candidate training stages and assessments</li>
+                    <li><strong><?= __('Submit Apprentice Orders:') ?></strong> Create and submit apprenticeship placement orders</li>
+                    <li><strong><?= __('Export Reports:') ?></strong> Generate and download candidate data in various formats (CSV, Excel, PDF)</li>
+                    <li><strong><?= __('Dashboard Analytics:') ?></strong> View statistics and insights about your training programs</li>
+                    <li><strong><?= __('Document Management:') ?></strong> Upload and manage certificates, licenses, and training documents</li>
+                    <li><strong><?= __('Communication Hub:') ?></strong> Direct messaging with system administrators and coordinators</li>
                 </ul>
             </div>
 
@@ -255,11 +255,11 @@
             <div class="tips-box">
                 <h3>💡 Getting Started - Quick Tips</h3>
                 <ol>
-                    <li><strong>Update Your Profile:</strong> Complete your institution profile with detailed information</li>
-                    <li><strong>Add Candidates:</strong> Start registering your trainee candidates in the system</li>
-                    <li><strong>Upload Documents:</strong> Add required certificates, licenses, and supporting documents</li>
-                    <li><strong>Explore Features:</strong> Familiarize yourself with the dashboard and available tools</li>
-                    <li><strong>Contact Support:</strong> Reach out if you need assistance or have questions</li>
+                    <li><strong><?= __('Update Your Profile:') ?></strong> Complete your institution profile with detailed information</li>
+                    <li><strong><?= __('Add Candidates:') ?></strong> Start registering your trainee candidates in the system</li>
+                    <li><strong><?= __('Upload Documents:') ?></strong> Add required certificates, licenses, and supporting documents</li>
+                    <li><strong><?= __('Explore Features:') ?></strong> Familiarize yourself with the dashboard and available tools</li>
+                    <li><strong><?= __('Contact Support:') ?></strong> Reach out if you need assistance or have questions</li>
                 </ol>
             </div>
 
