@@ -352,14 +352,6 @@ $cakeDescription = 'TMM: Apprentice Management Modules';
     </style>
 </head>
 <body>
-    <!-- DEBUG: RAW SESSION DUMP -->
-    <div style="background: #000; color: #0f0; padding: 10px; font-family: monospace; z-index: 9999; position: relative;">
-        <strong>DEBUG INFO:</strong><br>
-        Session ID: <?= $this->request->getSession()->id() ?><br>
-        Auth User Check: <?= $this->request->getSession()->check('Auth.User.id') ? 'TRUE' : 'FALSE' ?><br>
-        Auth User Data: <pre><?= print_r($this->request->getSession()->read('Auth.User'), true) ?></pre>
-    </div>
-
     <div class="page-header">
         <div class="container">
             <div class="header-title">

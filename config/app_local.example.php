@@ -90,6 +90,16 @@ return [
     ],
 
     /*
+     * Turn on debug output for this machine only. With it false (the default
+     * in config/app.php) a visitor gets a generic error page and the stack
+     * trace goes to logs/error.log; with it true the trace, file paths and
+     * code excerpts are rendered into the page for whoever is looking.
+     *
+     * Never leave this on for a public server.
+     */
+    //'debug' => true,
+
+    /*
      * Used to hash cookies, CSRF tokens and other security data. Generate a
      * fresh random value per environment and keep it stable afterwards —
      * changing it invalidates existing sessions and CSRF tokens.
