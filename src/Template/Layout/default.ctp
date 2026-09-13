@@ -374,9 +374,9 @@ $cakeDescription = 'TMM: Apprentice Management Modules';
                                 <i class="fa fa-caret-down"></i>
                             </a>
                             <ul class="header-dropdown" style="display: none; position: absolute; top: 100%; right: 0; background: white; min-width: 150px; box-shadow: 0 2px 5px rgba(0,0,0,0.2); border-radius: 4px; padding: 5px 0; z-index: 1000; list-style: none;">
-                                <li><?= $this->Html->link('Ã°Å¸â€¡Â®Ã°Å¸â€¡Â© Indonesia', ['prefix' => false, 'controller' => 'Users', 'action' => 'changeLanguage', 'ind'], ['style' => 'display: block; padding: 8px 15px; color: #333; text-decoration: none;']) ?></li>
-                                <li><?= $this->Html->link('Ã°Å¸â€¡Â¬Ã°Å¸â€¡Â§ English', ['prefix' => false, 'controller' => 'Users', 'action' => 'changeLanguage', 'eng'], ['style' => 'display: block; padding: 8px 15px; color: #333; text-decoration: none;']) ?></li>
-                                <li><?= $this->Html->link('Ã°Å¸â€¡Â¯Ã°Å¸â€¡Âµ Ã¦â€”Â¥Ã¦Å“Â¬Ã¨ÂªÅ¾', ['prefix' => false, 'controller' => 'Users', 'action' => 'changeLanguage', 'jpn'], ['style' => 'display: block; padding: 8px 15px; color: #333; text-decoration: none;']) ?></li>
+                                <li><?= $this->Html->link('🇮🇩 Indonesia', ['prefix' => false, 'controller' => 'Users', 'action' => 'changeLanguage', 'ind'], ['style' => 'display: block; padding: 8px 15px; color: #333; text-decoration: none;']) ?></li>
+                                <li><?= $this->Html->link('🇬🇧 English', ['prefix' => false, 'controller' => 'Users', 'action' => 'changeLanguage', 'eng'], ['style' => 'display: block; padding: 8px 15px; color: #333; text-decoration: none;']) ?></li>
+                                <li><?= $this->Html->link('🇯🇵 日本語', ['prefix' => false, 'controller' => 'Users', 'action' => 'changeLanguage', 'jpn'], ['style' => 'display: block; padding: 8px 15px; color: #333; text-decoration: none;']) ?></li>
                             </ul>
                         </li>
                         
@@ -786,12 +786,10 @@ document.addEventListener('DOMContentLoaded', function() {
 (function() {
     'use strict';
     
-    console.log('Ã°Å¸â€Â§ Initializing header dropdown handler...');
     
     function initDropdown() {
         // Find the trigger link
         var triggerLinks = document.querySelectorAll('.header-dropdown-trigger > a');
-        console.log('Found trigger links:', triggerLinks.length);
         
         triggerLinks.forEach(function(triggerLink) {
             // Remove old listeners by cloning
@@ -801,11 +799,10 @@ document.addEventListener('DOMContentLoaded', function() {
             newTrigger.addEventListener('click', function(e) {
                 e.preventDefault();
                 e.stopPropagation();
-                console.log('Ã°Å¸â€“Â±Ã¯Â¸Â Dropdown trigger clicked');
                 
                 var dropdown = this.parentElement.querySelector('.header-dropdown');
                 if (!dropdown) {
-                    console.error('Ã¢ÂÅ’ Dropdown menu not found!');
+                    console.error('Dropdown menu not found');
                     return;
                 }
                 
@@ -817,27 +814,20 @@ document.addEventListener('DOMContentLoaded', function() {
                 // Toggle this dropdown
                 var isVisible = dropdown.style.display === 'block';
                 dropdown.style.display = isVisible ? 'none' : 'block';
-                console.log('Ã¢Å“â€¦ Dropdown toggled:', !isVisible ? 'OPEN' : 'CLOSED');
             });
         });
         
         // Make sure ALL links in dropdown are clickable
         var dropdownLinks = document.querySelectorAll('.header-dropdown a');
-        console.log('Found dropdown links:', dropdownLinks.length);
         
         dropdownLinks.forEach(function(link) {
             link.style.pointerEvents = 'auto';
             link.style.cursor = 'pointer';
             
-            link.addEventListener('click', function(e) {
-                console.log('Ã°Å¸â€â€” Link clicked:', this.href);
-                // Let the link work normally
-            });
         });
         
         // Make logout button work
         var logoutButtons = document.querySelectorAll('.header-dropdown form button[type="submit"]');
-        console.log('Found logout buttons:', logoutButtons.length);
         
         logoutButtons.forEach(function(btn) {
             // Clone to remove any blocking handlers
@@ -847,10 +837,6 @@ document.addEventListener('DOMContentLoaded', function() {
             newBtn.style.pointerEvents = 'auto';
             newBtn.style.cursor = 'pointer';
             
-            newBtn.addEventListener('click', function(e) {
-                console.log('Ã°Å¸â€â€œ Logout button clicked - submitting form');
-                // Let form submit normally
-            });
         });
         
         // Close dropdown when clicking outside
@@ -862,7 +848,6 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
         
-        console.log('Ã¢Å“â€¦ Header dropdown initialized successfully');
     }
     
     // Run on DOM ready
