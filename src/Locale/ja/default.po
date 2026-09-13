@@ -5356,3 +5356,163 @@ msgstr "メールアドレスを確認しています。しばらくお待ちく
 msgid "Office Hours: Monday - Friday, 9:00 AM - 5:00 PM WIB"
 msgstr "営業時間: 月曜〜金曜 9:00〜17:00（西部インドネシア時間）"
 
+
+msgid "List Master Propinsis"
+msgstr "州の一覧"
+
+msgid "List Master Kabupatens"
+msgstr "県・市の一覧"
+
+msgid "List Master Kecamatans"
+msgstr "郡の一覧"
+
+msgid "List Master Kelurahans"
+msgstr "村・町の一覧"
+
+msgid "Enter Vocational Training Institution Information"
+msgstr "職業訓練機関の情報を入力"
+
+msgid "Enter Abbreviation"
+msgstr "略称を入力"
+
+msgid "Short code or abbreviation for the institution."
+msgstr "機関の略号または略称です。"
+
+msgid "Full official name of the vocational training institution."
+msgstr "職業訓練機関の正式名称です。"
+
+msgid "Full street address including building name/number."
+msgstr "建物名・番地を含む完全な住所です。"
+
+msgid "Postal code for the address."
+msgstr "住所の郵便番号です。"
+
+msgid "Enter Director Name"
+msgstr "代表者名を入力"
+
+msgid "Full name of the institution's director/head."
+msgstr "機関の代表者・責任者の氏名です。"
+
+msgid "Director Katakana"
+msgstr "代表者名（カタカナ）"
+
+msgid "Enter the name in Katakana"
+msgstr "カタカナで名前を入力してください"
+
+msgid "Enter the director's name in Katakana. Example: ヤマダ ハナコ"
+msgstr "代表者名をカタカナで入力してください。例：ヤマダ ハナコ"
+
+msgid "Mou File"
+msgstr "MOUファイル"
+
+msgid "Download Current File"
+msgstr "現在のファイルをダウンロード"
+
+msgid "Save Vocational Training Institution"
+msgstr "職業訓練機関を保存"
+
+msgid "Fields marked with {0} are required. After saving, a registration link is generated and emailed to the address below."
+msgstr "{0} の付いた項目は必須です。保存すると登録用リンクが生成され、下記のメールアドレスへ送信されます。"
+
+msgid "Institution Details"
+msgstr "機関の詳細"
+
+msgid "Enter the full official name"
+msgstr "正式名称を入力してください"
+
+msgid "Full official name of the institution."
+msgstr "機関の正式名称です。"
+
+msgid "e.g. LPK ABC"
+msgstr "例：LPK ABC"
+
+msgid "Short code, max 11 characters."
+msgstr "略号は11文字までです。"
+
+msgid "Select Province first — City, District and Village are populated automatically."
+msgstr "先に州を選択してください — 県・市、郡、村・町は自動的に絞り込まれます。"
+
+msgid "Street Address"
+msgstr "住所"
+
+msgid "Building name/number, street"
+msgstr "建物名・番地、通り名"
+
+msgid "e.g. 123456"
+msgstr "例：123456"
+
+msgid "Full name of the director"
+msgstr "代表者の氏名"
+
+msgid "Katakana only. Example: ヤマダ ハナコ"
+msgstr "カタカナのみ。例：ヤマダ ハナコ"
+
+msgid "Login Account"
+msgstr "ログインアカウント"
+
+msgid "The institution uses these to complete its registration. The password is set by the institution itself via the emailed link."
+msgstr "機関はこれらを使って登録を完了します。パスワードはメールのリンクから機関自身が設定します。"
+
+msgid "institution@example.com"
+msgstr "institution@example.com"
+
+msgid "The registration link is sent here. Must be unique."
+msgstr "登録用リンクの送信先です。重複しない値にしてください。"
+
+msgid "e.g. lpkabc2026"
+msgstr "例：lpkabc2026"
+
+msgid "Letters and numbers only, no spaces or symbols."
+msgstr "英数字のみ。スペースや記号は使えません。"
+
+msgid "Letters and numbers only. Must be unique."
+msgstr "英数字のみ。重複しない値にしてください。"
+
+msgid "MoU File"
+msgstr "MoUファイル"
+
+msgid "Accepted: PDF, Word, Excel, ZIP, RAR."
+msgstr "対応形式：PDF、Word、Excel、ZIP、RAR。"
+
+msgid "Create Institution"
+msgstr "機関を作成"
+
+msgid "Total Institutions"
+msgstr "機関の総数"
+
+msgid " of all"
+msgstr " / 全体"
+
+msgid "no records yet"
+msgstr "データがまだありません"
+
+msgid "invitation not completed"
+msgstr "招待が未完了です"
+
+msgid "Special Skill Support"
+msgstr "特定技能支援"
+
+msgid "Invitation link expired - resend from the detail page"
+msgstr "招待リンクの有効期限切れ - 詳細画面から再送してください"
+
+msgid "Link expired"
+msgstr "リンクの有効期限切れ"
+
+msgid "All LPK"
+msgstr "すべてのLPK"
+
+msgid "Total LPK"
+msgstr "LPKの総数"
+
+msgid "Filter by name / email / status…"
+msgstr "名称・メール・ステータスで絞り込み…"
+
+msgid "Registered At"
+msgstr "登録日時"
+
+msgid "No institutions found."
+msgstr "機関が見つかりません。"
+
+msgid "VocationalTrainingInstitutionStories"
+msgstr "職業訓練機関の記録"
+

@@ -5356,3 +5356,163 @@ msgstr "Mohon tunggu, kami sedang memverifikasi alamat email Anda."
 msgid "Office Hours: Monday - Friday, 9:00 AM - 5:00 PM WIB"
 msgstr "Jam Kerja: Senin - Jumat, 09.00 - 17.00 WIB"
 
+
+msgid "List Master Propinsis"
+msgstr "Daftar Provinsi"
+
+msgid "List Master Kabupatens"
+msgstr "Daftar Kabupaten/Kota"
+
+msgid "List Master Kecamatans"
+msgstr "Daftar Kecamatan"
+
+msgid "List Master Kelurahans"
+msgstr "Daftar Kelurahan/Desa"
+
+msgid "Enter Vocational Training Institution Information"
+msgstr "Masukkan Informasi Lembaga Pelatihan Kerja"
+
+msgid "Enter Abbreviation"
+msgstr "Masukkan Singkatan"
+
+msgid "Short code or abbreviation for the institution."
+msgstr "Kode singkat atau singkatan untuk lembaga ini."
+
+msgid "Full official name of the vocational training institution."
+msgstr "Nama resmi lengkap lembaga pelatihan kerja."
+
+msgid "Full street address including building name/number."
+msgstr "Alamat lengkap termasuk nama/nomor bangunan."
+
+msgid "Postal code for the address."
+msgstr "Kode pos untuk alamat tersebut."
+
+msgid "Enter Director Name"
+msgstr "Masukkan Nama Direktur"
+
+msgid "Full name of the institution's director/head."
+msgstr "Nama lengkap direktur/kepala lembaga."
+
+msgid "Director Katakana"
+msgstr "Nama Direktur (Katakana)"
+
+msgid "Enter the name in Katakana"
+msgstr "Masukkan nama dalam Katakana"
+
+msgid "Enter the director's name in Katakana. Example: ヤマダ ハナコ"
+msgstr "Masukkan nama direktur dalam Katakana. Contoh: ヤマダ ハナコ"
+
+msgid "Mou File"
+msgstr "Berkas MOU"
+
+msgid "Download Current File"
+msgstr "Unduh Berkas Saat Ini"
+
+msgid "Save Vocational Training Institution"
+msgstr "Simpan Lembaga Pelatihan Kerja"
+
+msgid "Fields marked with {0} are required. After saving, a registration link is generated and emailed to the address below."
+msgstr "Isian bertanda {0} wajib diisi. Setelah disimpan, tautan pendaftaran dibuat dan dikirim ke alamat email di bawah."
+
+msgid "Institution Details"
+msgstr "Detail Lembaga"
+
+msgid "Enter the full official name"
+msgstr "Masukkan nama resmi lengkap"
+
+msgid "Full official name of the institution."
+msgstr "Nama resmi lengkap lembaga."
+
+msgid "e.g. LPK ABC"
+msgstr "mis. LPK ABC"
+
+msgid "Short code, max 11 characters."
+msgstr "Kode singkat, maksimal 11 karakter."
+
+msgid "Select Province first — City, District and Village are populated automatically."
+msgstr "Pilih Provinsi terlebih dahulu — Kabupaten/Kota, Kecamatan, dan Kelurahan akan terisi otomatis."
+
+msgid "Street Address"
+msgstr "Alamat Jalan"
+
+msgid "Building name/number, street"
+msgstr "Nama/nomor bangunan, nama jalan"
+
+msgid "e.g. 123456"
+msgstr "mis. 123456"
+
+msgid "Full name of the director"
+msgstr "Nama lengkap direktur"
+
+msgid "Katakana only. Example: ヤマダ ハナコ"
+msgstr "Hanya Katakana. Contoh: ヤマダ ハナコ"
+
+msgid "Login Account"
+msgstr "Akun Masuk"
+
+msgid "The institution uses these to complete its registration. The password is set by the institution itself via the emailed link."
+msgstr "Lembaga memakai data ini untuk menyelesaikan pendaftaran. Kata sandi ditetapkan sendiri oleh lembaga melalui tautan yang dikirim via email."
+
+msgid "institution@example.com"
+msgstr "lembaga@contoh.com"
+
+msgid "The registration link is sent here. Must be unique."
+msgstr "Tautan pendaftaran dikirim ke sini. Harus unik."
+
+msgid "e.g. lpkabc2026"
+msgstr "mis. lpkabc2026"
+
+msgid "Letters and numbers only, no spaces or symbols."
+msgstr "Hanya huruf dan angka, tanpa spasi atau simbol."
+
+msgid "Letters and numbers only. Must be unique."
+msgstr "Hanya huruf dan angka. Harus unik."
+
+msgid "MoU File"
+msgstr "Berkas MoU"
+
+msgid "Accepted: PDF, Word, Excel, ZIP, RAR."
+msgstr "Format diterima: PDF, Word, Excel, ZIP, RAR."
+
+msgid "Create Institution"
+msgstr "Buat Lembaga"
+
+msgid "Total Institutions"
+msgstr "Total Lembaga"
+
+msgid " of all"
+msgstr " dari seluruhnya"
+
+msgid "no records yet"
+msgstr "belum ada data"
+
+msgid "invitation not completed"
+msgstr "undangan belum diselesaikan"
+
+msgid "Special Skill Support"
+msgstr "Pendukung Keterampilan Spesifik"
+
+msgid "Invitation link expired - resend from the detail page"
+msgstr "Tautan undangan kedaluwarsa - kirim ulang dari halaman detail"
+
+msgid "Link expired"
+msgstr "Tautan kedaluwarsa"
+
+msgid "All LPK"
+msgstr "Semua LPK"
+
+msgid "Total LPK"
+msgstr "Total LPK"
+
+msgid "Filter by name / email / status…"
+msgstr "Saring menurut nama / email / status…"
+
+msgid "Registered At"
+msgstr "Terdaftar Pada"
+
+msgid "No institutions found."
+msgstr "Tidak ada lembaga ditemukan."
+
+msgid "VocationalTrainingInstitutionStories"
+msgstr "Riwayat Lembaga Pelatihan Kerja"
+
