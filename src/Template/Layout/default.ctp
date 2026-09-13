@@ -374,16 +374,16 @@ $cakeDescription = 'TMM: Apprentice Management Modules';
                                 <i class="fa fa-caret-down"></i>
                             </a>
                             <ul class="header-dropdown" style="display: none; position: absolute; top: 100%; right: 0; background: white; min-width: 150px; box-shadow: 0 2px 5px rgba(0,0,0,0.2); border-radius: 4px; padding: 5px 0; z-index: 1000; list-style: none;">
-                                <li><?= $this->Html->link('Ã°Å¸â€¡Â®Ã°Å¸â€¡Â© Indonesia', ['controller' => 'Users', 'action' => 'changeLanguage', 'ind'], ['style' => 'display: block; padding: 8px 15px; color: #333; text-decoration: none;']) ?></li>
-                                <li><?= $this->Html->link('Ã°Å¸â€¡Â¬Ã°Å¸â€¡Â§ English', ['controller' => 'Users', 'action' => 'changeLanguage', 'eng'], ['style' => 'display: block; padding: 8px 15px; color: #333; text-decoration: none;']) ?></li>
-                                <li><?= $this->Html->link('Ã°Å¸â€¡Â¯Ã°Å¸â€¡Âµ Ã¦â€”Â¥Ã¦Å“Â¬Ã¨ÂªÅ¾', ['controller' => 'Users', 'action' => 'changeLanguage', 'jpn'], ['style' => 'display: block; padding: 8px 15px; color: #333; text-decoration: none;']) ?></li>
+                                <li><?= $this->Html->link('Ã°Å¸â€¡Â®Ã°Å¸â€¡Â© Indonesia', ['prefix' => false, 'controller' => 'Users', 'action' => 'changeLanguage', 'ind'], ['style' => 'display: block; padding: 8px 15px; color: #333; text-decoration: none;']) ?></li>
+                                <li><?= $this->Html->link('Ã°Å¸â€¡Â¬Ã°Å¸â€¡Â§ English', ['prefix' => false, 'controller' => 'Users', 'action' => 'changeLanguage', 'eng'], ['style' => 'display: block; padding: 8px 15px; color: #333; text-decoration: none;']) ?></li>
+                                <li><?= $this->Html->link('Ã°Å¸â€¡Â¯Ã°Å¸â€¡Âµ Ã¦â€”Â¥Ã¦Å“Â¬Ã¨ÂªÅ¾', ['prefix' => false, 'controller' => 'Users', 'action' => 'changeLanguage', 'jpn'], ['style' => 'display: block; padding: 8px 15px; color: #333; text-decoration: none;']) ?></li>
                             </ul>
                         </li>
                         
                         <!-- Simple Logout Button (Backup) -->
                         <li style="margin-right: 10px;">
                             <?= $this->Form->create(null, [
-                                'url' => ['controller' => 'Users', 'action' => 'logout'],
+                                'url' => ['prefix' => false, 'controller' => 'Users', 'action' => 'logout'],
                                 'style' => 'margin: 0; padding: 0;'
                             ]) ?>
                                 <?= $this->Form->button('<i class="fa fa-sign-out"></i> Logout', [
@@ -437,19 +437,19 @@ $cakeDescription = 'TMM: Apprentice Management Modules';
                             </a>
                             <ul class="header-dropdown" style="display: none; position: absolute; top: 100%; right: 0; min-width: 180px; box-shadow: 0 2px 5px rgba(0,0,0,0.2); border-radius: 4px; padding: 5px 0; z-index: 1000; list-style: none; margin: 0;">
                                 <li style="list-style: none;">
-                                    <a href="<?= $this->Url->build(['controller' => 'Users', 'action' => 'profile']) ?>" style="display: block; padding: 10px 15px; color: #333; text-decoration: none; transition: background 0.2s;" onmouseover="this.style.backgroundColor='#f5f5f5'" onmouseout="this.style.backgroundColor='transparent'">
+                                    <a href="<?= $this->Url->build(['prefix' => false, 'controller' => 'Users', 'action' => 'profile']) ?>" style="display: block; padding: 10px 15px; color: #333; text-decoration: none; transition: background 0.2s;" onmouseover="this.style.backgroundColor='#f5f5f5'" onmouseout="this.style.backgroundColor='transparent'">
                                         <i class="fa fa-user" style="margin-right: 8px; width: 16px;"></i> Profile
                                     </a>
                                 </li>
                                 <li style="list-style: none;">
-                                    <a href="<?= $this->Url->build(['controller' => 'Users', 'action' => 'settings']) ?>" style="display: block; padding: 10px 15px; color: #333; text-decoration: none; transition: background 0.2s;" onmouseover="this.style.backgroundColor='#f5f5f5'" onmouseout="this.style.backgroundColor='transparent'">
+                                    <a href="<?= $this->Url->build(['prefix' => false, 'controller' => 'Users', 'action' => 'settings']) ?>" style="display: block; padding: 10px 15px; color: #333; text-decoration: none; transition: background 0.2s;" onmouseover="this.style.backgroundColor='#f5f5f5'" onmouseout="this.style.backgroundColor='transparent'">
                                         <i class="fa fa-cog" style="margin-right: 8px; width: 16px;"></i> Settings
                                     </a>
                                 </li>
                                 <li style="border-top: 1px solid #eee; margin: 5px 0; list-style: none;"></li>
                                 <li style="padding: 0; list-style: none;">
                                     <?= $this->Form->create(null, [
-                                        'url' => ['controller' => 'Users', 'action' => 'logout'],
+                                        'url' => ['prefix' => false, 'controller' => 'Users', 'action' => 'logout'],
                                         'style' => 'margin: 0;'
                                     ]) ?>
                                         <?= $this->Form->button('<i class="fa fa-sign-out"></i> Logout', [
@@ -468,7 +468,7 @@ $cakeDescription = 'TMM: Apprentice Management Modules';
                         <li>
                             <?= $this->Html->link(
                                 '<i class="fa fa-sign-in"></i> Login',
-                                ['controller' => 'Users', 'action' => 'login'],
+                                ['prefix' => false, 'controller' => 'Users', 'action' => 'login'],
                                 ['escape' => false]
                             ) ?>
                         </li>
