@@ -6186,3 +6186,582 @@ msgstr "Tidak ada riwayat keluarga terkait untuk trainee ini."
 msgid "Add First TraineeFamilyStory"
 msgstr "Tambah Riwayat Keluarga Pertama"
 
+
+msgid "List CooperativeAssociations"
+msgstr "Daftar Asosiasi Koperasi"
+
+msgid "New CooperativeAssociation"
+msgstr "Asosiasi Koperasi Baru"
+
+msgid "List MasterJobCategories"
+msgstr "Daftar Kategori Pekerjaan"
+
+msgid "New MasterJobCategory"
+msgstr "Kategori Pekerjaan Baru"
+
+msgid "Enter Apprentice Order Information"
+msgstr "Masukkan Informasi Pesanan Pemagangan"
+
+msgid "-- Select Cooperative Association Id --"
+msgstr "-- Pilih Asosiasi Koperasi --"
+
+msgid "Enter Male Trainee Number"
+msgstr "Masukkan Jumlah Trainee Pria"
+
+msgid "Enter Female Trainee Number"
+msgstr "Masukkan Jumlah Trainee Wanita"
+
+msgid "Job Category Id"
+msgstr "ID Kategori Pekerjaan"
+
+msgid "-- Select Job Category Id --"
+msgstr "-- Pilih Kategori Pekerjaan --"
+
+msgid "Enter Departure Year"
+msgstr "Masukkan Tahun Keberangkatan"
+
+msgid "Enter Departure Month"
+msgstr "Masukkan Bulan Keberangkatan"
+
+msgid "Is Practical Test Required"
+msgstr "Perlu Uji Praktik"
+
+msgid "Other Requirements"
+msgstr "Persyaratan Lain"
+
+msgid "Enter Other Requirements"
+msgstr "Masukkan Persyaratan Lain"
+
+msgid "Save Apprentice Order"
+msgstr "Simpan Pesanan Pemagangan"
+
+msgid "Update Apprentice Order"
+msgstr "Perbarui Pesanan Pemagangan"
+
+msgid "List Master Job Categories"
+msgstr "Daftar Kategori Pekerjaan"
+
+msgid "New Master Job Category"
+msgstr "Kategori Pekerjaan Baru"
+
+msgid "Order Statistics"
+msgstr "Statistik Pesanan"
+
+msgid "All Orders"
+msgstr "Semua Pesanan"
+
+msgid "New Order"
+msgstr "Pesanan Baru"
+
+msgid "Total Orders"
+msgstr "Total Pesanan"
+
+msgid "Requested Trainees"
+msgstr "Trainee Diminta"
+
+msgid "Assigned Trainees"
+msgstr "Trainee Ditugaskan"
+
+msgid "Overall Fulfillment"
+msgstr "Pemenuhan Keseluruhan"
+
+msgid "Fulfillment per Order — requested vs assigned vs passed"
+msgstr "Pemenuhan per Pesanan — diminta vs ditugaskan vs lulus"
+
+msgid "Kumiai"
+msgstr "Kumiai"
+
+msgid "Requested"
+msgstr "Diminta"
+
+msgid "Assigned"
+msgstr "Ditugaskan"
+
+msgid "No orders yet."
+msgstr "Belum ada pesanan."
+
+msgid "Top Kumiai (Cooperative Associations)"
+msgstr "Kumiai Teratas (Asosiasi Koperasi)"
+
+msgid "Orders"
+msgstr "Pesanan"
+
+msgid "(not set)"
+msgstr "(belum diisi)"
+
+msgid "No data."
+msgstr "Tidak ada data."
+
+msgid "Top Acceptance Organizations"
+msgstr "Organisasi Penerima Teratas"
+
+msgid "Top Job Categories"
+msgstr "Kategori Pekerjaan Teratas"
+
+msgid "Job Category"
+msgstr "Kategori Pekerjaan"
+
+msgid "By Departure Year"
+msgstr "Menurut Tahun Keberangkatan"
+
+msgid "CooperativeAssociations"
+msgstr "Asosiasi Koperasi"
+
+msgid "MasterJobCategories"
+msgstr "Kategori Pekerjaan"
+
+msgid "Download File"
+msgstr "Unduh Berkas"
+
+msgid "Open in New Tab"
+msgstr "Buka di Tab Baru"
+
+msgid "Related Records: Apprentices"
+msgstr "Data Terkait: Pemagang"
+
+msgid "CooperativeAssociation Details"
+msgstr "Detail Asosiasi Koperasi"
+
+msgid "No CooperativeAssociation Associated"
+msgstr "Tidak Ada Asosiasi Koperasi Terkait"
+
+msgid "This record is not associated with any CooperativeAssociation."
+msgstr "Data ini tidak terkait dengan asosiasi koperasi mana pun."
+
+msgid "MasterJobCategory Details"
+msgstr "Detail Kategori Pekerjaan"
+
+msgid "Sort"
+msgstr "Urutkan"
+
+msgid "No MasterJobCategory Associated"
+msgstr "Tidak Ada Kategori Pekerjaan Terkait"
+
+msgid "This record is not associated with any MasterJobCategory."
+msgstr "Data ini tidak terkait dengan kategori pekerjaan mana pun."
+
+
+msgid "Enter Comments"
+msgstr "Masukkan Komentar"
+
+msgid "List Candidate Record Interviews"
+msgstr "Daftar Rekaman Wawancara Kandidat"
+
+msgid "Enter Candidate Record Interview Information"
+msgstr "Masukkan Informasi Rekaman Wawancara Kandidat"
+
+msgid "Applicant Id"
+msgstr "ID Pelamar"
+
+msgid "Enter Applicant Id"
+msgstr "Masukkan ID Pelamar"
+
+msgid "Master Candidate Interview Type Id"
+msgstr "ID Jenis Wawancara Kandidat"
+
+msgid "Select Master Candidate Interview Type Id"
+msgstr "Pilih Jenis Wawancara Kandidat"
+
+msgid "Date Interview"
+msgstr "Tanggal Wawancara"
+
+msgid "Select Date Interview"
+msgstr "Pilih Tanggal Wawancara"
+
+msgid "Date Interview Result"
+msgstr "Tanggal Hasil Wawancara"
+
+msgid "Select Date Interview Result"
+msgstr "Pilih Tanggal Hasil Wawancara"
+
+msgid "Save Candidate Record Interview"
+msgstr "Simpan Rekaman Wawancara Kandidat"
+
+msgid "Interview with Acceptance Organization — Scoring"
+msgstr "Wawancara dengan Organisasi Penerima — Penilaian"
+
+msgid "All Interview Records"
+msgstr "Semua Rekaman Wawancara"
+
+msgid "Current Interview Score / 100"
+msgstr "Nilai Wawancara Saat Ini / 100"
+
+msgid "Recommended: PASS"
+msgstr "Rekomendasi: LULUS"
+
+msgid "Recommended: RESERVED"
+msgstr "Rekomendasi: DITANGGUHKAN"
+
+msgid "Recommended: FAIL"
+msgstr "Rekomendasi: TIDAK LULUS"
+
+msgid "View Only — your role can view but not record interview scores"
+msgstr "Hanya Lihat — peran Anda dapat melihat tetapi tidak mencatat nilai wawancara"
+
+msgid "Record New Interview Session"
+msgstr "Catat Sesi Wawancara Baru"
+
+msgid "Interview Date"
+msgstr "Tanggal Wawancara"
+
+msgid "Result Notification Date"
+msgstr "Tanggal Pemberitahuan Hasil"
+
+msgid "Politeness / Manner (礼儀)"
+msgstr "Kesopanan / Tata Krama (礼儀)"
+
+msgid "Bowing, greeting, respectful behavior"
+msgstr "Membungkuk, menyapa, perilaku hormat"
+
+msgid "Communication (コミュニケーション)"
+msgstr "Komunikasi (コミュニケーション)"
+
+msgid "Clarity, listening, expressiveness"
+msgstr "Kejelasan, mendengarkan, kemampuan mengungkapkan"
+
+msgid "Motivation (意欲)"
+msgstr "Motivasi (意欲)"
+
+msgid "Drive, enthusiasm, goals"
+msgstr "Dorongan, antusiasme, tujuan"
+
+msgid "Adaptability (適応力)"
+msgstr "Kemampuan Beradaptasi (適応力)"
+
+msgid "Flexibility, openness to new environment"
+msgstr "Fleksibilitas, keterbukaan pada lingkungan baru"
+
+msgid "Technical Skill (技術)"
+msgstr "Keterampilan Teknis (技術)"
+
+msgid "Relevant skills, training background"
+msgstr "Keterampilan relevan, latar belakang pelatihan"
+
+msgid "Total Interview Score / 100"
+msgstr "Total Nilai Wawancara / 100"
+
+msgid "≥ 70 = Recommended Pass &nbsp;|&nbsp; 50–69 = Reserved &nbsp;|&nbsp; < 50 = Fail"
+msgstr "≥ 70 = Rekomendasi Lulus &nbsp;|&nbsp; 50–69 = Ditangguhkan &nbsp;|&nbsp; < 50 = Tidak Lulus"
+
+msgid "Recommendation"
+msgstr "Rekomendasi"
+
+msgid "Reserved"
+msgstr "Ditangguhkan"
+
+msgid "Interview Notes (Internal)"
+msgstr "Catatan Wawancara (Internal)"
+
+msgid "Notes for TMM internal use"
+msgstr "Catatan untuk penggunaan internal TMM"
+
+msgid "Notes for Acceptance Organization (Japanese)"
+msgstr "Catatan untuk Organisasi Penerima (bahasa Jepang)"
+
+msgid "Save Interview Record"
+msgstr "Simpan Rekaman Wawancara"
+
+msgid "Past Interview Records"
+msgstr "Rekaman Wawancara Terdahulu"
+
+msgid "New Candidate Record Interview"
+msgstr "Rekaman Wawancara Kandidat Baru"
+
+msgid "List Master Candidate Interview Results"
+msgstr "Daftar Hasil Wawancara Kandidat"
+
+msgid "New Master Candidate Interview Result"
+msgstr "Hasil Wawancara Kandidat Baru"
+
+msgid "Candidate Record Interviews"
+msgstr "Rekaman Wawancara Kandidat"
+
+msgid "Candidate Record Interview"
+msgstr "Rekaman Wawancara Kandidat"
+
+
+msgid "List Stories"
+msgstr "Daftar Cerita"
+
+msgid "Add Apprentice Story"
+msgstr "Tambah Cerita Pemagang"
+
+msgid "Document a learning experience, challenge, or insight from an apprentice"
+msgstr "Dokumentasikan pengalaman belajar, tantangan, atau wawasan dari seorang pemagang"
+
+msgid "-- Select Apprentice --"
+msgstr "-- Pilih Pemagang --"
+
+msgid "Date of Occurrence"
+msgstr "Tanggal Kejadian"
+
+msgid "Story Title"
+msgstr "Judul Cerita"
+
+msgid "Enter a clear, descriptive title for this story"
+msgstr "Masukkan judul yang jelas dan menggambarkan isi cerita ini"
+
+msgid "Problem Detail"
+msgstr "Rincian Masalah"
+
+msgid "e.g. Technical, Attitude, Communication"
+msgstr "mis. Teknis, Sikap, Komunikasi"
+
+msgid "Describe the problem or situation in detail…"
+msgstr "Jelaskan masalah atau situasinya secara rinci…"
+
+msgid "Resolution & Learning"
+msgstr "Penyelesaian & Pembelajaran"
+
+msgid "What action was taken to resolve the problem?"
+msgstr "Tindakan apa yang diambil untuk menyelesaikan masalah ini?"
+
+msgid "Inference / Lesson Learned"
+msgstr "Kesimpulan / Pelajaran"
+
+msgid "What lesson or insight was gained?"
+msgstr "Pelajaran atau wawasan apa yang diperoleh?"
+
+msgid "Supporting Image"
+msgstr "Gambar Pendukung"
+
+msgid "Click or drag an image here to upload"
+msgstr "Klik atau seret gambar ke sini untuk mengunggah"
+
+msgid "JPG, PNG, GIF — max 5 MB"
+msgstr "JPG, PNG, GIF — maksimal 5 MB"
+
+msgid "Save Story"
+msgstr "Simpan Cerita"
+
+msgid "Image must be smaller than 5 MB."
+msgstr "Gambar harus lebih kecil dari 5 MB."
+
+msgid "Edit Apprentice Story"
+msgstr "Ubah Cerita Pemagang"
+
+msgid "Apprentice Stories"
+msgstr "Cerita Pemagang"
+
+msgid "Problem & solution records"
+msgstr "Catatan masalah & penyelesaian"
+
+msgid "Total Stories"
+msgstr "Total Cerita"
+
+msgid "Unclassified"
+msgstr "Belum Dikelompokkan"
+
+msgid "Filter by title / apprentice / classification…"
+msgstr "Saring menurut judul / pemagang / klasifikasi…"
+
+msgid "Image"
+msgstr "Gambar"
+
+msgid "No stories yet."
+msgstr "Belum ada cerita."
+
+msgid "Apprentice Story"
+msgstr "Cerita Pemagang"
+
+msgid "List CandidateRecordInterviews"
+msgstr "Daftar Rekaman Wawancara Kandidat"
+
+msgid "New CandidateRecordInterview"
+msgstr "Rekaman Wawancara Kandidat Baru"
+
+msgid "Enter Master Candidate Interview Result Information"
+msgstr "Masukkan Informasi Hasil Wawancara Kandidat"
+
+msgid "Save Master Candidate Interview Result"
+msgstr "Simpan Hasil Wawancara Kandidat"
+
+msgid "Master Candidate Interview Results"
+msgstr "Hasil Wawancara Kandidat"
+
+msgid "Master Candidate Interview Result"
+msgstr "Hasil Wawancara Kandidat"
+
+msgid "CandidateRecordInterviews"
+msgstr "Rekaman Wawancara Kandidat"
+
+msgid "Related CandidateRecordInterviews"
+msgstr "Rekaman Wawancara Kandidat Terkait"
+
+msgid "Filter Applicant Id"
+msgstr "Saring menurut ID Pelamar"
+
+msgid "Filter Master Candidate Interview Type Id"
+msgstr "Saring menurut Jenis Wawancara"
+
+msgid "Filter Date Interview"
+msgstr "Saring menurut Tanggal Wawancara"
+
+msgid "No Related CandidateRecordInterviews"
+msgstr "Tidak Ada Rekaman Wawancara Terkait"
+
+msgid "There are no related CandidateRecordInterviews for this Master Candidate Interview Result."
+msgstr "Tidak ada rekaman wawancara terkait untuk hasil wawancara ini."
+
+msgid "Add First CandidateRecordInterview"
+msgstr "Tambah Rekaman Wawancara Pertama"
+
+msgid "Related Candidates"
+msgstr "Kandidat Terkait"
+
+msgid "Filter Apprenticeship Order Id"
+msgstr "Saring menurut ID Pesanan Pemagangan"
+
+msgid "Filter Candidate Code"
+msgstr "Saring menurut Kode Kandidat"
+
+msgid "Filter Acceptance Organization Id"
+msgstr "Saring menurut ID Organisasi Penerima"
+
+msgid "No Related Candidates"
+msgstr "Tidak Ada Kandidat Terkait"
+
+msgid "There are no related Candidates for this Master Candidate Interview Result."
+msgstr "Tidak ada kandidat terkait untuk hasil wawancara ini."
+
+msgid "Add First Candidate"
+msgstr "Tambah Kandidat Pertama"
+
+msgid "List Trainee Training Batches"
+msgstr "Daftar Angkatan Pelatihan Trainee"
+
+msgid "Enter Trainee Training Batch Information"
+msgstr "Masukkan Informasi Angkatan Pelatihan"
+
+msgid "Batch Name"
+msgstr "Nama Angkatan"
+
+msgid "Enter Batch Name"
+msgstr "Masukkan Nama Angkatan"
+
+msgid "Departure Plan Date"
+msgstr "Rencana Tanggal Keberangkatan"
+
+msgid "Select Departure Plan Date"
+msgstr "Pilih Rencana Tanggal Keberangkatan"
+
+msgid "Is Training Location Moved"
+msgstr "Lokasi Pelatihan Dipindah"
+
+msgid "Training Term Of Months"
+msgstr "Lama Pelatihan (bulan)"
+
+msgid "Enter Training Term Of Months"
+msgstr "Masukkan Lama Pelatihan (bulan)"
+
+msgid "Origin Training Location"
+msgstr "Lokasi Pelatihan Awal"
+
+msgid "Enter Origin Training Location"
+msgstr "Masukkan Lokasi Pelatihan Awal"
+
+msgid "Moved Training Location"
+msgstr "Lokasi Pelatihan Pindahan"
+
+msgid "Enter Moved Training Location"
+msgstr "Masukkan Lokasi Pelatihan Pindahan"
+
+msgid "Origin Start Plan Date"
+msgstr "Rencana Mulai di Lokasi Awal"
+
+msgid "Select Origin Start Plan Date"
+msgstr "Pilih Rencana Mulai di Lokasi Awal"
+
+msgid "Origin Finish Plan Date"
+msgstr "Rencana Selesai di Lokasi Awal"
+
+msgid "Select Origin Finish Plan Date"
+msgstr "Pilih Rencana Selesai di Lokasi Awal"
+
+msgid "Moved Start Plan Date"
+msgstr "Rencana Mulai di Lokasi Pindahan"
+
+msgid "Select Moved Start Plan Date"
+msgstr "Pilih Rencana Mulai di Lokasi Pindahan"
+
+msgid "Moved Finished Plan Date"
+msgstr "Rencana Selesai di Lokasi Pindahan"
+
+msgid "Select Moved Finished Plan Date"
+msgstr "Pilih Rencana Selesai di Lokasi Pindahan"
+
+msgid "Save Trainee Training Batch"
+msgstr "Simpan Angkatan Pelatihan"
+
+msgid "New Trainee Training Batch"
+msgstr "Angkatan Pelatihan Baru"
+
+msgid "Trainee Training Batches"
+msgstr "Angkatan Pelatihan Trainee"
+
+msgid "Trainee Training Batch"
+msgstr "Angkatan Pelatihan Trainee"
+
+msgid "Add Menu"
+msgstr "Tambah Menu"
+
+msgid "Back to Menus"
+msgstr "Kembali ke Menu"
+
+msgid "Save Menu"
+msgstr "Simpan Menu"
+
+msgid "Edit Menu"
+msgstr "Ubah Menu"
+
+msgid "Role Access"
+msgstr "Akses Peran"
+
+msgid "Toggle activates/deactivates a link, Move changes its category (children follow). Click a role dot to grant/revoke access instantly."
+msgstr "Toggle mengaktifkan/menonaktifkan tautan, Move mengubah kategorinya (submenu ikut). Klik titik peran untuk memberi/mencabut akses seketika."
+
+msgid "Parent"
+msgstr "Induk"
+
+msgid "URL / Controller::Action"
+msgstr "URL / Controller::Action"
+
+msgid "Move to Category"
+msgstr "Pindahkan ke Kategori"
+
+msgid "Move Parent"
+msgstr "Pindahkan Induk"
+
+msgid "Deactivate"
+msgstr "Nonaktifkan"
+
+msgid "Activate"
+msgstr "Aktifkan"
+
+msgid "Delete menu \"{0}\"?"
+msgstr "Hapus menu \"{0}\"?"
+
+msgid "Move"
+msgstr "Pindahkan"
+
+msgid "Granted Actions"
+msgstr "Aksi yang Diizinkan"
+
+msgid "Use * for all actions, or comma-separated list: index,view,add,edit,delete"
+msgstr "Gunakan * untuk semua aksi, atau daftar dipisah koma: index,view,add,edit,delete"
+
+msgid "Set All (*)"
+msgstr "Pilih Semua (*)"
+
+msgid "Menu"
+msgstr "Menu"
+
+msgid "URL"
+msgstr "URL"
+
+msgid "Icon"
+msgstr "Ikon"
+
+msgid "Sub-menus"
+msgstr "Submenu"
+
