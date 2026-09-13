@@ -4596,3 +4596,163 @@ msgstr "Rekrutmen"
 
 msgid "Ongoing"
 msgstr "Berjalan"
+
+msgid "Register New LPK (Vocational Training Institution)"
+msgstr "Daftarkan LPK Baru (Lembaga Pelatihan Kerja)"
+
+msgid "Registration Process:"
+msgstr "Alur Pendaftaran:"
+
+msgid "1. Fill in LPK information below"
+msgstr "1. Isi informasi LPK di bawah ini"
+
+msgid "2. System will send verification email to the provided email address"
+msgstr "2. Sistem mengirim email verifikasi ke alamat email yang diisi"
+
+msgid "3. LPK director clicks verification link (valid for 24 hours)"
+msgstr "3. Direktur LPK mengklik tautan verifikasi (berlaku 24 jam)"
+
+msgid "4. LPK sets password to activate account"
+msgstr "4. LPK menetapkan kata sandi untuk mengaktifkan akun"
+
+msgid "Enter LPK Name (e.g., LPK Karya Mandiri)"
+msgstr "Masukkan Nama LPK (mis., LPK Karya Mandiri)"
+
+msgid "Full official name of the vocational training institution"
+msgstr "Nama resmi lengkap lembaga pelatihan kerja"
+
+msgid "e.g., lpkkaryamandiri"
+msgstr "mis., lpkkaryamandiri"
+
+msgid "The login name this LPK will use once it sets a password"
+msgstr "Nama masuk yang akan dipakai LPK ini setelah menetapkan kata sandi"
+
+msgid "e.g., LKM"
+msgstr "mis., LKM"
+
+msgid "Institution Type"
+msgstr "Jenis Lembaga"
+
+msgid "Vocational Training Institution (LPK)"
+msgstr "Lembaga Pelatihan Kerja (LPK)"
+
+msgid "Director Name"
+msgstr "Nama Direktur"
+
+msgid "Enter Director Full Name"
+msgstr "Masukkan Nama Lengkap Direktur"
+
+msgid "Full name of the institution director"
+msgstr "Nama lengkap direktur lembaga"
+
+msgid "Email Address"
+msgstr "Alamat Email"
+
+msgid "director@lpk-example.com"
+msgstr "direktur@lpk-contoh.com"
+
+msgid "Verification email will be sent to this address"
+msgstr "Email verifikasi akan dikirim ke alamat ini"
+
+msgid "Director Name (Katakana)"
+msgstr "Nama Direktur (Katakana)"
+
+msgid "e.g., スリ クンチョロ"
+msgstr "mis., スリ クンチョロ"
+
+msgid "MOU Document"
+msgstr "Dokumen MOU"
+
+msgid "Signed memorandum of understanding. Required to save the record."
+msgstr "Nota kesepahaman yang sudah ditandatangani. Wajib diisi agar data dapat disimpan."
+
+msgid "Geographic Location"
+msgstr "Lokasi Geografis"
+
+msgid "City/District"
+msgstr "Kabupaten/Kota"
+
+msgid "-- Select City/District --"
+msgstr "-- Pilih Kabupaten/Kota --"
+
+msgid "Subdistrict"
+msgstr "Kecamatan"
+
+msgid "-- Select Subdistrict --"
+msgstr "-- Pilih Kecamatan --"
+
+msgid "Village"
+msgstr "Kelurahan/Desa"
+
+msgid "-- Select Village --"
+msgstr "-- Pilih Kelurahan/Desa --"
+
+msgid "Enter Complete Address"
+msgstr "Masukkan Alamat Lengkap"
+
+msgid "Complete address including street name, number, RT/RW"
+msgstr "Alamat lengkap termasuk nama jalan, nomor, RT/RW"
+
+msgid "Postal Code"
+msgstr "Kode Pos"
+
+msgid "Register LPK & Send Verification Email"
+msgstr "Daftarkan LPK & Kirim Email Verifikasi"
+
+msgid "Checking email..."
+msgstr "Memeriksa email..."
+
+msgid "Email format is valid"
+msgstr "Format email valid"
+
+msgid "Sending verification email..."
+msgstr "Mengirim email verifikasi..."
+
+msgid "LPK Registration Management"
+msgstr "Manajemen Pendaftaran LPK"
+
+msgid "Register New LPK"
+msgstr "Daftarkan LPK Baru"
+
+msgid "Registration Status:"
+msgstr "Status Pendaftaran:"
+
+msgid "Pending Verification"
+msgstr "Menunggu Verifikasi"
+
+msgid "Waiting for email verification"
+msgstr "Menunggu verifikasi email"
+
+msgid "Verified"
+msgstr "Terverifikasi"
+
+msgid "Email verified, password not set"
+msgstr "Email terverifikasi, kata sandi belum ditetapkan"
+
+msgid "Account activated, can login"
+msgstr "Akun aktif, sudah bisa masuk"
+
+msgid "Reg. Number"
+msgstr "No. Registrasi"
+
+msgid "View Details"
+msgstr "Lihat Detail"
+
+msgid "Resend Verification Email"
+msgstr "Kirim Ulang Email Verifikasi"
+
+msgid "Resend verification email to {0}?"
+msgstr "Kirim ulang email verifikasi ke {0}?"
+
+msgid "Set Password"
+msgstr "Tetapkan Kata Sandi"
+
+msgid "Showing {{start}} to {{end}} of {{count}} entries"
+msgstr "Menampilkan {{start}} sampai {{end}} dari {{count}} entri"
+
+msgid "No LPK registrations found"
+msgstr "Tidak ada pendaftaran LPK"
+
+msgid "Click \"Register New LPK\" to add your first registration."
+msgstr "Klik \"Daftarkan LPK Baru\" untuk menambahkan pendaftaran pertama."
+
