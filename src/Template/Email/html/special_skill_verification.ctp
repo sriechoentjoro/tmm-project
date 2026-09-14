@@ -25,7 +25,7 @@
 </div>
 
 <div class="warning-box">
-    <strong>⚠️ IMPORTANT:</strong> This temporary password will expire in 24 hours. You must verify your email and change your password before the expiration.
+    <strong>⚠️ IMPORTANT:</strong> <?= __('This temporary password will expire in 24 hours. You must verify your email and change your password before the expiration.') ?>
 </div>
 
 <p style="text-align: center; margin: 30px 0;">
@@ -43,7 +43,7 @@
 
 <ol style="padding-left: 20px; color: #555;">
     <li><strong><?= __('Click the verification link') ?></strong> above to confirm your email address</li>
-    <li><strong>Log in</strong> using your email and temporary password</li>
+    <li><strong>Log in</strong> <?= __('using your email and temporary password') ?></li>
     <li><strong><?= __('Change your password') ?></strong> to a secure password of your choice</li>
     <li><strong><?= __('Complete your profile') ?></strong> and start managing trainees</li>
 </ol>

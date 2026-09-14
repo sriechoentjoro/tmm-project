@@ -263,7 +263,7 @@ use Cake\Utility\Inflector;
                             'placeholder' => __('Enter Email'),
                             'label' => false
                         ]) ?>
-                        <small class="text-muted">Format: user@example.com</small>
+                        <small class="text-muted"><?= __('Format: user@example.com') ?></small>
                     </div>
                     <script>
                     $(document).ready(function() {
@@ -282,7 +282,7 @@ use Cake\Utility\Inflector;
                         <div class="card bg-light">
                             <div class="card-body">
                                 <h5 class="card-title"><i class="fas fa-map-marker-alt"></i> <?= __('Address Information') ?></h5>
-                                <p class="text-muted small mb-3">Select Province first, then City, District, and Village will be populated automatically</p>
+                                <p class="text-muted small mb-3"><?= __('Select Province first, then City, District, and Village will be populated automatically') ?></p>
                                 <div class="row">
                                     <div class="col-md-3 mb-2">
                                         <label class="form-label required"><?= __('Province') ?> <span class="text-danger">*</span></label>

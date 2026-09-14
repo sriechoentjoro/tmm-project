@@ -2,7 +2,7 @@
     <div class="row">
         <div class="col-md-12">
             <h2><i class="fa fa-bar-chart"></i> <?= __('Management Dashboard') ?></h2>
-            <p class="text-muted">Read-only system overview and analytics</p>
+            <p class="text-muted"><?= __('Read-only system overview and analytics') ?></p>
         </div>
     </div>
     
@@ -12,7 +12,7 @@
                 <div class="stat-icon"><i class="fa fa-user-plus"></i></div>
                 <div class="stat-info">
                     <h3><?= number_format($stats['totalCandidates']) ?></h3>
-                    <p>Total Candidates</p>
+                    <p><?= __('Total Candidates') ?></p>
                 </div>
             </div>
         </div>
@@ -21,7 +21,7 @@
                 <div class="stat-icon"><i class="fa fa-graduation-cap"></i></div>
                 <div class="stat-info">
                     <h3><?= number_format($stats['totalTrainees']) ?></h3>
-                    <p>Total Trainees</p>
+                    <p><?= __('Total Trainees') ?></p>
                 </div>
             </div>
         </div>
@@ -30,7 +30,7 @@
                 <div class="stat-icon"><i class="fa fa-building"></i></div>
                 <div class="stat-info">
                     <h3><?= number_format($stats['totalOrganizations']) ?></h3>
-                    <p>Organizations</p>
+                    <p><?= __('Organizations') ?></p>
                 </div>
             </div>
         </div>

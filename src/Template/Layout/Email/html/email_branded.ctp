@@ -164,7 +164,7 @@
         <!-- Header -->
         <div class="email-header">
             <h1><?= __('TMM Apprentice System') ?></h1>
-            <p>Training & Monitoring Management</p>
+            <p><?= __('Training & Monitoring Management') ?></p>
         </div>
 
         <!-- Body Content -->
@@ -175,7 +175,7 @@
         <!-- Footer -->
         <div class="email-footer">
             <p><strong><?= __('TMM Apprentice Management System') ?></strong></p>
-            <p>Training & Monitoring Management for Vocational Institutions</p>
+            <p><?= __('Training & Monitoring Management for Vocational Institutions') ?></p>
             
             <div class="divider" style="background: linear-gradient(to right, transparent, #444, transparent);"></div>
             

@@ -143,7 +143,7 @@
                 </ol>
 
                 <div class="alert alert-warning">
-                    <i class="fa fa-exclamation-triangle"></i> <strong>Important Notes</strong>
+                    <i class="fa fa-exclamation-triangle"></i> <strong><?= __('Important Notes') ?></strong>
                     <ul class="mb-0">
                         <li><?= __('Do not upload password-protected files') ?></li>
                         <li><?= __('Ensure documents are not corrupted') ?></li>
@@ -170,17 +170,17 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td><?= __('<span class="badge badge-secondary">Not Submitted</span>') ?></td>
+                            <td><?= '<span class="badge badge-secondary">' . __('Not Submitted') . '</span>' ?></td>
                             <td><?= __('Document has not been uploaded yet') ?></td>
                             <td><?= __('Upload the required document') ?></td>
                         </tr>
                         <tr>
-                            <td><?= __('<span class="badge badge-warning">Pending Review</span>') ?></td>
+                            <td><?= '<span class="badge badge-warning">' . __('Pending Review') . '</span>' ?></td>
                             <td><?= __('Document uploaded, awaiting verification') ?></td>
                             <td><?= __('Wait for admin review') ?></td>
                         </tr>
                         <tr>
-                            <td><?= __('<span class="badge badge-info">Under Review</span>') ?></td>
+                            <td><?= '<span class="badge badge-info">' . __('Under Review') . '</span>' ?></td>
                             <td><?= __('Document is being verified by admin') ?></td>
                             <td><?= __('No action needed') ?></td>
                         </tr>
@@ -326,10 +326,10 @@
             <div class="alert alert-success">
                 <h5><i class="fa fa-link"></i> <?= __('Quick Links') ?></h5>
                 <p class="mb-2">
-                    <?= $this->Html->link('<i class="fa fa-chart-bar"></i> Document Dashboard', ['controller' => 'CandidateDocumentManagementDashboardDetails', 'action' => 'index'], ['class' => 'btn btn-sm btn-primary mr-2', 'escape' => false]) ?>
-                    <?= $this->Html->link('<i class="fa fa-file-upload"></i> Submit Documents', ['controller' => 'CandidateDocuments', 'action' => 'index'], ['class' => 'btn btn-sm btn-success mr-2', 'escape' => false]) ?>
-                    <?= $this->Html->link('<i class="fa fa-users"></i> My Candidates', ['controller' => 'Candidates', 'action' => 'index'], ['class' => 'btn btn-sm btn-info mr-2', 'escape' => false]) ?>
-                    <?= $this->Html->link('<i class="fa fa-question-circle"></i> Candidate Help', ['controller' => 'Candidates', 'action' => 'help'], ['class' => 'btn btn-sm btn-warning', 'escape' => false]) ?>
+                    <?= $this->Html->link('<i class="fa fa-chart-bar"></i> ' . __('Document Dashboard'), ['controller' => 'CandidateDocumentManagementDashboardDetails', 'action' => 'index'], ['class' => 'btn btn-sm btn-primary mr-2', 'escape' => false]) ?>
+                    <?= $this->Html->link('<i class="fa fa-file-upload"></i> ' . __('Submit Documents'), ['controller' => 'CandidateDocuments', 'action' => 'index'], ['class' => 'btn btn-sm btn-success mr-2', 'escape' => false]) ?>
+                    <?= $this->Html->link('<i class="fa fa-users"></i> ' . __('My Candidates'), ['controller' => 'Candidates', 'action' => 'index'], ['class' => 'btn btn-sm btn-info mr-2', 'escape' => false]) ?>
+                    <?= $this->Html->link('<i class="fa fa-question-circle"></i> ' . __('Candidate Help'), ['controller' => 'Candidates', 'action' => 'help'], ['class' => 'btn btn-sm btn-warning', 'escape' => false]) ?>
                 </p>
             </div>
 

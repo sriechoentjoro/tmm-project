@@ -61,7 +61,7 @@
                     <div class="card-body">
                         <div class="alert alert-info">
                             <h5><i class="fa fa-info-circle"></i> <?= __('Duplicate Prevention') ?></h5>
-                            <p class="mb-0">Enter the candidate's <strong><?= __('Identity Number (NIK/KTP)') ?></strong> to check if they are already registered in the system.</p>
+                            <p class="mb-0"><?= __('Enter the candidate\'s <strong>Identity Number (NIK/KTP)</strong> to check if they are already registered in the system.') ?></p>
                         </div>
 
                         <?= $this->Form->create(null, ['url' => ['action' => 'wizard', '?' => ['step' => 1]]]) ?>
@@ -123,10 +123,10 @@
                         <div class="alert alert-info">
                             <h5><i class="fa fa-info-circle"></i> <?= __('Photo Requirements') ?></h5>
                             <ul class="mb-0">
-                                <li><strong>Format:</strong> JPG, PNG, or GIF</li>
-                                <li><strong>Size:</strong> Maximum 5MB</li>
-                                <li><strong>Style:</strong> Passport photo (square, 1:1 aspect ratio)</li>
-                                <li><strong>Quality:</strong> Clear, well-lit, facing camera</li>
+                                <li><strong>Format:</strong> <?= __('JPG, PNG, or GIF') ?></li>
+                                <li><strong>Size:</strong> <?= __('Maximum 5MB') ?></li>
+                                <li><strong>Style:</strong> <?= __('Passport photo (square, 1:1 aspect ratio)') ?></li>
+                                <li><strong>Quality:</strong> <?= __('Clear, well-lit, facing camera') ?></li>
                             </ul>
                         </div>
 
@@ -284,7 +284,7 @@
                     <div class="card-body">
                         <div class="alert alert-info">
                             <h5><i class="fa fa-info-circle"></i> <?= __('Required Fields') ?></h5>
-                            <p class="mb-0">Fields marked with <span class="text-danger">*</span> are required. Please fill all information accurately.</p>
+                            <p class="mb-0"><?= __('Fields marked with <span class="text-danger">*</span> are required. Please fill all information accurately.') ?></p>
                         </div>
 
                         <?php if (isset($validationErrors) && !empty($validationErrors)): ?>
@@ -706,7 +706,7 @@
                     <div class="card-body">
                         <div class="alert alert-info">
                             <h5><i class="fa fa-info-circle"></i> <?= __('Education Requirements') ?></h5>
-                            <p class="mb-0"><strong><?= __('At least 1 education entry is required.') ?></strong> Add all your educational background starting from the highest level.</p>
+                            <p class="mb-0"><?= __('<strong>At least 1 education entry is required.</strong> Add all your educational background starting from the highest level.') ?></p>
                         </div>
 
                         <?= $this->Form->create(null, ['url' => ['action' => 'wizard', '?' => ['step' => 4]]]) ?>
@@ -744,7 +744,7 @@
                     <div class="card-body">
                         <div class="alert alert-info">
                             <h5><i class="fa fa-info-circle"></i> <?= __('Work Experience (Optional)') ?></h5>
-                            <p class="mb-0">Add your work experience if applicable. You can skip this step if you have no work experience.</p>
+                            <p class="mb-0"><?= __('Add your work experience if applicable. You can skip this step if you have no work experience.') ?></p>
                         </div>
 
                         <?= $this->Form->create(null, ['url' => ['action' => 'wizard', '?' => ['step' => 5]]]) ?>
@@ -815,7 +815,7 @@
                     <div class="card-body">
                         <div class="alert alert-info">
                             <h5><i class="fa fa-info-circle"></i> <?= __('Certifications (Optional)') ?></h5>
-                            <p class="mb-0">Add any professional certifications, licenses, or skill certificates you have obtained.</p>
+                            <p class="mb-0"><?= __('Add any professional certifications, licenses, or skill certificates you have obtained.') ?></p>
                         </div>
 
                         <?= $this->Form->create(null, ['url' => ['action' => 'wizard', '?' => ['step' => 7]]]) ?>
@@ -847,7 +847,7 @@
                     <div class="card-body">
                         <div class="alert alert-info">
                             <h5><i class="fa fa-info-circle"></i> <?= __('Training Courses (Optional)') ?></h5>
-                            <p class="mb-0">Add any training courses, workshops, or professional development programs you have completed.</p>
+                            <p class="mb-0"><?= __('Add any training courses, workshops, or professional development programs you have completed.') ?></p>
                         </div>
 
                         <?= $this->Form->create(null, ['url' => ['action' => 'wizard', '?' => ['step' => 8]]]) ?>
@@ -879,7 +879,7 @@
                     <div class="card-body">
                         <div class="alert alert-success">
                             <h5><i class="fa fa-check-circle"></i> <?= __('Final Review') ?></h5>
-                            <p class="mb-0">Please review all information carefully before submitting. You can go back to any step to make changes.</p>
+                            <p class="mb-0"><?= __('Please review all information carefully before submitting. You can go back to any step to make changes.') ?></p>
                         </div>
 
                         <?php if (isset($errors) && !empty($errors)): ?>
@@ -965,7 +965,7 @@
                                 </div>
                             <?php endforeach; ?>
                         <?php else: ?>
-                            <p class="text-muted">No education entries</p>
+                            <p class="text-muted"><?= __('No education entries') ?></p>
                         <?php endif; ?>
 
                         <!-- Work Experience -->
@@ -1032,7 +1032,7 @@
                         <h5 class="m-0"><i class="fa fa-exclamation-triangle"></i> <?= __('Invalid Step') ?></h5>
                     </div>
                     <div class="card-body">
-                        <p>The requested step is invalid. Please start from the beginning.</p>
+                        <p><?= __('The requested step is invalid. Please start from the beginning.') ?></p>
                         <?= $this->Html->link(__('Start Over'), ['action' => 'wizard', '?' => ['step' => 1]], ['class' => 'btn btn-primary']) ?>
                     </div>
                 </div>

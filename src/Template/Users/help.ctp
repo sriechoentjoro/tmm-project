@@ -40,7 +40,7 @@
                     </li>
                     <li><?= __('If the user is associated with an institution (LPK):') ?>
                         <ul>
-                            <li><?= __('<strong>Institution Type:</strong> e.g., "VocationalTrainingInstitution"') ?></li>
+                            <li><?= '<strong>' . __('Institution Type:') . '</strong> e.g., "VocationalTrainingInstitution"' ?></li>
                             <li><?= __('<strong>Institution ID:</strong> The ID number of the institution') ?></li>
                         </ul>
                     </li>
@@ -203,10 +203,10 @@
             <div class="alert alert-success">
                 <h5><i class="fa fa-link"></i> <?= __('Quick Links') ?></h5>
                 <p class="mb-2">
-                    <?= $this->Html->link('<i class="fa fa-user"></i> Manage Users', ['controller' => 'Users', 'action' => 'index'], ['class' => 'btn btn-sm btn-primary mr-2', 'escape' => false]) ?>
-                    <?= $this->Html->link('<i class="fa fa-id-badge"></i> Manage Roles', ['controller' => 'Roles', 'action' => 'index'], ['class' => 'btn btn-sm btn-primary mr-2', 'escape' => false]) ?>
-                    <?= $this->Html->link('<i class="fa fa-user-plus"></i> Add New User', ['controller' => 'Users', 'action' => 'add'], ['class' => 'btn btn-sm btn-success mr-2', 'escape' => false]) ?>
-                    <?= $this->Html->link('<i class="fa fa-plus-circle"></i> Add New Role', ['controller' => 'Roles', 'action' => 'add'], ['class' => 'btn btn-sm btn-success', 'escape' => false]) ?>
+                    <?= $this->Html->link('<i class="fa fa-user"></i> ' . __('Manage Users'), ['controller' => 'Users', 'action' => 'index'], ['class' => 'btn btn-sm btn-primary mr-2', 'escape' => false]) ?>
+                    <?= $this->Html->link('<i class="fa fa-id-badge"></i> ' . __('Manage Roles'), ['controller' => 'Roles', 'action' => 'index'], ['class' => 'btn btn-sm btn-primary mr-2', 'escape' => false]) ?>
+                    <?= $this->Html->link('<i class="fa fa-user-plus"></i> ' . __('Add New User'), ['controller' => 'Users', 'action' => 'add'], ['class' => 'btn btn-sm btn-success mr-2', 'escape' => false]) ?>
+                    <?= $this->Html->link('<i class="fa fa-plus-circle"></i> ' . __('Add New Role'), ['controller' => 'Roles', 'action' => 'add'], ['class' => 'btn btn-sm btn-success', 'escape' => false]) ?>
                 </p>
             </div>
 

@@ -185,12 +185,12 @@ window.previewFile = function(input) {
                                 <i class="fas fa-file-pdf" style="font-size: 48px; color: #E74C3C; vertical-align: middle;"></i>
                                 <strong style="margin-left: 10px; font-size: 16px;">PDF Preview</strong>
                             </div>
-                            <span style="font-size: 12px; color: #6c757d;">First page preview</span>
+                            <span style="font-size: 12px; color: #6c757d;"><?= __('First page preview') ?></span>
                         </div>
                         <canvas id="pdf-preview-canvas" style="border: 1px solid #dee2e6; border-radius: 4px; max-width: 100%; background: white;"></canvas>
                         <div id="pdf-loading" style="text-align: center; padding: 40px; color: #6c757d;">
                             <i class="fas fa-spinner fa-spin" style="font-size: 32px;"></i>
-                            <p style="margin-top: 10px;">Loading PDF preview...</p>
+                            <p style="margin-top: 10px;"><?= __('Loading PDF preview...') ?></p>
                         </div>
                     </div>
                 `;
@@ -238,7 +238,7 @@ window.previewFile = function(input) {
                 <div style="background: #f8f9fa; padding: 30px; border-radius: 8px;">
                     <i class="fas fa-file-word" style="font-size: 64px; color: #2980B9;"></i>
                     <p style="margin-top: 15px; color: #495057;"><strong><?= __('Word Document') ?></strong></p>
-                    <p style="font-size: 12px; color: #6c757d;">Preview will be available after upload</p>
+                    <p style="font-size: 12px; color: #6c757d;"><?= __('Preview will be available after upload') ?></p>
                 </div>
             `;
         } else if (['xls', 'xlsx'].includes(fileExt)) {
@@ -246,7 +246,7 @@ window.previewFile = function(input) {
                 <div style="background: #f8f9fa; padding: 30px; border-radius: 8px;">
                     <i class="fas fa-file-excel" style="font-size: 64px; color: #27AE60;"></i>
                     <p style="margin-top: 15px; color: #495057;"><strong><?= __('Excel Document') ?></strong></p>
-                    <p style="font-size: 12px; color: #6c757d;">Preview will be available after upload</p>
+                    <p style="font-size: 12px; color: #6c757d;"><?= __('Preview will be available after upload') ?></p>
                 </div>
             `;
         } else if (['zip', 'rar'].includes(fileExt)) {
@@ -254,7 +254,7 @@ window.previewFile = function(input) {
                 <div style="background: #f8f9fa; padding: 30px; border-radius: 8px;">
                     <i class="fas fa-file-archive" style="font-size: 64px; color: #95A5A6;"></i>
                     <p style="margin-top: 15px; color: #495057;"><strong><?= __('Archive File') ?></strong></p>
-                    <p style="font-size: 12px; color: #6c757d;">Compressed file ready for upload</p>
+                    <p style="font-size: 12px; color: #6c757d;"><?= __('Compressed file ready for upload') ?></p>
                 </div>
             `;
         } else if (['txt', 'log', 'csv', 'json', 'xml', 'md'].includes(fileExt)) {
@@ -292,7 +292,7 @@ ${preview}${textContent.length > 1000 ? '\n\n... (truncated - showing first 1000
                 <div style="background: #f8f9fa; padding: 30px; border-radius: 8px;">
                     <i class="fas fa-file" style="font-size: 64px; color: #34495E;"></i>
                     <p style="margin-top: 15px; color: #495057;"><strong><?= __('File Selected') ?></strong></p>
-                    <p style="font-size: 12px; color: #6c757d;">Ready for upload</p>
+                    <p style="font-size: 12px; color: #6c757d;"><?= __('Ready for upload') ?></p>
                 </div>
             `;
         }

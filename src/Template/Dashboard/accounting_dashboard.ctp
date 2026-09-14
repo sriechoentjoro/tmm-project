@@ -46,7 +46,7 @@ $accountTypeMeta = [
     <div class="row">
         <div class="col-md-12">
             <h2><i class="fa fa-calculator"></i> <?= __('Accounting Dashboard') ?></h2>
-            <p class="text-muted">Trainee installments, journal entries and chart of accounts</p>
+            <p class="text-muted"><?= __('Trainee installments, journal entries and chart of accounts') ?></p>
         </div>
     </div>
 
@@ -55,7 +55,7 @@ $accountTypeMeta = [
         <div class="col-md-3">
             <div class="stat-card stat-card-blue">
                 <h3 class="stat-money"><?= $money($stats['collected']) ?></h3>
-                <p>Collected from Trainees</p>
+                <p><?= __('Collected from Trainees') ?></p>
                 <i class="fa fa-arrow-circle-down"></i>
             </div>
         </div>
@@ -69,14 +69,14 @@ $accountTypeMeta = [
         <div class="col-md-3">
             <div class="stat-card stat-card-purple">
                 <h3><?= number_format($stats['totalInstallments']) ?></h3>
-                <p>Installment Payments</p>
+                <p><?= __('Installment Payments') ?></p>
                 <i class="fa fa-money"></i>
             </div>
         </div>
         <div class="col-md-3">
             <div class="stat-card stat-card-green">
                 <h3><?= number_format($stats['totalJournals']) ?></h3>
-                <p>Journal Entries</p>
+                <p><?= __('Journal Entries') ?></p>
                 <i class="fa fa-book"></i>
             </div>
         </div>

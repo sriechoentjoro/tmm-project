@@ -385,7 +385,7 @@ $foreignValue = isset($foreignValue) ? $foreignValue : null; // e.g., $apprentic
                         tbody.innerHTML = '';
                         
                         if (data.records.length === 0) {
-                            tbody.innerHTML = '<tr><td colspan="100" style="text-align:center;padding:20px;">No records found</td></tr>';
+                            tbody.innerHTML = '<tr><td colspan="100" style="text-align:center;padding:20px;"><?= __('No records found') ?></td></tr>';
                         } else {
                             data.records.forEach(function(record) {
                                 var row = '<tr>';
@@ -423,17 +423,17 @@ $foreignValue = isset($foreignValue) ? $foreignValue : null; // e.g., $apprentic
                         
                     } else {
                         var errorMsg = data.error || 'Unknown error';
-                        tbody.innerHTML = '<tr><td colspan="100" style="text-align:center;padding:20px;color:red;">Error: ' + errorMsg + '</td></tr>';
+                        tbody.innerHTML = '<tr><td colspan="100" style="text-align:center;padding:20px;color:red;"><?= h(__('Error:')) ?> ' + errorMsg + '</td></tr>';
                     }
                 } catch(parseError) {
                     console.error('JSON Parse Error:', parseError);
                     console.error('Response was:', text);
-                    tbody.innerHTML = '<tr><td colspan="100" style="text-align:center;padding:20px;color:red;">Invalid JSON response. Check console for details.</td></tr>';
+                    tbody.innerHTML = '<tr><td colspan="100" style="text-align:center;padding:20px;color:red;"><?= h(__('Invalid JSON response. Check console for details.')) ?></td></tr>';
                 }
             })
             .catch(function(error) {
                 console.error('Ajax error:', error);
-                tbody.innerHTML = '<tr><td colspan="100" style="text-align:center;padding:20px;color:red;">Error: ' + error.message + '</td></tr>';
+                tbody.innerHTML = '<tr><td colspan="100" style="text-align:center;padding:20px;color:red;"><?= h(__('Error:')) ?> ' + error.message + '</td></tr>';
             });
             
         }, 500); // 500ms debounce for server requests

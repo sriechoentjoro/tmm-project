@@ -17,8 +17,8 @@
                 <div class="card-body text-center p-5">
                     <i class="fas fa-clock fa-4x text-warning mb-4"></i>
                     <h2 class="mb-3"><?= __('Registration Link Expired') ?></h2>
-                    <p class="lead">This registration link has expired.</p>
-                    <p>Please contact the system administrator to request a new registration link.</p>
+                    <p class="lead"><?= __('This registration link has expired.') ?></p>
+                    <p><?= __('Please contact the system administrator to request a new registration link.') ?></p>
                     <div class="mt-4">
                         <p><strong><?= __('Institution:') ?></strong> <?= h($institution->name ?? $institution->company_name) ?></p>
                         <p><strong>Email:</strong> <?= h($institution->email) ?></p>

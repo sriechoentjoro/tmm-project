@@ -65,27 +65,27 @@
                                     <tbody>
                                         <tr>
                                             <td><strong>administrator</strong></td>
-                                            <td>Full access to all features and data</td>
+                                            <td><?= __('Full access to all features and data') ?></td>
                                         </tr>
                                         <tr>
                                             <td><strong>management</strong></td>
-                                            <td>Read-only access to all data for reporting</td>
+                                            <td><?= __('Read-only access to all data for reporting') ?></td>
                                         </tr>
                                         <tr>
                                             <td><strong>tmm-recruitment</strong></td>
-                                            <td>Manage candidates and apprentice orders</td>
+                                            <td><?= __('Manage candidates and apprentice orders') ?></td>
                                         </tr>
                                         <tr>
                                             <td><strong>tmm-training</strong></td>
-                                            <td>Manage trainees and training data</td>
+                                            <td><?= __('Manage trainees and training data') ?></td>
                                         </tr>
                                         <tr>
                                             <td><strong>tmm-documentation</strong></td>
-                                            <td>Manage documents and ticketing</td>
+                                            <td><?= __('Manage documents and ticketing') ?></td>
                                         </tr>
                                         <tr>
                                             <td><strong>lpk-penyangga</strong></td>
-                                            <td>Manage candidates for their institution only</td>
+                                            <td><?= __('Manage candidates for their institution only') ?></td>
                                         </tr>
                                     </tbody>
                                 </table>

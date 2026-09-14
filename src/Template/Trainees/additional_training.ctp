@@ -435,7 +435,7 @@ $statusCounts = $statusCounts ?? [];
                   style="flex:1;padding:9px;border:1px solid #e1e8f0;border-radius:8px;background:#fff;font-size:13px;font-weight:600;cursor:pointer;color:#546e7a">Cancel</button>
           <button type="submit"
                   style="flex:2;padding:9px;border:none;border-radius:8px;background:#1a237e;color:#fff;font-size:13px;font-weight:700;cursor:pointer">
-            <i class="fas fa-save"></i> <span id="atSubmitLabel">Save Program</span>
+            <i class="fas fa-save"></i> <span id="atSubmitLabel"><?= __('Save Program') ?></span>
           </button>
         </div>
       </form>

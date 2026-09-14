@@ -332,7 +332,7 @@ $batchStatusMeta = [
         </div>
         <div style="flex:1">
           <div style="display:flex;justify-content:space-between;font-size:12px;margin-bottom:5px">
-            <span style="font-weight:700;color:#37474f">Training passed</span>
+            <span style="font-weight:700;color:#37474f"><?= __('Training passed') ?></span>
             <span style="font-weight:800;color:#2e7d32"><?= $tStats['training_passed'] ?></span>
           </div>
           <div style="height:7px;background:#f0f4f8;border-radius:4px;overflow:hidden;margin-bottom:10px">
@@ -351,7 +351,7 @@ $batchStatusMeta = [
       <!-- Gender -->
       <div style="margin-bottom:14px">
         <div style="display:flex;justify-content:space-between;margin-bottom:4px;font-size:11px;font-weight:700">
-          <span style="color:#78909c">Gender split</span>
+          <span style="color:#78909c"><?= __('Gender split') ?></span>
           <span><span style="color:#1e88e5"><?= $tStats['male'] ?>M</span> / <span style="color:#e91e63"><?= $tStats['female'] ?>F</span></span>
         </div>
         <?php $mPct = $convRate($tStats['male'],max(1,$tStats['total'])); ?>
@@ -419,7 +419,7 @@ $batchStatusMeta = [
       <!-- Gender -->
       <div style="margin-bottom:14px">
         <div style="display:flex;justify-content:space-between;margin-bottom:4px;font-size:11px;font-weight:700">
-          <span style="color:#78909c">Gender split</span>
+          <span style="color:#78909c"><?= __('Gender split') ?></span>
           <span><span style="color:#1e88e5"><?= $aStats['male'] ?>M</span> / <span style="color:#e91e63"><?= $aStats['female'] ?>F</span></span>
         </div>
         <?php $mPct = $convRate($aStats['male'],max(1,$aStats['total'])); ?>

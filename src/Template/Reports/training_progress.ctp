@@ -329,7 +329,7 @@ $batchStatusMeta = [
     <?php if ($score && $score['tests'] > 0): ?>
     <div style="padding:0 14px 10px">
       <div style="display:flex;justify-content:space-between;font-size:10px;font-weight:700;color:#90a4ae;margin-bottom:3px">
-        <span>Test pass rate</span><span><?= $testPassRate ?>%</span>
+        <span><?= __('Test pass rate') ?></span><span><?= $testPassRate ?>%</span>
       </div>
       <div style="height:5px;background:#f0f4f8;border-radius:3px;overflow:hidden">
         <div style="height:100%;width:<?= $testPassRate ?>%;background:<?= $gc ?>;border-radius:3px"></div>

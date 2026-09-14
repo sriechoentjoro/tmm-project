@@ -35,7 +35,7 @@
                 <ol>
                     <li><?= __('Click <strong>LPK Menu → Candidate Registration (Wizard)</strong>') ?></li>
                     <li><?= __('Enter the candidate\'s <strong>Identity Number (NIK/KTP)</strong>') ?></li>
-                    <li><?= __('Click <span class="badge badge-primary">Check Availability</span>') ?></li>
+                    <li><?= 'Click <span class="badge badge-primary">' . __('Check Availability') . '</span>' ?></li>
                     <li><?= __('System will verify:') ?>
                         <ul>
                             <li><?= __('If number exists → Show error and existing candidate details') ?></li>
@@ -115,7 +115,7 @@
                 <ol>
                     <li><?= __('Review all entered information for accuracy') ?></li>
                     <li><?= __('Make corrections if needed by going back to previous steps') ?></li>
-                    <li><?= __('Click <span class="badge badge-success">Submit Registration</span>') ?></li>
+                    <li><?= 'Click <span class="badge badge-success">' . __('Submit Registration') . '</span>' ?></li>
                     <li><?= __('System automatically links candidate to YOUR institution') ?></li>
                     <li><?= __('Candidate is now visible in <strong>My Candidates</strong> list') ?></li>
                 </ol>
@@ -151,7 +151,7 @@
                     <li><?= __('Find the candidate in <strong>My Candidates</strong>') ?></li>
                     <li><?= __('Click <span class="badge badge-warning">Edit</span>') ?></li>
                     <li><?= __('Update the necessary information') ?></li>
-                    <li><?= __('Click <span class="badge badge-primary">Save Changes</span>') ?></li>
+                    <li><?= 'Click <span class="badge badge-primary">' . __('Save Changes') . '</span>' ?></li>
                 </ol>
 
                 <h5 class="mt-4"><?= __('Viewing Candidate Details') ?></h5>
@@ -263,11 +263,11 @@
             <div class="alert alert-success">
                 <h5><i class="fa fa-link"></i> <?= __('Quick Links') ?></h5>
                 <p class="mb-2">
-                    <?= $this->Html->link('<i class="fa fa-tachometer-alt"></i> LPK Dashboard', ['controller' => 'Dashboard', 'action' => 'lpk'], ['class' => 'btn btn-sm btn-primary mr-2', 'escape' => false]) ?>
-                    <?= $this->Html->link('<i class="fa fa-user-plus"></i> Register New Candidate', ['controller' => 'Candidates', 'action' => 'wizard'], ['class' => 'btn btn-sm btn-success mr-2', 'escape' => false]) ?>
-                    <?= $this->Html->link('<i class="fa fa-users"></i> My Candidates', ['controller' => 'Candidates', 'action' => 'index'], ['class' => 'btn btn-sm btn-info mr-2', 'escape' => false]) ?>
-                    <?= $this->Html->link('<i class="fa fa-file-upload"></i> Submit Documents', ['controller' => 'CandidateDocuments', 'action' => 'index'], ['class' => 'btn btn-sm btn-info mr-2', 'escape' => false]) ?>
-                    <?= $this->Html->link('<i class="fa fa-info-circle"></i> Document Help', ['controller' => 'CandidateDocuments', 'action' => 'help'], ['class' => 'btn btn-sm btn-warning', 'escape' => false]) ?>
+                    <?= $this->Html->link('<i class="fa fa-tachometer-alt"></i> ' . __('LPK Dashboard'), ['controller' => 'Dashboard', 'action' => 'lpk'], ['class' => 'btn btn-sm btn-primary mr-2', 'escape' => false]) ?>
+                    <?= $this->Html->link('<i class="fa fa-user-plus"></i> ' . __('Register New Candidate'), ['controller' => 'Candidates', 'action' => 'wizard'], ['class' => 'btn btn-sm btn-success mr-2', 'escape' => false]) ?>
+                    <?= $this->Html->link('<i class="fa fa-users"></i> ' . __('My Candidates'), ['controller' => 'Candidates', 'action' => 'index'], ['class' => 'btn btn-sm btn-info mr-2', 'escape' => false]) ?>
+                    <?= $this->Html->link('<i class="fa fa-file-upload"></i> ' . __('Submit Documents'), ['controller' => 'CandidateDocuments', 'action' => 'index'], ['class' => 'btn btn-sm btn-info mr-2', 'escape' => false]) ?>
+                    <?= $this->Html->link('<i class="fa fa-info-circle"></i> ' . __('Document Help'), ['controller' => 'CandidateDocuments', 'action' => 'help'], ['class' => 'btn btn-sm btn-warning', 'escape' => false]) ?>
                 </p>
             </div>
 

@@ -18,7 +18,7 @@
 </div>
 
 <div class="warning-box">
-    <strong>⚠️ ACTION REQUIRED:</strong> The institution owner has been sent a verification email. 
+    <strong>⚠️ ACTION REQUIRED:</strong> <?= __('The institution owner has been sent a verification email.') ?> 
     Please review the institution details and monitor the verification process.
 </div>
 

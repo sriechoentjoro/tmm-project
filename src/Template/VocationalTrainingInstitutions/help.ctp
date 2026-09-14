@@ -186,10 +186,10 @@
             <div class="alert alert-success">
                 <h5><i class="fa fa-link"></i> <?= __('Quick Links') ?></h5>
                 <p class="mb-2">
-                    <?= $this->Html->link('<i class="fa fa-tachometer-alt"></i> Dashboard', ['controller' => 'Dashboard', 'action' => 'stakeholders'], ['class' => 'btn btn-sm btn-primary mr-2', 'escape' => false]) ?>
-                    <?= $this->Html->link('<i class="fa fa-graduation-cap"></i> LPK Institutions', ['controller' => 'VocationalTrainingInstitutions', 'action' => 'index'], ['class' => 'btn btn-sm btn-info mr-2', 'escape' => false]) ?>
-                    <?= $this->Html->link('<i class="fa fa-hands-helping"></i> Support Institutions', ['controller' => 'SpecialSkillSupportInstitutions', 'action' => 'index'], ['class' => 'btn btn-sm btn-info mr-2', 'escape' => false]) ?>
-                    <?= $this->Html->link('<i class="fa fa-building"></i> Organizations', ['controller' => 'AcceptanceOrganizations', 'action' => 'index'], ['class' => 'btn btn-sm btn-info', 'escape' => false]) ?>
+                    <?= $this->Html->link('<i class="fa fa-tachometer-alt"></i> ' . __('Dashboard'), ['controller' => 'Dashboard', 'action' => 'stakeholders'], ['class' => 'btn btn-sm btn-primary mr-2', 'escape' => false]) ?>
+                    <?= $this->Html->link('<i class="fa fa-graduation-cap"></i> ' . __('LPK Institutions'), ['controller' => 'VocationalTrainingInstitutions', 'action' => 'index'], ['class' => 'btn btn-sm btn-info mr-2', 'escape' => false]) ?>
+                    <?= $this->Html->link('<i class="fa fa-hands-helping"></i> ' . __('Support Institutions'), ['controller' => 'SpecialSkillSupportInstitutions', 'action' => 'index'], ['class' => 'btn btn-sm btn-info mr-2', 'escape' => false]) ?>
+                    <?= $this->Html->link('<i class="fa fa-building"></i> ' . __('Organizations'), ['controller' => 'AcceptanceOrganizations', 'action' => 'index'], ['class' => 'btn btn-sm btn-info', 'escape' => false]) ?>
                 </p>
             </div>
 
