@@ -85,13 +85,50 @@ function templates($root)
     return $out;
 }
 
-/** The area a template belongs to — its directory under src/Template. */
+/**
+ * PHP classes that also call __(): controllers, tables, shells, mailers.
+ *
+ * Flash messages, validation messages and error text are as user-facing as
+ * anything in a template, but this report walked src/Template only, so they
+ * were invisible to it - 557 of them had no catalog entry at all and rendered
+ * English whatever language was selected, while the summary said nothing was
+ * missing. They are scanned for __() here; the unwrapped-literal check stays
+ * on templates, where markup is what it knows how to read.
+ */
+function sources($root)
+{
+    $out = [];
+    foreach (['Controller', 'Model', 'Shell', 'View', 'Mailer', 'Command'] as $dir) {
+        $base = $root . '/src/' . $dir;
+        if (!is_dir($base)) {
+            continue;
+        }
+        $it = new RecursiveIteratorIterator(new RecursiveDirectoryIterator($base));
+        foreach ($it as $file) {
+            $p = $file->getPathname();
+            if (substr($p, -4) === '.php') {
+                $out[] = $p;
+            }
+        }
+    }
+    sort($out);
+
+    return $out;
+}
+
+/** The area a template or class belongs to — its directory under src/. */
 function areaOf($root, $path)
 {
-    $rel = ltrim(str_replace($root . '/src/Template', '', $path), '/');
-    $parts = explode('/', $rel);
+    foreach (['/src/Template' => '', '/src/' => ''] as $prefix => $_) {
+        if (strpos($path, $root . $prefix) === 0) {
+            $rel = ltrim(substr($path, strlen($root . $prefix)), '/');
+            $parts = explode('/', $rel);
 
-    return count($parts) > 1 ? $parts[0] : 'root';
+            return count($parts) > 1 ? $parts[0] : 'root';
+        }
+    }
+
+    return 'root';
 }
 
 /**
@@ -164,6 +201,20 @@ foreach ($files as $path) {
                     continue;
                 }
                 $unwrapped[$area][] = [str_replace($root . '/', '', $path), $n + 1, $text];
+            }
+        }
+    }
+}
+
+// Second pass: the PHP classes. Only __() is read here - the unwrapped-literal
+// detector looks for prose sitting in markup and has nothing to say about a
+// controller.
+foreach (sources($root) as $path) {
+    $area = areaOf($root, $path);
+    foreach (file($path) as $line) {
+        if (preg_match_all("/__\(\s*'((?:[^'\\\\]|\\\\.)*)'/", $line, $m)) {
+            foreach ($m[1] as $id) {
+                $used[stripcslashes($id)][$area] = true;
             }
         }
     }
