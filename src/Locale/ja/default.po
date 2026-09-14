@@ -11535,3 +11535,9 @@ msgstr "メールが一致"
 msgid "creates"
 msgstr "作成する"
 
+msgid "Institution not found. Please contact support."
+msgstr "機関が見つかりません。サポートにご連絡ください。"
+
+msgid "Error updating verification status. Please try again or contact support."
+msgstr "認証状況の更新に失敗しました。再度お試しいただくか、サポートにご連絡ください。"
+

@@ -33,6 +33,18 @@ class LpkRegistrationController extends AppController
         
         // Allow public access to verification and password setup
         $this->Auth->allow(['verifyEmail', 'setPassword', 'resendVerification']);
+
+        // Whoever opens those pages arrived from an email and is not logged in,
+        // so the language switcher cannot use Users::changeLanguage - that action
+        // requires authentication and would bounce them to the login form. The
+        // login layout links to ?lang= instead, which is handled here, the same
+        // way the other public pages do it.
+        $lang = $this->request->getQuery('lang');
+        if ($lang && in_array($lang, ['ind', 'eng', 'jpn'], true)) {
+            $this->request->getSession()->write('Config.language', $lang);
+
+            return $this->redirect($this->request->getPath());
+        }
     }
 
     /**
@@ -232,9 +244,37 @@ class LpkRegistrationController extends AppController
         $tokenRecord = $this->EmailVerificationTokens->validateToken($token, 'email_verification');
         
         if (!$tokenRecord) {
+            // A second click on the same link is the ordinary case, not an
+            // attack: validateToken() only matches is_used = 0, and the first
+            // click set that flag. Before calling the link invalid, look the
+            // token up without that filter and see whether it simply already did
+            // its job - otherwise reloading the page, or switching language on
+            // it, turns a completed verification into an error.
+            $spent = $this->EmailVerificationTokens->find()
+                ->where(['token' => $token, 'token_type' => 'email_verification'])
+                ->first();
+
+            if ($spent) {
+                $verified = $this->VocationalTrainingInstitutions->find()
+                    ->where(['email' => $spent->user_email])
+                    ->first();
+
+                if ($verified && $verified->status === 'active') {
+                    $this->Flash->info(__('Your account is already active. Please login.'));
+
+                    return $this->redirect(['controller' => 'Users', 'action' => 'login', 'prefix' => false]);
+                }
+
+                if ($verified && $verified->status === 'verified') {
+                    $this->Flash->info(__('Email already verified. Please set your password to complete registration.'));
+
+                    return $this->redirect(['action' => 'setPassword', $verified->id]);
+                }
+            }
+
             $this->Flash->error(__('This verification link is invalid, expired, or has already been used.'));
             Log::warning("Invalid/expired token: $token", ['scope' => 'lpk_registration']);
-            
+
             $this->set('tokenStatus', 'invalid');
             return;
         }
