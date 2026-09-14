@@ -79,27 +79,27 @@ $this->layout = 'process_flow';
     
     <div class="mermaid">
 graph TD
-    A[👤 Admin Opens<br/>LPK Registration Form] --> B{Fill Form<br/>Valid?}
-    B -->|No| A
-    B -->|Yes| C[💾 Save to<br/>vocational_training_institutions<br/>status=pending_verification]
-    C --> D[🔑 Generate Token<br/>email_verification_tokens<br/>64 random chars]
-    D --> E[📧 Send Verification Email<br/>to LPK Email]
-    E --> F[📬 LPK Receives Email]
-    F --> G{LPK Clicks<br/>Verification Link?}
-    G -->|No| H[⏳ Wait<br/>Max 24 hours]
-    H --> I{Token<br/>Expired?}
-    I -->|Yes| J[❌ Token Invalid<br/>Admin Must Resend]
-    I -->|No| G
-    G -->|Yes| K[✅ Validate Token<br/>Mark is_used=1]
-    K --> L[🔄 Update Status<br/>email_verified]
-    L --> M[🔐 Redirect to<br/>Set Password Page]
-    M --> N{Password<br/>Valid?}
-    N -->|No| M
-    N -->|Yes| O[👤 Create User Account<br/>users table<br/>role=lpk]
-    O --> P[🎉 Update Status<br/>active]
-    P --> Q[📧 Send Welcome Email]
-    Q --> R[✅ LPK Can Login]
-    
+    A["👤 <?= __('Admin Opens<br/>LPK Registration Form') ?>"] --> B{"<?= __('Fill Form<br/>Valid?') ?>"}
+    B -->|"<?= __('No') ?>"| A
+    B -->|"<?= __('Yes') ?>"| C["💾 <?= __('Save to') ?><br/>vocational_training_institutions<br/>status=pending_verification"]
+    C --> D["🔑 <?= __('Generate Token') ?><br/>email_verification_tokens<br/><?= __('64 random chars') ?>"]
+    D --> E["📧 <?= __('Send Verification Email<br/>to LPK Email') ?>"]
+    E --> F["📬 <?= __('LPK Receives Email') ?>"]
+    F --> G{"<?= __('LPK Clicks<br/>Verification Link?') ?>"}
+    G -->|"<?= __('No') ?>"| H["⏳ <?= __('Wait<br/>Max 24 hours') ?>"]
+    H --> I{"<?= __('Token<br/>Expired?') ?>"}
+    I -->|"<?= __('Yes') ?>"| J["❌ <?= __('Token Invalid<br/>Admin Must Resend') ?>"]
+    I -->|"<?= __('No') ?>"| G
+    G -->|"<?= __('Yes') ?>"| K["✅ <?= __('Validate Token') ?><br/><?= __('Mark') ?> is_used=1"]
+    K --> L["🔄 <?= __('Update Status') ?><br/>email_verified"]
+    L --> M["🔐 <?= __('Redirect to<br/>Set Password Page') ?>"]
+    M --> N{"<?= __('Password<br/>Valid?') ?>"}
+    N -->|"<?= __('No') ?>"| M
+    N -->|"<?= __('Yes') ?>"| O["👤 <?= __('Create User Account') ?><br/>users<br/>role=lpk"]
+    O --> P["🎉 <?= __('Update Status') ?><br/>active"]
+    P --> Q["📧 <?= __('Send Welcome Email') ?>"]
+    Q --> R["✅ <?= __('LPK Can Login') ?>"]
+
     style A fill:#e3f2fd
     style C fill:#fff9c4
     style D fill:#fff9c4
@@ -127,9 +127,9 @@ erDiagram
     
     VOCATIONAL_TRAINING_INSTITUTIONS {
         int id PK
-        string name "Required"
-        string email "Required, Unique"
-        string director_name "Required"
+        string name "<?= __('Required') ?>"
+        string email "<?= __('Required, Unique') ?>"
+        string director_name "<?= __('Required') ?>"
         string status "pending/email_verified/active"
         int master_propinsi_id FK
         int master_kabupaten_id FK
@@ -140,20 +140,20 @@ erDiagram
     EMAIL_VERIFICATION_TOKENS {
         int id PK
         string user_email FK
-        string token "64 chars, Unique"
+        string token "<?= __('64 chars, Unique') ?>"
         string token_type "email_verification"
-        boolean is_used "Default: 0"
-        datetime expires_at "Now + 24 hours"
+        boolean is_used "<?= __('Default: 0') ?>"
+        datetime expires_at "<?= __('Now + 24 hours') ?>"
         datetime created
     }
     
     USERS {
         int id PK
         string email FK
-        string password "Bcrypt hashed"
+        string password "<?= __('Bcrypt hashed') ?>"
         string fullname
         int stakeholder_group_id FK
-        boolean is_active "Default: 1"
+        boolean is_active "<?= __('Default: 1') ?>"
         datetime created
     }
     
@@ -477,8 +477,8 @@ graph LR
         H[master_kelurahans]
     end
     
-    A -.->|email matches| B
-    A -->|creates| C
+    A -.->|"<?= __('email matches') ?>"| B
+    A -->|"<?= __('creates') ?>"| C
     B --> D
     A --> E
     A --> F
