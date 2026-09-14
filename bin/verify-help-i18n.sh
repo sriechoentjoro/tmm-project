@@ -144,9 +144,48 @@ for page in $PAGES; do
     done
 done
 
-say "4. Result"
+# The three diagrams on the LPK process-flow page carry their own copy, and a
+# mermaid block that fails to parse renders as nothing at all, silently — so it
+# is worth looking inside the <div class="mermaid"> rather than at the page as a
+# whole, where a few hundred translated words elsewhere would mask it.
+say "4. Diagrams on the LPK process-flow page"
+printf '  %-34s %-5s %7s %7s %7s %7s\n' block lang blocks japanese indo english
+for lang in ind eng jpn; do
+    read -r code url <<<"$(fetch "/users/change-language/$lang" "$WORK/switch.html")"
+    [ "$code" = 200 ] || { printf '  %-34s %-5s switch failed (%s)\n' "(mermaid)" "$lang" "$code"; bad=1; continue; }
+
+    read -r code url <<<"$(fetch "/admin/lpk-registration/process-flow" "$WORK/flow-$lang.html")"
+    if [ "$code" != 200 ]; then
+        printf '  %-34s %-5s HTTP %s\n' "(mermaid)" "$lang" "$code"; bad=1; continue
+    fi
+
+    read -r blocks jp id en <<<"$(php -r '
+    $html = file_get_contents($argv[1]);
+    preg_match_all("#<div class=\"mermaid\">(.*?)</div>#s", $html, $m);
+    $src = implode("\n", $m[1]);
+    printf("%d %d %d %d\n", count($m[1]),
+        preg_match_all("/[\x{3040}-\x{30ff}\x{4e00}-\x{9fff}]/u", $src),
+        preg_match_all("/\b(Simpan|Buat|Kirim|Menunggu|Tandai|Wajib|Perbarui|Arahkan)\b/u", $src),
+        preg_match_all("/\b(Save|Generate|Send|Wait|Mark|Required|Update|Redirect)\b/u", $src));
+    ' "$WORK/flow-$lang.html")"
+    printf '  %-34s %-5s %7s %7s %7s %7s' "3 mermaid blocks" "$lang" "$blocks" "$jp" "$id" "$en"
+
+    [ "$blocks" = 3 ] || { printf '  <- expected 3 blocks'; bad=1; printf '\n'; continue; }
+    case "$lang" in
+        ind) [ "$id" -gt 3 ] || { printf '  <- expected Indonesian'; bad=1; } ;;
+        eng) [ "$en" -gt 3 ] || { printf '  <- expected English'; bad=1; } ;;
+        jpn) [ "$jp" -gt 50 ] || { printf '  <- expected Japanese'; bad=1; } ;;
+    esac
+    printf '\n'
+done
+echo "  a block that renders blank in the browser still counts here, so open the"
+echo "  page once to confirm the diagrams actually draw:"
+echo "      $BASE_URL/admin/lpk-registration/process-flow"
+
+say "5. Result"
 if [ "$bad" = 0 ]; then
-    echo "  all 15 page/language combinations rendered in the expected language"
+    echo "  all 15 page/language combinations rendered in the expected language,"
+    echo "  and all 3 diagrams carry their translated labels in all 3 languages"
 else
     echo "  some combinations did not switch — see the lines marked above"
     echo "  if every page is English, the translation cache is stale:"
