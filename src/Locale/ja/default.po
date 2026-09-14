@@ -9432,3 +9432,1524 @@ msgstr "通知用の有効なメールアドレスを入力してください。
 msgid "Upload a clear photo of yourself (JPG or PNG format)."
 msgstr "本人の鮮明な写真をアップロードしてください（JPGまたはPNG形式）。"
 
+msgid "Document Submission - Help Guide"
+msgstr "書類提出 - ヘルプガイド"
+
+msgid "Document Submission System"
+msgstr "書類提出システム"
+
+msgid "This guide explains how to properly submit and manage candidate documents in the <strong>cms_lpk_candidate_documents</strong> database."
+msgstr "このガイドでは、<strong>cms_lpk_candidate_documents</strong> データベースで候補者の書類を正しく提出・管理する方法を説明します。"
+
+msgid "Required Documents Checklist"
+msgstr "必要書類チェックリスト"
+
+msgid "Requirements"
+msgstr "要件"
+
+msgid "File Format"
+msgstr "ファイル形式"
+
+msgid "<strong>Identity Card (KTP)</strong>"
+msgstr "<strong>身分証明書（KTP）</strong>"
+
+msgid "Clear scan/photo of both sides, valid and not expired"
+msgstr "両面の鮮明なスキャンまたは写真。有効期限内のもの"
+
+msgid "PDF, JPG, PNG<br>Max 2MB"
+msgstr "PDF、JPG、PNG<br>最大2MB"
+
+msgid "<strong>Family Card (KK)</strong>"
+msgstr "<strong>家族台帳（KK）</strong>"
+
+msgid "Complete family card showing candidate's name"
+msgstr "候補者の氏名が記載された家族台帳の全体"
+
+msgid "<strong>Birth Certificate</strong>"
+msgstr "<strong>出生証明書</strong>"
+
+msgid "Official birth certificate or extract"
+msgstr "公的な出生証明書または抄本"
+
+msgid "<strong>Education Certificate</strong>"
+msgstr "<strong>卒業証明書</strong>"
+
+msgid "Highest education diploma (SMA/SMK/D3/S1)"
+msgstr "最終学歴の卒業証書（SMA/SMK/D3/S1）"
+
+msgid "PDF, JPG, PNG<br>Max 3MB"
+msgstr "PDF、JPG、PNG<br>最大3MB"
+
+msgid "<strong>Academic Transcript</strong>"
+msgstr "<strong>成績証明書</strong>"
+
+msgid "Complete transcript of grades"
+msgstr "成績の全記録"
+
+msgid "<strong>Passport Photo</strong>"
+msgstr "<strong>証明写真</strong>"
+
+msgid "Recent photo, 3x4 cm, white background"
+msgstr "最近撮影した写真、3x4cm、背景白"
+
+msgid "JPG, PNG<br>Max 1MB"
+msgstr "JPG、PNG<br>最大1MB"
+
+msgid "<strong>Health Certificate</strong>"
+msgstr "<strong>健康診断書</strong>"
+
+msgid "Medical check-up results (not older than 3 months)"
+msgstr "健康診断の結果（3か月以内のもの）"
+
+msgid "<strong>Police Clearance (SKCK)</strong>"
+msgstr "<strong>無犯罪証明書（SKCK）</strong>"
+
+msgid "Valid SKCK (not older than 6 months)"
+msgstr "有効なSKCK（6か月以内のもの）"
+
+msgid "<strong>Passport (if available)</strong>"
+msgstr "<strong>パスポート（ある場合）</strong>"
+
+msgid "Valid passport with at least 18 months validity"
+msgstr "残存有効期間が18か月以上あるパスポート"
+
+msgid "<strong>Training Certificates</strong>"
+msgstr "<strong>研修修了証</strong>"
+
+msgid "Any relevant vocational training certificates"
+msgstr "関連する職業訓練の修了証"
+
+msgid "PDF, JPG, PNG<br>Max 2MB each"
+msgstr "PDF、JPG、PNG<br>1件あたり最大2MB"
+
+msgid "Document Upload Process"
+msgstr "書類アップロードの手順"
+
+msgid "Step-by-Step Upload Guide"
+msgstr "アップロードの手順ガイド"
+
+msgid "Access Document Submission"
+msgstr "書類提出画面を開く"
+
+msgid "Go to <strong>LPK Menu → Document Submission</strong>"
+msgstr "<strong>LPKメニュー → 書類提出</strong> を開きます"
+
+msgid "Select the candidate from your institution's list"
+msgstr "自機関の一覧から候補者を選択します"
+
+msgid "Choose Document Category"
+msgstr "書類カテゴリを選ぶ"
+
+msgid "Select the document type from dropdown"
+msgstr "ドロップダウンから書類の種類を選択します"
+
+msgid "Read the specific requirements for that document"
+msgstr "その書類に固有の要件を確認します"
+
+msgid "Prepare Your File"
+msgstr "ファイルを準備する"
+
+msgid "Ensure file meets size and format requirements"
+msgstr "ファイルがサイズと形式の要件を満たしていることを確認します"
+
+msgid "Rename file descriptively (e.g., \"KTP_JohnDoe.pdf\")"
+msgstr "分かりやすいファイル名に変更します（例：「KTP_JohnDoe.pdf」）"
+
+msgid "Verify document is clear and legible"
+msgstr "書類が鮮明で読み取れることを確認します"
+
+msgid "Click <span class=\"badge badge-primary\">Choose File</span>"
+msgstr "<span class=\"badge badge-primary\">ファイルを選択</span> をクリックします"
+
+msgid "Select your prepared document"
+msgstr "準備した書類を選択します"
+
+msgid "Add notes or comments (optional but recommended)"
+msgstr "メモやコメントを追加します（任意ですが推奨）"
+
+msgid "Click <span class=\"badge badge-success\">Upload</span>"
+msgstr "<span class=\"badge badge-success\">アップロード</span> をクリックします"
+
+msgid "Verify Upload"
+msgstr "アップロードを確認する"
+
+msgid "Check for success message"
+msgstr "成功メッセージを確認します"
+
+msgid "Verify document appears in submission list"
+msgstr "書類が提出一覧に表示されることを確認します"
+
+msgid "Note the submission date and status"
+msgstr "提出日とステータスを記録します"
+
+msgid "Do not upload password-protected files"
+msgstr "パスワード保護されたファイルはアップロードしないでください"
+
+msgid "Ensure documents are not corrupted"
+msgstr "書類が破損していないことを確認してください"
+
+msgid "Use clear scans, avoid blurry photos"
+msgstr "鮮明なスキャンを使用し、ぼやけた写真は避けてください"
+
+msgid "Submit documents in the correct category"
+msgstr "書類は正しいカテゴリで提出してください"
+
+msgid "Document Status Tracking"
+msgstr "書類ステータスの追跡"
+
+msgid "Understanding Document Status"
+msgstr "書類ステータスの意味"
+
+msgid "Meaning"
+msgstr "意味"
+
+msgid "Action Required"
+msgstr "必要な対応"
+
+msgid "<span class=\"badge badge-secondary\">Not Submitted</span>"
+msgstr "<span class=\"badge badge-secondary\">未提出</span>"
+
+msgid "Document has not been uploaded yet"
+msgstr "書類がまだアップロードされていません"
+
+msgid "Upload the required document"
+msgstr "必要な書類をアップロードしてください"
+
+msgid "<span class=\"badge badge-warning\">Pending Review</span>"
+msgstr "<span class=\"badge badge-warning\">確認待ち</span>"
+
+msgid "Document uploaded, awaiting verification"
+msgstr "書類はアップロード済みで、確認を待っています"
+
+msgid "Wait for admin review"
+msgstr "管理者の確認をお待ちください"
+
+msgid "<span class=\"badge badge-info\">Under Review</span>"
+msgstr "<span class=\"badge badge-info\">確認中</span>"
+
+msgid "Document is being verified by admin"
+msgstr "管理者が書類を確認しています"
+
+msgid "No action needed"
+msgstr "対応は不要です"
+
+msgid "<span class=\"badge badge-success\">Approved</span>"
+msgstr "<span class=\"badge badge-success\">承認済み</span>"
+
+msgid "Document verified and accepted"
+msgstr "書類が確認され、受理されました"
+
+msgid "<span class=\"badge badge-danger\">Rejected</span>"
+msgstr "<span class=\"badge badge-danger\">却下</span>"
+
+msgid "Document does not meet requirements"
+msgstr "書類が要件を満たしていません"
+
+msgid "Check rejection reason and re-upload"
+msgstr "却下理由を確認して再アップロードしてください"
+
+msgid "<span class=\"badge badge-primary\">Resubmitted</span>"
+msgstr "<span class=\"badge badge-primary\">再提出</span>"
+
+msgid "Document re-uploaded after rejection"
+msgstr "却下後に再アップロードされた書類"
+
+msgid "Wait for re-review"
+msgstr "再確認をお待ちください"
+
+msgid "Checking Document Status"
+msgstr "書類ステータスの確認"
+
+msgid "Go to <strong>LPK Menu → Document Dashboard</strong>"
+msgstr "<strong>LPKメニュー → 書類ダッシュボード</strong> を開きます"
+
+msgid "View overall completion percentage"
+msgstr "全体の完了率を確認します"
+
+msgid "See detailed status for each document type"
+msgstr "書類の種類ごとに詳細なステータスを確認します"
+
+msgid "Click on candidate name to see individual document status"
+msgstr "候補者名をクリックすると個別の書類ステータスが表示されます"
+
+msgid "Handling Document Rejections"
+msgstr "書類却下への対応"
+
+msgid "Common Rejection Reasons"
+msgstr "よくある却下理由"
+
+msgid "<strong>Poor Quality:</strong> Document is blurry, dark, or illegible"
+msgstr "<strong>品質不良：</strong>書類がぼやけている、暗い、または読み取れない"
+
+msgid "<strong>Incomplete:</strong> Missing pages or information"
+msgstr "<strong>不備：</strong>ページまたは情報が欠けている"
+
+msgid "<strong>Expired:</strong> Document validity has expired"
+msgstr "<strong>期限切れ：</strong>書類の有効期限が過ぎている"
+
+msgid "<strong>Wrong Format:</strong> File type not supported"
+msgstr "<strong>形式の誤り：</strong>対応していないファイル形式"
+
+msgid "<strong>Wrong Category:</strong> Document uploaded in incorrect category"
+msgstr "<strong>カテゴリの誤り：</strong>誤ったカテゴリにアップロードされている"
+
+msgid "<strong>Mismatch:</strong> Information doesn't match candidate data"
+msgstr "<strong>不一致：</strong>情報が候補者データと一致しない"
+
+msgid "How to Resubmit Rejected Documents"
+msgstr "却下された書類を再提出する方法"
+
+msgid "Check the rejection reason in the document status"
+msgstr "書類ステータスで却下理由を確認します"
+
+msgid "Prepare a corrected version of the document"
+msgstr "修正した書類を用意します"
+
+msgid "Go to <strong>Document Submission</strong>"
+msgstr "<strong>書類提出</strong> を開きます"
+
+msgid "Find the rejected document"
+msgstr "却下された書類を探します"
+
+msgid "Click <span class=\"badge badge-warning\">Resubmit</span>"
+msgstr "<span class=\"badge badge-warning\">再提出</span> をクリックします"
+
+msgid "Upload the corrected document"
+msgstr "修正した書類をアップロードします"
+
+msgid "Add notes explaining the corrections made"
+msgstr "行った修正内容を説明するメモを追加します"
+
+msgid "Submit for re-review"
+msgstr "再確認のために提出します"
+
+msgid "Document Dashboard Features"
+msgstr "書類ダッシュボードの機能"
+
+msgid "Dashboard Overview"
+msgstr "ダッシュボードの概要"
+
+msgid "The Document Dashboard (<strong>LPK Menu → Document Dashboard</strong>) provides:"
+msgstr "書類ダッシュボード（<strong>LPKメニュー → 書類ダッシュボード</strong>）では次の情報を確認できます："
+
+msgid "Summary Statistics:"
+msgstr "統計の要約："
+
+msgid "Total candidates registered"
+msgstr "登録済み候補者の総数"
+
+msgid "Total documents submitted"
+msgstr "提出書類の総数"
+
+msgid "Documents pending review"
+msgstr "確認待ちの書類"
+
+msgid "Documents approved"
+msgstr "承認された書類"
+
+msgid "Documents rejected"
+msgstr "却下された書類"
+
+msgid "Completion Tracking:"
+msgstr "完了状況の追跡："
+
+msgid "Overall completion percentage"
+msgstr "全体の完了率"
+
+msgid "Per-candidate completion status"
+msgstr "候補者ごとの完了状況"
+
+msgid "Missing documents list"
+msgstr "不足している書類の一覧"
+
+msgid "Visual Reports:"
+msgstr "グラフによるレポート："
+
+msgid "Charts showing submission progress"
+msgstr "提出の進捗を示すグラフ"
+
+msgid "Status distribution graphs"
+msgstr "ステータス分布のグラフ"
+
+msgid "Timeline of submissions"
+msgstr "提出の時系列"
+
+msgid "Best Practices"
+msgstr "推奨される運用"
+
+msgid "<strong>Scan Quality:</strong> Use 300 DPI or higher for scans"
+msgstr "<strong>スキャン品質：</strong>300 DPI以上でスキャンしてください"
+
+msgid "<strong>File Naming:</strong> Use descriptive names (e.g., \"KTP_NamaCandidate_2024.pdf\")"
+msgstr "<strong>ファイル名：</strong>分かりやすい名前を使ってください（例：「KTP_NamaCandidate_2024.pdf」）"
+
+msgid "<strong>Batch Upload:</strong> Prepare all documents before starting upload session"
+msgstr "<strong>一括アップロード：</strong>アップロードを始める前に全書類を用意してください"
+
+msgid "<strong>Regular Checks:</strong> Monitor dashboard daily for status updates"
+msgstr "<strong>定期的な確認：</strong>ステータスの更新を毎日ダッシュボードで確認してください"
+
+msgid "<strong>Prompt Resubmission:</strong> Address rejections within 24 hours"
+msgstr "<strong>速やかな再提出：</strong>却下には24時間以内に対応してください"
+
+msgid "<strong>Backup Copies:</strong> Keep original documents and digital backups"
+msgstr "<strong>控えの保管：</strong>原本とデジタルの控えを保管してください"
+
+msgid "<strong>Verify Before Upload:</strong> Double-check document quality and correctness"
+msgstr "<strong>アップロード前の確認：</strong>書類の品質と内容を再確認してください"
+
+msgid "<strong>Complete Sets:</strong> Submit all required documents for each candidate"
+msgstr "<strong>一式そろえる：</strong>候補者ごとに必要書類をすべて提出してください"
+
+msgid "Troubleshooting"
+msgstr "トラブルシューティング"
+
+msgid "Upload Fails"
+msgstr "アップロードが失敗する"
+
+msgid "Check file size (must be under maximum limit)"
+msgstr "ファイルサイズを確認してください（上限未満である必要があります）"
+
+msgid "Verify file format is supported (PDF, JPG, PNG)"
+msgstr "対応形式（PDF、JPG、PNG）であることを確認してください"
+
+msgid "Ensure stable internet connection"
+msgstr "安定したインターネット接続を確保してください"
+
+msgid "Try a different browser if problem persists"
+msgstr "問題が続く場合は別のブラウザーを試してください"
+
+msgid "Document Not Appearing"
+msgstr "書類が表示されない"
+
+msgid "Refresh the page"
+msgstr "ページを再読み込みしてください"
+
+msgid "Check if upload completed successfully"
+msgstr "アップロードが正常に完了したか確認してください"
+
+msgid "Verify you selected correct candidate"
+msgstr "正しい候補者を選択したか確認してください"
+
+msgid "Contact system administrator if issue continues"
+msgstr "問題が続く場合はシステム管理者に連絡してください"
+
+msgid "Cannot See Candidate"
+msgstr "候補者が表示されない"
+
+msgid "Ensure candidate is registered under YOUR institution"
+msgstr "候補者が自機関の下に登録されていることを確認してください"
+
+msgid "Remember: You can only see your institution's candidates"
+msgstr "ご注意：閲覧できるのは自機関の候補者のみです"
+
+msgid "Check if candidate registration was completed"
+msgstr "候補者の登録が完了しているか確認してください"
+
+msgid "Quick Links"
+msgstr "クイックリンク"
+
+msgid "LPK Candidate Registration - User Guide"
+msgstr "LPK候補者登録 - 利用ガイド"
+
+msgid "Welcome to LPK Candidate Management"
+msgstr "LPK候補者管理へようこそ"
+
+msgid "This module allows authorized LPK institutions to register and manage apprentice candidates. All data is stored in <strong>cms_lpk_candidates</strong> database."
+msgstr "このモジュールでは、認可されたLPK機関が技能実習生の候補者を登録・管理できます。データはすべて <strong>cms_lpk_candidates</strong> データベースに保存されます。"
+
+msgid "<strong>Important:</strong> You can only see and manage candidates registered by YOUR institution. Other LPK candidates are not visible to you."
+msgstr "<strong>重要：</strong>閲覧・管理できるのは自機関が登録した候補者のみです。他のLPKの候補者は表示されません。"
+
+msgid "The registration wizard guides you through a step-by-step process to ensure complete and accurate candidate data."
+msgstr "登録ウィザードが手順を順に案内し、候補者データの完全性と正確性を確保します。"
+
+msgid "Step 1: Identity Number Existence Check"
+msgstr "ステップ1：身分証番号の重複確認"
+
+msgid "<strong>Duplicate Prevention</strong>"
+msgstr "<strong>重複の防止</strong>"
+
+msgid "This step prevents duplicate registrations by checking if the candidate's identity number (KTP/NIK) already exists in the system."
+msgstr "この手順では、候補者の身分証番号（KTP/NIK）がすでにシステムに存在するかを確認し、二重登録を防ぎます。"
+
+msgid "Click <strong>LPK Menu → Candidate Registration (Wizard)</strong>"
+msgstr "<strong>LPKメニュー → 候補者登録（ウィザード）</strong> をクリックします"
+
+msgid "Enter the candidate's <strong>Identity Number (NIK/KTP)</strong>"
+msgstr "候補者の <strong>身分証番号（NIK/KTP）</strong> を入力します"
+
+msgid "Click <span class=\"badge badge-primary\">Check Availability</span>"
+msgstr "<span class=\"badge badge-primary\">利用可否を確認</span> をクリックします"
+
+msgid "System will verify:"
+msgstr "システムが次を確認します："
+
+msgid "If number exists → Show error and existing candidate details"
+msgstr "番号が存在する場合 → エラーと既存の候補者情報を表示します"
+
+msgid "If number is new → Proceed to next step"
+msgstr "番号が新規の場合 → 次の手順に進みます"
+
+msgid "Step 2: Basic Data Entry"
+msgstr "ステップ2：基本データの入力"
+
+msgid "Enter the candidate's personal and contact information:"
+msgstr "候補者の個人情報と連絡先を入力します："
+
+msgid "Personal Information:"
+msgstr "個人情報："
+
+msgid "Full Name (as per ID card)"
+msgstr "氏名（身分証明書のとおり）"
+
+msgid "Place of Birth"
+msgstr "出生地"
+
+msgid "Marital Status"
+msgstr "婚姻状況"
+
+msgid "Contact Information:"
+msgstr "連絡先："
+
+msgid "Phone Number"
+msgstr "電話番号"
+
+msgid "Address Information:"
+msgstr "住所情報："
+
+msgid "Complete Address"
+msgstr "住所（全体）"
+
+msgid "Province (Propinsi)"
+msgstr "州（Propinsi）"
+
+msgid "Regency (Kabupaten)"
+msgstr "県（Kabupaten）"
+
+msgid "District (Kecamatan)"
+msgstr "郡（Kecamatan）"
+
+msgid "Village (Kelurahan)"
+msgstr "村・町（Kelurahan）"
+
+msgid "Step 3: Association Data"
+msgstr "ステップ3：関連データ"
+
+msgid "Link the candidate to relevant entities:"
+msgstr "候補者を関連する項目に紐付けます："
+
+msgid "Education Background:"
+msgstr "学歴："
+
+msgid "Highest Education Level (Strata)"
+msgstr "最終学歴（Strata）"
+
+msgid "School/University Name"
+msgstr "学校・大学名"
+
+msgid "Graduation Year"
+msgstr "卒業年"
+
+msgid "Field of Study"
+msgstr "専攻"
+
+msgid "Work Experience:"
+msgstr "職歴："
+
+msgid "Previous Employment (if any)"
+msgstr "以前の勤務先（ある場合）"
+
+msgid "Job Position"
+msgstr "職位"
+
+msgid "Skills & Certifications:"
+msgstr "技能・資格："
+
+msgid "Relevant Skills"
+msgstr "関連する技能"
+
+msgid "Certificates/Training"
+msgstr "資格・研修"
+
+msgid "Language Proficiency"
+msgstr "語学力"
+
+msgid "Family Information:"
+msgstr "家族情報："
+
+msgid "Father's Name & Occupation"
+msgstr "父の氏名・職業"
+
+msgid "Mother's Name & Occupation"
+msgstr "母の氏名・職業"
+
+msgid "Emergency Contact Person"
+msgstr "緊急連絡先の氏名"
+
+msgid "Step 4: Review & Submit"
+msgstr "ステップ4：確認して送信"
+
+msgid "Review all entered information for accuracy"
+msgstr "入力したすべての情報が正確か確認します"
+
+msgid "Make corrections if needed by going back to previous steps"
+msgstr "必要に応じて前の手順に戻って修正します"
+
+msgid "Click <span class=\"badge badge-success\">Submit Registration</span>"
+msgstr "<span class=\"badge badge-success\">登録を送信</span> をクリックします"
+
+msgid "System automatically links candidate to YOUR institution"
+msgstr "システムが候補者を自機関に自動で紐付けます"
+
+msgid "Candidate is now visible in <strong>My Candidates</strong> list"
+msgstr "候補者が <strong>自分の候補者</strong> 一覧に表示されます"
+
+msgid "Managing Your Candidates"
+msgstr "候補者の管理"
+
+msgid "Viewing Your Candidates"
+msgstr "候補者の閲覧"
+
+msgid "Go to <strong>LPK Menu → My Candidates</strong>"
+msgstr "<strong>LPKメニュー → 自分の候補者</strong> を開きます"
+
+msgid "You will see ONLY candidates registered by your institution"
+msgstr "表示されるのは自機関が登録した候補者のみです"
+
+msgid "Use filters to search by:"
+msgstr "次の条件で絞り込めます："
+
+msgid "Registration Date"
+msgstr "登録日"
+
+msgid "<strong>Data Privacy</strong>"
+msgstr "<strong>データのプライバシー</strong>"
+
+msgid "For security and privacy, you cannot see candidates registered by other LPK institutions. This ensures each institution manages only their own data."
+msgstr "セキュリティとプライバシーのため、他のLPK機関が登録した候補者は閲覧できません。これにより各機関は自らのデータのみを管理します。"
+
+msgid "Editing Candidate Information"
+msgstr "候補者情報の編集"
+
+msgid "Find the candidate in <strong>My Candidates</strong>"
+msgstr "<strong>自分の候補者</strong> で該当する候補者を探します"
+
+msgid "Click <span class=\"badge badge-warning\">Edit</span>"
+msgstr "<span class=\"badge badge-warning\">編集</span> をクリックします"
+
+msgid "Update the necessary information"
+msgstr "必要な情報を更新します"
+
+msgid "Click <span class=\"badge badge-primary\">Save Changes</span>"
+msgstr "<span class=\"badge badge-primary\">変更を保存</span> をクリックします"
+
+msgid "Viewing Candidate Details"
+msgstr "候補者の詳細表示"
+
+msgid "Click <span class=\"badge badge-info\">View</span> on any candidate"
+msgstr "任意の候補者の <span class=\"badge badge-info\">表示</span> をクリックします"
+
+msgid "See complete profile including:"
+msgstr "次を含む完全なプロフィールを確認できます："
+
+msgid "Personal data"
+msgstr "個人データ"
+
+msgid "Education history"
+msgstr "学歴"
+
+msgid "Family information"
+msgstr "家族情報"
+
+msgid "Document submission status"
+msgstr "書類の提出状況"
+
+msgid "After registering a candidate, you must submit required documents stored in <strong>cms_lpk_candidate_documents</strong> database."
+msgstr "候補者を登録したら、<strong>cms_lpk_candidate_documents</strong> データベースに保存される必要書類を提出する必要があります。"
+
+msgid "Required Documents"
+msgstr "必要書類"
+
+msgid "Identity Card (KTP) - Scan/Photo"
+msgstr "身分証明書（KTP）- スキャンまたは写真"
+
+msgid "Family Card (KK)"
+msgstr "家族台帳（KK）"
+
+msgid "Birth Certificate"
+msgstr "出生証明書"
+
+msgid "Education Certificate (Ijazah)"
+msgstr "卒業証明書（Ijazah）"
+
+msgid "Academic Transcript"
+msgstr "成績証明書"
+
+msgid "Passport-size Photo (3x4 cm)"
+msgstr "証明写真（3x4cm）"
+
+msgid "Health Certificate"
+msgstr "健康診断書"
+
+msgid "Police Clearance (SKCK)"
+msgstr "無犯罪証明書（SKCK）"
+
+msgid "How to Submit Documents"
+msgstr "書類を提出する方法"
+
+msgid "Select the candidate from your list"
+msgstr "一覧から候補者を選択します"
+
+msgid "For each required document:"
+msgstr "必要書類ごとに："
+
+msgid "Click <span class=\"badge badge-primary\">Upload</span>"
+msgstr "<span class=\"badge badge-primary\">アップロード</span> をクリックします"
+
+msgid "Select file (PDF, JPG, PNG accepted)"
+msgstr "ファイルを選択します（PDF、JPG、PNGに対応）"
+
+msgid "Add notes if needed"
+msgstr "必要に応じてメモを追加します"
+
+msgid "Click <span class=\"badge badge-success\">Submit</span>"
+msgstr "<span class=\"badge badge-success\">送信</span> をクリックします"
+
+msgid "Track submission status in real-time"
+msgstr "提出状況をリアルタイムで確認できます"
+
+msgid "Document Dashboard"
+msgstr "書類ダッシュボード"
+
+msgid "Access <strong>LPK Menu → Document Dashboard</strong>"
+msgstr "<strong>LPKメニュー → 書類ダッシュボード</strong> を開きます"
+
+msgid "View statistics:"
+msgstr "統計を確認します："
+
+msgid "Total candidates"
+msgstr "候補者の総数"
+
+msgid "Documents submitted"
+msgstr "提出済みの書類"
+
+msgid "Documents pending"
+msgstr "保留中の書類"
+
+msgid "Documents approved/rejected"
+msgstr "承認・却下された書類"
+
+msgid "Monitor completion percentage per candidate"
+msgstr "候補者ごとの完了率を確認します"
+
+msgid "Database Structure"
+msgstr "データベース構成"
+
+msgid "Your LPK data is organized across two databases:"
+msgstr "LPKのデータは2つのデータベースに分かれています："
+
+msgid "<code>candidates</code> - Main candidate records"
+msgstr "<code>candidates</code> - 候補者の主レコード"
+
+msgid "<code>candidate_educations</code> - Education history"
+msgstr "<code>candidate_educations</code> - 学歴"
+
+msgid "<code>candidate_experiences</code> - Work experience"
+msgstr "<code>candidate_experiences</code> - 職歴"
+
+msgid "<code>candidate_families</code> - Family information"
+msgstr "<code>candidate_families</code> - 家族情報"
+
+msgid "<code>candidate_certifications</code> - Skills & certificates"
+msgstr "<code>candidate_certifications</code> - 技能・資格"
+
+msgid "<code>candidate_documents</code> - Uploaded files"
+msgstr "<code>candidate_documents</code> - アップロードされたファイル"
+
+msgid "<code>candidate_submission_documents</code> - Submission tracking"
+msgstr "<code>candidate_submission_documents</code> - 提出の追跡"
+
+msgid "<code>document_categories</code> - Document types"
+msgstr "<code>document_categories</code> - 書類の種類"
+
+msgid "<strong>Verify Identity:</strong> Always verify candidate's identity documents before registration"
+msgstr "<strong>本人確認：</strong>登録前に必ず候補者の身分証明書を確認してください"
+
+msgid "<strong>Complete Data:</strong> Fill all required fields to avoid processing delays"
+msgstr "<strong>データの完全性：</strong>処理の遅れを防ぐため、必須フィールドはすべて入力してください"
+
+msgid "<strong>Document Quality:</strong> Ensure uploaded documents are clear and legible"
+msgstr "<strong>書類の品質：</strong>アップロードする書類が鮮明で読み取れることを確認してください"
+
+msgid "<strong>Regular Updates:</strong> Keep candidate information current"
+msgstr "<strong>定期的な更新：</strong>候補者の情報を最新に保ってください"
+
+msgid "<strong>Timely Submission:</strong> Submit all required documents promptly"
+msgstr "<strong>期限内の提出：</strong>必要書類は速やかに提出してください"
+
+msgid "<strong>Follow-up:</strong> Monitor document approval status regularly"
+msgstr "<strong>フォローアップ：</strong>書類の承認状況を定期的に確認してください"
+
+msgid "Stakeholder Management - User Guide"
+msgstr "ステークホルダー管理 - 利用ガイド"
+
+msgid "Welcome to Stakeholder Management"
+msgstr "ステークホルダー管理へようこそ"
+
+msgid "This guide will help you understand how to manage stakeholders in the TMM Apprentice Management System. Stakeholders include organizations, institutions, and key partners involved in the apprenticeship program."
+msgstr "このガイドでは、TMM実習生管理システムでステークホルダーを管理する方法を説明します。ステークホルダーには、実習プログラムに関わる団体、機関、主要な提携先が含まれます。"
+
+msgid "What are Stakeholders?"
+msgstr "ステークホルダーとは"
+
+msgid "Stakeholders are organizations and institutions that play a role in the apprenticeship ecosystem:"
+msgstr "ステークホルダーとは、実習制度において役割を担う団体や機関です："
+
+msgid "<strong>Vocational Training Institutions (LPK):</strong> Organizations that train candidates"
+msgstr "<strong>職業訓練機関（LPK）：</strong>候補者を育成する団体"
+
+msgid "<strong>Acceptance Organizations:</strong> Japanese companies/organizations that accept apprentices"
+msgstr "<strong>受入団体：</strong>技能実習生を受け入れる日本の企業・団体"
+
+msgid "<strong>Cooperative Associations:</strong> Cooperative organizations that facilitate placements"
+msgstr "<strong>協同組合：</strong>配属を仲介する協同組合"
+
+msgid "<strong>Special Skill Support Institutions:</strong> Organizations providing additional training support"
+msgstr "<strong>特定技能支援機関：</strong>追加の研修支援を提供する団体"
+
+msgid "Managing Stakeholder Records"
+msgstr "ステークホルダー情報の管理"
+
+msgid "How to View Stakeholder Information"
+msgstr "ステークホルダー情報を表示する方法"
+
+msgid "Navigate to <strong>Stakeholder Management</strong> from the main menu"
+msgstr "メインメニューから <strong>ステークホルダー管理</strong> を開きます"
+
+msgid "Select the specific stakeholder type:"
+msgstr "対象のステークホルダー種別を選択します："
+
+msgid "Browse the list or use the search/filter features"
+msgstr "一覧を閲覧するか、検索・絞り込み機能を使用します"
+
+msgid "Click on any record to view detailed information"
+msgstr "任意のレコードをクリックすると詳細が表示されます"
+
+msgid "How to Add a New Stakeholder"
+msgstr "新しいステークホルダーを追加する方法"
+
+msgid "Navigate to the specific stakeholder type page"
+msgstr "対象のステークホルダー種別のページを開きます"
+
+msgid "Click the <span class=\"badge badge-primary\"><i class=\"fas fa-plus\"></i> New</span> button"
+msgstr "<span class=\"badge badge-primary\"><i class=\"fas fa-plus\"></i> 新規</span> ボタンをクリックします"
+
+msgid "Fill in the required information:"
+msgstr "必要な情報を入力します："
+
+msgid "<strong>Name/Title:</strong> Official organization name"
+msgstr "<strong>名称：</strong>団体の正式名称"
+
+msgid "<strong>Address:</strong> Complete physical address"
+msgstr "<strong>住所：</strong>所在地の住所（全体）"
+
+msgid "<strong>Contact Information:</strong> Phone, email, website"
+msgstr "<strong>連絡先：</strong>電話、メール、ウェブサイト"
+
+msgid "<strong>Is Active:</strong> Set organization status"
+msgstr "<strong>有効：</strong>団体のステータスを設定します"
+
+msgid "Add any additional details specific to the stakeholder type"
+msgstr "そのステークホルダー種別に固有の情報を追加します"
+
+msgid "Click <span class=\"badge badge-success\"><i class=\"fas fa-save\"></i> Submit</span> to save"
+msgstr "保存するには <span class=\"badge badge-success\"><i class=\"fas fa-save\"></i> 送信</span> をクリックします"
+
+msgid "How to Edit Stakeholder Information"
+msgstr "ステークホルダー情報を編集する方法"
+
+msgid "Find the stakeholder record in the list"
+msgstr "一覧で該当するステークホルダーを探します"
+
+msgid "Click the <span class=\"badge badge-warning\"><i class=\"fas fa-edit\"></i> Edit</span> button"
+msgstr "<span class=\"badge badge-warning\"><i class=\"fas fa-edit\"></i> 編集</span> ボタンをクリックします"
+
+msgid "Click <span class=\"badge badge-success\"><i class=\"fas fa-save\"></i> Save</span> to update"
+msgstr "更新するには <span class=\"badge badge-success\"><i class=\"fas fa-save\"></i> 保存</span> をクリックします"
+
+msgid "<strong>Purpose:</strong> LPK organizations train candidates before they go to Japan."
+msgstr "<strong>目的：</strong>LPKは候補者が日本へ渡る前に育成を行います。"
+
+msgid "Key Information to Manage:"
+msgstr "管理すべき主な情報："
+
+msgid "<strong>Institution Name:</strong> Official LPK name"
+msgstr "<strong>機関名：</strong>LPKの正式名称"
+
+msgid "<strong>License Number:</strong> Government registration number"
+msgstr "<strong>許可番号：</strong>政府の登録番号"
+
+msgid "<strong>Location:</strong> Province, city, complete address"
+msgstr "<strong>所在地：</strong>州、市、住所（全体）"
+
+msgid "<strong>Capacity:</strong> Maximum number of trainees"
+msgstr "<strong>受入可能数：</strong>研修生の最大人数"
+
+msgid "<strong>Specializations:</strong> Job categories/skills offered"
+msgstr "<strong>専門分野：</strong>提供する職種・技能"
+
+msgid "<strong>Contact Person:</strong> Director and staff contact information"
+msgstr "<strong>担当者：</strong>代表者および職員の連絡先"
+
+msgid "<strong>Important:</strong> LPK users with role \"lpk-penyangga\" can only view and manage candidates from their own institution."
+msgstr "<strong>重要：</strong>「lpk-penyangga」の役割を持つLPKユーザーは、自機関の候補者のみ閲覧・管理できます。"
+
+msgid "<strong>Purpose:</strong> Japanese companies/organizations that accept apprentices for training."
+msgstr "<strong>目的：</strong>技能実習生を研修のために受け入れる日本の企業・団体です。"
+
+msgid "<strong>Organization Name:</strong> Official company name (Japanese and English)"
+msgstr "<strong>団体名：</strong>企業の正式名称（日本語および英語）"
+
+msgid "<strong>Industry Type:</strong> Manufacturing, construction, hospitality, etc."
+msgstr "<strong>業種：</strong>製造、建設、宿泊など"
+
+msgid "<strong>Location:</strong> Prefecture and city in Japan"
+msgstr "<strong>所在地：</strong>日本の都道府県および市"
+
+msgid "<strong>Job Categories:</strong> Types of work offered"
+msgstr "<strong>職種：</strong>提供される作業の種類"
+
+msgid "<strong>Capacity:</strong> Number of apprentices they can accept"
+msgstr "<strong>受入可能数：</strong>受け入れられる技能実習生の人数"
+
+msgid "<strong>Contact Information:</strong> Representative and contact details"
+msgstr "<strong>連絡先：</strong>担当者および連絡先の詳細"
+
+msgid "<strong>Purpose:</strong> Organizations that facilitate placement and support for apprentices in Japan."
+msgstr "<strong>目的：</strong>日本での技能実習生の配属と支援を仲介する団体です。"
+
+msgid "<strong>Association Name:</strong> Official cooperative name"
+msgstr "<strong>組合名：</strong>協同組合の正式名称"
+
+msgid "<strong>License/Registration:</strong> OTIT registration number"
+msgstr "<strong>許可・登録：</strong>OTITの登録番号"
+
+msgid "<strong>Service Area:</strong> Regions/prefectures they serve"
+msgstr "<strong>対応地域：</strong>担当する地域・都道府県"
+
+msgid "<strong>Member Organizations:</strong> Associated acceptance organizations"
+msgstr "<strong>加盟団体：</strong>関連する受入団体"
+
+msgid "<strong>Support Services:</strong> Types of support provided to apprentices"
+msgstr "<strong>支援内容：</strong>技能実習生に提供する支援の種類"
+
+msgid "User Roles & Permissions"
+msgstr "ユーザーの役割と権限"
+
+msgid "Access Level"
+msgstr "アクセス権限"
+
+msgid "Stakeholder Management"
+msgstr "ステークホルダー管理"
+
+msgid "<span class=\"badge badge-danger\">Administrator</span>"
+msgstr "<span class=\"badge badge-danger\">管理者</span>"
+
+msgid "Full Access"
+msgstr "フルアクセス"
+
+msgid "Create, Read, Update, Delete all stakeholders"
+msgstr "すべてのステークホルダーの作成、閲覧、更新、削除"
+
+msgid "<span class=\"badge badge-info\">Management</span>"
+msgstr "<span class=\"badge badge-info\">経営層</span>"
+
+msgid "Read-Only"
+msgstr "閲覧のみ"
+
+msgid "View all stakeholder information, export reports"
+msgstr "すべてのステークホルダー情報の閲覧とレポート出力"
+
+msgid "<span class=\"badge badge-success\">TMM Recruitment</span>"
+msgstr "<span class=\"badge badge-success\">TMM採用</span>"
+
+msgid "Manage stakeholders related to recruitment"
+msgstr "採用に関わるステークホルダーの管理"
+
+msgid "<span class=\"badge badge-warning\">LPK User</span>"
+msgstr "<span class=\"badge badge-warning\">LPKユーザー</span>"
+
+msgid "Institution-Scoped"
+msgstr "自機関に限定"
+
+msgid "View only their own institution information"
+msgstr "自機関の情報のみ閲覧"
+
+msgid "Do's"
+msgstr "推奨されること"
+
+msgid "Keep stakeholder information up-to-date"
+msgstr "ステークホルダー情報を最新に保つ"
+
+msgid "Verify contact information regularly"
+msgstr "連絡先を定期的に確認する"
+
+msgid "Document all important communications"
+msgstr "重要なやり取りを記録する"
+
+msgid "Maintain accurate capacity numbers"
+msgstr "受入可能数を正確に保つ"
+
+msgid "Update status when organizations become inactive"
+msgstr "団体が活動を停止したらステータスを更新する"
+
+msgid "Use clear, consistent naming conventions"
+msgstr "分かりやすく一貫した命名規則を使う"
+
+msgid "Don'ts"
+msgstr "避けるべきこと"
+
+msgid "Don't delete stakeholders with active apprentices"
+msgstr "実習中の技能実習生がいるステークホルダーを削除しないでください"
+
+msgid "Don't share sensitive organization information"
+msgstr "団体の機密情報を共有しないでください"
+
+msgid "Don't modify records without proper authorization"
+msgstr "正当な権限なくレコードを変更しないでください"
+
+msgid "Don't forget to mark inactive organizations"
+msgstr "活動していない団体への印を忘れないでください"
+
+msgid "Don't duplicate stakeholder records"
+msgstr "ステークホルダーのレコードを重複して作らないでください"
+
+msgid "Don't skip required fields"
+msgstr "必須フィールドを飛ばさないでください"
+
+msgid "Common Tasks"
+msgstr "よく行う操作"
+
+msgid "How to search for a specific stakeholder?"
+msgstr "特定のステークホルダーを検索する方法"
+
+msgid "Go to the stakeholder list page"
+msgstr "ステークホルダー一覧のページを開きます"
+
+msgid "Use the search box at the top of the table"
+msgstr "表の上にある検索ボックスを使用します"
+
+msgid "Enter the organization name or other identifier"
+msgstr "団体名またはその他の識別情報を入力します"
+
+msgid "The list will filter automatically"
+msgstr "一覧が自動的に絞り込まれます"
+
+msgid "How to export stakeholder data?"
+msgstr "ステークホルダーのデータを出力する方法"
+
+msgid "Navigate to the stakeholder list"
+msgstr "ステークホルダー一覧を開きます"
+
+msgid "Use filters if you want specific data"
+msgstr "特定のデータが必要な場合は絞り込みを使用します"
+
+msgid "Click the export button (CSV, Excel, or PDF)"
+msgstr "出力ボタン（CSV、Excel、PDF）をクリックします"
+
+msgid "The file will download automatically"
+msgstr "ファイルが自動的にダウンロードされます"
+
+msgid "How to link candidates to an LPK?"
+msgstr "候補者をLPKに紐付ける方法"
+
+msgid "Go to the Candidate edit page"
+msgstr "候補者の編集ページを開きます"
+
+msgid "Find the \"Vocational Training Institution\" dropdown"
+msgstr "「職業訓練機関」のドロップダウンを探します"
+
+msgid "Select the appropriate LPK from the list"
+msgstr "一覧から該当するLPKを選択します"
+
+msgid "Save the candidate record"
+msgstr "候補者のレコードを保存します"
+
+msgid "The candidate will now be associated with that LPK"
+msgstr "候補者がそのLPKに紐付けられます"
+
+msgid "Can't see certain stakeholders"
+msgstr "一部のステークホルダーが表示されない"
+
+msgid "Check your user role permissions. LPK users can only see their own institution."
+msgstr "ユーザーの役割の権限を確認してください。LPKユーザーは自機関のみ閲覧できます。"
+
+msgid "Can't edit stakeholder information"
+msgstr "ステークホルダー情報を編集できない"
+
+msgid "Verify you have the correct role (not read-only). Contact administrator if needed."
+msgstr "適切な役割（閲覧のみではない）であることを確認してください。必要に応じて管理者に連絡してください。"
+
+msgid "Duplicate stakeholders appear"
+msgstr "ステークホルダーが重複して表示される"
+
+msgid "Contact administrator to merge records. Don't create new duplicates."
+msgstr "レコードの統合について管理者に連絡してください。新たな重複を作らないでください。"
+
+msgid "Export button not working"
+msgstr "出力ボタンが動作しない"
+
+msgid "Check your browser's pop-up blocker settings. Clear cache and try again."
+msgstr "ブラウザーのポップアップブロックの設定を確認してください。キャッシュを消去して再度お試しください。"
+
+msgid "Need More Help?"
+msgstr "さらにサポートが必要ですか"
+
+msgid "If you can't find the answer to your question in this guide, please contact your system administrator or the TMM support team."
+msgstr "このガイドで答えが見つからない場合は、システム管理者またはTMMサポートチームにご連絡ください。"
+
+msgid "Back to Dashboard"
+msgstr "ダッシュボードに戻る"
+
+msgid "This guide will help you understand how to manage users and roles in the TMM Apprentice Management System."
+msgstr "このガイドでは、TMM実習生管理システムでユーザーと役割を管理する方法を説明します。"
+
+msgid "How to Add a New User"
+msgstr "新しいユーザーを追加する方法"
+
+msgid "Navigate to <strong>Stakeholder Management → Users</strong>"
+msgstr "<strong>ステークホルダー管理 → ユーザー</strong> を開きます"
+
+msgid "Click the <span class=\"badge badge-primary\">New User</span> button"
+msgstr "<span class=\"badge badge-primary\">新規ユーザー</span> ボタンをクリックします"
+
+msgid "<strong>Username:</strong> Unique login identifier"
+msgstr "<strong>ユーザー名：</strong>一意のログイン識別子"
+
+msgid "<strong>Password:</strong> Secure password (will be hashed automatically)"
+msgstr "<strong>パスワード：</strong>安全なパスワード（自動的にハッシュ化されます）"
+
+msgid "<strong>Email:</strong> Valid email address"
+msgstr "<strong>メール：</strong>有効なメールアドレス"
+
+msgid "<strong>Full Name:</strong> User's complete name"
+msgstr "<strong>氏名：</strong>ユーザーの氏名（全体）"
+
+msgid "<strong>Is Active:</strong> Check to enable the account"
+msgstr "<strong>有効：</strong>アカウントを有効にする場合はチェックします"
+
+msgid "<strong>Roles:</strong> Select one or more roles (hold Ctrl/Cmd for multiple)"
+msgstr "<strong>役割：</strong>役割を1つ以上選択します（複数選択は Ctrl/Cmd を押しながら）"
+
+msgid "If the user is associated with an institution (LPK):"
+msgstr "ユーザーが機関（LPK）に所属している場合："
+
+msgid "<strong>Institution Type:</strong> e.g., \"VocationalTrainingInstitution\""
+msgstr "<strong>機関の種別：</strong>例：「VocationalTrainingInstitution」"
+
+msgid "<strong>Institution ID:</strong> The ID number of the institution"
+msgstr "<strong>機関ID：</strong>その機関のID番号"
+
+msgid "Click <span class=\"badge badge-primary\">Submit</span> to save"
+msgstr "保存するには <span class=\"badge badge-primary\">送信</span> をクリックします"
+
+msgid "How to Edit an Existing User"
+msgstr "既存のユーザーを編集する方法"
+
+msgid "Go to <strong>Stakeholder Management → Users</strong>"
+msgstr "<strong>ステークホルダー管理 → ユーザー</strong> を開きます"
+
+msgid "Find the user in the list"
+msgstr "一覧でユーザーを探します"
+
+msgid "Click the <span class=\"badge badge-warning\">Edit</span> button"
+msgstr "<span class=\"badge badge-warning\">編集</span> ボタンをクリックします"
+
+msgid "Modify the necessary fields"
+msgstr "必要なフィールドを変更します"
+
+msgid "<strong>Note:</strong> Leave the password field blank to keep the existing password"
+msgstr "<strong>注意：</strong>既存のパスワードを変更しない場合はパスワード欄を空のままにしてください"
+
+msgid "Click <span class=\"badge badge-primary\">Submit</span> to save changes"
+msgstr "変更を保存するには <span class=\"badge badge-primary\">送信</span> をクリックします"
+
+msgid "How to Deactivate a User"
+msgstr "ユーザーを無効にする方法"
+
+msgid "Edit the user (see above)"
+msgstr "ユーザーを編集します（上記参照）"
+
+msgid "Uncheck the <strong>Is Active</strong> checkbox"
+msgstr "<strong>有効</strong> のチェックを外します"
+
+msgid "Save the changes"
+msgstr "変更を保存します"
+
+msgid "<em>Note: Deactivated users cannot log in but their data is preserved</em>"
+msgstr "<em>注意：無効にされたユーザーはログインできませんが、データは保持されます</em>"
+
+msgid "How to Delete a User"
+msgstr "ユーザーを削除する方法"
+
+msgid "<strong>Warning:</strong> Deleting a user is permanent and cannot be undone!"
+msgstr "<strong>警告：</strong>ユーザーの削除は元に戻せません。"
+
+msgid "Click the <span class=\"badge badge-danger\">Delete</span> button"
+msgstr "<span class=\"badge badge-danger\">削除</span> ボタンをクリックします"
+
+msgid "Confirm the deletion when prompted"
+msgstr "確認を求められたら削除を承認します"
+
+msgid "Role Management"
+msgstr "役割の管理"
+
+msgid "Understanding Roles"
+msgstr "役割の考え方"
+
+msgid "Roles define what users can do in the system. Each role has specific permissions:"
+msgstr "役割はユーザーがシステムで行えることを定めます。役割ごとに権限が決まっています："
+
+msgid "Permissions"
+msgstr "権限"
+
+msgid "System Administrator"
+msgstr "システム管理者"
+
+msgid "Full access to all features and data"
+msgstr "すべての機能とデータへのフルアクセス"
+
+msgid "Management/Director"
+msgstr "経営層・代表者"
+
+msgid "Read-only access to all data for reporting"
+msgstr "レポート用に全データを閲覧のみ"
+
+msgid "TMM Recruitment Staff"
+msgstr "TMM採用担当"
+
+msgid "Manage candidates and apprentice orders"
+msgstr "候補者と技能実習生オーダーの管理"
+
+msgid "TMM Training Staff"
+msgstr "TMM研修担当"
+
+msgid "Manage trainees and training data"
+msgstr "研修生と研修データの管理"
+
+msgid "TMM Documentation Staff"
+msgstr "TMM書類担当"
+
+msgid "Manage documents and ticketing"
+msgstr "書類と航空券の管理"
+
+msgid "LPK Institution User"
+msgstr "LPK機関のユーザー"
+
+msgid "Manage candidates for their institution only"
+msgstr "自機関の候補者のみを管理"
+
+msgid "How to Create a New Role"
+msgstr "新しい役割を作成する方法"
+
+msgid "Navigate to <strong>Stakeholder Management → Roles</strong>"
+msgstr "<strong>ステークホルダー管理 → 役割</strong> を開きます"
+
+msgid "Click the <span class=\"badge badge-primary\">New Role</span> button"
+msgstr "<span class=\"badge badge-primary\">新規役割</span> ボタンをクリックします"
+
+msgid "Enter:"
+msgstr "次を入力します："
+
+msgid "<strong>Name:</strong> Role identifier (lowercase, use hyphens)"
+msgstr "<strong>名称：</strong>役割の識別子（小文字、ハイフン区切り）"
+
+msgid "<strong>Description:</strong> Brief explanation of the role's purpose"
+msgstr "<strong>説明：</strong>その役割の目的の簡単な説明"
+
+msgid "Click <span class=\"badge badge-primary\">Submit</span>"
+msgstr "<span class=\"badge badge-primary\">送信</span> をクリックします"
+
+msgid "How to Edit a Role"
+msgstr "役割を編集する方法"
+
+msgid "Go to <strong>Stakeholder Management → Roles</strong>"
+msgstr "<strong>ステークホルダー管理 → 役割</strong> を開きます"
+
+msgid "Find the role and click <span class=\"badge badge-warning\">Edit</span>"
+msgstr "該当する役割を探して <span class=\"badge badge-warning\">編集</span> をクリックします"
+
+msgid "Modify the name or description"
+msgstr "名称または説明を変更します"
+
+msgid "How to View Users with a Specific Role"
+msgstr "特定の役割を持つユーザーを表示する方法"
+
+msgid "Click <span class=\"badge badge-info\">View</span> on the desired role"
+msgstr "対象の役割の <span class=\"badge badge-info\">表示</span> をクリックします"
+
+msgid "Scroll down to see the \"Related Users\" section"
+msgstr "下にスクロールして「関連ユーザー」の欄を表示します"
+
+msgid "All users assigned to this role will be listed"
+msgstr "この役割が割り当てられたすべてのユーザーが一覧表示されます"
+
+msgid "<strong>Use Strong Passwords:</strong> Require users to create passwords with at least 8 characters, including uppercase, lowercase, numbers, and symbols"
+msgstr "<strong>強固なパスワード：</strong>大文字・小文字・数字・記号を含む8文字以上のパスワードを設定させてください"
+
+msgid "<strong>Principle of Least Privilege:</strong> Only assign the minimum roles necessary for users to perform their job"
+msgstr "<strong>最小権限の原則：</strong>業務に必要な最小限の役割のみを割り当ててください"
+
+msgid "<strong>Regular Audits:</strong> Periodically review user accounts and deactivate those no longer needed"
+msgstr "<strong>定期的な監査：</strong>ユーザーアカウントを定期的に見直し、不要なものは無効にしてください"
+
+msgid "<strong>Institution Linking:</strong> For LPK users, always link them to their institution to ensure proper data filtering"
+msgstr "<strong>機関の紐付け：</strong>LPKユーザーは必ず所属機関に紐付け、データが正しく絞り込まれるようにしてください"
+
+msgid "<strong>Multiple Roles:</strong> Users can have multiple roles if they perform different functions"
+msgstr "<strong>複数の役割：</strong>異なる業務を担うユーザーには複数の役割を割り当てられます"
+
+msgid "<strong>Deactivate Instead of Delete:</strong> When possible, deactivate users instead of deleting them to preserve audit trails"
+msgstr "<strong>削除ではなく無効化：</strong>監査記録を残すため、可能な限り削除せず無効化してください"
+
+msgid "User Cannot Log In"
+msgstr "ユーザーがログインできない"
+
+msgid "Verify the account is marked as <strong>Active</strong>"
+msgstr "アカウントが <strong>有効</strong> になっているか確認してください"
+
+msgid "Check that the username and password are correct"
+msgstr "ユーザー名とパスワードが正しいか確認してください"
+
+msgid "Ensure the user has at least one role assigned"
+msgstr "ユーザーに役割が1つ以上割り当てられているか確認してください"
+
+msgid "User Cannot Access Certain Features"
+msgstr "一部の機能にアクセスできない"
+
+msgid "Review the user's assigned roles"
+msgstr "ユーザーに割り当てられた役割を確認してください"
+
+msgid "Verify the role has the necessary permissions"
+msgstr "その役割に必要な権限があるか確認してください"
+
+msgid "For LPK users, ensure institution_id and institution_type are set correctly"
+msgstr "LPKユーザーの場合は institution_id と institution_type が正しく設定されているか確認してください"
+
+msgid "Cannot Delete a Role"
+msgstr "役割を削除できない"
+
+msgid "Roles that are assigned to users cannot be deleted"
+msgstr "ユーザーに割り当てられている役割は削除できません"
+
+msgid "First remove the role from all users, then delete the role"
+msgstr "まずすべてのユーザーからその役割を外し、その後に役割を削除してください"
+
+msgid "This module manages all stakeholder data in the <strong>cms_tmm_stakeholders</strong> database. Stakeholders include institutions, organizations, and associations involved in the apprentice program."
+msgstr "このモジュールは <strong>cms_tmm_stakeholders</strong> データベース内のすべてのステークホルダーデータを管理します。ステークホルダーには、実習プログラムに関わる機関、団体、組合が含まれます。"
+
+msgid "<strong>Special Authorization Process</strong>"
+msgstr "<strong>特別な認可の手続き</strong>"
+
+msgid "Vocational Training Institutions have a special authorization workflow to recruit apprentice candidates. This ensures proper vetting and compliance."
+msgstr "職業訓練機関が技能実習生の候補者を募集するには、特別な認可の手続きが必要です。これにより適切な審査と法令遵守が確保されます。"
+
+msgid "How to Register a Vocational Training Institution"
+msgstr "職業訓練機関を登録する方法"
+
+msgid "Navigate to <strong>Stakeholder Management → Vocational Training Institutions</strong>"
+msgstr "<strong>ステークホルダー管理 → 職業訓練機関</strong> を開きます"
+
+msgid "Click <span class=\"badge badge-primary\">New Institution</span>"
+msgstr "<span class=\"badge badge-primary\">新規機関</span> をクリックします"
+
+msgid "<strong>Institution Name:</strong> Official registered name"
+msgstr "<strong>機関名：</strong>登録されている正式名称"
+
+msgid "<strong>License Number:</strong> Government-issued license"
+msgstr "<strong>許可番号：</strong>政府が発行した許可"
+
+msgid "<strong>Director/Head:</strong> Name of institution leader"
+msgstr "<strong>代表者：</strong>機関の長の氏名"
+
+msgid "Submit for review"
+msgstr "審査のために提出します"
+
+msgid "Authorization to Recruit Candidates"
+msgstr "候補者募集の認可"
+
+msgid "Institution must be verified and approved by administrators"
+msgstr "機関は管理者による確認と承認を受ける必要があります"
+
+msgid "Once approved, the institution receives:"
+msgstr "承認されると、機関には次が付与されます："
+
+msgid "Unique institution ID"
+msgstr "一意の機関ID"
+
+msgid "Access credentials for LPK user account"
+msgstr "LPKユーザーアカウントのログイン情報"
+
+msgid "Authorization to register candidates"
+msgstr "候補者を登録する認可"
+
+msgid "Institution can then access the <strong>LPK Menu</strong> to manage candidates"
+msgstr "その後、機関は <strong>LPKメニュー</strong> から候補者を管理できます"
+
+msgid "All candidates registered by an LPK are linked to that institution"
+msgstr "LPKが登録したすべての候補者は、その機関に紐付けられます"
+
+msgid "Monitoring LPK Activities"
+msgstr "LPKの活動状況の把握"
+
+msgid "View total candidates registered per institution"
+msgstr "機関ごとの登録候補者数を確認します"
+
+msgid "Track document submission status"
+msgstr "書類の提出状況を追跡します"
+
+msgid "Monitor compliance with registration requirements"
+msgstr "登録要件の遵守状況を確認します"
+
+msgid "Review authorization status and renewal dates"
+msgstr "認可の状況と更新日を確認します"
+
+msgid "Similar to LPKs, Special Skill Support Institutions require special authorization to participate in the apprentice recruitment process."
+msgstr "LPKと同様に、特定技能支援機関が技能実習生の募集手続きに参加するには特別な認可が必要です。"
+
+msgid "How to Register a Special Skill Support Institution"
+msgstr "特定技能支援機関を登録する方法"
+
+msgid "Go to <strong>Stakeholder Management → Special Skill Support Institutions</strong>"
+msgstr "<strong>ステークホルダー管理 → 特定技能支援機関</strong> を開きます"
+
+msgid "Complete the registration form with:"
+msgstr "登録フォームに次を入力します："
+
+msgid "<strong>Institution Name</strong>"
+msgstr "<strong>機関名</strong>"
+
+msgid "<strong>Specialization Area:</strong> Type of skills supported"
+msgstr "<strong>専門分野：</strong>支援する技能の種類"
+
+msgid "<strong>Certification/Accreditation:</strong> Relevant credentials"
+msgstr "<strong>認証・認定：</strong>関連する資格"
+
+msgid "<strong>Contact Details</strong>"
+msgstr "<strong>連絡先の詳細</strong>"
+
+msgid "Submit for authorization review"
+msgstr "認可審査のために提出します"
+
+msgid "Authorization Process"
+msgstr "認可の手続き"
+
+msgid "Administrator reviews institution credentials"
+msgstr "管理者が機関の資格を確認します"
+
+msgid "Verification of specialization and capacity"
+msgstr "専門分野と受入可能数を確認します"
+
+msgid "Approval grants recruitment authorization"
+msgstr "承認により募集の認可が与えられます"
+
+msgid "Institution receives access to candidate recruitment features"
+msgstr "機関に候補者募集機能へのアクセスが付与されます"
+
+msgid "These are Japanese companies and organizations that accept apprentices for training."
+msgstr "技能実習生を研修のために受け入れる日本の企業・団体です。"
+
+msgid "Managing Acceptance Organizations"
+msgstr "受入団体の管理"
+
+msgid "Navigate to <strong>Stakeholder Management → Acceptance Organizations</strong>"
+msgstr "<strong>ステークホルダー管理 → 受入団体</strong> を開きます"
+
+msgid "Add new organizations with:"
+msgstr "新しい団体を次の情報とともに追加します："
+
+msgid "Company name (Japanese and English)"
+msgstr "企業名（日本語および英語）"
+
+msgid "Industry sector"
+msgstr "業種"
+
+msgid "Location in Japan (Prefecture)"
+msgstr "日本の所在地（都道府県）"
+
+msgid "Capacity for apprentices"
+msgstr "技能実習生の受入可能数"
+
+msgid "Contact person details"
+msgstr "担当者の詳細"
+
+msgid "Link organizations to apprentice orders"
+msgstr "団体を技能実習生オーダーに紐付けます"
+
+msgid "Track placement history"
+msgstr "配属の履歴を追跡します"
+
+msgid "Cooperative associations facilitate the apprentice program in Japan."
+msgstr "協同組合は日本における実習プログラムを仲介します。"
+
+msgid "Managing Cooperative Associations"
+msgstr "協同組合の管理"
+
+msgid "Go to <strong>Stakeholder Management → Cooperative Associations</strong>"
+msgstr "<strong>ステークホルダー管理 → 協同組合</strong> を開きます"
+
+msgid "Register associations with:"
+msgstr "組合を次の情報とともに登録します："
+
+msgid "Association name"
+msgstr "組合名"
+
+msgid "Registration number"
+msgstr "登録番号"
+
+msgid "Service areas"
+msgstr "対応地域"
+
+msgid "Partner organizations"
+msgstr "提携団体"
+
+msgid "Link to acceptance organizations"
+msgstr "受入団体に紐付けます"
+
+msgid "Monitor association activities"
+msgstr "組合の活動状況を確認します"
+
+msgid "All stakeholder data is stored in the <strong>cms_tmm_stakeholders</strong> database, which includes:"
+msgstr "すべてのステークホルダーデータは <strong>cms_tmm_stakeholders</strong> データベースに保存され、次を含みます："
+
+msgid "<code>vocational_training_institutions</code> - LPK data with authorization status"
+msgstr "<code>vocational_training_institutions</code> - 認可状況を含むLPKのデータ"
+
+msgid "<code>special_skill_support_institutions</code> - Support institution data"
+msgstr "<code>special_skill_support_institutions</code> - 支援機関のデータ"
+
+msgid "<code>acceptance_organizations</code> - Japanese receiving companies"
+msgstr "<code>acceptance_organizations</code> - 日本の受入企業"
+
+msgid "<code>cooperative_associations</code> - Facilitating associations"
+msgstr "<code>cooperative_associations</code> - 仲介を行う組合"
+
+msgid "Related tables for addresses, contacts, and authorization records"
+msgstr "住所、連絡先、認可記録の関連テーブル"
+
+msgid "<strong>Verify Credentials:</strong> Always verify institution licenses and certifications before approval"
+msgstr "<strong>資格の確認：</strong>承認前に必ず機関の許可と認証を確認してください"
+
+msgid "<strong>Regular Audits:</strong> Review authorization status periodically"
+msgstr "<strong>定期的な監査：</strong>認可の状況を定期的に確認してください"
+
+msgid "<strong>Complete Data:</strong> Ensure all contact information is current and complete"
+msgstr "<strong>データの完全性：</strong>連絡先がすべて最新かつ完全であることを確認してください"
+
+msgid "<strong>Authorization Tracking:</strong> Monitor expiration dates for licenses and authorizations"
+msgstr "<strong>認可の管理：</strong>許可と認可の有効期限を把握してください"
+
+msgid "<strong>Data Integrity:</strong> Use standard data input interfaces for consistency"
+msgstr "<strong>データの整合性：</strong>一貫性を保つため標準の入力画面を使用してください"
+
