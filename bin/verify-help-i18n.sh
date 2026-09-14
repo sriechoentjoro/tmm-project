@@ -60,12 +60,20 @@ csrf_from() {
         | sed 's/^value="//; s/"$//'
 }
 
-# Counts are taken from the page body with tags removed, so a class name like
-# "badge-danger" is never mistaken for the English word it contains.
+# Counts are taken from the visible page body only.
+#
+# strip_tags() removes the tags but keeps what is between them, so the contents
+# of <script> and <style> survive it, and so do HTML comments. The layouts carry
+# roughly 50 English words in JavaScript and CSS comments alone, which showed up
+# as a constant English count on every Indonesian and Japanese page - noise that
+# would hide a real regression behind a baseline. Those three are cut first.
 counts_for() {
     php -r '
     $html = file_get_contents($argv[1]);
-    $text = html_entity_decode(strip_tags($html), ENT_QUOTES | ENT_HTML5, "UTF-8");
+    $body = preg_replace(
+        ["#<script\b[^>]*>.*?</script>#is", "#<style\b[^>]*>.*?</style>#is", "#<!--.*?-->#s"],
+        " ", $html);
+    $text = html_entity_decode(strip_tags($body), ENT_QUOTES | ENT_HTML5, "UTF-8");
     $jp  = preg_match_all("/[\x{3040}-\x{30ff}\x{4e00}-\x{9fff}]/u", $text);
     $id  = preg_match_all("/\b(yang|untuk|dengan|adalah|Klik|Pastikan|Buka)\b/u", $text);
     $en  = preg_match_all("/\b(the|Click|Ensure|Verify|Guide|Select)\b/u", $text);
