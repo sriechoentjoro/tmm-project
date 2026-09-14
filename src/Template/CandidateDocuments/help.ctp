@@ -170,17 +170,17 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td><?= '<span class="badge badge-secondary">' . __('Not Submitted') . '</span>' ?></td>
+                            <td><?= __('<span class="badge badge-secondary">Not Submitted</span>') ?></td>
                             <td><?= __('Document has not been uploaded yet') ?></td>
                             <td><?= __('Upload the required document') ?></td>
                         </tr>
                         <tr>
-                            <td><?= '<span class="badge badge-warning">' . __('Pending Review') . '</span>' ?></td>
+                            <td><?= __('<span class="badge badge-warning">Pending Review</span>') ?></td>
                             <td><?= __('Document uploaded, awaiting verification') ?></td>
                             <td><?= __('Wait for admin review') ?></td>
                         </tr>
                         <tr>
-                            <td><?= '<span class="badge badge-info">' . __('Under Review') . '</span>' ?></td>
+                            <td><?= __('<span class="badge badge-info">Under Review</span>') ?></td>
                             <td><?= __('Document is being verified by admin') ?></td>
                             <td><?= __('No action needed') ?></td>
                         </tr>

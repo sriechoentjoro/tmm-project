@@ -154,7 +154,7 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td><?= '<span class="badge badge-danger">' . __('Administrator') . '</span>' ?></td>
+                            <td><?= __('<span class="badge badge-danger">Administrator</span>') ?></td>
                             <td><?= __('Full Access') ?></td>
                             <td><?= __('Create, Read, Update, Delete all stakeholders') ?></td>
                         </tr>
@@ -164,7 +164,7 @@
                             <td><?= __('View all stakeholder information, export reports') ?></td>
                         </tr>
                         <tr>
-                            <td><?= '<span class="badge badge-success">' . __('TMM Recruitment') . '</span>' ?></td>
+                            <td><?= __('<span class="badge badge-success">TMM Recruitment</span>') ?></td>
                             <td><?= __('Full Access') ?></td>
                             <td><?= __('Manage stakeholders related to recruitment') ?></td>
                         </tr>

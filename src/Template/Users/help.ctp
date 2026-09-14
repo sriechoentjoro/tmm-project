@@ -40,7 +40,7 @@
                     </li>
                     <li><?= __('If the user is associated with an institution (LPK):') ?>
                         <ul>
-                            <li><?= '<strong>' . __('Institution Type:') . '</strong> e.g., "VocationalTrainingInstitution"' ?></li>
+                            <li><?= __('<strong>Institution Type:</strong> e.g., "VocationalTrainingInstitution"') ?></li>
                             <li><?= __('<strong>Institution ID:</strong> The ID number of the institution') ?></li>
                         </ul>
                     </li>
