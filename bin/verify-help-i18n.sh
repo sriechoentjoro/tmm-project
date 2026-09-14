@@ -182,10 +182,43 @@ echo "  a block that renders blank in the browser still counts here, so open the
 echo "  page once to confirm the diagrams actually draw:"
 echo "      $BASE_URL/admin/lpk-registration/process-flow"
 
-say "5. Result"
+# Flash messages come from controllers, not templates. They were missing from
+# the catalogues entirely until recently, and nothing above would notice: every
+# page here could be perfectly translated while every message the application
+# speaks stayed English.
+#
+# The probe is a GET that changes nothing. CandidatesController::view() rejects
+# a non-numeric id with a flash and a redirect, so following the redirect lands
+# on a page carrying the message - no record is written, updated or deleted.
+say "5. Flash message from a controller"
+printf '  %-34s %-5s %s\n' probe lang message
+for lang in ind eng jpn; do
+    read -r code url <<<"$(fetch "/users/change-language/$lang" "$WORK/switch.html")"
+    [ "$code" = 200 ] || { printf '  %-34s %-5s switch failed (%s)\n' "(flash)" "$lang" "$code"; bad=1; continue; }
+
+    read -r code url <<<"$(fetch "/candidates/view/not-a-number" "$WORK/flash-$lang.html")"
+    if [ "$code" != 200 ]; then
+        printf '  %-34s %-5s HTTP %s\n' "(flash)" "$lang" "$code"; bad=1; continue
+    fi
+
+    message="$(grep -o '<div class="message flash-message error"[^>]*>[^<]*</div>' "$WORK/flash-$lang.html" \
+        | head -1 | sed -e 's/^[^>]*>//' -e 's#</div>$##')"
+    printf '  %-34s %-5s %s' "invalid candidate id" "$lang" "${message:-(none)}"
+
+    case "$lang" in
+        ind) expect='ID kandidat tidak valid.' ;;
+        eng) expect='Invalid candidate ID.' ;;
+        jpn) expect='候補者IDが不正です。' ;;
+    esac
+    [ "$message" = "$expect" ] || { printf '  <- expected: %s' "$expect"; bad=1; }
+    printf '\n'
+done
+
+say "6. Result"
 if [ "$bad" = 0 ]; then
     echo "  all 15 page/language combinations rendered in the expected language,"
-    echo "  and all 3 diagrams carry their translated labels in all 3 languages"
+    echo "  all 3 diagrams carry their translated labels in all 3 languages,"
+    echo "  and the controller's flash message came back translated too"
 else
     echo "  some combinations did not switch — see the lines marked above"
     echo "  if every page is English, the translation cache is stale:"
