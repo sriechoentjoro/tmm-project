@@ -29,7 +29,7 @@ $conversion = function ($from, $to) {
     <div class="row">
         <div class="col-md-12">
             <h2><i class="fa fa-line-chart"></i> <?= __('Executive Dashboard') ?></h2>
-            <p class="text-muted">The full journey at a glance: Candidate → Trainee → Apprentice in Japan 🇯🇵</p>
+            <p class="text-muted"><?= __('The full journey at a glance: Candidate → Trainee → Apprentice in Japan') ?> 🇯🇵</p>
         </div>
     </div>
 

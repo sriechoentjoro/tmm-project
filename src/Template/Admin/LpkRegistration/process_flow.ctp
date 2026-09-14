@@ -15,7 +15,7 @@ $this->layout = 'process_flow';
     
     <div class="alert-info-custom">
         <i class="fas fa-info-circle"></i>
-        <strong><?= __('LPK Registration') ?></strong> is a 3-step wizard process to register new Vocational Training Institutions (Lembaga Pelatihan Kerja) into the system with email verification and secure account creation.
+        <?= __('<strong>LPK Registration</strong> is a 3-step wizard process to register new Vocational Training Institutions (Lembaga Pelatihan Kerja) into the system with email verification and secure account creation.') ?>
     </div>
     
     <div class="workflow-steps">
@@ -27,11 +27,11 @@ $this->layout = 'process_flow';
                     <span class="database-indicator">vocational_training_institutions</span>
                 </div>
                 <div class="step-description">
-                    <strong>Who:</strong> System Administrator<br>
-                    <strong>Action:</strong> Fill out LPK registration form with institution details<br>
-                    <strong>Database:</strong> Creates record in <code>vocational_training_institutions</code> table with status = <code>pending_verification</code><br>
-                    <strong>Trigger:</strong> Generates verification token in <code>email_verification_tokens</code> table<br>
-                    <strong>Email:</strong> Sends verification email to LPK email address
+                    <strong>Who:</strong> <?= __('System Administrator') ?><br>
+                    <strong>Action:</strong> <?= __('Fill out LPK registration form with institution details') ?><br>
+                    <strong>Database:</strong> <?= __('Creates record in <code>vocational_training_institutions</code> table with status = <code>pending_verification</code>') ?><br>
+                    <strong>Trigger:</strong> <?= __('Generates verification token in <code>email_verification_tokens</code> table') ?><br>
+                    <strong>Email:</strong> <?= __('Sends verification email to LPK email address') ?>
                 </div>
             </div>
         </div>
@@ -44,11 +44,11 @@ $this->layout = 'process_flow';
                     <span class="database-indicator">email_verification_tokens</span>
                 </div>
                 <div class="step-description">
-                    <strong>Who:</strong> LPK Staff (via email link)<br>
-                    <strong>Action:</strong> Click verification link in email<br>
-                    <strong>Database:</strong> Marks token as <code>is_used = 1</code> in <code>email_verification_tokens</code><br>
-                    <strong>Update:</strong> Changes status to <code>email_verified</code> in <code>vocational_training_institutions</code><br>
-                    <strong>Redirect:</strong> To password setup page
+                    <strong>Who:</strong> <?= __('LPK Staff (via email link)') ?><br>
+                    <strong>Action:</strong> <?= __('Click verification link in email') ?><br>
+                    <strong>Database:</strong> <?= __('Marks token as <code>is_used = 1</code> in <code>email_verification_tokens</code>') ?><br>
+                    <strong>Update:</strong> <?= __('Changes status to <code>email_verified</code> in <code>vocational_training_institutions</code>') ?><br>
+                    <strong>Redirect:</strong> <?= __('To password setup page') ?>
                 </div>
             </div>
         </div>
@@ -61,12 +61,12 @@ $this->layout = 'process_flow';
                     <span class="database-indicator">users</span>
                 </div>
                 <div class="step-description">
-                    <strong>Who:</strong> LPK Staff<br>
-                    <strong>Action:</strong> Create password for login<br>
-                    <strong>Database:</strong> Creates user account in <code>users</code> table with role = <code>lpk</code><br>
-                    <strong>Update:</strong> Changes status to <code>active</code> in <code>vocational_training_institutions</code><br>
-                    <strong>Email:</strong> Sends welcome email with login instructions<br>
-                    <strong>Result:</strong> LPK can now login to the system
+                    <strong>Who:</strong> <?= __('LPK Staff') ?><br>
+                    <strong>Action:</strong> <?= __('Create password for login') ?><br>
+                    <strong>Database:</strong> <?= __('Creates user account in <code>users</code> table with role = <code>lpk</code>') ?><br>
+                    <strong>Update:</strong> <?= __('Changes status to <code>active</code> in <code>vocational_training_institutions</code>') ?><br>
+                    <strong>Email:</strong> <?= __('Sends welcome email with login instructions') ?><br>
+                    <strong>Result:</strong> <?= __('LPK can now login to the system') ?>
                 </div>
             </div>
         </div>
@@ -176,7 +176,7 @@ erDiagram
     
     <div class="table-info">
         <h4>Database: <code>cms_lpk_candidates</code></h4>
-        <p><strong>Purpose:</strong> Master data for all Vocational Training Institutions (LPK)</p>
+        <p><strong>Purpose:</strong> <?= __('Master data for all Vocational Training Institutions (LPK)') ?></p>
         
         <h3 style="margin-top: 20px;">Key Fields:</h3>
         <div class="field-list">
@@ -264,23 +264,23 @@ erDiagram
         <div class="field-list">
             <div class="field-item" style="border-left-color: #fbbf24;">
                 <span class="field-name">pending_verification</span>
-                <span class="field-type">Initial state after admin creates record</span>
+                <span class="field-type"><?= __('Initial state after admin creates record') ?></span>
             </div>
             <div class="field-item" style="border-left-color: #60a5fa;">
                 <span class="field-name">email_verified</span>
-                <span class="field-type">After LPK clicks verification link</span>
+                <span class="field-type"><?= __('After LPK clicks verification link') ?></span>
             </div>
             <div class="field-item" style="border-left-color: #34d399;">
                 <span class="field-name">active</span>
-                <span class="field-type">After password setup - can login</span>
+                <span class="field-type"><?= __('After password setup - can login') ?></span>
             </div>
             <div class="field-item" style="border-left-color: #f87171;">
                 <span class="field-name">inactive</span>
-                <span class="field-type">Admin disabled the account</span>
+                <span class="field-type"><?= __('Admin disabled the account') ?></span>
             </div>
             <div class="field-item" style="border-left-color: #ef4444;">
                 <span class="field-name">suspended</span>
-                <span class="field-type">Temporarily blocked</span>
+                <span class="field-type"><?= __('Temporarily blocked') ?></span>
             </div>
         </div>
     </div>
@@ -292,7 +292,7 @@ erDiagram
     
     <div class="table-info">
         <h4>Database: <code>cms_authentication_authorization</code></h4>
-        <p><strong>Purpose:</strong> Store one-time verification tokens for email validation</p>
+        <p><strong>Purpose:</strong> <?= __('Store one-time verification tokens for email validation') ?></p>
         
         <h3 style="margin-top: 20px;">Key Fields:</h3>
         <div class="field-list">
@@ -372,7 +372,7 @@ erDiagram
     
     <div class="table-info">
         <h4>Database: <code>cms_authentication_authorization</code></h4>
-        <p><strong>Purpose:</strong> User accounts for authentication and authorization</p>
+        <p><strong>Purpose:</strong> <?= __('User accounts for authentication and authorization') ?></p>
         
         <h3 style="margin-top: 20px;">Key Fields:</h3>
         <div class="field-list">
@@ -428,23 +428,23 @@ erDiagram
     <div class="table-info" style="border-left-color: #f59e0b;">
         <h4>⚠️ Data Entry Rules:</h4>
         <ul style="line-height: 2;">
-            <li><strong><?= __('Email Uniqueness:') ?></strong> Each LPK must have unique email address</li>
-            <li><strong><?= __('Required Fields:') ?></strong> Name, Email, Director Name must be filled</li>
-            <li><strong><?= __('Geographic Cascade:') ?></strong> Province → City → District → Village (optional but recommended)</li>
-            <li><strong><?= __('Token Expiry:') ?></strong> Verification links expire after 24 hours</li>
-            <li><strong><?= __('One-Time Use:') ?></strong> Each token can only be used once</li>
-            <li><strong><?= __('Status Flow:') ?></strong> pending_verification → email_verified → active (cannot skip steps)</li>
+            <li><?= __('<strong>Email Uniqueness:</strong> Each LPK must have unique email address') ?></li>
+            <li><?= __('<strong>Required Fields:</strong> Name, Email, Director Name must be filled') ?></li>
+            <li><?= __('<strong>Geographic Cascade:</strong> Province → City → District → Village (optional but recommended)') ?></li>
+            <li><?= __('<strong>Token Expiry:</strong> Verification links expire after 24 hours') ?></li>
+            <li><?= __('<strong>One-Time Use:</strong> Each token can only be used once') ?></li>
+            <li><?= __('<strong>Status Flow:</strong> pending_verification → email_verified → active (cannot skip steps)') ?></li>
         </ul>
     </div>
     
     <div class="table-info" style="border-left-color: #10b981;">
         <h4>✅ Security Features:</h4>
         <ul style="line-height: 2;">
-            <li><strong><?= __('Password Encryption:') ?></strong> Bcrypt hashing with salt</li>
-            <li><strong><?= __('Token Security:') ?></strong> 64-character random tokens (URL-safe)</li>
-            <li><strong><?= __('Email Verification:') ?></strong> Ensures valid email ownership</li>
-            <li><strong><?= __('CSRF Protection:') ?></strong> All forms protected against cross-site attacks</li>
-            <li><strong><?= __('Session Management:') ?></strong> Secure session handling with timeout</li>
+            <li><?= __('<strong>Password Encryption:</strong> Bcrypt hashing with salt') ?></li>
+            <li><?= __('<strong>Token Security:</strong> 64-character random tokens (URL-safe)') ?></li>
+            <li><?= __('<strong>Email Verification:</strong> Ensures valid email ownership') ?></li>
+            <li><?= __('<strong>CSRF Protection:</strong> All forms protected against cross-site attacks') ?></li>
+            <li><?= __('<strong>Session Management:</strong> Secure session handling with timeout') ?></li>
         </ul>
     </div>
 </div>

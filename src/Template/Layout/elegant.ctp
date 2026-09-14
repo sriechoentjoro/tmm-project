@@ -504,7 +504,7 @@ $cacheBust = '?v=' . time();
     <div class="page-header">
         <div class="container" style="display: flex; justify-content: space-between; align-items: center;">
             <div class="header-title">
-                <h1><i class="fas fa-graduation-cap"></i> TMM - Apprentice Management</h1>
+                <h1><i class="fas fa-graduation-cap"></i> <?= __('TMM - Apprentice Management') ?></h1>
             </div>
             
             <div class="header-user-menu">
@@ -642,7 +642,7 @@ $cacheBust = '?v=' . time();
                 <div class="modal-body" id="associationModalBody">
                     <div class="text-center">
                         <i class="fas fa-spinner fa-spin fa-3x"></i>
-                        <p>Loading data...</p>
+                        <p><?= __('Loading data...') ?></p>
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -864,7 +864,7 @@ $cacheBust = '?v=' . time();
             modalBody.innerHTML = `
                 <div class="text-center">
                     <i class="fas fa-spinner fa-spin fa-3x" style="color: #00BCD4;"></i>
-                    <p style="margin-top: 15px;">Loading data...</p>
+                    <p style="margin-top: 15px;"><?= __('Loading data...') ?></p>
                 </div>
             `;
             

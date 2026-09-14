@@ -2,7 +2,7 @@
     <div class="row">
         <div class="col-md-12">
             <h2><?= __('LPK Dashboard') ?> - <?= h(isset($stats['institutionName']) ? $stats['institutionName'] : __('No Institution')) ?></h2>
-            <p class="text-muted">Institution-specific candidate management</p>
+            <p class="text-muted"><?= __('Institution-specific candidate management') ?></p>
         </div>
     </div>
     
@@ -10,21 +10,21 @@
         <div class="col-md-4">
             <div class="stat-card stat-card-primary">
                 <h3><?= number_format(isset($stats['totalCandidates']) ? $stats['totalCandidates'] : 0) ?></h3>
-                <p>Total Candidates</p>
+                <p><?= __('Total Candidates') ?></p>
                 <i class="fa fa-users"></i>
             </div>
         </div>
         <div class="col-md-4">
             <div class="stat-card stat-card-warning">
                 <h3><?= number_format(isset($stats['pendingCandidates']) ? $stats['pendingCandidates'] : 0) ?></h3>
-                <p>Pending Candidates</p>
+                <p><?= __('Pending Candidates') ?></p>
                 <i class="fa fa-clock-o"></i>
             </div>
         </div>
         <div class="col-md-4">
             <div class="stat-card stat-card-success">
                 <h3><?= number_format(isset($stats['approvedCandidates']) ? $stats['approvedCandidates'] : 0) ?></h3>
-                <p>Approved Candidates</p>
+                <p><?= __('Approved Candidates') ?></p>
                 <i class="fa fa-check-circle"></i>
             </div>
         </div>

@@ -289,7 +289,7 @@ use Cake\Utility\Inflector;
                             'placeholder' => __('user@example.com'),
                             'label' => false
                         ]) ?>
-                        <small class="text-muted"><i class="fas fa-envelope"></i> Format: user@example.com. Valid email address required if provided.</small>
+                        <small class="text-muted"><i class="fas fa-envelope"></i> <?= __('Format: user@example.com. Valid email address required if provided.') ?></small>
                     </div>
                     <script>
                     $(document).ready(function() {
@@ -308,7 +308,7 @@ use Cake\Utility\Inflector;
                         <div class="card bg-light">
                             <div class="card-body">
                                 <h5 class="card-title"><i class="fas fa-map-marker-alt"></i> <?= __('Address Information') ?></h5>
-                                <p class="text-muted small mb-3">Select Province first, then City, District, and Village will be populated automatically</p>
+                                <p class="text-muted small mb-3"><?= __('Select Province first, then City, District, and Village will be populated automatically') ?></p>
                                 <div class="row">
                                     <div class="col-md-3 mb-2">
                                         <label class="form-label"><?= __('Province') ?></label>

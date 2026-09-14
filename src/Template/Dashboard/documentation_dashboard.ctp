@@ -39,7 +39,7 @@ $progressColor = function ($percent) {
     <div class="row">
         <div class="col-md-12">
             <h2><i class="fa fa-folder-open"></i> <?= __('Documentation Dashboard') ?></h2>
-            <p class="text-muted">Pre-departure document management for trainees going to Japan 🇯🇵</p>
+            <p class="text-muted"><?= __('Pre-departure document management for trainees going to Japan') ?> 🇯🇵</p>
         </div>
     </div>
 
@@ -55,7 +55,7 @@ $progressColor = function ($percent) {
         <div class="col-md-3">
             <div class="stat-card stat-card-blue">
                 <h3><?= number_format($stats['totalSubmissions']) ?></h3>
-                <p>Document Submissions</p>
+                <p><?= __('Document Submissions') ?></p>
                 <i class="fa fa-files-o"></i>
             </div>
         </div>
@@ -69,7 +69,7 @@ $progressColor = function ($percent) {
         <div class="col-md-3">
             <div class="stat-card stat-card-pink">
                 <h3><?= number_format($stats['pendingDocuments']) ?></h3>
-                <p>Pending Review</p>
+                <p><?= __('Pending Review') ?></p>
                 <i class="fa fa-hourglass-half"></i>
             </div>
         </div>
@@ -87,7 +87,7 @@ $progressColor = function ($percent) {
                         <?= $this->Html->link(
                             '<span class="pipeline-icon"><i class="fa fa-file-text"></i></span>' .
                             '<span class="pipeline-count">' . number_format($stats['totalSubmissions']) . '</span>' .
-                            '<span class="pipeline-label">Submission Docs</span>',
+                            '<span class="pipeline-label">' . __('Submission Docs') . '</span>',
                             ['controller' => 'TraineeSubmissionDocuments', 'action' => 'index'],
                             ['escape' => false, 'class' => 'pipeline-stage']
                         ) ?>
@@ -103,7 +103,7 @@ $progressColor = function ($percent) {
                         <?= $this->Html->link(
                             '<span class="pipeline-icon"><i class="fa fa-heartbeat"></i></span>' .
                             '<span class="pipeline-count">' . number_format($stats['medicalCheckUps']) . '</span>' .
-                            '<span class="pipeline-label">Medical Check-Ups</span>',
+                            '<span class="pipeline-label">' . __('Medical Check-Ups') . '</span>',
                             ['controller' => 'TraineeRecordMedicalCheckUps', 'action' => 'index'],
                             ['escape' => false, 'class' => 'pipeline-stage']
                         ) ?>
@@ -119,7 +119,7 @@ $progressColor = function ($percent) {
                         <?= $this->Html->link(
                             '<span class="pipeline-icon"><i class="fa fa-plane"></i></span>' .
                             '<span class="pipeline-count">' . number_format($stats['totalFlights']) . '</span>' .
-                            '<span class="pipeline-label">Tickets & Flights</span>',
+                            '<span class="pipeline-label">' . __('Tickets & Flights') . '</span>',
                             ['controller' => 'Tickets', 'action' => 'index'],
                             ['escape' => false, 'class' => 'pipeline-stage']
                         ) ?>
@@ -127,7 +127,7 @@ $progressColor = function ($percent) {
                         <span class="pipeline-stage pipeline-stage-final">
                             <span class="pipeline-icon">🇯🇵</span>
                             <span class="pipeline-count">&nbsp;</span>
-                            <span class="pipeline-label">Depart to Japan</span>
+                            <span class="pipeline-label"><?= __('Depart to Japan') ?></span>
                         </span>
                     </div>
                 </div>

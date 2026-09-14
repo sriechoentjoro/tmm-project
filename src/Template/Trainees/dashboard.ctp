@@ -140,7 +140,7 @@ $statusLabel = [
     <div class="tdb-logo"><i class="fas fa-graduation-cap"></i></div>
     <div>
       <h1> <?= __('Training Dashboard') ?></h1>
-      <p>TMM Training Division — Program Overview &amp; KPIs</p>
+      <p><?= __('TMM Training Division — Program Overview &amp; KPIs') ?></p>
     </div>
     <div class="tdb-date-badge"><i class="fas fa-calendar-day"></i> <?= date('d M Y') ?></div>
   </div>
@@ -258,7 +258,7 @@ $statusLabel = [
     <div class="tdb-card">
       <h3><i class="fas fa-plane-departure" style="color:#1e88e5"></i> <?= __('Upcoming Departures') ?></h3>
       <?php if (empty($upcomingDepartures)): ?>
-        <p style="color:#90a4ae;font-size:12px;text-align:center;padding:20px 0">No upcoming departures scheduled</p>
+        <p style="color:#90a4ae;font-size:12px;text-align:center;padding:20px 0"><?= __('No upcoming departures scheduled') ?></p>
       <?php else: ?>
         <ul class="depart-list">
           <?php foreach ($upcomingDepartures as $dep): ?>
@@ -352,7 +352,7 @@ $statusLabel = [
         <!-- Timeline progress -->
         <div class="bc-progress" style="margin-top:8px">
           <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px">
-            <span class="cap-txt">Timeline progress</span>
+            <span class="cap-txt"><?= __('Timeline progress') ?></span>
             <span class="cap-txt"><?= $progressPct ?>%</span>
           </div>
           <div class="cap-bar"><div class="cap-fill" style="--bc:#26c6da;width:<?= $progressPct ?>%"></div></div>
@@ -448,7 +448,7 @@ $statusLabel = [
       <?php endforeach; ?>
       <?php if (empty($traineeList)): ?>
         <div style="grid-column:1/-1;text-align:center;padding:40px;color:#90a4ae">
-          <i class="fas fa-users" style="font-size:40px;margin-bottom:12px;display:block"></i> <?= __('No trainees found.') ?> <a href="<?= $this->Url->build(['controller'=>'Trainees','action'=>'add']) ?>">Add the first trainee</a>.
+          <i class="fas fa-users" style="font-size:40px;margin-bottom:12px;display:block"></i> <?= __('No trainees found.') ?> <a href="<?= $this->Url->build(['controller'=>'Trainees','action'=>'add']) ?>"><?= __('Add the first trainee') ?></a>.
         </div>
       <?php endif; ?>
     </div>

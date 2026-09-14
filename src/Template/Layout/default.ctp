@@ -355,7 +355,7 @@ $cakeDescription = 'TMM: Apprentice Management Modules';
     <div class="page-header">
         <div class="container">
             <div class="header-title">
-                <h1><i class="fa fa-graduation-cap"></i> TMM - Apprentice Management</h1>
+                <h1><i class="fa fa-graduation-cap"></i> <?= __('TMM - Apprentice Management') ?></h1>
             </div>
             
             <div class="header-user-menu">
@@ -745,7 +745,7 @@ document.addEventListener('DOMContentLoaded', function() {
         
         const clearBtn = document.createElement('button');
         clearBtn.className = 'clear-ajax-filters-btn btn btn-sm btn-warning';
-        clearBtn.innerHTML = '<i class="fa fa-times"></i> Clear Filters';
+        clearBtn.innerHTML = '<i class="fa fa-times"></i> <?= __('Clear Filters') ?>';
         clearBtn.style.marginLeft = '10px';
         clearBtn.style.marginBottom = '10px';
         clearBtn.style.display = 'none'; // Hide initially

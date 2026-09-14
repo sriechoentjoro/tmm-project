@@ -38,7 +38,7 @@
                                         <span class="badge badge-info mr-1"><?= h($role->name) ?></span>
                                     <?php endforeach; ?>
                                 <?php else: ?>
-                                    <span class="badge badge-secondary">No roles assigned</span>
+                                    <span class="badge badge-secondary"><?= __('No roles assigned') ?></span>
                                 <?php endif; ?>
                             </td>
                             <td class="text-center">

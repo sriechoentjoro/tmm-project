@@ -18,7 +18,7 @@ $this->assign('title', 'Stakeholder Management Dashboard');
                 <h1 class="page-title">
                     <i class="fas fa-users-cog"></i> <?= __('Stakeholder Management Dashboard') ?>
                 </h1>
-                <p class="text-muted">Monitor and manage all stakeholder types from one central location</p>
+                <p class="text-muted"><?= __('Monitor and manage all stakeholder types from one central location') ?></p>
             </div>
             <div class="col-md-6 text-right">
                 <?= $this->Html->link(
@@ -87,7 +87,7 @@ $this->assign('title', 'Stakeholder Management Dashboard');
                     </div>
                     <div class="stat-content">
                         <h3 class="stat-number"><?= h($statistics['overall']['total_stakeholders']) ?></h3>
-                        <p class="stat-label">Total Stakeholders</p>
+                        <p class="stat-label"><?= __('Total Stakeholders') ?></p>
                         <small class="text-muted"><?= __('All types combined') ?></small>
                     </div>
                 </div>
@@ -103,7 +103,7 @@ $this->assign('title', 'Stakeholder Management Dashboard');
                     </div>
                     <div class="stat-content">
                         <h3 class="stat-number"><?= h($statistics['lpk']['total']) ?></h3>
-                        <p class="stat-label">LPK Institutions</p>
+                        <p class="stat-label"><?= __('LPK Institutions') ?></p>
                         <small class="text-muted">
                             <?= $statistics['lpk']['active'] ?> active, 
                             <?= $statistics['lpk']['pending_verification'] ?> pending
@@ -128,7 +128,7 @@ $this->assign('title', 'Stakeholder Management Dashboard');
                     </div>
                     <div class="stat-content">
                         <h3 class="stat-number"><?= h($statistics['special_skill']['total']) ?></h3>
-                        <p class="stat-label">Special Skill Institutions</p>
+                        <p class="stat-label"><?= __('Special Skill Institutions') ?></p>
                         <small class="text-muted">
                             <?= $statistics['special_skill']['active'] ?> active, 
                             <?= $statistics['special_skill']['pending_verification'] ?> pending
@@ -153,7 +153,7 @@ $this->assign('title', 'Stakeholder Management Dashboard');
                     </div>
                     <div class="stat-content">
                         <h3 class="stat-number"><?= h($statistics['acceptance_org']['total']) ?></h3>
-                        <p class="stat-label">Acceptance Organizations</p>
+                        <p class="stat-label"><?= __('Acceptance Organizations') ?></p>
                         <small class="text-muted">
                             <?= $statistics['acceptance_org']['active'] ?> active
                         </small>
@@ -177,7 +177,7 @@ $this->assign('title', 'Stakeholder Management Dashboard');
                     </div>
                     <div class="stat-content">
                         <h3 class="stat-number"><?= h($statistics['cooperative_assoc']['total']) ?></h3>
-                        <p class="stat-label">Cooperative Associations</p>
+                        <p class="stat-label"><?= __('Cooperative Associations') ?></p>
                         <small class="text-muted">
                             <?= $statistics['cooperative_assoc']['active'] ?> active
                         </small>
@@ -201,7 +201,7 @@ $this->assign('title', 'Stakeholder Management Dashboard');
                     </div>
                     <div class="stat-content">
                         <h3 class="stat-number"><?= h($statistics['overall']['total_active']) ?></h3>
-                        <p class="stat-label">Active Stakeholders</p>
+                        <p class="stat-label"><?= __('Active Stakeholders') ?></p>
                         <small class="text-success"><?= __('Verified & Active') ?></small>
                     </div>
                 </div>
@@ -217,7 +217,7 @@ $this->assign('title', 'Stakeholder Management Dashboard');
                     </div>
                     <div class="stat-content">
                         <h3 class="stat-number"><?= h($statistics['overall']['total_pending_verifications']) ?></h3>
-                        <p class="stat-label">Pending Verifications</p>
+                        <p class="stat-label"><?= __('Pending Verifications') ?></p>
                         <small class="text-warning"><?= __('Awaiting Email Verification') ?></small>
                     </div>
                 </div>
@@ -233,7 +233,7 @@ $this->assign('title', 'Stakeholder Management Dashboard');
                     </div>
                     <div class="stat-content">
                         <h3 class="stat-number"><?= h($statistics['overall']['total_suspended']) ?></h3>
-                        <p class="stat-label">Suspended Stakeholders</p>
+                        <p class="stat-label"><?= __('Suspended Stakeholders') ?></p>
                         <small class="text-danger"><?= __('Temporarily Inactive') ?></small>
                     </div>
                 </div>
@@ -332,7 +332,7 @@ $this->assign('title', 'Stakeholder Management Dashboard');
                         <?php else: ?>
                             <div class="p-4 text-center text-muted">
                                 <i class="fas fa-inbox fa-3x mb-3"></i>
-                                <p>No recent activities</p>
+                                <p><?= __('No recent activities') ?></p>
                             </div>
                         <?php endif; ?>
                     </div>
@@ -392,7 +392,7 @@ $this->assign('title', 'Stakeholder Management Dashboard');
                     <?php else: ?>
                         <div class="p-4 text-center text-muted">
                             <i class="fas fa-check-circle fa-2x mb-2 text-success"></i>
-                            <p>No pending verifications</p>
+                            <p><?= __('No pending verifications') ?></p>
                         </div>
                     <?php endif; ?>
                 </div>
@@ -448,7 +448,7 @@ $this->assign('title', 'Stakeholder Management Dashboard');
                     <?php else: ?>
                         <div class="p-4 text-center text-muted">
                             <i class="fas fa-check-circle fa-2x mb-2 text-success"></i>
-                            <p>No pending approvals</p>
+                            <p><?= __('No pending approvals') ?></p>
                         </div>
                     <?php endif; ?>
                 </div>

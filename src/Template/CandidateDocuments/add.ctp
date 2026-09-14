@@ -175,9 +175,9 @@ window.previewFile = function(input) {
                 previewContent.innerHTML = `
                     <div style="text-align: center;">
                         <div class="spinner-border text-primary" role="status">
-                            <span class="sr-only">Loading PDF...</span>
+                            <span class="sr-only"><?= __('Loading PDF...') ?></span>
                         </div>
-                        <p class="mt-2">Rendering first page...</p>
+                        <p class="mt-2"><?= __('Rendering first page...') ?></p>
                     </div>
                 `;
                 
@@ -249,8 +249,8 @@ window.previewFile = function(input) {
             previewContent.innerHTML = `
                 <div style="text-align: center; padding: 40px;">
                     <i class="fas ${icon}" style="font-size: 80px; color: ${color};"></i>
-                    <p class="mt-3">Preview not available for this file type</p>
-                    <p class="text-muted">File will be uploaded when you save</p>
+                    <p class="mt-3"><?= __('Preview not available for this file type') ?></p>
+                    <p class="text-muted"><?= __('File will be uploaded when you save') ?></p>
                 </div>
             `;
         }

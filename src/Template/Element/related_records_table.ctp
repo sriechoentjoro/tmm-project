@@ -13,7 +13,7 @@ $title = isset($title) ? $title : 'Related Records';
     <h4><?= h($title) ?></h4>
     <div class="loading text-center" style="padding:40px">
         <i class="fas fa-spinner fa-spin fa-3x"></i>
-        <p>Loading data...</p>
+        <p><?= __('Loading data...') ?></p>
     </div>
     <div class="content" style="display:none"></div>
 </div>
@@ -222,7 +222,7 @@ h+='</tr></thead><tbody>';
 
 if(data.data.length===0){
 var totalCols=cols.length+1;
-h+='<tr><td colspan="'+totalCols+'" class="text-center text-muted" style="padding:30px;">No records found</td></tr>';
+h+='<tr><td colspan="'+totalCols+'" class="text-center text-muted" style="padding:30px;"><?= __('No records found') ?></td></tr>';
 }else{
 data.data.forEach(function(row,idx){
 if(idx===0){

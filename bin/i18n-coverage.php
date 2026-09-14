@@ -147,7 +147,17 @@ foreach ($files as $path) {
         if (isset($branch[$n + 1])) {
             continue;
         }
-        if (preg_match_all('#(?:</i>|<br>|<strong>|<small[^>]*>|<th[^>]*>|<h[1-6][^>]*>)\s*([A-Z][A-Za-z0-9 ,./()\'&%:+-]{11,})#', $line, $m)) {
+        // Whatever is already inside a __() call is translated, and the markup
+        // a msgid carries is not markup the detector should look behind. Without
+        // this, __('<strong>Birth Certificate</strong>') reads as a bare literal
+        // sitting after a <strong>, and the help guides alone reported 104
+        // strings that had in fact all been translated.
+        // One pattern per quote character: a single-quoted PHP string routinely
+        // carries double quotes of its own, as __('... role "lpk-penyangga" ...')
+        // does, and a body that excludes both quote characters cannot span them.
+        $bare = preg_replace(['/__\(\s*\'(?:[^\'\\\\]|\\\\.)*\'/',
+                              '/__\(\s*"(?:[^"\\\\]|\\\\.)*"/'], '__(', $line);
+        if (preg_match_all('#(?:</i>|<br>|<strong>|</strong>|</b>|<small[^>]*>|<th[^>]*>|<h[1-6][^>]*>|<span[^>]*>|<td[^>]*>|<p[^>]*>)\s*([A-Z][A-Za-z0-9 ,./()\'&%:+-]{11,})#', $bare, $m)) {
             foreach ($m[1] as $text) {
                 $text = trim($text);
                 if (strpos($text, '<?') !== false || strpos($text, 'http') === 0) {

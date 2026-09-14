@@ -10965,3 +10965,492 @@ msgstr "Jenis berkas ini tidak dapat dipratinjau di peramban."
 msgid "Click to view full image"
 msgstr "Klik untuk melihat gambar penuh"
 
+msgid "<strong>LPK Registration</strong> is a 3-step wizard process to register new Vocational Training Institutions (Lembaga Pelatihan Kerja) into the system with email verification and secure account creation."
+msgstr "<strong>Pendaftaran LPK</strong> adalah proses tiga langkah untuk mendaftarkan Lembaga Pelatihan Kerja baru ke dalam sistem, dengan verifikasi email dan pembuatan akun yang aman."
+
+msgid "Initial state after admin creates record"
+msgstr "Keadaan awal setelah admin membuat data"
+
+msgid "After LPK clicks verification link"
+msgstr "Setelah LPK mengklik tautan verifikasi"
+
+msgid "After password setup - can login"
+msgstr "Setelah kata sandi dibuat - sudah dapat masuk"
+
+msgid "Admin disabled the account"
+msgstr "Admin menonaktifkan akun"
+
+msgid "Temporarily blocked"
+msgstr "Diblokir sementara"
+
+msgid "<strong>Email Uniqueness:</strong> Each LPK must have unique email address"
+msgstr "<strong>Keunikan Email:</strong> Setiap LPK harus memiliki alamat email yang unik"
+
+msgid "<strong>Required Fields:</strong> Name, Email, Director Name must be filled"
+msgstr "<strong>Field Wajib:</strong> Nama, Email, dan Nama Direktur harus diisi"
+
+msgid "<strong>Geographic Cascade:</strong> Province → City → District → Village (optional but recommended)"
+msgstr "<strong>Rantai Wilayah:</strong> Provinsi → Kota → Kecamatan → Kelurahan (opsional tetapi disarankan)"
+
+msgid "<strong>Token Expiry:</strong> Verification links expire after 24 hours"
+msgstr "<strong>Kedaluwarsa Token:</strong> Tautan verifikasi kedaluwarsa setelah 24 jam"
+
+msgid "<strong>One-Time Use:</strong> Each token can only be used once"
+msgstr "<strong>Sekali Pakai:</strong> Setiap token hanya dapat digunakan satu kali"
+
+msgid "<strong>Status Flow:</strong> pending_verification → email_verified → active (cannot skip steps)"
+msgstr "<strong>Alur Status:</strong> pending_verification → email_verified → active (tidak boleh melompati langkah)"
+
+msgid "<strong>Password Encryption:</strong> Bcrypt hashing with salt"
+msgstr "<strong>Enkripsi Kata Sandi:</strong> Hash Bcrypt dengan salt"
+
+msgid "<strong>Token Security:</strong> 64-character random tokens (URL-safe)"
+msgstr "<strong>Keamanan Token:</strong> Token acak 64 karakter (aman untuk URL)"
+
+msgid "<strong>Email Verification:</strong> Ensures valid email ownership"
+msgstr "<strong>Verifikasi Email:</strong> Memastikan kepemilikan email yang sah"
+
+msgid "<strong>CSRF Protection:</strong> All forms protected against cross-site attacks"
+msgstr "<strong>Perlindungan CSRF:</strong> Semua formulir terlindungi dari serangan lintas situs"
+
+msgid "<strong>Session Management:</strong> Secure session handling with timeout"
+msgstr "<strong>Pengelolaan Sesi:</strong> Penanganan sesi yang aman dengan batas waktu"
+
+msgid "Monitor and manage all stakeholder types from one central location"
+msgstr "Pantau dan kelola semua jenis pemangku kepentingan dari satu tempat terpusat"
+
+msgid "Total Stakeholders"
+msgstr "Total Pemangku Kepentingan"
+
+msgid "Special Skill Institutions"
+msgstr "Lembaga Keterampilan Khusus"
+
+msgid "Active Stakeholders"
+msgstr "Pemangku Kepentingan Aktif"
+
+msgid "Suspended Stakeholders"
+msgstr "Pemangku Kepentingan Ditangguhkan"
+
+msgid "No recent activities"
+msgstr "Belum ada aktivitas terbaru"
+
+msgid "No pending verifications"
+msgstr "Tidak ada verifikasi yang tertunda"
+
+msgid "No pending approvals"
+msgstr "Tidak ada persetujuan yang tertunda"
+
+msgid "Select Province first, then City, District, and Village will be populated automatically"
+msgstr "Pilih Provinsi terlebih dahulu, lalu Kabupaten, Kecamatan, dan Kelurahan akan terisi otomatis"
+
+msgid "Loading PDF..."
+msgstr "Memuat PDF..."
+
+msgid "Rendering first page..."
+msgstr "Menampilkan halaman pertama..."
+
+msgid "Preview not available for this file type"
+msgstr "Pratinjau tidak tersedia untuk jenis berkas ini"
+
+msgid "File will be uploaded when you save"
+msgstr "Berkas akan diunggah saat Anda menyimpan"
+
+msgid "First page preview"
+msgstr "Pratinjau halaman pertama"
+
+msgid "Loading PDF preview..."
+msgstr "Memuat pratinjau PDF..."
+
+msgid "Preview will be available after upload"
+msgstr "Pratinjau tersedia setelah diunggah"
+
+msgid "Compressed file ready for upload"
+msgstr "Berkas terkompresi siap diunggah"
+
+msgid "Ready for upload"
+msgstr "Siap diunggah"
+
+msgid "Important Notes"
+msgstr "Catatan Penting"
+
+msgid "Under Review"
+msgstr "Sedang Ditinjau"
+
+msgid "File Naming:"
+msgstr "Penamaan Berkas:"
+
+msgid "Submit Documents"
+msgstr "Ajukan Dokumen"
+
+msgid "My Candidates"
+msgstr "Kandidat Saya"
+
+msgid "Candidate Help"
+msgstr "Bantuan Kandidat"
+
+msgid "Check Availability"
+msgstr "Periksa Ketersediaan"
+
+msgid "Document Help"
+msgstr "Bantuan Dokumen"
+
+msgid "Enter the candidate's <strong>Identity Number (NIK/KTP)</strong> to check if they are already registered in the system."
+msgstr "Masukkan <strong>Nomor Identitas (NIK/KTP)</strong> kandidat untuk memeriksa apakah ia sudah terdaftar di sistem."
+
+msgid "Fields marked with <span class=\"text-danger\">*</span> are required. Please fill all information accurately."
+msgstr "Field bertanda <span class=\"text-danger\">*</span> wajib diisi. Harap isi semua informasi dengan tepat."
+
+msgid "<strong>At least 1 education entry is required.</strong> Add all your educational background starting from the highest level."
+msgstr "<strong>Minimal 1 entri pendidikan wajib diisi.</strong> Tambahkan seluruh riwayat pendidikan Anda mulai dari jenjang tertinggi."
+
+msgid "Add your work experience if applicable. You can skip this step if you have no work experience."
+msgstr "Tambahkan pengalaman kerja Anda bila ada. Anda dapat melewati langkah ini jika belum pernah bekerja."
+
+msgid "Add any professional certifications, licenses, or skill certificates you have obtained."
+msgstr "Tambahkan sertifikasi profesional, lisensi, atau sertifikat keterampilan yang Anda miliki."
+
+msgid "Add any training courses, workshops, or professional development programs you have completed."
+msgstr "Tambahkan kursus pelatihan, lokakarya, atau program pengembangan profesional yang telah Anda selesaikan."
+
+msgid "Please review all information carefully before submitting. You can go back to any step to make changes."
+msgstr "Harap tinjau semua informasi dengan teliti sebelum mengirim. Anda dapat kembali ke langkah mana pun untuk mengubahnya."
+
+msgid "No education entries"
+msgstr "Belum ada entri pendidikan"
+
+msgid "The requested step is invalid. Please start from the beginning."
+msgstr "Langkah yang diminta tidak valid. Silakan mulai dari awal."
+
+msgid "Trainee installments, journal entries and chart of accounts"
+msgstr "Angsuran trainee, jurnal, dan bagan akun"
+
+msgid "Installment Payments"
+msgstr "Pembayaran Angsuran"
+
+msgid "Pre-departure document management for trainees going to Japan"
+msgstr "Pengelolaan dokumen pra-keberangkatan untuk trainee yang berangkat ke Jepang"
+
+msgid "Document Submissions"
+msgstr "Pengajuan Dokumen"
+
+msgid "Depart to Japan"
+msgstr "Berangkat ke Jepang"
+
+msgid "The full journey at a glance: Candidate → Trainee → Apprentice in Japan"
+msgstr "Seluruh perjalanan dalam sekilas: Kandidat → Trainee → Pemagang di Jepang"
+
+msgid "Total Candidates"
+msgstr "Total Kandidat"
+
+msgid "No trainees yet."
+msgstr "Belum ada trainee."
+
+msgid "Institution-specific candidate management"
+msgstr "Pengelolaan kandidat khusus per lembaga"
+
+msgid "Pending Candidates"
+msgstr "Kandidat Tertunda"
+
+msgid "Approved Candidates"
+msgstr "Kandidat Disetujui"
+
+msgid "Read-only system overview and analytics"
+msgstr "Ikhtisar dan analitik sistem, hanya baca"
+
+msgid "Candidate and recruitment order management"
+msgstr "Pengelolaan kandidat dan pesanan rekrutmen"
+
+msgid "Loading data..."
+msgstr "Memuat data..."
+
+msgid "No records found"
+msgstr "Tidak ada data ditemukan"
+
+msgid "Verify Your Email Address"
+msgstr "Verifikasi Alamat Email Anda"
+
+msgid "Congratulations! Your Vocational Training Institution <strong>{0}</strong> has been successfully registered in the TMM (Training and Manpower Management) System."
+msgstr "Selamat! Lembaga Pelatihan Kerja Anda <strong>{0}</strong> telah berhasil terdaftar di Sistem TMM (Training and Manpower Management)."
+
+msgid "To complete your registration and activate your account, please verify your email address by clicking the button below:"
+msgstr "Untuk menyelesaikan pendaftaran dan mengaktifkan akun Anda, silakan verifikasi alamat email Anda dengan mengklik tombol di bawah ini:"
+
+msgid "Institution Name:"
+msgstr "Nama Lembaga:"
+
+msgid "Email Address:"
+msgstr "Alamat Email:"
+
+msgid "Director Name:"
+msgstr "Nama Direktur:"
+
+msgid "Registered By:"
+msgstr "Didaftarkan Oleh:"
+
+msgid "Registration Date:"
+msgstr "Tanggal Pendaftaran:"
+
+msgid "After verifying your email, you'll be directed to create a secure password for your account. Once completed, you'll receive a welcome email with your login credentials and instructions on how to access the TMM system."
+msgstr "Setelah memverifikasi email, Anda akan diarahkan untuk membuat kata sandi yang aman bagi akun Anda. Setelah selesai, Anda akan menerima email selamat datang berisi kredensial masuk dan petunjuk cara mengakses sistem TMM."
+
+msgid "Your Account is Now Active"
+msgstr "Akun Anda Kini Aktif"
+
+msgid "You can now access the TMM Training and Manpower Management System"
+msgstr "Anda kini dapat mengakses Sistem TMM Training and Manpower Management"
+
+msgid "Congratulations! Your email has been verified and your password has been set. Your account for <strong>{0}</strong> is now fully activated and ready to use."
+msgstr "Selamat! Email Anda telah diverifikasi dan kata sandi telah dibuat. Akun Anda untuk <strong>{0}</strong> kini aktif sepenuhnya dan siap digunakan."
+
+msgid "<strong>Manage Candidates:</strong> Register and manage trainee candidate profiles and documents"
+msgstr "<strong>Kelola Kandidat:</strong> Daftarkan dan kelola profil serta dokumen kandidat trainee"
+
+msgid "<strong>Track Training Progress:</strong> Monitor candidate training stages and assessments"
+msgstr "<strong>Lacak Kemajuan Pelatihan:</strong> Pantau tahapan pelatihan dan penilaian kandidat"
+
+msgid "<strong>Submit Apprentice Orders:</strong> Create and submit apprenticeship placement orders"
+msgstr "<strong>Kirim Pesanan Pemagangan:</strong> Buat dan kirim pesanan penempatan pemagangan"
+
+msgid "<strong>Export Reports:</strong> Generate and download candidate data in various formats (CSV, Excel, PDF)"
+msgstr "<strong>Ekspor Laporan:</strong> Hasilkan dan unduh data kandidat dalam berbagai format (CSV, Excel, PDF)"
+
+msgid "<strong>Dashboard Analytics:</strong> View statistics and insights about your training programs"
+msgstr "<strong>Analitik Dasbor:</strong> Lihat statistik dan wawasan tentang program pelatihan Anda"
+
+msgid "<strong>Document Management:</strong> Upload and manage certificates, licenses, and training documents"
+msgstr "<strong>Pengelolaan Dokumen:</strong> Unggah dan kelola sertifikat, lisensi, dan dokumen pelatihan"
+
+msgid "<strong>Communication Hub:</strong> Direct messaging with system administrators and coordinators"
+msgstr "<strong>Pusat Komunikasi:</strong> Perpesanan langsung dengan administrator sistem dan koordinator"
+
+msgid "<strong>Update Your Profile:</strong> Complete your institution profile with detailed information"
+msgstr "<strong>Perbarui Profil Anda:</strong> Lengkapi profil lembaga Anda dengan informasi yang rinci"
+
+msgid "<strong>Add Candidates:</strong> Start registering your trainee candidates in the system"
+msgstr "<strong>Tambah Kandidat:</strong> Mulai daftarkan kandidat trainee Anda di sistem"
+
+msgid "<strong>Upload Documents:</strong> Add required certificates, licenses, and supporting documents"
+msgstr "<strong>Unggah Dokumen:</strong> Tambahkan sertifikat, lisensi, dan dokumen pendukung yang diperlukan"
+
+msgid "<strong>Explore Features:</strong> Familiarize yourself with the dashboard and available tools"
+msgstr "<strong>Jelajahi Fitur:</strong> Kenali dasbor dan perkakas yang tersedia"
+
+msgid "<strong>Contact Support:</strong> Reach out if you need assistance or have questions"
+msgstr "<strong>Hubungi Dukungan:</strong> Hubungi kami bila Anda memerlukan bantuan atau memiliki pertanyaan"
+
+msgid "Please try again later or contact support if the problem persists."
+msgstr "Silakan coba lagi nanti atau hubungi dukungan jika masalah berlanjut."
+
+msgid "This registration link has expired."
+msgstr "Tautan pendaftaran ini sudah kedaluwarsa."
+
+msgid "Please contact the system administrator to request a new registration link."
+msgstr "Silakan hubungi administrator sistem untuk meminta tautan pendaftaran yang baru."
+
+msgid "Training & Monitoring Management"
+msgstr "Training & Monitoring Management"
+
+msgid "Training & Monitoring Management for Vocational Institutions"
+msgstr "Training & Monitoring Management untuk Lembaga Pelatihan Kerja"
+
+msgid "TMM - Apprentice Management"
+msgstr "TMM - Manajemen Pemagangan"
+
+msgid "Clear Filters"
+msgstr "Hapus Filter"
+
+msgid "Training passed"
+msgstr "Pelatihan lulus"
+
+msgid "Gender split"
+msgstr "Komposisi jenis kelamin"
+
+msgid "Test pass rate"
+msgstr "Tingkat kelulusan ujian"
+
+msgid "Administrator"
+msgstr "Administrator"
+
+msgid "TMM Recruitment"
+msgstr "Rekrutmen TMM"
+
+msgid "Save Program"
+msgstr "Simpan Program"
+
+msgid "TMM Training Division — Program Overview &amp; KPIs"
+msgstr "Divisi Pelatihan TMM — Ikhtisar Program &amp; KPI"
+
+msgid "Timeline progress"
+msgstr "Kemajuan lini masa"
+
+msgid "Institution Type:"
+msgstr "Jenis Lembaga:"
+
+msgid "Add New User"
+msgstr "Tambah Pengguna Baru"
+
+msgid "Add New Role"
+msgstr "Tambah Peran Baru"
+
+msgid "Login System"
+msgstr "Sistem Masuk"
+
+msgid "Test Credentials"
+msgstr "Kredensial Uji Coba"
+
+msgid "Click username to auto-fill login form"
+msgstr "Klik nama pengguna untuk mengisi formulir masuk secara otomatis"
+
+msgid "Management Level"
+msgstr "Tingkat Manajemen"
+
+msgid "General Manager"
+msgstr "Manajer Umum"
+
+msgid "Recruitment Officer 1"
+msgstr "Petugas Rekrutmen 1"
+
+msgid "Recruitment Department"
+msgstr "Departemen Rekrutmen"
+
+msgid "Training Coordinator 1"
+msgstr "Koordinator Pelatihan 1"
+
+msgid "Training Department"
+msgstr "Departemen Pelatihan"
+
+msgid "Documentation Officer 1"
+msgstr "Petugas Dokumentasi 1"
+
+msgid "Documentation Department"
+msgstr "Departemen Dokumentasi"
+
+msgid "Accounting Officer"
+msgstr "Petugas Akuntansi"
+
+msgid "Accounting Department"
+msgstr "Departemen Akuntansi"
+
+msgid "LPK Semarang"
+msgstr "LPK Semarang"
+
+msgid "New Institution"
+msgstr "Lembaga Baru"
+
+msgid "Error:"
+msgstr "Kesalahan:"
+
+msgid "Invalid JSON response. Check console for details."
+msgstr "Respons JSON tidak valid. Periksa konsol untuk detailnya."
+
+msgid "Format: user@example.com. Valid email address required if provided."
+msgstr "Format: user@example.com. Alamat email yang valid diperlukan jika diisi."
+
+msgid "Fill out LPK registration form with institution details"
+msgstr "Mengisi formulir pendaftaran LPK dengan detail lembaga"
+
+msgid "Creates record in <code>vocational_training_institutions</code> table with status = <code>pending_verification</code>"
+msgstr "Membuat data di tabel <code>vocational_training_institutions</code> dengan status = <code>pending_verification</code>"
+
+msgid "Generates verification token in <code>email_verification_tokens</code> table"
+msgstr "Membuat token verifikasi di tabel <code>email_verification_tokens</code>"
+
+msgid "Sends verification email to LPK email address"
+msgstr "Mengirim email verifikasi ke alamat email LPK"
+
+msgid "LPK Staff (via email link)"
+msgstr "Staf LPK (melalui tautan email)"
+
+msgid "Click verification link in email"
+msgstr "Mengklik tautan verifikasi di email"
+
+msgid "Marks token as <code>is_used = 1</code> in <code>email_verification_tokens</code>"
+msgstr "Menandai token sebagai <code>is_used = 1</code> di <code>email_verification_tokens</code>"
+
+msgid "Changes status to <code>email_verified</code> in <code>vocational_training_institutions</code>"
+msgstr "Mengubah status menjadi <code>email_verified</code> di <code>vocational_training_institutions</code>"
+
+msgid "To password setup page"
+msgstr "Ke halaman pembuatan kata sandi"
+
+msgid "LPK Staff"
+msgstr "Staf LPK"
+
+msgid "Create password for login"
+msgstr "Membuat kata sandi untuk masuk"
+
+msgid "Creates user account in <code>users</code> table with role = <code>lpk</code>"
+msgstr "Membuat akun pengguna di tabel <code>users</code> dengan role = <code>lpk</code>"
+
+msgid "Changes status to <code>active</code> in <code>vocational_training_institutions</code>"
+msgstr "Mengubah status menjadi <code>active</code> di <code>vocational_training_institutions</code>"
+
+msgid "Sends welcome email with login instructions"
+msgstr "Mengirim email selamat datang berisi petunjuk masuk"
+
+msgid "LPK can now login to the system"
+msgstr "LPK kini dapat masuk ke sistem"
+
+msgid "Master data for all Vocational Training Institutions (LPK)"
+msgstr "Data induk untuk seluruh Lembaga Pelatihan Kerja (LPK)"
+
+msgid "Store one-time verification tokens for email validation"
+msgstr "Menyimpan token verifikasi sekali pakai untuk validasi email"
+
+msgid "User accounts for authentication and authorization"
+msgstr "Akun pengguna untuk autentikasi dan otorisasi"
+
+msgid "JPG, PNG, or GIF"
+msgstr "JPG, PNG, atau GIF"
+
+msgid "Maximum 5MB"
+msgstr "Maksimal 5MB"
+
+msgid "Passport photo (square, 1:1 aspect ratio)"
+msgstr "Foto paspor (persegi, rasio 1:1)"
+
+msgid "Clear, well-lit, facing camera"
+msgstr "Jelas, pencahayaan baik, menghadap kamera"
+
+msgid "The institution owner has been sent a verification email."
+msgstr "Email verifikasi telah dikirim kepada pemilik lembaga."
+
+msgid "This verification link will expire in <strong>24 hours</strong>. Please verify your email as soon as possible to avoid delays in account activation."
+msgstr "Tautan verifikasi ini akan kedaluwarsa dalam <strong>24 jam</strong>. Harap verifikasi email Anda sesegera mungkin agar aktivasi akun tidak tertunda."
+
+msgid "If you did not request this registration or believe this email was sent to you by mistake, please contact our support team immediately at <a href=\"mailto:support@asahifamily.id\" style=\"color: #667eea;\">support@asahifamily.id</a>"
+msgstr "Jika Anda tidak meminta pendaftaran ini atau merasa email ini terkirim karena kekeliruan, segera hubungi tim dukungan kami di <a href=\"mailto:support@asahifamily.id\" style=\"color: #667eea;\">support@asahifamily.id</a>"
+
+msgid "Your password is the one you created during registration. Keep it secure and don't share it with anyone."
+msgstr "Kata sandi Anda adalah yang Anda buat saat pendaftaran. Simpan dengan aman dan jangan bagikan kepada siapa pun."
+
+msgid "This temporary password will expire in 24 hours. You must verify your email and change your password before the expiration."
+msgstr "Kata sandi sementara ini akan kedaluwarsa dalam 24 jam. Anda harus memverifikasi email dan mengganti kata sandi sebelum masa itu habis."
+
+msgid "using your email and temporary password"
+msgstr "menggunakan email dan kata sandi sementara Anda"
+
+msgid "Your email address has been successfully verified."
+msgstr "Alamat email Anda telah berhasil diverifikasi."
+
+msgid "<span style=\"color: #28a745; font-weight: 600;\">Verified ✓</span>"
+msgstr "<span style=\"color: #28a745; font-weight: 600;\">Terverifikasi ✓</span>"
+
+msgid "Please log in and change your temporary password to a secure password of your choice."
+msgstr "Silakan masuk dan ganti kata sandi sementara Anda dengan kata sandi aman pilihan Anda."
+
+msgid "Verify Your Email - TMM System"
+msgstr "Verifikasi Email Anda - Sistem TMM"
+
+msgid "✓ VERIFY EMAIL ADDRESS"
+msgstr "✓ VERIFIKASI ALAMAT EMAIL"
+
+msgid "If the button above doesn't work, copy and paste this link into your browser:"
+msgstr "Jika tombol di atas tidak berfungsi, salin dan tempel tautan ini ke peramban Anda:"
+
+msgid "Your Login Credentials"
+msgstr "Kredensial Masuk Anda"
+
+msgid "What You Can Do with Your Account"
+msgstr "Yang Dapat Anda Lakukan dengan Akun Anda"
+

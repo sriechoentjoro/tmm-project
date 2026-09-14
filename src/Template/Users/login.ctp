@@ -4,7 +4,7 @@
             <div class="card shadow-sm mt-5 mx-auto" style="max-width: 1000px;">
                 <div class="card-header bg-primary text-white text-center">
                     <h3 class="mb-0">
-                        <i class="fas fa-sign-in-alt"></i> Login System
+                        <i class="fas fa-sign-in-alt"></i> <?= __('Login System') ?>
                     </h3>
                 </div>
                 <div class="card-body">
@@ -60,10 +60,10 @@
                         <!-- Test Credentials -->
                         <div class="col-md-6">
                             <h5 class="mb-3 text-success">
-                                <i class="fas fa-users-cog"></i> Test Credentials
+                                <i class="fas fa-users-cog"></i> <?= __('Test Credentials') ?>
                             </h5>
                             <div class="alert alert-info">
-                                <small><i class="fas fa-info-circle"></i> Click username to auto-fill login form</small>
+                                <small><i class="fas fa-info-circle"></i> <?= __('Click username to auto-fill login form') ?></small>
                             </div>
                             <div class="credentials-list" style="max-height: 400px; overflow-y: auto;">
                                 <!-- Administrator -->
@@ -71,7 +71,7 @@
                                     <div class="d-flex justify-content-between align-items-start">
                                         <div>
                                             <h6 class="mb-1 text-danger">
-                                                <i class="fas fa-user-shield"></i> Administrator
+                                                <i class="fas fa-user-shield"></i> <?= __('Administrator') ?>
                                             </h6>
                                             <div><small class="text-muted">Username:</small> <code>admin</code></div>
                                             <div><small class="text-muted">Password:</small> <code>admin123</code></div>
@@ -90,7 +90,7 @@
                                             </h6>
                                             <div><small class="text-muted">Username:</small> <code>director</code></div>
                                             <div><small class="text-muted">Password:</small> <code>director123</code></div>
-                                            <small class="text-muted d-block mt-1">Management Level</small>
+                                            <small class="text-muted d-block mt-1"><?= __('Management Level') ?></small>
                                         </div>
                                         <span class="badge bg-primary">MGT</span>
                                     </div>
@@ -100,11 +100,11 @@
                                     <div class="d-flex justify-content-between align-items-start">
                                         <div>
                                             <h6 class="mb-1 text-primary">
-                                                <i class="fas fa-user-tie"></i> General Manager
+                                                <i class="fas fa-user-tie"></i> <?= __('General Manager') ?>
                                             </h6>
                                             <div><small class="text-muted">Username:</small> <code>manager</code></div>
                                             <div><small class="text-muted">Password:</small> <code>manager123</code></div>
-                                            <small class="text-muted d-block mt-1">Management Level</small>
+                                            <small class="text-muted d-block mt-1"><?= __('Management Level') ?></small>
                                         </div>
                                         <span class="badge bg-primary">MGT</span>
                                     </div>
@@ -115,11 +115,11 @@
                                     <div class="d-flex justify-content-between align-items-start">
                                         <div>
                                             <h6 class="mb-1 text-success">
-                                                <i class="fas fa-user-plus"></i> Recruitment Officer 1
+                                                <i class="fas fa-user-plus"></i> <?= __('Recruitment Officer 1') ?>
                                             </h6>
                                             <div><small class="text-muted">Username:</small> <code>recruitment1</code></div>
                                             <div><small class="text-muted">Password:</small> <code>recruit123</code></div>
-                                            <small class="text-muted d-block mt-1">Recruitment Department</small>
+                                            <small class="text-muted d-block mt-1"><?= __('Recruitment Department') ?></small>
                                         </div>
                                         <span class="badge bg-success">RECRUIT</span>
                                     </div>
@@ -130,11 +130,11 @@
                                     <div class="d-flex justify-content-between align-items-start">
                                         <div>
                                             <h6 class="mb-1 text-warning">
-                                                <i class="fas fa-chalkboard-teacher"></i> Training Coordinator 1
+                                                <i class="fas fa-chalkboard-teacher"></i> <?= __('Training Coordinator 1') ?>
                                             </h6>
                                             <div><small class="text-muted">Username:</small> <code>training1</code></div>
                                             <div><small class="text-muted">Password:</small> <code>training123</code></div>
-                                            <small class="text-muted d-block mt-1">Training Department</small>
+                                            <small class="text-muted d-block mt-1"><?= __('Training Department') ?></small>
                                         </div>
                                         <span class="badge bg-warning text-dark">TRAINING</span>
                                     </div>
@@ -145,11 +145,11 @@
                                     <div class="d-flex justify-content-between align-items-start">
                                         <div>
                                             <h6 class="mb-1 text-info">
-                                                <i class="fas fa-file-alt"></i> Documentation Officer 1
+                                                <i class="fas fa-file-alt"></i> <?= __('Documentation Officer 1') ?>
                                             </h6>
                                             <div><small class="text-muted">Username:</small> <code>documentation1</code></div>
                                             <div><small class="text-muted">Password:</small> <code>doc123</code></div>
-                                            <small class="text-muted d-block mt-1">Documentation Department</small>
+                                            <small class="text-muted d-block mt-1"><?= __('Documentation Department') ?></small>
                                         </div>
                                         <span class="badge bg-info">DOC</span>
                                     </div>
@@ -160,11 +160,11 @@
                                     <div class="d-flex justify-content-between align-items-start">
                                         <div>
                                             <h6 class="mb-1 text-success">
-                                                <i class="fas fa-calculator"></i> Accounting Officer
+                                                <i class="fas fa-calculator"></i> <?= __('Accounting Officer') ?>
                                             </h6>
                                             <div><small class="text-muted">Username:</small> <code>accounting</code></div>
                                             <div><small class="text-muted">Password:</small> <code>accounting123</code></div>
-                                            <small class="text-muted d-block mt-1">Accounting Department</small>
+                                            <small class="text-muted d-block mt-1"><?= __('Accounting Department') ?></small>
                                         </div>
                                         <span class="badge bg-success">ACC</span>
                                     </div>
@@ -175,11 +175,11 @@
                                     <div class="d-flex justify-content-between align-items-start">
                                         <div>
                                             <h6 class="mb-1 text-secondary">
-                                                <i class="fas fa-school"></i> LPK Semarang
+                                                <i class="fas fa-school"></i> <?= __('LPK Semarang') ?>
                                             </h6>
                                             <div><small class="text-muted">Username:</small> <code>lpk_semarang</code></div>
                                             <div><small class="text-muted">Password:</small> <code>lpk123</code></div>
-                                            <small class="text-muted d-block mt-1">Vocational Training Institution</small>
+                                            <small class="text-muted d-block mt-1"><?= __('Vocational Training Institution') ?></small>
                                         </div>
                                         <span class="badge bg-secondary">LPK</span>
                                     </div>
@@ -193,7 +193,7 @@
                                             </h6>
                                             <div><small class="text-muted">Username:</small> <code>lpk_bekasi</code></div>
                                             <div><small class="text-muted">Password:</small> <code>lpk123</code></div>
-                                            <small class="text-muted d-block mt-1">Vocational Training Institution</small>
+                                            <small class="text-muted d-block mt-1"><?= __('Vocational Training Institution') ?></small>
                                         </div>
                                         <span class="badge bg-secondary">LPK</span>
                                     </div>

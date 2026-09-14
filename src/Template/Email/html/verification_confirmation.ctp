@@ -3,7 +3,7 @@
 <p>Dear <strong><?= h($userName) ?></strong>,</p>
 
 <div class="success-box">
-    <strong>✓ Congratulations!</strong> Your email address has been successfully verified.
+    <strong>✓ Congratulations!</strong> <?= __('Your email address has been successfully verified.') ?>
 </div>
 
 <p>
@@ -17,12 +17,12 @@
         <strong><?= __('Institution:') ?></strong> <?= h($institutionName) ?><br>
         <strong>Email:</strong> <?= h($email) ?><br>
         <strong><?= __('Account Type:') ?></strong> <?= h($institutionType) ?><br>
-        <strong>Status:</strong> <span style="color: #28a745; font-weight: 600;">Verified ✓</span>
+        <strong>Status:</strong> <?= __('<span style="color: #28a745; font-weight: 600;">Verified ✓</span>') ?>
     </p>
 </div>
 
 <div class="warning-box">
-    <strong>⚠️ IMPORTANT NEXT STEP:</strong> Please log in and change your temporary password to a secure password of your choice.
+    <strong>⚠️ IMPORTANT NEXT STEP:</strong> <?= __('Please log in and change your temporary password to a secure password of your choice.') ?>
 </div>
 
 <p style="text-align: center; margin: 30px 0;">

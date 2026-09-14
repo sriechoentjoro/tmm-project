@@ -2,7 +2,7 @@
     <div class="row">
         <div class="col-md-12">
             <h2><i class="fa fa-user-plus"></i> <?= __('TMM Recruitment Dashboard') ?></h2>
-            <p class="text-muted">Candidate and recruitment order management</p>
+            <p class="text-muted"><?= __('Candidate and recruitment order management') ?></p>
         </div>
     </div>
     
@@ -10,14 +10,14 @@
         <div class="col-md-4">
             <div class="stat-card stat-card-blue">
                 <h3><?= number_format($stats['totalCandidates']) ?></h3>
-                <p>Total Candidates</p>
+                <p><?= __('Total Candidates') ?></p>
                 <i class="fa fa-users"></i>
             </div>
         </div>
         <div class="col-md-4">
             <div class="stat-card stat-card-orange">
                 <h3><?= number_format($stats['pendingCandidates']) ?></h3>
-                <p>Pending Review</p>
+                <p><?= __('Pending Review') ?></p>
                 <i class="fa fa-hourglass-half"></i>
             </div>
         </div>

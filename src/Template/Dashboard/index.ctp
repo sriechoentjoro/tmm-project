@@ -19,7 +19,7 @@ $this->assign('title', 'Dashboard');
         <div class="col-md-3" style="padding: 10px;">
             <div class="card" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 20px; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
                 <h3 style="margin: 0; font-size: 2.5em;"><?= number_format($totalCandidates) ?></h3>
-                <p style="margin: 5px 0 0 0; opacity: 0.9;">Total Candidates</p>
+                <p style="margin: 5px 0 0 0; opacity: 0.9;"><?= __('Total Candidates') ?></p>
                 <a href="<?= $this->Url->build(['controller' => 'Candidates', 'action' => 'index']) ?>" style="color: white; text-decoration: underline; font-size: 0.9em; margin-top: 10px; display: inline-block;">View All →</a>
             </div>
         </div>
@@ -27,7 +27,7 @@ $this->assign('title', 'Dashboard');
         <div class="col-md-3" style="padding: 10px;">
             <div class="card" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); color: white; padding: 20px; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
                 <h3 style="margin: 0; font-size: 2.5em;"><?= number_format($totalTrainees) ?></h3>
-                <p style="margin: 5px 0 0 0; opacity: 0.9;">Total Trainees</p>
+                <p style="margin: 5px 0 0 0; opacity: 0.9;"><?= __('Total Trainees') ?></p>
                 <a href="<?= $this->Url->build(['controller' => 'Trainees', 'action' => 'index']) ?>" style="color: white; text-decoration: underline; font-size: 0.9em; margin-top: 10px; display: inline-block;">View All →</a>
             </div>
         </div>
@@ -35,7 +35,7 @@ $this->assign('title', 'Dashboard');
         <div class="col-md-3" style="padding: 10px;">
             <div class="card" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); color: white; padding: 20px; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
                 <h3 style="margin: 0; font-size: 2.5em;"><?= number_format($totalOrders) ?></h3>
-                <p style="margin: 5px 0 0 0; opacity: 0.9;">Total Orders</p>
+                <p style="margin: 5px 0 0 0; opacity: 0.9;"><?= __('Total Orders') ?></p>
                 <a href="<?= $this->Url->build(['controller' => 'ApprenticeOrders', 'action' => 'index']) ?>" style="color: white; text-decoration: underline; font-size: 0.9em; margin-top: 10px; display: inline-block;">View All →</a>
             </div>
         </div>
@@ -43,7 +43,7 @@ $this->assign('title', 'Dashboard');
         <div class="col-md-3" style="padding: 10px;">
             <div class="card" style="background: linear-gradient(135deg, #fa709a 0%, #fee140 100%); color: white; padding: 20px; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
                 <h3 style="margin: 0; font-size: 2.5em;"><?= number_format($totalOrganizations) ?></h3>
-                <p style="margin: 5px 0 0 0; opacity: 0.9;">Organizations</p>
+                <p style="margin: 5px 0 0 0; opacity: 0.9;"><?= __('Organizations') ?></p>
                 <a href="<?= $this->Url->build(['controller' => 'AcceptanceOrganizations', 'action' => 'index']) ?>" style="color: white; text-decoration: underline; font-size: 0.9em; margin-top: 10px; display: inline-block;">View All →</a>
             </div>
         </div>
@@ -85,7 +85,7 @@ $this->assign('title', 'Dashboard');
                     </tbody>
                 </table>
                 <?php else: ?>
-                <p style="color: #999; font-style: italic;">No candidates yet.</p>
+                <p style="color: #999; font-style: italic;"><?= __('No candidates yet.') ?></p>
                 <?php endif; ?>
             </div>
         </div>
@@ -125,7 +125,7 @@ $this->assign('title', 'Dashboard');
                     </tbody>
                 </table>
                 <?php else: ?>
-                <p style="color: #999; font-style: italic;">No trainees yet.</p>
+                <p style="color: #999; font-style: italic;"><?= __('No trainees yet.') ?></p>
                 <?php endif; ?>
             </div>
         </div>

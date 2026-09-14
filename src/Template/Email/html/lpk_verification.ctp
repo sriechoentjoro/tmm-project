@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Verify Your Email - TMM System</title>
+    <title><?= __('Verify Your Email - TMM System') ?></title>
     <style>
         body {
             margin: 0;
@@ -151,7 +151,7 @@
         <!-- Header -->
         <div class="header">
             <h1>🎓 TMM System Registration</h1>
-            <p>Verify Your Email Address</p>
+            <p><?= __('Verify Your Email Address') ?></p>
         </div>
 
         <!-- Content -->
@@ -161,15 +161,15 @@
             </div>
 
             <div class="message">
-                <p>Congratulations! Your Vocational Training Institution <strong><?= h($institutionName) ?></strong> has been successfully registered in the TMM (Training and Manpower Management) System.</p>
+                <p><?= __('Congratulations! Your Vocational Training Institution <strong>{0}</strong> has been successfully registered in the TMM (Training and Manpower Management) System.', h($institutionName)) ?></p>
                 
-                <p>To complete your registration and activate your account, please verify your email address by clicking the button below:</p>
+                <p><?= __('To complete your registration and activate your account, please verify your email address by clicking the button below:') ?></p>
             </div>
 
             <!-- Call-to-Action Button -->
             <div class="cta-button">
                 <a href="<?= $verificationUrl ?>" style="color: #ffffff;">
-                    ✓ VERIFY EMAIL ADDRESS
+                    <?= __('✓ VERIFY EMAIL ADDRESS') ?>
                 </a>
             </div>
 
@@ -177,46 +177,46 @@
             <div class="info-box">
                 <h3>📋 Registration Details</h3>
                 <div class="info-row">
-                    <span class="info-label">Institution Name:</span>
+                    <span class="info-label"><?= __('Institution Name:') ?></span>
                     <span class="info-value"><?= h($institutionName) ?></span>
                 </div>
                 <div class="info-row">
-                    <span class="info-label">Registration Number:</span>
+                    <span class="info-label"><?= __('Registration Number:') ?></span>
                     <span class="info-value"><?= h($registrationNumber) ?></span>
                 </div>
                 <div class="info-row">
-                    <span class="info-label">Email Address:</span>
+                    <span class="info-label"><?= __('Email Address:') ?></span>
                     <span class="info-value"><?= h($email) ?></span>
                 </div>
                 <div class="info-row">
-                    <span class="info-label">Director Name:</span>
+                    <span class="info-label"><?= __('Director Name:') ?></span>
                     <span class="info-value"><?= h($directorName) ?></span>
                 </div>
                 <div class="info-row">
-                    <span class="info-label">Registered By:</span>
+                    <span class="info-label"><?= __('Registered By:') ?></span>
                     <span class="info-value"><?= h($registeredByAdmin) ?></span>
                 </div>
                 <div class="info-row">
-                    <span class="info-label">Registration Date:</span>
+                    <span class="info-label"><?= __('Registration Date:') ?></span>
                     <span class="info-value"><?= h($registrationDate) ?></span>
                 </div>
             </div>
 
             <!-- Warning Box -->
             <div class="warning-box">
-                <p><strong>⏰ Important:</strong> This verification link will expire in <strong>24 hours</strong>. Please verify your email as soon as possible to avoid delays in account activation.</p>
+                <p><strong>⏰ Important:</strong> <?= __('This verification link will expire in <strong>24 hours</strong>. Please verify your email as soon as possible to avoid delays in account activation.') ?></p>
             </div>
 
             <!-- What Happens Next -->
             <div class="help-box">
                 <p><strong>📌 What Happens Next?</strong></p>
-                <p>After verifying your email, you'll be directed to create a secure password for your account. Once completed, you'll receive a welcome email with your login credentials and instructions on how to access the TMM system.</p>
+                <p><?= __('After verifying your email, you\'ll be directed to create a secure password for your account. Once completed, you\'ll receive a welcome email with your login credentials and instructions on how to access the TMM system.') ?></p>
             </div>
 
             <!-- Alternative Link -->
             <div class="message" style="margin-top: 30px;">
                 <p style="font-size: 14px; color: #6c757d;">
-                    If the button above doesn't work, copy and paste this link into your browser:
+                    <?= __('If the button above doesn\'t work, copy and paste this link into your browser:') ?>
                 </p>
                 <p style="font-size: 12px; color: #667eea; word-break: break-all;">
                     <?= $verificationUrl ?>
@@ -226,7 +226,7 @@
             <!-- Security Notice -->
             <div class="message" style="margin-top: 30px; padding-top: 20px; border-top: 1px solid #e9ecef;">
                 <p style="font-size: 14px; color: #6c757d;">
-                    <strong>🔒 Security Notice:</strong> If you did not request this registration or believe this email was sent to you by mistake, please contact our support team immediately at <a href="mailto:support@asahifamily.id" style="color: #667eea;">support@asahifamily.id</a>
+                    <strong>🔒 Security Notice:</strong> <?= __('If you did not request this registration or believe this email was sent to you by mistake, please contact our support team immediately at <a href="mailto:support@asahifamily.id" style="color: #667eea;">support@asahifamily.id</a>') ?>
                 </p>
             </div>
         </div>

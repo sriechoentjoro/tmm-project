@@ -191,7 +191,7 @@
         <!-- Header -->
         <div class="header">
             <h1>🎉 Welcome to TMM System!</h1>
-            <p>Your Account is Now Active</p>
+            <p><?= __('Your Account is Now Active') ?></p>
         </div>
 
         <!-- Content -->
@@ -203,16 +203,16 @@
             <!-- Success Banner -->
             <div class="success-banner">
                 <h2>✓ Account Successfully Activated</h2>
-                <p>You can now access the TMM Training and Manpower Management System</p>
+                <p><?= __('You can now access the TMM Training and Manpower Management System') ?></p>
             </div>
 
             <div class="message">
-                <p>Congratulations! Your email has been verified and your password has been set. Your account for <strong><?= h($institutionName) ?></strong> is now fully activated and ready to use.</p>
+                <p><?= __('Congratulations! Your email has been verified and your password has been set. Your account for <strong>{0}</strong> is now fully activated and ready to use.', h($institutionName)) ?></p>
             </div>
 
             <!-- Login Credentials -->
             <div class="credentials-box">
-                <h3>🔑 Your Login Credentials</h3>
+                <h3>🔑 <?= __('Your Login Credentials') ?></h3>
                 <div class="credential-row">
                     <span class="credential-label">Username:</span>
                     <span class="credential-value"><?= h($username) ?></span>
@@ -222,11 +222,11 @@
                     <span class="credential-value"><?= h($email) ?></span>
                 </div>
                 <div class="credential-row">
-                    <span class="credential-label">Institution:</span>
+                    <span class="credential-label"><?= __('Institution:') ?></span>
                     <span class="credential-value"><?= h($institutionName) ?></span>
                 </div>
                 <p style="margin: 15px 0 0 0; font-size: 13px; color: #6c757d;">
-                    <strong>Note:</strong> Your password is the one you created during registration. Keep it secure and don't share it with anyone.
+                    <strong>Note:</strong> <?= __('Your password is the one you created during registration. Keep it secure and don\'t share it with anyone.') ?>
                 </p>
             </div>
 
@@ -239,15 +239,15 @@
 
             <!-- What You Can Do -->
             <div class="features-box">
-                <h3>📊 What You Can Do with Your Account</h3>
+                <h3>📊 <?= __('What You Can Do with Your Account') ?></h3>
                 <ul>
-                    <li><strong><?= __('Manage Candidates:') ?></strong> Register and manage trainee candidate profiles and documents</li>
-                    <li><strong><?= __('Track Training Progress:') ?></strong> Monitor candidate training stages and assessments</li>
-                    <li><strong><?= __('Submit Apprentice Orders:') ?></strong> Create and submit apprenticeship placement orders</li>
-                    <li><strong><?= __('Export Reports:') ?></strong> Generate and download candidate data in various formats (CSV, Excel, PDF)</li>
-                    <li><strong><?= __('Dashboard Analytics:') ?></strong> View statistics and insights about your training programs</li>
-                    <li><strong><?= __('Document Management:') ?></strong> Upload and manage certificates, licenses, and training documents</li>
-                    <li><strong><?= __('Communication Hub:') ?></strong> Direct messaging with system administrators and coordinators</li>
+                    <li><?= __('<strong>Manage Candidates:</strong> Register and manage trainee candidate profiles and documents') ?></li>
+                    <li><?= __('<strong>Track Training Progress:</strong> Monitor candidate training stages and assessments') ?></li>
+                    <li><?= __('<strong>Submit Apprentice Orders:</strong> Create and submit apprenticeship placement orders') ?></li>
+                    <li><?= __('<strong>Export Reports:</strong> Generate and download candidate data in various formats (CSV, Excel, PDF)') ?></li>
+                    <li><?= __('<strong>Dashboard Analytics:</strong> View statistics and insights about your training programs') ?></li>
+                    <li><?= __('<strong>Document Management:</strong> Upload and manage certificates, licenses, and training documents') ?></li>
+                    <li><?= __('<strong>Communication Hub:</strong> Direct messaging with system administrators and coordinators') ?></li>
                 </ul>
             </div>
 
@@ -255,18 +255,18 @@
             <div class="tips-box">
                 <h3>💡 Getting Started - Quick Tips</h3>
                 <ol>
-                    <li><strong><?= __('Update Your Profile:') ?></strong> Complete your institution profile with detailed information</li>
-                    <li><strong><?= __('Add Candidates:') ?></strong> Start registering your trainee candidates in the system</li>
-                    <li><strong><?= __('Upload Documents:') ?></strong> Add required certificates, licenses, and supporting documents</li>
-                    <li><strong><?= __('Explore Features:') ?></strong> Familiarize yourself with the dashboard and available tools</li>
-                    <li><strong><?= __('Contact Support:') ?></strong> Reach out if you need assistance or have questions</li>
+                    <li><?= __('<strong>Update Your Profile:</strong> Complete your institution profile with detailed information') ?></li>
+                    <li><?= __('<strong>Add Candidates:</strong> Start registering your trainee candidates in the system') ?></li>
+                    <li><?= __('<strong>Upload Documents:</strong> Add required certificates, licenses, and supporting documents') ?></li>
+                    <li><?= __('<strong>Explore Features:</strong> Familiarize yourself with the dashboard and available tools') ?></li>
+                    <li><?= __('<strong>Contact Support:</strong> Reach out if you need assistance or have questions') ?></li>
                 </ol>
             </div>
 
             <!-- Alternative Login Link -->
             <div class="message" style="margin-top: 30px;">
                 <p style="font-size: 14px; color: #6c757d;">
-                    If the button above doesn't work, copy and paste this link into your browser:
+                    <?= __('If the button above doesn\'t work, copy and paste this link into your browser:') ?>
                 </p>
                 <p style="font-size: 12px; color: #28a745; word-break: break-all;">
                     <?= $loginUrl ?>

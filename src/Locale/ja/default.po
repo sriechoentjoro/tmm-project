@@ -10965,3 +10965,492 @@ msgstr "この種類のファイルはブラウザーでプレビューできま
 msgid "Click to view full image"
 msgstr "クリックすると画像全体を表示します"
 
+msgid "<strong>LPK Registration</strong> is a 3-step wizard process to register new Vocational Training Institutions (Lembaga Pelatihan Kerja) into the system with email verification and secure account creation."
+msgstr "<strong>LPK登録</strong>は、メール認証と安全なアカウント作成を伴う3ステップの手続きで、新しい職業訓練機関（Lembaga Pelatihan Kerja）をシステムに登録します。"
+
+msgid "Initial state after admin creates record"
+msgstr "管理者がレコードを作成した直後の状態"
+
+msgid "After LPK clicks verification link"
+msgstr "LPKが認証リンクをクリックした後"
+
+msgid "After password setup - can login"
+msgstr "パスワード設定後 - ログイン可能"
+
+msgid "Admin disabled the account"
+msgstr "管理者がアカウントを無効にしました"
+
+msgid "Temporarily blocked"
+msgstr "一時的に停止中"
+
+msgid "<strong>Email Uniqueness:</strong> Each LPK must have unique email address"
+msgstr "<strong>メールアドレスの一意性：</strong>LPKごとに固有のメールアドレスが必要です"
+
+msgid "<strong>Required Fields:</strong> Name, Email, Director Name must be filled"
+msgstr "<strong>必須フィールド：</strong>名称、メール、代表者名は入力必須です"
+
+msgid "<strong>Geographic Cascade:</strong> Province → City → District → Village (optional but recommended)"
+msgstr "<strong>地域の階層：</strong>州 → 市 → 郡 → 村（任意ですが推奨）"
+
+msgid "<strong>Token Expiry:</strong> Verification links expire after 24 hours"
+msgstr "<strong>トークンの有効期限：</strong>認証リンクは24時間で失効します"
+
+msgid "<strong>One-Time Use:</strong> Each token can only be used once"
+msgstr "<strong>一回限りの使用：</strong>各トークンは一度しか使用できません"
+
+msgid "<strong>Status Flow:</strong> pending_verification → email_verified → active (cannot skip steps)"
+msgstr "<strong>ステータスの流れ：</strong>pending_verification → email_verified → active（段階の省略は不可）"
+
+msgid "<strong>Password Encryption:</strong> Bcrypt hashing with salt"
+msgstr "<strong>パスワードの暗号化：</strong>ソルト付きBcryptハッシュ"
+
+msgid "<strong>Token Security:</strong> 64-character random tokens (URL-safe)"
+msgstr "<strong>トークンのセキュリティ：</strong>64文字のランダムトークン（URLセーフ）"
+
+msgid "<strong>Email Verification:</strong> Ensures valid email ownership"
+msgstr "<strong>メール認証：</strong>メールアドレスの正当な所有を確認します"
+
+msgid "<strong>CSRF Protection:</strong> All forms protected against cross-site attacks"
+msgstr "<strong>CSRF保護：</strong>すべてのフォームがクロスサイト攻撃から保護されています"
+
+msgid "<strong>Session Management:</strong> Secure session handling with timeout"
+msgstr "<strong>セッション管理：</strong>タイムアウト付きの安全なセッション処理"
+
+msgid "Monitor and manage all stakeholder types from one central location"
+msgstr "すべての種別のステークホルダーを一箇所で把握・管理できます"
+
+msgid "Total Stakeholders"
+msgstr "ステークホルダー総数"
+
+msgid "Special Skill Institutions"
+msgstr "特定技能機関"
+
+msgid "Active Stakeholders"
+msgstr "有効なステークホルダー"
+
+msgid "Suspended Stakeholders"
+msgstr "停止中のステークホルダー"
+
+msgid "No recent activities"
+msgstr "最近の活動はありません"
+
+msgid "No pending verifications"
+msgstr "保留中の認証はありません"
+
+msgid "No pending approvals"
+msgstr "保留中の承認はありません"
+
+msgid "Select Province first, then City, District, and Village will be populated automatically"
+msgstr "先に州を選択すると、県・郡・村が自動的に表示されます"
+
+msgid "Loading PDF..."
+msgstr "PDFを読み込み中..."
+
+msgid "Rendering first page..."
+msgstr "1ページ目を表示中..."
+
+msgid "Preview not available for this file type"
+msgstr "この種類のファイルはプレビューできません"
+
+msgid "File will be uploaded when you save"
+msgstr "保存時にファイルがアップロードされます"
+
+msgid "First page preview"
+msgstr "1ページ目のプレビュー"
+
+msgid "Loading PDF preview..."
+msgstr "PDFのプレビューを読み込み中..."
+
+msgid "Preview will be available after upload"
+msgstr "アップロード後にプレビューできます"
+
+msgid "Compressed file ready for upload"
+msgstr "圧縮ファイルのアップロード準備ができました"
+
+msgid "Ready for upload"
+msgstr "アップロードの準備ができました"
+
+msgid "Important Notes"
+msgstr "重要な注意事項"
+
+msgid "Under Review"
+msgstr "確認中"
+
+msgid "File Naming:"
+msgstr "ファイル名："
+
+msgid "Submit Documents"
+msgstr "書類を提出"
+
+msgid "My Candidates"
+msgstr "自分の候補者"
+
+msgid "Candidate Help"
+msgstr "候補者のヘルプ"
+
+msgid "Check Availability"
+msgstr "利用可否を確認"
+
+msgid "Document Help"
+msgstr "書類のヘルプ"
+
+msgid "Enter the candidate's <strong>Identity Number (NIK/KTP)</strong> to check if they are already registered in the system."
+msgstr "候補者の <strong>身分証番号（NIK/KTP）</strong> を入力し、すでにシステムに登録されているか確認します。"
+
+msgid "Fields marked with <span class=\"text-danger\">*</span> are required. Please fill all information accurately."
+msgstr "<span class=\"text-danger\">*</span> の付いたフィールドは必須です。すべての情報を正確に入力してください。"
+
+msgid "<strong>At least 1 education entry is required.</strong> Add all your educational background starting from the highest level."
+msgstr "<strong>学歴は1件以上入力してください。</strong>最終学歴から順に、すべての学歴を追加してください。"
+
+msgid "Add your work experience if applicable. You can skip this step if you have no work experience."
+msgstr "職歴がある場合は入力してください。職歴がなければこの手順は省略できます。"
+
+msgid "Add any professional certifications, licenses, or skill certificates you have obtained."
+msgstr "取得している専門資格、免許、技能証明を追加してください。"
+
+msgid "Add any training courses, workshops, or professional development programs you have completed."
+msgstr "修了した研修講座、ワークショップ、能力開発プログラムを追加してください。"
+
+msgid "Please review all information carefully before submitting. You can go back to any step to make changes."
+msgstr "送信前にすべての情報をよくご確認ください。いずれの手順にも戻って修正できます。"
+
+msgid "No education entries"
+msgstr "学歴の入力がありません"
+
+msgid "The requested step is invalid. Please start from the beginning."
+msgstr "指定された手順は無効です。最初からやり直してください。"
+
+msgid "Trainee installments, journal entries and chart of accounts"
+msgstr "研修生の分割払い、仕訳、勘定科目表"
+
+msgid "Installment Payments"
+msgstr "分割払いの入金"
+
+msgid "Pre-departure document management for trainees going to Japan"
+msgstr "日本へ渡航する研修生の出国前書類の管理"
+
+msgid "Document Submissions"
+msgstr "書類の提出"
+
+msgid "Depart to Japan"
+msgstr "日本へ出発"
+
+msgid "The full journey at a glance: Candidate → Trainee → Apprentice in Japan"
+msgstr "全行程の概観：候補者 → 研修生 → 日本での技能実習生"
+
+msgid "Total Candidates"
+msgstr "候補者総数"
+
+msgid "No trainees yet."
+msgstr "研修生はまだいません。"
+
+msgid "Institution-specific candidate management"
+msgstr "機関ごとの候補者管理"
+
+msgid "Pending Candidates"
+msgstr "保留中の候補者"
+
+msgid "Approved Candidates"
+msgstr "承認済みの候補者"
+
+msgid "Read-only system overview and analytics"
+msgstr "システム全体の概要と分析（閲覧のみ）"
+
+msgid "Candidate and recruitment order management"
+msgstr "候補者と採用オーダーの管理"
+
+msgid "Loading data..."
+msgstr "データを読み込み中..."
+
+msgid "No records found"
+msgstr "該当するデータがありません"
+
+msgid "Verify Your Email Address"
+msgstr "メールアドレスの確認"
+
+msgid "Congratulations! Your Vocational Training Institution <strong>{0}</strong> has been successfully registered in the TMM (Training and Manpower Management) System."
+msgstr "おめでとうございます。職業訓練機関 <strong>{0}</strong> のTMM（Training and Manpower Management）システムへの登録が完了しました。"
+
+msgid "To complete your registration and activate your account, please verify your email address by clicking the button below:"
+msgstr "登録を完了しアカウントを有効にするため、下のボタンをクリックしてメールアドレスをご確認ください："
+
+msgid "Institution Name:"
+msgstr "機関名："
+
+msgid "Email Address:"
+msgstr "メールアドレス："
+
+msgid "Director Name:"
+msgstr "代表者名："
+
+msgid "Registered By:"
+msgstr "登録者："
+
+msgid "Registration Date:"
+msgstr "登録日："
+
+msgid "After verifying your email, you'll be directed to create a secure password for your account. Once completed, you'll receive a welcome email with your login credentials and instructions on how to access the TMM system."
+msgstr "メールの確認後、アカウントの安全なパスワードを作成する画面に進みます。完了すると、ログイン情報とTMMシステムへのアクセス方法を記載した案内メールが届きます。"
+
+msgid "Your Account is Now Active"
+msgstr "アカウントが有効になりました"
+
+msgid "You can now access the TMM Training and Manpower Management System"
+msgstr "TMM Training and Manpower Management システムをご利用いただけます"
+
+msgid "Congratulations! Your email has been verified and your password has been set. Your account for <strong>{0}</strong> is now fully activated and ready to use."
+msgstr "おめでとうございます。メールの確認とパスワードの設定が完了しました。<strong>{0}</strong> のアカウントが有効になり、ご利用いただけます。"
+
+msgid "<strong>Manage Candidates:</strong> Register and manage trainee candidate profiles and documents"
+msgstr "<strong>候補者の管理：</strong>研修生候補者のプロフィールと書類を登録・管理します"
+
+msgid "<strong>Track Training Progress:</strong> Monitor candidate training stages and assessments"
+msgstr "<strong>研修の進捗の把握：</strong>候補者の研修段階と評価を確認します"
+
+msgid "<strong>Submit Apprentice Orders:</strong> Create and submit apprenticeship placement orders"
+msgstr "<strong>技能実習生オーダーの提出：</strong>配属オーダーを作成して提出します"
+
+msgid "<strong>Export Reports:</strong> Generate and download candidate data in various formats (CSV, Excel, PDF)"
+msgstr "<strong>レポートの出力：</strong>候補者データをさまざまな形式（CSV、Excel、PDF）で作成・ダウンロードします"
+
+msgid "<strong>Dashboard Analytics:</strong> View statistics and insights about your training programs"
+msgstr "<strong>ダッシュボード分析：</strong>研修プログラムの統計と傾向を確認します"
+
+msgid "<strong>Document Management:</strong> Upload and manage certificates, licenses, and training documents"
+msgstr "<strong>書類の管理：</strong>証明書、免許、研修書類をアップロードして管理します"
+
+msgid "<strong>Communication Hub:</strong> Direct messaging with system administrators and coordinators"
+msgstr "<strong>コミュニケーションの拠点：</strong>システム管理者や担当者と直接やり取りできます"
+
+msgid "<strong>Update Your Profile:</strong> Complete your institution profile with detailed information"
+msgstr "<strong>プロフィールの更新：</strong>機関のプロフィールを詳しく入力します"
+
+msgid "<strong>Add Candidates:</strong> Start registering your trainee candidates in the system"
+msgstr "<strong>候補者の追加：</strong>研修生候補者のシステム登録を始めます"
+
+msgid "<strong>Upload Documents:</strong> Add required certificates, licenses, and supporting documents"
+msgstr "<strong>書類のアップロード：</strong>必要な証明書、免許、補足書類を追加します"
+
+msgid "<strong>Explore Features:</strong> Familiarize yourself with the dashboard and available tools"
+msgstr "<strong>機能の確認：</strong>ダッシュボードと利用できる機能に慣れてください"
+
+msgid "<strong>Contact Support:</strong> Reach out if you need assistance or have questions"
+msgstr "<strong>サポートへの問い合わせ：</strong>ご不明な点やお困りのことがあればご連絡ください"
+
+msgid "Please try again later or contact support if the problem persists."
+msgstr "しばらくしてから再度お試しいただくか、問題が続く場合はサポートにご連絡ください。"
+
+msgid "This registration link has expired."
+msgstr "この登録リンクは有効期限が切れています。"
+
+msgid "Please contact the system administrator to request a new registration link."
+msgstr "新しい登録リンクの発行はシステム管理者にご依頼ください。"
+
+msgid "Training & Monitoring Management"
+msgstr "Training & Monitoring Management"
+
+msgid "Training & Monitoring Management for Vocational Institutions"
+msgstr "職業訓練機関のための Training & Monitoring Management"
+
+msgid "TMM - Apprentice Management"
+msgstr "TMM - 技能実習生管理"
+
+msgid "Clear Filters"
+msgstr "絞り込みを解除"
+
+msgid "Training passed"
+msgstr "研修合格"
+
+msgid "Gender split"
+msgstr "男女比"
+
+msgid "Test pass rate"
+msgstr "試験合格率"
+
+msgid "Administrator"
+msgstr "管理者"
+
+msgid "TMM Recruitment"
+msgstr "TMM採用"
+
+msgid "Save Program"
+msgstr "プログラムを保存"
+
+msgid "TMM Training Division — Program Overview &amp; KPIs"
+msgstr "TMM研修部門 — プログラム概要・KPI"
+
+msgid "Timeline progress"
+msgstr "進行状況"
+
+msgid "Institution Type:"
+msgstr "機関の種別："
+
+msgid "Add New User"
+msgstr "新規ユーザーを追加"
+
+msgid "Add New Role"
+msgstr "新規役割を追加"
+
+msgid "Login System"
+msgstr "ログインシステム"
+
+msgid "Test Credentials"
+msgstr "テスト用ログイン情報"
+
+msgid "Click username to auto-fill login form"
+msgstr "ユーザー名をクリックするとログインフォームに自動入力されます"
+
+msgid "Management Level"
+msgstr "管理職"
+
+msgid "General Manager"
+msgstr "ゼネラルマネージャー"
+
+msgid "Recruitment Officer 1"
+msgstr "採用担当1"
+
+msgid "Recruitment Department"
+msgstr "採用部門"
+
+msgid "Training Coordinator 1"
+msgstr "研修コーディネーター1"
+
+msgid "Training Department"
+msgstr "研修部門"
+
+msgid "Documentation Officer 1"
+msgstr "書類担当1"
+
+msgid "Documentation Department"
+msgstr "書類部門"
+
+msgid "Accounting Officer"
+msgstr "経理担当"
+
+msgid "Accounting Department"
+msgstr "経理部門"
+
+msgid "LPK Semarang"
+msgstr "LPKスマラン"
+
+msgid "New Institution"
+msgstr "新規機関"
+
+msgid "Error:"
+msgstr "エラー："
+
+msgid "Invalid JSON response. Check console for details."
+msgstr "JSONの応答が不正です。詳細はコンソールを確認してください。"
+
+msgid "Format: user@example.com. Valid email address required if provided."
+msgstr "形式：user@example.com。入力する場合は有効なメールアドレスが必要です。"
+
+msgid "Fill out LPK registration form with institution details"
+msgstr "機関の詳細を記入してLPK登録フォームを提出する"
+
+msgid "Creates record in <code>vocational_training_institutions</code> table with status = <code>pending_verification</code>"
+msgstr "<code>vocational_training_institutions</code> テーブルに status = <code>pending_verification</code> でレコードを作成します"
+
+msgid "Generates verification token in <code>email_verification_tokens</code> table"
+msgstr "<code>email_verification_tokens</code> テーブルに認証トークンを生成します"
+
+msgid "Sends verification email to LPK email address"
+msgstr "LPKのメールアドレスに認証メールを送信します"
+
+msgid "LPK Staff (via email link)"
+msgstr "LPK職員（メールのリンク経由）"
+
+msgid "Click verification link in email"
+msgstr "メール内の認証リンクをクリックする"
+
+msgid "Marks token as <code>is_used = 1</code> in <code>email_verification_tokens</code>"
+msgstr "<code>email_verification_tokens</code> でトークンを <code>is_used = 1</code> にします"
+
+msgid "Changes status to <code>email_verified</code> in <code>vocational_training_institutions</code>"
+msgstr "<code>vocational_training_institutions</code> のステータスを <code>email_verified</code> に変更します"
+
+msgid "To password setup page"
+msgstr "パスワード設定ページへ"
+
+msgid "LPK Staff"
+msgstr "LPK職員"
+
+msgid "Create password for login"
+msgstr "ログイン用のパスワードを作成する"
+
+msgid "Creates user account in <code>users</code> table with role = <code>lpk</code>"
+msgstr "<code>users</code> テーブルに role = <code>lpk</code> のユーザーアカウントを作成します"
+
+msgid "Changes status to <code>active</code> in <code>vocational_training_institutions</code>"
+msgstr "<code>vocational_training_institutions</code> のステータスを <code>active</code> に変更します"
+
+msgid "Sends welcome email with login instructions"
+msgstr "ログイン手順を記載した案内メールを送信します"
+
+msgid "LPK can now login to the system"
+msgstr "LPKがシステムにログインできるようになります"
+
+msgid "Master data for all Vocational Training Institutions (LPK)"
+msgstr "すべての職業訓練機関（LPK）のマスタデータ"
+
+msgid "Store one-time verification tokens for email validation"
+msgstr "メール確認用の使い捨て認証トークンを保存します"
+
+msgid "User accounts for authentication and authorization"
+msgstr "認証と権限管理のためのユーザーアカウント"
+
+msgid "JPG, PNG, or GIF"
+msgstr "JPG、PNG、またはGIF"
+
+msgid "Maximum 5MB"
+msgstr "最大5MB"
+
+msgid "Passport photo (square, 1:1 aspect ratio)"
+msgstr "証明写真（正方形、縦横比1:1）"
+
+msgid "Clear, well-lit, facing camera"
+msgstr "鮮明で明るく、正面を向いたもの"
+
+msgid "The institution owner has been sent a verification email."
+msgstr "機関の担当者に認証メールを送信しました。"
+
+msgid "This verification link will expire in <strong>24 hours</strong>. Please verify your email as soon as possible to avoid delays in account activation."
+msgstr "この認証リンクは <strong>24時間</strong> で失効します。アカウントの有効化が遅れないよう、お早めにメールをご確認ください。"
+
+msgid "If you did not request this registration or believe this email was sent to you by mistake, please contact our support team immediately at <a href=\"mailto:support@asahifamily.id\" style=\"color: #667eea;\">support@asahifamily.id</a>"
+msgstr "この登録に心当たりがない場合、または誤って送信されたと思われる場合は、至急サポートチーム <a href=\"mailto:support@asahifamily.id\" style=\"color: #667eea;\">support@asahifamily.id</a> までご連絡ください"
+
+msgid "Your password is the one you created during registration. Keep it secure and don't share it with anyone."
+msgstr "パスワードは登録時にご自身で設定したものです。安全に保管し、他者と共有しないでください。"
+
+msgid "This temporary password will expire in 24 hours. You must verify your email and change your password before the expiration."
+msgstr "この仮パスワードは24時間で失効します。失効前にメールを確認し、パスワードを変更してください。"
+
+msgid "using your email and temporary password"
+msgstr "メールアドレスと仮パスワードを使用して"
+
+msgid "Your email address has been successfully verified."
+msgstr "メールアドレスの確認が完了しました。"
+
+msgid "<span style=\"color: #28a745; font-weight: 600;\">Verified ✓</span>"
+msgstr "<span style=\"color: #28a745; font-weight: 600;\">確認済み ✓</span>"
+
+msgid "Please log in and change your temporary password to a secure password of your choice."
+msgstr "ログインのうえ、仮パスワードをご自身で決めた安全なパスワードに変更してください。"
+
+msgid "Verify Your Email - TMM System"
+msgstr "メールアドレスの確認 - TMMシステム"
+
+msgid "✓ VERIFY EMAIL ADDRESS"
+msgstr "✓ メールアドレスを確認する"
+
+msgid "If the button above doesn't work, copy and paste this link into your browser:"
+msgstr "上のボタンが機能しない場合は、次のリンクをコピーしてブラウザーに貼り付けてください："
+
+msgid "Your Login Credentials"
+msgstr "ログイン情報"
+
+msgid "What You Can Do with Your Account"
+msgstr "アカウントでできること"
+
