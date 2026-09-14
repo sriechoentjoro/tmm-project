@@ -230,7 +230,7 @@ $fileExists = (file_exists($fullPath) && is_readable($fullPath));
     <button type="button" 
             class="file-modal-trigger" 
             onclick="openFileModal('<?= $modalId ?>')"
-            title="Click to preview <?= h($label) ?>">
+            title="<?= h(__('Click to preview {0}', $label)) ?>">
         <span style="color: <?= $color ?>; display: flex;">
             <?= $icon ?>
         </span>
@@ -271,7 +271,7 @@ $fileExists = (file_exists($fullPath) && is_readable($fullPath));
                                 File type: .<?= strtoupper($ext) ?>
                             </p>
                             <p style="color: #6c757d; margin: 15px 0;">
-                                This file type cannot be previewed in the browser.
+                                <?= __('This file type cannot be previewed in the browser.') ?>
                             </p>
                         </div>
                     <?php endif; ?>

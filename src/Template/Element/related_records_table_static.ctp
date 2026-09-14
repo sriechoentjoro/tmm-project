@@ -169,7 +169,7 @@ $foreignValue = isset($foreignValue) ? $foreignValue : null; // e.g., $apprentic
                                     <?php if ($type === 'image' && !empty($value)): ?>
                                         <?php $imagePath = WWW_ROOT . ltrim($value, '/'); ?>
                                         <?php if (file_exists($imagePath)): ?>
-                                            <a href="<?= $this->Url->build('/' . $value) ?>" target="_blank" title="Click to view full image">
+                                            <a href="<?= $this->Url->build('/' . $value) ?>" target="_blank" title="<?= __('Click to view full image') ?>">
                                                 <img src="<?= $this->Url->build('/' . $value) ?>" 
                                                      style="max-width:60px;max-height:60px;object-fit:cover;border:1px solid #ddd;border-radius:3px;cursor:pointer;" 
                                                      alt="<?= h($fieldName) ?>" />

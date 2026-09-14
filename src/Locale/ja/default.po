@@ -10953,3 +10953,15 @@ msgstr "<strong>認可の管理：</strong>許可と認可の有効期限を把�
 msgid "<strong>Data Integrity:</strong> Use standard data input interfaces for consistency"
 msgstr "<strong>データの整合性：</strong>一貫性を保つため標準の入力画面を使用してください"
 
+msgid "Hover over the menu bar and scroll the mouse wheel &mdash; or click and drag &mdash; to slide the menu left / right"
+msgstr "メニューバーにカーソルを合わせてマウスホイールを回す &mdash; またはクリックしてドラッグする &mdash; とメニューを左右にスライドできます"
+
+msgid "Click to preview {0}"
+msgstr "{0} をプレビューするにはクリックしてください"
+
+msgid "This file type cannot be previewed in the browser."
+msgstr "この種類のファイルはブラウザーでプレビューできません。"
+
+msgid "Click to view full image"
+msgstr "クリックすると画像全体を表示します"
+

@@ -524,7 +524,7 @@ ul.elegant-category-tabs {
     </ul>
     <div class="elegant-menu-hint" id="elegantMenuHint">
         <i class="fas fa-arrows-alt-h"></i>
-        <span>Hover over the menu bar and scroll the mouse wheel &mdash; or click and drag &mdash; to slide the menu left / right</span>
+        <span><?= __('Hover over the menu bar and scroll the mouse wheel &mdash; or click and drag &mdash; to slide the menu left / right') ?></span>
     </div>
 </div>
 
