@@ -10953,3 +10953,15 @@ msgstr "<strong>Pelacakan Otorisasi:</strong> Pantau tanggal kedaluwarsa izin da
 msgid "<strong>Data Integrity:</strong> Use standard data input interfaces for consistency"
 msgstr "<strong>Integritas Data:</strong> Gunakan antarmuka input data standar agar konsisten"
 
+msgid "Hover over the menu bar and scroll the mouse wheel &mdash; or click and drag &mdash; to slide the menu left / right"
+msgstr "Arahkan kursor ke bilah menu lalu gulir roda tetikus &mdash; atau klik dan seret &mdash; untuk menggeser menu ke kiri / kanan"
+
+msgid "Click to preview {0}"
+msgstr "Klik untuk melihat pratinjau {0}"
+
+msgid "This file type cannot be previewed in the browser."
+msgstr "Jenis berkas ini tidak dapat dipratinjau di peramban."
+
+msgid "Click to view full image"
+msgstr "Klik untuk melihat gambar penuh"
+
