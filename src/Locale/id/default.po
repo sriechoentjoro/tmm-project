@@ -11535,3 +11535,9 @@ msgstr "email cocok"
 msgid "creates"
 msgstr "membuat"
 
+msgid "Institution not found. Please contact support."
+msgstr "Lembaga tidak ditemukan. Silakan hubungi dukungan."
+
+msgid "Error updating verification status. Please try again or contact support."
+msgstr "Gagal memperbarui status verifikasi. Silakan coba lagi atau hubungi dukungan."
+
