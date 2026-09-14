@@ -102,6 +102,33 @@ class VocationalTrainingInstitutionsTable extends Table
             ->requirePresence('address', 'create')
             ->notEmptyString('address');
 
+        // The four location ids are required: the columns are NOT NULL, and the
+        // dashboards count institutions per region from them. They had no
+        // validation at all, only the existsIn rule below, so leaving a select
+        // empty submitted "" - not null, which existsIn compares strictly - and
+        // the form answered "This value does not exist" four times over instead
+        // of saying which field was missing.
+        $locations = [
+            'master_propinsi_id' => __('Please select a province.'),
+            'master_kabupaten_id' => __('Please select a city or regency.'),
+            'master_kecamatan_id' => __('Please select a subdistrict.'),
+            'master_kelurahan_id' => __('Please select a village.'),
+        ];
+        foreach ($locations as $field => $message) {
+            $validator
+                ->requirePresence($field, 'create', $message)
+                ->notEmptyString($field, $message)
+                ->add($field, 'chosen', [
+                    // A select whose placeholder option carries value="0" passes
+                    // notEmptyString but matches no row, so reject it here where
+                    // the message can name the field.
+                    'rule' => function ($value) {
+                        return (int)$value > 0;
+                    },
+                    'message' => $message,
+                ]);
+        }
+
         $validator
             ->scalar('post_code')
             ->maxLength('post_code', 6)

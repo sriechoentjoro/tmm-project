@@ -11541,3 +11541,18 @@ msgstr "Lembaga tidak ditemukan. Silakan hubungi dukungan."
 msgid "Error updating verification status. Please try again or contact support."
 msgstr "Gagal memperbarui status verifikasi. Silakan coba lagi atau hubungi dukungan."
 
+msgid "The region you select above is appended here automatically. Type the street, number and RT/RW in front of it."
+msgstr "Wilayah yang Anda pilih di atas ditambahkan ke sini secara otomatis. Ketik nama jalan, nomor, dan RT/RW di depannya."
+
+msgid "Please select a province."
+msgstr "Silakan pilih provinsi."
+
+msgid "Please select a city or regency."
+msgstr "Silakan pilih kabupaten atau kota."
+
+msgid "Please select a subdistrict."
+msgstr "Silakan pilih kecamatan."
+
+msgid "Please select a village."
+msgstr "Silakan pilih kelurahan atau desa."
+

@@ -251,14 +251,15 @@
                                     <div class="form-group">
                                         <label class="form-label">
                                             <?= __('Province') ?>
-                                            <small class="text-muted">(Optional)</small>
+                                            <span class="text-danger">*</span>
                                         </label>
                                         <?= $this->Form->control('master_propinsi_id', [
                                             'options' => $masterPropinsis,
                                             'empty' => __('-- Select Province --'),
                                             'class' => 'form-control',
                                             'label' => false,
-                                            'id' => 'master-propinsi-id'
+                                            'id' => 'master-propinsi-id',
+                                            'required' => true
                                         ]) ?>
                                     </div>
                                 </div>
@@ -266,14 +267,15 @@
                                     <div class="form-group">
                                         <label class="form-label">
                                             <?= __('City/District') ?>
-                                            <small class="text-muted">(Optional)</small>
+                                            <span class="text-danger">*</span>
                                         </label>
                                         <?= $this->Form->control('master_kabupaten_id', [
                                             'options' => $masterKabupatens,
                                             'empty' => __('-- Select City/District --'),
                                             'class' => 'form-control',
                                             'label' => false,
-                                            'id' => 'master-kabupaten-id'
+                                            'id' => 'master-kabupaten-id',
+                                            'required' => true
                                         ]) ?>
                                     </div>
                                 </div>
@@ -283,14 +285,15 @@
                                     <div class="form-group">
                                         <label class="form-label">
                                             <?= __('Subdistrict') ?>
-                                            <small class="text-muted">(Optional)</small>
+                                            <span class="text-danger">*</span>
                                         </label>
                                         <?= $this->Form->control('master_kecamatan_id', [
                                             'options' => $masterKecamatans,
                                             'empty' => __('-- Select Subdistrict --'),
                                             'class' => 'form-control',
                                             'label' => false,
-                                            'id' => 'master-kecamatan-id'
+                                            'id' => 'master-kecamatan-id',
+                                            'required' => true
                                         ]) ?>
                                     </div>
                                 </div>
@@ -298,14 +301,15 @@
                                     <div class="form-group">
                                         <label class="form-label">
                                             <?= __('Village') ?>
-                                            <small class="text-muted">(Optional)</small>
+                                            <span class="text-danger">*</span>
                                         </label>
                                         <?= $this->Form->control('master_kelurahan_id', [
                                             'options' => $masterKelurahans,
                                             'empty' => __('-- Select Village --'),
                                             'class' => 'form-control',
                                             'label' => false,
-                                            'id' => 'master-kelurahan-id'
+                                            'id' => 'master-kelurahan-id',
+                                            'required' => true
                                         ]) ?>
                                     </div>
                                 </div>
@@ -321,6 +325,7 @@
                                         <?= $this->Form->control('address', [
                                             'type' => 'textarea',
                                             'class' => 'form-control',
+                                            'id' => 'lpk-address',
                                             'placeholder' => __('Enter Complete Address'),
                                             'label' => false,
                                             'required' => true,
@@ -329,6 +334,10 @@
                                         ]) ?>
                                         <small class="form-text text-muted">
                                             <i class="fas fa-home"></i> <?= __('Complete address including street name, number, RT/RW') ?>
+                                        </small>
+                                        <small class="form-text text-muted">
+                                            <i class="fas fa-wand-magic-sparkles"></i>
+                                            <?= __('The region you select above is appended here automatically. Type the street, number and RT/RW in front of it.') ?>
                                         </small>
                                     </div>
                                 </div>
@@ -451,6 +460,62 @@ $(document).ready(function() {
         }
     });
     
+    // Keep the selected region at the end of the address, live.
+    //
+    // The four selects are what the dashboards count institutions by, so they
+    // are required now; repeating them by hand in the address as well is work
+    // the form can do. Only the tail is managed: whatever the user has typed in
+    // front of it - street, number, RT/RW - is never touched, and the previous
+    // region string is replaced rather than a second one appended.
+    var lastRegion = '';
+
+    function selectedLabel(selector) {
+        var $select = $(selector);
+        if (!$select.val()) {
+            return '';
+        }
+        return $.trim($select.find('option:selected').text());
+    }
+
+    function buildRegion() {
+        // Smallest unit first, the way an Indonesian address is written.
+        return [
+            selectedLabel('#master-kelurahan-id'),
+            selectedLabel('#master-kecamatan-id'),
+            selectedLabel('#master-kabupaten-id'),
+            selectedLabel('#master-propinsi-id')
+        ].filter(function (part) {
+            return part !== '';
+        }).join(', ');
+    }
+
+    function syncAddressRegion() {
+        var $address = $('#lpk-address');
+        if (!$address.length) {
+            return;
+        }
+
+        var text = $address.val() || '';
+        var region = buildRegion();
+
+        if (lastRegion && text.indexOf(lastRegion) !== -1) {
+            text = text.replace(lastRegion, region);
+        } else if (region) {
+            text = text.replace(/[\s,]+$/, '');
+            text = text ? text + ', ' + region : region;
+        }
+
+        // Clearing a select can leave a dangling separator behind.
+        text = text.replace(/,\s*,/g, ',').replace(/^[\s,]+/, '').replace(/[\s,]+$/, '');
+
+        $address.val(text);
+        lastRegion = region;
+    }
+
+    $(document).on('change',
+        '#master-propinsi-id, #master-kabupaten-id, #master-kecamatan-id, #master-kelurahan-id',
+        syncAddressRegion);
+
     // Real-time email validation
     var emailCheckTimeout;
     $('#lpk-email').on('keyup', function() {
