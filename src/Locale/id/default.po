@@ -9432,3 +9432,1524 @@ msgstr "Masukkan alamat email yang valid untuk notifikasi."
 msgid "Upload a clear photo of yourself (JPG or PNG format)."
 msgstr "Unggah foto diri Anda yang jelas (format JPG atau PNG)."
 
+msgid "Document Submission - Help Guide"
+msgstr "Pengajuan Dokumen - Panduan"
+
+msgid "Document Submission System"
+msgstr "Sistem Pengajuan Dokumen"
+
+msgid "This guide explains how to properly submit and manage candidate documents in the <strong>cms_lpk_candidate_documents</strong> database."
+msgstr "Panduan ini menjelaskan cara mengajukan dan mengelola dokumen kandidat dengan benar di basis data <strong>cms_lpk_candidate_documents</strong>."
+
+msgid "Required Documents Checklist"
+msgstr "Daftar Dokumen Wajib"
+
+msgid "Requirements"
+msgstr "Persyaratan"
+
+msgid "File Format"
+msgstr "Format Berkas"
+
+msgid "<strong>Identity Card (KTP)</strong>"
+msgstr "<strong>Kartu Tanda Penduduk (KTP)</strong>"
+
+msgid "Clear scan/photo of both sides, valid and not expired"
+msgstr "Pindaian/foto kedua sisi yang jelas, masih berlaku dan belum kedaluwarsa"
+
+msgid "PDF, JPG, PNG<br>Max 2MB"
+msgstr "PDF, JPG, PNG<br>Maks 2MB"
+
+msgid "<strong>Family Card (KK)</strong>"
+msgstr "<strong>Kartu Keluarga (KK)</strong>"
+
+msgid "Complete family card showing candidate's name"
+msgstr "Kartu keluarga lengkap yang memuat nama kandidat"
+
+msgid "<strong>Birth Certificate</strong>"
+msgstr "<strong>Akta Kelahiran</strong>"
+
+msgid "Official birth certificate or extract"
+msgstr "Akta kelahiran resmi atau kutipannya"
+
+msgid "<strong>Education Certificate</strong>"
+msgstr "<strong>Ijazah</strong>"
+
+msgid "Highest education diploma (SMA/SMK/D3/S1)"
+msgstr "Ijazah pendidikan tertinggi (SMA/SMK/D3/S1)"
+
+msgid "PDF, JPG, PNG<br>Max 3MB"
+msgstr "PDF, JPG, PNG<br>Maks 3MB"
+
+msgid "<strong>Academic Transcript</strong>"
+msgstr "<strong>Transkrip Nilai</strong>"
+
+msgid "Complete transcript of grades"
+msgstr "Transkrip nilai lengkap"
+
+msgid "<strong>Passport Photo</strong>"
+msgstr "<strong>Foto Paspor</strong>"
+
+msgid "Recent photo, 3x4 cm, white background"
+msgstr "Foto terbaru, 3x4 cm, latar putih"
+
+msgid "JPG, PNG<br>Max 1MB"
+msgstr "JPG, PNG<br>Maks 1MB"
+
+msgid "<strong>Health Certificate</strong>"
+msgstr "<strong>Surat Keterangan Sehat</strong>"
+
+msgid "Medical check-up results (not older than 3 months)"
+msgstr "Hasil pemeriksaan kesehatan (tidak lebih dari 3 bulan)"
+
+msgid "<strong>Police Clearance (SKCK)</strong>"
+msgstr "<strong>Surat Keterangan Catatan Kepolisian (SKCK)</strong>"
+
+msgid "Valid SKCK (not older than 6 months)"
+msgstr "SKCK yang masih berlaku (tidak lebih dari 6 bulan)"
+
+msgid "<strong>Passport (if available)</strong>"
+msgstr "<strong>Paspor (jika ada)</strong>"
+
+msgid "Valid passport with at least 18 months validity"
+msgstr "Paspor yang masih berlaku minimal 18 bulan"
+
+msgid "<strong>Training Certificates</strong>"
+msgstr "<strong>Sertifikat Pelatihan</strong>"
+
+msgid "Any relevant vocational training certificates"
+msgstr "Sertifikat pelatihan kerja yang relevan"
+
+msgid "PDF, JPG, PNG<br>Max 2MB each"
+msgstr "PDF, JPG, PNG<br>Maks 2MB per berkas"
+
+msgid "Document Upload Process"
+msgstr "Proses Unggah Dokumen"
+
+msgid "Step-by-Step Upload Guide"
+msgstr "Panduan Unggah Langkah demi Langkah"
+
+msgid "Access Document Submission"
+msgstr "Buka Pengajuan Dokumen"
+
+msgid "Go to <strong>LPK Menu → Document Submission</strong>"
+msgstr "Buka <strong>Menu LPK → Pengajuan Dokumen</strong>"
+
+msgid "Select the candidate from your institution's list"
+msgstr "Pilih kandidat dari daftar lembaga Anda"
+
+msgid "Choose Document Category"
+msgstr "Pilih Kategori Dokumen"
+
+msgid "Select the document type from dropdown"
+msgstr "Pilih jenis dokumen dari daftar pilihan"
+
+msgid "Read the specific requirements for that document"
+msgstr "Baca persyaratan khusus untuk dokumen tersebut"
+
+msgid "Prepare Your File"
+msgstr "Siapkan Berkas Anda"
+
+msgid "Ensure file meets size and format requirements"
+msgstr "Pastikan berkas memenuhi persyaratan ukuran dan format"
+
+msgid "Rename file descriptively (e.g., \"KTP_JohnDoe.pdf\")"
+msgstr "Ubah nama berkas agar deskriptif (misalnya \"KTP_JohnDoe.pdf\")"
+
+msgid "Verify document is clear and legible"
+msgstr "Pastikan dokumen jelas dan mudah dibaca"
+
+msgid "Click <span class=\"badge badge-primary\">Choose File</span>"
+msgstr "Klik <span class=\"badge badge-primary\">Pilih Berkas</span>"
+
+msgid "Select your prepared document"
+msgstr "Pilih dokumen yang sudah Anda siapkan"
+
+msgid "Add notes or comments (optional but recommended)"
+msgstr "Tambahkan catatan atau komentar (opsional tetapi disarankan)"
+
+msgid "Click <span class=\"badge badge-success\">Upload</span>"
+msgstr "Klik <span class=\"badge badge-success\">Unggah</span>"
+
+msgid "Verify Upload"
+msgstr "Periksa Hasil Unggahan"
+
+msgid "Check for success message"
+msgstr "Periksa pesan keberhasilan"
+
+msgid "Verify document appears in submission list"
+msgstr "Pastikan dokumen muncul di daftar pengajuan"
+
+msgid "Note the submission date and status"
+msgstr "Catat tanggal dan status pengajuan"
+
+msgid "Do not upload password-protected files"
+msgstr "Jangan mengunggah berkas yang dilindungi kata sandi"
+
+msgid "Ensure documents are not corrupted"
+msgstr "Pastikan dokumen tidak rusak"
+
+msgid "Use clear scans, avoid blurry photos"
+msgstr "Gunakan pindaian yang jelas, hindari foto kabur"
+
+msgid "Submit documents in the correct category"
+msgstr "Ajukan dokumen pada kategori yang benar"
+
+msgid "Document Status Tracking"
+msgstr "Pelacakan Status Dokumen"
+
+msgid "Understanding Document Status"
+msgstr "Memahami Status Dokumen"
+
+msgid "Meaning"
+msgstr "Arti"
+
+msgid "Action Required"
+msgstr "Tindakan yang Diperlukan"
+
+msgid "<span class=\"badge badge-secondary\">Not Submitted</span>"
+msgstr "<span class=\"badge badge-secondary\">Belum Diajukan</span>"
+
+msgid "Document has not been uploaded yet"
+msgstr "Dokumen belum diunggah"
+
+msgid "Upload the required document"
+msgstr "Unggah dokumen yang diperlukan"
+
+msgid "<span class=\"badge badge-warning\">Pending Review</span>"
+msgstr "<span class=\"badge badge-warning\">Menunggu Peninjauan</span>"
+
+msgid "Document uploaded, awaiting verification"
+msgstr "Dokumen sudah diunggah, menunggu verifikasi"
+
+msgid "Wait for admin review"
+msgstr "Tunggu peninjauan admin"
+
+msgid "<span class=\"badge badge-info\">Under Review</span>"
+msgstr "<span class=\"badge badge-info\">Sedang Ditinjau</span>"
+
+msgid "Document is being verified by admin"
+msgstr "Dokumen sedang diverifikasi oleh admin"
+
+msgid "No action needed"
+msgstr "Tidak perlu tindakan"
+
+msgid "<span class=\"badge badge-success\">Approved</span>"
+msgstr "<span class=\"badge badge-success\">Disetujui</span>"
+
+msgid "Document verified and accepted"
+msgstr "Dokumen terverifikasi dan diterima"
+
+msgid "<span class=\"badge badge-danger\">Rejected</span>"
+msgstr "<span class=\"badge badge-danger\">Ditolak</span>"
+
+msgid "Document does not meet requirements"
+msgstr "Dokumen tidak memenuhi persyaratan"
+
+msgid "Check rejection reason and re-upload"
+msgstr "Periksa alasan penolakan dan unggah ulang"
+
+msgid "<span class=\"badge badge-primary\">Resubmitted</span>"
+msgstr "<span class=\"badge badge-primary\">Diajukan Ulang</span>"
+
+msgid "Document re-uploaded after rejection"
+msgstr "Dokumen diunggah ulang setelah ditolak"
+
+msgid "Wait for re-review"
+msgstr "Tunggu peninjauan ulang"
+
+msgid "Checking Document Status"
+msgstr "Memeriksa Status Dokumen"
+
+msgid "Go to <strong>LPK Menu → Document Dashboard</strong>"
+msgstr "Buka <strong>Menu LPK → Dasbor Dokumen</strong>"
+
+msgid "View overall completion percentage"
+msgstr "Lihat persentase kelengkapan keseluruhan"
+
+msgid "See detailed status for each document type"
+msgstr "Lihat status rinci untuk setiap jenis dokumen"
+
+msgid "Click on candidate name to see individual document status"
+msgstr "Klik nama kandidat untuk melihat status dokumen per orang"
+
+msgid "Handling Document Rejections"
+msgstr "Menangani Penolakan Dokumen"
+
+msgid "Common Rejection Reasons"
+msgstr "Alasan Penolakan yang Umum"
+
+msgid "<strong>Poor Quality:</strong> Document is blurry, dark, or illegible"
+msgstr "<strong>Kualitas Buruk:</strong> Dokumen kabur, gelap, atau tidak terbaca"
+
+msgid "<strong>Incomplete:</strong> Missing pages or information"
+msgstr "<strong>Tidak Lengkap:</strong> Ada halaman atau informasi yang hilang"
+
+msgid "<strong>Expired:</strong> Document validity has expired"
+msgstr "<strong>Kedaluwarsa:</strong> Masa berlaku dokumen sudah habis"
+
+msgid "<strong>Wrong Format:</strong> File type not supported"
+msgstr "<strong>Format Salah:</strong> Jenis berkas tidak didukung"
+
+msgid "<strong>Wrong Category:</strong> Document uploaded in incorrect category"
+msgstr "<strong>Kategori Salah:</strong> Dokumen diunggah pada kategori yang salah"
+
+msgid "<strong>Mismatch:</strong> Information doesn't match candidate data"
+msgstr "<strong>Tidak Cocok:</strong> Informasi tidak sesuai dengan data kandidat"
+
+msgid "How to Resubmit Rejected Documents"
+msgstr "Cara Mengajukan Ulang Dokumen yang Ditolak"
+
+msgid "Check the rejection reason in the document status"
+msgstr "Periksa alasan penolakan pada status dokumen"
+
+msgid "Prepare a corrected version of the document"
+msgstr "Siapkan versi dokumen yang sudah diperbaiki"
+
+msgid "Go to <strong>Document Submission</strong>"
+msgstr "Buka <strong>Pengajuan Dokumen</strong>"
+
+msgid "Find the rejected document"
+msgstr "Temukan dokumen yang ditolak"
+
+msgid "Click <span class=\"badge badge-warning\">Resubmit</span>"
+msgstr "Klik <span class=\"badge badge-warning\">Ajukan Ulang</span>"
+
+msgid "Upload the corrected document"
+msgstr "Unggah dokumen yang sudah diperbaiki"
+
+msgid "Add notes explaining the corrections made"
+msgstr "Tambahkan catatan yang menjelaskan perbaikan yang dilakukan"
+
+msgid "Submit for re-review"
+msgstr "Ajukan untuk ditinjau ulang"
+
+msgid "Document Dashboard Features"
+msgstr "Fitur Dasbor Dokumen"
+
+msgid "Dashboard Overview"
+msgstr "Ikhtisar Dasbor"
+
+msgid "The Document Dashboard (<strong>LPK Menu → Document Dashboard</strong>) provides:"
+msgstr "Dasbor Dokumen (<strong>Menu LPK → Dasbor Dokumen</strong>) menyediakan:"
+
+msgid "Summary Statistics:"
+msgstr "Statistik Ringkas:"
+
+msgid "Total candidates registered"
+msgstr "Total kandidat terdaftar"
+
+msgid "Total documents submitted"
+msgstr "Total dokumen yang diajukan"
+
+msgid "Documents pending review"
+msgstr "Dokumen yang menunggu peninjauan"
+
+msgid "Documents approved"
+msgstr "Dokumen yang disetujui"
+
+msgid "Documents rejected"
+msgstr "Dokumen yang ditolak"
+
+msgid "Completion Tracking:"
+msgstr "Pelacakan Kelengkapan:"
+
+msgid "Overall completion percentage"
+msgstr "Persentase kelengkapan keseluruhan"
+
+msgid "Per-candidate completion status"
+msgstr "Status kelengkapan per kandidat"
+
+msgid "Missing documents list"
+msgstr "Daftar dokumen yang belum ada"
+
+msgid "Visual Reports:"
+msgstr "Laporan Visual:"
+
+msgid "Charts showing submission progress"
+msgstr "Grafik yang menunjukkan kemajuan pengajuan"
+
+msgid "Status distribution graphs"
+msgstr "Grafik distribusi status"
+
+msgid "Timeline of submissions"
+msgstr "Garis waktu pengajuan"
+
+msgid "Best Practices"
+msgstr "Praktik Terbaik"
+
+msgid "<strong>Scan Quality:</strong> Use 300 DPI or higher for scans"
+msgstr "<strong>Kualitas Pindaian:</strong> Gunakan 300 DPI atau lebih tinggi"
+
+msgid "<strong>File Naming:</strong> Use descriptive names (e.g., \"KTP_NamaCandidate_2024.pdf\")"
+msgstr "<strong>Penamaan Berkas:</strong> Gunakan nama yang deskriptif (misalnya \"KTP_NamaKandidat_2024.pdf\")"
+
+msgid "<strong>Batch Upload:</strong> Prepare all documents before starting upload session"
+msgstr "<strong>Unggah Sekaligus:</strong> Siapkan semua dokumen sebelum mulai mengunggah"
+
+msgid "<strong>Regular Checks:</strong> Monitor dashboard daily for status updates"
+msgstr "<strong>Pemeriksaan Berkala:</strong> Pantau dasbor setiap hari untuk perubahan status"
+
+msgid "<strong>Prompt Resubmission:</strong> Address rejections within 24 hours"
+msgstr "<strong>Pengajuan Ulang Cepat:</strong> Tangani penolakan dalam 24 jam"
+
+msgid "<strong>Backup Copies:</strong> Keep original documents and digital backups"
+msgstr "<strong>Salinan Cadangan:</strong> Simpan dokumen asli dan cadangan digital"
+
+msgid "<strong>Verify Before Upload:</strong> Double-check document quality and correctness"
+msgstr "<strong>Periksa Sebelum Unggah:</strong> Periksa ulang kualitas dan kebenaran dokumen"
+
+msgid "<strong>Complete Sets:</strong> Submit all required documents for each candidate"
+msgstr "<strong>Set Lengkap:</strong> Ajukan semua dokumen wajib untuk setiap kandidat"
+
+msgid "Troubleshooting"
+msgstr "Pemecahan Masalah"
+
+msgid "Upload Fails"
+msgstr "Unggahan Gagal"
+
+msgid "Check file size (must be under maximum limit)"
+msgstr "Periksa ukuran berkas (harus di bawah batas maksimum)"
+
+msgid "Verify file format is supported (PDF, JPG, PNG)"
+msgstr "Pastikan format berkas didukung (PDF, JPG, PNG)"
+
+msgid "Ensure stable internet connection"
+msgstr "Pastikan koneksi internet stabil"
+
+msgid "Try a different browser if problem persists"
+msgstr "Coba peramban lain jika masalah berlanjut"
+
+msgid "Document Not Appearing"
+msgstr "Dokumen Tidak Muncul"
+
+msgid "Refresh the page"
+msgstr "Muat ulang halaman"
+
+msgid "Check if upload completed successfully"
+msgstr "Periksa apakah unggahan selesai dengan sukses"
+
+msgid "Verify you selected correct candidate"
+msgstr "Pastikan Anda memilih kandidat yang benar"
+
+msgid "Contact system administrator if issue continues"
+msgstr "Hubungi administrator sistem jika masalah berlanjut"
+
+msgid "Cannot See Candidate"
+msgstr "Kandidat Tidak Terlihat"
+
+msgid "Ensure candidate is registered under YOUR institution"
+msgstr "Pastikan kandidat terdaftar di lembaga ANDA"
+
+msgid "Remember: You can only see your institution's candidates"
+msgstr "Ingat: Anda hanya dapat melihat kandidat lembaga Anda sendiri"
+
+msgid "Check if candidate registration was completed"
+msgstr "Periksa apakah pendaftaran kandidat sudah selesai"
+
+msgid "Quick Links"
+msgstr "Tautan Cepat"
+
+msgid "LPK Candidate Registration - User Guide"
+msgstr "Pendaftaran Kandidat LPK - Panduan Pengguna"
+
+msgid "Welcome to LPK Candidate Management"
+msgstr "Selamat datang di Pengelolaan Kandidat LPK"
+
+msgid "This module allows authorized LPK institutions to register and manage apprentice candidates. All data is stored in <strong>cms_lpk_candidates</strong> database."
+msgstr "Modul ini memungkinkan lembaga LPK yang berwenang mendaftarkan dan mengelola kandidat pemagangan. Semua data disimpan di basis data <strong>cms_lpk_candidates</strong>."
+
+msgid "<strong>Important:</strong> You can only see and manage candidates registered by YOUR institution. Other LPK candidates are not visible to you."
+msgstr "<strong>Penting:</strong> Anda hanya dapat melihat dan mengelola kandidat yang didaftarkan oleh lembaga ANDA. Kandidat LPK lain tidak terlihat oleh Anda."
+
+msgid "The registration wizard guides you through a step-by-step process to ensure complete and accurate candidate data."
+msgstr "Panduan pendaftaran memandu Anda langkah demi langkah agar data kandidat lengkap dan akurat."
+
+msgid "Step 1: Identity Number Existence Check"
+msgstr "Langkah 1: Pemeriksaan Keberadaan Nomor Identitas"
+
+msgid "<strong>Duplicate Prevention</strong>"
+msgstr "<strong>Pencegahan Duplikasi</strong>"
+
+msgid "This step prevents duplicate registrations by checking if the candidate's identity number (KTP/NIK) already exists in the system."
+msgstr "Langkah ini mencegah pendaftaran ganda dengan memeriksa apakah nomor identitas kandidat (KTP/NIK) sudah ada di sistem."
+
+msgid "Click <strong>LPK Menu → Candidate Registration (Wizard)</strong>"
+msgstr "Klik <strong>Menu LPK → Pendaftaran Kandidat (Panduan)</strong>"
+
+msgid "Enter the candidate's <strong>Identity Number (NIK/KTP)</strong>"
+msgstr "Masukkan <strong>Nomor Identitas (NIK/KTP)</strong> kandidat"
+
+msgid "Click <span class=\"badge badge-primary\">Check Availability</span>"
+msgstr "Klik <span class=\"badge badge-primary\">Periksa Ketersediaan</span>"
+
+msgid "System will verify:"
+msgstr "Sistem akan memverifikasi:"
+
+msgid "If number exists → Show error and existing candidate details"
+msgstr "Jika nomor sudah ada → Tampilkan kesalahan dan detail kandidat yang sudah terdaftar"
+
+msgid "If number is new → Proceed to next step"
+msgstr "Jika nomor baru → Lanjut ke langkah berikutnya"
+
+msgid "Step 2: Basic Data Entry"
+msgstr "Langkah 2: Pengisian Data Dasar"
+
+msgid "Enter the candidate's personal and contact information:"
+msgstr "Masukkan informasi pribadi dan kontak kandidat:"
+
+msgid "Personal Information:"
+msgstr "Informasi Pribadi:"
+
+msgid "Full Name (as per ID card)"
+msgstr "Nama Lengkap (sesuai kartu identitas)"
+
+msgid "Place of Birth"
+msgstr "Tempat Lahir"
+
+msgid "Marital Status"
+msgstr "Status Pernikahan"
+
+msgid "Contact Information:"
+msgstr "Informasi Kontak:"
+
+msgid "Phone Number"
+msgstr "Nomor Telepon"
+
+msgid "Address Information:"
+msgstr "Informasi Alamat:"
+
+msgid "Complete Address"
+msgstr "Alamat Lengkap"
+
+msgid "Province (Propinsi)"
+msgstr "Provinsi"
+
+msgid "Regency (Kabupaten)"
+msgstr "Kabupaten"
+
+msgid "District (Kecamatan)"
+msgstr "Kecamatan"
+
+msgid "Village (Kelurahan)"
+msgstr "Kelurahan"
+
+msgid "Step 3: Association Data"
+msgstr "Langkah 3: Data Keterkaitan"
+
+msgid "Link the candidate to relevant entities:"
+msgstr "Hubungkan kandidat dengan entitas terkait:"
+
+msgid "Education Background:"
+msgstr "Latar Belakang Pendidikan:"
+
+msgid "Highest Education Level (Strata)"
+msgstr "Jenjang Pendidikan Tertinggi (Strata)"
+
+msgid "School/University Name"
+msgstr "Nama Sekolah/Universitas"
+
+msgid "Graduation Year"
+msgstr "Tahun Kelulusan"
+
+msgid "Field of Study"
+msgstr "Bidang Studi"
+
+msgid "Work Experience:"
+msgstr "Pengalaman Kerja:"
+
+msgid "Previous Employment (if any)"
+msgstr "Pekerjaan Sebelumnya (jika ada)"
+
+msgid "Job Position"
+msgstr "Posisi Pekerjaan"
+
+msgid "Skills & Certifications:"
+msgstr "Keterampilan & Sertifikasi:"
+
+msgid "Relevant Skills"
+msgstr "Keterampilan yang Relevan"
+
+msgid "Certificates/Training"
+msgstr "Sertifikat/Pelatihan"
+
+msgid "Language Proficiency"
+msgstr "Kemampuan Bahasa"
+
+msgid "Family Information:"
+msgstr "Informasi Keluarga:"
+
+msgid "Father's Name & Occupation"
+msgstr "Nama & Pekerjaan Ayah"
+
+msgid "Mother's Name & Occupation"
+msgstr "Nama & Pekerjaan Ibu"
+
+msgid "Emergency Contact Person"
+msgstr "Orang yang Dihubungi Saat Darurat"
+
+msgid "Step 4: Review & Submit"
+msgstr "Langkah 4: Tinjau & Kirim"
+
+msgid "Review all entered information for accuracy"
+msgstr "Tinjau semua informasi yang dimasukkan untuk memastikan ketepatannya"
+
+msgid "Make corrections if needed by going back to previous steps"
+msgstr "Lakukan perbaikan bila perlu dengan kembali ke langkah sebelumnya"
+
+msgid "Click <span class=\"badge badge-success\">Submit Registration</span>"
+msgstr "Klik <span class=\"badge badge-success\">Kirim Pendaftaran</span>"
+
+msgid "System automatically links candidate to YOUR institution"
+msgstr "Sistem otomatis menghubungkan kandidat ke lembaga ANDA"
+
+msgid "Candidate is now visible in <strong>My Candidates</strong> list"
+msgstr "Kandidat kini tampil di daftar <strong>Kandidat Saya</strong>"
+
+msgid "Managing Your Candidates"
+msgstr "Mengelola Kandidat Anda"
+
+msgid "Viewing Your Candidates"
+msgstr "Melihat Kandidat Anda"
+
+msgid "Go to <strong>LPK Menu → My Candidates</strong>"
+msgstr "Buka <strong>Menu LPK → Kandidat Saya</strong>"
+
+msgid "You will see ONLY candidates registered by your institution"
+msgstr "Anda HANYA akan melihat kandidat yang didaftarkan oleh lembaga Anda"
+
+msgid "Use filters to search by:"
+msgstr "Gunakan filter untuk mencari berdasarkan:"
+
+msgid "Registration Date"
+msgstr "Tanggal Pendaftaran"
+
+msgid "<strong>Data Privacy</strong>"
+msgstr "<strong>Privasi Data</strong>"
+
+msgid "For security and privacy, you cannot see candidates registered by other LPK institutions. This ensures each institution manages only their own data."
+msgstr "Untuk keamanan dan privasi, Anda tidak dapat melihat kandidat yang didaftarkan oleh lembaga LPK lain. Dengan begitu setiap lembaga hanya mengelola datanya sendiri."
+
+msgid "Editing Candidate Information"
+msgstr "Mengubah Informasi Kandidat"
+
+msgid "Find the candidate in <strong>My Candidates</strong>"
+msgstr "Temukan kandidat di <strong>Kandidat Saya</strong>"
+
+msgid "Click <span class=\"badge badge-warning\">Edit</span>"
+msgstr "Klik <span class=\"badge badge-warning\">Ubah</span>"
+
+msgid "Update the necessary information"
+msgstr "Perbarui informasi yang diperlukan"
+
+msgid "Click <span class=\"badge badge-primary\">Save Changes</span>"
+msgstr "Klik <span class=\"badge badge-primary\">Simpan Perubahan</span>"
+
+msgid "Viewing Candidate Details"
+msgstr "Melihat Detail Kandidat"
+
+msgid "Click <span class=\"badge badge-info\">View</span> on any candidate"
+msgstr "Klik <span class=\"badge badge-info\">Lihat</span> pada kandidat mana pun"
+
+msgid "See complete profile including:"
+msgstr "Lihat profil lengkap yang mencakup:"
+
+msgid "Personal data"
+msgstr "Data pribadi"
+
+msgid "Education history"
+msgstr "Riwayat pendidikan"
+
+msgid "Family information"
+msgstr "Informasi keluarga"
+
+msgid "Document submission status"
+msgstr "Status pengajuan dokumen"
+
+msgid "After registering a candidate, you must submit required documents stored in <strong>cms_lpk_candidate_documents</strong> database."
+msgstr "Setelah mendaftarkan kandidat, Anda harus mengajukan dokumen wajib yang tersimpan di basis data <strong>cms_lpk_candidate_documents</strong>."
+
+msgid "Required Documents"
+msgstr "Dokumen Wajib"
+
+msgid "Identity Card (KTP) - Scan/Photo"
+msgstr "Kartu Tanda Penduduk (KTP) - Pindaian/Foto"
+
+msgid "Family Card (KK)"
+msgstr "Kartu Keluarga (KK)"
+
+msgid "Birth Certificate"
+msgstr "Akta Kelahiran"
+
+msgid "Education Certificate (Ijazah)"
+msgstr "Ijazah"
+
+msgid "Academic Transcript"
+msgstr "Transkrip Nilai"
+
+msgid "Passport-size Photo (3x4 cm)"
+msgstr "Foto Ukuran Paspor (3x4 cm)"
+
+msgid "Health Certificate"
+msgstr "Surat Keterangan Sehat"
+
+msgid "Police Clearance (SKCK)"
+msgstr "Surat Keterangan Catatan Kepolisian (SKCK)"
+
+msgid "How to Submit Documents"
+msgstr "Cara Mengajukan Dokumen"
+
+msgid "Select the candidate from your list"
+msgstr "Pilih kandidat dari daftar Anda"
+
+msgid "For each required document:"
+msgstr "Untuk setiap dokumen wajib:"
+
+msgid "Click <span class=\"badge badge-primary\">Upload</span>"
+msgstr "Klik <span class=\"badge badge-primary\">Unggah</span>"
+
+msgid "Select file (PDF, JPG, PNG accepted)"
+msgstr "Pilih berkas (PDF, JPG, PNG diterima)"
+
+msgid "Add notes if needed"
+msgstr "Tambahkan catatan bila perlu"
+
+msgid "Click <span class=\"badge badge-success\">Submit</span>"
+msgstr "Klik <span class=\"badge badge-success\">Kirim</span>"
+
+msgid "Track submission status in real-time"
+msgstr "Lacak status pengajuan secara langsung"
+
+msgid "Document Dashboard"
+msgstr "Dasbor Dokumen"
+
+msgid "Access <strong>LPK Menu → Document Dashboard</strong>"
+msgstr "Buka <strong>Menu LPK → Dasbor Dokumen</strong>"
+
+msgid "View statistics:"
+msgstr "Lihat statistik:"
+
+msgid "Total candidates"
+msgstr "Total kandidat"
+
+msgid "Documents submitted"
+msgstr "Dokumen yang diajukan"
+
+msgid "Documents pending"
+msgstr "Dokumen yang tertunda"
+
+msgid "Documents approved/rejected"
+msgstr "Dokumen yang disetujui/ditolak"
+
+msgid "Monitor completion percentage per candidate"
+msgstr "Pantau persentase kelengkapan per kandidat"
+
+msgid "Database Structure"
+msgstr "Struktur Basis Data"
+
+msgid "Your LPK data is organized across two databases:"
+msgstr "Data LPK Anda tersusun dalam dua basis data:"
+
+msgid "<code>candidates</code> - Main candidate records"
+msgstr "<code>candidates</code> - Data utama kandidat"
+
+msgid "<code>candidate_educations</code> - Education history"
+msgstr "<code>candidate_educations</code> - Riwayat pendidikan"
+
+msgid "<code>candidate_experiences</code> - Work experience"
+msgstr "<code>candidate_experiences</code> - Pengalaman kerja"
+
+msgid "<code>candidate_families</code> - Family information"
+msgstr "<code>candidate_families</code> - Informasi keluarga"
+
+msgid "<code>candidate_certifications</code> - Skills & certificates"
+msgstr "<code>candidate_certifications</code> - Keterampilan & sertifikat"
+
+msgid "<code>candidate_documents</code> - Uploaded files"
+msgstr "<code>candidate_documents</code> - Berkas yang diunggah"
+
+msgid "<code>candidate_submission_documents</code> - Submission tracking"
+msgstr "<code>candidate_submission_documents</code> - Pelacakan pengajuan"
+
+msgid "<code>document_categories</code> - Document types"
+msgstr "<code>document_categories</code> - Jenis dokumen"
+
+msgid "<strong>Verify Identity:</strong> Always verify candidate's identity documents before registration"
+msgstr "<strong>Verifikasi Identitas:</strong> Selalu periksa dokumen identitas kandidat sebelum pendaftaran"
+
+msgid "<strong>Complete Data:</strong> Fill all required fields to avoid processing delays"
+msgstr "<strong>Data Lengkap:</strong> Isi semua field wajib agar proses tidak tertunda"
+
+msgid "<strong>Document Quality:</strong> Ensure uploaded documents are clear and legible"
+msgstr "<strong>Kualitas Dokumen:</strong> Pastikan dokumen yang diunggah jelas dan mudah dibaca"
+
+msgid "<strong>Regular Updates:</strong> Keep candidate information current"
+msgstr "<strong>Pembaruan Berkala:</strong> Jaga agar informasi kandidat selalu mutakhir"
+
+msgid "<strong>Timely Submission:</strong> Submit all required documents promptly"
+msgstr "<strong>Pengajuan Tepat Waktu:</strong> Ajukan semua dokumen wajib tanpa menunda"
+
+msgid "<strong>Follow-up:</strong> Monitor document approval status regularly"
+msgstr "<strong>Tindak Lanjut:</strong> Pantau status persetujuan dokumen secara berkala"
+
+msgid "Stakeholder Management - User Guide"
+msgstr "Manajemen Pemangku Kepentingan - Panduan Pengguna"
+
+msgid "Welcome to Stakeholder Management"
+msgstr "Selamat datang di Manajemen Pemangku Kepentingan"
+
+msgid "This guide will help you understand how to manage stakeholders in the TMM Apprentice Management System. Stakeholders include organizations, institutions, and key partners involved in the apprenticeship program."
+msgstr "Panduan ini membantu Anda memahami cara mengelola pemangku kepentingan di Sistem Manajemen Pemagangan TMM. Pemangku kepentingan mencakup organisasi, lembaga, dan mitra utama yang terlibat dalam program pemagangan."
+
+msgid "What are Stakeholders?"
+msgstr "Apa itu Pemangku Kepentingan?"
+
+msgid "Stakeholders are organizations and institutions that play a role in the apprenticeship ecosystem:"
+msgstr "Pemangku kepentingan adalah organisasi dan lembaga yang berperan dalam ekosistem pemagangan:"
+
+msgid "<strong>Vocational Training Institutions (LPK):</strong> Organizations that train candidates"
+msgstr "<strong>Lembaga Pelatihan Kerja (LPK):</strong> Organisasi yang melatih kandidat"
+
+msgid "<strong>Acceptance Organizations:</strong> Japanese companies/organizations that accept apprentices"
+msgstr "<strong>Organisasi Penerima:</strong> Perusahaan/organisasi Jepang yang menerima pemagang"
+
+msgid "<strong>Cooperative Associations:</strong> Cooperative organizations that facilitate placements"
+msgstr "<strong>Asosiasi Koperasi:</strong> Organisasi koperasi yang memfasilitasi penempatan"
+
+msgid "<strong>Special Skill Support Institutions:</strong> Organizations providing additional training support"
+msgstr "<strong>Lembaga Pendukung Keterampilan Khusus:</strong> Organisasi yang memberikan dukungan pelatihan tambahan"
+
+msgid "Managing Stakeholder Records"
+msgstr "Mengelola Data Pemangku Kepentingan"
+
+msgid "How to View Stakeholder Information"
+msgstr "Cara Melihat Informasi Pemangku Kepentingan"
+
+msgid "Navigate to <strong>Stakeholder Management</strong> from the main menu"
+msgstr "Buka <strong>Manajemen Pemangku Kepentingan</strong> dari menu utama"
+
+msgid "Select the specific stakeholder type:"
+msgstr "Pilih jenis pemangku kepentingan yang dimaksud:"
+
+msgid "Browse the list or use the search/filter features"
+msgstr "Telusuri daftar atau gunakan fitur pencarian/filter"
+
+msgid "Click on any record to view detailed information"
+msgstr "Klik data mana pun untuk melihat informasi rinci"
+
+msgid "How to Add a New Stakeholder"
+msgstr "Cara Menambah Pemangku Kepentingan Baru"
+
+msgid "Navigate to the specific stakeholder type page"
+msgstr "Buka halaman jenis pemangku kepentingan yang dimaksud"
+
+msgid "Click the <span class=\"badge badge-primary\"><i class=\"fas fa-plus\"></i> New</span> button"
+msgstr "Klik tombol <span class=\"badge badge-primary\"><i class=\"fas fa-plus\"></i> Baru</span>"
+
+msgid "Fill in the required information:"
+msgstr "Isi informasi yang diperlukan:"
+
+msgid "<strong>Name/Title:</strong> Official organization name"
+msgstr "<strong>Nama/Sebutan:</strong> Nama resmi organisasi"
+
+msgid "<strong>Address:</strong> Complete physical address"
+msgstr "<strong>Alamat:</strong> Alamat fisik lengkap"
+
+msgid "<strong>Contact Information:</strong> Phone, email, website"
+msgstr "<strong>Informasi Kontak:</strong> Telepon, email, situs web"
+
+msgid "<strong>Is Active:</strong> Set organization status"
+msgstr "<strong>Aktif:</strong> Tetapkan status organisasi"
+
+msgid "Add any additional details specific to the stakeholder type"
+msgstr "Tambahkan detail lain yang khusus untuk jenis pemangku kepentingan tersebut"
+
+msgid "Click <span class=\"badge badge-success\"><i class=\"fas fa-save\"></i> Submit</span> to save"
+msgstr "Klik <span class=\"badge badge-success\"><i class=\"fas fa-save\"></i> Kirim</span> untuk menyimpan"
+
+msgid "How to Edit Stakeholder Information"
+msgstr "Cara Mengubah Informasi Pemangku Kepentingan"
+
+msgid "Find the stakeholder record in the list"
+msgstr "Temukan data pemangku kepentingan di daftar"
+
+msgid "Click the <span class=\"badge badge-warning\"><i class=\"fas fa-edit\"></i> Edit</span> button"
+msgstr "Klik tombol <span class=\"badge badge-warning\"><i class=\"fas fa-edit\"></i> Ubah</span>"
+
+msgid "Click <span class=\"badge badge-success\"><i class=\"fas fa-save\"></i> Save</span> to update"
+msgstr "Klik <span class=\"badge badge-success\"><i class=\"fas fa-save\"></i> Simpan</span> untuk memperbarui"
+
+msgid "<strong>Purpose:</strong> LPK organizations train candidates before they go to Japan."
+msgstr "<strong>Tujuan:</strong> Lembaga LPK melatih kandidat sebelum mereka berangkat ke Jepang."
+
+msgid "Key Information to Manage:"
+msgstr "Informasi Utama yang Dikelola:"
+
+msgid "<strong>Institution Name:</strong> Official LPK name"
+msgstr "<strong>Nama Lembaga:</strong> Nama resmi LPK"
+
+msgid "<strong>License Number:</strong> Government registration number"
+msgstr "<strong>Nomor Izin:</strong> Nomor registrasi pemerintah"
+
+msgid "<strong>Location:</strong> Province, city, complete address"
+msgstr "<strong>Lokasi:</strong> Provinsi, kota, alamat lengkap"
+
+msgid "<strong>Capacity:</strong> Maximum number of trainees"
+msgstr "<strong>Kapasitas:</strong> Jumlah maksimum trainee"
+
+msgid "<strong>Specializations:</strong> Job categories/skills offered"
+msgstr "<strong>Spesialisasi:</strong> Kategori pekerjaan/keterampilan yang ditawarkan"
+
+msgid "<strong>Contact Person:</strong> Director and staff contact information"
+msgstr "<strong>Narahubung:</strong> Informasi kontak direktur dan staf"
+
+msgid "<strong>Important:</strong> LPK users with role \"lpk-penyangga\" can only view and manage candidates from their own institution."
+msgstr "<strong>Penting:</strong> Pengguna LPK dengan peran \"lpk-penyangga\" hanya dapat melihat dan mengelola kandidat dari lembaganya sendiri."
+
+msgid "<strong>Purpose:</strong> Japanese companies/organizations that accept apprentices for training."
+msgstr "<strong>Tujuan:</strong> Perusahaan/organisasi Jepang yang menerima pemagang untuk pelatihan."
+
+msgid "<strong>Organization Name:</strong> Official company name (Japanese and English)"
+msgstr "<strong>Nama Organisasi:</strong> Nama resmi perusahaan (Jepang dan Inggris)"
+
+msgid "<strong>Industry Type:</strong> Manufacturing, construction, hospitality, etc."
+msgstr "<strong>Jenis Industri:</strong> Manufaktur, konstruksi, perhotelan, dll."
+
+msgid "<strong>Location:</strong> Prefecture and city in Japan"
+msgstr "<strong>Lokasi:</strong> Prefektur dan kota di Jepang"
+
+msgid "<strong>Job Categories:</strong> Types of work offered"
+msgstr "<strong>Kategori Pekerjaan:</strong> Jenis pekerjaan yang ditawarkan"
+
+msgid "<strong>Capacity:</strong> Number of apprentices they can accept"
+msgstr "<strong>Kapasitas:</strong> Jumlah pemagang yang dapat diterima"
+
+msgid "<strong>Contact Information:</strong> Representative and contact details"
+msgstr "<strong>Informasi Kontak:</strong> Perwakilan dan detail kontak"
+
+msgid "<strong>Purpose:</strong> Organizations that facilitate placement and support for apprentices in Japan."
+msgstr "<strong>Tujuan:</strong> Organisasi yang memfasilitasi penempatan dan dukungan bagi pemagang di Jepang."
+
+msgid "<strong>Association Name:</strong> Official cooperative name"
+msgstr "<strong>Nama Asosiasi:</strong> Nama resmi koperasi"
+
+msgid "<strong>License/Registration:</strong> OTIT registration number"
+msgstr "<strong>Izin/Registrasi:</strong> Nomor registrasi OTIT"
+
+msgid "<strong>Service Area:</strong> Regions/prefectures they serve"
+msgstr "<strong>Wilayah Layanan:</strong> Daerah/prefektur yang dilayani"
+
+msgid "<strong>Member Organizations:</strong> Associated acceptance organizations"
+msgstr "<strong>Organisasi Anggota:</strong> Organisasi penerima yang tergabung"
+
+msgid "<strong>Support Services:</strong> Types of support provided to apprentices"
+msgstr "<strong>Layanan Dukungan:</strong> Jenis dukungan yang diberikan kepada pemagang"
+
+msgid "User Roles & Permissions"
+msgstr "Peran & Hak Akses Pengguna"
+
+msgid "Access Level"
+msgstr "Tingkat Akses"
+
+msgid "Stakeholder Management"
+msgstr "Manajemen Pemangku Kepentingan"
+
+msgid "<span class=\"badge badge-danger\">Administrator</span>"
+msgstr "<span class=\"badge badge-danger\">Administrator</span>"
+
+msgid "Full Access"
+msgstr "Akses Penuh"
+
+msgid "Create, Read, Update, Delete all stakeholders"
+msgstr "Membuat, membaca, mengubah, menghapus semua pemangku kepentingan"
+
+msgid "<span class=\"badge badge-info\">Management</span>"
+msgstr "<span class=\"badge badge-info\">Manajemen</span>"
+
+msgid "Read-Only"
+msgstr "Hanya Baca"
+
+msgid "View all stakeholder information, export reports"
+msgstr "Melihat semua informasi pemangku kepentingan, mengekspor laporan"
+
+msgid "<span class=\"badge badge-success\">TMM Recruitment</span>"
+msgstr "<span class=\"badge badge-success\">Rekrutmen TMM</span>"
+
+msgid "Manage stakeholders related to recruitment"
+msgstr "Mengelola pemangku kepentingan yang terkait rekrutmen"
+
+msgid "<span class=\"badge badge-warning\">LPK User</span>"
+msgstr "<span class=\"badge badge-warning\">Pengguna LPK</span>"
+
+msgid "Institution-Scoped"
+msgstr "Terbatas pada Lembaga"
+
+msgid "View only their own institution information"
+msgstr "Hanya melihat informasi lembaganya sendiri"
+
+msgid "Do's"
+msgstr "Yang Sebaiknya Dilakukan"
+
+msgid "Keep stakeholder information up-to-date"
+msgstr "Jaga agar informasi pemangku kepentingan selalu mutakhir"
+
+msgid "Verify contact information regularly"
+msgstr "Periksa informasi kontak secara berkala"
+
+msgid "Document all important communications"
+msgstr "Dokumentasikan semua komunikasi penting"
+
+msgid "Maintain accurate capacity numbers"
+msgstr "Jaga ketepatan angka kapasitas"
+
+msgid "Update status when organizations become inactive"
+msgstr "Perbarui status bila organisasi menjadi tidak aktif"
+
+msgid "Use clear, consistent naming conventions"
+msgstr "Gunakan aturan penamaan yang jelas dan konsisten"
+
+msgid "Don'ts"
+msgstr "Yang Sebaiknya Dihindari"
+
+msgid "Don't delete stakeholders with active apprentices"
+msgstr "Jangan hapus pemangku kepentingan yang masih memiliki pemagang aktif"
+
+msgid "Don't share sensitive organization information"
+msgstr "Jangan bagikan informasi organisasi yang sensitif"
+
+msgid "Don't modify records without proper authorization"
+msgstr "Jangan ubah data tanpa wewenang yang semestinya"
+
+msgid "Don't forget to mark inactive organizations"
+msgstr "Jangan lupa menandai organisasi yang tidak aktif"
+
+msgid "Don't duplicate stakeholder records"
+msgstr "Jangan buat data pemangku kepentingan yang ganda"
+
+msgid "Don't skip required fields"
+msgstr "Jangan lewatkan field wajib"
+
+msgid "Common Tasks"
+msgstr "Tugas yang Sering Dilakukan"
+
+msgid "How to search for a specific stakeholder?"
+msgstr "Bagaimana mencari pemangku kepentingan tertentu?"
+
+msgid "Go to the stakeholder list page"
+msgstr "Buka halaman daftar pemangku kepentingan"
+
+msgid "Use the search box at the top of the table"
+msgstr "Gunakan kotak pencarian di atas tabel"
+
+msgid "Enter the organization name or other identifier"
+msgstr "Masukkan nama organisasi atau pengenal lainnya"
+
+msgid "The list will filter automatically"
+msgstr "Daftar akan tersaring otomatis"
+
+msgid "How to export stakeholder data?"
+msgstr "Bagaimana mengekspor data pemangku kepentingan?"
+
+msgid "Navigate to the stakeholder list"
+msgstr "Buka daftar pemangku kepentingan"
+
+msgid "Use filters if you want specific data"
+msgstr "Gunakan filter bila menginginkan data tertentu"
+
+msgid "Click the export button (CSV, Excel, or PDF)"
+msgstr "Klik tombol ekspor (CSV, Excel, atau PDF)"
+
+msgid "The file will download automatically"
+msgstr "Berkas akan terunduh otomatis"
+
+msgid "How to link candidates to an LPK?"
+msgstr "Bagaimana menghubungkan kandidat ke sebuah LPK?"
+
+msgid "Go to the Candidate edit page"
+msgstr "Buka halaman ubah Kandidat"
+
+msgid "Find the \"Vocational Training Institution\" dropdown"
+msgstr "Temukan daftar pilihan \"Lembaga Pelatihan Kerja\""
+
+msgid "Select the appropriate LPK from the list"
+msgstr "Pilih LPK yang sesuai dari daftar"
+
+msgid "Save the candidate record"
+msgstr "Simpan data kandidat"
+
+msgid "The candidate will now be associated with that LPK"
+msgstr "Kandidat kini terhubung dengan LPK tersebut"
+
+msgid "Can't see certain stakeholders"
+msgstr "Pemangku kepentingan tertentu tidak terlihat"
+
+msgid "Check your user role permissions. LPK users can only see their own institution."
+msgstr "Periksa hak akses peran pengguna Anda. Pengguna LPK hanya dapat melihat lembaganya sendiri."
+
+msgid "Can't edit stakeholder information"
+msgstr "Informasi pemangku kepentingan tidak dapat diubah"
+
+msgid "Verify you have the correct role (not read-only). Contact administrator if needed."
+msgstr "Pastikan peran Anda sesuai (bukan hanya baca). Hubungi administrator bila perlu."
+
+msgid "Duplicate stakeholders appear"
+msgstr "Muncul pemangku kepentingan yang ganda"
+
+msgid "Contact administrator to merge records. Don't create new duplicates."
+msgstr "Hubungi administrator untuk menggabungkan data. Jangan membuat duplikat baru."
+
+msgid "Export button not working"
+msgstr "Tombol ekspor tidak berfungsi"
+
+msgid "Check your browser's pop-up blocker settings. Clear cache and try again."
+msgstr "Periksa pengaturan pemblokir pop-up peramban Anda. Bersihkan cache dan coba lagi."
+
+msgid "Need More Help?"
+msgstr "Butuh Bantuan Lain?"
+
+msgid "If you can't find the answer to your question in this guide, please contact your system administrator or the TMM support team."
+msgstr "Jika Anda tidak menemukan jawaban di panduan ini, silakan hubungi administrator sistem atau tim dukungan TMM."
+
+msgid "Back to Dashboard"
+msgstr "Kembali ke Dasbor"
+
+msgid "This guide will help you understand how to manage users and roles in the TMM Apprentice Management System."
+msgstr "Panduan ini membantu Anda memahami cara mengelola pengguna dan peran di Sistem Manajemen Pemagangan TMM."
+
+msgid "How to Add a New User"
+msgstr "Cara Menambah Pengguna Baru"
+
+msgid "Navigate to <strong>Stakeholder Management → Users</strong>"
+msgstr "Buka <strong>Manajemen Pemangku Kepentingan → Pengguna</strong>"
+
+msgid "Click the <span class=\"badge badge-primary\">New User</span> button"
+msgstr "Klik tombol <span class=\"badge badge-primary\">Pengguna Baru</span>"
+
+msgid "<strong>Username:</strong> Unique login identifier"
+msgstr "<strong>Nama Pengguna:</strong> Pengenal masuk yang unik"
+
+msgid "<strong>Password:</strong> Secure password (will be hashed automatically)"
+msgstr "<strong>Kata Sandi:</strong> Kata sandi yang aman (akan di-hash otomatis)"
+
+msgid "<strong>Email:</strong> Valid email address"
+msgstr "<strong>Email:</strong> Alamat email yang valid"
+
+msgid "<strong>Full Name:</strong> User's complete name"
+msgstr "<strong>Nama Lengkap:</strong> Nama lengkap pengguna"
+
+msgid "<strong>Is Active:</strong> Check to enable the account"
+msgstr "<strong>Aktif:</strong> Centang untuk mengaktifkan akun"
+
+msgid "<strong>Roles:</strong> Select one or more roles (hold Ctrl/Cmd for multiple)"
+msgstr "<strong>Peran:</strong> Pilih satu peran atau lebih (tahan Ctrl/Cmd untuk beberapa)"
+
+msgid "If the user is associated with an institution (LPK):"
+msgstr "Jika pengguna terkait dengan sebuah lembaga (LPK):"
+
+msgid "<strong>Institution Type:</strong> e.g., \"VocationalTrainingInstitution\""
+msgstr "<strong>Jenis Lembaga:</strong> misalnya \"VocationalTrainingInstitution\""
+
+msgid "<strong>Institution ID:</strong> The ID number of the institution"
+msgstr "<strong>ID Lembaga:</strong> Nomor ID lembaga tersebut"
+
+msgid "Click <span class=\"badge badge-primary\">Submit</span> to save"
+msgstr "Klik <span class=\"badge badge-primary\">Kirim</span> untuk menyimpan"
+
+msgid "How to Edit an Existing User"
+msgstr "Cara Mengubah Pengguna yang Ada"
+
+msgid "Go to <strong>Stakeholder Management → Users</strong>"
+msgstr "Buka <strong>Manajemen Pemangku Kepentingan → Pengguna</strong>"
+
+msgid "Find the user in the list"
+msgstr "Temukan pengguna di daftar"
+
+msgid "Click the <span class=\"badge badge-warning\">Edit</span> button"
+msgstr "Klik tombol <span class=\"badge badge-warning\">Ubah</span>"
+
+msgid "Modify the necessary fields"
+msgstr "Ubah field yang diperlukan"
+
+msgid "<strong>Note:</strong> Leave the password field blank to keep the existing password"
+msgstr "<strong>Catatan:</strong> Biarkan field kata sandi kosong untuk mempertahankan kata sandi yang ada"
+
+msgid "Click <span class=\"badge badge-primary\">Submit</span> to save changes"
+msgstr "Klik <span class=\"badge badge-primary\">Kirim</span> untuk menyimpan perubahan"
+
+msgid "How to Deactivate a User"
+msgstr "Cara Menonaktifkan Pengguna"
+
+msgid "Edit the user (see above)"
+msgstr "Ubah pengguna (lihat di atas)"
+
+msgid "Uncheck the <strong>Is Active</strong> checkbox"
+msgstr "Hapus centang pada kotak <strong>Aktif</strong>"
+
+msgid "Save the changes"
+msgstr "Simpan perubahan"
+
+msgid "<em>Note: Deactivated users cannot log in but their data is preserved</em>"
+msgstr "<em>Catatan: Pengguna yang dinonaktifkan tidak dapat masuk, tetapi datanya tetap tersimpan</em>"
+
+msgid "How to Delete a User"
+msgstr "Cara Menghapus Pengguna"
+
+msgid "<strong>Warning:</strong> Deleting a user is permanent and cannot be undone!"
+msgstr "<strong>Peringatan:</strong> Menghapus pengguna bersifat permanen dan tidak dapat dibatalkan!"
+
+msgid "Click the <span class=\"badge badge-danger\">Delete</span> button"
+msgstr "Klik tombol <span class=\"badge badge-danger\">Hapus</span>"
+
+msgid "Confirm the deletion when prompted"
+msgstr "Konfirmasikan penghapusan saat diminta"
+
+msgid "Role Management"
+msgstr "Manajemen Peran"
+
+msgid "Understanding Roles"
+msgstr "Memahami Peran"
+
+msgid "Roles define what users can do in the system. Each role has specific permissions:"
+msgstr "Peran menentukan apa yang dapat dilakukan pengguna di sistem. Setiap peran memiliki hak akses tertentu:"
+
+msgid "Permissions"
+msgstr "Hak Akses"
+
+msgid "System Administrator"
+msgstr "Administrator Sistem"
+
+msgid "Full access to all features and data"
+msgstr "Akses penuh ke semua fitur dan data"
+
+msgid "Management/Director"
+msgstr "Manajemen/Direktur"
+
+msgid "Read-only access to all data for reporting"
+msgstr "Akses hanya baca ke semua data untuk pelaporan"
+
+msgid "TMM Recruitment Staff"
+msgstr "Staf Rekrutmen TMM"
+
+msgid "Manage candidates and apprentice orders"
+msgstr "Mengelola kandidat dan pesanan pemagangan"
+
+msgid "TMM Training Staff"
+msgstr "Staf Pelatihan TMM"
+
+msgid "Manage trainees and training data"
+msgstr "Mengelola trainee dan data pelatihan"
+
+msgid "TMM Documentation Staff"
+msgstr "Staf Dokumentasi TMM"
+
+msgid "Manage documents and ticketing"
+msgstr "Mengelola dokumen dan tiket"
+
+msgid "LPK Institution User"
+msgstr "Pengguna Lembaga LPK"
+
+msgid "Manage candidates for their institution only"
+msgstr "Mengelola kandidat hanya untuk lembaganya sendiri"
+
+msgid "How to Create a New Role"
+msgstr "Cara Membuat Peran Baru"
+
+msgid "Navigate to <strong>Stakeholder Management → Roles</strong>"
+msgstr "Buka <strong>Manajemen Pemangku Kepentingan → Peran</strong>"
+
+msgid "Click the <span class=\"badge badge-primary\">New Role</span> button"
+msgstr "Klik tombol <span class=\"badge badge-primary\">Peran Baru</span>"
+
+msgid "Enter:"
+msgstr "Masukkan:"
+
+msgid "<strong>Name:</strong> Role identifier (lowercase, use hyphens)"
+msgstr "<strong>Nama:</strong> Pengenal peran (huruf kecil, gunakan tanda hubung)"
+
+msgid "<strong>Description:</strong> Brief explanation of the role's purpose"
+msgstr "<strong>Deskripsi:</strong> Penjelasan singkat tentang tujuan peran"
+
+msgid "Click <span class=\"badge badge-primary\">Submit</span>"
+msgstr "Klik <span class=\"badge badge-primary\">Kirim</span>"
+
+msgid "How to Edit a Role"
+msgstr "Cara Mengubah Peran"
+
+msgid "Go to <strong>Stakeholder Management → Roles</strong>"
+msgstr "Buka <strong>Manajemen Pemangku Kepentingan → Peran</strong>"
+
+msgid "Find the role and click <span class=\"badge badge-warning\">Edit</span>"
+msgstr "Temukan peran tersebut dan klik <span class=\"badge badge-warning\">Ubah</span>"
+
+msgid "Modify the name or description"
+msgstr "Ubah nama atau deskripsinya"
+
+msgid "How to View Users with a Specific Role"
+msgstr "Cara Melihat Pengguna dengan Peran Tertentu"
+
+msgid "Click <span class=\"badge badge-info\">View</span> on the desired role"
+msgstr "Klik <span class=\"badge badge-info\">Lihat</span> pada peran yang dimaksud"
+
+msgid "Scroll down to see the \"Related Users\" section"
+msgstr "Gulir ke bawah untuk melihat bagian \"Pengguna Terkait\""
+
+msgid "All users assigned to this role will be listed"
+msgstr "Semua pengguna yang memiliki peran ini akan ditampilkan"
+
+msgid "<strong>Use Strong Passwords:</strong> Require users to create passwords with at least 8 characters, including uppercase, lowercase, numbers, and symbols"
+msgstr "<strong>Gunakan Kata Sandi Kuat:</strong> Wajibkan pengguna membuat kata sandi minimal 8 karakter, mencakup huruf besar, huruf kecil, angka, dan simbol"
+
+msgid "<strong>Principle of Least Privilege:</strong> Only assign the minimum roles necessary for users to perform their job"
+msgstr "<strong>Prinsip Hak Akses Minimum:</strong> Berikan hanya peran seminimal mungkin yang dibutuhkan pengguna untuk bekerja"
+
+msgid "<strong>Regular Audits:</strong> Periodically review user accounts and deactivate those no longer needed"
+msgstr "<strong>Audit Berkala:</strong> Tinjau akun pengguna secara berkala dan nonaktifkan yang sudah tidak diperlukan"
+
+msgid "<strong>Institution Linking:</strong> For LPK users, always link them to their institution to ensure proper data filtering"
+msgstr "<strong>Penautan Lembaga:</strong> Untuk pengguna LPK, selalu tautkan ke lembaganya agar penyaringan data berjalan benar"
+
+msgid "<strong>Multiple Roles:</strong> Users can have multiple roles if they perform different functions"
+msgstr "<strong>Peran Ganda:</strong> Pengguna dapat memiliki beberapa peran bila menjalankan fungsi yang berbeda"
+
+msgid "<strong>Deactivate Instead of Delete:</strong> When possible, deactivate users instead of deleting them to preserve audit trails"
+msgstr "<strong>Nonaktifkan daripada Hapus:</strong> Bila mungkin, nonaktifkan pengguna alih-alih menghapusnya agar jejak audit tetap ada"
+
+msgid "User Cannot Log In"
+msgstr "Pengguna Tidak Dapat Masuk"
+
+msgid "Verify the account is marked as <strong>Active</strong>"
+msgstr "Pastikan akun ditandai <strong>Aktif</strong>"
+
+msgid "Check that the username and password are correct"
+msgstr "Periksa apakah nama pengguna dan kata sandi benar"
+
+msgid "Ensure the user has at least one role assigned"
+msgstr "Pastikan pengguna memiliki setidaknya satu peran"
+
+msgid "User Cannot Access Certain Features"
+msgstr "Pengguna Tidak Dapat Mengakses Fitur Tertentu"
+
+msgid "Review the user's assigned roles"
+msgstr "Tinjau peran yang diberikan kepada pengguna"
+
+msgid "Verify the role has the necessary permissions"
+msgstr "Pastikan peran tersebut memiliki hak akses yang diperlukan"
+
+msgid "For LPK users, ensure institution_id and institution_type are set correctly"
+msgstr "Untuk pengguna LPK, pastikan institution_id dan institution_type terisi dengan benar"
+
+msgid "Cannot Delete a Role"
+msgstr "Peran Tidak Dapat Dihapus"
+
+msgid "Roles that are assigned to users cannot be deleted"
+msgstr "Peran yang masih diberikan kepada pengguna tidak dapat dihapus"
+
+msgid "First remove the role from all users, then delete the role"
+msgstr "Lepaskan dulu peran tersebut dari semua pengguna, lalu hapus perannya"
+
+msgid "This module manages all stakeholder data in the <strong>cms_tmm_stakeholders</strong> database. Stakeholders include institutions, organizations, and associations involved in the apprentice program."
+msgstr "Modul ini mengelola seluruh data pemangku kepentingan di basis data <strong>cms_tmm_stakeholders</strong>. Pemangku kepentingan mencakup lembaga, organisasi, dan asosiasi yang terlibat dalam program pemagangan."
+
+msgid "<strong>Special Authorization Process</strong>"
+msgstr "<strong>Proses Otorisasi Khusus</strong>"
+
+msgid "Vocational Training Institutions have a special authorization workflow to recruit apprentice candidates. This ensures proper vetting and compliance."
+msgstr "Lembaga Pelatihan Kerja memiliki alur otorisasi khusus untuk merekrut kandidat pemagangan. Ini memastikan penyaringan dan kepatuhan yang semestinya."
+
+msgid "How to Register a Vocational Training Institution"
+msgstr "Cara Mendaftarkan Lembaga Pelatihan Kerja"
+
+msgid "Navigate to <strong>Stakeholder Management → Vocational Training Institutions</strong>"
+msgstr "Buka <strong>Manajemen Pemangku Kepentingan → Lembaga Pelatihan Kerja</strong>"
+
+msgid "Click <span class=\"badge badge-primary\">New Institution</span>"
+msgstr "Klik <span class=\"badge badge-primary\">Lembaga Baru</span>"
+
+msgid "<strong>Institution Name:</strong> Official registered name"
+msgstr "<strong>Nama Lembaga:</strong> Nama resmi yang terdaftar"
+
+msgid "<strong>License Number:</strong> Government-issued license"
+msgstr "<strong>Nomor Izin:</strong> Izin yang diterbitkan pemerintah"
+
+msgid "<strong>Director/Head:</strong> Name of institution leader"
+msgstr "<strong>Direktur/Kepala:</strong> Nama pimpinan lembaga"
+
+msgid "Submit for review"
+msgstr "Ajukan untuk ditinjau"
+
+msgid "Authorization to Recruit Candidates"
+msgstr "Otorisasi untuk Merekrut Kandidat"
+
+msgid "Institution must be verified and approved by administrators"
+msgstr "Lembaga harus diverifikasi dan disetujui oleh administrator"
+
+msgid "Once approved, the institution receives:"
+msgstr "Setelah disetujui, lembaga menerima:"
+
+msgid "Unique institution ID"
+msgstr "ID lembaga yang unik"
+
+msgid "Access credentials for LPK user account"
+msgstr "Kredensial akses untuk akun pengguna LPK"
+
+msgid "Authorization to register candidates"
+msgstr "Otorisasi untuk mendaftarkan kandidat"
+
+msgid "Institution can then access the <strong>LPK Menu</strong> to manage candidates"
+msgstr "Lembaga kemudian dapat membuka <strong>Menu LPK</strong> untuk mengelola kandidat"
+
+msgid "All candidates registered by an LPK are linked to that institution"
+msgstr "Semua kandidat yang didaftarkan oleh sebuah LPK terhubung ke lembaga tersebut"
+
+msgid "Monitoring LPK Activities"
+msgstr "Memantau Aktivitas LPK"
+
+msgid "View total candidates registered per institution"
+msgstr "Lihat total kandidat yang terdaftar per lembaga"
+
+msgid "Track document submission status"
+msgstr "Lacak status pengajuan dokumen"
+
+msgid "Monitor compliance with registration requirements"
+msgstr "Pantau kepatuhan terhadap persyaratan pendaftaran"
+
+msgid "Review authorization status and renewal dates"
+msgstr "Tinjau status otorisasi dan tanggal perpanjangannya"
+
+msgid "Similar to LPKs, Special Skill Support Institutions require special authorization to participate in the apprentice recruitment process."
+msgstr "Seperti LPK, Lembaga Pendukung Keterampilan Khusus memerlukan otorisasi khusus untuk ikut dalam proses rekrutmen pemagangan."
+
+msgid "How to Register a Special Skill Support Institution"
+msgstr "Cara Mendaftarkan Lembaga Pendukung Keterampilan Khusus"
+
+msgid "Go to <strong>Stakeholder Management → Special Skill Support Institutions</strong>"
+msgstr "Buka <strong>Manajemen Pemangku Kepentingan → Lembaga Pendukung Keterampilan Khusus</strong>"
+
+msgid "Complete the registration form with:"
+msgstr "Lengkapi formulir pendaftaran dengan:"
+
+msgid "<strong>Institution Name</strong>"
+msgstr "<strong>Nama Lembaga</strong>"
+
+msgid "<strong>Specialization Area:</strong> Type of skills supported"
+msgstr "<strong>Bidang Spesialisasi:</strong> Jenis keterampilan yang didukung"
+
+msgid "<strong>Certification/Accreditation:</strong> Relevant credentials"
+msgstr "<strong>Sertifikasi/Akreditasi:</strong> Kredensial yang relevan"
+
+msgid "<strong>Contact Details</strong>"
+msgstr "<strong>Detail Kontak</strong>"
+
+msgid "Submit for authorization review"
+msgstr "Ajukan untuk peninjauan otorisasi"
+
+msgid "Authorization Process"
+msgstr "Proses Otorisasi"
+
+msgid "Administrator reviews institution credentials"
+msgstr "Administrator meninjau kredensial lembaga"
+
+msgid "Verification of specialization and capacity"
+msgstr "Verifikasi spesialisasi dan kapasitas"
+
+msgid "Approval grants recruitment authorization"
+msgstr "Persetujuan memberikan otorisasi rekrutmen"
+
+msgid "Institution receives access to candidate recruitment features"
+msgstr "Lembaga mendapatkan akses ke fitur rekrutmen kandidat"
+
+msgid "These are Japanese companies and organizations that accept apprentices for training."
+msgstr "Ini adalah perusahaan dan organisasi Jepang yang menerima pemagang untuk pelatihan."
+
+msgid "Managing Acceptance Organizations"
+msgstr "Mengelola Organisasi Penerima"
+
+msgid "Navigate to <strong>Stakeholder Management → Acceptance Organizations</strong>"
+msgstr "Buka <strong>Manajemen Pemangku Kepentingan → Organisasi Penerima</strong>"
+
+msgid "Add new organizations with:"
+msgstr "Tambahkan organisasi baru dengan:"
+
+msgid "Company name (Japanese and English)"
+msgstr "Nama perusahaan (Jepang dan Inggris)"
+
+msgid "Industry sector"
+msgstr "Sektor industri"
+
+msgid "Location in Japan (Prefecture)"
+msgstr "Lokasi di Jepang (Prefektur)"
+
+msgid "Capacity for apprentices"
+msgstr "Kapasitas untuk pemagang"
+
+msgid "Contact person details"
+msgstr "Detail narahubung"
+
+msgid "Link organizations to apprentice orders"
+msgstr "Hubungkan organisasi ke pesanan pemagangan"
+
+msgid "Track placement history"
+msgstr "Lacak riwayat penempatan"
+
+msgid "Cooperative associations facilitate the apprentice program in Japan."
+msgstr "Asosiasi koperasi memfasilitasi program pemagangan di Jepang."
+
+msgid "Managing Cooperative Associations"
+msgstr "Mengelola Asosiasi Koperasi"
+
+msgid "Go to <strong>Stakeholder Management → Cooperative Associations</strong>"
+msgstr "Buka <strong>Manajemen Pemangku Kepentingan → Asosiasi Koperasi</strong>"
+
+msgid "Register associations with:"
+msgstr "Daftarkan asosiasi dengan:"
+
+msgid "Association name"
+msgstr "Nama asosiasi"
+
+msgid "Registration number"
+msgstr "Nomor registrasi"
+
+msgid "Service areas"
+msgstr "Wilayah layanan"
+
+msgid "Partner organizations"
+msgstr "Organisasi mitra"
+
+msgid "Link to acceptance organizations"
+msgstr "Hubungkan ke organisasi penerima"
+
+msgid "Monitor association activities"
+msgstr "Pantau aktivitas asosiasi"
+
+msgid "All stakeholder data is stored in the <strong>cms_tmm_stakeholders</strong> database, which includes:"
+msgstr "Seluruh data pemangku kepentingan tersimpan di basis data <strong>cms_tmm_stakeholders</strong>, yang mencakup:"
+
+msgid "<code>vocational_training_institutions</code> - LPK data with authorization status"
+msgstr "<code>vocational_training_institutions</code> - Data LPK beserta status otorisasi"
+
+msgid "<code>special_skill_support_institutions</code> - Support institution data"
+msgstr "<code>special_skill_support_institutions</code> - Data lembaga pendukung"
+
+msgid "<code>acceptance_organizations</code> - Japanese receiving companies"
+msgstr "<code>acceptance_organizations</code> - Perusahaan penerima di Jepang"
+
+msgid "<code>cooperative_associations</code> - Facilitating associations"
+msgstr "<code>cooperative_associations</code> - Asosiasi yang memfasilitasi"
+
+msgid "Related tables for addresses, contacts, and authorization records"
+msgstr "Tabel terkait untuk alamat, kontak, dan catatan otorisasi"
+
+msgid "<strong>Verify Credentials:</strong> Always verify institution licenses and certifications before approval"
+msgstr "<strong>Verifikasi Kredensial:</strong> Selalu periksa izin dan sertifikasi lembaga sebelum menyetujui"
+
+msgid "<strong>Regular Audits:</strong> Review authorization status periodically"
+msgstr "<strong>Audit Berkala:</strong> Tinjau status otorisasi secara berkala"
+
+msgid "<strong>Complete Data:</strong> Ensure all contact information is current and complete"
+msgstr "<strong>Data Lengkap:</strong> Pastikan semua informasi kontak mutakhir dan lengkap"
+
+msgid "<strong>Authorization Tracking:</strong> Monitor expiration dates for licenses and authorizations"
+msgstr "<strong>Pelacakan Otorisasi:</strong> Pantau tanggal kedaluwarsa izin dan otorisasi"
+
+msgid "<strong>Data Integrity:</strong> Use standard data input interfaces for consistency"
+msgstr "<strong>Integritas Data:</strong> Gunakan antarmuka input data standar agar konsisten"
+
