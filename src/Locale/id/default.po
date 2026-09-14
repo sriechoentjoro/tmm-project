@@ -13221,3 +13221,21 @@ msgstr "Berkas wajib diisi"
 msgid "Related TableName"
 msgstr "TableName Terkait"
 
+msgid "403 - Access Denied"
+msgstr "403 - Akses Ditolak"
+
+msgid "You do not have permission to open this page. Ask an administrator if you think you should."
+msgstr "Anda tidak memiliki izin untuk membuka halaman ini. Hubungi administrator jika menurut Anda seharusnya bisa."
+
+msgid "404 - Page Not Found"
+msgstr "404 - Halaman Tidak Ditemukan"
+
+msgid "The page you are looking for does not exist, or has been moved."
+msgstr "Halaman yang Anda cari tidak ada, atau telah dipindahkan."
+
+msgid "Address requested:"
+msgstr "Alamat yang diminta:"
+
+msgid "Back to the dashboard"
+msgstr "Kembali ke dasbor"
+

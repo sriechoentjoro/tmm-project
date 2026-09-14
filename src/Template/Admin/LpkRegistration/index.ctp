@@ -112,7 +112,7 @@
                                             <div class="btn-group" role="group">
                                                 <?= $this->Html->link(
                                                     '<i class="fas fa-eye"></i>',
-                                                    ['controller' => 'VocationalTrainingInstitutions', 'action' => 'view', $institution->id],
+                                                    ['prefix' => false, 'controller' => 'VocationalTrainingInstitutions', 'action' => 'view', $institution->id],
                                                     [
                                                         'class' => 'btn btn-info btn-sm',
                                                         'escape' => false,

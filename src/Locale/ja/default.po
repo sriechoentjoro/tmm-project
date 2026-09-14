@@ -13221,3 +13221,21 @@ msgstr "ファイルは必須です"
 msgid "Related TableName"
 msgstr "関連する TableName"
 
+msgid "403 - Access Denied"
+msgstr "403 - アクセスが拒否されました"
+
+msgid "You do not have permission to open this page. Ask an administrator if you think you should."
+msgstr "このページを開く権限がありません。権限があるはずだとお考えの場合は管理者にお問い合わせください。"
+
+msgid "404 - Page Not Found"
+msgstr "404 - ページが見つかりません"
+
+msgid "The page you are looking for does not exist, or has been moved."
+msgstr "お探しのページは存在しないか、移動されました。"
+
+msgid "Address requested:"
+msgstr "リクエストされたアドレス:"
+
+msgid "Back to the dashboard"
+msgstr "ダッシュボードに戻る"
+
