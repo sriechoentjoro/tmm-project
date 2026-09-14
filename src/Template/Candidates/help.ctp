@@ -35,7 +35,7 @@
                 <ol>
                     <li><?= __('Click <strong>LPK Menu → Candidate Registration (Wizard)</strong>') ?></li>
                     <li><?= __('Enter the candidate\'s <strong>Identity Number (NIK/KTP)</strong>') ?></li>
-                    <li><?= 'Click <span class="badge badge-primary">' . __('Check Availability') . '</span>' ?></li>
+                    <li><?= __('Click <span class="badge badge-primary">Check Availability</span>') ?></li>
                     <li><?= __('System will verify:') ?>
                         <ul>
                             <li><?= __('If number exists → Show error and existing candidate details') ?></li>
@@ -115,7 +115,7 @@
                 <ol>
                     <li><?= __('Review all entered information for accuracy') ?></li>
                     <li><?= __('Make corrections if needed by going back to previous steps') ?></li>
-                    <li><?= 'Click <span class="badge badge-success">' . __('Submit Registration') . '</span>' ?></li>
+                    <li><?= __('Click <span class="badge badge-success">Submit Registration</span>') ?></li>
                     <li><?= __('System automatically links candidate to YOUR institution') ?></li>
                     <li><?= __('Candidate is now visible in <strong>My Candidates</strong> list') ?></li>
                 </ol>
@@ -151,7 +151,7 @@
                     <li><?= __('Find the candidate in <strong>My Candidates</strong>') ?></li>
                     <li><?= __('Click <span class="badge badge-warning">Edit</span>') ?></li>
                     <li><?= __('Update the necessary information') ?></li>
-                    <li><?= 'Click <span class="badge badge-primary">' . __('Save Changes') . '</span>' ?></li>
+                    <li><?= __('Click <span class="badge badge-primary">Save Changes</span>') ?></li>
                 </ol>
 
                 <h5 class="mt-4"><?= __('Viewing Candidate Details') ?></h5>
