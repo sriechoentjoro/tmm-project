@@ -271,7 +271,5 @@ $this->set(compact('traineeCourses', 'trainees', 'vocationaltraininginstitutions
                 return $this->redirect(['action' => 'processFlow']);
             }
         }
-        
-        $this->viewBuilder()->setLayout('process_flow');
     }
 }

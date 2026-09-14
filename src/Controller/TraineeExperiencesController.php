@@ -273,7 +273,5 @@ $this->set(compact('traineeExperiences', 'trainees', 'masteremployeestatuses', '
                 return $this->redirect(['action' => 'processFlow']);
             }
         }
-        
-        $this->viewBuilder()->setLayout('process_flow');
     }
 }

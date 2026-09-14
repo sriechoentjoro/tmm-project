@@ -273,7 +273,5 @@ $this->set(compact('apprenticeExperiences', 'apprentices', 'masteremployeestatus
                 return $this->redirect(['action' => 'processFlow']);
             }
         }
-        
-        $this->viewBuilder()->setLayout('process_flow');
     }
 }

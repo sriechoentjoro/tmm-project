@@ -257,7 +257,5 @@ class MasterMedicalCheckUpResultsController extends AppController
                 return $this->redirect(['action' => 'processFlow']);
             }
         }
-        
-        $this->viewBuilder()->setLayout('process_flow');
     }
 }

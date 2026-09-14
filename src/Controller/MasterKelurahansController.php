@@ -287,7 +287,5 @@ $this->set(compact('masterKelurahans', 'masterpropinsis', 'masterkabupatens', 'm
                 return $this->redirect(['action' => 'processFlow']);
             }
         }
-        
-        $this->viewBuilder()->setLayout('process_flow');
     }
 }

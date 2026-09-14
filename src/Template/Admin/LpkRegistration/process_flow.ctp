@@ -6,8 +6,10 @@
  * and database relationships
  */
 
-$this->layout = 'process_flow';
 ?>
+
+<!-- Shared process-flow styling and the mermaid loader -->
+<?= $this->element('process_flow_assets') ?>
 
 <!-- Process Overview -->
 <div class="flow-section">

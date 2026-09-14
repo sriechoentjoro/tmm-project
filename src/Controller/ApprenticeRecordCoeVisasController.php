@@ -273,7 +273,5 @@ $this->set(compact('apprenticeRecordCoeVisas', 'apprentices', 'masterCoeTypes', 
                 return $this->redirect(['action' => 'processFlow']);
             }
         }
-        
-        $this->viewBuilder()->setLayout('process_flow');
     }
 }

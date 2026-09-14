@@ -273,7 +273,5 @@ $this->set(compact('apprenticeRecordMedicalCheckUps', 'apprentices', 'mastermedi
                 return $this->redirect(['action' => 'processFlow']);
             }
         }
-        
-        $this->viewBuilder()->setLayout('process_flow');
     }
 }

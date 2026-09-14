@@ -278,7 +278,5 @@ $this->set(compact('traineeFamilies', 'trainees', 'masterfamilyconnections', 'ma
                 return $this->redirect(['action' => 'processFlow']);
             }
         }
-        
-        $this->viewBuilder()->setLayout('process_flow');
     }
 }

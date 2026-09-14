@@ -269,7 +269,5 @@ $this->set(compact('candidateDocumentsMasterList', 'categories', 'categorys'));
                 return $this->redirect(['action' => 'processFlow']);
             }
         }
-        
-        $this->viewBuilder()->setLayout('process_flow');
     }
 }

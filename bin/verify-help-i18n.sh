@@ -214,11 +214,37 @@ for lang in ind eng jpn; do
     printf '\n'
 done
 
-say "6. Result"
+# The process-flow pages used to render in a standalone layout with no
+# application menu. They now use 'elegant' like the rest of the interface, and
+# take the styling the old layout supplied from the shared
+# process_flow_assets element instead. Two things can go wrong silently: the
+# menu does not load (AppController skips it for some layouts), or the element
+# is not included and the page comes back unstyled with blank diagrams.
+say "6. Process-flow pages inside the application container"
+printf '  %-34s %5s %5s %5s\n' page menu styling mermaid
+for path in /master-genders/process-flow /candidates/process-flow /admin/lpk-registration/process-flow; do
+    read -r code url <<<"$(fetch "$path" "$WORK/container.html")"
+    if [ "$code" != 200 ]; then
+        printf '  %-34s HTTP %s\n' "$path" "$code"; bad=1; continue
+    fi
+
+    menu=no;  grep -q 'elegant-menu-wrapper' "$WORK/container.html" && menu=yes
+    style=no; grep -q 'step-description' "$WORK/container.html" && style=yes
+    mmd=no;   grep -q 'mermaid.min.js'    "$WORK/container.html" && mmd=yes
+    printf '  %-34s %5s %5s %5s' "$path" "$menu" "$style" "$mmd"
+
+    [ "$menu" = yes ] && [ "$style" = yes ] && [ "$mmd" = yes ] \
+        || { printf '  <- expected all three'; bad=1; }
+    printf '\n'
+done
+
+say "7. Result"
 if [ "$bad" = 0 ]; then
     echo "  all 15 page/language combinations rendered in the expected language,"
     echo "  all 3 diagrams carry their translated labels in all 3 languages,"
     echo "  and the controller's flash message came back translated too"
+    echo "  the process-flow pages render inside the application menu, styled,"
+    echo "  with the mermaid loader present"
 else
     echo "  some combinations did not switch — see the lines marked above"
     echo "  if every page is English, the translation cache is stale:"

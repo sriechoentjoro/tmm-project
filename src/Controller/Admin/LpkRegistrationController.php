@@ -596,7 +596,5 @@ class LpkRegistrationController extends AppController
         // This action renders the process flow documentation
         // Template: src/Template/Admin/LpkRegistration/process_flow.ctp
         // Layout: src/Template/Layout/process_flow.ctp
-        
-        $this->viewBuilder()->setLayout('process_flow');
     }
 }

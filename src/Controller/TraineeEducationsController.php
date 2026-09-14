@@ -283,7 +283,5 @@ $this->set(compact('traineeEducations', 'trainees', 'masterstratas', 'masterprop
                 return $this->redirect(['action' => 'processFlow']);
             }
         }
-        
-        $this->viewBuilder()->setLayout('process_flow');
     }
 }

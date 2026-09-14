@@ -278,7 +278,5 @@ $this->set(compact('candidateFamilies', 'candidates', 'masterfamilyconnections',
                 return $this->redirect(['action' => 'processFlow']);
             }
         }
-        
-        $this->viewBuilder()->setLayout('process_flow');
     }
 }

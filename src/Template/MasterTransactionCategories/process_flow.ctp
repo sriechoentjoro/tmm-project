@@ -7,6 +7,9 @@
 // Get current language from session (same as layout)
 $currentLang = $this->request->getSession()->read('Config.language') ?: 'ind';
 ?>
+
+<!-- Shared process-flow styling and the mermaid loader -->
+<?= $this->element('process_flow_assets') ?>
 <!-- Styling -->
 <style>
 .content-wrapper {
