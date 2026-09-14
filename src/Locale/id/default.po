@@ -11454,3 +11454,84 @@ msgstr "Kredensial Masuk Anda"
 msgid "What You Can Do with Your Account"
 msgstr "Yang Dapat Anda Lakukan dengan Akun Anda"
 
+msgid "Admin Opens<br/>LPK Registration Form"
+msgstr "Admin Membuka<br/>Formulir Pendaftaran LPK"
+
+msgid "Fill Form<br/>Valid?"
+msgstr "Isian Formulir<br/>Valid?"
+
+msgid "Save to"
+msgstr "Simpan ke"
+
+msgid "Generate Token"
+msgstr "Buat Token"
+
+msgid "64 random chars"
+msgstr "64 karakter acak"
+
+msgid "Send Verification Email<br/>to LPK Email"
+msgstr "Kirim Email Verifikasi<br/>ke Email LPK"
+
+msgid "LPK Receives Email"
+msgstr "LPK Menerima Email"
+
+msgid "LPK Clicks<br/>Verification Link?"
+msgstr "LPK Mengklik<br/>Tautan Verifikasi?"
+
+msgid "Wait<br/>Max 24 hours"
+msgstr "Menunggu<br/>Maks 24 jam"
+
+msgid "Token<br/>Expired?"
+msgstr "Token<br/>Kedaluwarsa?"
+
+msgid "Token Invalid<br/>Admin Must Resend"
+msgstr "Token Tidak Valid<br/>Admin Harus Kirim Ulang"
+
+msgid "Validate Token"
+msgstr "Validasi Token"
+
+msgid "Mark"
+msgstr "Tandai"
+
+msgid "Update Status"
+msgstr "Perbarui Status"
+
+msgid "Redirect to<br/>Set Password Page"
+msgstr "Arahkan ke<br/>Halaman Buat Kata Sandi"
+
+msgid "Password<br/>Valid?"
+msgstr "Kata Sandi<br/>Valid?"
+
+msgid "Create User Account"
+msgstr "Buat Akun Pengguna"
+
+msgid "Send Welcome Email"
+msgstr "Kirim Email Selamat Datang"
+
+msgid "LPK Can Login"
+msgstr "LPK Dapat Masuk"
+
+msgid "Required, Unique"
+msgstr "Wajib, Unik"
+
+msgid "64 chars, Unique"
+msgstr "64 karakter, Unik"
+
+msgid "Default: 0"
+msgstr "Baku: 0"
+
+msgid "Now + 24 hours"
+msgstr "Sekarang + 24 jam"
+
+msgid "Bcrypt hashed"
+msgstr "Di-hash Bcrypt"
+
+msgid "Default: 1"
+msgstr "Baku: 1"
+
+msgid "email matches"
+msgstr "email cocok"
+
+msgid "creates"
+msgstr "membuat"
+

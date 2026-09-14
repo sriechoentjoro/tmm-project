@@ -11454,3 +11454,84 @@ msgstr "ログイン情報"
 msgid "What You Can Do with Your Account"
 msgstr "アカウントでできること"
 
+msgid "Admin Opens<br/>LPK Registration Form"
+msgstr "管理者が<br/>LPK登録フォームを開く"
+
+msgid "Fill Form<br/>Valid?"
+msgstr "入力内容は<br/>有効か？"
+
+msgid "Save to"
+msgstr "保存先"
+
+msgid "Generate Token"
+msgstr "トークンを生成"
+
+msgid "64 random chars"
+msgstr "ランダムな64文字"
+
+msgid "Send Verification Email<br/>to LPK Email"
+msgstr "認証メールを<br/>LPKのメールへ送信"
+
+msgid "LPK Receives Email"
+msgstr "LPKがメールを受信"
+
+msgid "LPK Clicks<br/>Verification Link?"
+msgstr "LPKが認証リンクを<br/>クリックしたか？"
+
+msgid "Wait<br/>Max 24 hours"
+msgstr "待機<br/>最大24時間"
+
+msgid "Token<br/>Expired?"
+msgstr "トークンは<br/>失効したか？"
+
+msgid "Token Invalid<br/>Admin Must Resend"
+msgstr "トークン無効<br/>管理者が再送信"
+
+msgid "Validate Token"
+msgstr "トークンを検証"
+
+msgid "Mark"
+msgstr "設定"
+
+msgid "Update Status"
+msgstr "ステータスを更新"
+
+msgid "Redirect to<br/>Set Password Page"
+msgstr "パスワード設定ページへ<br/>移動"
+
+msgid "Password<br/>Valid?"
+msgstr "パスワードは<br/>有効か？"
+
+msgid "Create User Account"
+msgstr "ユーザーアカウントを作成"
+
+msgid "Send Welcome Email"
+msgstr "案内メールを送信"
+
+msgid "LPK Can Login"
+msgstr "LPKがログイン可能"
+
+msgid "Required, Unique"
+msgstr "必須・一意"
+
+msgid "64 chars, Unique"
+msgstr "64文字・一意"
+
+msgid "Default: 0"
+msgstr "既定値: 0"
+
+msgid "Now + 24 hours"
+msgstr "現在時刻 + 24時間"
+
+msgid "Bcrypt hashed"
+msgstr "Bcryptでハッシュ化"
+
+msgid "Default: 1"
+msgstr "既定値: 1"
+
+msgid "email matches"
+msgstr "メールが一致"
+
+msgid "creates"
+msgstr "作成する"
+
