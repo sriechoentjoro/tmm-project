@@ -11556,3 +11556,1668 @@ msgstr "郡を選択してください。"
 msgid "Please select a village."
 msgstr "村または町を選択してください。"
 
+msgid "The acceptance organization story has been saved."
+msgstr "受入団体の記録を保存しました。"
+
+msgid "The acceptance organization story could not be saved. Please, try again."
+msgstr "受入団体の記録を保存できませんでした。もう一度お試しください。"
+
+msgid "The acceptance organization story has been deleted."
+msgstr "受入団体の記録を削除しました。"
+
+msgid "The acceptance organization story could not be deleted. Please, try again."
+msgstr "受入団体の記録を削除できませんでした。もう一度お試しください。"
+
+msgid "The acceptance organization has been saved."
+msgstr "受入団体を保存しました。"
+
+msgid "The acceptance organization could not be saved. Please, try again."
+msgstr "受入団体を保存できませんでした。もう一度お試しください。"
+
+msgid "The acceptance organization has been deleted."
+msgstr "受入団体を削除しました。"
+
+msgid "The acceptance organization could not be deleted. Please, try again."
+msgstr "受入団体を削除できませんでした。もう一度お試しください。"
+
+msgid "LPK registered successfully. Verification email sent to {0}."
+msgstr "LPKを登録しました。認証メールを {0} に送信しました。"
+
+msgid "LPK registered but failed to send verification email. Please resend manually."
+msgstr "LPKは登録されましたが、認証メールを送信できませんでした。手動で再送信してください。"
+
+msgid "LPK registered but failed to generate verification token."
+msgstr "LPKは登録されましたが、認証トークンを生成できませんでした。"
+
+msgid "LPK registered but error occurred: {0}"
+msgstr "LPKは登録されましたが、エラーが発生しました：{0}"
+
+msgid "Unable to register LPK. {0}"
+msgstr "LPKを登録できません。{0}"
+
+msgid "Unable to register LPK. Please check the form and try again."
+msgstr "LPKを登録できません。フォームを確認して再度お試しください。"
+
+msgid "Invalid verification link. Please check your email and try again."
+msgstr "認証リンクが無効です。メールを確認して再度お試しください。"
+
+msgid "Your account is already active. Please login."
+msgstr "アカウントはすでに有効です。ログインしてください。"
+
+msgid "Email already verified. Please set your password to complete registration."
+msgstr "メールは確認済みです。登録を完了するにはパスワードを設定してください。"
+
+msgid "Email verified successfully! Please set your password to activate your account."
+msgstr "メールの確認が完了しました。アカウントを有効にするにはパスワードを設定してください。"
+
+msgid "Institution not found."
+msgstr "機関が見つかりません。"
+
+msgid "Please verify your email first."
+msgstr "先にメールアドレスを確認してください。"
+
+msgid "Passwords do not match. Please try again."
+msgstr "パスワードが一致しません。もう一度お試しください。"
+
+msgid "Password must be at least 8 characters long."
+msgstr "パスワードは8文字以上にしてください。"
+
+msgid "Password must contain at least one uppercase letter."
+msgstr "パスワードには大文字を1文字以上含めてください。"
+
+msgid "Password must contain at least one lowercase letter."
+msgstr "パスワードには小文字を1文字以上含めてください。"
+
+msgid "Password must contain at least one number."
+msgstr "パスワードには数字を1文字以上含めてください。"
+
+msgid "Password must contain at least one special character (!@#$%^&* etc)."
+msgstr "パスワードには記号を1文字以上含めてください（!@#$%^&* など）。"
+
+msgid "Account activated successfully! You can now login with username: {0}"
+msgstr "アカウントが有効になりました。ユーザー名 {0} でログインできます。"
+
+msgid "Error creating user account. Please try again or contact support."
+msgstr "ユーザーアカウントを作成できませんでした。再度お試しいただくか、サポートにご連絡ください。"
+
+msgid "This institution has already been verified."
+msgstr "この機関はすでに認証済みです。"
+
+msgid "Verification email resent successfully to {0}."
+msgstr "認証メールを {0} に再送信しました。"
+
+msgid "Failed to send verification email. Please try again later."
+msgstr "認証メールを送信できませんでした。しばらくしてから再度お試しください。"
+
+msgid "Failed to generate verification token. Please contact support."
+msgstr "認証トークンを生成できませんでした。サポートにご連絡ください。"
+
+msgid "You do not have permission to access this page."
+msgstr "このページにアクセスする権限がありません。"
+
+msgid "Your role does not have access to {0} in {1}."
+msgstr "お使いの役割には {1} の {0} へのアクセス権がありません。"
+
+msgid "You do not have permission to {0} this resource."
+msgstr "このリソースを{0}する権限がありません。"
+
+msgid "Access Denied: {0}"
+msgstr "アクセスが拒否されました：{0}"
+
+msgid "Your account: <strong>{0}</strong>"
+msgstr "アカウント：<strong>{0}</strong>"
+
+msgid "Your role: <strong>{0}</strong>"
+msgstr "役割：<strong>{0}</strong>"
+
+msgid "Please contact your administrator if you believe this is an error, or "
+msgstr "これが誤りだと思われる場合は管理者にご連絡いただくか、"
+
+msgid "login with different account"
+msgstr "別のアカウントでログインしてください"
+
+msgid "File {0} uploaded successfully"
+msgstr "ファイル {0} をアップロードしました"
+
+msgid "Failed to upload {0}: {1}"
+msgstr "{0} をアップロードできませんでした：{1}"
+
+msgid "File could not be moved to destination."
+msgstr "ファイルを保存先に移動できませんでした。"
+
+msgid "Upload failed with error code: {0}"
+msgstr "アップロードに失敗しました。エラーコード：{0}"
+
+msgid "File could not be uploaded: {0}"
+msgstr "ファイルをアップロードできませんでした：{0}"
+
+msgid "Failed to create upload directory"
+msgstr "アップロード用のディレクトリを作成できませんでした"
+
+msgid "Failed to move uploaded file"
+msgstr "アップロードされたファイルを移動できませんでした"
+
+msgid "Image could not be uploaded: {0}"
+msgstr "画像をアップロードできませんでした：{0}"
+
+msgid "Invalid image data format"
+msgstr "画像データの形式が不正です"
+
+msgid "Failed to decode image data"
+msgstr "画像データを復号できませんでした"
+
+msgid "Failed to save cropped image"
+msgstr "切り抜いた画像を保存できませんでした"
+
+msgid "Error saving cropped image: {0}"
+msgstr "切り抜いた画像の保存中にエラーが発生しました：{0}"
+
+msgid "The apprentice certification has been saved."
+msgstr "技能実習生の資格を保存しました。"
+
+msgid "The apprentice certification could not be saved. Please, try again."
+msgstr "技能実習生の資格を保存できませんでした。もう一度お試しください。"
+
+msgid "The apprentice certification has been deleted."
+msgstr "技能実習生の資格を削除しました。"
+
+msgid "The apprentice certification could not be deleted. Please, try again."
+msgstr "技能実習生の資格を削除できませんでした。もう一度お試しください。"
+
+msgid "The apprentice course has been saved."
+msgstr "技能実習生の受講歴を保存しました。"
+
+msgid "The apprentice course could not be saved. Please, try again."
+msgstr "技能実習生の受講歴を保存できませんでした。もう一度お試しください。"
+
+msgid "The apprentice course has been deleted."
+msgstr "技能実習生の受講歴を削除しました。"
+
+msgid "The apprentice course could not be deleted. Please, try again."
+msgstr "技能実習生の受講歴を削除できませんでした。もう一度お試しください。"
+
+msgid "The apprentice document management dashboard has been saved."
+msgstr "技能実習生書類管理ダッシュボードを保存しました。"
+
+msgid "The apprentice document management dashboard could not be saved. Please, try again."
+msgstr "技能実習生書類管理ダッシュボードを保存できませんでした。もう一度お試しください。"
+
+msgid "The apprentice document management dashboard has been deleted."
+msgstr "技能実習生書類管理ダッシュボードを削除しました。"
+
+msgid "The apprentice document management dashboard could not be deleted. Please, try again."
+msgstr "技能実習生書類管理ダッシュボードを削除できませんでした。もう一度お試しください。"
+
+msgid "The Apprentice Document has been saved."
+msgstr "技能実習生の書類を保存しました。"
+
+msgid "The Apprentice Document could not be saved. Please, try again."
+msgstr "技能実習生の書類を保存できませんでした。もう一度お試しください。"
+
+msgid "The Apprentice Document has been deleted."
+msgstr "技能実習生の書類を削除しました。"
+
+msgid "The Apprentice Document could not be deleted. Please, try again."
+msgstr "技能実習生の書類を削除できませんでした。もう一度お試しください。"
+
+msgid "The apprentice education has been saved."
+msgstr "技能実習生の学歴を保存しました。"
+
+msgid "The apprentice education could not be saved. Please, try again."
+msgstr "技能実習生の学歴を保存できませんでした。もう一度お試しください。"
+
+msgid "The apprentice education has been deleted."
+msgstr "技能実習生の学歴を削除しました。"
+
+msgid "The apprentice education could not be deleted. Please, try again."
+msgstr "技能実習生の学歴を削除できませんでした。もう一度お試しください。"
+
+msgid "The apprentice experience has been saved."
+msgstr "技能実習生の職歴を保存しました。"
+
+msgid "The apprentice experience could not be saved. Please, try again."
+msgstr "技能実習生の職歴を保存できませんでした。もう一度お試しください。"
+
+msgid "The apprentice experience has been deleted."
+msgstr "技能実習生の職歴を削除しました。"
+
+msgid "The apprentice experience could not be deleted. Please, try again."
+msgstr "技能実習生の職歴を削除できませんでした。もう一度お試しください。"
+
+msgid "The apprentice family has been saved."
+msgstr "技能実習生の家族を保存しました。"
+
+msgid "The apprentice family could not be saved. Please, try again."
+msgstr "技能実習生の家族を保存できませんでした。もう一度お試しください。"
+
+msgid "The apprentice family has been deleted."
+msgstr "技能実習生の家族を削除しました。"
+
+msgid "The apprentice family could not be deleted. Please, try again."
+msgstr "技能実習生の家族を削除できませんでした。もう一度お試しください。"
+
+msgid "The apprentice family story has been saved."
+msgstr "技能実習生の家族記録を保存しました。"
+
+msgid "The apprentice family story could not be saved. Please, try again."
+msgstr "技能実習生の家族記録を保存できませんでした。もう一度お試しください。"
+
+msgid "The apprentice family story has been deleted."
+msgstr "技能実習生の家族記録を削除しました。"
+
+msgid "The apprentice family story could not be deleted. Please, try again."
+msgstr "技能実習生の家族記録を削除できませんでした。もう一度お試しください。"
+
+msgid "The apprentice flight has been saved."
+msgstr "技能実習生のフライトを保存しました。"
+
+msgid "The apprentice flight could not be saved. Please, try again."
+msgstr "技能実習生のフライトを保存できませんでした。もう一度お試しください。"
+
+msgid "The apprentice flight has been deleted."
+msgstr "技能実習生のフライトを削除しました。"
+
+msgid "The apprentice flight could not be deleted. Please, try again."
+msgstr "技能実習生のフライトを削除できませんでした。もう一度お試しください。"
+
+msgid "The apprentice order has been saved."
+msgstr "技能実習生のオーダーを保存しました。"
+
+msgid "The apprentice order could not be saved. Please, try again."
+msgstr "技能実習生のオーダーを保存できませんでした。もう一度お試しください。"
+
+msgid "The apprentice order has been deleted."
+msgstr "技能実習生のオーダーを削除しました。"
+
+msgid "The apprentice order could not be deleted. Please, try again."
+msgstr "技能実習生のオーダーを削除できませんでした。もう一度お試しください。"
+
+msgid "The apprentice record coe visa has been saved."
+msgstr "技能実習生のCOE・ビザ記録を保存しました。"
+
+msgid "The apprentice record coe visa could not be saved. Please, try again."
+msgstr "技能実習生のCOE・ビザ記録を保存できませんでした。もう一度お試しください。"
+
+msgid "The apprentice record coe visa has been deleted."
+msgstr "技能実習生のCOE・ビザ記録を削除しました。"
+
+msgid "The apprentice record coe visa could not be deleted. Please, try again."
+msgstr "技能実習生のCOE・ビザ記録を削除できませんでした。もう一度お試しください。"
+
+msgid "The apprentice record medical check up has been saved."
+msgstr "技能実習生の健康診断記録を保存しました。"
+
+msgid "The apprentice record medical check up could not be saved. Please, try again."
+msgstr "技能実習生の健康診断記録を保存できませんでした。もう一度お試しください。"
+
+msgid "The apprentice record medical check up has been deleted."
+msgstr "技能実習生の健康診断記録を削除しました。"
+
+msgid "The apprentice record medical check up could not be deleted. Please, try again."
+msgstr "技能実習生の健康診断記録を削除できませんでした。もう一度お試しください。"
+
+msgid "The apprentice record pasport has been saved."
+msgstr "技能実習生のパスポート記録を保存しました。"
+
+msgid "The apprentice record pasport could not be saved. Please, try again."
+msgstr "技能実習生のパスポート記録を保存できませんでした。もう一度お試しください。"
+
+msgid "The apprentice record pasport has been deleted."
+msgstr "技能実習生のパスポート記録を削除しました。"
+
+msgid "The apprentice record pasport could not be deleted. Please, try again."
+msgstr "技能実習生のパスポート記録を削除できませんでした。もう一度お試しください。"
+
+msgid "The Apprentice Story has been saved."
+msgstr "技能実習生の記録を保存しました。"
+
+msgid "The Apprentice Story could not be saved. Please, try again."
+msgstr "技能実習生の記録を保存できませんでした。もう一度お試しください。"
+
+msgid "The Apprentice Story has been deleted."
+msgstr "技能実習生の記録を削除しました。"
+
+msgid "The Apprentice Story could not be deleted. Please, try again."
+msgstr "技能実習生の記録を削除できませんでした。もう一度お試しください。"
+
+msgid "The apprentice submission document has been saved."
+msgstr "技能実習生の提出書類を保存しました。"
+
+msgid "The apprentice submission document could not be saved. Please, try again."
+msgstr "技能実習生の提出書類を保存できませんでした。もう一度お試しください。"
+
+msgid "The apprentice submission document has been deleted."
+msgstr "技能実習生の提出書類を削除しました。"
+
+msgid "The apprentice submission document could not be deleted. Please, try again."
+msgstr "技能実習生の提出書類を削除できませんでした。もう一度お試しください。"
+
+msgid "The apprentice has been saved."
+msgstr "技能実習生を保存しました。"
+
+msgid "The apprentice could not be saved. Please, try again."
+msgstr "技能実習生を保存できませんでした。もう一度お試しください。"
+
+msgid "The apprentice has been deleted."
+msgstr "技能実習生を削除しました。"
+
+msgid "The apprentice could not be deleted. Please, try again."
+msgstr "技能実習生を削除できませんでした。もう一度お試しください。"
+
+msgid "The candidate certification has been saved."
+msgstr "候補者の資格を保存しました。"
+
+msgid "The candidate certification could not be saved. Please, try again."
+msgstr "候補者の資格を保存できませんでした。もう一度お試しください。"
+
+msgid "The candidate certification has been deleted."
+msgstr "候補者の資格を削除しました。"
+
+msgid "The candidate certification could not be deleted. Please, try again."
+msgstr "候補者の資格を削除できませんでした。もう一度お試しください。"
+
+msgid "The candidate course has been saved."
+msgstr "候補者の受講歴を保存しました。"
+
+msgid "The candidate course could not be saved. Please, try again."
+msgstr "候補者の受講歴を保存できませんでした。もう一度お試しください。"
+
+msgid "The candidate course has been deleted."
+msgstr "候補者の受講歴を削除しました。"
+
+msgid "The candidate course could not be deleted. Please, try again."
+msgstr "候補者の受講歴を削除できませんでした。もう一度お試しください。"
+
+msgid "The candidate document category has been saved."
+msgstr "候補者書類のカテゴリを保存しました。"
+
+msgid "The candidate document category could not be saved. Please, try again."
+msgstr "候補者書類のカテゴリを保存できませんでした。もう一度お試しください。"
+
+msgid "The candidate document category has been deleted."
+msgstr "候補者書類のカテゴリを削除しました。"
+
+msgid "The candidate document category could not be deleted. Please, try again."
+msgstr "候補者書類のカテゴリを削除できませんでした。もう一度お試しください。"
+
+msgid "The candidate document management dashboard detail has been saved."
+msgstr "候補者書類管理ダッシュボードの詳細を保存しました。"
+
+msgid "The candidate document management dashboard detail could not be saved. Please, try again."
+msgstr "候補者書類管理ダッシュボードの詳細を保存できませんでした。もう一度お試しください。"
+
+msgid "The candidate document management dashboard detail has been deleted."
+msgstr "候補者書類管理ダッシュボードの詳細を削除しました。"
+
+msgid "The candidate document management dashboard detail could not be deleted. Please, try again."
+msgstr "候補者書類管理ダッシュボードの詳細を削除できませんでした。もう一度お試しください。"
+
+msgid "You are not authorized to view this document."
+msgstr "この書類を閲覧する権限がありません。"
+
+msgid "The candidate document has been saved."
+msgstr "候補者の書類を保存しました。"
+
+msgid "Field {0}: {1}"
+msgstr "フィールド {0}：{1}"
+
+msgid "The candidate document could not be saved. Please, try again."
+msgstr "候補者の書類を保存できませんでした。もう一度お試しください。"
+
+msgid "No candidates available for your institution. Please contact administrator."
+msgstr "自機関の候補者がいません。管理者にご連絡ください。"
+
+msgid "You are not authorized to edit this document."
+msgstr "この書類を編集する権限がありません。"
+
+msgid "You are not authorized to delete this document."
+msgstr "この書類を削除する権限がありません。"
+
+msgid "The candidate document has been deleted."
+msgstr "候補者の書類を削除しました。"
+
+msgid "The candidate document could not be deleted. Please, try again."
+msgstr "候補者の書類を削除できませんでした。もう一度お試しください。"
+
+msgid "The candidate documents master list has been saved."
+msgstr "候補者書類のマスタ一覧を保存しました。"
+
+msgid "The candidate documents master list could not be saved. Please, try again."
+msgstr "候補者書類のマスタ一覧を保存できませんでした。もう一度お試しください。"
+
+msgid "The candidate documents master list has been deleted."
+msgstr "候補者書類のマスタ一覧を削除しました。"
+
+msgid "The candidate documents master list could not be deleted. Please, try again."
+msgstr "候補者書類のマスタ一覧を削除できませんでした。もう一度お試しください。"
+
+msgid "The candidate education has been saved."
+msgstr "候補者の学歴を保存しました。"
+
+msgid "The candidate education could not be saved. Please, try again."
+msgstr "候補者の学歴を保存できませんでした。もう一度お試しください。"
+
+msgid "The candidate education has been deleted."
+msgstr "候補者の学歴を削除しました。"
+
+msgid "The candidate education could not be deleted. Please, try again."
+msgstr "候補者の学歴を削除できませんでした。もう一度お試しください。"
+
+msgid "The candidate experience has been saved."
+msgstr "候補者の職歴を保存しました。"
+
+msgid "The candidate experience could not be saved. Please, try again."
+msgstr "候補者の職歴を保存できませんでした。もう一度お試しください。"
+
+msgid "The candidate experience has been deleted."
+msgstr "候補者の職歴を削除しました。"
+
+msgid "The candidate experience could not be deleted. Please, try again."
+msgstr "候補者の職歴を削除できませんでした。もう一度お試しください。"
+
+msgid "The candidate family has been saved."
+msgstr "候補者の家族を保存しました。"
+
+msgid "The candidate family could not be saved. Please, try again."
+msgstr "候補者の家族を保存できませんでした。もう一度お試しください。"
+
+msgid "The candidate family has been deleted."
+msgstr "候補者の家族を削除しました。"
+
+msgid "The candidate family could not be deleted. Please, try again."
+msgstr "候補者の家族を削除できませんでした。もう一度お試しください。"
+
+msgid "Access denied: this candidate does not belong to your institution."
+msgstr "アクセスが拒否されました：この候補者は自機関に属していません。"
+
+msgid "Your role does not have permission to change interview scores."
+msgstr "お使いの役割には面接の評点を変更する権限がありません。"
+
+msgid "Interview record saved. Overall score: {0}/100"
+msgstr "面接記録を保存しました。総合評点：{0}/100"
+
+msgid "Could not save interview. Please try again."
+msgstr "面接を保存できませんでした。もう一度お試しください。"
+
+msgid "The candidate record interview has been saved."
+msgstr "候補者の面接記録を保存しました。"
+
+msgid "The candidate record interview could not be saved. Please, try again."
+msgstr "候補者の面接記録を保存できませんでした。もう一度お試しください。"
+
+msgid "Your role does not have permission to edit interview records."
+msgstr "お使いの役割には面接記録を編集する権限がありません。"
+
+msgid "Your role does not have permission to delete interview records."
+msgstr "お使いの役割には面接記録を削除する権限がありません。"
+
+msgid "The candidate record interview has been deleted."
+msgstr "候補者の面接記録を削除しました。"
+
+msgid "The candidate record interview could not be deleted. Please, try again."
+msgstr "候補者の面接記録を削除できませんでした。もう一度お試しください。"
+
+msgid "The candidate record medical check up has been saved."
+msgstr "候補者の健康診断記録を保存しました。"
+
+msgid "The candidate record medical check up could not be saved. Please, try again."
+msgstr "候補者の健康診断記録を保存できませんでした。もう一度お試しください。"
+
+msgid "The candidate record medical check up has been deleted."
+msgstr "候補者の健康診断記録を削除しました。"
+
+msgid "The candidate record medical check up could not be deleted. Please, try again."
+msgstr "候補者の健康診断記録を削除できませんでした。もう一度お試しください。"
+
+msgid "The candidate submission document has been saved."
+msgstr "候補者の提出書類を保存しました。"
+
+msgid "The candidate submission document could not be saved. Please, try again."
+msgstr "候補者の提出書類を保存できませんでした。もう一度お試しください。"
+
+msgid "The candidate submission document has been deleted."
+msgstr "候補者の提出書類を削除しました。"
+
+msgid "The candidate submission document could not be deleted. Please, try again."
+msgstr "候補者の提出書類を削除できませんでした。もう一度お試しください。"
+
+msgid "Invalid candidate ID."
+msgstr "候補者IDが不正です。"
+
+msgid "You are not authorized to view this candidate."
+msgstr "この候補者を閲覧する権限がありません。"
+
+msgid "The candidate has been saved."
+msgstr "候補者を保存しました。"
+
+msgid "The candidate could not be saved. Please, try again."
+msgstr "候補者を保存できませんでした。もう一度お試しください。"
+
+msgid "You are not authorized to edit this candidate."
+msgstr "この候補者を編集する権限がありません。"
+
+msgid "You are not authorized to delete this candidate."
+msgstr "この候補者を削除する権限がありません。"
+
+msgid "The candidate has been deleted."
+msgstr "候補者を削除しました。"
+
+msgid "The candidate could not be deleted. Please, try again."
+msgstr "候補者を削除できませんでした。もう一度お試しください。"
+
+msgid "Identity number is required."
+msgstr "身分証番号は必須です。"
+
+msgid "Identity number must be exactly 16 digits."
+msgstr "身分証番号はちょうど16桁である必要があります。"
+
+msgid "This identity number is already registered."
+msgstr "この身分証番号はすでに登録されています。"
+
+msgid "Identity number verified. Proceed to photo upload."
+msgstr "身分証番号を確認しました。写真のアップロードへ進みます。"
+
+msgid "Please start from step 1."
+msgstr "ステップ1から始めてください。"
+
+msgid "Photo uploaded successfully. Proceed to candidate information."
+msgstr "写真をアップロードしました。候補者情報へ進みます。"
+
+msgid "Please upload and crop a photo before continuing."
+msgstr "続ける前に写真をアップロードして切り抜いてください。"
+
+msgid "Please fill all required fields: "
+msgstr "必須フィールドをすべて入力してください："
+
+msgid "Candidate information saved. Proceed to education history."
+msgstr "候補者情報を保存しました。学歴へ進みます。"
+
+msgid "At least one education entry is required."
+msgstr "学歴は1件以上入力してください。"
+
+msgid "Please provide at least one complete education entry."
+msgstr "完全な学歴を1件以上入力してください。"
+
+msgid "Education history saved. Proceed to work experience."
+msgstr "学歴を保存しました。職歴へ進みます。"
+
+msgid "Work experience saved. Proceed to family information."
+msgstr "職歴を保存しました。家族情報へ進みます。"
+
+msgid "It is recommended to add at least 2 family members (Father & Mother)."
+msgstr "家族は2名以上（父・母）の入力を推奨します。"
+
+msgid "Family information saved. Proceed to certifications."
+msgstr "家族情報を保存しました。資格へ進みます。"
+
+msgid "Certifications saved. Proceed to courses/training."
+msgstr "資格を保存しました。講座・研修へ進みます。"
+
+msgid "Courses/training saved. Proceed to final review."
+msgstr "講座・研修を保存しました。最終確認へ進みます。"
+
+msgid "At least one education entry is required. Please go back to Step 4."
+msgstr "学歴は1件以上必要です。ステップ4に戻ってください。"
+
+msgid "Candidate has been successfully registered with all related information!"
+msgstr "候補者と関連情報をすべて登録しました。"
+
+msgid "The candidate could not be saved. Please check the errors and try again."
+msgstr "候補者を保存できませんでした。エラーを確認して再度お試しください。"
+
+msgid "Only TMM Recruitment role can promote candidates."
+msgstr "候補者を昇格できるのはTMM採用の役割のみです。"
+
+msgid "Candidate \"{0}\" is already a trainee."
+msgstr "候補者「{0}」はすでに研修生です。"
+
+msgid "No physical test score"
+msgstr "体力測定の記録がありません"
+
+msgid "No AO interview score"
+msgstr "受入団体面接の記録がありません"
+
+msgid "Could not create trainee record. Please check the data."
+msgstr "研修生のレコードを作成できませんでした。データを確認してください。"
+
+msgid "\"{0}\" has been promoted to trainee. All profile data copied successfully."
+msgstr "「{0}」を研修生に昇格しました。プロフィールデータをすべて複製しました。"
+
+msgid "Promotion failed for \"{0}\": {1}"
+msgstr "「{0}」の昇格に失敗しました：{1}"
+
+msgid "The Chart Of Account has been saved."
+msgstr "勘定科目表を保存しました。"
+
+msgid "The Chart Of Account could not be saved. Please, try again."
+msgstr "勘定科目表を保存できませんでした。もう一度お試しください。"
+
+msgid "The Chart Of Account has been deleted."
+msgstr "勘定科目表を削除しました。"
+
+msgid "The Chart Of Account could not be deleted. Please, try again."
+msgstr "勘定科目表を削除できませんでした。もう一度お試しください。"
+
+msgid "The cooperative association story has been saved."
+msgstr "協同組合の記録を保存しました。"
+
+msgid "The cooperative association story could not be saved. Please, try again."
+msgstr "協同組合の記録を保存できませんでした。もう一度お試しください。"
+
+msgid "The cooperative association story has been deleted."
+msgstr "協同組合の記録を削除しました。"
+
+msgid "The cooperative association story could not be deleted. Please, try again."
+msgstr "協同組合の記録を削除できませんでした。もう一度お試しください。"
+
+msgid "The cooperative association has been saved."
+msgstr "協同組合を保存しました。"
+
+msgid "The cooperative association could not be saved. Please, try again."
+msgstr "協同組合を保存できませんでした。もう一度お試しください。"
+
+msgid "The cooperative association has been deleted."
+msgstr "協同組合を削除しました。"
+
+msgid "The cooperative association could not be deleted. Please, try again."
+msgstr "協同組合を削除できませんでした。もう一度お試しください。"
+
+msgid "The Email Template has been saved."
+msgstr "メールテンプレートを保存しました。"
+
+msgid "The Email Template could not be saved. Please, try again."
+msgstr "メールテンプレートを保存できませんでした。もう一度お試しください。"
+
+msgid "The Email Template has been deleted."
+msgstr "メールテンプレートを削除しました。"
+
+msgid "The Email Template could not be deleted. Please, try again."
+msgstr "メールテンプレートを削除できませんでした。もう一度お試しください。"
+
+msgid "Invalid registration link."
+msgstr "登録リンクが無効です。"
+
+msgid "Invalid or expired registration link."
+msgstr "登録リンクが無効か、有効期限が切れています。"
+
+msgid "This institution has already completed registration. Please login."
+msgstr "この機関は登録を完了しています。ログインしてください。"
+
+msgid "Passwords do not match."
+msgstr "パスワードが一致しません。"
+
+msgid "Registration completed successfully! You can now login."
+msgstr "登録が完了しました。ログインできます。"
+
+msgid "Registration completed but failed to create user account. Please contact administrator."
+msgstr "登録は完了しましたが、ユーザーアカウントを作成できませんでした。管理者にご連絡ください。"
+
+msgid "Failed to complete registration. Please check your input and try again."
+msgstr "登録を完了できませんでした。入力内容を確認して再度お試しください。"
+
+msgid "Training Fee Received"
+msgstr "研修費の入金"
+
+msgid "Flight Ticket Cost"
+msgstr "航空券費用"
+
+msgid "Document Processing Cost"
+msgstr "書類手続き費用"
+
+msgid "A journal needs at least two lines (a debit and a credit)."
+msgstr "仕訳には借方と貸方の2行以上が必要です。"
+
+msgid "The entry is not balanced: debit Rp {0} vs credit Rp {1}."
+msgstr "貸借が一致していません：借方 Rp {0} に対し貸方 Rp {1}。"
+
+msgid "Adjustment entry {0} saved."
+msgstr "調整仕訳 {0} を保存しました。"
+
+msgid "Journal entry {0} saved."
+msgstr "仕訳 {0} を保存しました。"
+
+msgid "The journal could not be saved. Please, try again."
+msgstr "仕訳を保存できませんでした。もう一度お試しください。"
+
+msgid "Manual Adjustment"
+msgstr "手動調整"
+
+msgid "Manual Journal Entry"
+msgstr "手動仕訳"
+
+msgid "{0} journal entr{1} generated from source records."
+msgstr "元データから {0} 件の仕訳を作成しました。"
+
+msgid "Nothing to generate - all source records are already journalized (or a required account is missing)."
+msgstr "作成対象がありません。元データはすべて仕訳済みです（または必要な勘定科目がありません）。"
+
+msgid "The Journal has been deleted."
+msgstr "仕訳を削除しました。"
+
+msgid "The Journal could not be deleted. Please, try again."
+msgstr "仕訳を削除できませんでした。もう一度お試しください。"
+
+msgid "Your role does not have permission to change scores."
+msgstr "お使いの役割には評点を変更する権限がありません。"
+
+msgid "Physical test score saved. Fitness score: {0}/100"
+msgstr "体力測定を保存しました。体力評点：{0}/100"
+
+msgid "Could not save score. Please try again."
+msgstr "評点を保存できませんでした。もう一度お試しください。"
+
+msgid "The master apprentice coe type has been saved."
+msgstr "技能実習生COE種別マスタを保存しました。"
+
+msgid "The master apprentice coe type could not be saved. Please, try again."
+msgstr "技能実習生COE種別マスタを保存できませんでした。もう一度お試しください。"
+
+msgid "The master apprentice coe type has been deleted."
+msgstr "技能実習生COE種別マスタを削除しました。"
+
+msgid "The master apprentice coe type could not be deleted. Please, try again."
+msgstr "技能実習生COE種別マスタを削除できませんでした。もう一度お試しください。"
+
+msgid "The master apprentice departure document has been saved."
+msgstr "技能実習生出国書類マスタを保存しました。"
+
+msgid "The master apprentice departure document could not be saved. Please, try again."
+msgstr "技能実習生出国書類マスタを保存できませんでした。もう一度お試しください。"
+
+msgid "The master apprentice departure document has been deleted."
+msgstr "技能実習生出国書類マスタを削除しました。"
+
+msgid "The master apprentice departure document could not be deleted. Please, try again."
+msgstr "技能実習生出国書類マスタを削除できませんでした。もう一度お試しください。"
+
+msgid "The master apprentice submission document category has been saved."
+msgstr "技能実習生提出書類カテゴリマスタを保存しました。"
+
+msgid "The master apprentice submission document category could not be saved. Please, try again."
+msgstr "技能実習生提出書類カテゴリマスタを保存できませんでした。もう一度お試しください。"
+
+msgid "The master apprentice submission document category has been deleted."
+msgstr "技能実習生提出書類カテゴリマスタを削除しました。"
+
+msgid "The master apprentice submission document category could not be deleted. Please, try again."
+msgstr "技能実習生提出書類カテゴリマスタを削除できませんでした。もう一度お試しください。"
+
+msgid "The master apprentice submission document has been saved."
+msgstr "技能実習生提出書類マスタを保存しました。"
+
+msgid "The master apprentice submission document could not be saved. Please, try again."
+msgstr "技能実習生提出書類マスタを保存できませんでした。もう一度お試しください。"
+
+msgid "The master apprentice submission document has been deleted."
+msgstr "技能実習生提出書類マスタを削除しました。"
+
+msgid "The master apprentice submission document could not be deleted. Please, try again."
+msgstr "技能実習生提出書類マスタを削除できませんでした。もう一度お試しください。"
+
+msgid "The master blood type has been saved."
+msgstr "血液型マスタを保存しました。"
+
+msgid "The master blood type could not be saved. Please, try again."
+msgstr "血液型マスタを保存できませんでした。もう一度お試しください。"
+
+msgid "The master blood type has been deleted."
+msgstr "血液型マスタを削除しました。"
+
+msgid "The master blood type could not be deleted. Please, try again."
+msgstr "血液型マスタを削除できませんでした。もう一度お試しください。"
+
+msgid "The master candidate interview result has been saved."
+msgstr "候補者面接結果マスタを保存しました。"
+
+msgid "The master candidate interview result could not be saved. Please, try again."
+msgstr "候補者面接結果マスタを保存できませんでした。もう一度お試しください。"
+
+msgid "The master candidate interview result has been deleted."
+msgstr "候補者面接結果マスタを削除しました。"
+
+msgid "The master candidate interview result could not be deleted. Please, try again."
+msgstr "候補者面接結果マスタを削除できませんでした。もう一度お試しください。"
+
+msgid "The master candidate interview type has been saved."
+msgstr "候補者面接種別マスタを保存しました。"
+
+msgid "The master candidate interview type could not be saved. Please, try again."
+msgstr "候補者面接種別マスタを保存できませんでした。もう一度お試しください。"
+
+msgid "The master candidate interview type has been deleted."
+msgstr "候補者面接種別マスタを削除しました。"
+
+msgid "The master candidate interview type could not be deleted. Please, try again."
+msgstr "候補者面接種別マスタを削除できませんでした。もう一度お試しください。"
+
+msgid "The master currency has been saved."
+msgstr "通貨マスタを保存しました。"
+
+msgid "The master currency could not be saved. Please, try again."
+msgstr "通貨マスタを保存できませんでした。もう一度お試しください。"
+
+msgid "The master currency has been deleted."
+msgstr "通貨マスタを削除しました。"
+
+msgid "The master currency could not be deleted. Please, try again."
+msgstr "通貨マスタを削除できませんでした。もう一度お試しください。"
+
+msgid "The master department has been saved."
+msgstr "部門マスタを保存しました。"
+
+msgid "The master department could not be saved. Please, try again."
+msgstr "部門マスタを保存できませんでした。もう一度お試しください。"
+
+msgid "The master department has been deleted."
+msgstr "部門マスタを削除しました。"
+
+msgid "The master department could not be deleted. Please, try again."
+msgstr "部門マスタを削除できませんでした。もう一度お試しください。"
+
+msgid "The master document preparedness status has been saved."
+msgstr "書類準備状況マスタを保存しました。"
+
+msgid "The master document preparedness status could not be saved. Please, try again."
+msgstr "書類準備状況マスタを保存できませんでした。もう一度お試しください。"
+
+msgid "The master document preparedness status has been deleted."
+msgstr "書類準備状況マスタを削除しました。"
+
+msgid "The master document preparedness status could not be deleted. Please, try again."
+msgstr "書類準備状況マスタを削除できませんでした。もう一度お試しください。"
+
+msgid "The master document submission status has been saved."
+msgstr "書類提出ステータスマスタを保存しました。"
+
+msgid "The master document submission status could not be saved. Please, try again."
+msgstr "書類提出ステータスマスタを保存できませんでした。もう一度お試しください。"
+
+msgid "The master document submission status has been deleted."
+msgstr "書類提出ステータスマスタを削除しました。"
+
+msgid "The master document submission status could not be deleted. Please, try again."
+msgstr "書類提出ステータスマスタを削除できませんでした。もう一度お試しください。"
+
+msgid "The master employee status has been saved."
+msgstr "雇用形態マスタを保存しました。"
+
+msgid "The master employee status could not be saved. Please, try again."
+msgstr "雇用形態マスタを保存できませんでした。もう一度お試しください。"
+
+msgid "The master employee status has been deleted."
+msgstr "雇用形態マスタを削除しました。"
+
+msgid "The master employee status could not be deleted. Please, try again."
+msgstr "雇用形態マスタを削除できませんでした。もう一度お試しください。"
+
+msgid "The master employment position has been saved."
+msgstr "職位マスタを保存しました。"
+
+msgid "The master employment position could not be saved. Please, try again."
+msgstr "職位マスタを保存できませんでした。もう一度お試しください。"
+
+msgid "The master employment position has been deleted."
+msgstr "職位マスタを削除しました。"
+
+msgid "The master employment position could not be deleted. Please, try again."
+msgstr "職位マスタを削除できませんでした。もう一度お試しください。"
+
+msgid "The master family connection has been saved."
+msgstr "続柄マスタを保存しました。"
+
+msgid "The master family connection could not be saved. Please, try again."
+msgstr "続柄マスタを保存できませんでした。もう一度お試しください。"
+
+msgid "The master family connection has been deleted."
+msgstr "続柄マスタを削除しました。"
+
+msgid "The master family connection could not be deleted. Please, try again."
+msgstr "続柄マスタを削除できませんでした。もう一度お試しください。"
+
+msgid "The master gender has been saved."
+msgstr "性別マスタを保存しました。"
+
+msgid "The master gender could not be saved. Please, try again."
+msgstr "性別マスタを保存できませんでした。もう一度お試しください。"
+
+msgid "The master gender has been deleted."
+msgstr "性別マスタを削除しました。"
+
+msgid "The master gender could not be deleted. Please, try again."
+msgstr "性別マスタを削除できませんでした。もう一度お試しください。"
+
+msgid "The master icon has been saved."
+msgstr "アイコンマスタを保存しました。"
+
+msgid "The master icon could not be saved. Please, try again."
+msgstr "アイコンマスタを保存できませんでした。もう一度お試しください。"
+
+msgid "The master icon has been deleted."
+msgstr "アイコンマスタを削除しました。"
+
+msgid "The master icon could not be deleted. Please, try again."
+msgstr "アイコンマスタを削除できませんでした。もう一度お試しください。"
+
+msgid "The master interview result has been saved."
+msgstr "面接結果マスタを保存しました。"
+
+msgid "The master interview result could not be saved. Please, try again."
+msgstr "面接結果マスタを保存できませんでした。もう一度お試しください。"
+
+msgid "The master interview result has been deleted."
+msgstr "面接結果マスタを削除しました。"
+
+msgid "The master interview result could not be deleted. Please, try again."
+msgstr "面接結果マスタを削除できませんでした。もう一度お試しください。"
+
+msgid "The master japan prefecture has been saved."
+msgstr "都道府県マスタを保存しました。"
+
+msgid "The master japan prefecture could not be saved. Please, try again."
+msgstr "都道府県マスタを保存できませんでした。もう一度お試しください。"
+
+msgid "The master japan prefecture has been deleted."
+msgstr "都道府県マスタを削除しました。"
+
+msgid "The master japan prefecture could not be deleted. Please, try again."
+msgstr "都道府県マスタを削除できませんでした。もう一度お試しください。"
+
+msgid "The master job category has been saved."
+msgstr "職種マスタを保存しました。"
+
+msgid "The master job category could not be saved. Please, try again."
+msgstr "職種マスタを保存できませんでした。もう一度お試しください。"
+
+msgid "The master job category has been deleted."
+msgstr "職種マスタを削除しました。"
+
+msgid "The master job category could not be deleted. Please, try again."
+msgstr "職種マスタを削除できませんでした。もう一度お試しください。"
+
+msgid "The master kabupaten has been saved."
+msgstr "県・市マスタを保存しました。"
+
+msgid "The master kabupaten could not be saved. Please, try again."
+msgstr "県・市マスタを保存できませんでした。もう一度お試しください。"
+
+msgid "The master kabupaten has been deleted."
+msgstr "県・市マスタを削除しました。"
+
+msgid "The master kabupaten could not be deleted. Please, try again."
+msgstr "県・市マスタを削除できませんでした。もう一度お試しください。"
+
+msgid "The master kecamatan has been saved."
+msgstr "郡マスタを保存しました。"
+
+msgid "The master kecamatan could not be saved. Please, try again."
+msgstr "郡マスタを保存できませんでした。もう一度お試しください。"
+
+msgid "The master kecamatan has been deleted."
+msgstr "郡マスタを削除しました。"
+
+msgid "The master kecamatan could not be deleted. Please, try again."
+msgstr "郡マスタを削除できませんでした。もう一度お試しください。"
+
+msgid "The master kelurahan has been saved."
+msgstr "村・町マスタを保存しました。"
+
+msgid "The master kelurahan could not be saved. Please, try again."
+msgstr "村・町マスタを保存できませんでした。もう一度お試しください。"
+
+msgid "The master kelurahan has been deleted."
+msgstr "村・町マスタを削除しました。"
+
+msgid "The master kelurahan could not be deleted. Please, try again."
+msgstr "村・町マスタを削除できませんでした。もう一度お試しください。"
+
+msgid "The master marriage status has been saved."
+msgstr "婚姻状況マスタを保存しました。"
+
+msgid "The master marriage status could not be saved. Please, try again."
+msgstr "婚姻状況マスタを保存できませんでした。もう一度お試しください。"
+
+msgid "The master marriage status has been deleted."
+msgstr "婚姻状況マスタを削除しました。"
+
+msgid "The master marriage status could not be deleted. Please, try again."
+msgstr "婚姻状況マスタを削除できませんでした。もう一度お試しください。"
+
+msgid "The master medical check up result has been saved."
+msgstr "健康診断結果マスタを保存しました。"
+
+msgid "The master medical check up result could not be saved. Please, try again."
+msgstr "健康診断結果マスタを保存できませんでした。もう一度お試しください。"
+
+msgid "The master medical check up result has been deleted."
+msgstr "健康診断結果マスタを削除しました。"
+
+msgid "The master medical check up result could not be deleted. Please, try again."
+msgstr "健康診断結果マスタを削除できませんでした。もう一度お試しください。"
+
+msgid "The master occupation category has been saved."
+msgstr "職業カテゴリマスタを保存しました。"
+
+msgid "The master occupation category could not be saved. Please, try again."
+msgstr "職業カテゴリマスタを保存できませんでした。もう一度お試しください。"
+
+msgid "The master occupation category has been deleted."
+msgstr "職業カテゴリマスタを削除しました。"
+
+msgid "The master occupation category could not be deleted. Please, try again."
+msgstr "職業カテゴリマスタを削除できませんでした。もう一度お試しください。"
+
+msgid "The master occupation has been saved."
+msgstr "職業マスタを保存しました。"
+
+msgid "The master occupation could not be saved. Please, try again."
+msgstr "職業マスタを保存できませんでした。もう一度お試しください。"
+
+msgid "The master occupation has been deleted."
+msgstr "職業マスタを削除しました。"
+
+msgid "The master occupation could not be deleted. Please, try again."
+msgstr "職業マスタを削除できませんでした。もう一度お試しください。"
+
+msgid "The master payment method has been saved."
+msgstr "支払方法マスタを保存しました。"
+
+msgid "The master payment method could not be saved. Please, try again."
+msgstr "支払方法マスタを保存できませんでした。もう一度お試しください。"
+
+msgid "The master payment method has been deleted."
+msgstr "支払方法マスタを削除しました。"
+
+msgid "The master payment method could not be deleted. Please, try again."
+msgstr "支払方法マスタを削除できませんでした。もう一度お試しください。"
+
+msgid "The master propinsi has been saved."
+msgstr "州マスタを保存しました。"
+
+msgid "The master propinsi could not be saved. Please, try again."
+msgstr "州マスタを保存できませんでした。もう一度お試しください。"
+
+msgid "The master propinsi has been deleted."
+msgstr "州マスタを削除しました。"
+
+msgid "The master propinsi could not be deleted. Please, try again."
+msgstr "州マスタを削除できませんでした。もう一度お試しください。"
+
+msgid "The master rejected reason has been saved."
+msgstr "不採用理由マスタを保存しました。"
+
+msgid "The master rejected reason could not be saved. Please, try again."
+msgstr "不採用理由マスタを保存できませんでした。もう一度お試しください。"
+
+msgid "The master rejected reason has been deleted."
+msgstr "不採用理由マスタを削除しました。"
+
+msgid "The master rejected reason could not be deleted. Please, try again."
+msgstr "不採用理由マスタを削除できませんでした。もう一度お試しください。"
+
+msgid "The master religion has been saved."
+msgstr "宗教マスタを保存しました。"
+
+msgid "The master religion could not be saved. Please, try again."
+msgstr "宗教マスタを保存できませんでした。もう一度お試しください。"
+
+msgid "The master religion has been deleted."
+msgstr "宗教マスタを削除しました。"
+
+msgid "The master religion could not be deleted. Please, try again."
+msgstr "宗教マスタを削除できませんでした。もう一度お試しください。"
+
+msgid "The master strata has been saved."
+msgstr "学歴区分マスタを保存しました。"
+
+msgid "The master strata could not be saved. Please, try again."
+msgstr "学歴区分マスタを保存できませんでした。もう一度お試しください。"
+
+msgid "The master strata has been deleted."
+msgstr "学歴区分マスタを削除しました。"
+
+msgid "The master strata could not be deleted. Please, try again."
+msgstr "学歴区分マスタを削除できませんでした。もう一度お試しください。"
+
+msgid "The master training competency has been saved."
+msgstr "研修技能項目マスタを保存しました。"
+
+msgid "The master training competency could not be saved. Please, try again."
+msgstr "研修技能項目マスタを保存できませんでした。もう一度お試しください。"
+
+msgid "The master training competency has been deleted."
+msgstr "研修技能項目マスタを削除しました。"
+
+msgid "The master training competency could not be deleted. Please, try again."
+msgstr "研修技能項目マスタを削除できませんでした。もう一度お試しください。"
+
+msgid "The master training test score grade has been saved."
+msgstr "評定マスタを保存しました。"
+
+msgid "The master training test score grade could not be saved. Please, try again."
+msgstr "評定マスタを保存できませんでした。もう一度お試しください。"
+
+msgid "The master training test score grade has been deleted."
+msgstr "評定マスタを削除しました。"
+
+msgid "The master training test score grade could not be deleted. Please, try again."
+msgstr "評定マスタを削除できませんでした。もう一度お試しください。"
+
+msgid "The master transaction category has been saved."
+msgstr "取引区分マスタを保存しました。"
+
+msgid "The master transaction category could not be saved. Please, try again."
+msgstr "取引区分マスタを保存できませんでした。もう一度お試しください。"
+
+msgid "The master transaction category has been deleted."
+msgstr "取引区分マスタを削除しました。"
+
+msgid "The master transaction category could not be deleted. Please, try again."
+msgstr "取引区分マスタを削除できませんでした。もう一度お試しください。"
+
+msgid "The master translation has been saved."
+msgstr "翻訳マスタを保存しました。"
+
+msgid "The master translation could not be saved. Please, try again."
+msgstr "翻訳マスタを保存できませんでした。もう一度お試しください。"
+
+msgid "The master translation has been deleted."
+msgstr "翻訳マスタを削除しました。"
+
+msgid "The master translation could not be deleted. Please, try again."
+msgstr "翻訳マスタを削除できませんでした。もう一度お試しください。"
+
+msgid "The menu has been saved."
+msgstr "メニューを保存しました。"
+
+msgid "The menu could not be saved. Please, try again."
+msgstr "メニューを保存できませんでした。もう一度お試しください。"
+
+msgid "Menu \"{0}\" is now {1}."
+msgstr "メニュー「{0}」は{1}になりました。"
+
+msgid "active"
+msgstr "有効"
+
+msgid "Could not toggle the menu."
+msgstr "メニューの状態を切り替えられませんでした。"
+
+msgid "Category may not be empty."
+msgstr "カテゴリは空にできません。"
+
+msgid "Menu \"{0}\" moved to category \"{1}\"."
+msgstr "メニュー「{0}」をカテゴリ「{1}」に移動しました。"
+
+msgid "Could not move the menu."
+msgstr "メニューを移動できませんでした。"
+
+msgid "A menu cannot be its own parent."
+msgstr "メニューを自身の親にすることはできません。"
+
+msgid "Menu \"{0}\" moved under \"{1}\"."
+msgstr "メニュー「{0}」を「{1}」の下に移動しました。"
+
+msgid "Menu \"{0}\" has {1} sub-menu(s). Delete or move them first."
+msgstr "メニュー「{0}」にはサブメニューが {1} 件あります。先に削除または移動してください。"
+
+msgid "The menu has been deleted."
+msgstr "メニューを削除しました。"
+
+msgid "The menu could not be deleted. Please, try again."
+msgstr "メニューを削除できませんでした。もう一度お試しください。"
+
+msgid "Assignments saved: {0} added, {1} removed."
+msgstr "割り当てを保存しました：{0} 件追加、{1} 件削除。"
+
+msgid "Pick two different roles to clone access."
+msgstr "アクセス権を複製するには異なる役割を2つ選択してください。"
+
+msgid "Cloned {0} menu assignment(s)."
+msgstr "メニューの割り当てを {0} 件複製しました。"
+
+msgid "The Post Apprentice has been saved."
+msgstr "実習修了者を保存しました。"
+
+msgid "The Post Apprentice could not be saved. Please, try again."
+msgstr "実習修了者を保存できませんでした。もう一度お試しください。"
+
+msgid "Employed"
+msgstr "就業中"
+
+msgid "Self-Employed"
+msgstr "自営業"
+
+msgid "Continuing Study"
+msgstr "進学"
+
+msgid "Unemployed"
+msgstr "無職"
+
+msgid "Other"
+msgstr "その他"
+
+msgid "The Post Apprentice has been deleted."
+msgstr "実習修了者を削除しました。"
+
+msgid "The Post Apprentice could not be deleted. Please, try again."
+msgstr "実習修了者を削除できませんでした。もう一度お試しください。"
+
+msgid "The role has been saved."
+msgstr "役割を保存しました。"
+
+msgid "The role could not be saved. Please, try again."
+msgstr "役割を保存できませんでした。もう一度お試しください。"
+
+msgid "The role has been deleted."
+msgstr "役割を削除しました。"
+
+msgid "The role could not be deleted. Please, try again."
+msgstr "役割を削除できませんでした。もう一度お試しください。"
+
+msgid "The session has been saved."
+msgstr "セッションを保存しました。"
+
+msgid "The session could not be saved. Please, try again."
+msgstr "セッションを保存できませんでした。もう一度お試しください。"
+
+msgid "The session has been deleted."
+msgstr "セッションを削除しました。"
+
+msgid "The session could not be deleted. Please, try again."
+msgstr "セッションを削除できませんでした。もう一度お試しください。"
+
+msgid "The special skill support institution has been saved."
+msgstr "特定技能支援機関を保存しました。"
+
+msgid "The special skill support institution could not be saved. Please, try again."
+msgstr "特定技能支援機関を保存できませんでした。もう一度お試しください。"
+
+msgid "The special skill support institution has been deleted."
+msgstr "特定技能支援機関を削除しました。"
+
+msgid "The special skill support institution could not be deleted. Please, try again."
+msgstr "特定技能支援機関を削除できませんでした。もう一度お試しください。"
+
+msgid "The Ticket has been saved."
+msgstr "航空券を保存しました。"
+
+msgid "The Ticket could not be saved. Please, try again."
+msgstr "航空券を保存できませんでした。もう一度お試しください。"
+
+msgid "The Ticket has been deleted."
+msgstr "航空券を削除しました。"
+
+msgid "The Ticket could not be deleted. Please, try again."
+msgstr "航空券を削除できませんでした。もう一度お試しください。"
+
+msgid "The flight leg has been removed."
+msgstr "フライト区間を削除しました。"
+
+msgid "The flight leg could not be removed."
+msgstr "フライト区間を削除できませんでした。"
+
+msgid "The flight leg could not be found."
+msgstr "フライト区間が見つかりません。"
+
+msgid "Please fill in all flight leg fields."
+msgstr "フライト区間の項目をすべて入力してください。"
+
+msgid "Departure and arrival airport must be different."
+msgstr "出発空港と到着空港は異なる必要があります。"
+
+msgid "Arrival must be after departure."
+msgstr "到着は出発より後である必要があります。"
+
+msgid "Flight leg {0} has been updated."
+msgstr "フライト区間 {0} を更新しました。"
+
+msgid "Flight leg {0} has been added."
+msgstr "フライト区間 {0} を追加しました。"
+
+msgid "The flight leg could not be saved. Please, try again."
+msgstr "フライト区間を保存できませんでした。もう一度お試しください。"
+
+msgid "The Trainee Certificate has been saved."
+msgstr "研修生の修了証を保存しました。"
+
+msgid "The Trainee Certificate could not be saved. Please, try again."
+msgstr "研修生の修了証を保存できませんでした。もう一度お試しください。"
+
+msgid "The Trainee Certificate has been deleted."
+msgstr "研修生の修了証を削除しました。"
+
+msgid "The Trainee Certificate could not be deleted. Please, try again."
+msgstr "研修生の修了証を削除できませんでした。もう一度お試しください。"
+
+msgid "The trainee certification has been saved."
+msgstr "研修生の資格を保存しました。"
+
+msgid "The trainee certification could not be saved. Please, try again."
+msgstr "研修生の資格を保存できませんでした。もう一度お試しください。"
+
+msgid "The trainee certification has been deleted."
+msgstr "研修生の資格を削除しました。"
+
+msgid "The trainee certification could not be deleted. Please, try again."
+msgstr "研修生の資格を削除できませんでした。もう一度お試しください。"
+
+msgid "The trainee course has been saved."
+msgstr "研修生の受講歴を保存しました。"
+
+msgid "The trainee course could not be saved. Please, try again."
+msgstr "研修生の受講歴を保存できませんでした。もう一度お試しください。"
+
+msgid "The trainee course has been deleted."
+msgstr "研修生の受講歴を削除しました。"
+
+msgid "The trainee course could not be deleted. Please, try again."
+msgstr "研修生の受講歴を削除できませんでした。もう一度お試しください。"
+
+msgid "The trainee education has been saved."
+msgstr "研修生の学歴を保存しました。"
+
+msgid "The trainee education could not be saved. Please, try again."
+msgstr "研修生の学歴を保存できませんでした。もう一度お試しください。"
+
+msgid "The trainee education has been deleted."
+msgstr "研修生の学歴を削除しました。"
+
+msgid "The trainee education could not be deleted. Please, try again."
+msgstr "研修生の学歴を削除できませんでした。もう一度お試しください。"
+
+msgid "The trainee experience has been saved."
+msgstr "研修生の職歴を保存しました。"
+
+msgid "The trainee experience could not be saved. Please, try again."
+msgstr "研修生の職歴を保存できませんでした。もう一度お試しください。"
+
+msgid "The trainee experience has been deleted."
+msgstr "研修生の職歴を削除しました。"
+
+msgid "The trainee experience could not be deleted. Please, try again."
+msgstr "研修生の職歴を削除できませんでした。もう一度お試しください。"
+
+msgid "The trainee family has been saved."
+msgstr "研修生の家族を保存しました。"
+
+msgid "The trainee family could not be saved. Please, try again."
+msgstr "研修生の家族を保存できませんでした。もう一度お試しください。"
+
+msgid "The trainee family has been deleted."
+msgstr "研修生の家族を削除しました。"
+
+msgid "The trainee family could not be deleted. Please, try again."
+msgstr "研修生の家族を削除できませんでした。もう一度お試しください。"
+
+msgid "The trainee family story has been saved."
+msgstr "研修生の家族記録を保存しました。"
+
+msgid "The trainee family story could not be saved. Please, try again."
+msgstr "研修生の家族記録を保存できませんでした。もう一度お試しください。"
+
+msgid "The trainee family story has been deleted."
+msgstr "研修生の家族記録を削除しました。"
+
+msgid "The trainee family story could not be deleted. Please, try again."
+msgstr "研修生の家族記録を削除できませんでした。もう一度お試しください。"
+
+msgid "No owing cost set for this trainee yet - use \"Set Owing Cost\" on the Payment Tracking page first."
+msgstr "この研修生の未払費用がまだ設定されていません。先に入金管理ページの「Set Owing Cost」で設定してください。"
+
+msgid "This trainee is already paid off - the receipt has been issued and no further installments are needed."
+msgstr "この研修生はすでに完済しています。領収書は発行済みで、追加の分割払いは不要です。"
+
+msgid "The payment amount must be greater than zero."
+msgstr "入金額は0より大きい必要があります。"
+
+msgid "Balance settled - the receipt has been issued."
+msgstr "残高が精算されました。領収書を発行しました。"
+
+msgid "Payment saved. Remaining balance: Rp {0}"
+msgstr "入金を保存しました。残高：Rp {0}"
+
+msgid "The trainee installment could not be saved. Please, try again."
+msgstr "研修生の分割払いを保存できませんでした。もう一度お試しください。"
+
+msgid "Please choose a trainee and enter an owing cost greater than zero."
+msgstr "研修生を選び、0より大きい未払費用を入力してください。"
+
+msgid "This trainee already has an owing cost set."
+msgstr "この研修生には未払費用がすでに設定されています。"
+
+msgid "Owing cost set: Rp {0}. Payments can now be recorded."
+msgstr "未払費用を設定しました：Rp {0}。入金の記録ができます。"
+
+msgid "The owing cost could not be saved. Please, try again."
+msgstr "未払費用を保存できませんでした。もう一度お試しください。"
+
+msgid "The trainee installment has been saved."
+msgstr "研修生の分割払いを保存しました。"
+
+msgid "The trainee installment has been deleted."
+msgstr "研修生の分割払いを削除しました。"
+
+msgid "The trainee installment could not be deleted. Please, try again."
+msgstr "研修生の分割払いを削除できませんでした。もう一度お試しください。"
+
+msgid "Please choose a batch to print name cards for."
+msgstr "名札を印刷するバッチを選択してください。"
+
+msgid "The COE / Visa record has been saved."
+msgstr "COE・ビザの記録を保存しました。"
+
+msgid "The COE / Visa record could not be saved. Please, try again."
+msgstr "COE・ビザの記録を保存できませんでした。もう一度お試しください。"
+
+msgid "The COE / Visa record has been deleted."
+msgstr "COE・ビザの記録を削除しました。"
+
+msgid "The COE / Visa record could not be deleted. Please, try again."
+msgstr "COE・ビザの記録を削除できませんでした。もう一度お試しください。"
+
+msgid "The medical check-up record has been saved."
+msgstr "健康診断の記録を保存しました。"
+
+msgid "The medical check-up record could not be saved. Please, try again."
+msgstr "健康診断の記録を保存できませんでした。もう一度お試しください。"
+
+msgid "The medical check-up record has been deleted."
+msgstr "健康診断の記録を削除しました。"
+
+msgid "The medical check-up record could not be deleted. Please, try again."
+msgstr "健康診断の記録を削除できませんでした。もう一度お試しください。"
+
+msgid "File type .{0} is not allowed."
+msgstr "ファイル形式 .{0} は許可されていません。"
+
+msgid "The file could not be stored. Please, try again."
+msgstr "ファイルを保存できませんでした。もう一度お試しください。"
+
+msgid "The Trainee Record Pasport has been saved."
+msgstr "研修生のパスポート記録を保存しました。"
+
+msgid "The Trainee Record Pasport could not be saved. Please, try again."
+msgstr "研修生のパスポート記録を保存できませんでした。もう一度お試しください。"
+
+msgid "The Trainee Record Pasport has been deleted."
+msgstr "研修生のパスポート記録を削除しました。"
+
+msgid "The Trainee Record Pasport could not be deleted. Please, try again."
+msgstr "研修生のパスポート記録を削除できませんでした。もう一度お試しください。"
+
+msgid "The trainee score average has been saved."
+msgstr "研修生の平均点を保存しました。"
+
+msgid "The trainee score average could not be saved. Please, try again."
+msgstr "研修生の平均点を保存できませんでした。もう一度お試しください。"
+
+msgid "The trainee score average has been deleted."
+msgstr "研修生の平均点を削除しました。"
+
+msgid "The trainee score average could not be deleted. Please, try again."
+msgstr "研修生の平均点を削除できませんでした。もう一度お試しください。"
+
+msgid "Please choose a file to upload."
+msgstr "アップロードするファイルを選択してください。"
+
+msgid "The existing submission has been replaced with the new file."
+msgstr "既存の提出物を新しいファイルに差し替えました。"
+
+msgid "The Trainee Submission Document has been saved."
+msgstr "研修生の提出書類を保存しました。"
+
+msgid "The Trainee Submission Document could not be saved. Please, try again."
+msgstr "研修生の提出書類を保存できませんでした。もう一度お試しください。"
+
+msgid "The Trainee Submission Document has been deleted."
+msgstr "研修生の提出書類を削除しました。"
+
+msgid "The Trainee Submission Document could not be deleted. Please, try again."
+msgstr "研修生の提出書類を削除できませんでした。もう一度お試しください。"
+
+msgid "The document has been uploaded."
+msgstr "書類をアップロードしました。"
+
+msgid "The document record could not be saved. Please, try again."
+msgstr "書類の記録を保存できませんでした。もう一度お試しください。"
+
+msgid "The document record has been removed."
+msgstr "書類の記録を削除しました。"
+
+msgid "The document record could not be removed."
+msgstr "書類の記録を削除できませんでした。"
+
+msgid "The trainee training batch has been saved."
+msgstr "研修生の研修バッチを保存しました。"
+
+msgid "The trainee training batch could not be saved. Please, try again."
+msgstr "研修生の研修バッチを保存できませんでした。もう一度お試しください。"
+
+msgid "The trainee training batch has been deleted."
+msgstr "研修生の研修バッチを削除しました。"
+
+msgid "The trainee training batch could not be deleted. Please, try again."
+msgstr "研修生の研修バッチを削除できませんでした。もう一度お試しください。"
+
+msgid "The trainee training test score has been saved."
+msgstr "研修生の研修試験成績を保存しました。"
+
+msgid "The trainee training test score could not be saved. Please, try again."
+msgstr "研修生の研修試験成績を保存できませんでした。もう一度お試しください。"
+
+msgid "The trainee training test score has been deleted."
+msgstr "研修生の研修試験成績を削除しました。"
+
+msgid "The trainee training test score could not be deleted. Please, try again."
+msgstr "研修生の研修試験成績を削除できませんでした。もう一度お試しください。"
+
+msgid "The trainee has been saved."
+msgstr "研修生を保存しました。"
+
+msgid "The trainee could not be saved. Please, try again."
+msgstr "研修生を保存できませんでした。もう一度お試しください。"
+
+msgid "The trainee has been deleted."
+msgstr "研修生を削除しました。"
+
+msgid "The trainee could not be deleted. Please, try again."
+msgstr "研修生を削除できませんでした。もう一度お試しください。"
+
+msgid "Only TMM Training role can promote trainees to apprentices."
+msgstr "研修生を技能実習生に昇格できるのはTMM研修の役割のみです。"
+
+msgid "Trainee \"{0}\" is already an apprentice."
+msgstr "研修生「{0}」はすでに技能実習生です。"
+
+msgid "\"{0}\" has been promoted to apprentice. All profile data copied successfully."
+msgstr "「{0}」を技能実習生に昇格しました。プロフィールデータをすべて複製しました。"
+
+msgid "The training has been saved."
+msgstr "研修を保存しました。"
+
+msgid "The training could not be saved. Please, try again."
+msgstr "研修を保存できませんでした。もう一度お試しください。"
+
+msgid "The training has been deleted."
+msgstr "研修を削除しました。"
+
+msgid "The training could not be deleted. Please, try again."
+msgstr "研修を削除できませんでした。もう一度お試しください。"
+
+msgid "Role assignments have been updated."
+msgstr "役割の割り当てを更新しました。"
+
+msgid "Role assignments could not be updated. Please, try again."
+msgstr "役割の割り当てを更新できませんでした。もう一度お試しください。"
+
+msgid "The role has been removed from the user."
+msgstr "ユーザーから役割を解除しました。"
+
+msgid "The role could not be removed. Please, try again."
+msgstr "役割を解除できませんでした。もう一度お試しください。"
+
+msgid "Invalid username or password, try again"
+msgstr "ユーザー名またはパスワードが正しくありません。もう一度お試しください"
+
+msgid "You have been logged out."
+msgstr "ログアウトしました。"
+
+msgid "The user has been saved."
+msgstr "ユーザーを保存しました。"
+
+msgid "The user could not be saved. Please, try again."
+msgstr "ユーザーを保存できませんでした。もう一度お試しください。"
+
+msgid "The user has been deleted."
+msgstr "ユーザーを削除しました。"
+
+msgid "The user could not be deleted. Please, try again."
+msgstr "ユーザーを削除できませんでした。もう一度お試しください。"
+
+msgid "You must be logged in to view your profile."
+msgstr "プロフィールを表示するにはログインが必要です。"
+
+msgid "You must be logged in to edit settings."
+msgstr "設定を変更するにはログインが必要です。"
+
+msgid "Your settings have been updated."
+msgstr "設定を更新しました。"
+
+msgid "Your settings could not be updated. Please, try again."
+msgstr "設定を更新できませんでした。もう一度お試しください。"
+
+msgid "The vocational training institution story has been saved."
+msgstr "職業訓練機関の記録を保存しました。"
+
+msgid "The vocational training institution story could not be saved. Please, try again."
+msgstr "職業訓練機関の記録を保存できませんでした。もう一度お試しください。"
+
+msgid "The vocational training institution story has been deleted."
+msgstr "職業訓練機関の記録を削除しました。"
+
+msgid "The vocational training institution story could not be deleted. Please, try again."
+msgstr "職業訓練機関の記録を削除できませんでした。もう一度お試しください。"
+
+msgid "The vocational training institution could not be saved. Please, try again."
+msgstr "職業訓練機関を保存できませんでした。もう一度お試しください。"
+
+msgid "The vocational training institution has been saved."
+msgstr "職業訓練機関を保存しました。"
+
+msgid "The vocational training institution has been deleted."
+msgstr "職業訓練機関を削除しました。"
+
+msgid "The vocational training institution could not be deleted. Please, try again."
+msgstr "職業訓練機関を削除できませんでした。もう一度お試しください。"
+
+msgid "Registration email resent successfully."
+msgstr "登録メールを再送信しました。"
+
+msgid "Failed to send email. Please check email configuration."
+msgstr "メールを送信できませんでした。メール設定を確認してください。"
+
+msgid "File is required"
+msgstr "ファイルは必須です"
+
+msgid "Related TableName"
+msgstr "関連する TableName"
+

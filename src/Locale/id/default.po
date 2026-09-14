@@ -11556,3 +11556,1668 @@ msgstr "Silakan pilih kecamatan."
 msgid "Please select a village."
 msgstr "Silakan pilih kelurahan atau desa."
 
+msgid "The acceptance organization story has been saved."
+msgstr "Riwayat organisasi penerima berhasil disimpan."
+
+msgid "The acceptance organization story could not be saved. Please, try again."
+msgstr "Riwayat organisasi penerima tidak dapat disimpan. Silakan coba lagi."
+
+msgid "The acceptance organization story has been deleted."
+msgstr "Riwayat organisasi penerima berhasil dihapus."
+
+msgid "The acceptance organization story could not be deleted. Please, try again."
+msgstr "Riwayat organisasi penerima tidak dapat dihapus. Silakan coba lagi."
+
+msgid "The acceptance organization has been saved."
+msgstr "Organisasi penerima berhasil disimpan."
+
+msgid "The acceptance organization could not be saved. Please, try again."
+msgstr "Organisasi penerima tidak dapat disimpan. Silakan coba lagi."
+
+msgid "The acceptance organization has been deleted."
+msgstr "Organisasi penerima berhasil dihapus."
+
+msgid "The acceptance organization could not be deleted. Please, try again."
+msgstr "Organisasi penerima tidak dapat dihapus. Silakan coba lagi."
+
+msgid "LPK registered successfully. Verification email sent to {0}."
+msgstr "LPK berhasil didaftarkan. Email verifikasi dikirim ke {0}."
+
+msgid "LPK registered but failed to send verification email. Please resend manually."
+msgstr "LPK terdaftar, tetapi email verifikasi gagal dikirim. Silakan kirim ulang secara manual."
+
+msgid "LPK registered but failed to generate verification token."
+msgstr "LPK terdaftar, tetapi token verifikasi gagal dibuat."
+
+msgid "LPK registered but error occurred: {0}"
+msgstr "LPK terdaftar, tetapi terjadi kesalahan: {0}"
+
+msgid "Unable to register LPK. {0}"
+msgstr "Tidak dapat mendaftarkan LPK. {0}"
+
+msgid "Unable to register LPK. Please check the form and try again."
+msgstr "Tidak dapat mendaftarkan LPK. Silakan periksa formulir dan coba lagi."
+
+msgid "Invalid verification link. Please check your email and try again."
+msgstr "Tautan verifikasi tidak valid. Silakan periksa email Anda dan coba lagi."
+
+msgid "Your account is already active. Please login."
+msgstr "Akun Anda sudah aktif. Silakan masuk."
+
+msgid "Email already verified. Please set your password to complete registration."
+msgstr "Email sudah diverifikasi. Silakan buat kata sandi untuk menyelesaikan pendaftaran."
+
+msgid "Email verified successfully! Please set your password to activate your account."
+msgstr "Email berhasil diverifikasi! Silakan buat kata sandi untuk mengaktifkan akun Anda."
+
+msgid "Institution not found."
+msgstr "Lembaga tidak ditemukan."
+
+msgid "Please verify your email first."
+msgstr "Silakan verifikasi email Anda terlebih dahulu."
+
+msgid "Passwords do not match. Please try again."
+msgstr "Kata sandi tidak cocok. Silakan coba lagi."
+
+msgid "Password must be at least 8 characters long."
+msgstr "Kata sandi minimal 8 karakter."
+
+msgid "Password must contain at least one uppercase letter."
+msgstr "Kata sandi harus memuat setidaknya satu huruf besar."
+
+msgid "Password must contain at least one lowercase letter."
+msgstr "Kata sandi harus memuat setidaknya satu huruf kecil."
+
+msgid "Password must contain at least one number."
+msgstr "Kata sandi harus memuat setidaknya satu angka."
+
+msgid "Password must contain at least one special character (!@#$%^&* etc)."
+msgstr "Kata sandi harus memuat setidaknya satu karakter khusus (!@#$%^&* dsb)."
+
+msgid "Account activated successfully! You can now login with username: {0}"
+msgstr "Akun berhasil diaktifkan! Anda kini dapat masuk dengan nama pengguna: {0}"
+
+msgid "Error creating user account. Please try again or contact support."
+msgstr "Gagal membuat akun pengguna. Silakan coba lagi atau hubungi dukungan."
+
+msgid "This institution has already been verified."
+msgstr "Lembaga ini sudah diverifikasi."
+
+msgid "Verification email resent successfully to {0}."
+msgstr "Email verifikasi berhasil dikirim ulang ke {0}."
+
+msgid "Failed to send verification email. Please try again later."
+msgstr "Gagal mengirim email verifikasi. Silakan coba lagi nanti."
+
+msgid "Failed to generate verification token. Please contact support."
+msgstr "Gagal membuat token verifikasi. Silakan hubungi dukungan."
+
+msgid "You do not have permission to access this page."
+msgstr "Anda tidak memiliki izin untuk mengakses halaman ini."
+
+msgid "Your role does not have access to {0} in {1}."
+msgstr "Peran Anda tidak memiliki akses ke {0} di {1}."
+
+msgid "You do not have permission to {0} this resource."
+msgstr "Anda tidak memiliki izin untuk {0} sumber daya ini."
+
+msgid "Access Denied: {0}"
+msgstr "Akses Ditolak: {0}"
+
+msgid "Your account: <strong>{0}</strong>"
+msgstr "Akun Anda: <strong>{0}</strong>"
+
+msgid "Your role: <strong>{0}</strong>"
+msgstr "Peran Anda: <strong>{0}</strong>"
+
+msgid "Please contact your administrator if you believe this is an error, or "
+msgstr "Silakan hubungi administrator Anda bila Anda merasa ini keliru, atau "
+
+msgid "login with different account"
+msgstr "masuk dengan akun lain"
+
+msgid "File {0} uploaded successfully"
+msgstr "Berkas {0} berhasil diunggah"
+
+msgid "Failed to upload {0}: {1}"
+msgstr "Gagal mengunggah {0}: {1}"
+
+msgid "File could not be moved to destination."
+msgstr "Berkas tidak dapat dipindahkan ke tujuan."
+
+msgid "Upload failed with error code: {0}"
+msgstr "Unggahan gagal dengan kode kesalahan: {0}"
+
+msgid "File could not be uploaded: {0}"
+msgstr "Berkas tidak dapat diunggah: {0}"
+
+msgid "Failed to create upload directory"
+msgstr "Gagal membuat direktori unggahan"
+
+msgid "Failed to move uploaded file"
+msgstr "Gagal memindahkan berkas yang diunggah"
+
+msgid "Image could not be uploaded: {0}"
+msgstr "Gambar tidak dapat diunggah: {0}"
+
+msgid "Invalid image data format"
+msgstr "Format data gambar tidak valid"
+
+msgid "Failed to decode image data"
+msgstr "Gagal membaca data gambar"
+
+msgid "Failed to save cropped image"
+msgstr "Gagal menyimpan gambar hasil potong"
+
+msgid "Error saving cropped image: {0}"
+msgstr "Kesalahan saat menyimpan gambar hasil potong: {0}"
+
+msgid "The apprentice certification has been saved."
+msgstr "Sertifikasi pemagang berhasil disimpan."
+
+msgid "The apprentice certification could not be saved. Please, try again."
+msgstr "Sertifikasi pemagang tidak dapat disimpan. Silakan coba lagi."
+
+msgid "The apprentice certification has been deleted."
+msgstr "Sertifikasi pemagang berhasil dihapus."
+
+msgid "The apprentice certification could not be deleted. Please, try again."
+msgstr "Sertifikasi pemagang tidak dapat dihapus. Silakan coba lagi."
+
+msgid "The apprentice course has been saved."
+msgstr "Kursus pemagang berhasil disimpan."
+
+msgid "The apprentice course could not be saved. Please, try again."
+msgstr "Kursus pemagang tidak dapat disimpan. Silakan coba lagi."
+
+msgid "The apprentice course has been deleted."
+msgstr "Kursus pemagang berhasil dihapus."
+
+msgid "The apprentice course could not be deleted. Please, try again."
+msgstr "Kursus pemagang tidak dapat dihapus. Silakan coba lagi."
+
+msgid "The apprentice document management dashboard has been saved."
+msgstr "Dasbor pengelolaan dokumen pemagang berhasil disimpan."
+
+msgid "The apprentice document management dashboard could not be saved. Please, try again."
+msgstr "Dasbor pengelolaan dokumen pemagang tidak dapat disimpan. Silakan coba lagi."
+
+msgid "The apprentice document management dashboard has been deleted."
+msgstr "Dasbor pengelolaan dokumen pemagang berhasil dihapus."
+
+msgid "The apprentice document management dashboard could not be deleted. Please, try again."
+msgstr "Dasbor pengelolaan dokumen pemagang tidak dapat dihapus. Silakan coba lagi."
+
+msgid "The Apprentice Document has been saved."
+msgstr "Dokumen Pemagang berhasil disimpan."
+
+msgid "The Apprentice Document could not be saved. Please, try again."
+msgstr "Dokumen Pemagang tidak dapat disimpan. Silakan coba lagi."
+
+msgid "The Apprentice Document has been deleted."
+msgstr "Dokumen Pemagang berhasil dihapus."
+
+msgid "The Apprentice Document could not be deleted. Please, try again."
+msgstr "Dokumen Pemagang tidak dapat dihapus. Silakan coba lagi."
+
+msgid "The apprentice education has been saved."
+msgstr "Pendidikan pemagang berhasil disimpan."
+
+msgid "The apprentice education could not be saved. Please, try again."
+msgstr "Pendidikan pemagang tidak dapat disimpan. Silakan coba lagi."
+
+msgid "The apprentice education has been deleted."
+msgstr "Pendidikan pemagang berhasil dihapus."
+
+msgid "The apprentice education could not be deleted. Please, try again."
+msgstr "Pendidikan pemagang tidak dapat dihapus. Silakan coba lagi."
+
+msgid "The apprentice experience has been saved."
+msgstr "Pengalaman kerja pemagang berhasil disimpan."
+
+msgid "The apprentice experience could not be saved. Please, try again."
+msgstr "Pengalaman kerja pemagang tidak dapat disimpan. Silakan coba lagi."
+
+msgid "The apprentice experience has been deleted."
+msgstr "Pengalaman kerja pemagang berhasil dihapus."
+
+msgid "The apprentice experience could not be deleted. Please, try again."
+msgstr "Pengalaman kerja pemagang tidak dapat dihapus. Silakan coba lagi."
+
+msgid "The apprentice family has been saved."
+msgstr "Keluarga pemagang berhasil disimpan."
+
+msgid "The apprentice family could not be saved. Please, try again."
+msgstr "Keluarga pemagang tidak dapat disimpan. Silakan coba lagi."
+
+msgid "The apprentice family has been deleted."
+msgstr "Keluarga pemagang berhasil dihapus."
+
+msgid "The apprentice family could not be deleted. Please, try again."
+msgstr "Keluarga pemagang tidak dapat dihapus. Silakan coba lagi."
+
+msgid "The apprentice family story has been saved."
+msgstr "Riwayat keluarga pemagang berhasil disimpan."
+
+msgid "The apprentice family story could not be saved. Please, try again."
+msgstr "Riwayat keluarga pemagang tidak dapat disimpan. Silakan coba lagi."
+
+msgid "The apprentice family story has been deleted."
+msgstr "Riwayat keluarga pemagang berhasil dihapus."
+
+msgid "The apprentice family story could not be deleted. Please, try again."
+msgstr "Riwayat keluarga pemagang tidak dapat dihapus. Silakan coba lagi."
+
+msgid "The apprentice flight has been saved."
+msgstr "Penerbangan pemagang berhasil disimpan."
+
+msgid "The apprentice flight could not be saved. Please, try again."
+msgstr "Penerbangan pemagang tidak dapat disimpan. Silakan coba lagi."
+
+msgid "The apprentice flight has been deleted."
+msgstr "Penerbangan pemagang berhasil dihapus."
+
+msgid "The apprentice flight could not be deleted. Please, try again."
+msgstr "Penerbangan pemagang tidak dapat dihapus. Silakan coba lagi."
+
+msgid "The apprentice order has been saved."
+msgstr "Pesanan pemagang berhasil disimpan."
+
+msgid "The apprentice order could not be saved. Please, try again."
+msgstr "Pesanan pemagang tidak dapat disimpan. Silakan coba lagi."
+
+msgid "The apprentice order has been deleted."
+msgstr "Pesanan pemagang berhasil dihapus."
+
+msgid "The apprentice order could not be deleted. Please, try again."
+msgstr "Pesanan pemagang tidak dapat dihapus. Silakan coba lagi."
+
+msgid "The apprentice record coe visa has been saved."
+msgstr "Rekaman COE / visa pemagang berhasil disimpan."
+
+msgid "The apprentice record coe visa could not be saved. Please, try again."
+msgstr "Rekaman COE / visa pemagang tidak dapat disimpan. Silakan coba lagi."
+
+msgid "The apprentice record coe visa has been deleted."
+msgstr "Rekaman COE / visa pemagang berhasil dihapus."
+
+msgid "The apprentice record coe visa could not be deleted. Please, try again."
+msgstr "Rekaman COE / visa pemagang tidak dapat dihapus. Silakan coba lagi."
+
+msgid "The apprentice record medical check up has been saved."
+msgstr "Rekaman pemeriksaan kesehatan pemagang berhasil disimpan."
+
+msgid "The apprentice record medical check up could not be saved. Please, try again."
+msgstr "Rekaman pemeriksaan kesehatan pemagang tidak dapat disimpan. Silakan coba lagi."
+
+msgid "The apprentice record medical check up has been deleted."
+msgstr "Rekaman pemeriksaan kesehatan pemagang berhasil dihapus."
+
+msgid "The apprentice record medical check up could not be deleted. Please, try again."
+msgstr "Rekaman pemeriksaan kesehatan pemagang tidak dapat dihapus. Silakan coba lagi."
+
+msgid "The apprentice record pasport has been saved."
+msgstr "Rekaman paspor pemagang berhasil disimpan."
+
+msgid "The apprentice record pasport could not be saved. Please, try again."
+msgstr "Rekaman paspor pemagang tidak dapat disimpan. Silakan coba lagi."
+
+msgid "The apprentice record pasport has been deleted."
+msgstr "Rekaman paspor pemagang berhasil dihapus."
+
+msgid "The apprentice record pasport could not be deleted. Please, try again."
+msgstr "Rekaman paspor pemagang tidak dapat dihapus. Silakan coba lagi."
+
+msgid "The Apprentice Story has been saved."
+msgstr "Riwayat Pemagang berhasil disimpan."
+
+msgid "The Apprentice Story could not be saved. Please, try again."
+msgstr "Riwayat Pemagang tidak dapat disimpan. Silakan coba lagi."
+
+msgid "The Apprentice Story has been deleted."
+msgstr "Riwayat Pemagang berhasil dihapus."
+
+msgid "The Apprentice Story could not be deleted. Please, try again."
+msgstr "Riwayat Pemagang tidak dapat dihapus. Silakan coba lagi."
+
+msgid "The apprentice submission document has been saved."
+msgstr "Dokumen penyerahan pemagang berhasil disimpan."
+
+msgid "The apprentice submission document could not be saved. Please, try again."
+msgstr "Dokumen penyerahan pemagang tidak dapat disimpan. Silakan coba lagi."
+
+msgid "The apprentice submission document has been deleted."
+msgstr "Dokumen penyerahan pemagang berhasil dihapus."
+
+msgid "The apprentice submission document could not be deleted. Please, try again."
+msgstr "Dokumen penyerahan pemagang tidak dapat dihapus. Silakan coba lagi."
+
+msgid "The apprentice has been saved."
+msgstr "Pemagang berhasil disimpan."
+
+msgid "The apprentice could not be saved. Please, try again."
+msgstr "Pemagang tidak dapat disimpan. Silakan coba lagi."
+
+msgid "The apprentice has been deleted."
+msgstr "Pemagang berhasil dihapus."
+
+msgid "The apprentice could not be deleted. Please, try again."
+msgstr "Pemagang tidak dapat dihapus. Silakan coba lagi."
+
+msgid "The candidate certification has been saved."
+msgstr "Sertifikasi kandidat berhasil disimpan."
+
+msgid "The candidate certification could not be saved. Please, try again."
+msgstr "Sertifikasi kandidat tidak dapat disimpan. Silakan coba lagi."
+
+msgid "The candidate certification has been deleted."
+msgstr "Sertifikasi kandidat berhasil dihapus."
+
+msgid "The candidate certification could not be deleted. Please, try again."
+msgstr "Sertifikasi kandidat tidak dapat dihapus. Silakan coba lagi."
+
+msgid "The candidate course has been saved."
+msgstr "Kursus kandidat berhasil disimpan."
+
+msgid "The candidate course could not be saved. Please, try again."
+msgstr "Kursus kandidat tidak dapat disimpan. Silakan coba lagi."
+
+msgid "The candidate course has been deleted."
+msgstr "Kursus kandidat berhasil dihapus."
+
+msgid "The candidate course could not be deleted. Please, try again."
+msgstr "Kursus kandidat tidak dapat dihapus. Silakan coba lagi."
+
+msgid "The candidate document category has been saved."
+msgstr "Kategori dokumen kandidat berhasil disimpan."
+
+msgid "The candidate document category could not be saved. Please, try again."
+msgstr "Kategori dokumen kandidat tidak dapat disimpan. Silakan coba lagi."
+
+msgid "The candidate document category has been deleted."
+msgstr "Kategori dokumen kandidat berhasil dihapus."
+
+msgid "The candidate document category could not be deleted. Please, try again."
+msgstr "Kategori dokumen kandidat tidak dapat dihapus. Silakan coba lagi."
+
+msgid "The candidate document management dashboard detail has been saved."
+msgstr "Detail dasbor pengelolaan dokumen kandidat berhasil disimpan."
+
+msgid "The candidate document management dashboard detail could not be saved. Please, try again."
+msgstr "Detail dasbor pengelolaan dokumen kandidat tidak dapat disimpan. Silakan coba lagi."
+
+msgid "The candidate document management dashboard detail has been deleted."
+msgstr "Detail dasbor pengelolaan dokumen kandidat berhasil dihapus."
+
+msgid "The candidate document management dashboard detail could not be deleted. Please, try again."
+msgstr "Detail dasbor pengelolaan dokumen kandidat tidak dapat dihapus. Silakan coba lagi."
+
+msgid "You are not authorized to view this document."
+msgstr "Anda tidak berwenang melihat dokumen ini."
+
+msgid "The candidate document has been saved."
+msgstr "Dokumen kandidat berhasil disimpan."
+
+msgid "Field {0}: {1}"
+msgstr "Field {0}: {1}"
+
+msgid "The candidate document could not be saved. Please, try again."
+msgstr "Dokumen kandidat tidak dapat disimpan. Silakan coba lagi."
+
+msgid "No candidates available for your institution. Please contact administrator."
+msgstr "Tidak ada kandidat untuk lembaga Anda. Silakan hubungi administrator."
+
+msgid "You are not authorized to edit this document."
+msgstr "Anda tidak berwenang mengubah dokumen ini."
+
+msgid "You are not authorized to delete this document."
+msgstr "Anda tidak berwenang menghapus dokumen ini."
+
+msgid "The candidate document has been deleted."
+msgstr "Dokumen kandidat berhasil dihapus."
+
+msgid "The candidate document could not be deleted. Please, try again."
+msgstr "Dokumen kandidat tidak dapat dihapus. Silakan coba lagi."
+
+msgid "The candidate documents master list has been saved."
+msgstr "Daftar induk dokumen kandidat berhasil disimpan."
+
+msgid "The candidate documents master list could not be saved. Please, try again."
+msgstr "Daftar induk dokumen kandidat tidak dapat disimpan. Silakan coba lagi."
+
+msgid "The candidate documents master list has been deleted."
+msgstr "Daftar induk dokumen kandidat berhasil dihapus."
+
+msgid "The candidate documents master list could not be deleted. Please, try again."
+msgstr "Daftar induk dokumen kandidat tidak dapat dihapus. Silakan coba lagi."
+
+msgid "The candidate education has been saved."
+msgstr "Pendidikan kandidat berhasil disimpan."
+
+msgid "The candidate education could not be saved. Please, try again."
+msgstr "Pendidikan kandidat tidak dapat disimpan. Silakan coba lagi."
+
+msgid "The candidate education has been deleted."
+msgstr "Pendidikan kandidat berhasil dihapus."
+
+msgid "The candidate education could not be deleted. Please, try again."
+msgstr "Pendidikan kandidat tidak dapat dihapus. Silakan coba lagi."
+
+msgid "The candidate experience has been saved."
+msgstr "Pengalaman kerja kandidat berhasil disimpan."
+
+msgid "The candidate experience could not be saved. Please, try again."
+msgstr "Pengalaman kerja kandidat tidak dapat disimpan. Silakan coba lagi."
+
+msgid "The candidate experience has been deleted."
+msgstr "Pengalaman kerja kandidat berhasil dihapus."
+
+msgid "The candidate experience could not be deleted. Please, try again."
+msgstr "Pengalaman kerja kandidat tidak dapat dihapus. Silakan coba lagi."
+
+msgid "The candidate family has been saved."
+msgstr "Keluarga kandidat berhasil disimpan."
+
+msgid "The candidate family could not be saved. Please, try again."
+msgstr "Keluarga kandidat tidak dapat disimpan. Silakan coba lagi."
+
+msgid "The candidate family has been deleted."
+msgstr "Keluarga kandidat berhasil dihapus."
+
+msgid "The candidate family could not be deleted. Please, try again."
+msgstr "Keluarga kandidat tidak dapat dihapus. Silakan coba lagi."
+
+msgid "Access denied: this candidate does not belong to your institution."
+msgstr "Akses ditolak: kandidat ini bukan milik lembaga Anda."
+
+msgid "Your role does not have permission to change interview scores."
+msgstr "Peran Anda tidak memiliki izin mengubah nilai wawancara."
+
+msgid "Interview record saved. Overall score: {0}/100"
+msgstr "Rekaman wawancara tersimpan. Nilai keseluruhan: {0}/100"
+
+msgid "Could not save interview. Please try again."
+msgstr "Tidak dapat menyimpan wawancara. Silakan coba lagi."
+
+msgid "The candidate record interview has been saved."
+msgstr "Rekaman wawancara kandidat berhasil disimpan."
+
+msgid "The candidate record interview could not be saved. Please, try again."
+msgstr "Rekaman wawancara kandidat tidak dapat disimpan. Silakan coba lagi."
+
+msgid "Your role does not have permission to edit interview records."
+msgstr "Peran Anda tidak memiliki izin mengubah rekaman wawancara."
+
+msgid "Your role does not have permission to delete interview records."
+msgstr "Peran Anda tidak memiliki izin menghapus rekaman wawancara."
+
+msgid "The candidate record interview has been deleted."
+msgstr "Rekaman wawancara kandidat berhasil dihapus."
+
+msgid "The candidate record interview could not be deleted. Please, try again."
+msgstr "Rekaman wawancara kandidat tidak dapat dihapus. Silakan coba lagi."
+
+msgid "The candidate record medical check up has been saved."
+msgstr "Rekaman pemeriksaan kesehatan kandidat berhasil disimpan."
+
+msgid "The candidate record medical check up could not be saved. Please, try again."
+msgstr "Rekaman pemeriksaan kesehatan kandidat tidak dapat disimpan. Silakan coba lagi."
+
+msgid "The candidate record medical check up has been deleted."
+msgstr "Rekaman pemeriksaan kesehatan kandidat berhasil dihapus."
+
+msgid "The candidate record medical check up could not be deleted. Please, try again."
+msgstr "Rekaman pemeriksaan kesehatan kandidat tidak dapat dihapus. Silakan coba lagi."
+
+msgid "The candidate submission document has been saved."
+msgstr "Dokumen penyerahan kandidat berhasil disimpan."
+
+msgid "The candidate submission document could not be saved. Please, try again."
+msgstr "Dokumen penyerahan kandidat tidak dapat disimpan. Silakan coba lagi."
+
+msgid "The candidate submission document has been deleted."
+msgstr "Dokumen penyerahan kandidat berhasil dihapus."
+
+msgid "The candidate submission document could not be deleted. Please, try again."
+msgstr "Dokumen penyerahan kandidat tidak dapat dihapus. Silakan coba lagi."
+
+msgid "Invalid candidate ID."
+msgstr "ID kandidat tidak valid."
+
+msgid "You are not authorized to view this candidate."
+msgstr "Anda tidak berwenang melihat kandidat ini."
+
+msgid "The candidate has been saved."
+msgstr "Kandidat berhasil disimpan."
+
+msgid "The candidate could not be saved. Please, try again."
+msgstr "Kandidat tidak dapat disimpan. Silakan coba lagi."
+
+msgid "You are not authorized to edit this candidate."
+msgstr "Anda tidak berwenang mengubah kandidat ini."
+
+msgid "You are not authorized to delete this candidate."
+msgstr "Anda tidak berwenang menghapus kandidat ini."
+
+msgid "The candidate has been deleted."
+msgstr "Kandidat berhasil dihapus."
+
+msgid "The candidate could not be deleted. Please, try again."
+msgstr "Kandidat tidak dapat dihapus. Silakan coba lagi."
+
+msgid "Identity number is required."
+msgstr "Nomor identitas wajib diisi."
+
+msgid "Identity number must be exactly 16 digits."
+msgstr "Nomor identitas harus tepat 16 digit."
+
+msgid "This identity number is already registered."
+msgstr "Nomor identitas ini sudah terdaftar."
+
+msgid "Identity number verified. Proceed to photo upload."
+msgstr "Nomor identitas terverifikasi. Lanjut ke unggah foto."
+
+msgid "Please start from step 1."
+msgstr "Silakan mulai dari langkah 1."
+
+msgid "Photo uploaded successfully. Proceed to candidate information."
+msgstr "Foto berhasil diunggah. Lanjut ke informasi kandidat."
+
+msgid "Please upload and crop a photo before continuing."
+msgstr "Silakan unggah dan potong foto sebelum melanjutkan."
+
+msgid "Please fill all required fields: "
+msgstr "Silakan isi semua field wajib: "
+
+msgid "Candidate information saved. Proceed to education history."
+msgstr "Informasi kandidat tersimpan. Lanjut ke riwayat pendidikan."
+
+msgid "At least one education entry is required."
+msgstr "Minimal satu entri pendidikan wajib diisi."
+
+msgid "Please provide at least one complete education entry."
+msgstr "Silakan isi minimal satu entri pendidikan yang lengkap."
+
+msgid "Education history saved. Proceed to work experience."
+msgstr "Riwayat pendidikan tersimpan. Lanjut ke pengalaman kerja."
+
+msgid "Work experience saved. Proceed to family information."
+msgstr "Pengalaman kerja tersimpan. Lanjut ke informasi keluarga."
+
+msgid "It is recommended to add at least 2 family members (Father & Mother)."
+msgstr "Disarankan menambahkan minimal 2 anggota keluarga (Ayah & Ibu)."
+
+msgid "Family information saved. Proceed to certifications."
+msgstr "Informasi keluarga tersimpan. Lanjut ke sertifikasi."
+
+msgid "Certifications saved. Proceed to courses/training."
+msgstr "Sertifikasi tersimpan. Lanjut ke kursus/pelatihan."
+
+msgid "Courses/training saved. Proceed to final review."
+msgstr "Kursus/pelatihan tersimpan. Lanjut ke tinjauan akhir."
+
+msgid "At least one education entry is required. Please go back to Step 4."
+msgstr "Minimal satu entri pendidikan wajib diisi. Silakan kembali ke Langkah 4."
+
+msgid "Candidate has been successfully registered with all related information!"
+msgstr "Kandidat berhasil didaftarkan beserta seluruh informasi terkait!"
+
+msgid "The candidate could not be saved. Please check the errors and try again."
+msgstr "Kandidat tidak dapat disimpan. Silakan periksa kesalahannya dan coba lagi."
+
+msgid "Only TMM Recruitment role can promote candidates."
+msgstr "Hanya peran Rekrutmen TMM yang dapat mempromosikan kandidat."
+
+msgid "Candidate \"{0}\" is already a trainee."
+msgstr "Kandidat \"{0}\" sudah menjadi trainee."
+
+msgid "No physical test score"
+msgstr "Belum ada nilai tes fisik"
+
+msgid "No AO interview score"
+msgstr "Belum ada nilai wawancara AO"
+
+msgid "Could not create trainee record. Please check the data."
+msgstr "Tidak dapat membuat data trainee. Silakan periksa datanya."
+
+msgid "\"{0}\" has been promoted to trainee. All profile data copied successfully."
+msgstr "\"{0}\" telah dipromosikan menjadi trainee. Seluruh data profil berhasil disalin."
+
+msgid "Promotion failed for \"{0}\": {1}"
+msgstr "Promosi gagal untuk \"{0}\": {1}"
+
+msgid "The Chart Of Account has been saved."
+msgstr "Bagan Akun berhasil disimpan."
+
+msgid "The Chart Of Account could not be saved. Please, try again."
+msgstr "Bagan Akun tidak dapat disimpan. Silakan coba lagi."
+
+msgid "The Chart Of Account has been deleted."
+msgstr "Bagan Akun berhasil dihapus."
+
+msgid "The Chart Of Account could not be deleted. Please, try again."
+msgstr "Bagan Akun tidak dapat dihapus. Silakan coba lagi."
+
+msgid "The cooperative association story has been saved."
+msgstr "Riwayat asosiasi koperasi berhasil disimpan."
+
+msgid "The cooperative association story could not be saved. Please, try again."
+msgstr "Riwayat asosiasi koperasi tidak dapat disimpan. Silakan coba lagi."
+
+msgid "The cooperative association story has been deleted."
+msgstr "Riwayat asosiasi koperasi berhasil dihapus."
+
+msgid "The cooperative association story could not be deleted. Please, try again."
+msgstr "Riwayat asosiasi koperasi tidak dapat dihapus. Silakan coba lagi."
+
+msgid "The cooperative association has been saved."
+msgstr "Asosiasi koperasi berhasil disimpan."
+
+msgid "The cooperative association could not be saved. Please, try again."
+msgstr "Asosiasi koperasi tidak dapat disimpan. Silakan coba lagi."
+
+msgid "The cooperative association has been deleted."
+msgstr "Asosiasi koperasi berhasil dihapus."
+
+msgid "The cooperative association could not be deleted. Please, try again."
+msgstr "Asosiasi koperasi tidak dapat dihapus. Silakan coba lagi."
+
+msgid "The Email Template has been saved."
+msgstr "Templat Email berhasil disimpan."
+
+msgid "The Email Template could not be saved. Please, try again."
+msgstr "Templat Email tidak dapat disimpan. Silakan coba lagi."
+
+msgid "The Email Template has been deleted."
+msgstr "Templat Email berhasil dihapus."
+
+msgid "The Email Template could not be deleted. Please, try again."
+msgstr "Templat Email tidak dapat dihapus. Silakan coba lagi."
+
+msgid "Invalid registration link."
+msgstr "Tautan pendaftaran tidak valid."
+
+msgid "Invalid or expired registration link."
+msgstr "Tautan pendaftaran tidak valid atau sudah kedaluwarsa."
+
+msgid "This institution has already completed registration. Please login."
+msgstr "Lembaga ini sudah menyelesaikan pendaftaran. Silakan masuk."
+
+msgid "Passwords do not match."
+msgstr "Kata sandi tidak cocok."
+
+msgid "Registration completed successfully! You can now login."
+msgstr "Pendaftaran berhasil diselesaikan! Anda kini dapat masuk."
+
+msgid "Registration completed but failed to create user account. Please contact administrator."
+msgstr "Pendaftaran selesai, tetapi akun pengguna gagal dibuat. Silakan hubungi administrator."
+
+msgid "Failed to complete registration. Please check your input and try again."
+msgstr "Gagal menyelesaikan pendaftaran. Silakan periksa isian Anda dan coba lagi."
+
+msgid "Training Fee Received"
+msgstr "Biaya Pelatihan Diterima"
+
+msgid "Flight Ticket Cost"
+msgstr "Biaya Tiket Pesawat"
+
+msgid "Document Processing Cost"
+msgstr "Biaya Pengurusan Dokumen"
+
+msgid "A journal needs at least two lines (a debit and a credit)."
+msgstr "Jurnal memerlukan minimal dua baris (satu debit dan satu kredit)."
+
+msgid "The entry is not balanced: debit Rp {0} vs credit Rp {1}."
+msgstr "Entri tidak seimbang: debit Rp {0} berbanding kredit Rp {1}."
+
+msgid "Adjustment entry {0} saved."
+msgstr "Entri penyesuaian {0} tersimpan."
+
+msgid "Journal entry {0} saved."
+msgstr "Entri jurnal {0} tersimpan."
+
+msgid "The journal could not be saved. Please, try again."
+msgstr "Jurnal tidak dapat disimpan. Silakan coba lagi."
+
+msgid "Manual Adjustment"
+msgstr "Penyesuaian Manual"
+
+msgid "Manual Journal Entry"
+msgstr "Entri Jurnal Manual"
+
+msgid "{0} journal entr{1} generated from source records."
+msgstr "{0} entri jurnal dibuat dari data sumber."
+
+msgid "Nothing to generate - all source records are already journalized (or a required account is missing)."
+msgstr "Tidak ada yang perlu dibuat - semua data sumber sudah dijurnal (atau ada akun yang belum tersedia)."
+
+msgid "The Journal has been deleted."
+msgstr "Jurnal berhasil dihapus."
+
+msgid "The Journal could not be deleted. Please, try again."
+msgstr "Jurnal tidak dapat dihapus. Silakan coba lagi."
+
+msgid "Your role does not have permission to change scores."
+msgstr "Peran Anda tidak memiliki izin mengubah nilai."
+
+msgid "Physical test score saved. Fitness score: {0}/100"
+msgstr "Nilai tes fisik tersimpan. Skor kebugaran: {0}/100"
+
+msgid "Could not save score. Please try again."
+msgstr "Tidak dapat menyimpan nilai. Silakan coba lagi."
+
+msgid "The master apprentice coe type has been saved."
+msgstr "Master jenis COE pemagang berhasil disimpan."
+
+msgid "The master apprentice coe type could not be saved. Please, try again."
+msgstr "Master jenis COE pemagang tidak dapat disimpan. Silakan coba lagi."
+
+msgid "The master apprentice coe type has been deleted."
+msgstr "Master jenis COE pemagang berhasil dihapus."
+
+msgid "The master apprentice coe type could not be deleted. Please, try again."
+msgstr "Master jenis COE pemagang tidak dapat dihapus. Silakan coba lagi."
+
+msgid "The master apprentice departure document has been saved."
+msgstr "Master dokumen keberangkatan pemagang berhasil disimpan."
+
+msgid "The master apprentice departure document could not be saved. Please, try again."
+msgstr "Master dokumen keberangkatan pemagang tidak dapat disimpan. Silakan coba lagi."
+
+msgid "The master apprentice departure document has been deleted."
+msgstr "Master dokumen keberangkatan pemagang berhasil dihapus."
+
+msgid "The master apprentice departure document could not be deleted. Please, try again."
+msgstr "Master dokumen keberangkatan pemagang tidak dapat dihapus. Silakan coba lagi."
+
+msgid "The master apprentice submission document category has been saved."
+msgstr "Master kategori dokumen penyerahan pemagang berhasil disimpan."
+
+msgid "The master apprentice submission document category could not be saved. Please, try again."
+msgstr "Master kategori dokumen penyerahan pemagang tidak dapat disimpan. Silakan coba lagi."
+
+msgid "The master apprentice submission document category has been deleted."
+msgstr "Master kategori dokumen penyerahan pemagang berhasil dihapus."
+
+msgid "The master apprentice submission document category could not be deleted. Please, try again."
+msgstr "Master kategori dokumen penyerahan pemagang tidak dapat dihapus. Silakan coba lagi."
+
+msgid "The master apprentice submission document has been saved."
+msgstr "Master dokumen penyerahan pemagang berhasil disimpan."
+
+msgid "The master apprentice submission document could not be saved. Please, try again."
+msgstr "Master dokumen penyerahan pemagang tidak dapat disimpan. Silakan coba lagi."
+
+msgid "The master apprentice submission document has been deleted."
+msgstr "Master dokumen penyerahan pemagang berhasil dihapus."
+
+msgid "The master apprentice submission document could not be deleted. Please, try again."
+msgstr "Master dokumen penyerahan pemagang tidak dapat dihapus. Silakan coba lagi."
+
+msgid "The master blood type has been saved."
+msgstr "Master golongan darah berhasil disimpan."
+
+msgid "The master blood type could not be saved. Please, try again."
+msgstr "Master golongan darah tidak dapat disimpan. Silakan coba lagi."
+
+msgid "The master blood type has been deleted."
+msgstr "Master golongan darah berhasil dihapus."
+
+msgid "The master blood type could not be deleted. Please, try again."
+msgstr "Master golongan darah tidak dapat dihapus. Silakan coba lagi."
+
+msgid "The master candidate interview result has been saved."
+msgstr "Master hasil wawancara kandidat berhasil disimpan."
+
+msgid "The master candidate interview result could not be saved. Please, try again."
+msgstr "Master hasil wawancara kandidat tidak dapat disimpan. Silakan coba lagi."
+
+msgid "The master candidate interview result has been deleted."
+msgstr "Master hasil wawancara kandidat berhasil dihapus."
+
+msgid "The master candidate interview result could not be deleted. Please, try again."
+msgstr "Master hasil wawancara kandidat tidak dapat dihapus. Silakan coba lagi."
+
+msgid "The master candidate interview type has been saved."
+msgstr "Master jenis wawancara kandidat berhasil disimpan."
+
+msgid "The master candidate interview type could not be saved. Please, try again."
+msgstr "Master jenis wawancara kandidat tidak dapat disimpan. Silakan coba lagi."
+
+msgid "The master candidate interview type has been deleted."
+msgstr "Master jenis wawancara kandidat berhasil dihapus."
+
+msgid "The master candidate interview type could not be deleted. Please, try again."
+msgstr "Master jenis wawancara kandidat tidak dapat dihapus. Silakan coba lagi."
+
+msgid "The master currency has been saved."
+msgstr "Master mata uang berhasil disimpan."
+
+msgid "The master currency could not be saved. Please, try again."
+msgstr "Master mata uang tidak dapat disimpan. Silakan coba lagi."
+
+msgid "The master currency has been deleted."
+msgstr "Master mata uang berhasil dihapus."
+
+msgid "The master currency could not be deleted. Please, try again."
+msgstr "Master mata uang tidak dapat dihapus. Silakan coba lagi."
+
+msgid "The master department has been saved."
+msgstr "Master departemen berhasil disimpan."
+
+msgid "The master department could not be saved. Please, try again."
+msgstr "Master departemen tidak dapat disimpan. Silakan coba lagi."
+
+msgid "The master department has been deleted."
+msgstr "Master departemen berhasil dihapus."
+
+msgid "The master department could not be deleted. Please, try again."
+msgstr "Master departemen tidak dapat dihapus. Silakan coba lagi."
+
+msgid "The master document preparedness status has been saved."
+msgstr "Master status kesiapan dokumen berhasil disimpan."
+
+msgid "The master document preparedness status could not be saved. Please, try again."
+msgstr "Master status kesiapan dokumen tidak dapat disimpan. Silakan coba lagi."
+
+msgid "The master document preparedness status has been deleted."
+msgstr "Master status kesiapan dokumen berhasil dihapus."
+
+msgid "The master document preparedness status could not be deleted. Please, try again."
+msgstr "Master status kesiapan dokumen tidak dapat dihapus. Silakan coba lagi."
+
+msgid "The master document submission status has been saved."
+msgstr "Master status penyerahan dokumen berhasil disimpan."
+
+msgid "The master document submission status could not be saved. Please, try again."
+msgstr "Master status penyerahan dokumen tidak dapat disimpan. Silakan coba lagi."
+
+msgid "The master document submission status has been deleted."
+msgstr "Master status penyerahan dokumen berhasil dihapus."
+
+msgid "The master document submission status could not be deleted. Please, try again."
+msgstr "Master status penyerahan dokumen tidak dapat dihapus. Silakan coba lagi."
+
+msgid "The master employee status has been saved."
+msgstr "Master status kepegawaian berhasil disimpan."
+
+msgid "The master employee status could not be saved. Please, try again."
+msgstr "Master status kepegawaian tidak dapat disimpan. Silakan coba lagi."
+
+msgid "The master employee status has been deleted."
+msgstr "Master status kepegawaian berhasil dihapus."
+
+msgid "The master employee status could not be deleted. Please, try again."
+msgstr "Master status kepegawaian tidak dapat dihapus. Silakan coba lagi."
+
+msgid "The master employment position has been saved."
+msgstr "Master posisi jabatan berhasil disimpan."
+
+msgid "The master employment position could not be saved. Please, try again."
+msgstr "Master posisi jabatan tidak dapat disimpan. Silakan coba lagi."
+
+msgid "The master employment position has been deleted."
+msgstr "Master posisi jabatan berhasil dihapus."
+
+msgid "The master employment position could not be deleted. Please, try again."
+msgstr "Master posisi jabatan tidak dapat dihapus. Silakan coba lagi."
+
+msgid "The master family connection has been saved."
+msgstr "Master hubungan keluarga berhasil disimpan."
+
+msgid "The master family connection could not be saved. Please, try again."
+msgstr "Master hubungan keluarga tidak dapat disimpan. Silakan coba lagi."
+
+msgid "The master family connection has been deleted."
+msgstr "Master hubungan keluarga berhasil dihapus."
+
+msgid "The master family connection could not be deleted. Please, try again."
+msgstr "Master hubungan keluarga tidak dapat dihapus. Silakan coba lagi."
+
+msgid "The master gender has been saved."
+msgstr "Master jenis kelamin berhasil disimpan."
+
+msgid "The master gender could not be saved. Please, try again."
+msgstr "Master jenis kelamin tidak dapat disimpan. Silakan coba lagi."
+
+msgid "The master gender has been deleted."
+msgstr "Master jenis kelamin berhasil dihapus."
+
+msgid "The master gender could not be deleted. Please, try again."
+msgstr "Master jenis kelamin tidak dapat dihapus. Silakan coba lagi."
+
+msgid "The master icon has been saved."
+msgstr "Master ikon berhasil disimpan."
+
+msgid "The master icon could not be saved. Please, try again."
+msgstr "Master ikon tidak dapat disimpan. Silakan coba lagi."
+
+msgid "The master icon has been deleted."
+msgstr "Master ikon berhasil dihapus."
+
+msgid "The master icon could not be deleted. Please, try again."
+msgstr "Master ikon tidak dapat dihapus. Silakan coba lagi."
+
+msgid "The master interview result has been saved."
+msgstr "Master hasil wawancara berhasil disimpan."
+
+msgid "The master interview result could not be saved. Please, try again."
+msgstr "Master hasil wawancara tidak dapat disimpan. Silakan coba lagi."
+
+msgid "The master interview result has been deleted."
+msgstr "Master hasil wawancara berhasil dihapus."
+
+msgid "The master interview result could not be deleted. Please, try again."
+msgstr "Master hasil wawancara tidak dapat dihapus. Silakan coba lagi."
+
+msgid "The master japan prefecture has been saved."
+msgstr "Master prefektur Jepang berhasil disimpan."
+
+msgid "The master japan prefecture could not be saved. Please, try again."
+msgstr "Master prefektur Jepang tidak dapat disimpan. Silakan coba lagi."
+
+msgid "The master japan prefecture has been deleted."
+msgstr "Master prefektur Jepang berhasil dihapus."
+
+msgid "The master japan prefecture could not be deleted. Please, try again."
+msgstr "Master prefektur Jepang tidak dapat dihapus. Silakan coba lagi."
+
+msgid "The master job category has been saved."
+msgstr "Master kategori pekerjaan berhasil disimpan."
+
+msgid "The master job category could not be saved. Please, try again."
+msgstr "Master kategori pekerjaan tidak dapat disimpan. Silakan coba lagi."
+
+msgid "The master job category has been deleted."
+msgstr "Master kategori pekerjaan berhasil dihapus."
+
+msgid "The master job category could not be deleted. Please, try again."
+msgstr "Master kategori pekerjaan tidak dapat dihapus. Silakan coba lagi."
+
+msgid "The master kabupaten has been saved."
+msgstr "Master kabupaten berhasil disimpan."
+
+msgid "The master kabupaten could not be saved. Please, try again."
+msgstr "Master kabupaten tidak dapat disimpan. Silakan coba lagi."
+
+msgid "The master kabupaten has been deleted."
+msgstr "Master kabupaten berhasil dihapus."
+
+msgid "The master kabupaten could not be deleted. Please, try again."
+msgstr "Master kabupaten tidak dapat dihapus. Silakan coba lagi."
+
+msgid "The master kecamatan has been saved."
+msgstr "Master kecamatan berhasil disimpan."
+
+msgid "The master kecamatan could not be saved. Please, try again."
+msgstr "Master kecamatan tidak dapat disimpan. Silakan coba lagi."
+
+msgid "The master kecamatan has been deleted."
+msgstr "Master kecamatan berhasil dihapus."
+
+msgid "The master kecamatan could not be deleted. Please, try again."
+msgstr "Master kecamatan tidak dapat dihapus. Silakan coba lagi."
+
+msgid "The master kelurahan has been saved."
+msgstr "Master kelurahan berhasil disimpan."
+
+msgid "The master kelurahan could not be saved. Please, try again."
+msgstr "Master kelurahan tidak dapat disimpan. Silakan coba lagi."
+
+msgid "The master kelurahan has been deleted."
+msgstr "Master kelurahan berhasil dihapus."
+
+msgid "The master kelurahan could not be deleted. Please, try again."
+msgstr "Master kelurahan tidak dapat dihapus. Silakan coba lagi."
+
+msgid "The master marriage status has been saved."
+msgstr "Master status pernikahan berhasil disimpan."
+
+msgid "The master marriage status could not be saved. Please, try again."
+msgstr "Master status pernikahan tidak dapat disimpan. Silakan coba lagi."
+
+msgid "The master marriage status has been deleted."
+msgstr "Master status pernikahan berhasil dihapus."
+
+msgid "The master marriage status could not be deleted. Please, try again."
+msgstr "Master status pernikahan tidak dapat dihapus. Silakan coba lagi."
+
+msgid "The master medical check up result has been saved."
+msgstr "Master hasil pemeriksaan kesehatan berhasil disimpan."
+
+msgid "The master medical check up result could not be saved. Please, try again."
+msgstr "Master hasil pemeriksaan kesehatan tidak dapat disimpan. Silakan coba lagi."
+
+msgid "The master medical check up result has been deleted."
+msgstr "Master hasil pemeriksaan kesehatan berhasil dihapus."
+
+msgid "The master medical check up result could not be deleted. Please, try again."
+msgstr "Master hasil pemeriksaan kesehatan tidak dapat dihapus. Silakan coba lagi."
+
+msgid "The master occupation category has been saved."
+msgstr "Master kategori pekerjaan berhasil disimpan."
+
+msgid "The master occupation category could not be saved. Please, try again."
+msgstr "Master kategori pekerjaan tidak dapat disimpan. Silakan coba lagi."
+
+msgid "The master occupation category has been deleted."
+msgstr "Master kategori pekerjaan berhasil dihapus."
+
+msgid "The master occupation category could not be deleted. Please, try again."
+msgstr "Master kategori pekerjaan tidak dapat dihapus. Silakan coba lagi."
+
+msgid "The master occupation has been saved."
+msgstr "Master pekerjaan berhasil disimpan."
+
+msgid "The master occupation could not be saved. Please, try again."
+msgstr "Master pekerjaan tidak dapat disimpan. Silakan coba lagi."
+
+msgid "The master occupation has been deleted."
+msgstr "Master pekerjaan berhasil dihapus."
+
+msgid "The master occupation could not be deleted. Please, try again."
+msgstr "Master pekerjaan tidak dapat dihapus. Silakan coba lagi."
+
+msgid "The master payment method has been saved."
+msgstr "Master metode pembayaran berhasil disimpan."
+
+msgid "The master payment method could not be saved. Please, try again."
+msgstr "Master metode pembayaran tidak dapat disimpan. Silakan coba lagi."
+
+msgid "The master payment method has been deleted."
+msgstr "Master metode pembayaran berhasil dihapus."
+
+msgid "The master payment method could not be deleted. Please, try again."
+msgstr "Master metode pembayaran tidak dapat dihapus. Silakan coba lagi."
+
+msgid "The master propinsi has been saved."
+msgstr "Master provinsi berhasil disimpan."
+
+msgid "The master propinsi could not be saved. Please, try again."
+msgstr "Master provinsi tidak dapat disimpan. Silakan coba lagi."
+
+msgid "The master propinsi has been deleted."
+msgstr "Master provinsi berhasil dihapus."
+
+msgid "The master propinsi could not be deleted. Please, try again."
+msgstr "Master provinsi tidak dapat dihapus. Silakan coba lagi."
+
+msgid "The master rejected reason has been saved."
+msgstr "Master alasan penolakan berhasil disimpan."
+
+msgid "The master rejected reason could not be saved. Please, try again."
+msgstr "Master alasan penolakan tidak dapat disimpan. Silakan coba lagi."
+
+msgid "The master rejected reason has been deleted."
+msgstr "Master alasan penolakan berhasil dihapus."
+
+msgid "The master rejected reason could not be deleted. Please, try again."
+msgstr "Master alasan penolakan tidak dapat dihapus. Silakan coba lagi."
+
+msgid "The master religion has been saved."
+msgstr "Master agama berhasil disimpan."
+
+msgid "The master religion could not be saved. Please, try again."
+msgstr "Master agama tidak dapat disimpan. Silakan coba lagi."
+
+msgid "The master religion has been deleted."
+msgstr "Master agama berhasil dihapus."
+
+msgid "The master religion could not be deleted. Please, try again."
+msgstr "Master agama tidak dapat dihapus. Silakan coba lagi."
+
+msgid "The master strata has been saved."
+msgstr "Master jenjang pendidikan berhasil disimpan."
+
+msgid "The master strata could not be saved. Please, try again."
+msgstr "Master jenjang pendidikan tidak dapat disimpan. Silakan coba lagi."
+
+msgid "The master strata has been deleted."
+msgstr "Master jenjang pendidikan berhasil dihapus."
+
+msgid "The master strata could not be deleted. Please, try again."
+msgstr "Master jenjang pendidikan tidak dapat dihapus. Silakan coba lagi."
+
+msgid "The master training competency has been saved."
+msgstr "Master kompetensi pelatihan berhasil disimpan."
+
+msgid "The master training competency could not be saved. Please, try again."
+msgstr "Master kompetensi pelatihan tidak dapat disimpan. Silakan coba lagi."
+
+msgid "The master training competency has been deleted."
+msgstr "Master kompetensi pelatihan berhasil dihapus."
+
+msgid "The master training competency could not be deleted. Please, try again."
+msgstr "Master kompetensi pelatihan tidak dapat dihapus. Silakan coba lagi."
+
+msgid "The master training test score grade has been saved."
+msgstr "Master predikat nilai ujian berhasil disimpan."
+
+msgid "The master training test score grade could not be saved. Please, try again."
+msgstr "Master predikat nilai ujian tidak dapat disimpan. Silakan coba lagi."
+
+msgid "The master training test score grade has been deleted."
+msgstr "Master predikat nilai ujian berhasil dihapus."
+
+msgid "The master training test score grade could not be deleted. Please, try again."
+msgstr "Master predikat nilai ujian tidak dapat dihapus. Silakan coba lagi."
+
+msgid "The master transaction category has been saved."
+msgstr "Master kategori transaksi berhasil disimpan."
+
+msgid "The master transaction category could not be saved. Please, try again."
+msgstr "Master kategori transaksi tidak dapat disimpan. Silakan coba lagi."
+
+msgid "The master transaction category has been deleted."
+msgstr "Master kategori transaksi berhasil dihapus."
+
+msgid "The master transaction category could not be deleted. Please, try again."
+msgstr "Master kategori transaksi tidak dapat dihapus. Silakan coba lagi."
+
+msgid "The master translation has been saved."
+msgstr "Master terjemahan berhasil disimpan."
+
+msgid "The master translation could not be saved. Please, try again."
+msgstr "Master terjemahan tidak dapat disimpan. Silakan coba lagi."
+
+msgid "The master translation has been deleted."
+msgstr "Master terjemahan berhasil dihapus."
+
+msgid "The master translation could not be deleted. Please, try again."
+msgstr "Master terjemahan tidak dapat dihapus. Silakan coba lagi."
+
+msgid "The menu has been saved."
+msgstr "Menu berhasil disimpan."
+
+msgid "The menu could not be saved. Please, try again."
+msgstr "Menu tidak dapat disimpan. Silakan coba lagi."
+
+msgid "Menu \"{0}\" is now {1}."
+msgstr "Menu \"{0}\" kini {1}."
+
+msgid "active"
+msgstr "aktif"
+
+msgid "Could not toggle the menu."
+msgstr "Tidak dapat mengubah status menu."
+
+msgid "Category may not be empty."
+msgstr "Kategori tidak boleh kosong."
+
+msgid "Menu \"{0}\" moved to category \"{1}\"."
+msgstr "Menu \"{0}\" dipindahkan ke kategori \"{1}\"."
+
+msgid "Could not move the menu."
+msgstr "Tidak dapat memindahkan menu."
+
+msgid "A menu cannot be its own parent."
+msgstr "Menu tidak boleh menjadi induk bagi dirinya sendiri."
+
+msgid "Menu \"{0}\" moved under \"{1}\"."
+msgstr "Menu \"{0}\" dipindahkan di bawah \"{1}\"."
+
+msgid "Menu \"{0}\" has {1} sub-menu(s). Delete or move them first."
+msgstr "Menu \"{0}\" memiliki {1} submenu. Hapus atau pindahkan terlebih dahulu."
+
+msgid "The menu has been deleted."
+msgstr "Menu berhasil dihapus."
+
+msgid "The menu could not be deleted. Please, try again."
+msgstr "Menu tidak dapat dihapus. Silakan coba lagi."
+
+msgid "Assignments saved: {0} added, {1} removed."
+msgstr "Penugasan tersimpan: {0} ditambahkan, {1} dihapus."
+
+msgid "Pick two different roles to clone access."
+msgstr "Pilih dua peran berbeda untuk menyalin hak akses."
+
+msgid "Cloned {0} menu assignment(s)."
+msgstr "{0} penugasan menu disalin."
+
+msgid "The Post Apprentice has been saved."
+msgstr "Purna Pemagang berhasil disimpan."
+
+msgid "The Post Apprentice could not be saved. Please, try again."
+msgstr "Purna Pemagang tidak dapat disimpan. Silakan coba lagi."
+
+msgid "Employed"
+msgstr "Bekerja"
+
+msgid "Self-Employed"
+msgstr "Wiraswasta"
+
+msgid "Continuing Study"
+msgstr "Melanjutkan Studi"
+
+msgid "Unemployed"
+msgstr "Tidak Bekerja"
+
+msgid "Other"
+msgstr "Lainnya"
+
+msgid "The Post Apprentice has been deleted."
+msgstr "Purna Pemagang berhasil dihapus."
+
+msgid "The Post Apprentice could not be deleted. Please, try again."
+msgstr "Purna Pemagang tidak dapat dihapus. Silakan coba lagi."
+
+msgid "The role has been saved."
+msgstr "Peran berhasil disimpan."
+
+msgid "The role could not be saved. Please, try again."
+msgstr "Peran tidak dapat disimpan. Silakan coba lagi."
+
+msgid "The role has been deleted."
+msgstr "Peran berhasil dihapus."
+
+msgid "The role could not be deleted. Please, try again."
+msgstr "Peran tidak dapat dihapus. Silakan coba lagi."
+
+msgid "The session has been saved."
+msgstr "Sesi berhasil disimpan."
+
+msgid "The session could not be saved. Please, try again."
+msgstr "Sesi tidak dapat disimpan. Silakan coba lagi."
+
+msgid "The session has been deleted."
+msgstr "Sesi berhasil dihapus."
+
+msgid "The session could not be deleted. Please, try again."
+msgstr "Sesi tidak dapat dihapus. Silakan coba lagi."
+
+msgid "The special skill support institution has been saved."
+msgstr "Lembaga pendukung keterampilan khusus berhasil disimpan."
+
+msgid "The special skill support institution could not be saved. Please, try again."
+msgstr "Lembaga pendukung keterampilan khusus tidak dapat disimpan. Silakan coba lagi."
+
+msgid "The special skill support institution has been deleted."
+msgstr "Lembaga pendukung keterampilan khusus berhasil dihapus."
+
+msgid "The special skill support institution could not be deleted. Please, try again."
+msgstr "Lembaga pendukung keterampilan khusus tidak dapat dihapus. Silakan coba lagi."
+
+msgid "The Ticket has been saved."
+msgstr "Tiket berhasil disimpan."
+
+msgid "The Ticket could not be saved. Please, try again."
+msgstr "Tiket tidak dapat disimpan. Silakan coba lagi."
+
+msgid "The Ticket has been deleted."
+msgstr "Tiket berhasil dihapus."
+
+msgid "The Ticket could not be deleted. Please, try again."
+msgstr "Tiket tidak dapat dihapus. Silakan coba lagi."
+
+msgid "The flight leg has been removed."
+msgstr "Rute penerbangan berhasil dihapus."
+
+msgid "The flight leg could not be removed."
+msgstr "Rute penerbangan tidak dapat dihapus."
+
+msgid "The flight leg could not be found."
+msgstr "Rute penerbangan tidak ditemukan."
+
+msgid "Please fill in all flight leg fields."
+msgstr "Silakan isi semua field rute penerbangan."
+
+msgid "Departure and arrival airport must be different."
+msgstr "Bandara keberangkatan dan kedatangan harus berbeda."
+
+msgid "Arrival must be after departure."
+msgstr "Waktu kedatangan harus setelah keberangkatan."
+
+msgid "Flight leg {0} has been updated."
+msgstr "Rute penerbangan {0} berhasil diperbarui."
+
+msgid "Flight leg {0} has been added."
+msgstr "Rute penerbangan {0} berhasil ditambahkan."
+
+msgid "The flight leg could not be saved. Please, try again."
+msgstr "Rute penerbangan tidak dapat disimpan. Silakan coba lagi."
+
+msgid "The Trainee Certificate has been saved."
+msgstr "Sertifikat Trainee berhasil disimpan."
+
+msgid "The Trainee Certificate could not be saved. Please, try again."
+msgstr "Sertifikat Trainee tidak dapat disimpan. Silakan coba lagi."
+
+msgid "The Trainee Certificate has been deleted."
+msgstr "Sertifikat Trainee berhasil dihapus."
+
+msgid "The Trainee Certificate could not be deleted. Please, try again."
+msgstr "Sertifikat Trainee tidak dapat dihapus. Silakan coba lagi."
+
+msgid "The trainee certification has been saved."
+msgstr "Sertifikasi trainee berhasil disimpan."
+
+msgid "The trainee certification could not be saved. Please, try again."
+msgstr "Sertifikasi trainee tidak dapat disimpan. Silakan coba lagi."
+
+msgid "The trainee certification has been deleted."
+msgstr "Sertifikasi trainee berhasil dihapus."
+
+msgid "The trainee certification could not be deleted. Please, try again."
+msgstr "Sertifikasi trainee tidak dapat dihapus. Silakan coba lagi."
+
+msgid "The trainee course has been saved."
+msgstr "Kursus trainee berhasil disimpan."
+
+msgid "The trainee course could not be saved. Please, try again."
+msgstr "Kursus trainee tidak dapat disimpan. Silakan coba lagi."
+
+msgid "The trainee course has been deleted."
+msgstr "Kursus trainee berhasil dihapus."
+
+msgid "The trainee course could not be deleted. Please, try again."
+msgstr "Kursus trainee tidak dapat dihapus. Silakan coba lagi."
+
+msgid "The trainee education has been saved."
+msgstr "Pendidikan trainee berhasil disimpan."
+
+msgid "The trainee education could not be saved. Please, try again."
+msgstr "Pendidikan trainee tidak dapat disimpan. Silakan coba lagi."
+
+msgid "The trainee education has been deleted."
+msgstr "Pendidikan trainee berhasil dihapus."
+
+msgid "The trainee education could not be deleted. Please, try again."
+msgstr "Pendidikan trainee tidak dapat dihapus. Silakan coba lagi."
+
+msgid "The trainee experience has been saved."
+msgstr "Pengalaman kerja trainee berhasil disimpan."
+
+msgid "The trainee experience could not be saved. Please, try again."
+msgstr "Pengalaman kerja trainee tidak dapat disimpan. Silakan coba lagi."
+
+msgid "The trainee experience has been deleted."
+msgstr "Pengalaman kerja trainee berhasil dihapus."
+
+msgid "The trainee experience could not be deleted. Please, try again."
+msgstr "Pengalaman kerja trainee tidak dapat dihapus. Silakan coba lagi."
+
+msgid "The trainee family has been saved."
+msgstr "Keluarga trainee berhasil disimpan."
+
+msgid "The trainee family could not be saved. Please, try again."
+msgstr "Keluarga trainee tidak dapat disimpan. Silakan coba lagi."
+
+msgid "The trainee family has been deleted."
+msgstr "Keluarga trainee berhasil dihapus."
+
+msgid "The trainee family could not be deleted. Please, try again."
+msgstr "Keluarga trainee tidak dapat dihapus. Silakan coba lagi."
+
+msgid "The trainee family story has been saved."
+msgstr "Riwayat keluarga trainee berhasil disimpan."
+
+msgid "The trainee family story could not be saved. Please, try again."
+msgstr "Riwayat keluarga trainee tidak dapat disimpan. Silakan coba lagi."
+
+msgid "The trainee family story has been deleted."
+msgstr "Riwayat keluarga trainee berhasil dihapus."
+
+msgid "The trainee family story could not be deleted. Please, try again."
+msgstr "Riwayat keluarga trainee tidak dapat dihapus. Silakan coba lagi."
+
+msgid "No owing cost set for this trainee yet - use \"Set Owing Cost\" on the Payment Tracking page first."
+msgstr "Biaya terutang untuk trainee ini belum ditetapkan - gunakan \"Set Owing Cost\" di halaman Pelacakan Pembayaran terlebih dahulu."
+
+msgid "This trainee is already paid off - the receipt has been issued and no further installments are needed."
+msgstr "Trainee ini sudah lunas - kuitansi telah diterbitkan dan tidak perlu angsuran lagi."
+
+msgid "The payment amount must be greater than zero."
+msgstr "Jumlah pembayaran harus lebih besar dari nol."
+
+msgid "Balance settled - the receipt has been issued."
+msgstr "Saldo lunas - kuitansi telah diterbitkan."
+
+msgid "Payment saved. Remaining balance: Rp {0}"
+msgstr "Pembayaran tersimpan. Sisa saldo: Rp {0}"
+
+msgid "The trainee installment could not be saved. Please, try again."
+msgstr "Angsuran trainee tidak dapat disimpan. Silakan coba lagi."
+
+msgid "Please choose a trainee and enter an owing cost greater than zero."
+msgstr "Silakan pilih trainee dan masukkan biaya terutang lebih besar dari nol."
+
+msgid "This trainee already has an owing cost set."
+msgstr "Trainee ini sudah memiliki biaya terutang yang ditetapkan."
+
+msgid "Owing cost set: Rp {0}. Payments can now be recorded."
+msgstr "Biaya terutang ditetapkan: Rp {0}. Pembayaran kini dapat dicatat."
+
+msgid "The owing cost could not be saved. Please, try again."
+msgstr "Biaya terutang tidak dapat disimpan. Silakan coba lagi."
+
+msgid "The trainee installment has been saved."
+msgstr "Angsuran trainee berhasil disimpan."
+
+msgid "The trainee installment has been deleted."
+msgstr "Angsuran trainee berhasil dihapus."
+
+msgid "The trainee installment could not be deleted. Please, try again."
+msgstr "Angsuran trainee tidak dapat dihapus. Silakan coba lagi."
+
+msgid "Please choose a batch to print name cards for."
+msgstr "Silakan pilih angkatan yang kartu namanya akan dicetak."
+
+msgid "The COE / Visa record has been saved."
+msgstr "Rekaman COE / Visa berhasil disimpan."
+
+msgid "The COE / Visa record could not be saved. Please, try again."
+msgstr "Rekaman COE / Visa tidak dapat disimpan. Silakan coba lagi."
+
+msgid "The COE / Visa record has been deleted."
+msgstr "Rekaman COE / Visa berhasil dihapus."
+
+msgid "The COE / Visa record could not be deleted. Please, try again."
+msgstr "Rekaman COE / Visa tidak dapat dihapus. Silakan coba lagi."
+
+msgid "The medical check-up record has been saved."
+msgstr "Rekaman pemeriksaan kesehatan berhasil disimpan."
+
+msgid "The medical check-up record could not be saved. Please, try again."
+msgstr "Rekaman pemeriksaan kesehatan tidak dapat disimpan. Silakan coba lagi."
+
+msgid "The medical check-up record has been deleted."
+msgstr "Rekaman pemeriksaan kesehatan berhasil dihapus."
+
+msgid "The medical check-up record could not be deleted. Please, try again."
+msgstr "Rekaman pemeriksaan kesehatan tidak dapat dihapus. Silakan coba lagi."
+
+msgid "File type .{0} is not allowed."
+msgstr "Jenis berkas .{0} tidak diizinkan."
+
+msgid "The file could not be stored. Please, try again."
+msgstr "Berkas tidak dapat disimpan. Silakan coba lagi."
+
+msgid "The Trainee Record Pasport has been saved."
+msgstr "Rekaman Paspor Trainee berhasil disimpan."
+
+msgid "The Trainee Record Pasport could not be saved. Please, try again."
+msgstr "Rekaman Paspor Trainee tidak dapat disimpan. Silakan coba lagi."
+
+msgid "The Trainee Record Pasport has been deleted."
+msgstr "Rekaman Paspor Trainee berhasil dihapus."
+
+msgid "The Trainee Record Pasport could not be deleted. Please, try again."
+msgstr "Rekaman Paspor Trainee tidak dapat dihapus. Silakan coba lagi."
+
+msgid "The trainee score average has been saved."
+msgstr "Rata-rata nilai trainee berhasil disimpan."
+
+msgid "The trainee score average could not be saved. Please, try again."
+msgstr "Rata-rata nilai trainee tidak dapat disimpan. Silakan coba lagi."
+
+msgid "The trainee score average has been deleted."
+msgstr "Rata-rata nilai trainee berhasil dihapus."
+
+msgid "The trainee score average could not be deleted. Please, try again."
+msgstr "Rata-rata nilai trainee tidak dapat dihapus. Silakan coba lagi."
+
+msgid "Please choose a file to upload."
+msgstr "Silakan pilih berkas yang akan diunggah."
+
+msgid "The existing submission has been replaced with the new file."
+msgstr "Pengajuan yang ada telah diganti dengan berkas baru."
+
+msgid "The Trainee Submission Document has been saved."
+msgstr "Dokumen Penyerahan Trainee berhasil disimpan."
+
+msgid "The Trainee Submission Document could not be saved. Please, try again."
+msgstr "Dokumen Penyerahan Trainee tidak dapat disimpan. Silakan coba lagi."
+
+msgid "The Trainee Submission Document has been deleted."
+msgstr "Dokumen Penyerahan Trainee berhasil dihapus."
+
+msgid "The Trainee Submission Document could not be deleted. Please, try again."
+msgstr "Dokumen Penyerahan Trainee tidak dapat dihapus. Silakan coba lagi."
+
+msgid "The document has been uploaded."
+msgstr "Dokumen berhasil diunggah."
+
+msgid "The document record could not be saved. Please, try again."
+msgstr "Rekaman dokumen tidak dapat disimpan. Silakan coba lagi."
+
+msgid "The document record has been removed."
+msgstr "Rekaman dokumen berhasil dihapus."
+
+msgid "The document record could not be removed."
+msgstr "Rekaman dokumen tidak dapat dihapus."
+
+msgid "The trainee training batch has been saved."
+msgstr "Angkatan pelatihan trainee berhasil disimpan."
+
+msgid "The trainee training batch could not be saved. Please, try again."
+msgstr "Angkatan pelatihan trainee tidak dapat disimpan. Silakan coba lagi."
+
+msgid "The trainee training batch has been deleted."
+msgstr "Angkatan pelatihan trainee berhasil dihapus."
+
+msgid "The trainee training batch could not be deleted. Please, try again."
+msgstr "Angkatan pelatihan trainee tidak dapat dihapus. Silakan coba lagi."
+
+msgid "The trainee training test score has been saved."
+msgstr "Nilai ujian pelatihan trainee berhasil disimpan."
+
+msgid "The trainee training test score could not be saved. Please, try again."
+msgstr "Nilai ujian pelatihan trainee tidak dapat disimpan. Silakan coba lagi."
+
+msgid "The trainee training test score has been deleted."
+msgstr "Nilai ujian pelatihan trainee berhasil dihapus."
+
+msgid "The trainee training test score could not be deleted. Please, try again."
+msgstr "Nilai ujian pelatihan trainee tidak dapat dihapus. Silakan coba lagi."
+
+msgid "The trainee has been saved."
+msgstr "Trainee berhasil disimpan."
+
+msgid "The trainee could not be saved. Please, try again."
+msgstr "Trainee tidak dapat disimpan. Silakan coba lagi."
+
+msgid "The trainee has been deleted."
+msgstr "Trainee berhasil dihapus."
+
+msgid "The trainee could not be deleted. Please, try again."
+msgstr "Trainee tidak dapat dihapus. Silakan coba lagi."
+
+msgid "Only TMM Training role can promote trainees to apprentices."
+msgstr "Hanya peran Pelatihan TMM yang dapat mempromosikan trainee menjadi pemagang."
+
+msgid "Trainee \"{0}\" is already an apprentice."
+msgstr "Trainee \"{0}\" sudah menjadi pemagang."
+
+msgid "\"{0}\" has been promoted to apprentice. All profile data copied successfully."
+msgstr "\"{0}\" telah dipromosikan menjadi pemagang. Seluruh data profil berhasil disalin."
+
+msgid "The training has been saved."
+msgstr "Pelatihan berhasil disimpan."
+
+msgid "The training could not be saved. Please, try again."
+msgstr "Pelatihan tidak dapat disimpan. Silakan coba lagi."
+
+msgid "The training has been deleted."
+msgstr "Pelatihan berhasil dihapus."
+
+msgid "The training could not be deleted. Please, try again."
+msgstr "Pelatihan tidak dapat dihapus. Silakan coba lagi."
+
+msgid "Role assignments have been updated."
+msgstr "Penugasan peran berhasil diperbarui."
+
+msgid "Role assignments could not be updated. Please, try again."
+msgstr "Penugasan peran tidak dapat diperbarui. Silakan coba lagi."
+
+msgid "The role has been removed from the user."
+msgstr "Peran berhasil dilepas dari pengguna."
+
+msgid "The role could not be removed. Please, try again."
+msgstr "Peran tidak dapat dilepas. Silakan coba lagi."
+
+msgid "Invalid username or password, try again"
+msgstr "Nama pengguna atau kata sandi salah, coba lagi"
+
+msgid "You have been logged out."
+msgstr "Anda telah keluar."
+
+msgid "The user has been saved."
+msgstr "Pengguna berhasil disimpan."
+
+msgid "The user could not be saved. Please, try again."
+msgstr "Pengguna tidak dapat disimpan. Silakan coba lagi."
+
+msgid "The user has been deleted."
+msgstr "Pengguna berhasil dihapus."
+
+msgid "The user could not be deleted. Please, try again."
+msgstr "Pengguna tidak dapat dihapus. Silakan coba lagi."
+
+msgid "You must be logged in to view your profile."
+msgstr "Anda harus masuk untuk melihat profil Anda."
+
+msgid "You must be logged in to edit settings."
+msgstr "Anda harus masuk untuk mengubah pengaturan."
+
+msgid "Your settings have been updated."
+msgstr "Pengaturan Anda berhasil diperbarui."
+
+msgid "Your settings could not be updated. Please, try again."
+msgstr "Pengaturan Anda tidak dapat diperbarui. Silakan coba lagi."
+
+msgid "The vocational training institution story has been saved."
+msgstr "Riwayat lembaga pelatihan kerja berhasil disimpan."
+
+msgid "The vocational training institution story could not be saved. Please, try again."
+msgstr "Riwayat lembaga pelatihan kerja tidak dapat disimpan. Silakan coba lagi."
+
+msgid "The vocational training institution story has been deleted."
+msgstr "Riwayat lembaga pelatihan kerja berhasil dihapus."
+
+msgid "The vocational training institution story could not be deleted. Please, try again."
+msgstr "Riwayat lembaga pelatihan kerja tidak dapat dihapus. Silakan coba lagi."
+
+msgid "The vocational training institution could not be saved. Please, try again."
+msgstr "Lembaga pelatihan kerja tidak dapat disimpan. Silakan coba lagi."
+
+msgid "The vocational training institution has been saved."
+msgstr "Lembaga pelatihan kerja berhasil disimpan."
+
+msgid "The vocational training institution has been deleted."
+msgstr "Lembaga pelatihan kerja berhasil dihapus."
+
+msgid "The vocational training institution could not be deleted. Please, try again."
+msgstr "Lembaga pelatihan kerja tidak dapat dihapus. Silakan coba lagi."
+
+msgid "Registration email resent successfully."
+msgstr "Email pendaftaran berhasil dikirim ulang."
+
+msgid "Failed to send email. Please check email configuration."
+msgstr "Gagal mengirim email. Silakan periksa konfigurasi email."
+
+msgid "File is required"
+msgstr "Berkas wajib diisi"
+
+msgid "Related TableName"
+msgstr "TableName Terkait"
+
