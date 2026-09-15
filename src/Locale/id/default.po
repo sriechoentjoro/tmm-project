@@ -13455,3 +13455,252 @@ msgstr "Hanya staf rekrutmen dan administrator yang dapat membagikan atau menari
 msgid "Only recruitment staff and administrators can create apprentice orders or manage who they are shared with."
 msgstr "Hanya staf rekrutmen dan administrator yang dapat membuat order pemagangan atau mengatur pembagiannya."
 
+msgid "TMM System Documentation"
+msgstr "Dokumentasi Sistem TMM"
+
+msgid "The whole process, phase by phase, with a link to every screen that does the work."
+msgstr "Keseluruhan proses, fase demi fase, dengan tautan ke setiap layar yang mengerjakannya."
+
+msgid "How the TMM System Works"
+msgstr "Cara Kerja Sistem TMM"
+
+msgid "From registering a partner institution, through recruiting and training candidates, to an apprentice working in Japan and coming home. Every phase below links to the screens that do the work."
+msgstr "Dari mendaftarkan lembaga mitra, merekrut dan melatih kandidat, sampai pemagang bekerja di Jepang dan kembali pulang. Setiap fase di bawah menaut ke layar yang mengerjakannya."
+
+msgid "Main Process Pipeline"
+msgstr "Alur Proses Utama"
+
+msgid "1. Candidate Recruitment"
+msgstr "1. Rekrutmen Kandidat"
+
+msgid "2. Trainee Training"
+msgstr "2. Pelatihan Trainee"
+
+msgid "3. Documents & Departure"
+msgstr "3. Dokumen & Keberangkatan"
+
+msgid "4. Apprenticeship in Japan"
+msgstr "4. Pemagangan di Jepang"
+
+msgid "Post-Apprentice"
+msgstr "Purna Pemagang"
+
+msgid "Accounting"
+msgstr "Keuangan"
+
+msgid "Apprentice Order shared with LPK"
+msgstr "Order Pemagangan dibagikan ke LPK"
+
+msgid "The pipeline is not a straight line. An apprentice order from an accepting organization is shared with partner LPKs, and that is where the next round of candidate recruitment begins - so the last phase feeds the first."
+msgstr "Alurnya bukan garis lurus. Order pemagangan dari organisasi penerima dibagikan ke LPK penyangga, dan dari situlah rekrutmen kandidat berikutnya dimulai — sehingga fase terakhir mengalir kembali ke fase pertama."
+
+msgid "Register every partner organisation before any order is placed."
+msgstr "Daftarkan setiap organisasi mitra sebelum ada order apa pun."
+
+msgid "LPK - Vocational Training Institution"
+msgstr "LPK — Lembaga Pelatihan Kerja"
+
+msgid "The Indonesian institution that finds and trains candidates. An admin registers it; the institution then activates its own account."
+msgstr "Lembaga di Indonesia yang mencari dan melatih kandidat. Admin mendaftarkannya; lembaga itu sendiri yang kemudian mengaktifkan akunnya."
+
+msgid "LPK Registration Queue"
+msgstr "Antrian Pendaftaran LPK"
+
+msgid "Register a New LPK"
+msgstr "Daftarkan LPK Baru"
+
+msgid "Verification Status"
+msgstr "Status Verifikasi"
+
+msgid "An admin enters the institution and the login name it will use."
+msgstr "Admin mengisi data lembaga dan nama pengguna yang akan dipakainya."
+
+msgid "Its director clicks the verification link emailed to them, valid 24 hours."
+msgstr "Direkturnya mengklik tautan verifikasi yang dikirim lewat email, berlaku 24 jam."
+
+msgid "The director sets a password - only then is the account active."
+msgstr "Direktur menetapkan kata sandi — barulah akunnya aktif."
+
+msgid "If the link expires or never arrives, Resend Verification Email sends a fresh one."
+msgstr "Jika tautannya kedaluwarsa atau tidak pernah sampai, tombol Kirim Ulang Email Verifikasi mengirimkan yang baru."
+
+msgid "AO - Acceptance Organization"
+msgstr "AO — Organisasi Penerima"
+
+msgid "The company in Japan that will accept the apprentices. Record its profile and the work it needs done."
+msgstr "Perusahaan di Jepang yang akan menerima pemagang. Catat profil dan jenis pekerjaan yang dibutuhkan."
+
+msgid "Kumiai - Cooperative Association"
+msgstr "Kumiai — Asosiasi Koperasi"
+
+msgid "The supervising cooperative that mediates between the accepting organization and the sending side."
+msgstr "Koperasi pengawas yang menjembatani organisasi penerima dengan pihak pengirim."
+
+msgid "For the Specified Skilled Worker route - the registered support organisation."
+msgstr "Untuk jalur Specified Skilled Worker — lembaga pendukung terdaftar."
+
+msgid "Create an Apprentice Order and Share It"
+msgstr "Membuat Order Pemagangan dan Membagikannya"
+
+msgid "A vacancy in Japan, offered to the institutions that can fill it."
+msgstr "Lowongan di Jepang, ditawarkan ke lembaga yang dapat mengisinya."
+
+msgid "How many people are needed, which job category, which departure month, and which cooperative and accepting organization it belongs to."
+msgstr "Berapa orang yang dibutuhkan, kategori pekerjaannya, bulan keberangkatannya, serta koperasi dan organisasi penerima yang terkait."
+
+msgid "Share the Order with LPKs"
+msgstr "Bagikan Order ke LPK"
+
+msgid "Offer the order to one or more institutions so they can start recruiting against it. Each one is emailed the order details, and withdrawing it later emails them again."
+msgstr "Tawarkan order ke satu atau beberapa lembaga agar mereka mulai merekrut untuk order itu. Masing-masing dikirimi rincian order lewat email, dan menariknya kembali juga mengirim email lagi."
+
+msgid "Open an order, then Shared with Institutions"
+msgstr "Buka sebuah order, lalu bagian Dibagikan ke Lembaga"
+
+msgid "The order page lists who has it, whether the email reached them, and who shared it."
+msgstr "Halaman order menampilkan siapa saja yang menerimanya, apakah emailnya sampai, dan siapa yang membagikannya."
+
+msgid "Withdrawing an order from an institution tells them; the record of the offer stays."
+msgstr "Menarik order dari sebuah lembaga akan memberi tahu mereka; catatan penawarannya tetap tersimpan."
+
+msgid "Only tmm-recruitment and administrator may create, edit, delete, share or withdraw an order. Other roles can see an order and who it was shared with, but cannot change it."
+msgstr "Hanya tmm-recruitment dan administrator yang dapat membuat, mengubah, menghapus, membagikan, atau menarik order. Peran lain dapat melihat order dan daftar penerimanya, tetapi tidak dapat mengubahnya."
+
+msgid "Recruitment and Selection"
+msgstr "Rekrutmen dan Seleksi"
+
+msgid "The institution finds candidates and puts them through selection."
+msgstr "Lembaga mencari kandidat dan menjalankan proses seleksinya."
+
+msgid "Enter each applicant with personal data, family, education and experience, then upload their documents."
+msgstr "Masukkan setiap pelamar beserta data pribadi, keluarga, pendidikan dan pengalaman, lalu unggah dokumennya."
+
+msgid "Physical tests, scoring, interviews and a medical check-up together give a readiness view of each candidate."
+msgstr "Tes fisik, penilaian, wawancara, dan pemeriksaan kesehatan bersama-sama memberi gambaran kesiapan tiap kandidat."
+
+msgid "Candidate Scoring"
+msgstr "Penilaian Kandidat"
+
+msgid "A candidate who passes is promoted and becomes a trainee."
+msgstr "Kandidat yang lulus dipromosikan dan menjadi trainee."
+
+msgid "Japanese language, work competencies and culture, in batches."
+msgstr "Bahasa Jepang, kompetensi kerja, dan budaya, dalam bentuk angkatan."
+
+msgid "Training Batches and Modules"
+msgstr "Angkatan dan Modul Pelatihan"
+
+msgid "Group trainees into batches and enrol them in the training modules."
+msgstr "Kelompokkan trainee ke dalam angkatan dan daftarkan mereka pada modul pelatihan."
+
+msgid "Scores and Certificates"
+msgstr "Nilai dan Sertifikat"
+
+msgid "Daily and test scores are recorded, certificates issued, and a passing trainee is promoted to apprentice."
+msgstr "Nilai harian dan nilai ujian dicatat, sertifikat diterbitkan, dan trainee yang lulus dipromosikan menjadi pemagang."
+
+msgid "Documents and Departure"
+msgstr "Dokumen dan Keberangkatan"
+
+msgid "Everything that has to exist on paper before a flight is booked."
+msgstr "Semua yang harus lengkap di atas kertas sebelum tiket dipesan."
+
+msgid "Submission Documents"
+msgstr "Dokumen Penyerahan"
+
+msgid "The document set each trainee must complete, tracked against a checklist."
+msgstr "Berkas yang harus dilengkapi tiap trainee, dipantau lewat checklist."
+
+msgid "Passport, Medical, COE and Visa"
+msgstr "Paspor, Kesehatan, COE dan Visa"
+
+msgid "Passport records, the pre-departure medical check-up, then the certificate of eligibility and the visa."
+msgstr "Rekaman paspor, pemeriksaan kesehatan pra-keberangkatan, lalu certificate of eligibility dan visa."
+
+msgid "Passports"
+msgstr "Paspor"
+
+msgid "Tickets and Departure"
+msgstr "Tiket dan Keberangkatan"
+
+msgid "Flights are booked and the departure document pack is assembled."
+msgstr "Penerbangan dipesan dan berkas keberangkatan disusun."
+
+msgid "Departures"
+msgstr "Keberangkatan"
+
+msgid "Apprenticeship in Japan, and Coming Home"
+msgstr "Pemagangan di Jepang, dan Kepulangan"
+
+msgid "Work at the accepting organization, tracked to completion."
+msgstr "Bekerja di organisasi penerima, dipantau sampai selesai."
+
+msgid "Apprentice in Japan"
+msgstr "Pemagang di Jepang"
+
+msgid "The apprentice works at the accepting organization according to the order. Documents, certifications and progress are recorded throughout."
+msgstr "Pemagang bekerja di organisasi penerima sesuai order. Dokumen, sertifikasi, dan perkembangannya dicatat sepanjang masa itu."
+
+msgid "Once the placement ends, the alumnus is managed as a post-apprentice."
+msgstr "Setelah penempatan berakhir, alumninya dikelola sebagai purna pemagang."
+
+msgid "Post-Apprentices"
+msgstr "Purna Pemagang"
+
+msgid "Your role"
+msgstr "Peran Anda"
+
+msgid "Supporting Areas"
+msgstr "Area Pendukung"
+
+msgid "Runs alongside training and departure"
+msgstr "Berjalan berdampingan dengan pelatihan dan keberangkatan"
+
+msgid "Trainee installments, journals, the chart of accounts, and the financial reports."
+msgstr "Cicilan trainee, jurnal, bagan akun, dan laporan keuangan."
+
+msgid "System Administration"
+msgstr "Administrasi Sistem"
+
+msgid "Who exists, and what they may do"
+msgstr "Siapa saja yang ada, dan apa yang boleh mereka lakukan"
+
+msgid "Users, roles, menus, access permissions and the audit log."
+msgstr "Pengguna, peran, menu, izin akses, dan log audit."
+
+msgid "Users"
+msgstr "Pengguna"
+
+msgid "Menus"
+msgstr "Menu"
+
+msgid "Audit Logs"
+msgstr "Log Audit"
+
+msgid "Who May Do What"
+msgstr "Siapa Boleh Melakukan Apa"
+
+msgid "<strong>Apprentice orders</strong> - only <em>tmm-recruitment</em> and <em>administrator</em> may create, edit, delete, share with an LPK, or withdraw a share. Other roles can still see an order and who it has been shared with; they simply cannot change it."
+msgstr "<strong>Order pemagangan</strong> — hanya <em>tmm-recruitment</em> dan <em>administrator</em> yang dapat membuat, mengubah, menghapus, membagikan ke LPK, atau menarik pembagiannya. Peran lain tetap dapat melihat order dan daftar LPK yang menerimanya, tetapi tidak dapat mengubahnya."
+
+msgid "<strong>LPK sign-in details</strong> - an institution's login name is visible only to an administrator and to that institution itself. The password is never shown anywhere; it is stored hashed and cannot be read back."
+msgstr "<strong>Informasi masuk LPK</strong> — nama pengguna sebuah LPK hanya terlihat oleh administrator dan oleh LPK itu sendiri. Kata sandi tidak pernah ditampilkan di mana pun; disimpan ter-hash dan tidak dapat dibaca kembali."
+
+msgid "Everything else follows your role's permissions. When a page refuses access, the message names your account and your role - pass that on to an administrator."
+msgstr "Selebihnya mengikuti izin peran Anda. Bila sebuah halaman menolak akses, pesannya menyebutkan akun dan peran Anda — sampaikan itu ke administrator."
+
+msgid "How to Use the System"
+msgstr "Cara Menggunakan Sistem"
+
+msgid "Use the menu at the top of the screen to open each module, or click the links on the phases above."
+msgstr "Gunakan menu di bagian atas layar untuk membuka tiap modul, atau klik tautan pada fase di atas."
+
+msgid "Every list page has column filters, search and export buttons."
+msgstr "Setiap halaman daftar memiliki filter kolom, pencarian, dan tombol ekspor."
+
+msgid "The Process Flow help button on each module explains that module's workflow in detail."
+msgstr "Tombol bantuan Alur Proses pada tiap modul menjelaskan alur kerja modul itu secara detail."
+
+msgid "The language can be changed at any time from the switcher; this page and the whole interface follow it."
+msgstr "Bahasa dapat diubah kapan saja lewat pemilih bahasa; halaman ini dan seluruh antarmuka mengikutinya."
+
