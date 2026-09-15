@@ -271,7 +271,38 @@ for path in /no-such-page-here /admin/vocational-training-institutions/view/1; d
     printf '\n'
 done
 
-say "8. Result"
+# The link an institution gets by email. It was built with 'prefix' => false
+# and LpkRegistration exists only under Admin\, so every verification mail sent
+# pointed at no controller at all. Two routes now connect the public paths to
+# the actions, and this checks they are still connected.
+#
+# A 64-character token that matches nothing is used on purpose: verifyEmail()
+# looks it up, finds neither a live nor a spent token, and renders its own page
+# saying the link is invalid. Nothing is written, and no real token is needed -
+# what is being tested is that the URL reaches the action at all. Before the
+# fix this came back as the 404 page instead.
+say "8. The verification link from the email"
+printf '  %-40s %5s %s\n' url code lands_on
+FAKE=0000000000000000000000000000000000000000000000000000000000000000
+for entry in "/lpk-registration/verify-email/<token>|/lpk-registration/verify-email/$FAKE" \
+             "/lpk-registration/set-password/0|/lpk-registration/set-password/0"; do
+    label="${entry%%|*}"
+    path="${entry#*|}"
+
+    read -r code url <<<"$(fetch "$path" "$WORK/verify.html")"
+    if grep -qE '40[34] - ' "$WORK/verify.html"; then
+        lands='the 404 page'
+    else
+        lands='the application'
+    fi
+    printf '  %-40s %5s %s' "$label" "$code" "$lands"
+
+    [ "$code" = 200 ] && [ "$lands" = 'the application' ] \
+        || { printf '  <- the route is not connected'; bad=1; }
+    printf '\n'
+done
+
+say "9. Result"
 if [ "$bad" = 0 ]; then
     echo "  all 15 page/language combinations rendered in the expected language,"
     echo "  all 3 diagrams carry their translated labels in all 3 languages,"
@@ -279,6 +310,7 @@ if [ "$bad" = 0 ]; then
     echo "  the process-flow pages render inside the application menu, styled,"
     echo "  with the mermaid loader present"
     echo "  and a missing page reports 404 instead of claiming a server fault"
+    echo "  and the verification link from the email reaches its action"
 else
     echo "  some combinations did not switch — see the lines marked above"
     echo "  if every page is English, the translation cache is stale:"
