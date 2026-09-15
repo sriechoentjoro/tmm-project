@@ -40,16 +40,78 @@ class ListEmailTemplatesShell extends Shell
     /**
      * What the application passes to sendTemplate(), by key.
      *
-     * Taken from EmailComponent: sendRegistrationEmail() and
-     * sendTestRegistrationEmail() both build the same set.
+     * Read out of the source rather than written down here. The first version
+     * of this shell carried the list as a property, which is the same shape of
+     * mistake it exists to find: a list typed once, believed afterwards, and
+     * wrong the moment a caller changes. Reading the code cannot go stale.
      *
-     * @var array<string, array<int, string>>
+     * @var array<string, array<int, string>>|null Filled on first use.
      */
-    protected $supplied = [
-        'institution_registration' => [
-            'institution_name', 'username', 'email', 'registration_url', 'expiry_date',
-        ],
-    ];
+    protected $supplied = null;
+
+    /**
+     * Find every sendTemplate() call and what it passes.
+     *
+     * The shape it looks for is the one the codebase uses:
+     *
+     *     $data = [
+     *         'institution_name' => ...,
+     *         'username' => ...,
+     *     ];
+     *
+     *     return $this->sendTemplate('institution_registration', $to, $data);
+     *
+     * A call written some other way will be found - the key is what matters
+     * most - but its variables may not be, so a name reported as unsupplied is
+     * worth confirming in the source before acting on it.
+     *
+     * @return array<string, array<int, string>>
+     */
+    protected function supplied()
+    {
+        if ($this->supplied !== null) {
+            return $this->supplied;
+        }
+
+        $this->supplied = [];
+        $it = new \RecursiveIteratorIterator(new \RecursiveDirectoryIterator(APP));
+        foreach ($it as $file) {
+            $path = $file->getPathname();
+            if (substr($path, -4) !== '.php' || strpos($path, 'Shell') !== false) {
+                continue;
+            }
+
+            $lines = file($path);
+            foreach ($lines as $n => $line) {
+                if (!preg_match("/sendTemplate\(\s*'([A-Za-z0-9_]+)'/", $line, $m)) {
+                    continue;
+                }
+                $key = $m[1];
+                if (!isset($this->supplied[$key])) {
+                    $this->supplied[$key] = [];
+                }
+
+                // The $data literal above the call, if there is one.
+                $above = implode('', array_slice($lines, max(0, $n - 30), min($n, 30)));
+                $at = strrpos($above, '$data = [');
+                if ($at === false) {
+                    continue;
+                }
+                $block = substr($above, $at);
+                $end = strpos($block, '];');
+                if ($end !== false) {
+                    $block = substr($block, 0, $end);
+                }
+                if (preg_match_all("/'([A-Za-z0-9_]+)'\s*=>/", $block, $vars)) {
+                    $this->supplied[$key] = array_values(array_unique(
+                        array_merge($this->supplied[$key], $vars[1])
+                    ));
+                }
+            }
+        }
+
+        return $this->supplied;
+    }
 
     /**
      * @return \Cake\Console\ConsoleOptionParser
@@ -84,7 +146,7 @@ class ListEmailTemplatesShell extends Shell
             $this->out('Nothing that goes through EmailComponent::sendTemplate() can send:');
             $this->out('getTemplate() returns null, the send is abandoned, and the only trace');
             $this->out('is a line in logs/error.log. The keys the code asks for are:');
-            foreach (array_keys($this->supplied) as $key) {
+            foreach (array_keys($this->supplied()) as $key) {
                 $this->out('  - ' . $key);
             }
             $this->out('');
@@ -136,7 +198,7 @@ class ListEmailTemplatesShell extends Shell
         }
         $this->hr();
 
-        foreach (array_keys($this->supplied) as $key) {
+        foreach (array_keys($this->supplied()) as $key) {
             if (!isset($present[$key])) {
                 $this->out(sprintf(
                     '  <warning>%s is asked for by the code but is not in the table.</warning>',
@@ -162,7 +224,8 @@ class ListEmailTemplatesShell extends Shell
         }
 
         $used = array_values(array_unique($m[1]));
-        if (!isset($this->supplied[$row->template_key])) {
+        $supplied = $this->supplied();
+        if (!isset($supplied[$row->template_key])) {
             // Nothing asks for this key, so nothing supplies anything to it.
             $this->out(sprintf(
                 '      <warning>no sender for this key</warning>; uses %s',
@@ -172,7 +235,7 @@ class ListEmailTemplatesShell extends Shell
             return;
         }
 
-        $missing = array_diff($used, $this->supplied[$row->template_key]);
+        $missing = array_diff($used, $supplied[$row->template_key]);
         if ($missing) {
             $this->out(sprintf(
                 '      <warning>arrives literally: %s</warning>',
