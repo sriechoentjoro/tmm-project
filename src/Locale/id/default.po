@@ -13272,3 +13272,9 @@ msgstr "Informasi Masuk"
 msgid "Visible only to an administrator and to this institution. The password is never shown - it is stored hashed and cannot be read back."
 msgstr "Hanya terlihat oleh administrator dan oleh lembaga ini. Kata sandi tidak pernah ditampilkan - disimpan dalam bentuk hash dan tidak dapat dibaca kembali."
 
+msgid "Delete {0}? {1} candidate(s) are recorded against it and will be left without an institution."
+msgstr "Hapus {0}? Ada {1} kandidat yang tercatat pada lembaga ini dan akan menjadi tanpa lembaga."
+
+msgid "Delete {0}? This cannot be undone."
+msgstr "Hapus {0}? Tindakan ini tidak dapat dibatalkan."
+

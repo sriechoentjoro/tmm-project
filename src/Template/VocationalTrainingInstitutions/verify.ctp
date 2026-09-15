@@ -76,6 +76,33 @@ $columnCount = $showCredentialColumn ? 9 : 8;
                 <td style="white-space:nowrap">
                     <?= $this->Html->link(__('View'), ['action' => 'view', $row['id']], ['class' => 'btn btn-sm btn-outline-info']) ?>
                     <?= $this->Html->link(__('Edit'), ['action' => 'edit', $row['id']], ['class' => 'btn btn-sm btn-outline-primary']) ?>
+                    <?php
+                    /**
+                     * Resend the verification email.
+                     *
+                     * Only for pending_verification, because that is the only
+                     * status the action accepts - anything else is turned away
+                     * with "This institution has already been verified." A
+                     * button that leads straight to an error is worse than no
+                     * button, so it is not drawn.
+                     *
+                     * The action lives in the admin LPK controller, hence the
+                     * prefix; this page is not under /admin.
+                     */
+                    ?>
+                    <?php if ($row['status'] === 'pending_verification'): ?>
+                        <?= $this->Html->link(
+                            '<i class="fas fa-paper-plane"></i>',
+                            ['prefix' => 'admin', 'controller' => 'LpkRegistration',
+                             'action' => 'resendVerification', $row['id']],
+                            [
+                                'class' => 'btn btn-sm btn-warning',
+                                'escape' => false,
+                                'title' => __('Resend Verification Email'),
+                                'confirm' => __('Resend verification email to {0}?', $row['email']),
+                            ]
+                        ) ?>
+                    <?php endif; ?>
                 </td>
                 <td><?= h($row['id']) ?></td>
                 <td><strong><?= $this->Html->link(h($row['name']), ['action' => 'view', $row['id']], ['style' => 'color:#4c5bd4']) ?></strong></td>

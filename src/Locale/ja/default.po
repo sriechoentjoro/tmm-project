@@ -13272,3 +13272,9 @@ msgstr "ログイン情報"
 msgid "Visible only to an administrator and to this institution. The password is never shown - it is stored hashed and cannot be read back."
 msgstr "管理者と当該機関のみに表示されます。パスワードは表示されません。ハッシュ化して保存されており、元に戻すことはできません。"
 
+msgid "Delete {0}? {1} candidate(s) are recorded against it and will be left without an institution."
+msgstr "{0} を削除しますか？この機関には {1} 名の候補者が登録されており、所属機関のない状態になります。"
+
+msgid "Delete {0}? This cannot be undone."
+msgstr "{0} を削除しますか？この操作は取り消せません。"
+

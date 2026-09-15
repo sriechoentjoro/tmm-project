@@ -66,7 +66,11 @@ class VocationalTrainingInstitutionsController extends AppController
                 ->count(),
         ];
 
-        $this->set(compact('vocationalTrainingInstitutions', 'masterpropinsis', 'masterkabupatens', 'masterkecamatans', 'masterkelurahans', 'master_propinsis', 'master_kabupatens', 'master_kecamatans', 'master_kelurahans', 'stats'));
+        // Used by the delete confirmation, which names how many candidates are
+        // recorded against the institution before it goes.
+        $candidateCounts = $this->_candidateCounts();
+
+        $this->set(compact('vocationalTrainingInstitutions', 'masterpropinsis', 'masterkabupatens', 'masterkecamatans', 'masterkelurahans', 'master_propinsis', 'master_kabupatens', 'master_kecamatans', 'master_kelurahans', 'stats', 'candidateCounts'));
     }
 
 
@@ -381,19 +385,39 @@ class VocationalTrainingInstitutionsController extends AppController
         ];
         $vstats['pending'] = $vstats['total'] - $vstats['registered'];
 
-        $candidateCounts = [];
+        $candidateCounts = $this->_candidateCounts();
+
+        $this->set(compact('institutions', 'vstats', 'candidateCounts'));
+        $this->set('credentialAudience', $this->_credentialAudience());
+    }
+
+    /**
+     * How many candidates each institution has, keyed by institution id.
+     *
+     * The candidates live in their own database connection with no foreign key
+     * back to this table, so nothing here can join to them and nothing stops an
+     * institution being deleted out from under them. Counting them is what lets
+     * a screen say so before it happens.
+     *
+     * A missing or unreachable connection is not an error worth stopping a page
+     * for: the caller gets an empty map and shows no counts.
+     *
+     * @return array<int, int>
+     */
+    protected function _candidateCounts()
+    {
+        $counts = [];
         try {
             foreach (\Cake\Datasource\ConnectionManager::get('cms_lpk_candidates')->execute(
                 'SELECT vocational_training_institution_id AS lpk, COUNT(*) AS n
                  FROM candidates GROUP BY vocational_training_institution_id'
             )->fetchAll('assoc') as $r) {
-                $candidateCounts[$r['lpk']] = $r['n'];
+                $counts[$r['lpk']] = $r['n'];
             }
         } catch (\Exception $e) {
         }
 
-        $this->set(compact('institutions', 'vstats', 'candidateCounts'));
-        $this->set('credentialAudience', $this->_credentialAudience());
+        return $counts;
     }
 
     /**

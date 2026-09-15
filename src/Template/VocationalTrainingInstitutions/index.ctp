@@ -326,7 +326,7 @@
             <tbody>
                 <?php foreach ($vocationalTrainingInstitutions as $vocationalTrainingInstitution): ?>
                 <tr>
-                    <!-- Action Buttons: Edit | View -->
+                    <!-- Action Buttons: Edit | View | Delete (administrators only) -->
                     <td class="actions" style="white-space: nowrap; padding: 8px;">
                         <div class="action-buttons-hover">
                             <?= $this->Html->link(
@@ -339,6 +339,33 @@
                                 ['action' => 'view', $vocationalTrainingInstitution->id],
                                 ['class' => 'btn-action-icon btn-view-icon', 'escape' => false, 'title' => 'View']
                             ) ?>
+                            <?php
+                            // Deleting an institution takes its record away for
+                            // everyone, so the button is drawn for
+                            // administrators only. $isAdministrator comes from
+                            // AppController::beforeRender.
+                            //
+                            // The confirm names the candidates attached to the
+                            // institution, because they live in a separate
+                            // database with no foreign key back to this table:
+                            // nothing stops the delete, and nothing tells you
+                            // afterwards what was pointing at it.
+                            ?>
+                            <?php if (!empty($isAdministrator)): ?>
+                                <?php $attached = (int)($candidateCounts[$vocationalTrainingInstitution->id] ?? 0); ?>
+                                <?= $this->Form->postLink(
+                                    '<i class="fas fa-trash"></i>',
+                                    ['action' => 'delete', $vocationalTrainingInstitution->id],
+                                    [
+                                        'class' => 'btn-action-icon btn-delete-icon',
+                                        'escape' => false,
+                                        'title' => __('Delete'),
+                                        'confirm' => $attached
+                                            ? __('Delete {0}? {1} candidate(s) are recorded against it and will be left without an institution.', $vocationalTrainingInstitution->name, $attached)
+                                            : __('Delete {0}? This cannot be undone.', $vocationalTrainingInstitution->name),
+                                    ]
+                                ) ?>
+                            <?php endif; ?>
                         </div>
                     </td>
                     <td style="padding: 8px; white-space: nowrap;"><?= $this->Number->format($vocationalTrainingInstitution->id) ?></td>
