@@ -13449,3 +13449,9 @@ msgstr "Order ditarik dari {0}, dan mereka sudah diberi tahu."
 msgid "Order withdrawn from {0}, but the email could not be sent."
 msgstr "Order ditarik dari {0}, tetapi emailnya tidak dapat dikirim."
 
+msgid "Only recruitment staff and administrators can share an order or withdraw it."
+msgstr "Hanya staf rekrutmen dan administrator yang dapat membagikan atau menarik order."
+
+msgid "Only recruitment staff and administrators can create apprentice orders or manage who they are shared with."
+msgstr "Hanya staf rekrutmen dan administrator yang dapat membuat order pemagangan atau mengatur pembagiannya."
+

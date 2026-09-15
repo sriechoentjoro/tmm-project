@@ -13449,3 +13449,9 @@ msgstr "{0} からオーダーを取り下げ、先方に通知しました。"
 msgid "Order withdrawn from {0}, but the email could not be sent."
 msgstr "{0} からオーダーを取り下げましたが、メールを送信できませんでした。"
 
+msgid "Only recruitment staff and administrators can share an order or withdraw it."
+msgstr "オーダーの共有と取り下げができるのは採用担当者と管理者のみです。"
+
+msgid "Only recruitment staff and administrators can create apprentice orders or manage who they are shared with."
+msgstr "実習オーダーの作成と共有先の管理ができるのは採用担当者と管理者のみです。"
+

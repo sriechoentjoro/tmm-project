@@ -13,6 +13,86 @@ use App\Controller\AppController;
 class ApprenticeOrdersController extends AppController
 {
     use \App\Controller\ExportTrait;
+
+    /**
+     * The roles allowed to put a vacancy into the world and manage who sees it.
+     *
+     * An apprentice order is a job opening in Japan. Creating one, offering it
+     * to an institution, and withdrawing it again are recruitment decisions,
+     * not clerical ones - so they belong to recruitment and to administrators,
+     * and to nobody else.
+     */
+    const ORDER_MANAGER_ROLES = ['administrator', 'tmm-recruitment'];
+
+    /**
+     * The actions that rule covers.
+     *
+     * add, share and cancelShare are the three the rule names. edit and delete
+     * are here as well, deliberately: a role that cannot create a vacancy but
+     * can rewrite an existing one into a different vacancy, or remove it, is
+     * not actually restricted - the rule would hold only until someone noticed
+     * the gap. Everything else on this controller (index, view, statistics, the
+     * exports) stays on the ordinary permission check.
+     *
+     * To narrow it back to exactly the three named, remove 'edit' and 'delete'.
+     */
+    const MANAGED_ACTIONS = ['add', 'edit', 'delete', 'share', 'cancelShare'];
+
+    /**
+     * Authorization check.
+     *
+     * Only the managed actions are decided here; anything else falls through to
+     * the DB-driven check in AppController, which is where the rest of the
+     * application's permissions live.
+     *
+     * @param array $user The authenticated user.
+     * @return bool
+     */
+    public function isAuthorized($user)
+    {
+        $this->currentUser = $user;
+
+        $action = $this->request->getParam('action');
+        if (!in_array($action, self::MANAGED_ACTIONS, true)) {
+            return parent::isAuthorized($user);
+        }
+
+        foreach (self::ORDER_MANAGER_ROLES as $role) {
+            if ($this->hasRole($role)) {
+                return true;
+            }
+        }
+
+        $this->handleUnauthorizedAccess(
+            $action,
+            __('Only recruitment staff and administrators can create apprentice orders or manage who they are shared with.')
+        );
+
+        return false;
+    }
+
+    /**
+     * Whether the signed-in user may manage orders and their sharing.
+     *
+     * Set for the templates so the buttons match the rule: a control that leads
+     * to "Access Denied" is worse than no control, and hiding it is not the
+     * check - isAuthorized() above is, and it runs whether or not the button
+     * was ever drawn.
+     *
+     * @return bool
+     */
+    protected function _canManageOrders()
+    {
+        $this->currentUser = $this->Auth->user();
+        foreach (self::ORDER_MANAGER_ROLES as $role) {
+            if ($this->hasRole($role)) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
     /**
      * Index method
      *
@@ -33,6 +113,7 @@ class ApprenticeOrdersController extends AppController
         $acceptance_organizations = $acceptanceorganizations;
         $job_categorys = $masterjobcategories;
         $this->set(compact('apprenticeOrders', 'cooperativeassociations', 'acceptanceorganizations', 'masterjobcategories', 'cooperative_associations', 'acceptance_organizations', 'job_categorys'));
+        $this->set('canManageOrders', $this->_canManageOrders());
     }
 
     /**
@@ -198,6 +279,7 @@ class ApprenticeOrdersController extends AppController
 
         $this->set('apprenticeOrder', $apprenticeOrder);
         $this->_setSharingData($apprenticeOrder->id);
+        $this->set('canManageOrders', $this->_canManageOrders());
     }
 
     /**

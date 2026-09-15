@@ -15,6 +15,9 @@
  * @var array<int, \Cake\Datasource\EntityInterface> $shareableInstitutions
  * @var array<int, bool> $alreadySharedWith
  * @var bool $sharingInstalled Whether apprentice_order_shares exists yet.
+ * @var bool $canManageOrders Whether this user may share and withdraw. Hiding
+ *     the controls is courtesy, not the check: ApprenticeOrdersController::
+ *     isAuthorized() refuses the actions whether or not a button was drawn.
  */
 ?>
 <style>
@@ -91,7 +94,7 @@
                                 <?php endif; ?>
                             </td>
                             <td style="text-align: right;">
-                                <?php if (!$share->isCancelled()): ?>
+                                <?php if (!$share->isCancelled() && !empty($canManageOrders)): ?>
                                     <?= $this->Form->postLink(
                                         __('Withdraw'),
                                         ['action' => 'cancelShare', $apprenticeOrder->id, $share->id],
@@ -110,7 +113,7 @@
                 <p class="aos-note"><?= __('This order has not been shared with anyone yet.') ?></p>
             <?php endif; ?>
 
-            <?php if (!empty($shareableInstitutions)): ?>
+            <?php if (!empty($shareableInstitutions) && !empty($canManageOrders)): ?>
                 <hr>
                 <?= $this->Form->create(null, ['url' => ['action' => 'share', $apprenticeOrder->id]]) ?>
                 <div class="aos-list">
@@ -135,6 +138,10 @@
                     <?= __('Each institution selected is emailed the order details. Withdrawing later emails them again.') ?>
                 </p>
                 <?= $this->Form->end() ?>
+            <?php elseif (empty($canManageOrders)): ?>
+                <p class="aos-note">
+                    <?= __('Only recruitment staff and administrators can share an order or withdraw it.') ?>
+                </p>
             <?php endif; ?>
 
         <?php endif; ?>

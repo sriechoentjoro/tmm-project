@@ -18,11 +18,13 @@
                     ['action' => 'index'],
                     ['class' => 'dropdown-item', 'escape' => false]
                 ) ?>
+                <?php if (!empty($canManageOrders)): ?>
                 <?= $this->Html->link(
                     '<i class="fas fa-plus"></i> ' . __('New Apprentice Order'),
                     ['action' => 'add'],
                     ['class' => 'dropdown-item', 'escape' => false]
                 ) ?>
+                <?php endif; ?>
                 <div class="dropdown-divider"></div>
                 <?= $this->Html->link(
                     '<i class="fas fa-list"></i> ' . __('List Cooperative Associations'),
@@ -62,11 +64,13 @@
         </div>
         
         <div style="display: flex; align-items: center; gap: 10px;">
+            <?php if (!empty($canManageOrders)): ?>
             <?= $this->Html->link(
                 '<i class="fas fa-plus"></i> ' . __('Add New'),
                 ['action' => 'add'],
                 ['class' => 'btn-export-light', 'escape' => false, 'title' => 'Add New Record']
             ) ?>
+            <?php endif; ?>
         </div>
     </div>
     
@@ -258,6 +262,14 @@
                                 ['action' => 'view', $apprenticeOrder->id],
                                 ['class' => 'btn-action-icon btn-view-icon', 'escape' => false, 'title' => 'View']
                             ) ?>
+                            <?php
+                            // An apprentice order is a vacancy: creating,
+                            // rewriting or removing one belongs to recruitment
+                            // and to administrators. Hiding these is courtesy -
+                            // ApprenticeOrdersController::isAuthorized() refuses
+                            // the actions whether or not a button was drawn.
+                            ?>
+                            <?php if (!empty($canManageOrders)): ?>
                             <?= $this->Html->link(
                                 '<i class="fas fa-edit"></i>',
                                 ['action' => 'edit', $apprenticeOrder->id],
@@ -268,6 +280,7 @@
                                 ['action' => 'delete', $apprenticeOrder->id],
                                 ['confirm' => __('Are you sure you want to delete # {0}?', $apprenticeOrder->id), 'class' => 'btn-action-icon btn-delete-icon', 'escape' => false, 'title' => 'Delete']
                             ) ?>
+                            <?php endif; ?>
                         </div>
                     </td>
                     <td style="padding: 8px; white-space: nowrap;"><?= $this->Number->format($apprenticeOrder->id) ?></td>
