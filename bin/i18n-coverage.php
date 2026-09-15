@@ -164,6 +164,34 @@ function branchLines(array $lines)
     return $inside;
 }
 
+/**
+ * Every msgid a file passes to __().
+ *
+ * Read from the whole file, not line by line. A call with several arguments is
+ * routinely written as
+ *
+ *     $this->Flash->warning(__(
+ *         'Testing mode: ...',
+ *         $email
+ *     ));
+ *
+ * and a per-line scan never sees that string: the line holding __( has no
+ * quote on it, and the line holding the quote has no __( on it. Two of the
+ * three strings added with this helper were missed exactly that way, and the
+ * report said the catalogues were complete.
+ */
+function msgids($text)
+{
+    $out = [];
+    if (preg_match_all("/__\(\s*'((?:[^'\\\\]|\\\\.)*)'/s", $text, $m)) {
+        foreach ($m[1] as $id) {
+            $out[] = stripcslashes($id);
+        }
+    }
+
+    return $out;
+}
+
 $files = templates($root);
 
 $used = [];        // msgid => [area => true]
@@ -172,12 +200,10 @@ foreach ($files as $path) {
     $area = areaOf($root, $path);
     $lines = file($path);
     $branch = branchLines($lines);
+    foreach (msgids(implode('', $lines)) as $id) {
+        $used[$id][$area] = true;
+    }
     foreach ($lines as $n => $line) {
-        if (preg_match_all("/__\(\s*'((?:[^'\\\\]|\\\\.)*)'/", $line, $m)) {
-            foreach ($m[1] as $id) {
-                $used[stripcslashes($id)][$area] = true;
-            }
-        }
         // Prose sitting straight in the markup: after an icon, inside a
         // heading or a hint, never reaching __(). Deliberately conservative —
         // it looks only where UI copy actually lives.
@@ -211,12 +237,8 @@ foreach ($files as $path) {
 // controller.
 foreach (sources($root) as $path) {
     $area = areaOf($root, $path);
-    foreach (file($path) as $line) {
-        if (preg_match_all("/__\(\s*'((?:[^'\\\\]|\\\\.)*)'/", $line, $m)) {
-            foreach ($m[1] as $id) {
-                $used[stripcslashes($id)][$area] = true;
-            }
-        }
+    foreach (msgids(file_get_contents($path)) as $id) {
+        $used[$id][$area] = true;
     }
 }
 

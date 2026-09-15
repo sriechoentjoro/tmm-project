@@ -283,7 +283,5 @@ $this->set(compact('candidateEducations', 'candidates', 'masterstratas', 'master
                 return $this->redirect(['action' => 'processFlow']);
             }
         }
-        
-        $this->viewBuilder()->setLayout('process_flow');
     }
 }

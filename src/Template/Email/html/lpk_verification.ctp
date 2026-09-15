@@ -188,6 +188,13 @@
                     <span class="info-label"><?= __('Email Address:') ?></span>
                     <span class="info-value"><?= h($email) ?></span>
                 </div>
+                <?php // isset(): older senders of this template pass no username. ?>
+                <?php if (!empty($username)): ?>
+                <div class="info-row">
+                    <span class="info-label"><?= __('Login Username:') ?></span>
+                    <span class="info-value"><strong><?= h($username) ?></strong></span>
+                </div>
+                <?php endif; ?>
                 <div class="info-row">
                     <span class="info-label"><?= __('Director Name:') ?></span>
                     <span class="info-value"><?= h($directorName) ?></span>

@@ -118,6 +118,30 @@ Router::scope('/', function (RouteBuilder $routes) {
         ['pass' => ['id', 'statusId'], 'id' => '[0-9]+', 'statusId' => '[0-9]+']
     );
     
+    // The two links an institution receives by email.
+    //
+    // The actions live in Admin\LpkRegistrationController, because an admin
+    // creates the record - but the person who clicks is the institution's
+    // director, not signed in and with no business on an /admin/ URL. These
+    // routes give that person a public path to the same actions.
+    //
+    // They also rescue the mails already sent. Those carried
+    // /lpk-registration/verify-email/<token>, built with 'prefix' => false,
+    // and nothing answered it: App\Controller\LpkRegistrationController does
+    // not exist, only the Admin one does. Every verification link sent before
+    // this route led to an error page.
+    //
+    // Connected ahead of the admin prefix below, so Router::url() builds these
+    // short paths rather than the /admin/ ones.
+    $routes->connect(
+        '/lpk-registration/verify-email/*',
+        ['prefix' => 'admin', 'controller' => 'LpkRegistration', 'action' => 'verifyEmail']
+    );
+    $routes->connect(
+        '/lpk-registration/set-password/*',
+        ['prefix' => 'admin', 'controller' => 'LpkRegistration', 'action' => 'setPassword']
+    );
+
     // Admin routes
     $routes->prefix('admin', function (RouteBuilder $routes) {
         // Stakeholder Dashboard

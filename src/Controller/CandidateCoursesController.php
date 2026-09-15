@@ -274,7 +274,5 @@ $this->set(compact('candidateCourses', 'candidates', 'vocationaltraininginstitut
                 return $this->redirect(['action' => 'processFlow']);
             }
         }
-        
-        $this->viewBuilder()->setLayout('process_flow');
     }
 }

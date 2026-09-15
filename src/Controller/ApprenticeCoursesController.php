@@ -271,7 +271,5 @@ $this->set(compact('apprenticeCourses', 'apprentices', 'vocationaltraininginstit
                 return $this->redirect(['action' => 'processFlow']);
             }
         }
-        
-        $this->viewBuilder()->setLayout('process_flow');
     }
 }

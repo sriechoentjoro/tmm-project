@@ -112,7 +112,7 @@
                                             <div class="btn-group" role="group">
                                                 <?= $this->Html->link(
                                                     '<i class="fas fa-eye"></i>',
-                                                    ['controller' => 'VocationalTrainingInstitutions', 'action' => 'view', $institution->id],
+                                                    ['prefix' => false, 'controller' => 'VocationalTrainingInstitutions', 'action' => 'view', $institution->id],
                                                     [
                                                         'class' => 'btn btn-info btn-sm',
                                                         'escape' => false,
@@ -136,7 +136,7 @@
                                                 <?php if ($institution->status === 'verified'): ?>
                                                     <?= $this->Html->link(
                                                         '<i class="fas fa-key"></i>',
-                                                        ['action' => 'setPassword', $institution->id, 'prefix' => false],
+                                                        ['action' => 'setPassword', $institution->id],
                                                         [
                                                             'class' => 'btn btn-primary btn-sm',
                                                             'escape' => false,

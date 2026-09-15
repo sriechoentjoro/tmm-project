@@ -195,10 +195,26 @@ Type::build('timestamp')
 /*
  * Load Bake plugin
  * Custom template configuration is in config/bootstrap_bake.php (loaded by bootstrap_cli.php)
+ *
+ * Bake is a development dependency, so it is missing from any install made with
+ * composer install --no-dev - a production server, normally. Its path can also
+ * fail to resolve on an install where cakephp/plugin-installer never ran and
+ * vendor/cakephp/plugins.php was not written, even though the classes
+ * autoload fine.
+ *
+ * Either way it threw "Plugin Bake could not be found" before the console had
+ * parsed a single argument, taking down every shell in the application rather
+ * than just the code-generation ones. Bake's absence is not an error; it only
+ * means nothing can be generated here. Application::bootstrapCli() already
+ * treats it that way - this is the same guard on the other load.
  */
 use Cake\Core\Plugin;
 if ($isCli) {
-    Plugin::load('Bake', ['bootstrap' => true]);
+    try {
+        Plugin::load('Bake', ['bootstrap' => true]);
+    } catch (\Exception $e) {
+        // Nothing to generate without it; every other shell still runs.
+    }
 }
 /*
  * Custom Inflector rules, can be set to correctly pluralize or singularize

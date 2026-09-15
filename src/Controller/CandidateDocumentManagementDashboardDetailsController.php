@@ -268,7 +268,5 @@ class CandidateDocumentManagementDashboardDetailsController extends AppControlle
                 return $this->redirect(['action' => 'processFlow']);
             }
         }
-        
-        $this->viewBuilder()->setLayout('process_flow');
     }
 }

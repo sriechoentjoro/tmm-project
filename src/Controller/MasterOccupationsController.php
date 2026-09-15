@@ -269,7 +269,5 @@ $this->set(compact('masterOccupations', 'occupationCategories', 'occupation_cate
                 return $this->redirect(['action' => 'processFlow']);
             }
         }
-        
-        $this->viewBuilder()->setLayout('process_flow');
     }
 }

@@ -283,7 +283,5 @@ $this->set(compact('apprenticeEducations', 'apprentices', 'masterstratas', 'mast
                 return $this->redirect(['action' => 'processFlow']);
             }
         }
-        
-        $this->viewBuilder()->setLayout('process_flow');
     }
 }

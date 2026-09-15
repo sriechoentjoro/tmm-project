@@ -2,6 +2,7 @@
 namespace App\Controller\Admin;
 
 use App\Controller\AppController;
+use Cake\Core\Configure;
 use Cake\Event\Event;
 use Cake\I18n\Time;
 use Cake\Log\Log;
@@ -86,6 +87,14 @@ class LpkRegistrationController extends AppController
             $this->uploadFile('VocationalTrainingInstitutions', 'mou_file', 'vocationaltraininginstitutions');
             $data = $this->request->getData();
 
+            // Clear the way for an address that has been registered before,
+            // where the installation allows it. Must happen before newEntity(),
+            // because the unique-email rule is checked against what is in the
+            // table at save() time.
+            if (!empty($data['email'])) {
+                $this->_freeEmailForRetest($data['email']);
+            }
+
             $institution = $this->VocationalTrainingInstitutions->newEntity($data);
 
             // Not a mass-assignable field, and only present on installations
@@ -108,7 +117,7 @@ class LpkRegistrationController extends AppController
                             'controller' => 'LpkRegistration',
                             'action' => 'verifyEmail',
                             $token,
-                            'prefix' => false
+                            'prefix' => 'admin'
                         ], true);
                         
                         $emailSent = $this->EmailService->sendEmail(
@@ -120,6 +129,11 @@ class LpkRegistrationController extends AppController
                                 'institutionName' => $institution->name,
                                 'registrationNumber' => $institution->abbreviation,
                                 'email' => $institution->email,
+                                // The login name waiting behind the link. The
+                                // mail goes to the institution's own address,
+                                // so this is the one place it can be handed
+                                // over before the account exists.
+                                'username' => $institution->username,
                                 'registeredByAdmin' => $this->Auth->user('fullname'),
                                 'registrationDate' => ($institution->created ?: Time::now())->format('d F Y, H:i'),
                                 'verificationUrl' => $verificationUrl
@@ -131,7 +145,7 @@ class LpkRegistrationController extends AppController
                             $this->loadModel('StakeholderActivities');
                             $this->StakeholderActivities->logActivity(
                                 'registration',
-                                'vocational_training',
+                                'lpk',
                                 $institution->id,
                                 'LPK registered: ' . $institution->name . ' (Status: pending_verification)',
                                 ['email' => $institution->email],
@@ -312,7 +326,7 @@ class LpkRegistrationController extends AppController
             $this->loadModel('StakeholderActivities');
             $this->StakeholderActivities->logActivity(
                 'verification',
-                'vocational_training',
+                'lpk',
                 $institution->id,
                 'Email verified: ' . $institution->email,
                 ['token_used' => substr($token, 0, 10) . '...'],
@@ -402,9 +416,14 @@ class LpkRegistrationController extends AppController
                     ->first();
                 
                 if (!$user) {
-                    // Create new user
-                    $username = $this->_generateUsername($institution->name);
-                    
+                    // The login name the admin typed on the registration form,
+                    // which the form promises is "the login name this LPK will
+                    // use once it sets a password". It was collected, stored and
+                    // then ignored here: the account was named after the
+                    // institution instead, so the promise was not kept and the
+                    // value shown on the record was not the one that worked.
+                    $username = $this->_loginUsernameFor($institution);
+
                     $user = $this->Users->newEntity([
                         'username' => $username,
                         'email' => $institution->email,
@@ -428,8 +447,24 @@ class LpkRegistrationController extends AppController
                 if ($this->Users->save($user)) {
                     // Update institution status
                     $institution->status = 'active';
+
+                    // ...and record that registration is finished, which this
+                    // flow never did.
+                    //
+                    // There are two registration flows in this application and
+                    // they were keeping score in different columns. The older
+                    // one (InstitutionRegistration::complete) calls
+                    // completeRegistration(), which sets is_registered and
+                    // registered_at; this one only ever moved 'status'. Every
+                    // counter and badge that asks "is it registered?" reads
+                    // is_registered - so an LPK that finished here showed
+                    // Status: Active and Registered: No on the same row, and
+                    // stayed in the verify page's Pending count for good, with
+                    // nothing an admin could press to change it.
+                    $institution->completeRegistration();
+
                     $this->VocationalTrainingInstitutions->save($institution);
-                    
+
                     // Send welcome email
                     $this->loadComponent('EmailService');
                     $this->EmailService->sendEmail(
@@ -453,7 +488,7 @@ class LpkRegistrationController extends AppController
                     $this->loadModel('StakeholderActivities');
                     $this->StakeholderActivities->logActivity(
                         'activation',
-                        'vocational_training',
+                        'lpk',
                         $institution->id,
                         'Account activated: ' . $institution->name . ' (Username: ' . $user->username . ')',
                         ['username' => $user->username],
@@ -508,7 +543,7 @@ class LpkRegistrationController extends AppController
                 'controller' => 'LpkRegistration',
                 'action' => 'verifyEmail',
                 $token,
-                'prefix' => false
+                'prefix' => 'admin'
             ], true);
             
             $emailSent = $this->EmailService->sendEmail(
@@ -520,6 +555,7 @@ class LpkRegistrationController extends AppController
                     'institutionName' => $institution->name,
                     'registrationNumber' => $institution->abbreviation,
                     'email' => $institution->email,
+                    'username' => $institution->username,
                     'registeredByAdmin' => $this->Auth->user('fullname'),
                     'registrationDate' => ($institution->created ?: Time::now())->format('d F Y, H:i'),
                     'verificationUrl' => $verificationUrl
@@ -537,6 +573,134 @@ class LpkRegistrationController extends AppController
         }
         
         return $this->redirect($this->referer());
+    }
+
+    /**
+     * Make an email address registrable again, where the installation allows it.
+     *
+     * vocational_training_institutions.email is unique, so an address that has
+     * been through the flow once is spent: register -> verify -> set password
+     * can be rehearsed exactly once per mailbox, and the second attempt fails
+     * on the unique rule with no way forward but the database. That is no way
+     * to test a three-step flow.
+     *
+     * With Lpk.reuseEmailForTesting on, the earlier institution and its
+     * verification tokens are removed first and registration proceeds as if
+     * the address were new.
+     *
+     * The users row is deliberately left alone. setPassword() looks the account
+     * up by email and updates it rather than creating a second one, so keeping
+     * it is what lets the same login work again after a retest - and deleting
+     * it could take out an account someone is actually using.
+     *
+     * Off means off: with LPK_REUSE_EMAIL=0 this does nothing at all and a
+     * duplicate address fails the unique rule exactly as before.
+     *
+     * @param string $email The address being registered.
+     * @return void
+     */
+    protected function _freeEmailForRetest($email)
+    {
+        if (!Configure::read('Lpk.reuseEmailForTesting')) {
+            return;
+        }
+
+        $this->loadModel('VocationalTrainingInstitutions');
+        $this->loadModel('EmailVerificationTokens');
+
+        $existing = $this->VocationalTrainingInstitutions->find()
+            ->where(['email' => $email])
+            ->first();
+
+        if (!$existing) {
+            return;
+        }
+
+        // A foreign key pointing at this row would make the delete throw, and an
+        // uncaught throw here would lose the whole registration to a blank 500.
+        // Report it and fall through instead: the save below then fails on the
+        // unique-email rule, which is the honest outcome.
+        try {
+            $deleted = $this->VocationalTrainingInstitutions->delete($existing);
+        } catch (\Throwable $e) {
+            $this->Flash->error(__(
+                'Could not clear the earlier registration for {0}: {1}',
+                $email,
+                $e->getMessage()
+            ));
+            Log::error(
+                "Lpk.reuseEmailForTesting: could not delete institution {$existing->id}: " . $e->getMessage(),
+                ['scope' => 'lpk_registration']
+            );
+
+            return;
+        }
+
+        if (!$deleted) {
+            $this->Flash->error(__('Could not clear the earlier registration for {0}.', $email));
+            Log::error(
+                "Lpk.reuseEmailForTesting: delete() returned false for institution {$existing->id}",
+                ['scope' => 'lpk_registration']
+            );
+
+            return;
+        }
+
+        $this->EmailVerificationTokens->deleteAll(['user_email' => $email]);
+
+        // Said out loud in both places: the admin sees that a record vanished,
+        // and the log keeps what it was, since nothing else records this.
+        $this->Flash->warning(__(
+            'Testing mode: the earlier registration for {0} ({1}) was deleted so the address could be reused.',
+            $email,
+            $existing->name
+        ));
+        Log::warning(
+            "Lpk.reuseEmailForTesting: deleted institution {$existing->id} ({$existing->name}) "
+            . "and the verification tokens for $email",
+            ['scope' => 'lpk_registration']
+        );
+    }
+
+    /**
+     * The login name to give an institution's user account.
+     *
+     * The registration form asks for one and calls it "the login name this LPK
+     * will use once it sets a password", and the institutions table keeps it
+     * unique. So that is the name to use, and the one the record and the
+     * verification email can honestly show.
+     *
+     * It is still checked against the users table before being taken. That
+     * table holds staff accounts too, and its own unique index would reject a
+     * clash at save() time with nothing but a validation error for the
+     * institution to read. A clash is unlikely and worth a log line when it
+     * happens; falling back to a name derived from the institution keeps
+     * activation working rather than dead-ending it.
+     *
+     * @param \Cake\Datasource\EntityInterface $institution The institution.
+     * @return string Username
+     */
+    protected function _loginUsernameFor($institution)
+    {
+        $wanted = trim((string)$institution->username);
+        if ($wanted === '') {
+            return $this->_generateUsername($institution->name);
+        }
+
+        $this->loadModel('Users');
+        $taken = $this->Users->find()->where(['username' => $wanted])->first();
+        if (!$taken) {
+            return $wanted;
+        }
+
+        $fallback = $this->_generateUsername($institution->name);
+        Log::warning(
+            "Username '$wanted' requested for institution {$institution->id} is already held by "
+            . "user {$taken->id}; using '$fallback' instead",
+            ['scope' => 'lpk_registration']
+        );
+
+        return $fallback;
     }
 
     /**
@@ -596,7 +760,5 @@ class LpkRegistrationController extends AppController
         // This action renders the process flow documentation
         // Template: src/Template/Admin/LpkRegistration/process_flow.ctp
         // Layout: src/Template/Layout/process_flow.ctp
-        
-        $this->viewBuilder()->setLayout('process_flow');
     }
 }

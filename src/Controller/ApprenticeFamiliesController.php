@@ -278,7 +278,5 @@ $this->set(compact('apprenticeFamilies', 'apprentices', 'masterfamilyconnections
                 return $this->redirect(['action' => 'processFlow']);
             }
         }
-        
-        $this->viewBuilder()->setLayout('process_flow');
     }
 }

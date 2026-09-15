@@ -273,7 +273,5 @@ $this->set(compact('candidateRecordMedicalCheckUps', 'applicants', 'medicalCheck
                 return $this->redirect(['action' => 'processFlow']);
             }
         }
-        
-        $this->viewBuilder()->setLayout('process_flow');
     }
 }

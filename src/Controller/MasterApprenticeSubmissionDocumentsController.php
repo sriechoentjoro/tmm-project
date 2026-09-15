@@ -269,7 +269,5 @@ $this->set(compact('masterApprenticeSubmissionDocuments', 'masterApprenticeshipS
                 return $this->redirect(['action' => 'processFlow']);
             }
         }
-        
-        $this->viewBuilder()->setLayout('process_flow');
     }
 }

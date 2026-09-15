@@ -214,11 +214,103 @@ for lang in ind eng jpn; do
     printf '\n'
 done
 
-say "6. Result"
+# The process-flow pages used to render in a standalone layout with no
+# application menu. They now use 'elegant' like the rest of the interface, and
+# take the styling the old layout supplied from the shared
+# process_flow_assets element instead. Two things can go wrong silently: the
+# menu does not load (AppController skips it for some layouts), or the element
+# is not included and the page comes back unstyled with blank diagrams.
+say "6. Process-flow pages inside the application container"
+printf '  %-34s %5s %5s %5s\n' page menu styling mermaid
+for path in /master-genders/process-flow /candidates/process-flow /admin/lpk-registration/process-flow; do
+    read -r code url <<<"$(fetch "$path" "$WORK/container.html")"
+    if [ "$code" != 200 ]; then
+        printf '  %-34s HTTP %s\n' "$path" "$code"; bad=1; continue
+    fi
+
+    menu=no;  grep -q 'elegant-menu-wrapper' "$WORK/container.html" && menu=yes
+    style=no; grep -q 'step-description' "$WORK/container.html" && style=yes
+    mmd=no;   grep -q 'mermaid.min.js'    "$WORK/container.html" && mmd=yes
+    printf '  %-34s %5s %5s %5s' "$path" "$menu" "$style" "$mmd"
+
+    [ "$menu" = yes ] && [ "$style" = yes ] && [ "$mmd" = yes ] \
+        || { printf '  <- expected all three'; bad=1; }
+    printf '\n'
+done
+
+# src/Template/Error/error400.ctp did not exist, so CakePHP fell back to
+# error500.ctp for every 4xx and each broken link in the application reported
+# itself as "500 Internal Server Error". That cost an afternoon chasing a
+# server fault that was a mis-built link, so the wrong label is worth a test.
+#
+# The second URL is the one that actually broke: the LPK list linked to
+# /admin/vocational-training-institutions/... and no Admin\ version of that
+# controller exists.
+say "7. Error pages say what actually happened"
+printf '  %-44s %5s %s\n' url code page
+for path in /no-such-page-here /admin/vocational-training-institutions/view/1; do
+    code="$("${CURL[@]}" -o "$WORK/err.html" -w '%{http_code}' "$BASE_URL$path")"
+    if grep -q '500 Internal Server Error' "$WORK/err.html"; then
+        page='says 500'
+    elif grep -qE '40[34] - ' "$WORK/err.html"; then
+        page='says 4xx'
+    else
+        page='(the page itself)'
+    fi
+    printf '  %-44s %5s %s' "$path" "$code" "$page"
+
+    case "$path" in
+        /no-such-page-here)
+            [ "$page" = 'says 4xx' ] || { printf '  <- a missing page must not claim a server fault'; bad=1; } ;;
+        *)
+            # After the link fix this URL is still wrong on its own, but nothing
+            # in the interface points at it any more; it only has to fail
+            # honestly.
+            [ "$page" = 'says 500' ] && { printf '  <- should report 404, not 500'; bad=1; } ;;
+    esac
+    printf '\n'
+done
+
+# The link an institution gets by email. It was built with 'prefix' => false
+# and LpkRegistration exists only under Admin\, so every verification mail sent
+# pointed at no controller at all. Two routes now connect the public paths to
+# the actions, and this checks they are still connected.
+#
+# A 64-character token that matches nothing is used on purpose: verifyEmail()
+# looks it up, finds neither a live nor a spent token, and renders its own page
+# saying the link is invalid. Nothing is written, and no real token is needed -
+# what is being tested is that the URL reaches the action at all. Before the
+# fix this came back as the 404 page instead.
+say "8. The verification link from the email"
+printf '  %-40s %5s %s\n' url code lands_on
+FAKE=0000000000000000000000000000000000000000000000000000000000000000
+for entry in "/lpk-registration/verify-email/<token>|/lpk-registration/verify-email/$FAKE" \
+             "/lpk-registration/set-password/0|/lpk-registration/set-password/0"; do
+    label="${entry%%|*}"
+    path="${entry#*|}"
+
+    read -r code url <<<"$(fetch "$path" "$WORK/verify.html")"
+    if grep -qE '40[34] - ' "$WORK/verify.html"; then
+        lands='the 404 page'
+    else
+        lands='the application'
+    fi
+    printf '  %-40s %5s %s' "$label" "$code" "$lands"
+
+    [ "$code" = 200 ] && [ "$lands" = 'the application' ] \
+        || { printf '  <- the route is not connected'; bad=1; }
+    printf '\n'
+done
+
+say "9. Result"
 if [ "$bad" = 0 ]; then
     echo "  all 15 page/language combinations rendered in the expected language,"
     echo "  all 3 diagrams carry their translated labels in all 3 languages,"
     echo "  and the controller's flash message came back translated too"
+    echo "  the process-flow pages render inside the application menu, styled,"
+    echo "  with the mermaid loader present"
+    echo "  and a missing page reports 404 instead of claiming a server fault"
+    echo "  and the verification link from the email reaches its action"
 else
     echo "  some combinations did not switch — see the lines marked above"
     echo "  if every page is English, the translation cache is stale:"

@@ -13221,3 +13221,60 @@ msgstr "ファイルは必須です"
 msgid "Related TableName"
 msgstr "関連する TableName"
 
+msgid "403 - Access Denied"
+msgstr "403 - アクセスが拒否されました"
+
+msgid "You do not have permission to open this page. Ask an administrator if you think you should."
+msgstr "このページを開く権限がありません。権限があるはずだとお考えの場合は管理者にお問い合わせください。"
+
+msgid "404 - Page Not Found"
+msgstr "404 - ページが見つかりません"
+
+msgid "The page you are looking for does not exist, or has been moved."
+msgstr "お探しのページは存在しないか、移動されました。"
+
+msgid "Address requested:"
+msgstr "リクエストされたアドレス:"
+
+msgid "Back to the dashboard"
+msgstr "ダッシュボードに戻る"
+
+msgid "Could not clear the earlier registration for {0}."
+msgstr "{0} の以前の登録を削除できませんでした。"
+
+msgid "Could not clear the earlier registration for {0}: {1}"
+msgstr "{0} の以前の登録を削除できませんでした: {1}"
+
+msgid "Testing mode: the earlier registration for {0} ({1}) was deleted so the address could be reused."
+msgstr "テストモード: アドレスを再利用できるよう、{0}（{1}）の以前の登録を削除しました。"
+
+msgid "Institution saved! Registration email sent to {0}"
+msgstr "機関を保存しました。登録メールを {0} に送信しました"
+
+msgid "Institution saved! Registration token: {0}. Use this URL: {1}"
+msgstr "機関を保存しました。登録トークン: {0}。次のURLをご利用ください: {1}"
+
+msgid "Login Username:"
+msgstr "ログインユーザー名:"
+
+msgid "Visible only to an administrator and to the institution itself"
+msgstr "管理者と当該機関のみに表示されます"
+
+msgid "Login Username"
+msgstr "ログインユーザー名"
+
+msgid "Not set"
+msgstr "未設定"
+
+msgid "Sign-in Details"
+msgstr "ログイン情報"
+
+msgid "Visible only to an administrator and to this institution. The password is never shown - it is stored hashed and cannot be read back."
+msgstr "管理者と当該機関のみに表示されます。パスワードは表示されません。ハッシュ化して保存されており、元に戻すことはできません。"
+
+msgid "Delete {0}? {1} candidate(s) are recorded against it and will be left without an institution."
+msgstr "{0} を削除しますか？この機関には {1} 名の候補者が登録されており、所属機関のない状態になります。"
+
+msgid "Delete {0}? This cannot be undone."
+msgstr "{0} を削除しますか？この操作は取り消せません。"
+

@@ -273,7 +273,5 @@ $this->set(compact('candidateExperiences', 'candidates', 'masteremployeestatuses
                 return $this->redirect(['action' => 'processFlow']);
             }
         }
-        
-        $this->viewBuilder()->setLayout('process_flow');
     }
 }

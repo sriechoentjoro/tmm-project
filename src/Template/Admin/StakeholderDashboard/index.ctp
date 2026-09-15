@@ -112,7 +112,7 @@ $this->assign('title', 'Stakeholder Management Dashboard');
                 </div>
                 <div class="card-footer">
                     <?= $this->Html->link('Manage LPK <i class="fas fa-arrow-right"></i>', 
-                        ['controller' => 'VocationalTrainingInstitutions', 'action' => 'index'],
+                        ['prefix' => false, 'controller' => 'VocationalTrainingInstitutions', 'action' => 'index'],
                         ['class' => 'btn btn-sm btn-link', 'escape' => false]
                     ) ?>
                 </div>
@@ -137,7 +137,7 @@ $this->assign('title', 'Stakeholder Management Dashboard');
                 </div>
                 <div class="card-footer">
                     <?= $this->Html->link('Manage Special Skill <i class="fas fa-arrow-right"></i>', 
-                        ['controller' => 'SpecialSkillSupportInstitutions', 'action' => 'index'],
+                        ['prefix' => false, 'controller' => 'SpecialSkillSupportInstitutions', 'action' => 'index'],
                         ['class' => 'btn btn-sm btn-link', 'escape' => false]
                     ) ?>
                 </div>
@@ -161,7 +161,7 @@ $this->assign('title', 'Stakeholder Management Dashboard');
                 </div>
                 <div class="card-footer">
                     <?= $this->Html->link('Manage Organizations <i class="fas fa-arrow-right"></i>', 
-                        ['controller' => 'AcceptanceOrganizations', 'action' => 'index'],
+                        ['prefix' => false, 'controller' => 'AcceptanceOrganizations', 'action' => 'index'],
                         ['class' => 'btn btn-sm btn-link', 'escape' => false]
                     ) ?>
                 </div>
@@ -185,7 +185,7 @@ $this->assign('title', 'Stakeholder Management Dashboard');
                 </div>
                 <div class="card-footer">
                     <?= $this->Html->link('Manage Cooperatives <i class="fas fa-arrow-right"></i>', 
-                        ['controller' => 'CooperativeAssociations', 'action' => 'index'],
+                        ['prefix' => false, 'controller' => 'CooperativeAssociations', 'action' => 'index'],
                         ['class' => 'btn btn-sm btn-link', 'escape' => false]
                     ) ?>
                 </div>
@@ -380,7 +380,7 @@ $this->assign('title', 'Stakeholder Management Dashboard');
                                         <td>
                                             <?= $this->Html->link(
                                                 '<i class="fas fa-eye"></i>',
-                                                ['controller' => 'Users', 'action' => 'view', $verification->id],
+                                                ['prefix' => false, 'controller' => 'Users', 'action' => 'view', $verification->id],
                                                 ['class' => 'btn btn-sm btn-info', 'escape' => false, 'title' => 'View']
                                             ) ?>
                                         </td>

@@ -85,7 +85,7 @@ class StakeholderDashboardController extends AppController
         // Check admin permission
         if (!$this->_isAdmin()) {
             $this->Flash->error(__('You do not have permission to access this page.'));
-            return $this->redirect(['controller' => 'Dashboard', 'action' => 'index']);
+            return $this->redirect(['prefix' => false, 'controller' => 'Dashboard', 'action' => 'index']);
         }
 
         // Get statistics for all stakeholder types
@@ -427,7 +427,5 @@ class StakeholderDashboardController extends AppController
                 return $this->redirect(['action' => 'processFlow']);
             }
         }
-        
-        $this->viewBuilder()->setLayout('process_flow');
     }
 }
