@@ -108,7 +108,7 @@ class LpkRegistrationController extends AppController
                             'controller' => 'LpkRegistration',
                             'action' => 'verifyEmail',
                             $token,
-                            'prefix' => false
+                            'prefix' => 'admin'
                         ], true);
                         
                         $emailSent = $this->EmailService->sendEmail(
@@ -508,7 +508,7 @@ class LpkRegistrationController extends AppController
                 'controller' => 'LpkRegistration',
                 'action' => 'verifyEmail',
                 $token,
-                'prefix' => false
+                'prefix' => 'admin'
             ], true);
             
             $emailSent = $this->EmailService->sendEmail(

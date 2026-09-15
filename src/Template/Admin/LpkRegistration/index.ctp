@@ -136,7 +136,7 @@
                                                 <?php if ($institution->status === 'verified'): ?>
                                                     <?= $this->Html->link(
                                                         '<i class="fas fa-key"></i>',
-                                                        ['action' => 'setPassword', $institution->id, 'prefix' => false],
+                                                        ['action' => 'setPassword', $institution->id],
                                                         [
                                                             'class' => 'btn btn-primary btn-sm',
                                                             'escape' => false,
