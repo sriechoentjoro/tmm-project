@@ -13329,3 +13329,45 @@ msgstr "© {0} PT. ASAHI FAMILY INDONESIA. All rights reserved."
 msgid "This is an automated email. Please do not reply directly to this message."
 msgstr "このメールは自動送信です。このメッセージに直接返信しないでください。"
 
+msgid "Template"
+msgstr "テンプレート"
+
+msgid "The key the application asks for. Changing it stops the template being found."
+msgstr "アプリケーションが参照するキーです。変更するとテンプレートが見つからなくなります。"
+
+msgid "Body (HTML)"
+msgstr "本文（HTML）"
+
+msgid "Body (plain text)"
+msgstr "本文（プレーンテキスト）"
+
+msgid "Sent to mail clients that prefer plain text. Left empty, the HTML body is sent with its tags stripped."
+msgstr "プレーンテキストを優先するメールクライアントに送られます。空欄の場合は、HTML本文からタグを除いたものが送られます。"
+
+msgid "Names the application supplies, as JSON or separated by commas. The preview gives a value to every {{name}} it finds in the text, declared here or not."
+msgstr "アプリケーションが提供する変数名です。JSON形式またはカンマ区切りで記述します。プレビューでは、ここに記載の有無にかかわらず本文中のすべての {{name}} に値が入ります。"
+
+msgid "As it will arrive"
+msgstr "受信時の表示"
+
+msgid "Email preview"
+msgstr "メールのプレビュー"
+
+msgid "Click a name to insert it at the cursor. Values shown are samples."
+msgstr "名前をクリックするとカーソル位置に挿入されます。表示されている値はサンプルです。"
+
+msgid "with the standard letterhead"
+msgstr "標準のレターヘッド付き"
+
+msgid "sent as written - no letterhead"
+msgstr "記述どおりに送信 - レターヘッドなし"
+
+msgid "(no subject)"
+msgstr "（件名なし）"
+
+msgid "Not supplied by the application, so it will arrive literally:"
+msgstr "アプリケーションが提供しないため、そのまま送信されます:"
+
+msgid "New Email Template"
+msgstr "新しいメールテンプレート"
+

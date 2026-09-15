@@ -118,6 +118,26 @@ class EmailTemplatesTable extends Table
     }
 
     /**
+     * Whether a template body should be wrapped in the branded letterhead.
+     *
+     * A body that already opens an <html> document is a whole email, and
+     * wrapping it would nest one document inside another. Anything shorter is a
+     * message, and the letterhead belongs around it.
+     *
+     * Static and public because two places have to agree: EmailComponent when
+     * it sends, and EmailTemplatesController when it renders the preview beside
+     * the editor. A preview that guessed differently from the sender would be a
+     * picture of an email nobody receives.
+     *
+     * @param string|null $bodyHtml The template's HTML body.
+     * @return bool
+     */
+    public static function wrapsInLayout($bodyHtml)
+    {
+        return stripos((string)$bodyHtml, '<html') === false;
+    }
+
+    /**
      * Returns the database connection name to use by default.
      *
      * @return string

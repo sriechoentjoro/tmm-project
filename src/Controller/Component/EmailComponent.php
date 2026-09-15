@@ -3,6 +3,7 @@ namespace App\Controller\Component;
 
 use Cake\Controller\Component;
 use Cake\Mailer\Email;
+use App\Model\Table\EmailTemplatesTable;
 use Cake\ORM\TableRegistry;
 use Cake\Log\Log;
 
@@ -65,28 +66,50 @@ class EmailComponent extends Component
                 ->setSubject($subject)
                 ->setEmailFormat('both');
 
-            if (!empty($bodyHtml)) {
-                $email->setViewVars(['content' => $bodyHtml]);
+            // The bodies reach the message through view variables and the
+            // db_template views, which echo them unchanged.
+            //
+            // This used to end with $email->setHtml($bodyHtml) and
+            // $email->setText($bodyText). Cake\Mailer\Email has neither method,
+            // and no __call to absorb them, so every call raised
+            // "Call to undefined method" - an Error, which the catch below does
+            // not catch because Error is not an Exception. So no email built
+            // from the email_templates table has ever been sent, and the fatal
+            // took the request with it rather than being logged as a failure.
+            //
+            // Nothing else in the class was wrong: the template was found, the
+            // subject and bodies were rendered, and then it died on the line
+            // that was supposed to hand them over.
+            $email->setViewVars([
+                'content' => $bodyHtml,
+                'textContent' => $bodyText !== '' ? $bodyText : strip_tags($bodyHtml),
+            ]);
+            $email->viewBuilder()->setTemplate('db_template');
+
+            // An author who pastes a whole <html> document gets it sent as it
+            // is; anything shorter is a message, and the branded letterhead
+            // goes around it. EmailTemplatesTable::wrapsInLayout() asks the
+            // question, and the editor's preview asks it the same way, so what
+            // the editor shows is what goes out.
+            if (EmailTemplatesTable::wrapsInLayout($bodyHtml)) {
+                $email->viewBuilder()->setLayout('email_branded');
+            } else {
+                $email->viewBuilder()->disableAutoLayout();
             }
 
-            if (!empty($bodyText)) {
-                $email->setViewVars(['textContent' => $bodyText]);
-            }
-
-            // Set HTML and text content directly
-            $email->setHtml($bodyHtml);
-            if (!empty($bodyText)) {
-                $email->setText($bodyText);
-            }
-
-            $result = $email->send();
+            $email->send();
 
             // Log email
             $this->logEmail($templateKey, $to, $subject, $bodyHtml, 'sent');
 
             return true;
 
-        } catch (\Exception $e) {
+        } catch (\Throwable $e) {
+            // \Throwable, not \Exception. The undefined-method call above raised
+            // an Error, which is not an Exception, so it sailed straight past
+            // this catch and killed the request - and nothing was logged,
+            // because logging happens here. A missing template or a bad view
+            // variable raises an Error the same way.
             Log::error("Failed to send email: " . $e->getMessage());
             $this->logEmail($templateKey, $to, $subject ?? '', '', 'failed', $e->getMessage());
             return false;

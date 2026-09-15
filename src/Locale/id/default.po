@@ -13329,3 +13329,45 @@ msgstr "© {0} PT. ASAHI FAMILY INDONESIA. Seluruh hak cipta dilindungi."
 msgid "This is an automated email. Please do not reply directly to this message."
 msgstr "Email ini dikirim otomatis. Mohon tidak membalas pesan ini secara langsung."
 
+msgid "Template"
+msgstr "Templat"
+
+msgid "The key the application asks for. Changing it stops the template being found."
+msgstr "Kunci yang diminta aplikasi. Mengubahnya membuat templat ini tidak lagi ditemukan."
+
+msgid "Body (HTML)"
+msgstr "Isi (HTML)"
+
+msgid "Body (plain text)"
+msgstr "Isi (teks polos)"
+
+msgid "Sent to mail clients that prefer plain text. Left empty, the HTML body is sent with its tags stripped."
+msgstr "Dikirim ke klien email yang lebih memilih teks polos. Jika dikosongkan, isi HTML dikirim tanpa tag-nya."
+
+msgid "Names the application supplies, as JSON or separated by commas. The preview gives a value to every {{name}} it finds in the text, declared here or not."
+msgstr "Nama-nama yang disediakan aplikasi, dalam bentuk JSON atau dipisah koma. Pratinjau memberi nilai untuk setiap {{nama}} yang ditemukan dalam teks, baik terdaftar di sini maupun tidak."
+
+msgid "As it will arrive"
+msgstr "Tampilan saat diterima"
+
+msgid "Email preview"
+msgstr "Pratinjau email"
+
+msgid "Click a name to insert it at the cursor. Values shown are samples."
+msgstr "Klik sebuah nama untuk menyisipkannya di posisi kursor. Nilai yang tampil hanyalah contoh."
+
+msgid "with the standard letterhead"
+msgstr "dengan kop surat standar"
+
+msgid "sent as written - no letterhead"
+msgstr "dikirim apa adanya - tanpa kop surat"
+
+msgid "(no subject)"
+msgstr "(tanpa subjek)"
+
+msgid "Not supplied by the application, so it will arrive literally:"
+msgstr "Tidak disediakan aplikasi, jadi akan terkirim apa adanya:"
+
+msgid "New Email Template"
+msgstr "Templat Email Baru"
+
