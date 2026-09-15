@@ -27,8 +27,11 @@ $this->assign('title', 'Stakeholder Management Dashboard');
                     ['class' => 'btn btn-primary', 'escape' => false]
                 ) ?>
                 <?= $this->Html->link(
-                    '<i class="fas fa-question-circle"></i> Help',
-                    ['controller' => 'Help', 'action' => 'stakeholderManagement'],
+                    '<i class="fas fa-question-circle"></i> ' . __('Help'),
+                    // There is no Help controller. The guide this button wants
+                    // is VocationalTrainingInstitutions::help(), whose docblock
+                    // is literally "Stakeholder Management Guide".
+                    ['prefix' => false, 'controller' => 'VocationalTrainingInstitutions', 'action' => 'help'],
                     ['class' => 'btn btn-info', 'escape' => false]
                 ) ?>
             </div>
@@ -434,11 +437,26 @@ $this->assign('title', 'Stakeholder Management Dashboard');
                                             <small><?= $approval->submitted_at->timeAgoInWords() ?></small>
                                         </td>
                                         <td>
-                                            <?= $this->Html->link(
-                                                '<i class="fas fa-eye"></i>',
-                                                ['controller' => 'AdminApprovalQueue', 'action' => 'review', $approval->id],
-                                                ['class' => 'btn btn-sm btn-primary', 'escape' => false, 'title' => 'Review']
-                                            ) ?>
+                                            <?php
+                                            /**
+                                             * No Review button.
+                                             *
+                                             * It linked to AdminApprovalQueue::review(), and no
+                                             * AdminApprovalQueue controller exists under any prefix -
+                                             * only the table class does. There is no review screen to
+                                             * send anyone to, so the button went where nothing was;
+                                             * inventing a destination would be worse than admitting
+                                             * there isn't one.
+                                             *
+                                             * The row still carries what the queue knows: the approval
+                                             * type, the stakeholder and its id, and how long it has
+                                             * been waiting. Build the screen and this cell is where
+                                             * its link belongs.
+                                             */
+                                            ?>
+                                            <small class="text-muted">
+                                                <?= __('No review screen yet') ?>
+                                            </small>
                                         </td>
                                     </tr>
                                     <?php endforeach; ?>

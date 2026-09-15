@@ -111,10 +111,30 @@ foreach ($files as $path) {
     $lines = file($path);
     $default = defaultPrefix($root, $path);
     foreach ($lines as $n => $line) {
-        if (!preg_match("/'controller'\s*=>\s*'([A-Za-z][A-Za-z0-9_]*)'/", $line, $m)) {
+        // Two shapes, because one of them hid a bug for months.
+        //
+        //   'controller' => 'Users'                       a plain literal
+        //   'controller' => $x ? 'Lpk' : 'SpecialSkill'   chosen at runtime
+        //
+        // The second reads as no controller at all to a pattern that wants a
+        // quote straight after the arrow, so EmailServiceComponent's links to
+        // two controllers that have never existed sat in a clean report. Every
+        // quoted name on the line is taken instead: a branch is only worth
+        // writing if either side can be reached, so either side naming a
+        // missing controller is worth reporting.
+        // Only as far as the next comma: that ends the value and keeps the
+        // 'action' and 'prefix' keys that follow on the same line out of it.
+        // No controller expression in this codebase contains a comma.
+        if (!preg_match("/'controller'\s*=>\s*([^,]+)/", $line, $m)) {
             continue;
         }
-        $controller = $m[1];
+        // Capitalised names only. A ternary's test reads as a quoted string
+        // too - $type === 'lpk' ? 'Lpk' : 'SpecialSkill' - and 'lpk' there is a
+        // value being compared, not a controller being named.
+        if (!preg_match_all("/'([A-Z][A-Za-z0-9_]*)'/", $m[1], $names)) {
+            continue;
+        }
+        $candidates = array_unique($names[1]);
 
         // The prefix may sit on the same line or a neighbouring one, since
         // these arrays are routinely written across several lines.
@@ -131,31 +151,33 @@ foreach ($files as $path) {
             $prefix = $default;
         }
 
-        $file = controllerFile($root, $prefix, $controller);
-        $class = 'App\\Controller\\'
-            . ($prefix ? str_replace(' ', '', ucwords(str_replace('_', ' ', $prefix))) . '\\' : '')
-            . $controller . 'Controller';
-
         $rel = str_replace($root . '/', '', $path);
-        if (is_file($file)) {
-            $resolved++;
-            if ($showAll) {
-                printf("  ok   %s:%d  %s\n", $rel, $n + 1, $class);
-            }
-            continue;
-        }
+        foreach ($candidates as $controller) {
+            $file = controllerFile($root, $prefix, $controller);
+            $class = 'App\\Controller\\'
+                . ($prefix ? str_replace(' ', '', ucwords(str_replace('_', ' ', $prefix))) . '\\' : '')
+                . $controller . 'Controller';
 
-        // Say where it does exist, which is the fix nine times in ten.
-        $alt = [];
-        foreach ([null, 'admin'] as $try) {
-            if ($try === $prefix) {
+            if (is_file($file)) {
+                $resolved++;
+                if ($showAll) {
+                    printf("  ok   %s:%d  %s\n", $rel, $n + 1, $class);
+                }
                 continue;
             }
-            if (is_file(controllerFile($root, $try, $controller))) {
-                $alt[] = $try === null ? "'prefix' => false" : "'prefix' => '$try'";
+
+            // Say where it does exist, which is the fix nine times in ten.
+            $alt = [];
+            foreach ([null, 'admin'] as $try) {
+                if ($try === $prefix) {
+                    continue;
+                }
+                if (is_file(controllerFile($root, $try, $controller))) {
+                    $alt[] = $try === null ? "'prefix' => false" : "'prefix' => '$try'";
+                }
             }
+            $problems[] = [$rel, $n + 1, $class, $alt];
         }
-        $problems[] = [$rel, $n + 1, $class, $alt];
     }
 }
 

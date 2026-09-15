@@ -46,15 +46,19 @@ return [
      *
      * With this on, registering an address that already exists deletes the
      * earlier institution and its verification tokens first, then proceeds as
-     * if the address were new. It DELETES A REAL RECORD without asking, which
-     * is what you want on a demo box and never what you want once real
-     * institutions are in the table.
+     * if the address were new. It DELETES A REAL RECORD without asking.
      *
-     * On by default because this installation is a demo. Turn it off with
-     * LPK_REUSE_EMAIL=0 in the environment before going live.
+     * Off by default. It was on while the registration flow was being repaired,
+     * because testing it twice otherwise needed two real inboxes; now that
+     * Resend Verification Email exists on both LPK screens, a stuck
+     * registration can be pushed along without destroying anything, and the
+     * reason to keep a record-deleting switch armed is gone.
+     *
+     * Turn it on for one machine with LPK_REUSE_EMAIL=1 in the environment.
+     * Never on a machine holding real institutions.
      */
     'Lpk' => [
-        'reuseEmailForTesting' => filter_var(env('LPK_REUSE_EMAIL', true), FILTER_VALIDATE_BOOLEAN),
+        'reuseEmailForTesting' => filter_var(env('LPK_REUSE_EMAIL', false), FILTER_VALIDATE_BOOLEAN),
     ],
 
     /**

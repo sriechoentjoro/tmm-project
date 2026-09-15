@@ -13278,3 +13278,54 @@ msgstr "{0} を削除しますか？この機関には {1} 名の候補者が登
 msgid "Delete {0}? This cannot be undone."
 msgstr "{0} を削除しますか？この操作は取り消せません。"
 
+msgid "Help"
+msgstr "ヘルプ"
+
+msgid "No review screen yet"
+msgstr "確認画面は未実装です"
+
+msgid "TMM SYSTEM REGISTRATION - VERIFY YOUR EMAIL ADDRESS"
+msgstr "TMMシステム登録 - メールアドレスの確認"
+
+msgid "Dear {0},"
+msgstr "{0} 様"
+
+msgid "Congratulations! Your Vocational Training Institution \"{0}\" has been successfully registered in the TMM (Training and Manpower Management) System."
+msgstr "職業訓練機関「{0}」がTMM（人材育成管理）システムに登録されました。"
+
+msgid "To complete your registration and activate your account, please verify your email address by visiting the link below:"
+msgstr "登録を完了しアカウントを有効化するには、以下のリンクからメールアドレスをご確認ください:"
+
+msgid "REGISTRATION DETAILS"
+msgstr "登録内容"
+
+msgid "IMPORTANT"
+msgstr "重要"
+
+msgid "This verification link will expire in 24 HOURS. Please verify your email as soon as possible to avoid delays in account activation."
+msgstr "この確認リンクの有効期限は24時間です。アカウントの有効化が遅れないよう、お早めにご確認ください。"
+
+msgid "WHAT HAPPENS NEXT?"
+msgstr "次のステップ"
+
+msgid "After verifying your email, you will be directed to create a secure password for your account. Once completed, you will receive a welcome email with your login credentials and instructions on how to access the TMM system."
+msgstr "メールアドレスの確認後、アカウントのパスワード設定画面に進みます。設定が完了すると、ログイン情報とTMMシステムのご利用方法をご案内するメールをお送りします。"
+
+msgid "SECURITY NOTICE"
+msgstr "セキュリティに関するお知らせ"
+
+msgid "If you did not request this registration or believe this email was sent to you by mistake, please contact our support team immediately at:"
+msgstr "この登録に心当たりがない場合、または誤って送信されたと思われる場合は、至急サポートまでご連絡ください:"
+
+msgid "Phone:"
+msgstr "電話:"
+
+msgid "TMM - Training and Manpower Management System"
+msgstr "TMM - 人材育成管理システム"
+
+msgid "© {0} PT. ASAHI FAMILY INDONESIA. All rights reserved."
+msgstr "© {0} PT. ASAHI FAMILY INDONESIA. All rights reserved."
+
+msgid "This is an automated email. Please do not reply directly to this message."
+msgstr "このメールは自動送信です。このメッセージに直接返信しないでください。"
+

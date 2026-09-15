@@ -314,7 +314,7 @@
                                                         $displayValue = $candidateRecordInterviews->applicant_id;
                                                 }
                                                 ?>
-                                                <?= $this->Html->link(h($displayValue), ['controller' => 'Applicants', 'action' => 'view', $candidateRecordInterviews->applicant_id]) ?>
+                                                <?= h($displayValue) ?>
                                             <?php else: ?>
                                                 <?= $candidateRecordInterviews->has('candidate') ? $this->Html->link($candidateRecordInterviews->candidate->fullname, ['controller' => 'Candidates', 'action' => 'view', $candidateRecordInterviews->candidate->id]) : '' ?>
                                             <?php endif; ?>

@@ -13278,3 +13278,54 @@ msgstr "Hapus {0}? Ada {1} kandidat yang tercatat pada lembaga ini dan akan menj
 msgid "Delete {0}? This cannot be undone."
 msgstr "Hapus {0}? Tindakan ini tidak dapat dibatalkan."
 
+msgid "Help"
+msgstr "Bantuan"
+
+msgid "No review screen yet"
+msgstr "Belum ada halaman peninjauan"
+
+msgid "TMM SYSTEM REGISTRATION - VERIFY YOUR EMAIL ADDRESS"
+msgstr "PENDAFTARAN SISTEM TMM - VERIFIKASI ALAMAT EMAIL ANDA"
+
+msgid "Dear {0},"
+msgstr "Yth. {0},"
+
+msgid "Congratulations! Your Vocational Training Institution \"{0}\" has been successfully registered in the TMM (Training and Manpower Management) System."
+msgstr "Selamat! Lembaga Pelatihan Kerja Anda \"{0}\" telah berhasil didaftarkan dalam Sistem TMM (Training and Manpower Management)."
+
+msgid "To complete your registration and activate your account, please verify your email address by visiting the link below:"
+msgstr "Untuk menyelesaikan pendaftaran dan mengaktifkan akun Anda, silakan verifikasi alamat email Anda melalui tautan berikut:"
+
+msgid "REGISTRATION DETAILS"
+msgstr "RINCIAN PENDAFTARAN"
+
+msgid "IMPORTANT"
+msgstr "PENTING"
+
+msgid "This verification link will expire in 24 HOURS. Please verify your email as soon as possible to avoid delays in account activation."
+msgstr "Tautan verifikasi ini berlaku 24 JAM. Silakan verifikasi email Anda sesegera mungkin agar aktivasi akun tidak tertunda."
+
+msgid "WHAT HAPPENS NEXT?"
+msgstr "LANGKAH BERIKUTNYA"
+
+msgid "After verifying your email, you will be directed to create a secure password for your account. Once completed, you will receive a welcome email with your login credentials and instructions on how to access the TMM system."
+msgstr "Setelah memverifikasi email, Anda akan diarahkan untuk membuat kata sandi bagi akun Anda. Setelah selesai, Anda akan menerima email sambutan berisi informasi masuk dan petunjuk mengakses sistem TMM."
+
+msgid "SECURITY NOTICE"
+msgstr "PEMBERITAHUAN KEAMANAN"
+
+msgid "If you did not request this registration or believe this email was sent to you by mistake, please contact our support team immediately at:"
+msgstr "Jika Anda tidak meminta pendaftaran ini atau merasa email ini terkirim karena kekeliruan, segera hubungi tim dukungan kami di:"
+
+msgid "Phone:"
+msgstr "Telepon:"
+
+msgid "TMM - Training and Manpower Management System"
+msgstr "TMM - Sistem Training and Manpower Management"
+
+msgid "© {0} PT. ASAHI FAMILY INDONESIA. All rights reserved."
+msgstr "© {0} PT. ASAHI FAMILY INDONESIA. Seluruh hak cipta dilindungi."
+
+msgid "This is an automated email. Please do not reply directly to this message."
+msgstr "Email ini dikirim otomatis. Mohon tidak membalas pesan ini secara langsung."
+
