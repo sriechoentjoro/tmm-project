@@ -112,7 +112,13 @@ class EmailTemplatesTable extends Table
         return $this->find()
             ->where([
                 'template_key' => $templateKey,
-                'is_active' => true
+                // 1, not true. Where is_active is TINYINT(1) the driver
+                // reflects it as boolean and either binds; where it is a plain
+                // INT it reflects as integer, and IntegerType refuses a boolean
+                // outright - "Cannot convert value of type `boolean` to
+                // integer" - so the lookup throws and no email is ever found.
+                // An integer binds against both.
+                'is_active' => 1,
             ])
             ->first();
     }

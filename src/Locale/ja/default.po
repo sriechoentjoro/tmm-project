@@ -13371,3 +13371,81 @@ msgstr "アプリケーションが提供しないため、そのまま送信さ
 msgid "New Email Template"
 msgstr "新しいメールテンプレート"
 
+msgid "Shared with Institutions"
+msgstr "共有先の機関"
+
+msgid "Sharing is not installed on this server yet. Run:"
+msgstr "この機能はまだサーバーに導入されていません。次を実行してください:"
+
+msgid "Notified"
+msgstr "通知"
+
+msgid "Shared By"
+msgstr "共有者"
+
+msgid "When"
+msgstr "日時"
+
+msgid "Withdrawn"
+msgstr "取り下げ済み"
+
+msgid "Shared"
+msgstr "共有中"
+
+msgid "Email failed"
+msgstr "メール送信失敗"
+
+msgid "withdrawn {0}"
+msgstr "{0} に取り下げ"
+
+msgid "Withdraw"
+msgstr "取り下げる"
+
+msgid "Withdraw this order from {0}? They will be emailed."
+msgstr "このオーダーを {0} から取り下げますか？先方にメールが送信されます。"
+
+msgid "This order has not been shared with anyone yet."
+msgstr "このオーダーはまだどこにも共有されていません。"
+
+msgid "already has it"
+msgstr "共有済み"
+
+msgid "no email address"
+msgstr "メールアドレスなし"
+
+msgid "Share This Order"
+msgstr "このオーダーを共有"
+
+msgid "Each institution selected is emailed the order details. Withdrawing later emails them again."
+msgstr "選択した各機関にオーダーの詳細がメールで送られます。後で取り下げた場合も再度メールが送られます。"
+
+msgid "Apprentice order not found."
+msgstr "オーダーが見つかりません。"
+
+msgid "Choose at least one institution to share this order with."
+msgstr "共有先の機関を1つ以上選んでください。"
+
+msgid "Order shared with {0} institution(s)."
+msgstr "オーダーを {0} 機関に共有しました。"
+
+msgid "Could not notify: {0}"
+msgstr "通知できませんでした: {0}"
+
+msgid "That share could not be found."
+msgstr "その共有記録が見つかりません。"
+
+msgid "That share belongs to a different order."
+msgstr "その共有記録は別のオーダーのものです。"
+
+msgid "That share was already withdrawn."
+msgstr "その共有はすでに取り下げ済みです。"
+
+msgid "The share could not be withdrawn. Please, try again."
+msgstr "共有を取り下げられませんでした。もう一度お試しください。"
+
+msgid "Order withdrawn from {0}, and they have been told."
+msgstr "{0} からオーダーを取り下げ、先方に通知しました。"
+
+msgid "Order withdrawn from {0}, but the email could not be sent."
+msgstr "{0} からオーダーを取り下げましたが、メールを送信できませんでした。"
+

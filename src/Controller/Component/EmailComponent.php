@@ -139,11 +139,23 @@ class EmailComponent extends Component
                 'body' => $body,
                 'status' => $status,
                 'error_message' => $errorMessage,
-                'sent_at' => $status === 'sent' ? new \DateTime() : null,
+                // Formatted, not handed over as a DateTime. Where sent_at is a
+                // real DATETIME either works; where it is a text column the
+                // string marshaller cannot convert the object and raises
+                // "Object of class DateTime could not be converted to string".
+                'sent_at' => $status === 'sent' ? date('Y-m-d H:i:s') : null,
             ]);
 
             $EmailLogs->save($log);
-        } catch (\Exception $e) {
+        } catch (\Throwable $e) {
+            // \Throwable, and swallowed here on purpose.
+            //
+            // This runs after the message has already gone. An Error escaping
+            // it reaches sendTemplate()'s catch, which reports the send as
+            // failed - so a delivered email was recorded as undelivered, and
+            // the caller marked the recipient as not notified, because writing
+            // a log row went wrong. Failing to log is worth a line in the log;
+            // it is not worth contradicting what actually happened.
             Log::error("Failed to log email: " . $e->getMessage());
         }
     }

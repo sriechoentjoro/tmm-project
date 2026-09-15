@@ -13371,3 +13371,81 @@ msgstr "Tidak disediakan aplikasi, jadi akan terkirim apa adanya:"
 msgid "New Email Template"
 msgstr "Templat Email Baru"
 
+msgid "Shared with Institutions"
+msgstr "Dibagikan ke Lembaga"
+
+msgid "Sharing is not installed on this server yet. Run:"
+msgstr "Fitur berbagi belum terpasang di server ini. Jalankan:"
+
+msgid "Notified"
+msgstr "Diberi Tahu"
+
+msgid "Shared By"
+msgstr "Dibagikan Oleh"
+
+msgid "When"
+msgstr "Waktu"
+
+msgid "Withdrawn"
+msgstr "Ditarik"
+
+msgid "Shared"
+msgstr "Dibagikan"
+
+msgid "Email failed"
+msgstr "Email gagal"
+
+msgid "withdrawn {0}"
+msgstr "ditarik {0}"
+
+msgid "Withdraw"
+msgstr "Tarik"
+
+msgid "Withdraw this order from {0}? They will be emailed."
+msgstr "Tarik order ini dari {0}? Mereka akan dikirimi email."
+
+msgid "This order has not been shared with anyone yet."
+msgstr "Order ini belum dibagikan ke siapa pun."
+
+msgid "already has it"
+msgstr "sudah menerimanya"
+
+msgid "no email address"
+msgstr "tidak punya alamat email"
+
+msgid "Share This Order"
+msgstr "Bagikan Order Ini"
+
+msgid "Each institution selected is emailed the order details. Withdrawing later emails them again."
+msgstr "Setiap lembaga yang dipilih akan dikirimi rincian order lewat email. Menariknya kembali juga mengirim email lagi."
+
+msgid "Apprentice order not found."
+msgstr "Order pemagangan tidak ditemukan."
+
+msgid "Choose at least one institution to share this order with."
+msgstr "Pilih setidaknya satu lembaga untuk menerima order ini."
+
+msgid "Order shared with {0} institution(s)."
+msgstr "Order dibagikan ke {0} lembaga."
+
+msgid "Could not notify: {0}"
+msgstr "Tidak dapat memberi tahu: {0}"
+
+msgid "That share could not be found."
+msgstr "Data pembagian itu tidak ditemukan."
+
+msgid "That share belongs to a different order."
+msgstr "Data pembagian itu milik order yang berbeda."
+
+msgid "That share was already withdrawn."
+msgstr "Pembagian itu sudah ditarik sebelumnya."
+
+msgid "The share could not be withdrawn. Please, try again."
+msgstr "Pembagian tidak dapat ditarik. Silakan coba lagi."
+
+msgid "Order withdrawn from {0}, and they have been told."
+msgstr "Order ditarik dari {0}, dan mereka sudah diberi tahu."
+
+msgid "Order withdrawn from {0}, but the email could not be sent."
+msgstr "Order ditarik dari {0}, tetapi emailnya tidak dapat dikirim."
+
