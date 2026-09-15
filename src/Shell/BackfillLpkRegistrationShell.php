@@ -172,7 +172,12 @@ class BackfillLpkRegistrationShell extends Shell
                 ->select(['stakeholder_id', 'created'])
                 ->where([
                     'activity_type' => 'activation',
-                    'stakeholder_type' => 'vocational_training',
+                    // 'lpk' is the value the log accepts and the other
+                    // stakeholder tables use. The LPK controller passed
+                    // 'vocational_training' until recently, which the validator
+                    // rejected - so no row should carry it. Both are matched in
+                    // case an installation has some from before the validator.
+                    'stakeholder_type IN' => ['lpk', 'vocational_training'],
                 ])
                 ->order(['created' => 'ASC'])
                 ->all();

@@ -209,6 +209,30 @@ class StakeholderActivitiesTable extends Table
             'additional_data' => !empty($additionalData) ? json_encode($additionalData) : null
         ]);
 
-        return (bool)$this->save($activity);
+        if ($this->save($activity)) {
+            return true;
+        }
+
+        // Say something when the entry is refused.
+        //
+        // Every caller ignores this return value, so a rejected entry used to
+        // vanish without a trace: the LPK flow passed 'vocational_training' as
+        // the stakeholder_type, which is not in the list this table accepts,
+        // and its whole audit trail - registration, verification, activation -
+        // was silently discarded. The callers were wrong, and are fixed; what
+        // made it cost weeks instead of minutes was that nothing anywhere said
+        // no.
+        \Cake\Log\Log::warning(
+            sprintf(
+                'Activity not logged (%s/%s #%s): %s',
+                $activityType,
+                $stakeholderType,
+                $stakeholderId,
+                json_encode($activity->getErrors())
+            ),
+            ['scope' => 'stakeholder_activity']
+        );
+
+        return false;
     }
 }

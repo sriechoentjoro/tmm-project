@@ -145,7 +145,7 @@ class LpkRegistrationController extends AppController
                             $this->loadModel('StakeholderActivities');
                             $this->StakeholderActivities->logActivity(
                                 'registration',
-                                'vocational_training',
+                                'lpk',
                                 $institution->id,
                                 'LPK registered: ' . $institution->name . ' (Status: pending_verification)',
                                 ['email' => $institution->email],
@@ -326,7 +326,7 @@ class LpkRegistrationController extends AppController
             $this->loadModel('StakeholderActivities');
             $this->StakeholderActivities->logActivity(
                 'verification',
-                'vocational_training',
+                'lpk',
                 $institution->id,
                 'Email verified: ' . $institution->email,
                 ['token_used' => substr($token, 0, 10) . '...'],
@@ -488,7 +488,7 @@ class LpkRegistrationController extends AppController
                     $this->loadModel('StakeholderActivities');
                     $this->StakeholderActivities->logActivity(
                         'activation',
-                        'vocational_training',
+                        'lpk',
                         $institution->id,
                         'Account activated: ' . $institution->name . ' (Username: ' . $user->username . ')',
                         ['username' => $user->username],
