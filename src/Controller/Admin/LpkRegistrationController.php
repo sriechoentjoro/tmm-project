@@ -2,6 +2,7 @@
 namespace App\Controller\Admin;
 
 use App\Controller\AppController;
+use Cake\Core\Configure;
 use Cake\Event\Event;
 use Cake\I18n\Time;
 use Cake\Log\Log;
@@ -85,6 +86,14 @@ class LpkRegistrationController extends AppController
             // rewrites the request data with the stored path, so re-read after.
             $this->uploadFile('VocationalTrainingInstitutions', 'mou_file', 'vocationaltraininginstitutions');
             $data = $this->request->getData();
+
+            // Clear the way for an address that has been registered before,
+            // where the installation allows it. Must happen before newEntity(),
+            // because the unique-email rule is checked against what is in the
+            // table at save() time.
+            if (!empty($data['email'])) {
+                $this->_freeEmailForRetest($data['email']);
+            }
 
             $institution = $this->VocationalTrainingInstitutions->newEntity($data);
 
@@ -537,6 +546,93 @@ class LpkRegistrationController extends AppController
         }
         
         return $this->redirect($this->referer());
+    }
+
+    /**
+     * Make an email address registrable again, where the installation allows it.
+     *
+     * vocational_training_institutions.email is unique, so an address that has
+     * been through the flow once is spent: register -> verify -> set password
+     * can be rehearsed exactly once per mailbox, and the second attempt fails
+     * on the unique rule with no way forward but the database. That is no way
+     * to test a three-step flow.
+     *
+     * With Lpk.reuseEmailForTesting on, the earlier institution and its
+     * verification tokens are removed first and registration proceeds as if
+     * the address were new.
+     *
+     * The users row is deliberately left alone. setPassword() looks the account
+     * up by email and updates it rather than creating a second one, so keeping
+     * it is what lets the same login work again after a retest - and deleting
+     * it could take out an account someone is actually using.
+     *
+     * Off means off: with LPK_REUSE_EMAIL=0 this does nothing at all and a
+     * duplicate address fails the unique rule exactly as before.
+     *
+     * @param string $email The address being registered.
+     * @return void
+     */
+    protected function _freeEmailForRetest($email)
+    {
+        if (!Configure::read('Lpk.reuseEmailForTesting')) {
+            return;
+        }
+
+        $this->loadModel('VocationalTrainingInstitutions');
+        $this->loadModel('EmailVerificationTokens');
+
+        $existing = $this->VocationalTrainingInstitutions->find()
+            ->where(['email' => $email])
+            ->first();
+
+        if (!$existing) {
+            return;
+        }
+
+        // A foreign key pointing at this row would make the delete throw, and an
+        // uncaught throw here would lose the whole registration to a blank 500.
+        // Report it and fall through instead: the save below then fails on the
+        // unique-email rule, which is the honest outcome.
+        try {
+            $deleted = $this->VocationalTrainingInstitutions->delete($existing);
+        } catch (\Throwable $e) {
+            $this->Flash->error(__(
+                'Could not clear the earlier registration for {0}: {1}',
+                $email,
+                $e->getMessage()
+            ));
+            Log::error(
+                "Lpk.reuseEmailForTesting: could not delete institution {$existing->id}: " . $e->getMessage(),
+                ['scope' => 'lpk_registration']
+            );
+
+            return;
+        }
+
+        if (!$deleted) {
+            $this->Flash->error(__('Could not clear the earlier registration for {0}.', $email));
+            Log::error(
+                "Lpk.reuseEmailForTesting: delete() returned false for institution {$existing->id}",
+                ['scope' => 'lpk_registration']
+            );
+
+            return;
+        }
+
+        $this->EmailVerificationTokens->deleteAll(['user_email' => $email]);
+
+        // Said out loud in both places: the admin sees that a record vanished,
+        // and the log keeps what it was, since nothing else records this.
+        $this->Flash->warning(__(
+            'Testing mode: the earlier registration for {0} ({1}) was deleted so the address could be reused.',
+            $email,
+            $existing->name
+        ));
+        Log::warning(
+            "Lpk.reuseEmailForTesting: deleted institution {$existing->id} ({$existing->name}) "
+            . "and the verification tokens for $email",
+            ['scope' => 'lpk_registration']
+        );
     }
 
     /**

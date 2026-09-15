@@ -13239,3 +13239,18 @@ msgstr "リクエストされたアドレス:"
 msgid "Back to the dashboard"
 msgstr "ダッシュボードに戻る"
 
+msgid "Could not clear the earlier registration for {0}."
+msgstr "{0} の以前の登録を削除できませんでした。"
+
+msgid "Could not clear the earlier registration for {0}: {1}"
+msgstr "{0} の以前の登録を削除できませんでした: {1}"
+
+msgid "Testing mode: the earlier registration for {0} ({1}) was deleted so the address could be reused."
+msgstr "テストモード: アドレスを再利用できるよう、{0}（{1}）の以前の登録を削除しました。"
+
+msgid "Institution saved! Registration email sent to {0}"
+msgstr "機関を保存しました。登録メールを {0} に送信しました"
+
+msgid "Institution saved! Registration token: {0}. Use this URL: {1}"
+msgstr "機関を保存しました。登録トークン: {0}。次のURLをご利用ください: {1}"
+

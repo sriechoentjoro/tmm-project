@@ -34,6 +34,30 @@ return [
     'debug' => filter_var(env('DEBUG', false), FILTER_VALIDATE_BOOLEAN),
 
     /**
+     * LPK registration, testing switches.
+     *
+     * reuseEmailForTesting - let an address be registered again.
+     *
+     * vocational_training_institutions.email is unique, so an address that has
+     * been through the flow once can never be used again. That makes
+     * register -> verify -> set password a one-shot per mailbox and impossible
+     * to rehearse: testing it twice needs two real inboxes, or a trip into the
+     * database between runs.
+     *
+     * With this on, registering an address that already exists deletes the
+     * earlier institution and its verification tokens first, then proceeds as
+     * if the address were new. It DELETES A REAL RECORD without asking, which
+     * is what you want on a demo box and never what you want once real
+     * institutions are in the table.
+     *
+     * On by default because this installation is a demo. Turn it off with
+     * LPK_REUSE_EMAIL=0 in the environment before going live.
+     */
+    'Lpk' => [
+        'reuseEmailForTesting' => filter_var(env('LPK_REUSE_EMAIL', true), FILTER_VALIDATE_BOOLEAN),
+    ],
+
+    /**
      * Configure basic information about the application.
      */
     'App' => [

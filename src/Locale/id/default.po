@@ -13239,3 +13239,18 @@ msgstr "Alamat yang diminta:"
 msgid "Back to the dashboard"
 msgstr "Kembali ke dasbor"
 
+msgid "Could not clear the earlier registration for {0}."
+msgstr "Tidak dapat menghapus pendaftaran sebelumnya untuk {0}."
+
+msgid "Could not clear the earlier registration for {0}: {1}"
+msgstr "Tidak dapat menghapus pendaftaran sebelumnya untuk {0}: {1}"
+
+msgid "Testing mode: the earlier registration for {0} ({1}) was deleted so the address could be reused."
+msgstr "Mode pengujian: pendaftaran sebelumnya untuk {0} ({1}) dihapus agar alamat email dapat dipakai lagi."
+
+msgid "Institution saved! Registration email sent to {0}"
+msgstr "Lembaga berhasil disimpan! Email pendaftaran dikirim ke {0}"
+
+msgid "Institution saved! Registration token: {0}. Use this URL: {1}"
+msgstr "Lembaga berhasil disimpan! Token pendaftaran: {0}. Gunakan URL ini: {1}"
+
