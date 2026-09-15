@@ -115,6 +115,46 @@ class VocationalTrainingInstitutionsController extends AppController
         ]);
 
         $this->set('vocationalTrainingInstitution', $vocationalTrainingInstitution);
+        $this->set('credentialAudience', $this->_credentialAudience());
+    }
+
+    /**
+     * Whose login name the signed-in user is allowed to see.
+     *
+     * The login name is a credential: half of what is needed to sign in as the
+     * institution. It belongs to an administrator, who has to support the
+     * account, and to the institution itself, which has to use it - and to
+     * nobody else on the staff, however many other columns of the record they
+     * can read.
+     *
+     *   true          an administrator: every institution's
+     *   (int) id      an LPK account: its own, and only its own
+     *   null          everyone else, including anyone not signed in
+     *
+     * An LPK is recognised by the institution its user account is attached to,
+     * which setPassword() writes when the account is activated.
+     *
+     * @return true|int|null
+     */
+    protected function _credentialAudience()
+    {
+        $user = $this->Auth->user();
+        if (empty($user)) {
+            return null;
+        }
+
+        if (in_array('administrator', (array)$this->Auth->user('role_names'), true)) {
+            return true;
+        }
+
+        if (!empty($user['institution_id'])
+            && isset($user['institution_type'])
+            && $user['institution_type'] === 'vocational_training'
+        ) {
+            return (int)$user['institution_id'];
+        }
+
+        return null;
     }
 
     /**
@@ -323,7 +363,10 @@ class VocationalTrainingInstitutionsController extends AppController
     public function verify()
     {
         $this->paginate = [
-            'fields' => ['id', 'name', 'status', 'is_registered', 'registered_at', 'email'],
+            // username is selected for the login-name column, which the
+            // template shows only to an administrator or to the institution
+            // itself - see _credentialAudience().
+            'fields' => ['id', 'name', 'status', 'is_registered', 'registered_at', 'email', 'username'],
             'order' => ['VocationalTrainingInstitutions.registered_at' => 'DESC'],
             'limit' => 20,
         ];
@@ -350,6 +393,7 @@ class VocationalTrainingInstitutionsController extends AppController
         }
 
         $this->set(compact('institutions', 'vstats', 'candidateCounts'));
+        $this->set('credentialAudience', $this->_credentialAudience());
     }
 
     /**

@@ -129,6 +129,11 @@ class LpkRegistrationController extends AppController
                                 'institutionName' => $institution->name,
                                 'registrationNumber' => $institution->abbreviation,
                                 'email' => $institution->email,
+                                // The login name waiting behind the link. The
+                                // mail goes to the institution's own address,
+                                // so this is the one place it can be handed
+                                // over before the account exists.
+                                'username' => $institution->username,
                                 'registeredByAdmin' => $this->Auth->user('fullname'),
                                 'registrationDate' => ($institution->created ?: Time::now())->format('d F Y, H:i'),
                                 'verificationUrl' => $verificationUrl
@@ -411,9 +416,14 @@ class LpkRegistrationController extends AppController
                     ->first();
                 
                 if (!$user) {
-                    // Create new user
-                    $username = $this->_generateUsername($institution->name);
-                    
+                    // The login name the admin typed on the registration form,
+                    // which the form promises is "the login name this LPK will
+                    // use once it sets a password". It was collected, stored and
+                    // then ignored here: the account was named after the
+                    // institution instead, so the promise was not kept and the
+                    // value shown on the record was not the one that worked.
+                    $username = $this->_loginUsernameFor($institution);
+
                     $user = $this->Users->newEntity([
                         'username' => $username,
                         'email' => $institution->email,
@@ -529,6 +539,7 @@ class LpkRegistrationController extends AppController
                     'institutionName' => $institution->name,
                     'registrationNumber' => $institution->abbreviation,
                     'email' => $institution->email,
+                    'username' => $institution->username,
                     'registeredByAdmin' => $this->Auth->user('fullname'),
                     'registrationDate' => ($institution->created ?: Time::now())->format('d F Y, H:i'),
                     'verificationUrl' => $verificationUrl
@@ -633,6 +644,47 @@ class LpkRegistrationController extends AppController
             . "and the verification tokens for $email",
             ['scope' => 'lpk_registration']
         );
+    }
+
+    /**
+     * The login name to give an institution's user account.
+     *
+     * The registration form asks for one and calls it "the login name this LPK
+     * will use once it sets a password", and the institutions table keeps it
+     * unique. So that is the name to use, and the one the record and the
+     * verification email can honestly show.
+     *
+     * It is still checked against the users table before being taken. That
+     * table holds staff accounts too, and its own unique index would reject a
+     * clash at save() time with nothing but a validation error for the
+     * institution to read. A clash is unlikely and worth a log line when it
+     * happens; falling back to a name derived from the institution keeps
+     * activation working rather than dead-ending it.
+     *
+     * @param \Cake\Datasource\EntityInterface $institution The institution.
+     * @return string Username
+     */
+    protected function _loginUsernameFor($institution)
+    {
+        $wanted = trim((string)$institution->username);
+        if ($wanted === '') {
+            return $this->_generateUsername($institution->name);
+        }
+
+        $this->loadModel('Users');
+        $taken = $this->Users->find()->where(['username' => $wanted])->first();
+        if (!$taken) {
+            return $wanted;
+        }
+
+        $fallback = $this->_generateUsername($institution->name);
+        Log::warning(
+            "Username '$wanted' requested for institution {$institution->id} is already held by "
+            . "user {$taken->id}; using '$fallback' instead",
+            ['scope' => 'lpk_registration']
+        );
+
+        return $fallback;
     }
 
     /**

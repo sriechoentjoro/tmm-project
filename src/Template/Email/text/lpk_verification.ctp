@@ -24,6 +24,10 @@ Registration Number:   <?= h($registrationNumber) ?>
 
 Email Address:         <?= h($email) ?>
 
+<?php if (!empty($username)): ?>
+Login Username:        <?= h($username) ?>
+
+<?php endif; ?>
 Director Name:         <?= h($directorName) ?>
 
 Registered By:         <?= h($registeredByAdmin) ?>

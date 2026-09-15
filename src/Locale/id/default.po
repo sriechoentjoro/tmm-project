@@ -13254,3 +13254,21 @@ msgstr "Lembaga berhasil disimpan! Email pendaftaran dikirim ke {0}"
 msgid "Institution saved! Registration token: {0}. Use this URL: {1}"
 msgstr "Lembaga berhasil disimpan! Token pendaftaran: {0}. Gunakan URL ini: {1}"
 
+msgid "Login Username:"
+msgstr "Nama Pengguna:"
+
+msgid "Visible only to an administrator and to the institution itself"
+msgstr "Hanya terlihat oleh administrator dan oleh lembaga itu sendiri"
+
+msgid "Login Username"
+msgstr "Nama Pengguna"
+
+msgid "Not set"
+msgstr "Belum diisi"
+
+msgid "Sign-in Details"
+msgstr "Informasi Masuk"
+
+msgid "Visible only to an administrator and to this institution. The password is never shown - it is stored hashed and cannot be read back."
+msgstr "Hanya terlihat oleh administrator dan oleh lembaga ini. Kata sandi tidak pernah ditampilkan - disimpan dalam bentuk hash dan tidak dapat dibaca kembali."
+

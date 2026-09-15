@@ -242,6 +242,58 @@
                 
                     }
                 }</style>
+                <?php
+                /**
+                 * Sign-in details, for the people entitled to them.
+                 *
+                 * $credentialAudience comes from the controller: true for an
+                 * administrator, this institution's own id for an LPK account,
+                 * null for everyone else. Read the two cases apart rather than
+                 * loosely, so an id of 0 or a stray string can never pass for
+                 * an administrator.
+                 */
+                $maySeeCredentials = isset($credentialAudience)
+                    && ($credentialAudience === true
+                        || $credentialAudience === (int)$vocationalTrainingInstitution->id);
+                ?>
+                <?php if ($maySeeCredentials): ?>
+                <div class="github-details-card">
+                    <div class="github-details-header">
+                        <h3 class="github-details-title">
+                            <svg class="octicon" width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                                <path d="M4 4a4 4 0 0 1 8 0v2h.25c.966 0 1.75.784 1.75 1.75v5.5A1.75 1.75 0 0 1 12.25 15h-8.5A1.75 1.75 0 0 1 2 13.25v-5.5C2 6.784 2.784 6 3.75 6H4V4Zm1.5 2h5V4a2.5 2.5 0 0 0-5 0v2Z"></path>
+                            </svg>
+                            <?= __('Sign-in Details') ?>
+                        </h3>
+                    </div>
+
+                    <div class="github-details-body">
+                        <table class="github-details-table">
+                            <tbody>
+                                <tr>
+                                    <th class="github-detail-label"><?= __('Login Username') ?></th>
+                                    <td class="github-detail-value">
+                                        <?php if (trim((string)$vocationalTrainingInstitution->username) !== ''): ?>
+                                            <code><?= h($vocationalTrainingInstitution->username) ?></code>
+                                        <?php else: ?>
+                                            <span class="text-muted"><?= __('Not set') ?></span>
+                                        <?php endif; ?>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th class="github-detail-label"><?= __('Email Address') ?></th>
+                                    <td class="github-detail-value"><?= h($vocationalTrainingInstitution->email) ?></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <p class="text-muted" style="margin: 12px 0 0; font-size: 13px;">
+                            <i class="fas fa-lock"></i>
+                            <?= __('Visible only to an administrator and to this institution. The password is never shown - it is stored hashed and cannot be read back.') ?>
+                        </p>
+                    </div>
+                </div>
+                <?php endif; ?>
+
                 <div class="github-details-card">
                     <div class="github-details-header">
                         <h3 class="github-details-title">

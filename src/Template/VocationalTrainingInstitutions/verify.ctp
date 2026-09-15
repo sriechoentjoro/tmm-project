@@ -37,6 +37,19 @@
            style="max-width:340px;padding:8px 12px;border-radius:8px;border:1px solid #ced4da">
 </div>
 
+<?php
+/**
+ * The login-name column.
+ *
+ * $credentialAudience comes from the controller: true for an administrator,
+ * an LPK account's own institution id, null for everyone else. The column is
+ * drawn only when the viewer may see at least one of them, and each cell is
+ * then decided again row by row - an LPK sees its own name and a dash against
+ * everybody else's.
+ */
+$showCredentialColumn = isset($credentialAudience) && $credentialAudience !== null;
+$columnCount = $showCredentialColumn ? 9 : 8;
+?>
 <div class="table-scroll-wrapper" style="overflow-x:auto">
     <table class="table vf-table" style="border-collapse:collapse;width:100%" id="vfTable">
         <thead>
@@ -49,6 +62,12 @@
                 <th style="text-align:center"><?= __('Registered') ?></th>
                 <th><?= __('Registered At') ?></th>
                 <th><?= __('Email') ?></th>
+                <?php if ($showCredentialColumn): ?>
+                <th title="<?= h(__('Visible only to an administrator and to the institution itself')) ?>">
+                    <i class="fas fa-lock" style="font-size:11px;color:#6c757d"></i>
+                    <?= __('Login Username') ?>
+                </th>
+                <?php endif; ?>
             </tr>
         </thead>
         <tbody>
@@ -70,10 +89,23 @@
                 <td style="text-align:center"><?= $row['is_registered'] ? '<span class="reg-badge" style="background:#d4edda;color:#155724">✔ ' . __('Yes') . '</span>' : '<span class="reg-badge" style="background:#f8d7da;color:#721c24">✘ ' . __('No') . '</span>' ?></td>
                 <td style="color:#6c757d;font-size:13px"><?= h($row['registered_at']) ?></td>
                 <td style="font-size:13px"><?= h($row['email']) ?></td>
+                <?php if ($showCredentialColumn): ?>
+                <td style="font-size:13px">
+                    <?php if ($credentialAudience === true || $credentialAudience === (int)$row['id']): ?>
+                        <?php if (trim((string)$row['username']) !== ''): ?>
+                            <code><?= h($row['username']) ?></code>
+                        <?php else: ?>
+                            <span style="color:#c3ccd6"><?= __('Not set') ?></span>
+                        <?php endif; ?>
+                    <?php else: ?>
+                        <span style="color:#c3ccd6">—</span>
+                    <?php endif; ?>
+                </td>
+                <?php endif; ?>
             </tr>
             <?php endforeach; ?>
             <?php if (iterator_count($institutions) === 0): ?>
-            <tr><td colspan="8" style="text-align:center;padding:30px;color:#6c757d"><?= __('No institutions found.') ?></td></tr>
+            <tr><td colspan="<?= $columnCount ?>" style="text-align:center;padding:30px;color:#6c757d"><?= __('No institutions found.') ?></td></tr>
             <?php endif; ?>
         </tbody>
     </table>
