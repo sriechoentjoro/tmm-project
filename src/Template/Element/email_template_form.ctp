@@ -99,30 +99,69 @@
     <div class="et-panel">
         <header><?= __('Template') ?></header>
         <div class="et-body">
+            <?php
+            /**
+             * Every control says its own type and size.
+             *
+             * Both matter. FormHelper picks the control from the column type,
+             * so a template_key declared TEXT rather than VARCHAR silently
+             * becomes a five-row textarea for a one-word key - which is what
+             * happened on a test schema and would happen on any install whose
+             * columns drifted. And rows= gives each box a usable height even
+             * where the stylesheet below never loads.
+             *
+             * There is no 'help' option in this version of FormHelper: unknown
+             * options are passed through as HTML attributes, so the first
+             * version of this form emitted help="..." inside the tags and
+             * showed the reader nothing. The notes are written out by hand.
+             */
+            ?>
             <?= $this->Form->create($emailTemplate) ?>
             <?= $this->Form->control('template_key', [
+                'type' => 'text',
                 'label' => __('Template Key'),
-                'help' => __('The key the application asks for. Changing it stops the template being found.'),
             ]) ?>
-            <?= $this->Form->control('subject', ['label' => __('Subject'), 'id' => 'subject']) ?>
+            <small class="et-note"><?= __('The key the application asks for. Changing it stops the template being found.') ?></small>
+
+            <?= $this->Form->control('subject', [
+                'type' => 'text',
+                'label' => __('Subject'),
+                'id' => 'subject',
+            ]) ?>
+
             <?= $this->Form->control('body_html', [
                 'type' => 'textarea',
                 'label' => __('Body (HTML)'),
                 'id' => 'body-html',
+                'rows' => 18,
             ]) ?>
+
             <?= $this->Form->control('body_text', [
                 'type' => 'textarea',
                 'label' => __('Body (plain text)'),
                 'id' => 'body-text',
-                'help' => __('Sent to mail clients that prefer plain text. Left empty, the HTML body is sent with its tags stripped.'),
+                'rows' => 8,
             ]) ?>
+            <small class="et-note"><?= __('Sent to mail clients that prefer plain text. Left empty, the HTML body is sent with its tags stripped.') ?></small>
+
             <?= $this->Form->control('variables', [
+                'type' => 'textarea',
                 'label' => __('Variables'),
                 'id' => 'variables',
-                'help' => __('Names the application supplies, as JSON or separated by commas. The preview gives a value to every {{name}} it finds in the text, declared here or not.'),
+                'rows' => 3,
             ]) ?>
-            <?= $this->Form->control('description', ['label' => __('Description')]) ?>
-            <?= $this->Form->control('is_active', ['label' => __('Active')]) ?>
+            <small class="et-note"><?= __('Names the application supplies, as JSON or separated by commas. The preview gives a value to every {{name}} it finds in the text, declared here or not.') ?></small>
+
+            <?= $this->Form->control('description', [
+                'type' => 'text',
+                'label' => __('Description'),
+            ]) ?>
+            <?php
+            // Explicit for the same reason as the rest: is_active is a flag,
+            // and a column declared INTEGER rather than TINYINT(1) turns it
+            // into a number spinner asking the admin to type 1.
+            ?>
+            <?= $this->Form->control('is_active', ['type' => 'checkbox', 'label' => __('Active')]) ?>
 
             <div style="margin-top: 14px; display: flex; gap: 8px;">
                 <?= $this->Form->button(__('Save'), ['class' => 'btn btn-primary']) ?>
@@ -153,11 +192,21 @@
 (function () {
     'use strict';
 
-    // Handed over as JSON rather than interpolated into the script: a template
-    // body is arbitrary HTML written by an admin, and it contains </script> as
-    // readily as anything else.
-    var CHROME = <?= json_encode($previewChrome, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) ?>;
-    var DATA = <?= json_encode($previewData, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) ?>;
+    // JSON_HEX_TAG, and no closing script tag written literally anywhere in
+    // this block - including in a comment.
+    //
+    // The first version of this file explained, in a comment here, that a
+    // template body can contain a closing script tag as readily as anything
+    // else. The comment spelled that tag out, and the HTML parser did what it
+    // is supposed to do: it ended the script element mid-sentence. The rest of
+    // the JavaScript rendered as text on the page and the email letterhead
+    // rendered as markup below it.
+    //
+    // JSON_HEX_TAG turns every angle bracket into a unicode escape, so no
+    // amount of markup in the letterhead or in an admin's body can end this
+    // element either.
+    var CHROME = <?= json_encode($previewChrome, JSON_HEX_TAG | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) ?>;
+    var DATA = <?= json_encode($previewData, JSON_HEX_TAG | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) ?>;
 
     var subject = document.getElementById('subject');
     var bodyHtml = document.getElementById('body-html');
@@ -193,11 +242,11 @@
         frame.srcdoc = wrap ? (CHROME.before + filled + CHROME.after) : filled;
 
         chromeState.textContent = wrap
-            ? <?= json_encode(__('with the standard letterhead')) ?>
-            : <?= json_encode(__('sent as written - no letterhead')) ?>;
+            ? <?= json_encode(__('with the standard letterhead'), JSON_HEX_TAG) ?>
+            : <?= json_encode(__('sent as written - no letterhead'), JSON_HEX_TAG) ?>;
 
         if (subjectOut && subject) {
-            subjectOut.textContent = fill(subject.value) || <?= json_encode(__('(no subject)')) ?>;
+            subjectOut.textContent = fill(subject.value) || <?= json_encode(__('(no subject)'), JSON_HEX_TAG) ?>;
         }
 
         // A name in the text that the application never supplies arrives at the
@@ -215,7 +264,7 @@
             }
         }
         if (unknown.length) {
-            warn.textContent = <?= json_encode(__('Not supplied by the application, so it will arrive literally:')) ?>
+            warn.textContent = <?= json_encode(__('Not supplied by the application, so it will arrive literally:'), JSON_HEX_TAG) ?>
                 + ' ' + unknown.join(', ');
             warn.hidden = false;
         } else {
