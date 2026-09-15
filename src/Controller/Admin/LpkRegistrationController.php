@@ -447,8 +447,24 @@ class LpkRegistrationController extends AppController
                 if ($this->Users->save($user)) {
                     // Update institution status
                     $institution->status = 'active';
+
+                    // ...and record that registration is finished, which this
+                    // flow never did.
+                    //
+                    // There are two registration flows in this application and
+                    // they were keeping score in different columns. The older
+                    // one (InstitutionRegistration::complete) calls
+                    // completeRegistration(), which sets is_registered and
+                    // registered_at; this one only ever moved 'status'. Every
+                    // counter and badge that asks "is it registered?" reads
+                    // is_registered - so an LPK that finished here showed
+                    // Status: Active and Registered: No on the same row, and
+                    // stayed in the verify page's Pending count for good, with
+                    // nothing an admin could press to change it.
+                    $institution->completeRegistration();
+
                     $this->VocationalTrainingInstitutions->save($institution);
-                    
+
                     // Send welcome email
                     $this->loadComponent('EmailService');
                     $this->EmailService->sendEmail(
