@@ -40,12 +40,14 @@ $stages = [
         'color' => '#667eea',
         'title' => ['ind' => 'Tahap 1 — Rekrutmen Kandidat (LPK)', 'eng' => 'Stage 1 — Candidate Recruitment (LPK)', 'jpn' => '第1段階 — 候補者募集（LPK）'],
         'desc'  => [
-            'ind' => 'LPK penyangga mendaftarkan kandidat. Kandidat mengikuti tes fisik, penilaian (scoring), wawancara, dan medical check-up. Kandidat yang lulus dipromosikan menjadi peserta pelatihan (trainee).',
-            'eng' => 'Partner LPK institutions register candidates. Candidates take physical tests, scoring, interviews and medical check-ups. Passing candidates are promoted to trainees.',
-            'jpn' => '提携LPKが候補者を登録します。候補者は体力テスト、採点、面接、健康診断を受けます。合格した候補者は訓練生に昇格します。',
+            'ind' => 'Sebelum bisa bekerja, LPK penyangga didaftarkan dalam tiga langkah: admin mengisi data LPK, direktur LPK mengklik tautan verifikasi dari email (berlaku 24 jam), lalu menetapkan kata sandi — barulah akunnya aktif. Setelah itu LPK mendaftarkan kandidat. Kandidat mengikuti tes fisik, penilaian (scoring), wawancara, dan medical check-up. Kandidat yang lulus dipromosikan menjadi peserta pelatihan (trainee).',
+            'eng' => 'Before it can work, a partner LPK is onboarded in three steps: an admin enters the institution, its director clicks the verification link emailed to them (valid 24 hours), then sets a password - only then is the account active. After that the LPK registers candidates. Candidates take physical tests, scoring, interviews and medical check-ups. Passing candidates are promoted to trainees.',
+            'jpn' => '提携LPKはまず3段階で登録されます：管理者が機関情報を入力し、LPKの代表者がメールの確認リンク（24時間有効）をクリックし、パスワードを設定して初めてアカウントが有効になります。その後、LPKが候補者を登録します。候補者は体力テスト、採点、面接、健康診断を受けます。合格した候補者は訓練生に昇格します。',
         ],
         'links' => [
-            ['/admin/lpk-registration/create', ['ind' => 'Registrasi LPK', 'eng' => 'LPK Registration', 'jpn' => 'LPK登録']],
+            ['/admin/lpk-registration', ['ind' => 'Antrian Pendaftaran LPK', 'eng' => 'LPK Registration Queue', 'jpn' => 'LPK登録キュー']],
+            ['/admin/lpk-registration/create', ['ind' => 'Daftarkan LPK Baru', 'eng' => 'Register a New LPK', 'jpn' => '新規LPK登録']],
+            ['/vocational-training-institutions/verify', ['ind' => 'Status Verifikasi LPK', 'eng' => 'LPK Verification Status', 'jpn' => 'LPK確認状況']],
             ['/candidates', ['ind' => 'Data Kandidat', 'eng' => 'Candidates', 'jpn' => '候補者一覧']],
             ['/lpk-physical-tests', ['ind' => 'Tes Fisik', 'eng' => 'Physical Tests', 'jpn' => '体力テスト']],
             ['/lpk-candidate-scoring', ['ind' => 'Penilaian Kandidat', 'eng' => 'Candidate Scoring', 'jpn' => '候補者採点']],
@@ -101,12 +103,12 @@ $stages = [
         'color' => '#f7971e',
         'title' => ['ind' => 'Tahap 4 — Pemagangan di Jepang (Apprentice)', 'eng' => 'Stage 4 — Apprenticeship in Japan', 'jpn' => '第4段階 — 日本での技能実習'],
         'desc'  => [
-            'ind' => 'Apprentice bekerja di organisasi penerima di Jepang sesuai pesanan (order). Dokumen, sertifikasi, dan perkembangan dicatat sampai selesai; alumni dikelola sebagai post-apprentice.',
-            'eng' => 'Apprentices work at accepting organizations in Japan according to orders. Documents, certifications and progress are tracked until completion; alumni are managed as post-apprentices.',
-            'jpn' => '実習生は注文に基づき日本の受入機関で働きます。書類、資格、進捗が完了まで記録され、修了者はポスト実習生として管理されます。',
+            'ind' => 'Order pemagangan adalah lowongan dari organisasi penerima di Jepang: jumlah orang, jenis pekerjaan, dan bulan keberangkatan. Order dibagikan ke LPK penyangga agar mereka mencarikan kandidat, dan bisa ditarik kembali bila perlu — setiap kali, LPK yang bersangkutan menerima email. Apprentice kemudian bekerja di organisasi penerima sesuai order. Dokumen, sertifikasi, dan perkembangan dicatat sampai selesai; alumni dikelola sebagai post-apprentice.',
+            'eng' => 'An apprentice order is a vacancy from an accepting organization in Japan: how many people, which job, which departure month. Orders are shared with partner LPKs so they can find candidates, and can be withdrawn again if need be - each time, the institution concerned is emailed. Apprentices then work at the accepting organization according to the order. Documents, certifications and progress are tracked until completion; alumni are managed as post-apprentices.',
+            'jpn' => '実習オーダーとは、日本の受入機関からの求人です：人数、職種、出国月。オーダーは提携LPKに共有され、LPKが候補者を探します。必要に応じて取り下げることもでき、そのたびに該当機関にメールが送られます。実習生はオーダーに基づき受入機関で働きます。書類、資格、進捗が完了まで記録され、修了者はポスト実習生として管理されます。',
         ],
         'links' => [
-            ['/apprentice-orders', ['ind' => 'Order Pemagangan', 'eng' => 'Apprentice Orders', 'jpn' => '実習注文']],
+            ['/apprentice-orders', ['ind' => 'Order Pemagangan & Pembagian ke LPK', 'eng' => 'Apprentice Orders & Sharing', 'jpn' => '実習オーダーと共有']],
             ['/apprentices/index', ['ind' => 'Data Apprentice', 'eng' => 'Apprentices', 'jpn' => '実習生一覧']],
             ['/apprentice-documents/index', ['ind' => 'Dokumen Apprentice', 'eng' => 'Apprentice Documents', 'jpn' => '実習生書類']],
             ['/apprentice-orders/statistics', ['ind' => 'Statistik Order', 'eng' => 'Order Statistics', 'jpn' => '注文統計']],
@@ -263,12 +265,22 @@ graph LR
     S -.-> D
     K["<?= $t(['ind' => 'Keuangan', 'eng' => 'Accounting', 'jpn' => '会計']) ?>"] -.-> B
     K -.-> C
+    O["<?= $t(['ind' => 'Order Pemagangan<br/>dibagikan ke LPK', 'eng' => 'Apprentice Order<br/>shared with LPK', 'jpn' => '実習オーダー<br/>LPKへ共有']) ?>"] --> A
+    D --> O
     style A fill:#e8ecfd,stroke:#667eea
     style B fill:#e0f2f7,stroke:#2193b0
     style C fill:#e0f5f1,stroke:#11998e
     style D fill:#fdf0dd,stroke:#f7971e
     style E fill:#eeeeee,stroke:#616161
+    style O fill:#fff3cd,stroke:#f7971e,stroke-dasharray: 4 3
         </div>
+        <p style="color:#666; font-size:13px; margin-top:10px;">
+            <?= $t([
+                'ind' => 'Alurnya bukan garis lurus. Order pemagangan dari organisasi penerima dibagikan ke LPK penyangga, dan dari situlah rekrutmen kandidat berikutnya dimulai — sehingga Tahap 4 mengalir kembali ke Tahap 1.',
+                'eng' => 'The pipeline is not a straight line. An apprentice order from an accepting organization is shared with partner LPKs, and that is where the next round of candidate recruitment begins - so Stage 4 feeds back into Stage 1.',
+                'jpn' => 'この流れは一方通行ではありません。受入機関からの実習オーダーが提携LPKに共有され、そこから次の候補者募集が始まります。つまり第4段階が第1段階へ戻ります。',
+            ]) ?>
+        </p>
     </div>
 
     <!-- Stage cards with jump links -->
@@ -296,6 +308,31 @@ graph LR
                 </div>
             </div>
         <?php endforeach; ?>
+    </div>
+
+    <!-- Who may do what. Not every screen is open to every role, and the two
+         rules below are the ones people actually run into. -->
+    <div class="flow-section">
+        <h2><i class="fas fa-user-shield"></i>
+            <?= $t(['ind' => 'Siapa Boleh Melakukan Apa', 'eng' => 'Who May Do What', 'jpn' => '権限の範囲']) ?>
+        </h2>
+        <ul style="color:#555; line-height:1.9;">
+            <li><?= $t([
+                'ind' => '<strong>Order pemagangan</strong> — hanya <em>tmm-recruitment</em> dan <em>administrator</em> yang dapat membuat, mengubah, menghapus, membagikan ke LPK, atau menarik pembagiannya. Peran lain tetap dapat melihat order dan daftar LPK yang menerimanya, tetapi tidak dapat mengubahnya.',
+                'eng' => '<strong>Apprentice orders</strong> — only <em>tmm-recruitment</em> and <em>administrator</em> may create, edit, delete, share with an LPK, or withdraw a share. Other roles can still see an order and who it has been shared with; they simply cannot change it.',
+                'jpn' => '<strong>実習オーダー</strong> — 作成・編集・削除・LPKへの共有・共有の取り下げができるのは <em>tmm-recruitment</em> と <em>administrator</em> のみです。他のロールもオーダーと共有先を閲覧できますが、変更はできません。',
+            ]) ?></li>
+            <li><?= $t([
+                'ind' => '<strong>Informasi masuk LPK</strong> — nama pengguna sebuah LPK hanya terlihat oleh administrator dan oleh LPK itu sendiri. Kata sandi tidak pernah ditampilkan di mana pun; kata sandi disimpan ter-hash dan tidak dapat dibaca kembali.',
+                'eng' => '<strong>LPK sign-in details</strong> — an institution\'s login name is visible only to an administrator and to that institution itself. The password is never shown anywhere; it is stored hashed and cannot be read back.',
+                'jpn' => '<strong>LPKのログイン情報</strong> — 機関のログイン名は管理者と当該機関のみが閲覧できます。パスワードはどこにも表示されません。ハッシュ化して保存されており、元に戻すことはできません。',
+            ]) ?></li>
+            <li><?= $t([
+                'ind' => 'Selebihnya mengikuti izin peran Anda. Bila sebuah halaman menolak akses, pesannya menyebutkan akun dan peran Anda — sampaikan itu ke administrator.',
+                'eng' => 'Everything else follows your role\'s permissions. When a page refuses access, the message names your account and your role - pass that on to an administrator.',
+                'jpn' => 'それ以外はロールの権限に従います。アクセスが拒否された場合、メッセージにアカウント名とロールが表示されるので、管理者にお伝えください。',
+            ]) ?></li>
+        </ul>
     </div>
 
     <!-- How to use -->
