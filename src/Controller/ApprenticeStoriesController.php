@@ -47,18 +47,8 @@ class ApprenticeStoriesController extends AppController
             }
             $this->Flash->error(__('The Apprentice Story could not be saved. Please, try again.'));
         }
-        $apprentices = $this->ApprenticeStories->getConnection()
-            ->execute('SELECT id, tmm_code, apprentice_id_number FROM apprentices ORDER BY tmm_code')
-            ->fetchAll('assoc');
-        $apprenticeOptions = [];
-        foreach ($apprentices as $a) {
-            $label = $a['tmm_code'];
-            if (!empty($a['apprentice_id_number'])) {
-                $label .= ' (' . $a['apprentice_id_number'] . ')';
-            }
-            $apprenticeOptions[$a['id']] = $label;
-        }
-        $this->set(compact('apprenticeStory', 'apprenticeOptions'));
+        $this->set(compact('apprenticeStory'));
+        $this->set('apprenticeOptions', $this->_apprenticeOptions());
     }
 
     public function edit($id = null)
@@ -73,7 +63,34 @@ class ApprenticeStoriesController extends AppController
             }
             $this->Flash->error(__('The Apprentice Story could not be saved. Please, try again.'));
         }
-        $this->set('apprenticeStory', $apprenticeStory);
+        $this->set(compact('apprenticeStory'));
+        $this->set('apprenticeOptions', $this->_apprenticeOptions());
+    }
+
+    /**
+     * The apprentice dropdown for the add/edit form.
+     *
+     * add() built this list inline and edit() did not build it at all, so the
+     * edit form showed apprentice_id as a number box - the same record, two
+     * different forms.
+     *
+     * @return array
+     */
+    protected function _apprenticeOptions()
+    {
+        $options = [];
+        $rows = $this->ApprenticeStories->getConnection()
+            ->execute('SELECT id, tmm_code, apprentice_id_number FROM apprentices ORDER BY tmm_code')
+            ->fetchAll('assoc');
+        foreach ($rows as $row) {
+            $label = $row['tmm_code'] ?: __('Apprentice #{0}', $row['id']);
+            if (!empty($row['apprentice_id_number'])) {
+                $label .= ' (' . $row['apprentice_id_number'] . ')';
+            }
+            $options[$row['id']] = $label;
+        }
+
+        return $options;
     }
 
     public function delete($id = null)

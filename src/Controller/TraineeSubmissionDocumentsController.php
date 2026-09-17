@@ -211,6 +211,52 @@ class TraineeSubmissionDocumentsController extends AppController
             $this->Flash->error(__('The Trainee Submission Document could not be saved. Please, try again.'));
         }
         $this->set('traineeSubmissionDocument', $traineeSubmissionDocument);
+        $this->set($this->_formOptions());
+    }
+
+    /**
+     * Dropdowns for the edit form.
+     *
+     * index() builds the same lists to print names instead of ids; edit() was
+     * given none of them, so trainee, document, status and uploader were all
+     * number boxes on a page whose whole purpose is correcting a record.
+     *
+     * @return array
+     */
+    protected function _formOptions()
+    {
+        $locator = \Cake\ORM\TableRegistry::getTableLocator();
+        $conn = \Cake\Datasource\ConnectionManager::get('cms_tmm_trainee_documents');
+
+        $trainees = [];
+        try {
+            foreach ($locator->get('Trainees')->find()->select(['id', 'name', 'tmm_code'])->order(['name' => 'ASC']) as $trainee) {
+                $trainees[$trainee->id] = $trainee->name . ($trainee->tmm_code ? ' (' . $trainee->tmm_code . ')' : '');
+            }
+        } catch (\Exception $e) {
+        }
+
+        $documents = [];
+        try {
+            $documents = $locator->get('MasterTraineeSubmissionDocuments', ['connection' => $conn])
+                ->find()->enableHydration(false)->all()->combine('id', 'title')->toArray();
+        } catch (\Exception $e) {
+        }
+
+        $statuses = [];
+        try {
+            $statuses = $locator->get('MasterDocumentSubmissionStatuses')->find('list')->toArray();
+        } catch (\Exception $e) {
+        }
+
+        $users = [];
+        try {
+            $users = $locator->get('Users')->find()->enableHydration(false)
+                ->all()->combine('id', 'username')->toArray();
+        } catch (\Exception $e) {
+        }
+
+        return compact('trainees', 'documents', 'statuses', 'users');
     }
 
     public function delete($id = null)

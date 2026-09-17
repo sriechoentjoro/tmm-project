@@ -13704,3 +13704,560 @@ msgstr "Tombol bantuan Alur Proses pada tiap modul menjelaskan alur kerja modul 
 msgid "The language can be changed at any time from the switcher; this page and the whole interface follow it."
 msgstr "Bahasa dapat diubah kapan saja lewat pemilih bahasa; halaman ini dan seluruh antarmuka mengikutinya."
 
+
+# ── Scaffolded add/edit forms (Element/entity_form) ───────────────
+
+msgid "- choose -"
+msgstr "- pilih -"
+
+msgid "- choose a batch -"
+msgstr "- pilih angkatan -"
+
+msgid "- choose a candidate -"
+msgstr "- pilih kandidat -"
+
+msgid "- choose a category -"
+msgstr "- pilih kategori -"
+
+msgid "- choose a competency -"
+msgstr "- pilih kompetensi -"
+
+msgid "- choose a currency -"
+msgstr "- pilih mata uang -"
+
+msgid "- choose a document -"
+msgstr "- pilih dokumen -"
+
+msgid "- choose a grade -"
+msgstr "- pilih nilai huruf -"
+
+msgid "- choose a status -"
+msgstr "- pilih status -"
+
+msgid "- choose a ticket -"
+msgstr "- pilih tiket -"
+
+msgid "- choose a trainee -"
+msgstr "- pilih trainee -"
+
+msgid "- choose a type -"
+msgstr "- pilih jenis -"
+
+msgid "- choose a user -"
+msgstr "- pilih pengguna -"
+
+msgid "- choose an airline -"
+msgstr "- pilih maskapai -"
+
+msgid "- choose an airport -"
+msgstr "- pilih bandara -"
+
+msgid "- choose an apprentice -"
+msgstr "- pilih apprentice -"
+
+msgid "A band of scores and the grade it earns."
+msgstr "Rentang nilai dan huruf mutu yang diperolehnya."
+
+msgid "A certificate belongs to one trainee and the batch they trained in."
+msgstr "Satu sertifikat milik satu trainee dan angkatan tempat ia berlatih."
+
+msgid "A line that says what the story is about."
+msgstr "Satu baris yang menjelaskan isi cerita ini."
+
+msgid "A path to an image already on the server. This field stores text, it does not upload."
+msgstr "Path ke gambar yang sudah ada di server. Kolom ini menyimpan teks, bukan mengunggah berkas."
+
+msgid "A problem an apprentice met, and what came of it."
+msgstr "Masalah yang dialami apprentice, dan apa hasilnya."
+
+msgid "A score at or above this value falls in this grade."
+msgstr "Nilai sama dengan atau di atas angka ini masuk ke huruf mutu ini."
+
+msgid "A subject trainees are tested on. Test scores and score averages are recorded against it."
+msgstr "Mata pelajaran yang diujikan kepada trainee. Nilai ujian dan rata-rata dicatat berdasarkan ini."
+
+msgid "Account code"
+msgstr "Kode akun"
+
+msgid "Account name"
+msgstr "Nama akun"
+
+msgid "Add Alumni Record"
+msgstr "Tambah Data Alumni"
+
+msgid "Add Category"
+msgstr "Tambah Kategori"
+
+msgid "Add Certificate"
+msgstr "Tambah Sertifikat"
+
+msgid "Add Competency"
+msgstr "Tambah Kompetensi"
+
+msgid "Add Currency"
+msgstr "Tambah Mata Uang"
+
+msgid "Add Flight"
+msgstr "Tambah Penerbangan"
+
+msgid "Add Grade"
+msgstr "Tambah Huruf Mutu"
+
+msgid "Add Payment Method"
+msgstr "Tambah Metode Pembayaran"
+
+msgid "Add Score Average"
+msgstr "Tambah Rata-rata Nilai"
+
+msgid "Add Story"
+msgstr "Tambah Cerita"
+
+msgid "Add Transaction Category"
+msgstr "Tambah Kategori Transaksi"
+
+msgid "Amount paid"
+msgstr "Jumlah dibayar"
+
+msgid "An account in the chart of accounts. Journal lines are posted against it."
+msgstr "Satu akun dalam bagan akun. Baris jurnal diposkan ke akun ini."
+
+msgid "An inactive account stays on file but should no longer be posted to."
+msgstr "Akun nonaktif tetap tersimpan, tetapi sebaiknya tidak lagi digunakan untuk posting."
+
+msgid "Anything the next person to look at this record should know."
+msgstr "Hal yang perlu diketahui orang berikutnya yang membuka data ini."
+
+msgid "Appears on every test score and on the certificate breakdown."
+msgstr "Muncul pada setiap nilai ujian dan pada rincian sertifikat."
+
+msgid "Apprentice #{0}"
+msgstr "Apprentice #{0}"
+
+msgid "As printed on the ticket."
+msgstr "Sesuai yang tercetak pada tiket."
+
+msgid "Asset"
+msgstr "Aset"
+
+msgid "Average score"
+msgstr "Nilai rata-rata"
+
+msgid "Bank transfer"
+msgstr "Transfer bank"
+
+msgid "Batch #{0}"
+msgstr "Angkatan #{0}"
+
+msgid "Cash on hand"
+msgstr "Kas di tangan"
+
+msgid "Certificate number"
+msgstr "Nomor sertifikat"
+
+msgid "Chosen when an installment or a receipt is recorded."
+msgstr "Dipilih saat mencatat cicilan atau kuitansi."
+
+msgid "Correct a document already recorded against a trainee."
+msgstr "Perbaiki dokumen yang sudah tercatat atas nama seorang trainee."
+
+msgid "Correct the details of a certificate that has already been issued."
+msgstr "Perbaiki rincian sertifikat yang sudah diterbitkan."
+
+msgid "Currencies are offered wherever an amount of money is recorded."
+msgstr "Mata uang ditawarkan di setiap tempat yang mencatat jumlah uang."
+
+msgid "Current status"
+msgstr "Status saat ini"
+
+msgid "Edit Account"
+msgstr "Ubah Akun"
+
+msgid "Edit Alumni Record"
+msgstr "Ubah Data Alumni"
+
+msgid "Edit Certificate"
+msgstr "Ubah Sertifikat"
+
+msgid "Edit Competency"
+msgstr "Ubah Kompetensi"
+
+msgid "Edit Currency"
+msgstr "Ubah Mata Uang"
+
+msgid "Edit Document Record"
+msgstr "Ubah Data Dokumen"
+
+msgid "Edit Flight"
+msgstr "Ubah Penerbangan"
+
+msgid "Edit Grade"
+msgstr "Ubah Huruf Mutu"
+
+msgid "Edit Installment"
+msgstr "Ubah Cicilan"
+
+msgid "Edit Payment Method"
+msgstr "Ubah Metode Pembayaran"
+
+msgid "Edit Score Average"
+msgstr "Ubah Rata-rata Nilai"
+
+msgid "Edit Story"
+msgstr "Ubah Cerita"
+
+msgid "Edit Submission"
+msgstr "Ubah Penyerahan"
+
+msgid "Edit Transaction Category"
+msgstr "Ubah Kategori Transaksi"
+
+msgid "Everything received up to and including this payment."
+msgstr "Seluruh yang sudah diterima sampai dengan pembayaran ini."
+
+msgid "Expense"
+msgstr "Beban"
+
+msgid "Fields marked * are required."
+msgstr "Kolom bertanda * wajib diisi."
+
+msgid "File path"
+msgstr "Path berkas"
+
+msgid "Filled in automatically when the file was uploaded."
+msgstr "Terisi otomatis saat berkas diunggah."
+
+msgid "Flight number"
+msgstr "Nomor penerbangan"
+
+msgid "From the master list of candidate documents."
+msgstr "Dari daftar induk dokumen kandidat."
+
+msgid "From the master list of documents a trainee must submit."
+msgstr "Dari daftar induk dokumen yang wajib diserahkan trainee."
+
+msgid "From the master list of documents an apprentice must submit."
+msgstr "Dari daftar induk dokumen yang wajib diserahkan apprentice."
+
+msgid "Highest score"
+msgstr "Nilai tertinggi"
+
+msgid "How a payment reaches the company: transfer, cash, card."
+msgstr "Cara pembayaran sampai ke perusahaan: transfer, tunai, kartu."
+
+msgid "How the news reached us, or anything else worth keeping."
+msgstr "Dari mana kabar ini diperoleh, atau hal lain yang perlu disimpan."
+
+msgid "Image path"
+msgstr "Path gambar"
+
+msgid "Issue a Certificate"
+msgstr "Terbitkan Sertifikat"
+
+msgid "Issue a certificate to a trainee who has finished training."
+msgstr "Terbitkan sertifikat untuk trainee yang telah menyelesaikan pelatihan."
+
+msgid "Issue date"
+msgstr "Tanggal terbit"
+
+msgid "Japan"
+msgstr "Jepang"
+
+msgid "Japanese Yen"
+msgstr "Yen Jepang"
+
+msgid "Japanese language"
+msgstr "Bahasa Jepang"
+
+msgid "Keep the bands apart so a score cannot land in two grades."
+msgstr "Jaga agar rentang tidak bertumpang tindih, supaya satu nilai tidak masuk dua huruf mutu."
+
+msgid "Kept on file only - notes do not appear on the printed certificate."
+msgstr "Hanya tersimpan sebagai catatan - tidak muncul pada sertifikat yang dicetak."
+
+msgid "Liability"
+msgstr "Kewajiban"
+
+msgid "Local time at the arrival airport, which may be a day later."
+msgstr "Waktu setempat di bandara tujuan, yang bisa jadi sehari kemudian."
+
+msgid "Local time at the departure airport."
+msgstr "Waktu setempat di bandara keberangkatan."
+
+msgid "Lowest score"
+msgstr "Nilai terendah"
+
+msgid "Moving a document to another trainee changes both their checklists."
+msgstr "Memindahkan dokumen ke trainee lain mengubah checklist keduanya."
+
+msgid "Moving a payment to another trainee changes both their balances."
+msgstr "Memindahkan pembayaran ke trainee lain mengubah saldo keduanya."
+
+msgid "One leg of a journey. A ticket with a transit has two."
+msgstr "Satu ruas perjalanan. Tiket dengan transit memiliki dua."
+
+msgid "One payment towards what a trainee owes."
+msgstr "Satu pembayaran atas kewajiban seorang trainee."
+
+msgid "One row per document an apprentice has handed in, and where it stands."
+msgstr "Satu baris untuk setiap dokumen yang diserahkan apprentice, beserta statusnya."
+
+msgid "One trainee, one competency, and the average they reached in it."
+msgstr "Satu trainee, satu kompetensi, dan rata-rata nilai yang dicapainya."
+
+msgid "Payment date"
+msgstr "Tanggal pembayaran"
+
+msgid "Payment method"
+msgstr "Metode pembayaran"
+
+msgid "Printed on the certificate, so give it the number the paper carries."
+msgstr "Tercetak pada sertifikat, jadi isikan nomor yang tertera di lembarnya."
+
+msgid "Record Document"
+msgstr "Catat Dokumen"
+
+msgid "Record Submission"
+msgstr "Catat Penyerahan"
+
+msgid "Record a Document"
+msgstr "Catat Dokumen"
+
+msgid "Record a Submission"
+msgstr "Catat Penyerahan"
+
+msgid "Record the certificate a trainee receives at the end of a training batch."
+msgstr "Catat sertifikat yang diterima trainee pada akhir satu angkatan pelatihan."
+
+msgid "Return date"
+msgstr "Tanggal kepulangan"
+
+msgid "Route and times"
+msgstr "Rute dan waktu"
+
+msgid "Score average"
+msgstr "Rata-rata nilai"
+
+msgid "Settled"
+msgstr "Lunas"
+
+msgid "Shown on every journal line that touches this account."
+msgstr "Ditampilkan pada setiap baris jurnal yang menyentuh akun ini."
+
+msgid "Shown on the installment form and in the payment reports."
+msgstr "Ditampilkan pada formulir cicilan dan pada laporan pembayaran."
+
+msgid "Shown on the list and on the printed certificate."
+msgstr "Ditampilkan pada daftar dan pada sertifikat yang dicetak."
+
+msgid "Still owed"
+msgstr "Sisa tagihan"
+
+msgid "Submission"
+msgstr "Penyerahan"
+
+msgid "Submission date"
+msgstr "Tanggal penyerahan"
+
+msgid "The account hierarchy and the totals are grouped by type."
+msgstr "Hierarki akun dan totalnya dikelompokkan menurut jenis ini."
+
+msgid "The airport this leg leaves from."
+msgstr "Bandara asal ruas ini."
+
+msgid "The alumni summary counts by this exact value, so choose rather than type."
+msgstr "Ringkasan alumni menghitung berdasarkan nilai persis ini, jadi pilih, jangan ketik."
+
+msgid "The balance"
+msgstr "Saldo"
+
+msgid "The band this average falls into."
+msgstr "Rentang tempat rata-rata ini jatuh."
+
+msgid "The certificate"
+msgstr "Sertifikat"
+
+msgid "The currency the amounts on this row are in."
+msgstr "Mata uang dari semua jumlah pada baris ini."
+
+msgid "The date the certificate was handed over."
+msgstr "Tanggal sertifikat diserahkan."
+
+msgid "The date the document was received."
+msgstr "Tanggal dokumen diterima."
+
+msgid "The day it arrived."
+msgstr "Hari dokumen itu tiba."
+
+msgid "The day they came home from Japan."
+msgstr "Hari ia pulang dari Jepang."
+
+msgid "The file"
+msgstr "Berkas"
+
+msgid "The job title they hold."
+msgstr "Jabatan yang dipegangnya."
+
+msgid "The letter or word written on the score sheet."
+msgstr "Huruf atau kata yang ditulis pada lembar nilai."
+
+msgid "The list and the receipt read this flag, not the numbers above it."
+msgstr "Daftar dan kuitansi membaca penanda ini, bukan angka di atasnya."
+
+msgid "The list is ordered by this code, so keep the numbering consistent."
+msgstr "Daftar diurutkan berdasarkan kode ini, jadi jaga konsistensi penomorannya."
+
+msgid "The list page counts stories by this exact wording, so reuse one that already exists."
+msgstr "Halaman daftar menghitung cerita berdasarkan tulisan persis ini, jadi gunakan kembali yang sudah ada."
+
+msgid "The mean of the test scores in this competency."
+msgstr "Rata-rata nilai ujian pada kompetensi ini."
+
+msgid "The name shown in every currency dropdown."
+msgstr "Nama yang muncul di setiap pilihan mata uang."
+
+msgid "The part a future intake reads."
+msgstr "Bagian yang akan dibaca angkatan berikutnya."
+
+msgid "The person the document belongs to."
+msgstr "Orang pemilik dokumen ini."
+
+msgid "The person this record follows."
+msgstr "Orang yang datanya diikuti di sini."
+
+msgid "The story"
+msgstr "Cerita"
+
+msgid "The subject the average is for."
+msgstr "Mata pelajaran yang dirata-ratakan."
+
+msgid "The three-letter ISO code: JPY, IDR, USD."
+msgstr "Kode ISO tiga huruf: JPY, IDR, USD."
+
+msgid "The ticket this leg belongs to."
+msgstr "Tiket yang memuat ruas ini."
+
+msgid "The whole sum the trainee has to pay."
+msgstr "Seluruh jumlah yang harus dibayar trainee."
+
+msgid "Their test scores are gathered automatically on the certificate page."
+msgstr "Nilai ujiannya dikumpulkan otomatis pada halaman sertifikat."
+
+msgid "These three are totals, not this payment. Change them only to correct a total that is already wrong."
+msgstr "Ketiganya adalah total, bukan pembayaran ini. Ubah hanya untuk membetulkan total yang memang sudah salah."
+
+msgid "This payment"
+msgstr "Pembayaran ini"
+
+msgid "Ticket and airline"
+msgstr "Tiket dan maskapai"
+
+msgid "Total owed"
+msgstr "Total tagihan"
+
+msgid "Total owed minus paid so far."
+msgstr "Total tagihan dikurangi yang sudah dibayar."
+
+msgid "Training batch"
+msgstr "Angkatan pelatihan"
+
+msgid "Training fee"
+msgstr "Biaya pelatihan"
+
+msgid "Uploaded at"
+msgstr "Diunggah pada"
+
+msgid "Uploaded by"
+msgstr "Diunggah oleh"
+
+msgid "What a payment is for. Trainee installments are grouped by it."
+msgstr "Untuk apa sebuah pembayaran. Cicilan trainee dikelompokkan menurut ini."
+
+msgid "What an apprentice is doing now that the programme is behind them."
+msgstr "Apa yang dikerjakan apprentice setelah programnya selesai."
+
+msgid "What belongs in this account, for whoever posts the journal."
+msgstr "Apa yang masuk ke akun ini, untuk siapa pun yang memposting jurnal."
+
+msgid "What happened"
+msgstr "Apa yang terjadi"
+
+msgid "What happened, and what came of it"
+msgstr "Apa yang terjadi, dan apa hasilnya"
+
+msgid "What it taught"
+msgstr "Apa pelajarannya"
+
+msgid "What the competency covers. For the people entering scores."
+msgstr "Cakupan kompetensi ini. Untuk orang yang memasukkan nilai."
+
+msgid "What the grade means, in words."
+msgstr "Arti huruf mutu ini, dalam kata-kata."
+
+msgid "What the payment is for. The payment report groups by it."
+msgstr "Untuk apa pembayaran ini. Laporan pembayaran mengelompokkan menurut ini."
+
+msgid "What the summary counts on the list page are grouped by."
+msgstr "Dasar pengelompokan angka ringkasan di halaman daftar."
+
+msgid "What they are doing now"
+msgstr "Apa yang dikerjakannya sekarang"
+
+msgid "What was done"
+msgstr "Apa yang dilakukan"
+
+msgid "What was handed over on this occasion."
+msgstr "Yang diserahkan pada kesempatan ini."
+
+msgid "When it happened"
+msgstr "Kapan terjadinya"
+
+msgid "Where the currency is issued. For reference only."
+msgstr "Tempat mata uang diterbitkan. Hanya sebagai keterangan."
+
+msgid "Where the stored copy lives, relative to webroot."
+msgstr "Lokasi salinan tersimpan, relatif terhadap webroot."
+
+msgid "Where the stored copy lives, relative to webroot. To replace the file itself, upload it again from the document list."
+msgstr "Lokasi salinan tersimpan, relatif terhadap webroot. Untuk mengganti berkasnya, unggah ulang dari daftar dokumen."
+
+msgid "Where they work, if they do."
+msgstr "Tempatnya bekerja, jika bekerja."
+
+msgid "Where this leg lands."
+msgstr "Tempat ruas ini mendarat."
+
+msgid "Whether the document has actually been received."
+msgstr "Apakah dokumennya memang sudah diterima."
+
+msgid "Which document a candidate has handed in, and when."
+msgstr "Dokumen apa yang sudah diserahkan kandidat, dan kapan."
+
+msgid "Which document, and whose"
+msgstr "Dokumen apa, dan milik siapa"
+
+msgid "Who handed the document in."
+msgstr "Siapa yang menyerahkan dokumen."
+
+msgid "Who it is for"
+msgstr "Untuk siapa"
+
+msgid "Who operates the flight."
+msgstr "Siapa yang mengoperasikan penerbangan."
+
+msgid "Who paid, and for what"
+msgstr "Siapa yang membayar, dan untuk apa"
+
+msgid "Who put the file on file."
+msgstr "Siapa yang mengarsipkan berkasnya."
+
+msgid "Who the certificate is for."
+msgstr "Untuk siapa sertifikat ini."
+
+msgid "Who this happened to."
+msgstr "Kepada siapa hal ini terjadi."
+
+msgid "Who, and since when"
+msgstr "Siapa, dan sejak kapan"
+
+msgid "Workplace"
+msgstr "Tempat kerja"
