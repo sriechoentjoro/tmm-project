@@ -287,6 +287,7 @@
                 
                     }
                 }</style>
+                <?= $this->element('apprentice_order_sharing') ?>
                 <div class="github-details-card">
                     <div class="github-details-header">
                         <h3 class="github-details-title">

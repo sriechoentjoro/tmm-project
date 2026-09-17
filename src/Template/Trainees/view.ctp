@@ -1232,7 +1232,7 @@
                                                         $displayValue = $traineeCourses->course_major_id;
                                                 }
                                                 ?>
-                                                <?= $this->Html->link(h($displayValue), ['controller' => 'CourseMajors', 'action' => 'view', $traineeCourses->course_major_id]) ?>
+                                                <?= h($displayValue) ?>
                                             <?php else: ?>
                                                 <?= h($traineeCourses->course_major_id) ?>
                                             <?php endif; ?>

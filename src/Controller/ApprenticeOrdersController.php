@@ -13,6 +13,86 @@ use App\Controller\AppController;
 class ApprenticeOrdersController extends AppController
 {
     use \App\Controller\ExportTrait;
+
+    /**
+     * The roles allowed to put a vacancy into the world and manage who sees it.
+     *
+     * An apprentice order is a job opening in Japan. Creating one, offering it
+     * to an institution, and withdrawing it again are recruitment decisions,
+     * not clerical ones - so they belong to recruitment and to administrators,
+     * and to nobody else.
+     */
+    const ORDER_MANAGER_ROLES = ['administrator', 'tmm-recruitment'];
+
+    /**
+     * The actions that rule covers.
+     *
+     * add, share and cancelShare are the three the rule names. edit and delete
+     * are here as well, deliberately: a role that cannot create a vacancy but
+     * can rewrite an existing one into a different vacancy, or remove it, is
+     * not actually restricted - the rule would hold only until someone noticed
+     * the gap. Everything else on this controller (index, view, statistics, the
+     * exports) stays on the ordinary permission check.
+     *
+     * To narrow it back to exactly the three named, remove 'edit' and 'delete'.
+     */
+    const MANAGED_ACTIONS = ['add', 'edit', 'delete', 'share', 'cancelShare'];
+
+    /**
+     * Authorization check.
+     *
+     * Only the managed actions are decided here; anything else falls through to
+     * the DB-driven check in AppController, which is where the rest of the
+     * application's permissions live.
+     *
+     * @param array $user The authenticated user.
+     * @return bool
+     */
+    public function isAuthorized($user)
+    {
+        $this->currentUser = $user;
+
+        $action = $this->request->getParam('action');
+        if (!in_array($action, self::MANAGED_ACTIONS, true)) {
+            return parent::isAuthorized($user);
+        }
+
+        foreach (self::ORDER_MANAGER_ROLES as $role) {
+            if ($this->hasRole($role)) {
+                return true;
+            }
+        }
+
+        $this->handleUnauthorizedAccess(
+            $action,
+            __('Only recruitment staff and administrators can create apprentice orders or manage who they are shared with.')
+        );
+
+        return false;
+    }
+
+    /**
+     * Whether the signed-in user may manage orders and their sharing.
+     *
+     * Set for the templates so the buttons match the rule: a control that leads
+     * to "Access Denied" is worse than no control, and hiding it is not the
+     * check - isAuthorized() above is, and it runs whether or not the button
+     * was ever drawn.
+     *
+     * @return bool
+     */
+    protected function _canManageOrders()
+    {
+        $this->currentUser = $this->Auth->user();
+        foreach (self::ORDER_MANAGER_ROLES as $role) {
+            if ($this->hasRole($role)) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
     /**
      * Index method
      *
@@ -33,6 +113,7 @@ class ApprenticeOrdersController extends AppController
         $acceptance_organizations = $acceptanceorganizations;
         $job_categorys = $masterjobcategories;
         $this->set(compact('apprenticeOrders', 'cooperativeassociations', 'acceptanceorganizations', 'masterjobcategories', 'cooperative_associations', 'acceptance_organizations', 'job_categorys'));
+        $this->set('canManageOrders', $this->_canManageOrders());
     }
 
     /**
@@ -197,6 +278,275 @@ class ApprenticeOrdersController extends AppController
         }
 
         $this->set('apprenticeOrder', $apprenticeOrder);
+        $this->_setSharingData($apprenticeOrder->id);
+        $this->set('canManageOrders', $this->_canManageOrders());
+    }
+
+    /**
+     * Offer this order to one or more vocational training institutions.
+     *
+     * Each institution gets the apprentice_order_shared email. That template
+     * has been sitting in email_templates, active, with nothing in the
+     * application asking for its key - this is the code it was written for.
+     *
+     * @param string|null $id Apprentice Order id.
+     * @return \Cake\Http\Response|null Always a redirect back to the order.
+     */
+    public function share($id = null)
+    {
+        $this->request->allowMethod(['post']);
+
+        try {
+            $order = $this->ApprenticeOrders->get($id, [
+                'contain' => ['CooperativeAssociations', 'AcceptanceOrganizations', 'MasterJobCategories'],
+            ]);
+        } catch (\Throwable $e) {
+            $this->Flash->error(__('Apprentice order not found.'));
+
+            return $this->redirect(['action' => 'index']);
+        }
+
+        $chosen = array_filter((array)$this->request->getData('institution_ids'));
+        if (!$chosen) {
+            $this->Flash->error(__('Choose at least one institution to share this order with.'));
+
+            return $this->redirect(['action' => 'view', $id]);
+        }
+
+        $shares = $this->_shares();
+        $institutions = $this->_institutionsById($chosen);
+
+        $sent = 0;
+        $failed = [];
+        foreach ($chosen as $institutionId) {
+            $institutionId = (int)$institutionId;
+            if (!isset($institutions[$institutionId])) {
+                continue;
+            }
+            $institution = $institutions[$institutionId];
+
+            // One row per order and institution: re-sharing something that was
+            // cancelled reopens that row rather than adding a second, so the
+            // history of an offer stays in one place.
+            $share = $shares->find()
+                ->where([
+                    'apprentice_order_id' => $order->id,
+                    'vocational_training_institution_id' => $institutionId,
+                ])
+                ->first();
+
+            if (!$share) {
+                $share = $shares->newEntity(['apprentice_order_id' => $order->id,
+                    'vocational_training_institution_id' => $institutionId]);
+            }
+
+            $share->lpk_name = $institution->name;
+            $share->lpk_email = $institution->email;
+            $share->status = 'shared';
+            $share->cancelled_at = null;
+            $share->shared_by_user_id = $this->Auth->user('id');
+            $share->shared_by_name = $this->Auth->user('fullname') ?: $this->Auth->user('username');
+            $share->created = new \Cake\I18n\FrozenTime();
+
+            // 0 and 1, not false and true. The integer marshaller rejects a
+            // boolean - is_numeric(false) is false - and returns null for it,
+            // so a value set through newEntity() reaches a NOT NULL column as
+            // NULL and the insert fails. Integers survive whether the column
+            // reflects as boolean or as integer.
+            $share->notified = 0;
+
+            if (!$shares->save($share)) {
+                $failed[] = $institution->name;
+                continue;
+            }
+
+            if ($this->_notify('apprentice_order_shared', $order, $share)) {
+                $share->notified = 1;
+                $shares->save($share);
+                $sent++;
+            } else {
+                $failed[] = $institution->name;
+            }
+        }
+
+        if ($sent) {
+            $this->Flash->success(__('Order shared with {0} institution(s).', $sent));
+        }
+        if ($failed) {
+            // Saved but not delivered is a different state from not saved, and
+            // the share row records which - notified says whether the mail went.
+            $this->Flash->warning(__('Could not notify: {0}', implode(', ', $failed)));
+        }
+
+        return $this->redirect(['action' => 'view', $id]);
+    }
+
+    /**
+     * Withdraw an order from an institution it was offered to.
+     *
+     * Sends the apprentice_order_cancelled email, the other template that had
+     * no code behind it.
+     *
+     * @param string|null $id Apprentice Order id.
+     * @param string|null $shareId The share to withdraw.
+     * @return \Cake\Http\Response|null Always a redirect back to the order.
+     */
+    public function cancelShare($id = null, $shareId = null)
+    {
+        $this->request->allowMethod(['post', 'delete']);
+
+        $shares = $this->_shares();
+
+        try {
+            $order = $this->ApprenticeOrders->get($id, [
+                'contain' => ['CooperativeAssociations', 'AcceptanceOrganizations', 'MasterJobCategories'],
+            ]);
+            $share = $shares->get($shareId);
+        } catch (\Throwable $e) {
+            $this->Flash->error(__('That share could not be found.'));
+
+            return $this->redirect(['action' => 'view', $id]);
+        }
+
+        if ((int)$share->apprentice_order_id !== (int)$order->id) {
+            $this->Flash->error(__('That share belongs to a different order.'));
+
+            return $this->redirect(['action' => 'view', $id]);
+        }
+
+        if ($share->isCancelled()) {
+            $this->Flash->info(__('That share was already withdrawn.'));
+
+            return $this->redirect(['action' => 'view', $id]);
+        }
+
+        $share->status = 'cancelled';
+        $share->cancelled_at = new \Cake\I18n\FrozenTime();
+
+        if (!$shares->save($share)) {
+            $this->Flash->error(__('The share could not be withdrawn. Please, try again.'));
+
+            return $this->redirect(['action' => 'view', $id]);
+        }
+
+        if ($this->_notify('apprentice_order_cancelled', $order, $share)) {
+            $this->Flash->success(__('Order withdrawn from {0}, and they have been told.', $share->lpk_name));
+        } else {
+            // The withdrawal stands either way: the institution must not keep
+            // seeing the order as open because an email failed.
+            $this->Flash->warning(__('Order withdrawn from {0}, but the email could not be sent.', $share->lpk_name));
+        }
+
+        return $this->redirect(['action' => 'view', $id]);
+    }
+
+    /**
+     * Send one of the two apprentice-order templates.
+     *
+     * The variable names are the ones the templates in email_templates actually
+     * use - read off the rows with bin/cake list_email_templates. A name a
+     * template uses and this does not supply arrives at the reader as
+     * {{name}}, so that shell is the check on this list.
+     *
+     * organization_name and organization are both supplied because the shared
+     * template uses both: the acceptance organization is the one placing the
+     * order, and the cooperative association is the one it comes through.
+     *
+     * @param string $templateKey Which template.
+     * @param \App\Model\Entity\ApprenticeOrder $order The order.
+     * @param \App\Model\Entity\ApprenticeOrderShare $share The share.
+     * @return bool Whether the email went.
+     */
+    protected function _notify($templateKey, $order, $share)
+    {
+        if (empty($share->lpk_email)) {
+            return false;
+        }
+
+        $this->loadComponent('Email');
+
+        $quantity = (int)$order->male_trainee_number + (int)$order->female_trainee_number;
+
+        return $this->Email->sendTemplate($templateKey, $share->lpk_email, [
+            'title' => (string)$order->title,
+            'lpk_name' => (string)$share->lpk_name,
+            'job_title' => $order->has('master_job_category') ? (string)$order->master_job_category->title : '',
+            'organization_name' => $order->has('acceptance_organization') ? (string)$order->acceptance_organization->name : '',
+            'organization' => $order->has('cooperative_association') ? (string)$order->cooperative_association->name : '',
+            'requirement' => (string)$order->other_requirements,
+            'user_name' => (string)$share->shared_by_name,
+            'quantity' => (string)$quantity,
+            'departure' => trim($order->departure_month . ' ' . $order->departure_year),
+        ]);
+    }
+
+    /**
+     * The shares table, which has no association on ApprenticeOrders.
+     *
+     * @return \App\Model\Table\ApprenticeOrderSharesTable
+     */
+    protected function _shares()
+    {
+        return \Cake\ORM\TableRegistry::getTableLocator()->get('ApprenticeOrderShares');
+    }
+
+    /**
+     * Institutions by id, read from their own connection.
+     *
+     * vocational_training_institutions is on cms_tmm_stakeholders and the order
+     * is on cms_tmm_trainees, so this cannot be a contain() - it is a second
+     * query, the way the rest of the application crosses the same boundary.
+     *
+     * @param array $ids Institution ids, or empty for all of them.
+     * @return array<int, \Cake\Datasource\EntityInterface>
+     */
+    protected function _institutionsById(array $ids = [])
+    {
+        $table = \Cake\ORM\TableRegistry::getTableLocator()->get('VocationalTrainingInstitutions');
+        $query = $table->find()->order(['name' => 'ASC']);
+        if ($ids) {
+            $query->where(['id IN' => array_map('intval', $ids)]);
+        }
+
+        $out = [];
+        foreach ($query as $row) {
+            $out[(int)$row->id] = $row;
+        }
+
+        return $out;
+    }
+
+    /**
+     * What the order page needs to offer the order and to list who has it.
+     *
+     * A missing apprentice_order_shares table is not an error worth taking the
+     * page down for - the feature is simply not installed yet, and the view
+     * says so instead of showing a panel that cannot work.
+     *
+     * @param int $orderId The order.
+     * @return void
+     */
+    protected function _setSharingData($orderId)
+    {
+        try {
+            $shares = $this->_shares()->forOrder($orderId)->toArray();
+            $installed = true;
+        } catch (\Exception $e) {
+            $shares = [];
+            $installed = false;
+        }
+
+        $already = [];
+        foreach ($shares as $share) {
+            if (!$share->isCancelled()) {
+                $already[(int)$share->vocational_training_institution_id] = true;
+            }
+        }
+
+        $this->set('orderShares', $shares);
+        $this->set('sharingInstalled', $installed);
+        $this->set('shareableInstitutions', $installed ? $this->_institutionsById() : []);
+        $this->set('alreadySharedWith', $already);
     }
 
     /**

@@ -91,6 +91,54 @@ class ApprenticeDocumentsController extends AppController
         $this->set('apprenticeDocument', $apprenticeDocument);
     }
 
+    /**
+     * Dropdowns for the add/edit form.
+     *
+     * index() already builds exactly these lists so it can print names instead
+     * of raw ids; the form was given none of them, so every one of its five
+     * foreign keys was a number box. The lookups are wrapped the same way they
+     * are on the index - a master list living in another schema is cosmetic
+     * here, and its absence should not take the form down with it.
+     *
+     * @return array
+     */
+    protected function _formOptions()
+    {
+        $locator = \Cake\ORM\TableRegistry::getTableLocator();
+        $conn = \Cake\Datasource\ConnectionManager::get('cms_tmm_apprentice_documents');
+
+        $apprentices = [];
+        try {
+            foreach ($locator->get('Apprentices')->find()->select(['id', 'name', 'tmm_code'])->order(['name' => 'ASC']) as $apprentice) {
+                $apprentices[$apprentice->id] = $apprentice->name . ($apprentice->tmm_code ? ' (' . $apprentice->tmm_code . ')' : '');
+            }
+        } catch (\Exception $e) {
+        }
+
+        $documents = [];
+        try {
+            foreach ($conn->execute('SELECT id, title FROM master_apprentice_submission_documents ORDER BY title')->fetchAll('assoc') as $row) {
+                $documents[$row['id']] = $row['title'];
+            }
+        } catch (\Exception $e) {
+        }
+
+        $statuses = [];
+        try {
+            $statuses = $locator->get('MasterDocumentSubmissionStatuses')->find('list')->toArray();
+        } catch (\Exception $e) {
+        }
+
+        $users = [];
+        try {
+            $users = $locator->get('Users')->find()->enableHydration(false)
+                ->all()->combine('id', 'username')->toArray();
+        } catch (\Exception $e) {
+        }
+
+        return compact('apprentices', 'documents', 'statuses', 'users');
+    }
+
     public function add()
     {
         $apprenticeDocument = $this->ApprenticeDocuments->newEntity();
@@ -104,6 +152,7 @@ class ApprenticeDocumentsController extends AppController
             $this->Flash->error(__('The Apprentice Document could not be saved. Please, try again.'));
         }
         $this->set('apprenticeDocument', $apprenticeDocument);
+        $this->set($this->_formOptions());
     }
 
     public function edit($id = null)
@@ -119,6 +168,7 @@ class ApprenticeDocumentsController extends AppController
             $this->Flash->error(__('The Apprentice Document could not be saved. Please, try again.'));
         }
         $this->set('apprenticeDocument', $apprenticeDocument);
+        $this->set($this->_formOptions());
     }
 
     public function delete($id = null)

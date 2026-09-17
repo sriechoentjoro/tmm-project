@@ -4,7 +4,6 @@ namespace App\Controller\Component;
 use Cake\Controller\Component;
 use Cake\Mailer\Email;
 use Cake\ORM\TableRegistry;
-use Cake\Routing\Router;
 use Cake\Utility\Security;
 use Cake\Log\Log;
 
@@ -132,45 +131,6 @@ class EmailServiceComponent extends Component
                 'error_message' => $e->getMessage(),
             ]);
 
-            return false;
-        }
-    }
-
-    /**
-     * Send verification confirmation email after successful verification
-     *
-     * @param object $user User entity
-     * @param object $institution Institution entity
-     * @param string $institutionType 'lpk' or 'special_skill'
-     * @return bool Success status
-     */
-    public function sendVerificationConfirmationEmail($user, $institution, $institutionType)
-    {
-        try {
-            $profileLink = Router::url([
-                'controller' => $institutionType === 'lpk' ? 'Lpk' : 'SpecialSkill',
-                'action' => 'profile'
-            ], true);
-            
-            $email = new Email('default');
-            $email->setFrom(['sriechoentjoro@gmail.com' => 'TMM System Admin'])
-                ->setTo($user->email)
-                ->setSubject('Email Verified Successfully - TMM System')
-                ->setEmailFormat('both')
-                ->setViewVars([
-                    'institutionName' => $institution->name,
-                    'email' => $user->email,
-                    'profileLink' => $profileLink,
-                    'institutionType' => $institutionType
-                ])
-                ->setTemplate('verification_confirmation')
-                ->setLayout('email_branded')
-                ->send();
-            
-            return true;
-            
-        } catch (\Exception $e) {
-            Log::error('Failed to send verification confirmation email: ' . $e->getMessage());
             return false;
         }
     }

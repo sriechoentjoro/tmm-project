@@ -46,22 +46,7 @@ class PostApprenticesController extends AppController
             }
             $this->Flash->error(__('The Post Apprentice could not be saved. Please, try again.'));
         }
-        $rows = $this->PostApprentices->getConnection()
-            ->execute('SELECT id, tmm_code, apprentice_id_number FROM apprentices ORDER BY tmm_code')
-            ->fetchAll('assoc');
-        $apprenticeOptions = [];
-        foreach ($rows as $r) {
-            $label = $r['tmm_code'];
-            if (!empty($r['apprentice_id_number'])) $label .= ' (' . $r['apprentice_id_number'] . ')';
-            $apprenticeOptions[$r['id']] = $label;
-        }
-        $statusOptions = [
-            'Employed'       => __('Employed'),
-            'Self-Employed'  => __('Self-Employed'),
-            'Continuing Study' => __('Continuing Study'),
-            'Unemployed'     => __('Unemployed'),
-            'Other'          => __('Other'),
-        ];
+        list($apprenticeOptions, $statusOptions) = $this->_formOptions();
         $this->set(compact('postApprentice', 'apprenticeOptions', 'statusOptions'));
     }
 
@@ -77,7 +62,43 @@ class PostApprenticesController extends AppController
             }
             $this->Flash->error(__('The Post Apprentice could not be saved. Please, try again.'));
         }
-        $this->set('postApprentice', $postApprentice);
+        list($apprenticeOptions, $statusOptions) = $this->_formOptions();
+        $this->set(compact('postApprentice', 'apprenticeOptions', 'statusOptions'));
+    }
+
+    /**
+     * Apprentice and status dropdowns for the add/edit form.
+     *
+     * add() built both inline; edit() built neither, so editing an alumnus
+     * record meant typing the apprentice's row id and spelling the status by
+     * hand - and a status spelled differently drops out of the summary on the
+     * index, which counts by exact value.
+     *
+     * @return array
+     */
+    protected function _formOptions()
+    {
+        $apprenticeOptions = [];
+        $rows = $this->PostApprentices->getConnection()
+            ->execute('SELECT id, tmm_code, apprentice_id_number FROM apprentices ORDER BY tmm_code')
+            ->fetchAll('assoc');
+        foreach ($rows as $row) {
+            $label = $row['tmm_code'] ?: __('Apprentice #{0}', $row['id']);
+            if (!empty($row['apprentice_id_number'])) {
+                $label .= ' (' . $row['apprentice_id_number'] . ')';
+            }
+            $apprenticeOptions[$row['id']] = $label;
+        }
+
+        $statusOptions = [
+            'Employed' => __('Employed'),
+            'Self-Employed' => __('Self-Employed'),
+            'Continuing Study' => __('Continuing Study'),
+            'Unemployed' => __('Unemployed'),
+            'Other' => __('Other'),
+        ];
+
+        return [$apprenticeOptions, $statusOptions];
     }
 
     public function delete($id = null)

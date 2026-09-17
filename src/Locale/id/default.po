@@ -13278,3 +13278,1012 @@ msgstr "Hapus {0}? Ada {1} kandidat yang tercatat pada lembaga ini dan akan menj
 msgid "Delete {0}? This cannot be undone."
 msgstr "Hapus {0}? Tindakan ini tidak dapat dibatalkan."
 
+msgid "Help"
+msgstr "Bantuan"
+
+msgid "No review screen yet"
+msgstr "Belum ada halaman peninjauan"
+
+msgid "TMM SYSTEM REGISTRATION - VERIFY YOUR EMAIL ADDRESS"
+msgstr "PENDAFTARAN SISTEM TMM - VERIFIKASI ALAMAT EMAIL ANDA"
+
+msgid "Dear {0},"
+msgstr "Yth. {0},"
+
+msgid "Congratulations! Your Vocational Training Institution \"{0}\" has been successfully registered in the TMM (Training and Manpower Management) System."
+msgstr "Selamat! Lembaga Pelatihan Kerja Anda \"{0}\" telah berhasil didaftarkan dalam Sistem TMM (Training and Manpower Management)."
+
+msgid "To complete your registration and activate your account, please verify your email address by visiting the link below:"
+msgstr "Untuk menyelesaikan pendaftaran dan mengaktifkan akun Anda, silakan verifikasi alamat email Anda melalui tautan berikut:"
+
+msgid "REGISTRATION DETAILS"
+msgstr "RINCIAN PENDAFTARAN"
+
+msgid "IMPORTANT"
+msgstr "PENTING"
+
+msgid "This verification link will expire in 24 HOURS. Please verify your email as soon as possible to avoid delays in account activation."
+msgstr "Tautan verifikasi ini berlaku 24 JAM. Silakan verifikasi email Anda sesegera mungkin agar aktivasi akun tidak tertunda."
+
+msgid "WHAT HAPPENS NEXT?"
+msgstr "LANGKAH BERIKUTNYA"
+
+msgid "After verifying your email, you will be directed to create a secure password for your account. Once completed, you will receive a welcome email with your login credentials and instructions on how to access the TMM system."
+msgstr "Setelah memverifikasi email, Anda akan diarahkan untuk membuat kata sandi bagi akun Anda. Setelah selesai, Anda akan menerima email sambutan berisi informasi masuk dan petunjuk mengakses sistem TMM."
+
+msgid "SECURITY NOTICE"
+msgstr "PEMBERITAHUAN KEAMANAN"
+
+msgid "If you did not request this registration or believe this email was sent to you by mistake, please contact our support team immediately at:"
+msgstr "Jika Anda tidak meminta pendaftaran ini atau merasa email ini terkirim karena kekeliruan, segera hubungi tim dukungan kami di:"
+
+msgid "Phone:"
+msgstr "Telepon:"
+
+msgid "TMM - Training and Manpower Management System"
+msgstr "TMM - Sistem Training and Manpower Management"
+
+msgid "© {0} PT. ASAHI FAMILY INDONESIA. All rights reserved."
+msgstr "© {0} PT. ASAHI FAMILY INDONESIA. Seluruh hak cipta dilindungi."
+
+msgid "This is an automated email. Please do not reply directly to this message."
+msgstr "Email ini dikirim otomatis. Mohon tidak membalas pesan ini secara langsung."
+
+msgid "Template"
+msgstr "Templat"
+
+msgid "The key the application asks for. Changing it stops the template being found."
+msgstr "Kunci yang diminta aplikasi. Mengubahnya membuat templat ini tidak lagi ditemukan."
+
+msgid "Body (HTML)"
+msgstr "Isi (HTML)"
+
+msgid "Body (plain text)"
+msgstr "Isi (teks polos)"
+
+msgid "Sent to mail clients that prefer plain text. Left empty, the HTML body is sent with its tags stripped."
+msgstr "Dikirim ke klien email yang lebih memilih teks polos. Jika dikosongkan, isi HTML dikirim tanpa tag-nya."
+
+msgid "Names the application supplies, as JSON or separated by commas. The preview gives a value to every {{name}} it finds in the text, declared here or not."
+msgstr "Nama-nama yang disediakan aplikasi, dalam bentuk JSON atau dipisah koma. Pratinjau memberi nilai untuk setiap {{nama}} yang ditemukan dalam teks, baik terdaftar di sini maupun tidak."
+
+msgid "As it will arrive"
+msgstr "Tampilan saat diterima"
+
+msgid "Email preview"
+msgstr "Pratinjau email"
+
+msgid "Click a name to insert it at the cursor. Values shown are samples."
+msgstr "Klik sebuah nama untuk menyisipkannya di posisi kursor. Nilai yang tampil hanyalah contoh."
+
+msgid "with the standard letterhead"
+msgstr "dengan kop surat standar"
+
+msgid "sent as written - no letterhead"
+msgstr "dikirim apa adanya - tanpa kop surat"
+
+msgid "(no subject)"
+msgstr "(tanpa subjek)"
+
+msgid "Not supplied by the application, so it will arrive literally:"
+msgstr "Tidak disediakan aplikasi, jadi akan terkirim apa adanya:"
+
+msgid "New Email Template"
+msgstr "Templat Email Baru"
+
+msgid "Shared with Institutions"
+msgstr "Dibagikan ke Lembaga"
+
+msgid "Sharing is not installed on this server yet. Run:"
+msgstr "Fitur berbagi belum terpasang di server ini. Jalankan:"
+
+msgid "Notified"
+msgstr "Diberi Tahu"
+
+msgid "Shared By"
+msgstr "Dibagikan Oleh"
+
+msgid "When"
+msgstr "Waktu"
+
+msgid "Withdrawn"
+msgstr "Ditarik"
+
+msgid "Shared"
+msgstr "Dibagikan"
+
+msgid "Email failed"
+msgstr "Email gagal"
+
+msgid "withdrawn {0}"
+msgstr "ditarik {0}"
+
+msgid "Withdraw"
+msgstr "Tarik"
+
+msgid "Withdraw this order from {0}? They will be emailed."
+msgstr "Tarik order ini dari {0}? Mereka akan dikirimi email."
+
+msgid "This order has not been shared with anyone yet."
+msgstr "Order ini belum dibagikan ke siapa pun."
+
+msgid "already has it"
+msgstr "sudah menerimanya"
+
+msgid "no email address"
+msgstr "tidak punya alamat email"
+
+msgid "Share This Order"
+msgstr "Bagikan Order Ini"
+
+msgid "Each institution selected is emailed the order details. Withdrawing later emails them again."
+msgstr "Setiap lembaga yang dipilih akan dikirimi rincian order lewat email. Menariknya kembali juga mengirim email lagi."
+
+msgid "Apprentice order not found."
+msgstr "Order pemagangan tidak ditemukan."
+
+msgid "Choose at least one institution to share this order with."
+msgstr "Pilih setidaknya satu lembaga untuk menerima order ini."
+
+msgid "Order shared with {0} institution(s)."
+msgstr "Order dibagikan ke {0} lembaga."
+
+msgid "Could not notify: {0}"
+msgstr "Tidak dapat memberi tahu: {0}"
+
+msgid "That share could not be found."
+msgstr "Data pembagian itu tidak ditemukan."
+
+msgid "That share belongs to a different order."
+msgstr "Data pembagian itu milik order yang berbeda."
+
+msgid "That share was already withdrawn."
+msgstr "Pembagian itu sudah ditarik sebelumnya."
+
+msgid "The share could not be withdrawn. Please, try again."
+msgstr "Pembagian tidak dapat ditarik. Silakan coba lagi."
+
+msgid "Order withdrawn from {0}, and they have been told."
+msgstr "Order ditarik dari {0}, dan mereka sudah diberi tahu."
+
+msgid "Order withdrawn from {0}, but the email could not be sent."
+msgstr "Order ditarik dari {0}, tetapi emailnya tidak dapat dikirim."
+
+msgid "Only recruitment staff and administrators can share an order or withdraw it."
+msgstr "Hanya staf rekrutmen dan administrator yang dapat membagikan atau menarik order."
+
+msgid "Only recruitment staff and administrators can create apprentice orders or manage who they are shared with."
+msgstr "Hanya staf rekrutmen dan administrator yang dapat membuat order pemagangan atau mengatur pembagiannya."
+
+msgid "TMM System Documentation"
+msgstr "Dokumentasi Sistem TMM"
+
+msgid "The whole process, phase by phase, with a link to every screen that does the work."
+msgstr "Keseluruhan proses, fase demi fase, dengan tautan ke setiap layar yang mengerjakannya."
+
+msgid "How the TMM System Works"
+msgstr "Cara Kerja Sistem TMM"
+
+msgid "From registering a partner institution, through recruiting and training candidates, to an apprentice working in Japan and coming home. Every phase below links to the screens that do the work."
+msgstr "Dari mendaftarkan lembaga mitra, merekrut dan melatih kandidat, sampai pemagang bekerja di Jepang dan kembali pulang. Setiap fase di bawah menaut ke layar yang mengerjakannya."
+
+msgid "Main Process Pipeline"
+msgstr "Alur Proses Utama"
+
+msgid "1. Candidate Recruitment"
+msgstr "1. Rekrutmen Kandidat"
+
+msgid "2. Trainee Training"
+msgstr "2. Pelatihan Trainee"
+
+msgid "3. Documents & Departure"
+msgstr "3. Dokumen & Keberangkatan"
+
+msgid "4. Apprenticeship in Japan"
+msgstr "4. Pemagangan di Jepang"
+
+msgid "Post-Apprentice"
+msgstr "Purna Pemagang"
+
+msgid "Accounting"
+msgstr "Keuangan"
+
+msgid "Apprentice Order shared with LPK"
+msgstr "Order Pemagangan dibagikan ke LPK"
+
+msgid "The pipeline is not a straight line. An apprentice order from an accepting organization is shared with partner LPKs, and that is where the next round of candidate recruitment begins - so the last phase feeds the first."
+msgstr "Alurnya bukan garis lurus. Order pemagangan dari organisasi penerima dibagikan ke LPK penyangga, dan dari situlah rekrutmen kandidat berikutnya dimulai — sehingga fase terakhir mengalir kembali ke fase pertama."
+
+msgid "Register every partner organisation before any order is placed."
+msgstr "Daftarkan setiap organisasi mitra sebelum ada order apa pun."
+
+msgid "LPK - Vocational Training Institution"
+msgstr "LPK — Lembaga Pelatihan Kerja"
+
+msgid "The Indonesian institution that finds and trains candidates. An admin registers it; the institution then activates its own account."
+msgstr "Lembaga di Indonesia yang mencari dan melatih kandidat. Admin mendaftarkannya; lembaga itu sendiri yang kemudian mengaktifkan akunnya."
+
+msgid "LPK Registration Queue"
+msgstr "Antrian Pendaftaran LPK"
+
+msgid "Register a New LPK"
+msgstr "Daftarkan LPK Baru"
+
+msgid "Verification Status"
+msgstr "Status Verifikasi"
+
+msgid "An admin enters the institution and the login name it will use."
+msgstr "Admin mengisi data lembaga dan nama pengguna yang akan dipakainya."
+
+msgid "Its director clicks the verification link emailed to them, valid 24 hours."
+msgstr "Direkturnya mengklik tautan verifikasi yang dikirim lewat email, berlaku 24 jam."
+
+msgid "The director sets a password - only then is the account active."
+msgstr "Direktur menetapkan kata sandi — barulah akunnya aktif."
+
+msgid "If the link expires or never arrives, Resend Verification Email sends a fresh one."
+msgstr "Jika tautannya kedaluwarsa atau tidak pernah sampai, tombol Kirim Ulang Email Verifikasi mengirimkan yang baru."
+
+msgid "AO - Acceptance Organization"
+msgstr "AO — Organisasi Penerima"
+
+msgid "The company in Japan that will accept the apprentices. Record its profile and the work it needs done."
+msgstr "Perusahaan di Jepang yang akan menerima pemagang. Catat profil dan jenis pekerjaan yang dibutuhkan."
+
+msgid "Kumiai - Cooperative Association"
+msgstr "Kumiai — Asosiasi Koperasi"
+
+msgid "The supervising cooperative that mediates between the accepting organization and the sending side."
+msgstr "Koperasi pengawas yang menjembatani organisasi penerima dengan pihak pengirim."
+
+msgid "For the Specified Skilled Worker route - the registered support organisation."
+msgstr "Untuk jalur Specified Skilled Worker — lembaga pendukung terdaftar."
+
+msgid "Create an Apprentice Order and Share It"
+msgstr "Membuat Order Pemagangan dan Membagikannya"
+
+msgid "A vacancy in Japan, offered to the institutions that can fill it."
+msgstr "Lowongan di Jepang, ditawarkan ke lembaga yang dapat mengisinya."
+
+msgid "How many people are needed, which job category, which departure month, and which cooperative and accepting organization it belongs to."
+msgstr "Berapa orang yang dibutuhkan, kategori pekerjaannya, bulan keberangkatannya, serta koperasi dan organisasi penerima yang terkait."
+
+msgid "Share the Order with LPKs"
+msgstr "Bagikan Order ke LPK"
+
+msgid "Offer the order to one or more institutions so they can start recruiting against it. Each one is emailed the order details, and withdrawing it later emails them again."
+msgstr "Tawarkan order ke satu atau beberapa lembaga agar mereka mulai merekrut untuk order itu. Masing-masing dikirimi rincian order lewat email, dan menariknya kembali juga mengirim email lagi."
+
+msgid "Open an order, then Shared with Institutions"
+msgstr "Buka sebuah order, lalu bagian Dibagikan ke Lembaga"
+
+msgid "The order page lists who has it, whether the email reached them, and who shared it."
+msgstr "Halaman order menampilkan siapa saja yang menerimanya, apakah emailnya sampai, dan siapa yang membagikannya."
+
+msgid "Withdrawing an order from an institution tells them; the record of the offer stays."
+msgstr "Menarik order dari sebuah lembaga akan memberi tahu mereka; catatan penawarannya tetap tersimpan."
+
+msgid "Only tmm-recruitment and administrator may create, edit, delete, share or withdraw an order. Other roles can see an order and who it was shared with, but cannot change it."
+msgstr "Hanya tmm-recruitment dan administrator yang dapat membuat, mengubah, menghapus, membagikan, atau menarik order. Peran lain dapat melihat order dan daftar penerimanya, tetapi tidak dapat mengubahnya."
+
+msgid "Recruitment and Selection"
+msgstr "Rekrutmen dan Seleksi"
+
+msgid "The institution finds candidates and puts them through selection."
+msgstr "Lembaga mencari kandidat dan menjalankan proses seleksinya."
+
+msgid "Enter each applicant with personal data, family, education and experience, then upload their documents."
+msgstr "Masukkan setiap pelamar beserta data pribadi, keluarga, pendidikan dan pengalaman, lalu unggah dokumennya."
+
+msgid "Physical tests, scoring, interviews and a medical check-up together give a readiness view of each candidate."
+msgstr "Tes fisik, penilaian, wawancara, dan pemeriksaan kesehatan bersama-sama memberi gambaran kesiapan tiap kandidat."
+
+msgid "Candidate Scoring"
+msgstr "Penilaian Kandidat"
+
+msgid "A candidate who passes is promoted and becomes a trainee."
+msgstr "Kandidat yang lulus dipromosikan dan menjadi trainee."
+
+msgid "Japanese language, work competencies and culture, in batches."
+msgstr "Bahasa Jepang, kompetensi kerja, dan budaya, dalam bentuk angkatan."
+
+msgid "Training Batches and Modules"
+msgstr "Angkatan dan Modul Pelatihan"
+
+msgid "Group trainees into batches and enrol them in the training modules."
+msgstr "Kelompokkan trainee ke dalam angkatan dan daftarkan mereka pada modul pelatihan."
+
+msgid "Scores and Certificates"
+msgstr "Nilai dan Sertifikat"
+
+msgid "Daily and test scores are recorded, certificates issued, and a passing trainee is promoted to apprentice."
+msgstr "Nilai harian dan nilai ujian dicatat, sertifikat diterbitkan, dan trainee yang lulus dipromosikan menjadi pemagang."
+
+msgid "Documents and Departure"
+msgstr "Dokumen dan Keberangkatan"
+
+msgid "Everything that has to exist on paper before a flight is booked."
+msgstr "Semua yang harus lengkap di atas kertas sebelum tiket dipesan."
+
+msgid "Submission Documents"
+msgstr "Dokumen Penyerahan"
+
+msgid "The document set each trainee must complete, tracked against a checklist."
+msgstr "Berkas yang harus dilengkapi tiap trainee, dipantau lewat checklist."
+
+msgid "Passport, Medical, COE and Visa"
+msgstr "Paspor, Kesehatan, COE dan Visa"
+
+msgid "Passport records, the pre-departure medical check-up, then the certificate of eligibility and the visa."
+msgstr "Rekaman paspor, pemeriksaan kesehatan pra-keberangkatan, lalu certificate of eligibility dan visa."
+
+msgid "Passports"
+msgstr "Paspor"
+
+msgid "Tickets and Departure"
+msgstr "Tiket dan Keberangkatan"
+
+msgid "Flights are booked and the departure document pack is assembled."
+msgstr "Penerbangan dipesan dan berkas keberangkatan disusun."
+
+msgid "Departures"
+msgstr "Keberangkatan"
+
+msgid "Apprenticeship in Japan, and Coming Home"
+msgstr "Pemagangan di Jepang, dan Kepulangan"
+
+msgid "Work at the accepting organization, tracked to completion."
+msgstr "Bekerja di organisasi penerima, dipantau sampai selesai."
+
+msgid "Apprentice in Japan"
+msgstr "Pemagang di Jepang"
+
+msgid "The apprentice works at the accepting organization according to the order. Documents, certifications and progress are recorded throughout."
+msgstr "Pemagang bekerja di organisasi penerima sesuai order. Dokumen, sertifikasi, dan perkembangannya dicatat sepanjang masa itu."
+
+msgid "Once the placement ends, the alumnus is managed as a post-apprentice."
+msgstr "Setelah penempatan berakhir, alumninya dikelola sebagai purna pemagang."
+
+msgid "Post-Apprentices"
+msgstr "Purna Pemagang"
+
+msgid "Your role"
+msgstr "Peran Anda"
+
+msgid "Supporting Areas"
+msgstr "Area Pendukung"
+
+msgid "Runs alongside training and departure"
+msgstr "Berjalan berdampingan dengan pelatihan dan keberangkatan"
+
+msgid "Trainee installments, journals, the chart of accounts, and the financial reports."
+msgstr "Cicilan trainee, jurnal, bagan akun, dan laporan keuangan."
+
+msgid "System Administration"
+msgstr "Administrasi Sistem"
+
+msgid "Who exists, and what they may do"
+msgstr "Siapa saja yang ada, dan apa yang boleh mereka lakukan"
+
+msgid "Users, roles, menus, access permissions and the audit log."
+msgstr "Pengguna, peran, menu, izin akses, dan log audit."
+
+msgid "Users"
+msgstr "Pengguna"
+
+msgid "Menus"
+msgstr "Menu"
+
+msgid "Audit Logs"
+msgstr "Log Audit"
+
+msgid "Who May Do What"
+msgstr "Siapa Boleh Melakukan Apa"
+
+msgid "<strong>Apprentice orders</strong> - only <em>tmm-recruitment</em> and <em>administrator</em> may create, edit, delete, share with an LPK, or withdraw a share. Other roles can still see an order and who it has been shared with; they simply cannot change it."
+msgstr "<strong>Order pemagangan</strong> — hanya <em>tmm-recruitment</em> dan <em>administrator</em> yang dapat membuat, mengubah, menghapus, membagikan ke LPK, atau menarik pembagiannya. Peran lain tetap dapat melihat order dan daftar LPK yang menerimanya, tetapi tidak dapat mengubahnya."
+
+msgid "<strong>LPK sign-in details</strong> - an institution's login name is visible only to an administrator and to that institution itself. The password is never shown anywhere; it is stored hashed and cannot be read back."
+msgstr "<strong>Informasi masuk LPK</strong> — nama pengguna sebuah LPK hanya terlihat oleh administrator dan oleh LPK itu sendiri. Kata sandi tidak pernah ditampilkan di mana pun; disimpan ter-hash dan tidak dapat dibaca kembali."
+
+msgid "Everything else follows your role's permissions. When a page refuses access, the message names your account and your role - pass that on to an administrator."
+msgstr "Selebihnya mengikuti izin peran Anda. Bila sebuah halaman menolak akses, pesannya menyebutkan akun dan peran Anda — sampaikan itu ke administrator."
+
+msgid "How to Use the System"
+msgstr "Cara Menggunakan Sistem"
+
+msgid "Use the menu at the top of the screen to open each module, or click the links on the phases above."
+msgstr "Gunakan menu di bagian atas layar untuk membuka tiap modul, atau klik tautan pada fase di atas."
+
+msgid "Every list page has column filters, search and export buttons."
+msgstr "Setiap halaman daftar memiliki filter kolom, pencarian, dan tombol ekspor."
+
+msgid "The Process Flow help button on each module explains that module's workflow in detail."
+msgstr "Tombol bantuan Alur Proses pada tiap modul menjelaskan alur kerja modul itu secara detail."
+
+msgid "The language can be changed at any time from the switcher; this page and the whole interface follow it."
+msgstr "Bahasa dapat diubah kapan saja lewat pemilih bahasa; halaman ini dan seluruh antarmuka mengikutinya."
+
+
+# ── Scaffolded add/edit forms (Element/entity_form) ───────────────
+
+msgid "- choose -"
+msgstr "- pilih -"
+
+msgid "- choose a batch -"
+msgstr "- pilih angkatan -"
+
+msgid "- choose a candidate -"
+msgstr "- pilih kandidat -"
+
+msgid "- choose a category -"
+msgstr "- pilih kategori -"
+
+msgid "- choose a competency -"
+msgstr "- pilih kompetensi -"
+
+msgid "- choose a currency -"
+msgstr "- pilih mata uang -"
+
+msgid "- choose a document -"
+msgstr "- pilih dokumen -"
+
+msgid "- choose a grade -"
+msgstr "- pilih nilai huruf -"
+
+msgid "- choose a status -"
+msgstr "- pilih status -"
+
+msgid "- choose a ticket -"
+msgstr "- pilih tiket -"
+
+msgid "- choose a trainee -"
+msgstr "- pilih trainee -"
+
+msgid "- choose a type -"
+msgstr "- pilih jenis -"
+
+msgid "- choose a user -"
+msgstr "- pilih pengguna -"
+
+msgid "- choose an airline -"
+msgstr "- pilih maskapai -"
+
+msgid "- choose an airport -"
+msgstr "- pilih bandara -"
+
+msgid "- choose an apprentice -"
+msgstr "- pilih apprentice -"
+
+msgid "A band of scores and the grade it earns."
+msgstr "Rentang nilai dan huruf mutu yang diperolehnya."
+
+msgid "A certificate belongs to one trainee and the batch they trained in."
+msgstr "Satu sertifikat milik satu trainee dan angkatan tempat ia berlatih."
+
+msgid "A line that says what the story is about."
+msgstr "Satu baris yang menjelaskan isi cerita ini."
+
+msgid "A path to an image already on the server. This field stores text, it does not upload."
+msgstr "Path ke gambar yang sudah ada di server. Kolom ini menyimpan teks, bukan mengunggah berkas."
+
+msgid "A problem an apprentice met, and what came of it."
+msgstr "Masalah yang dialami apprentice, dan apa hasilnya."
+
+msgid "A score at or above this value falls in this grade."
+msgstr "Nilai sama dengan atau di atas angka ini masuk ke huruf mutu ini."
+
+msgid "A subject trainees are tested on. Test scores and score averages are recorded against it."
+msgstr "Mata pelajaran yang diujikan kepada trainee. Nilai ujian dan rata-rata dicatat berdasarkan ini."
+
+msgid "Account code"
+msgstr "Kode akun"
+
+msgid "Account name"
+msgstr "Nama akun"
+
+msgid "Add Alumni Record"
+msgstr "Tambah Data Alumni"
+
+msgid "Add Category"
+msgstr "Tambah Kategori"
+
+msgid "Add Certificate"
+msgstr "Tambah Sertifikat"
+
+msgid "Add Competency"
+msgstr "Tambah Kompetensi"
+
+msgid "Add Currency"
+msgstr "Tambah Mata Uang"
+
+msgid "Add Flight"
+msgstr "Tambah Penerbangan"
+
+msgid "Add Grade"
+msgstr "Tambah Huruf Mutu"
+
+msgid "Add Payment Method"
+msgstr "Tambah Metode Pembayaran"
+
+msgid "Add Score Average"
+msgstr "Tambah Rata-rata Nilai"
+
+msgid "Add Story"
+msgstr "Tambah Cerita"
+
+msgid "Add Transaction Category"
+msgstr "Tambah Kategori Transaksi"
+
+msgid "Amount paid"
+msgstr "Jumlah dibayar"
+
+msgid "An account in the chart of accounts. Journal lines are posted against it."
+msgstr "Satu akun dalam bagan akun. Baris jurnal diposkan ke akun ini."
+
+msgid "An inactive account stays on file but should no longer be posted to."
+msgstr "Akun nonaktif tetap tersimpan, tetapi sebaiknya tidak lagi digunakan untuk posting."
+
+msgid "Anything the next person to look at this record should know."
+msgstr "Hal yang perlu diketahui orang berikutnya yang membuka data ini."
+
+msgid "Appears on every test score and on the certificate breakdown."
+msgstr "Muncul pada setiap nilai ujian dan pada rincian sertifikat."
+
+msgid "Apprentice #{0}"
+msgstr "Apprentice #{0}"
+
+msgid "As printed on the ticket."
+msgstr "Sesuai yang tercetak pada tiket."
+
+msgid "Asset"
+msgstr "Aset"
+
+msgid "Average score"
+msgstr "Nilai rata-rata"
+
+msgid "Bank transfer"
+msgstr "Transfer bank"
+
+msgid "Batch #{0}"
+msgstr "Angkatan #{0}"
+
+msgid "Cash on hand"
+msgstr "Kas di tangan"
+
+msgid "Certificate number"
+msgstr "Nomor sertifikat"
+
+msgid "Chosen when an installment or a receipt is recorded."
+msgstr "Dipilih saat mencatat cicilan atau kuitansi."
+
+msgid "Correct a document already recorded against a trainee."
+msgstr "Perbaiki dokumen yang sudah tercatat atas nama seorang trainee."
+
+msgid "Correct the details of a certificate that has already been issued."
+msgstr "Perbaiki rincian sertifikat yang sudah diterbitkan."
+
+msgid "Currencies are offered wherever an amount of money is recorded."
+msgstr "Mata uang ditawarkan di setiap tempat yang mencatat jumlah uang."
+
+msgid "Current status"
+msgstr "Status saat ini"
+
+msgid "Edit Account"
+msgstr "Ubah Akun"
+
+msgid "Edit Alumni Record"
+msgstr "Ubah Data Alumni"
+
+msgid "Edit Certificate"
+msgstr "Ubah Sertifikat"
+
+msgid "Edit Competency"
+msgstr "Ubah Kompetensi"
+
+msgid "Edit Currency"
+msgstr "Ubah Mata Uang"
+
+msgid "Edit Document Record"
+msgstr "Ubah Data Dokumen"
+
+msgid "Edit Flight"
+msgstr "Ubah Penerbangan"
+
+msgid "Edit Grade"
+msgstr "Ubah Huruf Mutu"
+
+msgid "Edit Installment"
+msgstr "Ubah Cicilan"
+
+msgid "Edit Payment Method"
+msgstr "Ubah Metode Pembayaran"
+
+msgid "Edit Score Average"
+msgstr "Ubah Rata-rata Nilai"
+
+msgid "Edit Story"
+msgstr "Ubah Cerita"
+
+msgid "Edit Submission"
+msgstr "Ubah Penyerahan"
+
+msgid "Edit Transaction Category"
+msgstr "Ubah Kategori Transaksi"
+
+msgid "Everything received up to and including this payment."
+msgstr "Seluruh yang sudah diterima sampai dengan pembayaran ini."
+
+msgid "Expense"
+msgstr "Beban"
+
+msgid "Fields marked * are required."
+msgstr "Kolom bertanda * wajib diisi."
+
+msgid "File path"
+msgstr "Path berkas"
+
+msgid "Filled in automatically when the file was uploaded."
+msgstr "Terisi otomatis saat berkas diunggah."
+
+msgid "Flight number"
+msgstr "Nomor penerbangan"
+
+msgid "From the master list of candidate documents."
+msgstr "Dari daftar induk dokumen kandidat."
+
+msgid "From the master list of documents a trainee must submit."
+msgstr "Dari daftar induk dokumen yang wajib diserahkan trainee."
+
+msgid "From the master list of documents an apprentice must submit."
+msgstr "Dari daftar induk dokumen yang wajib diserahkan apprentice."
+
+msgid "Highest score"
+msgstr "Nilai tertinggi"
+
+msgid "How a payment reaches the company: transfer, cash, card."
+msgstr "Cara pembayaran sampai ke perusahaan: transfer, tunai, kartu."
+
+msgid "How the news reached us, or anything else worth keeping."
+msgstr "Dari mana kabar ini diperoleh, atau hal lain yang perlu disimpan."
+
+msgid "Image path"
+msgstr "Path gambar"
+
+msgid "Issue a Certificate"
+msgstr "Terbitkan Sertifikat"
+
+msgid "Issue a certificate to a trainee who has finished training."
+msgstr "Terbitkan sertifikat untuk trainee yang telah menyelesaikan pelatihan."
+
+msgid "Issue date"
+msgstr "Tanggal terbit"
+
+msgid "Japan"
+msgstr "Jepang"
+
+msgid "Japanese Yen"
+msgstr "Yen Jepang"
+
+msgid "Japanese language"
+msgstr "Bahasa Jepang"
+
+msgid "Keep the bands apart so a score cannot land in two grades."
+msgstr "Jaga agar rentang tidak bertumpang tindih, supaya satu nilai tidak masuk dua huruf mutu."
+
+msgid "Kept on file only - notes do not appear on the printed certificate."
+msgstr "Hanya tersimpan sebagai catatan - tidak muncul pada sertifikat yang dicetak."
+
+msgid "Liability"
+msgstr "Kewajiban"
+
+msgid "Local time at the arrival airport, which may be a day later."
+msgstr "Waktu setempat di bandara tujuan, yang bisa jadi sehari kemudian."
+
+msgid "Local time at the departure airport."
+msgstr "Waktu setempat di bandara keberangkatan."
+
+msgid "Lowest score"
+msgstr "Nilai terendah"
+
+msgid "Moving a document to another trainee changes both their checklists."
+msgstr "Memindahkan dokumen ke trainee lain mengubah checklist keduanya."
+
+msgid "Moving a payment to another trainee changes both their balances."
+msgstr "Memindahkan pembayaran ke trainee lain mengubah saldo keduanya."
+
+msgid "One leg of a journey. A ticket with a transit has two."
+msgstr "Satu ruas perjalanan. Tiket dengan transit memiliki dua."
+
+msgid "One payment towards what a trainee owes."
+msgstr "Satu pembayaran atas kewajiban seorang trainee."
+
+msgid "One row per document an apprentice has handed in, and where it stands."
+msgstr "Satu baris untuk setiap dokumen yang diserahkan apprentice, beserta statusnya."
+
+msgid "One trainee, one competency, and the average they reached in it."
+msgstr "Satu trainee, satu kompetensi, dan rata-rata nilai yang dicapainya."
+
+msgid "Payment date"
+msgstr "Tanggal pembayaran"
+
+msgid "Payment method"
+msgstr "Metode pembayaran"
+
+msgid "Printed on the certificate, so give it the number the paper carries."
+msgstr "Tercetak pada sertifikat, jadi isikan nomor yang tertera di lembarnya."
+
+msgid "Record Document"
+msgstr "Catat Dokumen"
+
+msgid "Record Submission"
+msgstr "Catat Penyerahan"
+
+msgid "Record a Document"
+msgstr "Catat Dokumen"
+
+msgid "Record a Submission"
+msgstr "Catat Penyerahan"
+
+msgid "Record the certificate a trainee receives at the end of a training batch."
+msgstr "Catat sertifikat yang diterima trainee pada akhir satu angkatan pelatihan."
+
+msgid "Return date"
+msgstr "Tanggal kepulangan"
+
+msgid "Route and times"
+msgstr "Rute dan waktu"
+
+msgid "Score average"
+msgstr "Rata-rata nilai"
+
+msgid "Settled"
+msgstr "Lunas"
+
+msgid "Shown on every journal line that touches this account."
+msgstr "Ditampilkan pada setiap baris jurnal yang menyentuh akun ini."
+
+msgid "Shown on the installment form and in the payment reports."
+msgstr "Ditampilkan pada formulir cicilan dan pada laporan pembayaran."
+
+msgid "Shown on the list and on the printed certificate."
+msgstr "Ditampilkan pada daftar dan pada sertifikat yang dicetak."
+
+msgid "Still owed"
+msgstr "Sisa tagihan"
+
+msgid "Submission"
+msgstr "Penyerahan"
+
+msgid "Submission date"
+msgstr "Tanggal penyerahan"
+
+msgid "The account hierarchy and the totals are grouped by type."
+msgstr "Hierarki akun dan totalnya dikelompokkan menurut jenis ini."
+
+msgid "The airport this leg leaves from."
+msgstr "Bandara asal ruas ini."
+
+msgid "The alumni summary counts by this exact value, so choose rather than type."
+msgstr "Ringkasan alumni menghitung berdasarkan nilai persis ini, jadi pilih, jangan ketik."
+
+msgid "The balance"
+msgstr "Saldo"
+
+msgid "The band this average falls into."
+msgstr "Rentang tempat rata-rata ini jatuh."
+
+msgid "The certificate"
+msgstr "Sertifikat"
+
+msgid "The currency the amounts on this row are in."
+msgstr "Mata uang dari semua jumlah pada baris ini."
+
+msgid "The date the certificate was handed over."
+msgstr "Tanggal sertifikat diserahkan."
+
+msgid "The date the document was received."
+msgstr "Tanggal dokumen diterima."
+
+msgid "The day it arrived."
+msgstr "Hari dokumen itu tiba."
+
+msgid "The day they came home from Japan."
+msgstr "Hari ia pulang dari Jepang."
+
+msgid "The file"
+msgstr "Berkas"
+
+msgid "The job title they hold."
+msgstr "Jabatan yang dipegangnya."
+
+msgid "The letter or word written on the score sheet."
+msgstr "Huruf atau kata yang ditulis pada lembar nilai."
+
+msgid "The list and the receipt read this flag, not the numbers above it."
+msgstr "Daftar dan kuitansi membaca penanda ini, bukan angka di atasnya."
+
+msgid "The list is ordered by this code, so keep the numbering consistent."
+msgstr "Daftar diurutkan berdasarkan kode ini, jadi jaga konsistensi penomorannya."
+
+msgid "The list page counts stories by this exact wording, so reuse one that already exists."
+msgstr "Halaman daftar menghitung cerita berdasarkan tulisan persis ini, jadi gunakan kembali yang sudah ada."
+
+msgid "The mean of the test scores in this competency."
+msgstr "Rata-rata nilai ujian pada kompetensi ini."
+
+msgid "The name shown in every currency dropdown."
+msgstr "Nama yang muncul di setiap pilihan mata uang."
+
+msgid "The part a future intake reads."
+msgstr "Bagian yang akan dibaca angkatan berikutnya."
+
+msgid "The person the document belongs to."
+msgstr "Orang pemilik dokumen ini."
+
+msgid "The person this record follows."
+msgstr "Orang yang datanya diikuti di sini."
+
+msgid "The story"
+msgstr "Cerita"
+
+msgid "The subject the average is for."
+msgstr "Mata pelajaran yang dirata-ratakan."
+
+msgid "The three-letter ISO code: JPY, IDR, USD."
+msgstr "Kode ISO tiga huruf: JPY, IDR, USD."
+
+msgid "The ticket this leg belongs to."
+msgstr "Tiket yang memuat ruas ini."
+
+msgid "The whole sum the trainee has to pay."
+msgstr "Seluruh jumlah yang harus dibayar trainee."
+
+msgid "Their test scores are gathered automatically on the certificate page."
+msgstr "Nilai ujiannya dikumpulkan otomatis pada halaman sertifikat."
+
+msgid "These three are totals, not this payment. Change them only to correct a total that is already wrong."
+msgstr "Ketiganya adalah total, bukan pembayaran ini. Ubah hanya untuk membetulkan total yang memang sudah salah."
+
+msgid "This payment"
+msgstr "Pembayaran ini"
+
+msgid "Ticket and airline"
+msgstr "Tiket dan maskapai"
+
+msgid "Total owed"
+msgstr "Total tagihan"
+
+msgid "Total owed minus paid so far."
+msgstr "Total tagihan dikurangi yang sudah dibayar."
+
+msgid "Training batch"
+msgstr "Angkatan pelatihan"
+
+msgid "Training fee"
+msgstr "Biaya pelatihan"
+
+msgid "Uploaded at"
+msgstr "Diunggah pada"
+
+msgid "Uploaded by"
+msgstr "Diunggah oleh"
+
+msgid "What a payment is for. Trainee installments are grouped by it."
+msgstr "Untuk apa sebuah pembayaran. Cicilan trainee dikelompokkan menurut ini."
+
+msgid "What an apprentice is doing now that the programme is behind them."
+msgstr "Apa yang dikerjakan apprentice setelah programnya selesai."
+
+msgid "What belongs in this account, for whoever posts the journal."
+msgstr "Apa yang masuk ke akun ini, untuk siapa pun yang memposting jurnal."
+
+msgid "What happened"
+msgstr "Apa yang terjadi"
+
+msgid "What happened, and what came of it"
+msgstr "Apa yang terjadi, dan apa hasilnya"
+
+msgid "What it taught"
+msgstr "Apa pelajarannya"
+
+msgid "What the competency covers. For the people entering scores."
+msgstr "Cakupan kompetensi ini. Untuk orang yang memasukkan nilai."
+
+msgid "What the grade means, in words."
+msgstr "Arti huruf mutu ini, dalam kata-kata."
+
+msgid "What the payment is for. The payment report groups by it."
+msgstr "Untuk apa pembayaran ini. Laporan pembayaran mengelompokkan menurut ini."
+
+msgid "What the summary counts on the list page are grouped by."
+msgstr "Dasar pengelompokan angka ringkasan di halaman daftar."
+
+msgid "What they are doing now"
+msgstr "Apa yang dikerjakannya sekarang"
+
+msgid "What was done"
+msgstr "Apa yang dilakukan"
+
+msgid "What was handed over on this occasion."
+msgstr "Yang diserahkan pada kesempatan ini."
+
+msgid "When it happened"
+msgstr "Kapan terjadinya"
+
+msgid "Where the currency is issued. For reference only."
+msgstr "Tempat mata uang diterbitkan. Hanya sebagai keterangan."
+
+msgid "Where the stored copy lives, relative to webroot."
+msgstr "Lokasi salinan tersimpan, relatif terhadap webroot."
+
+msgid "Where the stored copy lives, relative to webroot. To replace the file itself, upload it again from the document list."
+msgstr "Lokasi salinan tersimpan, relatif terhadap webroot. Untuk mengganti berkasnya, unggah ulang dari daftar dokumen."
+
+msgid "Where they work, if they do."
+msgstr "Tempatnya bekerja, jika bekerja."
+
+msgid "Where this leg lands."
+msgstr "Tempat ruas ini mendarat."
+
+msgid "Whether the document has actually been received."
+msgstr "Apakah dokumennya memang sudah diterima."
+
+msgid "Which document a candidate has handed in, and when."
+msgstr "Dokumen apa yang sudah diserahkan kandidat, dan kapan."
+
+msgid "Which document, and whose"
+msgstr "Dokumen apa, dan milik siapa"
+
+msgid "Who handed the document in."
+msgstr "Siapa yang menyerahkan dokumen."
+
+msgid "Who it is for"
+msgstr "Untuk siapa"
+
+msgid "Who operates the flight."
+msgstr "Siapa yang mengoperasikan penerbangan."
+
+msgid "Who paid, and for what"
+msgstr "Siapa yang membayar, dan untuk apa"
+
+msgid "Who put the file on file."
+msgstr "Siapa yang mengarsipkan berkasnya."
+
+msgid "Who the certificate is for."
+msgstr "Untuk siapa sertifikat ini."
+
+msgid "Who this happened to."
+msgstr "Kepada siapa hal ini terjadi."
+
+msgid "Who, and since when"
+msgstr "Siapa, dan sejak kapan"
+
+msgid "Workplace"
+msgstr "Tempat kerja"
+
+# ── Journal editing ────────────────────────────────────
+
+msgid "Void"
+msgstr "Batal"
+
+msgid "The whole entry is rewritten on save - a line you remove here is removed from the ledger."
+msgstr "Seluruh entri ditulis ulang saat disimpan - baris yang Anda hapus di sini ikut hilang dari buku besar."
+
+msgid "View Entry"
+msgstr "Lihat Entri"
+
+msgid "This entry is Posted, so it already feeds the financial reports. Editing it changes those figures with no trace of what they were. To correct a posted entry while keeping the history, raise an adjustment instead."
+msgstr "Entri ini berstatus Posted, jadi sudah masuk ke laporan keuangan. Mengubahnya mengubah angka-angka itu tanpa meninggalkan jejak nilai sebelumnya. Untuk mengoreksi entri yang sudah diposkan tanpa menghilangkan riwayatnya, buat jurnal penyesuaian."
+
+msgid "Raise an adjustment"
+msgstr "Buat penyesuaian"
+
+msgid "Note"
+msgstr "Catatan"
+
+msgid "Journal entry {0} updated."
+msgstr "Entri jurnal {0} diperbarui."
+
+msgid "Edit Journal Entry {0}"
+msgstr "Ubah Entri Jurnal {0}"

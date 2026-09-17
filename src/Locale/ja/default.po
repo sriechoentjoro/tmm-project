@@ -13278,3 +13278,1012 @@ msgstr "{0} を削除しますか？この機関には {1} 名の候補者が登
 msgid "Delete {0}? This cannot be undone."
 msgstr "{0} を削除しますか？この操作は取り消せません。"
 
+msgid "Help"
+msgstr "ヘルプ"
+
+msgid "No review screen yet"
+msgstr "確認画面は未実装です"
+
+msgid "TMM SYSTEM REGISTRATION - VERIFY YOUR EMAIL ADDRESS"
+msgstr "TMMシステム登録 - メールアドレスの確認"
+
+msgid "Dear {0},"
+msgstr "{0} 様"
+
+msgid "Congratulations! Your Vocational Training Institution \"{0}\" has been successfully registered in the TMM (Training and Manpower Management) System."
+msgstr "職業訓練機関「{0}」がTMM（人材育成管理）システムに登録されました。"
+
+msgid "To complete your registration and activate your account, please verify your email address by visiting the link below:"
+msgstr "登録を完了しアカウントを有効化するには、以下のリンクからメールアドレスをご確認ください:"
+
+msgid "REGISTRATION DETAILS"
+msgstr "登録内容"
+
+msgid "IMPORTANT"
+msgstr "重要"
+
+msgid "This verification link will expire in 24 HOURS. Please verify your email as soon as possible to avoid delays in account activation."
+msgstr "この確認リンクの有効期限は24時間です。アカウントの有効化が遅れないよう、お早めにご確認ください。"
+
+msgid "WHAT HAPPENS NEXT?"
+msgstr "次のステップ"
+
+msgid "After verifying your email, you will be directed to create a secure password for your account. Once completed, you will receive a welcome email with your login credentials and instructions on how to access the TMM system."
+msgstr "メールアドレスの確認後、アカウントのパスワード設定画面に進みます。設定が完了すると、ログイン情報とTMMシステムのご利用方法をご案内するメールをお送りします。"
+
+msgid "SECURITY NOTICE"
+msgstr "セキュリティに関するお知らせ"
+
+msgid "If you did not request this registration or believe this email was sent to you by mistake, please contact our support team immediately at:"
+msgstr "この登録に心当たりがない場合、または誤って送信されたと思われる場合は、至急サポートまでご連絡ください:"
+
+msgid "Phone:"
+msgstr "電話:"
+
+msgid "TMM - Training and Manpower Management System"
+msgstr "TMM - 人材育成管理システム"
+
+msgid "© {0} PT. ASAHI FAMILY INDONESIA. All rights reserved."
+msgstr "© {0} PT. ASAHI FAMILY INDONESIA. All rights reserved."
+
+msgid "This is an automated email. Please do not reply directly to this message."
+msgstr "このメールは自動送信です。このメッセージに直接返信しないでください。"
+
+msgid "Template"
+msgstr "テンプレート"
+
+msgid "The key the application asks for. Changing it stops the template being found."
+msgstr "アプリケーションが参照するキーです。変更するとテンプレートが見つからなくなります。"
+
+msgid "Body (HTML)"
+msgstr "本文（HTML）"
+
+msgid "Body (plain text)"
+msgstr "本文（プレーンテキスト）"
+
+msgid "Sent to mail clients that prefer plain text. Left empty, the HTML body is sent with its tags stripped."
+msgstr "プレーンテキストを優先するメールクライアントに送られます。空欄の場合は、HTML本文からタグを除いたものが送られます。"
+
+msgid "Names the application supplies, as JSON or separated by commas. The preview gives a value to every {{name}} it finds in the text, declared here or not."
+msgstr "アプリケーションが提供する変数名です。JSON形式またはカンマ区切りで記述します。プレビューでは、ここに記載の有無にかかわらず本文中のすべての {{name}} に値が入ります。"
+
+msgid "As it will arrive"
+msgstr "受信時の表示"
+
+msgid "Email preview"
+msgstr "メールのプレビュー"
+
+msgid "Click a name to insert it at the cursor. Values shown are samples."
+msgstr "名前をクリックするとカーソル位置に挿入されます。表示されている値はサンプルです。"
+
+msgid "with the standard letterhead"
+msgstr "標準のレターヘッド付き"
+
+msgid "sent as written - no letterhead"
+msgstr "記述どおりに送信 - レターヘッドなし"
+
+msgid "(no subject)"
+msgstr "（件名なし）"
+
+msgid "Not supplied by the application, so it will arrive literally:"
+msgstr "アプリケーションが提供しないため、そのまま送信されます:"
+
+msgid "New Email Template"
+msgstr "新しいメールテンプレート"
+
+msgid "Shared with Institutions"
+msgstr "共有先の機関"
+
+msgid "Sharing is not installed on this server yet. Run:"
+msgstr "この機能はまだサーバーに導入されていません。次を実行してください:"
+
+msgid "Notified"
+msgstr "通知"
+
+msgid "Shared By"
+msgstr "共有者"
+
+msgid "When"
+msgstr "日時"
+
+msgid "Withdrawn"
+msgstr "取り下げ済み"
+
+msgid "Shared"
+msgstr "共有中"
+
+msgid "Email failed"
+msgstr "メール送信失敗"
+
+msgid "withdrawn {0}"
+msgstr "{0} に取り下げ"
+
+msgid "Withdraw"
+msgstr "取り下げる"
+
+msgid "Withdraw this order from {0}? They will be emailed."
+msgstr "このオーダーを {0} から取り下げますか？先方にメールが送信されます。"
+
+msgid "This order has not been shared with anyone yet."
+msgstr "このオーダーはまだどこにも共有されていません。"
+
+msgid "already has it"
+msgstr "共有済み"
+
+msgid "no email address"
+msgstr "メールアドレスなし"
+
+msgid "Share This Order"
+msgstr "このオーダーを共有"
+
+msgid "Each institution selected is emailed the order details. Withdrawing later emails them again."
+msgstr "選択した各機関にオーダーの詳細がメールで送られます。後で取り下げた場合も再度メールが送られます。"
+
+msgid "Apprentice order not found."
+msgstr "オーダーが見つかりません。"
+
+msgid "Choose at least one institution to share this order with."
+msgstr "共有先の機関を1つ以上選んでください。"
+
+msgid "Order shared with {0} institution(s)."
+msgstr "オーダーを {0} 機関に共有しました。"
+
+msgid "Could not notify: {0}"
+msgstr "通知できませんでした: {0}"
+
+msgid "That share could not be found."
+msgstr "その共有記録が見つかりません。"
+
+msgid "That share belongs to a different order."
+msgstr "その共有記録は別のオーダーのものです。"
+
+msgid "That share was already withdrawn."
+msgstr "その共有はすでに取り下げ済みです。"
+
+msgid "The share could not be withdrawn. Please, try again."
+msgstr "共有を取り下げられませんでした。もう一度お試しください。"
+
+msgid "Order withdrawn from {0}, and they have been told."
+msgstr "{0} からオーダーを取り下げ、先方に通知しました。"
+
+msgid "Order withdrawn from {0}, but the email could not be sent."
+msgstr "{0} からオーダーを取り下げましたが、メールを送信できませんでした。"
+
+msgid "Only recruitment staff and administrators can share an order or withdraw it."
+msgstr "オーダーの共有と取り下げができるのは採用担当者と管理者のみです。"
+
+msgid "Only recruitment staff and administrators can create apprentice orders or manage who they are shared with."
+msgstr "実習オーダーの作成と共有先の管理ができるのは採用担当者と管理者のみです。"
+
+msgid "TMM System Documentation"
+msgstr "TMMシステム ドキュメント"
+
+msgid "The whole process, phase by phase, with a link to every screen that does the work."
+msgstr "全プロセスを段階ごとに、各作業画面へのリンク付きで示します。"
+
+msgid "How the TMM System Works"
+msgstr "TMMシステムの仕組み"
+
+msgid "From registering a partner institution, through recruiting and training candidates, to an apprentice working in Japan and coming home. Every phase below links to the screens that do the work."
+msgstr "提携機関の登録から、候補者の募集・訓練、日本での技能実習、そして帰国まで。以下の各段階は、実際に作業を行う画面へのリンクを備えています。"
+
+msgid "Main Process Pipeline"
+msgstr "メインプロセスフロー"
+
+msgid "1. Candidate Recruitment"
+msgstr "1. 候補者募集"
+
+msgid "2. Trainee Training"
+msgstr "2. 訓練生の訓練"
+
+msgid "3. Documents & Departure"
+msgstr "3. 書類と出発"
+
+msgid "4. Apprenticeship in Japan"
+msgstr "4. 日本での技能実習"
+
+msgid "Post-Apprentice"
+msgstr "修了者"
+
+msgid "Accounting"
+msgstr "会計"
+
+msgid "Apprentice Order shared with LPK"
+msgstr "実習オーダーをLPKへ共有"
+
+msgid "The pipeline is not a straight line. An apprentice order from an accepting organization is shared with partner LPKs, and that is where the next round of candidate recruitment begins - so the last phase feeds the first."
+msgstr "この流れは一方通行ではありません。受入機関からの実習オーダーが提携LPKに共有され、そこから次の候補者募集が始まります。つまり最後の段階が最初の段階へ戻ります。"
+
+msgid "Register every partner organisation before any order is placed."
+msgstr "オーダーを出す前に、すべての提携組織を登録します。"
+
+msgid "LPK - Vocational Training Institution"
+msgstr "LPK — 職業訓練機関"
+
+msgid "The Indonesian institution that finds and trains candidates. An admin registers it; the institution then activates its own account."
+msgstr "候補者を探し訓練するインドネシア側の機関です。管理者が登録し、その後は機関自身がアカウントを有効化します。"
+
+msgid "LPK Registration Queue"
+msgstr "LPK登録キュー"
+
+msgid "Register a New LPK"
+msgstr "新規LPK登録"
+
+msgid "Verification Status"
+msgstr "確認状況"
+
+msgid "An admin enters the institution and the login name it will use."
+msgstr "管理者が機関情報と使用するログイン名を入力します。"
+
+msgid "Its director clicks the verification link emailed to them, valid 24 hours."
+msgstr "代表者がメールで届いた確認リンク（24時間有効）をクリックします。"
+
+msgid "The director sets a password - only then is the account active."
+msgstr "代表者がパスワードを設定して初めてアカウントが有効になります。"
+
+msgid "If the link expires or never arrives, Resend Verification Email sends a fresh one."
+msgstr "リンクの期限が切れた場合や届かない場合は、確認メールの再送でもう一度送れます。"
+
+msgid "AO - Acceptance Organization"
+msgstr "AO — 受入機関"
+
+msgid "The company in Japan that will accept the apprentices. Record its profile and the work it needs done."
+msgstr "実習生を受け入れる日本の企業です。企業情報と必要な業務を登録します。"
+
+msgid "Kumiai - Cooperative Association"
+msgstr "組合 — 協同組合"
+
+msgid "The supervising cooperative that mediates between the accepting organization and the sending side."
+msgstr "受入機関と送出機関の間を仲介する監理団体です。"
+
+msgid "For the Specified Skilled Worker route - the registered support organisation."
+msgstr "特定技能ルート向けの登録支援機関です。"
+
+msgid "Create an Apprentice Order and Share It"
+msgstr "実習オーダーの作成と共有"
+
+msgid "A vacancy in Japan, offered to the institutions that can fill it."
+msgstr "日本側の求人を、対応できる機関に提示します。"
+
+msgid "How many people are needed, which job category, which departure month, and which cooperative and accepting organization it belongs to."
+msgstr "必要な人数、職種、出国月、そして関係する組合と受入機関を指定します。"
+
+msgid "Share the Order with LPKs"
+msgstr "オーダーをLPKへ共有"
+
+msgid "Offer the order to one or more institutions so they can start recruiting against it. Each one is emailed the order details, and withdrawing it later emails them again."
+msgstr "1つ以上の機関にオーダーを提示し、募集を始めてもらいます。各機関にオーダーの詳細がメールで送られ、後で取り下げた場合も再度メールが送られます。"
+
+msgid "Open an order, then Shared with Institutions"
+msgstr "オーダーを開き、「共有先の機関」へ"
+
+msgid "The order page lists who has it, whether the email reached them, and who shared it."
+msgstr "オーダー画面には、共有先、メールが届いたかどうか、共有した担当者が表示されます。"
+
+msgid "Withdrawing an order from an institution tells them; the record of the offer stays."
+msgstr "機関からオーダーを取り下げると先方に通知されます。提示の記録は残ります。"
+
+msgid "Only tmm-recruitment and administrator may create, edit, delete, share or withdraw an order. Other roles can see an order and who it was shared with, but cannot change it."
+msgstr "オーダーの作成・編集・削除・共有・取り下げができるのは tmm-recruitment と administrator のみです。他のロールはオーダーと共有先を閲覧できますが、変更はできません。"
+
+msgid "Recruitment and Selection"
+msgstr "募集と選考"
+
+msgid "The institution finds candidates and puts them through selection."
+msgstr "機関が候補者を集め、選考を行います。"
+
+msgid "Enter each applicant with personal data, family, education and experience, then upload their documents."
+msgstr "応募者ごとに個人情報、家族、学歴・職歴を入力し、書類をアップロードします。"
+
+msgid "Physical tests, scoring, interviews and a medical check-up together give a readiness view of each candidate."
+msgstr "体力テスト、採点、面接、健康診断を合わせて、各候補者の準備状況を把握します。"
+
+msgid "Candidate Scoring"
+msgstr "候補者採点"
+
+msgid "A candidate who passes is promoted and becomes a trainee."
+msgstr "合格した候補者は昇格し、訓練生になります。"
+
+msgid "Japanese language, work competencies and culture, in batches."
+msgstr "日本語、職業能力、文化をバッチ単位で学びます。"
+
+msgid "Training Batches and Modules"
+msgstr "研修バッチとモジュール"
+
+msgid "Group trainees into batches and enrol them in the training modules."
+msgstr "訓練生をバッチに分け、研修モジュールに登録します。"
+
+msgid "Scores and Certificates"
+msgstr "成績と修了証"
+
+msgid "Daily and test scores are recorded, certificates issued, and a passing trainee is promoted to apprentice."
+msgstr "日々の成績と試験成績を記録し、修了証を発行します。合格した訓練生は実習生に昇格します。"
+
+msgid "Documents and Departure"
+msgstr "書類と出発"
+
+msgid "Everything that has to exist on paper before a flight is booked."
+msgstr "航空券を手配する前に揃えるべき書類一式です。"
+
+msgid "Submission Documents"
+msgstr "提出書類"
+
+msgid "The document set each trainee must complete, tracked against a checklist."
+msgstr "各訓練生が揃える書類一式を、チェックリストで管理します。"
+
+msgid "Passport, Medical, COE and Visa"
+msgstr "パスポート、健康診断、在留資格、ビザ"
+
+msgid "Passport records, the pre-departure medical check-up, then the certificate of eligibility and the visa."
+msgstr "パスポート記録、出国前の健康診断、続いて在留資格認定証明書とビザ。"
+
+msgid "Passports"
+msgstr "パスポート"
+
+msgid "Tickets and Departure"
+msgstr "航空券と出発"
+
+msgid "Flights are booked and the departure document pack is assembled."
+msgstr "フライトを予約し、出発書類一式をまとめます。"
+
+msgid "Departures"
+msgstr "出発"
+
+msgid "Apprenticeship in Japan, and Coming Home"
+msgstr "日本での技能実習、そして帰国"
+
+msgid "Work at the accepting organization, tracked to completion."
+msgstr "受入機関での就労を、修了まで記録します。"
+
+msgid "Apprentice in Japan"
+msgstr "日本の技能実習生"
+
+msgid "The apprentice works at the accepting organization according to the order. Documents, certifications and progress are recorded throughout."
+msgstr "実習生はオーダーに基づき受入機関で働きます。書類、資格、進捗はその間ずっと記録されます。"
+
+msgid "Once the placement ends, the alumnus is managed as a post-apprentice."
+msgstr "就労が終了すると、修了者として管理されます。"
+
+msgid "Post-Apprentices"
+msgstr "修了者"
+
+msgid "Your role"
+msgstr "あなたの役割"
+
+msgid "Supporting Areas"
+msgstr "サポート領域"
+
+msgid "Runs alongside training and departure"
+msgstr "訓練と出発と並行して進みます"
+
+msgid "Trainee installments, journals, the chart of accounts, and the financial reports."
+msgstr "訓練生の分割払い、仕訳帳、勘定科目表、財務報告書。"
+
+msgid "System Administration"
+msgstr "システム管理"
+
+msgid "Who exists, and what they may do"
+msgstr "誰が登録されていて、何ができるか"
+
+msgid "Users, roles, menus, access permissions and the audit log."
+msgstr "ユーザー、ロール、メニュー、権限、監査ログ。"
+
+msgid "Users"
+msgstr "ユーザー"
+
+msgid "Menus"
+msgstr "メニュー"
+
+msgid "Audit Logs"
+msgstr "監査ログ"
+
+msgid "Who May Do What"
+msgstr "権限の範囲"
+
+msgid "<strong>Apprentice orders</strong> - only <em>tmm-recruitment</em> and <em>administrator</em> may create, edit, delete, share with an LPK, or withdraw a share. Other roles can still see an order and who it has been shared with; they simply cannot change it."
+msgstr "<strong>実習オーダー</strong> — 作成・編集・削除・LPKへの共有・共有の取り下げができるのは <em>tmm-recruitment</em> と <em>administrator</em> のみです。他のロールもオーダーと共有先を閲覧できますが、変更はできません。"
+
+msgid "<strong>LPK sign-in details</strong> - an institution's login name is visible only to an administrator and to that institution itself. The password is never shown anywhere; it is stored hashed and cannot be read back."
+msgstr "<strong>LPKのログイン情報</strong> — 機関のログイン名は管理者と当該機関のみが閲覧できます。パスワードはどこにも表示されません。ハッシュ化して保存されており、元に戻すことはできません。"
+
+msgid "Everything else follows your role's permissions. When a page refuses access, the message names your account and your role - pass that on to an administrator."
+msgstr "それ以外はロールの権限に従います。アクセスが拒否された場合、メッセージにアカウント名とロールが表示されるので、管理者にお伝えください。"
+
+msgid "How to Use the System"
+msgstr "システムの使い方"
+
+msgid "Use the menu at the top of the screen to open each module, or click the links on the phases above."
+msgstr "画面上部のメニューから各モジュールを開くか、上記の各段階のリンクをクリックしてください。"
+
+msgid "Every list page has column filters, search and export buttons."
+msgstr "各一覧ページには列フィルター、検索、エクスポートボタンがあります。"
+
+msgid "The Process Flow help button on each module explains that module's workflow in detail."
+msgstr "各モジュールの「プロセスフロー」ヘルプボタンで、そのモジュールのワークフローの詳細を確認できます。"
+
+msgid "The language can be changed at any time from the switcher; this page and the whole interface follow it."
+msgstr "言語はいつでも切り替えられます。このページを含め、インターフェース全体が追随します。"
+
+
+# ── Scaffolded add/edit forms (Element/entity_form) ───────────────
+
+msgid "- choose -"
+msgstr "- 選択 -"
+
+msgid "- choose a batch -"
+msgstr "- 期を選択 -"
+
+msgid "- choose a candidate -"
+msgstr "- 候補者を選択 -"
+
+msgid "- choose a category -"
+msgstr "- カテゴリを選択 -"
+
+msgid "- choose a competency -"
+msgstr "- 科目を選択 -"
+
+msgid "- choose a currency -"
+msgstr "- 通貨を選択 -"
+
+msgid "- choose a document -"
+msgstr "- 書類を選択 -"
+
+msgid "- choose a grade -"
+msgstr "- 評価を選択 -"
+
+msgid "- choose a status -"
+msgstr "- ステータスを選択 -"
+
+msgid "- choose a ticket -"
+msgstr "- 航空券を選択 -"
+
+msgid "- choose a trainee -"
+msgstr "- 研修生を選択 -"
+
+msgid "- choose a type -"
+msgstr "- 種別を選択 -"
+
+msgid "- choose a user -"
+msgstr "- ユーザーを選択 -"
+
+msgid "- choose an airline -"
+msgstr "- 航空会社を選択 -"
+
+msgid "- choose an airport -"
+msgstr "- 空港を選択 -"
+
+msgid "- choose an apprentice -"
+msgstr "- 実習生を選択 -"
+
+msgid "A band of scores and the grade it earns."
+msgstr "点数の範囲と、それに対応する評価です。"
+
+msgid "A certificate belongs to one trainee and the batch they trained in."
+msgstr "証明書は研修生一人と、その研修を受けた期に属します。"
+
+msgid "A line that says what the story is about."
+msgstr "この記録の内容を一行で表します。"
+
+msgid "A path to an image already on the server. This field stores text, it does not upload."
+msgstr "サーバー上にすでにある画像へのパスです。この項目は文字列を保存するもので、アップロードは行いません。"
+
+msgid "A problem an apprentice met, and what came of it."
+msgstr "実習生が直面した問題と、その結末です。"
+
+msgid "A score at or above this value falls in this grade."
+msgstr "この値以上の点数が、この評価に該当します。"
+
+msgid "A subject trainees are tested on. Test scores and score averages are recorded against it."
+msgstr "研修生が試験を受ける科目です。試験の点数と平均点はこの科目ごとに記録されます。"
+
+msgid "Account code"
+msgstr "勘定科目コード"
+
+msgid "Account name"
+msgstr "勘定科目名"
+
+msgid "Add Alumni Record"
+msgstr "卒業生記録の追加"
+
+msgid "Add Category"
+msgstr "カテゴリの追加"
+
+msgid "Add Certificate"
+msgstr "証明書の追加"
+
+msgid "Add Competency"
+msgstr "科目の追加"
+
+msgid "Add Currency"
+msgstr "通貨の追加"
+
+msgid "Add Flight"
+msgstr "フライトの追加"
+
+msgid "Add Grade"
+msgstr "評価の追加"
+
+msgid "Add Payment Method"
+msgstr "支払方法の追加"
+
+msgid "Add Score Average"
+msgstr "平均点の追加"
+
+msgid "Add Story"
+msgstr "記録の追加"
+
+msgid "Add Transaction Category"
+msgstr "取引カテゴリの追加"
+
+msgid "Amount paid"
+msgstr "支払額"
+
+msgid "An account in the chart of accounts. Journal lines are posted against it."
+msgstr "勘定科目表の一科目です。仕訳の各行はこの科目に計上されます。"
+
+msgid "An inactive account stays on file but should no longer be posted to."
+msgstr "無効な科目は記録として残りますが、新たな計上には使わないでください。"
+
+msgid "Anything the next person to look at this record should know."
+msgstr "次にこの記録を見る人に知っておいてほしいことです。"
+
+msgid "Appears on every test score and on the certificate breakdown."
+msgstr "すべての試験結果と証明書の内訳に表示されます。"
+
+msgid "Apprentice #{0}"
+msgstr "実習生 #{0}"
+
+msgid "As printed on the ticket."
+msgstr "航空券に印字されているとおりに入力します。"
+
+msgid "Asset"
+msgstr "資産"
+
+msgid "Average score"
+msgstr "平均点"
+
+msgid "Bank transfer"
+msgstr "銀行振込"
+
+msgid "Batch #{0}"
+msgstr "第{0}期"
+
+msgid "Cash on hand"
+msgstr "現金"
+
+msgid "Certificate number"
+msgstr "証明書番号"
+
+msgid "Chosen when an installment or a receipt is recorded."
+msgstr "分割払いや領収の記録時に選択します。"
+
+msgid "Correct a document already recorded against a trainee."
+msgstr "研修生に対してすでに記録されている書類を訂正します。"
+
+msgid "Correct the details of a certificate that has already been issued."
+msgstr "すでに発行された証明書の内容を訂正します。"
+
+msgid "Currencies are offered wherever an amount of money is recorded."
+msgstr "金額を記録するすべての画面で、この通貨が選択肢になります。"
+
+msgid "Current status"
+msgstr "現在の状況"
+
+msgid "Edit Account"
+msgstr "勘定科目の編集"
+
+msgid "Edit Alumni Record"
+msgstr "卒業生記録の編集"
+
+msgid "Edit Certificate"
+msgstr "証明書の編集"
+
+msgid "Edit Competency"
+msgstr "科目の編集"
+
+msgid "Edit Currency"
+msgstr "通貨の編集"
+
+msgid "Edit Document Record"
+msgstr "書類記録の編集"
+
+msgid "Edit Flight"
+msgstr "フライトの編集"
+
+msgid "Edit Grade"
+msgstr "評価の編集"
+
+msgid "Edit Installment"
+msgstr "分割払いの編集"
+
+msgid "Edit Payment Method"
+msgstr "支払方法の編集"
+
+msgid "Edit Score Average"
+msgstr "平均点の編集"
+
+msgid "Edit Story"
+msgstr "記録の編集"
+
+msgid "Edit Submission"
+msgstr "提出記録の編集"
+
+msgid "Edit Transaction Category"
+msgstr "取引カテゴリの編集"
+
+msgid "Everything received up to and including this payment."
+msgstr "この支払いを含め、これまでに受け取った合計額です。"
+
+msgid "Expense"
+msgstr "費用"
+
+msgid "Fields marked * are required."
+msgstr "* の付いた項目は必須です。"
+
+msgid "File path"
+msgstr "ファイルのパス"
+
+msgid "Filled in automatically when the file was uploaded."
+msgstr "ファイルのアップロード時に自動で入力されます。"
+
+msgid "Flight number"
+msgstr "便名"
+
+msgid "From the master list of candidate documents."
+msgstr "候補者書類のマスタ一覧から選びます。"
+
+msgid "From the master list of documents a trainee must submit."
+msgstr "研修生が提出すべき書類のマスタ一覧から選びます。"
+
+msgid "From the master list of documents an apprentice must submit."
+msgstr "実習生が提出すべき書類のマスタ一覧から選びます。"
+
+msgid "Highest score"
+msgstr "上限点"
+
+msgid "How a payment reaches the company: transfer, cash, card."
+msgstr "入金の手段です。振込、現金、カードなど。"
+
+msgid "How the news reached us, or anything else worth keeping."
+msgstr "この情報の入手経路など、残しておきたいことを書きます。"
+
+msgid "Image path"
+msgstr "画像のパス"
+
+msgid "Issue a Certificate"
+msgstr "証明書の発行"
+
+msgid "Issue a certificate to a trainee who has finished training."
+msgstr "研修を修了した研修生に証明書を発行します。"
+
+msgid "Issue date"
+msgstr "発行日"
+
+msgid "Japan"
+msgstr "日本"
+
+msgid "Japanese Yen"
+msgstr "日本円"
+
+msgid "Japanese language"
+msgstr "日本語"
+
+msgid "Keep the bands apart so a score cannot land in two grades."
+msgstr "範囲が重ならないようにしてください。重なると一つの点数が二つの評価に該当してしまいます。"
+
+msgid "Kept on file only - notes do not appear on the printed certificate."
+msgstr "記録として保存されるだけで、印刷される証明書には表示されません。"
+
+msgid "Liability"
+msgstr "負債"
+
+msgid "Local time at the arrival airport, which may be a day later."
+msgstr "到着空港の現地時間です。翌日になる場合があります。"
+
+msgid "Local time at the departure airport."
+msgstr "出発空港の現地時間です。"
+
+msgid "Lowest score"
+msgstr "下限点"
+
+msgid "Moving a document to another trainee changes both their checklists."
+msgstr "書類を別の研修生に移すと、両者のチェックリストが変わります。"
+
+msgid "Moving a payment to another trainee changes both their balances."
+msgstr "支払いを別の研修生に移すと、両者の残高が変わります。"
+
+msgid "One leg of a journey. A ticket with a transit has two."
+msgstr "旅程の一区間です。乗り継ぎのある航空券には二区間あります。"
+
+msgid "One payment towards what a trainee owes."
+msgstr "研修生の支払義務に対する一回分の入金です。"
+
+msgid "One row per document an apprentice has handed in, and where it stands."
+msgstr "実習生が提出した書類ごとに一行、その状況とともに記録します。"
+
+msgid "One trainee, one competency, and the average they reached in it."
+msgstr "研修生一人、科目一つ、そしてその科目で得た平均点です。"
+
+msgid "Payment date"
+msgstr "支払日"
+
+msgid "Payment method"
+msgstr "支払方法"
+
+msgid "Printed on the certificate, so give it the number the paper carries."
+msgstr "証明書に印刷されるため、実際の用紙にある番号を入力してください。"
+
+msgid "Record Document"
+msgstr "書類を記録"
+
+msgid "Record Submission"
+msgstr "提出を記録"
+
+msgid "Record a Document"
+msgstr "書類の記録"
+
+msgid "Record a Submission"
+msgstr "提出の記録"
+
+msgid "Record the certificate a trainee receives at the end of a training batch."
+msgstr "研修期の修了時に研修生が受け取る証明書を記録します。"
+
+msgid "Return date"
+msgstr "帰国日"
+
+msgid "Route and times"
+msgstr "区間と時刻"
+
+msgid "Score average"
+msgstr "平均点"
+
+msgid "Settled"
+msgstr "完済"
+
+msgid "Shown on every journal line that touches this account."
+msgstr "この科目を使うすべての仕訳行に表示されます。"
+
+msgid "Shown on the installment form and in the payment reports."
+msgstr "分割払いの入力画面と支払レポートに表示されます。"
+
+msgid "Shown on the list and on the printed certificate."
+msgstr "一覧と印刷される証明書に表示されます。"
+
+msgid "Still owed"
+msgstr "残額"
+
+msgid "Submission"
+msgstr "提出"
+
+msgid "Submission date"
+msgstr "提出日"
+
+msgid "The account hierarchy and the totals are grouped by type."
+msgstr "勘定科目の階層と合計は、この種別ごとにまとめられます。"
+
+msgid "The airport this leg leaves from."
+msgstr "この区間の出発空港です。"
+
+msgid "The alumni summary counts by this exact value, so choose rather than type."
+msgstr "卒業生の集計はこの値と完全一致で数えるため、入力せず選択してください。"
+
+msgid "The balance"
+msgstr "残高"
+
+msgid "The band this average falls into."
+msgstr "この平均点が属する評価の範囲です。"
+
+msgid "The certificate"
+msgstr "証明書"
+
+msgid "The currency the amounts on this row are in."
+msgstr "この行の金額が表示されている通貨です。"
+
+msgid "The date the certificate was handed over."
+msgstr "証明書を手渡した日付です。"
+
+msgid "The date the document was received."
+msgstr "書類を受け取った日付です。"
+
+msgid "The day it arrived."
+msgstr "書類が届いた日です。"
+
+msgid "The day they came home from Japan."
+msgstr "日本から帰国した日です。"
+
+msgid "The file"
+msgstr "ファイル"
+
+msgid "The job title they hold."
+msgstr "就いている役職です。"
+
+msgid "The letter or word written on the score sheet."
+msgstr "成績表に記載される文字または語句です。"
+
+msgid "The list and the receipt read this flag, not the numbers above it."
+msgstr "一覧と領収書が見るのは上の金額ではなく、このフラグです。"
+
+msgid "The list is ordered by this code, so keep the numbering consistent."
+msgstr "一覧はこのコード順に並ぶため、採番は一貫させてください。"
+
+msgid "The list page counts stories by this exact wording, so reuse one that already exists."
+msgstr "一覧ページはこの表記と完全一致で件数を数えるため、既存の表記を使い回してください。"
+
+msgid "The mean of the test scores in this competency."
+msgstr "この科目における試験点数の平均です。"
+
+msgid "The name shown in every currency dropdown."
+msgstr "通貨の選択肢すべてに表示される名称です。"
+
+msgid "The part a future intake reads."
+msgstr "次の期の実習生が読む部分です。"
+
+msgid "The person the document belongs to."
+msgstr "この書類の持ち主です。"
+
+msgid "The person this record follows."
+msgstr "この記録が追跡している人物です。"
+
+msgid "The story"
+msgstr "記録"
+
+msgid "The subject the average is for."
+msgstr "平均点の対象となる科目です。"
+
+msgid "The three-letter ISO code: JPY, IDR, USD."
+msgstr "3文字の ISO コードです。JPY、IDR、USD など。"
+
+msgid "The ticket this leg belongs to."
+msgstr "この区間が属する航空券です。"
+
+msgid "The whole sum the trainee has to pay."
+msgstr "研修生が支払うべき総額です。"
+
+msgid "Their test scores are gathered automatically on the certificate page."
+msgstr "試験の点数は証明書のページで自動的に集計されます。"
+
+msgid "These three are totals, not this payment. Change them only to correct a total that is already wrong."
+msgstr "この三つは今回の支払いではなく累計です。すでに誤っている累計を訂正する場合にのみ変更してください。"
+
+msgid "This payment"
+msgstr "今回の支払い"
+
+msgid "Ticket and airline"
+msgstr "航空券と航空会社"
+
+msgid "Total owed"
+msgstr "総額"
+
+msgid "Total owed minus paid so far."
+msgstr "総額から支払済額を引いた額です。"
+
+msgid "Training batch"
+msgstr "研修期"
+
+msgid "Training fee"
+msgstr "研修費"
+
+msgid "Uploaded at"
+msgstr "アップロード日"
+
+msgid "Uploaded by"
+msgstr "アップロード者"
+
+msgid "What a payment is for. Trainee installments are grouped by it."
+msgstr "支払いの目的です。研修生の分割払いはこれごとにまとめられます。"
+
+msgid "What an apprentice is doing now that the programme is behind them."
+msgstr "プログラムを終えた実習生が現在何をしているかです。"
+
+msgid "What belongs in this account, for whoever posts the journal."
+msgstr "この科目に何を計上するのか、仕訳を入力する人への説明です。"
+
+msgid "What happened"
+msgstr "何が起きたか"
+
+msgid "What happened, and what came of it"
+msgstr "何が起き、どうなったか"
+
+msgid "What it taught"
+msgstr "そこから得た教訓"
+
+msgid "What the competency covers. For the people entering scores."
+msgstr "この科目が扱う範囲です。点数を入力する人のための説明です。"
+
+msgid "What the grade means, in words."
+msgstr "この評価の意味を言葉で説明します。"
+
+msgid "What the payment is for. The payment report groups by it."
+msgstr "この支払いの目的です。支払レポートはこれごとにまとめられます。"
+
+msgid "What the summary counts on the list page are grouped by."
+msgstr "一覧ページの集計は、これごとにまとめられます。"
+
+msgid "What they are doing now"
+msgstr "現在の状況"
+
+msgid "What was done"
+msgstr "どう対応したか"
+
+msgid "What was handed over on this occasion."
+msgstr "今回受け取った金額です。"
+
+msgid "When it happened"
+msgstr "発生日"
+
+msgid "Where the currency is issued. For reference only."
+msgstr "その通貨が発行されている国です。参考情報です。"
+
+msgid "Where the stored copy lives, relative to webroot."
+msgstr "保存されたファイルの場所を webroot からの相対パスで示します。"
+
+msgid "Where the stored copy lives, relative to webroot. To replace the file itself, upload it again from the document list."
+msgstr "保存されたファイルの場所を webroot からの相対パスで示します。ファイル自体を差し替えるには、書類一覧から再アップロードしてください。"
+
+msgid "Where they work, if they do."
+msgstr "就業している場合の勤務先です。"
+
+msgid "Where this leg lands."
+msgstr "この区間の到着地です。"
+
+msgid "Whether the document has actually been received."
+msgstr "書類が実際に受理されたかどうかです。"
+
+msgid "Which document a candidate has handed in, and when."
+msgstr "候補者がどの書類をいつ提出したかです。"
+
+msgid "Which document, and whose"
+msgstr "どの書類か、誰のものか"
+
+msgid "Who handed the document in."
+msgstr "書類を提出した人です。"
+
+msgid "Who it is for"
+msgstr "対象者"
+
+msgid "Who operates the flight."
+msgstr "この便を運航する会社です。"
+
+msgid "Who paid, and for what"
+msgstr "誰が何のために支払ったか"
+
+msgid "Who put the file on file."
+msgstr "ファイルを登録した人です。"
+
+msgid "Who the certificate is for."
+msgstr "この証明書の対象者です。"
+
+msgid "Who this happened to."
+msgstr "これが起きた相手です。"
+
+msgid "Who, and since when"
+msgstr "対象者と時期"
+
+msgid "Workplace"
+msgstr "職場"
+
+# ── Journal editing ────────────────────────────────────
+
+msgid "Void"
+msgstr "無効"
+
+msgid "The whole entry is rewritten on save - a line you remove here is removed from the ledger."
+msgstr "保存時に仕訳全体が書き直されます。ここで削除した行は元帳からも削除されます。"
+
+msgid "View Entry"
+msgstr "仕訳を表示"
+
+msgid "This entry is Posted, so it already feeds the financial reports. Editing it changes those figures with no trace of what they were. To correct a posted entry while keeping the history, raise an adjustment instead."
+msgstr "この仕訳は「記帳済」のため、すでに財務レポートに反映されています。編集するとその数字が変わり、元の値の記録は残りません。履歴を保ったまま訂正するには、修正仕訳を作成してください。"
+
+msgid "Raise an adjustment"
+msgstr "修正仕訳を作成"
+
+msgid "Note"
+msgstr "備考"
+
+msgid "Journal entry {0} updated."
+msgstr "仕訳 {0} を更新しました。"
+
+msgid "Edit Journal Entry {0}"
+msgstr "仕訳 {0} の編集"

@@ -112,9 +112,35 @@ class EmailTemplatesTable extends Table
         return $this->find()
             ->where([
                 'template_key' => $templateKey,
-                'is_active' => true
+                // 1, not true. Where is_active is TINYINT(1) the driver
+                // reflects it as boolean and either binds; where it is a plain
+                // INT it reflects as integer, and IntegerType refuses a boolean
+                // outright - "Cannot convert value of type `boolean` to
+                // integer" - so the lookup throws and no email is ever found.
+                // An integer binds against both.
+                'is_active' => 1,
             ])
             ->first();
+    }
+
+    /**
+     * Whether a template body should be wrapped in the branded letterhead.
+     *
+     * A body that already opens an <html> document is a whole email, and
+     * wrapping it would nest one document inside another. Anything shorter is a
+     * message, and the letterhead belongs around it.
+     *
+     * Static and public because two places have to agree: EmailComponent when
+     * it sends, and EmailTemplatesController when it renders the preview beside
+     * the editor. A preview that guessed differently from the sender would be a
+     * picture of an email nobody receives.
+     *
+     * @param string|null $bodyHtml The template's HTML body.
+     * @return bool
+     */
+    public static function wrapsInLayout($bodyHtml)
+    {
+        return stripos((string)$bodyHtml, '<html') === false;
     }
 
     /**
