@@ -4,7 +4,19 @@
    Purpose: Fix Bootstrap Datepicker display issues
    - Calendar alignment and z-index
    - Proper table layout for date cells
-   - Responsive sizing and spacing
+   - Compact, content-sized popup
+
+   SIZING NOTE
+   The dropdown is position:absolute, so it has no width of its own - it
+   takes the width of whatever is inside it. This file used to put
+   `width: 100%` and `table-layout: fixed` on the calendar table, with
+   `width: 14.28%` cells and `width: 23%` month/year buttons. A percentage
+   inside an absolutely positioned box resolves against the space available
+   to it, which is the page, so the table grew to the width of the screen
+   and dragged the popup with it.
+   Everything below is sized in rem instead. Seven 2rem cells plus the
+   dropdown padding put the calendar at roughly 15rem (~240px) whatever the
+   screen does.
    ============================================ */
 
 /* Datepicker Dropdown Container */
@@ -14,35 +26,54 @@
     border: 1px solid #ced4da;
     border-radius: 0.375rem;
     box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
-    padding: 0.5rem;
+    padding: 0.375rem;
+    /* Shrink to the calendar, never to the page. */
+    width: auto;
+    min-width: 0;
+    font-size: 0.8125rem;
 }
 
 /* Datepicker Table - Fix Layout */
 .datepicker table {
-    width: 100%;
+    /* auto, so the cell widths below decide the table, not the other way round */
+    width: auto;
+    table-layout: auto;
     border-collapse: separate;
     border-spacing: 0;
-    table-layout: fixed;
+    margin: 0;
 }
 
 /* Day Headers (Su, Mo, Tu, etc) */
 .datepicker table thead th {
     text-align: center;
-    padding: 0.5rem 0.25rem;
+    padding: 0;
+    height: 1.75rem;
+    line-height: 1.75rem;
     font-weight: 600;
-    font-size: 0.875rem;
+    font-size: 0.75rem;
     color: #495057;
     background-color: #f8f9fa;
     border: none;
 }
 
+/* The header row carries prev / month-year / next and must not be squeezed
+   into the 2rem a day cell gets. */
+.datepicker table thead th.prev,
+.datepicker table thead th.next,
+.datepicker table thead th.datepicker-switch {
+    width: auto;
+}
+
 /* Date Cells */
 .datepicker table tbody td {
     text-align: center;
-    padding: 0.5rem;
+    padding: 0;
     border: none;
     cursor: pointer;
-    width: 14.28%; /* 100% / 7 days */
+    width: 2rem;
+    height: 2rem;
+    line-height: 2rem;
+    font-size: 0.8125rem;
 }
 
 .datepicker table tbody td.day {
@@ -91,10 +122,10 @@
 .datepicker .prev,
 .datepicker .next {
     cursor: pointer;
-    padding: 0.5rem;
+    padding: 0 0.5rem;
     text-align: center;
     font-weight: 700;
-    font-size: 1.25rem;
+    font-size: 1rem;
 }
 
 .datepicker .prev:hover,
@@ -108,7 +139,8 @@
     font-weight: 600;
     cursor: pointer;
     text-align: center;
-    padding: 0.5rem;
+    padding: 0 0.5rem;
+    white-space: nowrap;
 }
 
 .datepicker .datepicker-switch:hover {
@@ -116,12 +148,18 @@
     border-radius: 0.25rem;
 }
 
-/* Month View */
+/* Month / Year / Decade / Century View
+   These views are one cell holding twelve buttons. The cell is given the
+   width of four buttons so the grid matches the seven-column day view
+   instead of stretching to the page. */
 .datepicker .datepicker-months tbody td,
 .datepicker .datepicker-years tbody td,
 .datepicker .datepicker-decades tbody td,
 .datepicker .datepicker-centuries tbody td {
-    padding: 0.25rem;
+    padding: 0.25rem 0;
+    width: 14rem;
+    height: auto;
+    line-height: normal;
 }
 
 .datepicker .datepicker-months .month,
@@ -129,12 +167,13 @@
 .datepicker .datepicker-decades .decade,
 .datepicker .datepicker-centuries .century {
     display: inline-block;
-    width: 23%;
-    margin: 1%;
-    padding: 0.5rem;
+    width: 3.25rem;
+    margin: 0.125rem;
+    padding: 0.375rem 0;
     text-align: center;
     border-radius: 0.25rem;
     cursor: pointer;
+    font-size: 0.8125rem;
 }
 
 .datepicker .datepicker-months .month:hover,
@@ -152,10 +191,9 @@
     color: #ffffff;
 }
 
-/* Prevent Body Scroll When Datepicker Open */
-body.datepicker-open {
-    overflow: hidden;
-}
+/* `body.datepicker-open { overflow: hidden }` used to sit here. Nothing in
+   the application ever adds that class, so it never did anything except
+   stand ready to freeze the page scroll if something did. Removed. */
 
 /* Input Field with Datepicker */
 input.datepicker {
@@ -168,34 +206,48 @@ input.datepicker:focus {
     box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
 }
 
-/* Responsive Adjustments */
+/* Responsive Adjustments
+   A phone gets the same calendar, one notch tighter - not a wider one. */
 @media (max-width: 576px) {
     .datepicker-dropdown {
-        font-size: 0.875rem;
-    }
-    
-    .datepicker table tbody td {
+        font-size: 0.75rem;
         padding: 0.25rem;
     }
-    
+
+    .datepicker table tbody td {
+        width: 1.875rem;
+        height: 1.875rem;
+        line-height: 1.875rem;
+        font-size: 0.75rem;
+    }
+
+    .datepicker .datepicker-months tbody td,
+    .datepicker .datepicker-years tbody td,
+    .datepicker .datepicker-decades tbody td,
+    .datepicker .datepicker-centuries tbody td {
+        width: 13rem;
+    }
+
     .datepicker .datepicker-months .month,
-    .datepicker .datepicker-years .year {
-        width: 31%;
-        padding: 0.375rem;
+    .datepicker .datepicker-years .year,
+    .datepicker .datepicker-decades .decade,
+    .datepicker .datepicker-centuries .century {
+        width: 3rem;
+        padding: 0.25rem 0;
     }
 }
 
-/* Fix for inline datepicker if needed */
+/* Inline datepicker (rendered in the page, not in a popup) */
 .datepicker-inline {
-    width: 100%;
-    max-width: 350px;
+    width: auto;
+    max-width: 16rem;
     margin: 0 auto;
 }
 
 /* Clear Button (if enabled) */
 .datepicker .datepicker-clear {
     padding: 0.25rem 0.5rem;
-    margin-top: 0.5rem;
+    margin-top: 0.25rem;
     text-align: center;
     cursor: pointer;
     border-top: 1px solid #dee2e6;
