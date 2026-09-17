@@ -126,13 +126,37 @@ class JournalsController extends AppController
     }
 
     /**
-     * Shared manual double-entry form (add + adjustments).
+     * Edit an existing journal.
+     *
+     * index() and view() have always offered an Edit button, but there was no
+     * edit() behind it, so the button led to a MissingAction error. It runs
+     * through the same form and the same balance check as add(): a journal that
+     * could not be created unbalanced cannot be edited into an unbalanced one
+     * either.
+     *
+     * @param string|null $id Journal id.
+     * @return \Cake\Http\Response|null
      */
-    protected function manualEntry($mode)
+    public function edit($id = null)
+    {
+        $journal = $this->Journals->get($id);
+
+        // Adjustments carry an ADJ- reference and their form says so; keep an
+        // adjustment looking like an adjustment when it is reopened.
+        $mode = strpos((string)$journal->reference_no, 'ADJ') === 0 ? 'adjustment' : 'manual';
+
+        return $this->manualEntry($mode, $journal);
+    }
+
+    /**
+     * Shared manual double-entry form (add + adjustments + edit).
+     */
+    protected function manualEntry($mode, $journal = null)
     {
         $isAdjustment = ($mode === 'adjustment');
+        $isEdit = ($journal !== null);
 
-        if ($this->request->is('post')) {
+        if ($this->request->is(['post', 'put', 'patch'])) {
             $data = $this->request->getData();
             $lines = isset($data['lines']) ? $data['lines'] : [];
 
@@ -163,28 +187,67 @@ class JournalsController extends AppController
                     number_format($totalDebit, 0, ',', '.'), number_format($totalCredit, 0, ',', '.')));
             } else {
                 $refPrefix = $isAdjustment ? 'ADJ' : 'JRN';
+                // On an edit the entry keeps the reference it already has if the
+                // field comes back empty; only a new entry gets a fresh number.
+                $fallbackRef = $isEdit ? $journal->reference_no : $this->nextReference($refPrefix);
                 $header = [
                     'transaction_date' => !empty($data['transaction_date']) ? $data['transaction_date'] : date('Y-m-d'),
-                    'reference_no' => !empty($data['reference_no']) ? $data['reference_no'] : $this->nextReference($refPrefix),
+                    'reference_no' => !empty($data['reference_no']) ? $data['reference_no'] : $fallbackRef,
                     'description' => isset($data['description']) ? trim((string)$data['description']) : null,
-                    'status' => (isset($data['status']) && in_array($data['status'], ['Draft', 'Posted'])) ? $data['status'] : 'Posted',
+                    'status' => (isset($data['status']) && in_array($data['status'], ['Draft', 'Posted', 'Void'])) ? $data['status'] : 'Posted',
                 ];
-                $journalId = $this->writeJournal($header, $clean);
-                if ($journalId) {
-                    $this->Flash->success($isAdjustment
-                        ? __('Adjustment entry {0} saved.', $header['reference_no'])
-                        : __('Journal entry {0} saved.', $header['reference_no']));
 
-                    return $this->redirect(['action' => 'view', $journalId]);
+                if ($isEdit) {
+                    if ($this->rewriteJournal((int)$journal->id, $header, $clean)) {
+                        $this->Flash->success(__('Journal entry {0} updated.', $header['reference_no']));
+
+                        return $this->redirect(['action' => 'view', $journal->id]);
+                    }
+                    $this->Flash->error(__('The journal could not be saved. Please, try again.'));
+                } else {
+                    $journalId = $this->writeJournal($header, $clean);
+                    if ($journalId) {
+                        $this->Flash->success($isAdjustment
+                            ? __('Adjustment entry {0} saved.', $header['reference_no'])
+                            : __('Journal entry {0} saved.', $header['reference_no']));
+
+                        return $this->redirect(['action' => 'view', $journalId]);
+                    }
+                    $this->Flash->error(__('The journal could not be saved. Please, try again.'));
                 }
-                $this->Flash->error(__('The journal could not be saved. Please, try again.'));
             }
         }
 
         $accounts = $this->accountOptions();
-        $this->set(compact('accounts', 'isAdjustment'));
-        $this->set('pageTitle', $isAdjustment ? __('Manual Adjustment') : __('Manual Journal Entry'));
+        $lines = $isEdit ? $this->journalLines((int)$journal->id) : [];
+        $this->set(compact('accounts', 'isAdjustment', 'isEdit', 'journal', 'lines'));
+
+        if ($isEdit) {
+            $pageTitle = __('Edit Journal Entry {0}', $journal->reference_no);
+        } else {
+            $pageTitle = $isAdjustment ? __('Manual Adjustment') : __('Manual Journal Entry');
+        }
+        $this->set('pageTitle', $pageTitle);
         $this->render('manual_entry');
+    }
+
+    /**
+     * The double-entry lines of one journal, in the shape the form expects.
+     *
+     * @param int $journalId Journal id.
+     * @return array
+     */
+    protected function journalLines($journalId)
+    {
+        try {
+            return ConnectionManager::get(self::ACC_DB)->execute(
+                'SELECT chart_of_account_id, debit, credit, description
+                 FROM journal_details WHERE journal_id = ? ORDER BY id',
+                [$journalId]
+            )->fetchAll('assoc');
+        } catch (\Exception $e) {
+            return [];
+        }
     }
 
     /**
@@ -310,6 +373,61 @@ class JournalsController extends AppController
             });
         } catch (\Exception $e) {
             $this->log('writeJournal failed: ' . $e->getMessage(), 'error');
+
+            return false;
+        }
+    }
+
+    /**
+     * Replace an existing journal's header and lines in one transaction.
+     *
+     * The lines are rewritten rather than patched: the form posts the whole set
+     * every time, and a line the user removed has to disappear from
+     * journal_details or the entry stops balancing. created_by is left alone -
+     * it records who raised the entry, not who last touched it.
+     *
+     * @param int $journalId Journal id.
+     * @param array $header Header values.
+     * @param array $lines Double-entry lines.
+     * @return bool
+     */
+    protected function rewriteJournal($journalId, array $header, array $lines)
+    {
+        $conn = ConnectionManager::get(self::ACC_DB);
+        $totalDebit = 0;
+        $totalCredit = 0;
+        foreach ($lines as $line) {
+            $totalDebit += (float)$line['debit'];
+            $totalCredit += (float)$line['credit'];
+        }
+
+        try {
+            return (bool)$conn->transactional(function ($conn) use ($journalId, $header, $lines, $totalDebit, $totalCredit) {
+                $conn->update('journals', [
+                    'transaction_date' => $header['transaction_date'],
+                    'reference_no' => $header['reference_no'],
+                    'description' => $header['description'],
+                    'total_debit' => $totalDebit,
+                    'total_credit' => $totalCredit,
+                    'status' => $header['status'],
+                ], ['id' => $journalId]);
+
+                $conn->delete('journal_details', ['journal_id' => $journalId]);
+
+                foreach ($lines as $line) {
+                    $conn->insert('journal_details', [
+                        'journal_id' => $journalId,
+                        'chart_of_account_id' => $line['chart_of_account_id'],
+                        'debit' => $line['debit'],
+                        'credit' => $line['credit'],
+                        'description' => isset($line['description']) ? $line['description'] : null,
+                    ]);
+                }
+
+                return true;
+            });
+        } catch (\Exception $e) {
+            $this->log('rewriteJournal failed: ' . $e->getMessage(), 'error');
 
             return false;
         }

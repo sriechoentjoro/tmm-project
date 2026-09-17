@@ -14261,3 +14261,29 @@ msgstr "Siapa, dan sejak kapan"
 
 msgid "Workplace"
 msgstr "Tempat kerja"
+
+# ── Journal editing ────────────────────────────────────
+
+msgid "Void"
+msgstr "Batal"
+
+msgid "The whole entry is rewritten on save - a line you remove here is removed from the ledger."
+msgstr "Seluruh entri ditulis ulang saat disimpan - baris yang Anda hapus di sini ikut hilang dari buku besar."
+
+msgid "View Entry"
+msgstr "Lihat Entri"
+
+msgid "This entry is Posted, so it already feeds the financial reports. Editing it changes those figures with no trace of what they were. To correct a posted entry while keeping the history, raise an adjustment instead."
+msgstr "Entri ini berstatus Posted, jadi sudah masuk ke laporan keuangan. Mengubahnya mengubah angka-angka itu tanpa meninggalkan jejak nilai sebelumnya. Untuk mengoreksi entri yang sudah diposkan tanpa menghilangkan riwayatnya, buat jurnal penyesuaian."
+
+msgid "Raise an adjustment"
+msgstr "Buat penyesuaian"
+
+msgid "Note"
+msgstr "Catatan"
+
+msgid "Journal entry {0} updated."
+msgstr "Entri jurnal {0} diperbarui."
+
+msgid "Edit Journal Entry {0}"
+msgstr "Ubah Entri Jurnal {0}"

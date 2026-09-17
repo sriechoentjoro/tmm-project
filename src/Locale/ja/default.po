@@ -14261,3 +14261,29 @@ msgstr "対象者と時期"
 
 msgid "Workplace"
 msgstr "職場"
+
+# ── Journal editing ────────────────────────────────────
+
+msgid "Void"
+msgstr "無効"
+
+msgid "The whole entry is rewritten on save - a line you remove here is removed from the ledger."
+msgstr "保存時に仕訳全体が書き直されます。ここで削除した行は元帳からも削除されます。"
+
+msgid "View Entry"
+msgstr "仕訳を表示"
+
+msgid "This entry is Posted, so it already feeds the financial reports. Editing it changes those figures with no trace of what they were. To correct a posted entry while keeping the history, raise an adjustment instead."
+msgstr "この仕訳は「記帳済」のため、すでに財務レポートに反映されています。編集するとその数字が変わり、元の値の記録は残りません。履歴を保ったまま訂正するには、修正仕訳を作成してください。"
+
+msgid "Raise an adjustment"
+msgstr "修正仕訳を作成"
+
+msgid "Note"
+msgstr "備考"
+
+msgid "Journal entry {0} updated."
+msgstr "仕訳 {0} を更新しました。"
+
+msgid "Edit Journal Entry {0}"
+msgstr "仕訳 {0} の編集"
