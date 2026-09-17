@@ -39,6 +39,11 @@ $cacheBust = '?v=' . time();
     <!-- Form Styles - Actions Sidebar & Modern Form UI -->
     <link rel="stylesheet" href="<?= $staticAssetsUrl ?>/css/form-styles.css<?= $cacheBust ?>">
 
+    <!-- Pretty Form - the styles for the markup pretty-form.js builds and
+         Element/entity_form.ctp writes by hand. Loaded after form-styles.css
+         because it refines what that file sets. -->
+    <link rel="stylesheet" href="<?= $staticAssetsUrl ?>/css/pretty-form.css<?= $cacheBust ?>">
+
     <!-- jQuery & Bootstrap for Forms -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/smoothness/jquery-ui.css">

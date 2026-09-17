@@ -90,6 +90,48 @@ class TraineeCertificatesController extends AppController
         $this->set(compact('row', 'scoreRows'));
     }
 
+    /**
+     * Option lists for the add/edit form.
+     *
+     * The form used to render trainee_id and batch_id as number boxes, because
+     * nothing was ever passed to it - the page asked whoever was filling it in
+     * to know that trainee 47 is the one they mean. Both are read straight from
+     * their own tables here; trainees live in another schema, so they come from
+     * their own connection rather than a join.
+     *
+     * @return array
+     */
+    protected function _formOptions()
+    {
+        $trainees = [];
+        $rows = \Cake\Datasource\ConnectionManager::get('cms_tmm_trainees')->execute(
+            'SELECT id, name, tmm_code FROM trainees ORDER BY name'
+        )->fetchAll('assoc');
+        foreach ($rows as $row) {
+            $label = $row['name'] !== null && $row['name'] !== ''
+                ? $row['name']
+                : __('Trainee #{0}', $row['id']);
+            if (!empty($row['tmm_code'])) {
+                $label .= ' (' . $row['tmm_code'] . ')';
+            }
+            $trainees[$row['id']] = $label;
+        }
+
+        $batches = [];
+        $rows = $this->TraineeCertificates->getConnection()->execute(
+            'SELECT id, batch_code, batch_name FROM training_batches ORDER BY id DESC'
+        )->fetchAll('assoc');
+        foreach ($rows as $row) {
+            $label = $row['batch_code'] ?: __('Batch #{0}', $row['id']);
+            if (!empty($row['batch_name'])) {
+                $label .= ' - ' . $row['batch_name'];
+            }
+            $batches[$row['id']] = $label;
+        }
+
+        return [$trainees, $batches];
+    }
+
     public function add()
     {
         $traineeCertificate = $this->TraineeCertificates->newEntity();
@@ -102,7 +144,8 @@ class TraineeCertificatesController extends AppController
             }
             $this->Flash->error(__('The Trainee Certificate could not be saved. Please, try again.'));
         }
-        $this->set('traineeCertificate', $traineeCertificate);
+        list($trainees, $batches) = $this->_formOptions();
+        $this->set(compact('traineeCertificate', 'trainees', 'batches'));
     }
 
     public function edit($id = null)
@@ -117,7 +160,8 @@ class TraineeCertificatesController extends AppController
             }
             $this->Flash->error(__('The Trainee Certificate could not be saved. Please, try again.'));
         }
-        $this->set('traineeCertificate', $traineeCertificate);
+        list($trainees, $batches) = $this->_formOptions();
+        $this->set(compact('traineeCertificate', 'trainees', 'batches'));
     }
 
     public function printCertificate($id = null)
