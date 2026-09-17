@@ -187,25 +187,76 @@
     border-color: #e5533d;
 }
 
-/* ---- Checkbox rendered as a switch tile ---- */
+/* ---- Checkbox rendered as a switch tile ----
+
+   One tile is one yes/no answer, so it is a single row: the switch, then the
+   question, on one line. The rules below undo three things that fought that.
+
+   CakePHP renders a checkbox control with the <input> INSIDE its <label>.
+   Bootstrap's .form-check and .form-switch indent their box and pull the input
+   back with a negative margin, which assumes the input is a direct child - with
+   the input nested one level deeper those two cancel out into a gap between the
+   border and the switch instead. Both are reset here.
+
+   A tile inside a tile draws two borders and two paddings around one switch.
+   pretty-form.js no longer produces that, but the guard costs one rule and
+   covers any template whose markup takes a different path through it. */
 
 .cand-switch-tile {
     display: flex;
     align-items: center;
     gap: 10px;
-    padding: 12px 14px;
+    padding: 8px 12px;
     border: 1px solid var(--pf-line);
-    border-radius: 10px;
+    border-radius: 9px;
     background: var(--pf-surface-soft);
-    min-height: 46px;
+    min-height: 40px;
+    cursor: pointer;
+    transition: border-color 0.15s ease, background-color 0.15s ease;
+}
+
+.cand-switch-tile:hover {
+    border-color: #b9c6d0;
+}
+
+/* Keyboard focus has to be visible on the tile, because the switch itself is
+   small and sits against a tinted background. */
+.cand-switch-tile:focus-within {
+    border-color: var(--pf-accent);
+    box-shadow: 0 0 0 0.2rem rgba(0, 188, 212, 0.18);
+}
+
+/* A tile nested in a tile contributes no frame of its own. */
+.cand-switch-tile .cand-switch-tile {
+    border: 0;
+    background: none;
+    padding: 0;
+    min-height: 0;
+    box-shadow: none;
+}
+
+/* Bootstrap's indent, and CakePHP's own wrapper, both flattened into the row. */
+.cand-switch-tile .form-check,
+.cand-switch-tile .form-switch,
+.cand-switch-tile .input {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex: 1 1 auto;
+    width: 100%;
+    min-width: 0;
+    padding: 0;
+    margin: 0;
 }
 
 .cand-switch-tile .form-check-input {
-    width: 2.25em;
-    height: 1.15em;
+    flex: 0 0 auto;
+    width: 2.4rem;
+    height: 1.3rem;
     margin: 0;
     cursor: pointer;
-    flex: 0 0 auto;
+    background-color: #e4eaef;
+    border-color: #cfd8e0;
 }
 
 .cand-switch-tile .form-check-input:checked {
@@ -213,14 +264,35 @@
     border-color: var(--pf-accent);
 }
 
+.cand-switch-tile .form-check-input:focus {
+    box-shadow: none;
+}
+
+/* The label carries the switch, so clicking anywhere along the row toggles it. */
 .cand-switch-tile .form-check-label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex: 1 1 auto;
+    min-width: 0;
     margin: 0;
     font-size: 13.5px;
     font-weight: 600;
+    line-height: 1.35;
     color: #55677a;
     text-transform: none;
     letter-spacing: 0;
     cursor: pointer;
+}
+
+/* On and off should be readable at a glance, not only from the switch. */
+.cand-switch-tile:has(.form-check-input:checked) {
+    background: #edfafc;
+    border-color: #9fdde7;
+}
+
+.cand-switch-tile:has(.form-check-input:checked) .form-check-label {
+    color: var(--pf-ink);
 }
 
 /* ---- Action bar ---- */

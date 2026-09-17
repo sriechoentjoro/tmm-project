@@ -59,9 +59,15 @@ $(function () {
         });
     });
 
-    // Two-column grid: plain CakePHP .input wrappers inside fieldsets
+    // Two-column grid: plain CakePHP .input wrappers inside fieldsets.
+    // Checkbox wrappers are skipped: the switch-tile pass below owns them, and
+    // a div.input.checkbox turned into a column is squeezed to half the width of
+    // whatever already holds it - which is how a three-word label ended up
+    // reading one word per line.
     $content.find('form fieldset .input').each(function () {
         var $div = $(this);
+        if ($div.is('.checkbox, .boolean')) return;
+        if ($div.find('input[type=checkbox]').length) return;
         if ($div.find('textarea, input[type=file], select[multiple], .form-check').length) return;
         if ($div.hasClass('col-md-6') || $div.hasClass('col-md-4')) return;
         $div.addClass('col-md-6');
@@ -97,11 +103,16 @@ $(function () {
         }
     });
 
-    // Also handle CakePHP default checkbox wrappers (div.input.boolean)
+    // Also handle CakePHP default checkbox wrappers (div.input.boolean) that no
+    // .form-check pass has already dealt with.
     $content.find('form fieldset .input.boolean, form fieldset .input.checkbox').each(function () {
         var $div = $(this);
         var $input = $div.find('input[type=checkbox]');
-        if (!$input.length || $div.find('.cand-switch-tile').length) return;
+        // closest(), not find(): the tile the pass above builds is an ancestor of
+        // this wrapper, never a descendant. Looking downwards found nothing and
+        // wrapped the same checkbox a second time, leaving a bordered tile inside
+        // a bordered tile around a single switch.
+        if (!$input.length || $div.closest('.cand-switch-tile').length) return;
         var $label = $div.find('label');
         var $switchWrap = $('<div class="form-check form-switch cand-switch-tile"></div>');
         $input.addClass('form-check-input').attr('role', 'switch');
