@@ -233,6 +233,18 @@
         </div>
     </div>
 
+<?php
+// Where this candidate stands in selection, and the institution's one decision.
+// $canPropose is computed here rather than inside the element so the element
+// stays about rendering: the proposing institution owns this, and an
+// administrator supports it.
+$viewerRoles = (array)$this->request->getSession()->read('Auth.User.role_names');
+?>
+<?= $this->element('candidate_proposal', [
+    'candidate' => $candidate,
+    'canPropose' => (bool)array_intersect(['administrator', 'lpk-penyangga'], $viewerRoles),
+]) ?>
+
     <!-- View Content Wrapper - Modal Safe -->
     <div class="view-content-wrapper" data-view-template="true">
     

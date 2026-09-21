@@ -100,6 +100,7 @@ $this->set(compact('candidateRecordMedicalCheckUps', 'applicants', 'medicalCheck
             
             $candidateRecordMedicalCheckUp = $this->CandidateRecordMedicalCheckUps->patchEntity($candidateRecordMedicalCheckUp, $data);
             if ($this->CandidateRecordMedicalCheckUps->save($candidateRecordMedicalCheckUp)) {
+                $this->_refreshCandidate($candidateRecordMedicalCheckUp->applicant_id);
                 $this->Flash->success(__('The candidate record medical check up has been saved.'));
 
                 return $this->redirect(['action' => 'index']);
@@ -164,6 +165,7 @@ $this->set(compact('candidateRecordMedicalCheckUps', 'applicants', 'medicalCheck
             
             $candidateRecordMedicalCheckUp = $this->CandidateRecordMedicalCheckUps->patchEntity($candidateRecordMedicalCheckUp, $data);
             if ($this->CandidateRecordMedicalCheckUps->save($candidateRecordMedicalCheckUp)) {
+                $this->_refreshCandidate($candidateRecordMedicalCheckUp->applicant_id);
                 $this->Flash->success(__('The candidate record medical check up has been saved.'));
 
                 return $this->redirect(['action' => 'index']);
@@ -186,7 +188,11 @@ $this->set(compact('candidateRecordMedicalCheckUps', 'applicants', 'medicalCheck
     {
         $this->request->allowMethod(['post', 'delete']);
         $candidateRecordMedicalCheckUp = $this->CandidateRecordMedicalCheckUps->get($id);
+        // Read before the delete: afterwards the entity is gone and with it the
+        // only way of knowing whose standing has to be worked out again.
+        $applicantId = $candidateRecordMedicalCheckUp->applicant_id;
         if ($this->CandidateRecordMedicalCheckUps->delete($candidateRecordMedicalCheckUp)) {
+            $this->_refreshCandidate($applicantId);
             $this->Flash->success(__('The candidate record medical check up has been deleted.'));
         } else {
             $this->Flash->error(__('The candidate record medical check up could not be deleted. Please, try again.'));
@@ -272,6 +278,42 @@ $this->set(compact('candidateRecordMedicalCheckUps', 'applicants', 'medicalCheck
                 $this->request->getSession()->write('Config.language', $lang);
                 return $this->redirect(['action' => 'processFlow']);
             }
+        }
+    }
+
+    /**
+     * Recompute what a candidate's check-ups say about them.
+     *
+     * Called after every save and delete, because the standing is derived from
+     * the whole set of a candidate's check-ups, not from the one just touched:
+     * deleting the only failing check-up has to clear the fail.
+     *
+     * A candidate marked not fit is told about here rather than left to be
+     * discovered on the promotion screen - the institution that just entered
+     * the result is the one that needs to know it changes the outcome.
+     *
+     * @param int|null $candidateId Candidate id.
+     * @return void
+     */
+    protected function _refreshCandidate($candidateId)
+    {
+        if (!$candidateId) {
+            return;
+        }
+
+        try {
+            $candidates = \Cake\ORM\TableRegistry::getTableLocator()->get('Candidates');
+            $standing = $candidates->refreshMcuStanding($candidateId);
+        } catch (\Throwable $e) {
+            // The check-up itself saved. A standing that could not be worked
+            // out is worth a log line, not a failed save.
+            $this->log('refreshMcuStanding failed: ' . $e->getMessage(), 'error');
+
+            return;
+        }
+
+        if ($standing === 'fail') {
+            $this->Flash->warning(__('This candidate is now marked not medically fit, and cannot be put forward for promotion until that changes.'));
         }
     }
 }

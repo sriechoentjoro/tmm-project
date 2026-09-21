@@ -15305,3 +15305,161 @@ msgstr "semua peran lain"
 
 msgid "situation changes"
 msgstr "keadaan berubah"
+
+# ── Selection hand-over: LPK proposal and MCU fitness ──────────
+
+msgid "\"{0}\" could not be put forward. Please, try again."
+msgstr "\"{0}\" tidak bisa diajukan. Silakan coba lagi."
+
+msgid "\"{0}\" could not be taken back. Please, try again."
+msgstr "\"{0}\" tidak bisa ditarik kembali. Silakan coba lagi."
+
+msgid "\"{0}\" has been put forward. Recruitment will see them on the promotion list."
+msgstr "\"{0}\" sudah diajukan. Rekrutmen akan melihatnya di daftar promosi."
+
+msgid "\"{0}\" has been taken back off the promotion list."
+msgstr "\"{0}\" sudah ditarik kembali dari daftar promosi."
+
+msgid "\"{0}\" is marked not medically fit and cannot be promoted."
+msgstr "\"{0}\" ditandai tidak lolos medis dan tidak bisa dipromosikan."
+
+msgid "\"{0}\" is marked not medically fit and cannot be put forward."
+msgstr "\"{0}\" ditandai tidak lolos medis dan tidak bisa diajukan."
+
+msgid "A candidate marked not fit cannot be put forward by their institution and cannot be promoted by recruitment. Both screens refuse it and say why."
+msgstr "Kandidat yang ditandai tidak lolos medis tidak bisa diajukan oleh LPK-nya dan tidak bisa dipromosikan oleh rekrutmen. Kedua halaman menolaknya dan menyebutkan alasannya."
+
+msgid "A candidate whose medical check-up is marked not fit cannot be put forward, and the button says so rather than failing quietly."
+msgstr "Kandidat yang pemeriksaan kesehatannya ditandai tidak lolos tidak bisa diajukan, dan tombolnya mengatakan begitu, bukan gagal diam-diam."
+
+msgid "A check-up recorded for this candidate is marked not fit, so they cannot be put forward until that changes."
+msgstr "Ada pemeriksaan untuk kandidat ini yang ditandai tidak lolos, jadi ia tidak bisa diajukan sampai itu berubah."
+
+msgid "A medical check-up decides the candidate's fitness automatically, and a failing one holds them back here. What each result type means is set once on its master screen."
+msgstr "Pemeriksaan kesehatan menentukan kelayakan kandidat secara otomatis, dan yang tidak lolos menahannya di sini. Arti tiap jenis hasil disetel sekali di halaman induknya."
+
+msgid "A medical check-up is recorded against the candidate with its result. The result type carries the meaning - an administrator says once whether each one counts as medically fit - and from that the candidate's standing is worked out the moment the check-up is saved. A candidate marked not fit cannot be put forward for promotion, and the screen that entered the result is the one that says so."
+msgstr "Pemeriksaan kesehatan dicatat pada kandidat beserta hasilnya. Jenis hasilnyalah yang membawa makna - administrator menetapkan sekali apakah masing-masing dihitung lolos medis - dan dari situ status kandidat dihitung begitu pemeriksaannya disimpan. Kandidat yang ditandai tidak lolos tidak bisa diajukan untuk promosi, dan halaman yang memasukkan hasil itulah yang memberitahukannya."
+
+msgid "An empty promotion list usually means nobody has been put forward yet, not that something is broken. A candidate reaches recruitment only when their own institution declares them through selection."
+msgstr "Daftar promosi yang kosong biasanya berarti belum ada yang diajukan, bukan berarti ada yang rusak. Kandidat sampai ke rekrutmen hanya ketika LPK-nya sendiri menyatakannya lulus seleksi."
+
+msgid "Candidate held back"
+msgstr "Kandidat ditahan"
+
+msgid "Candidate may go forward"
+msgstr "Kandidat boleh lanjut"
+
+msgid "Counts for nothing either way"
+msgstr "Tidak dihitung ke arah mana pun"
+
+msgid "Declare passed selection"
+msgstr "Nyatakan lulus seleksi"
+
+msgid "Declare the candidate through selection"
+msgstr "Nyatakan kandidat lulus seleksi"
+
+msgid "Declared through selection on {0}. Recruitment can see this candidate on its promotion list."
+msgstr "Dinyatakan lulus seleksi pada {0}. Rekrutmen bisa melihat kandidat ini di daftar promosinya."
+
+msgid "Deleting a check-up recomputes the standing too, so removing the only failing one lets the candidate go forward again. That is intended, but it means a deletion is a decision, not just tidying up."
+msgstr "Menghapus pemeriksaan juga menghitung ulang statusnya, jadi membuang satu-satunya yang tidak lolos membuat kandidat bisa lanjut lagi. Itu memang disengaja, tetapi berarti penghapusan adalah keputusan, bukan sekadar merapikan."
+
+msgid "Does this result mean the candidate is medically fit?"
+msgstr "Apakah hasil ini berarti kandidat lolos medis?"
+
+msgid "Every check-up recorded with this result inherits this meaning. A single not-fit check-up holds a candidate back; a result left unsaid holds nobody back."
+msgstr "Setiap pemeriksaan yang dicatat dengan hasil ini mewarisi makna tersebut. Satu saja pemeriksaan tidak lolos menahan kandidat; hasil yang dibiarkan tanpa penetapan tidak menahan siapa pun."
+
+msgid "Fit - the candidate may go forward"
+msgstr "Lolos - kandidat boleh lanjut"
+
+msgid "If the standing stays blank, nobody has said what that result type means. It is set once per type on the MCU result master screen."
+msgstr "Kalau statusnya tetap kosong, berarti belum ada yang menetapkan arti jenis hasil itu. Disetel sekali per jenis di halaman induk hasil MCU."
+
+msgid "LPK declares passed selection"
+msgstr "LPK menyatakan lulus seleksi"
+
+msgid "MCU result types"
+msgstr "Jenis hasil MCU"
+
+msgid "Not fit - the candidate is held back"
+msgstr "Tidak lolos - kandidat ditahan"
+
+msgid "Not medically fit"
+msgstr "Tidak lolos medis"
+
+msgid "Not put forward"
+msgstr "Belum diajukan"
+
+msgid "Not said - counts for nothing either way"
+msgstr "Belum ditetapkan - tidak dihitung ke arah mana pun"
+
+msgid "Only the proposing institution can declare a candidate through selection."
+msgstr "Hanya LPK pengaju yang bisa menyatakan kandidat lulus seleksi."
+
+msgid "Only the proposing institution can take a candidate back."
+msgstr "Hanya LPK pengaju yang bisa menarik kandidat kembali."
+
+msgid "Put forward"
+msgstr "Sudah diajukan"
+
+msgid "Put {0} forward to recruitment?"
+msgstr "Ajukan {0} ke rekrutmen?"
+
+msgid "Recruitment does not see this candidate yet. Declare them through selection when the tests, the interview and the documents are done."
+msgstr "Rekrutmen belum melihat kandidat ini. Nyatakan lulus seleksi setelah tes, wawancara, dan dokumennya selesai."
+
+msgid "Result type marked fit?"
+msgstr "Jenis hasil ditandai lolos?"
+
+msgid "Take back"
+msgstr "Tarik kembali"
+
+msgid "Take {0} back off the promotion list?"
+msgstr "Tarik {0} dari daftar promosi?"
+
+msgid "That candidate belongs to another institution."
+msgstr "Kandidat itu milik LPK lain."
+
+msgid "The candidate appears on recruitment's promotion list. Until somebody puts them forward, recruitment does not see them at all."
+msgstr "Kandidatnya muncul di daftar promosi rekrutmen. Sampai ada yang mengajukannya, rekrutmen sama sekali tidak melihatnya."
+
+msgid "The candidate carries pass or fail, and a failing one is held back from the promotion list."
+msgstr "Kandidatnya membawa status lolos atau tidak, dan yang tidak lolos ditahan dari daftar promosi."
+
+msgid "The medical column is worked out from the check-ups, not typed: a result marked not fit shows as failed and stops both the proposal and the promotion. If it is blank, either no check-up has been recorded or nobody has yet said what that result type means."
+msgstr "Kolom medis dihitung dari pemeriksaannya, bukan diketik: hasil yang ditandai tidak lolos tampil sebagai gagal dan menghentikan baik pengajuan maupun promosi. Kalau kosong, berarti belum ada pemeriksaan yang dicatat atau belum ada yang menetapkan arti jenis hasil itu."
+
+msgid "The moment the check-up is saved, the candidate's medical standing is recomputed from all of their check-ups. It is cautious: one result marked not fit makes the candidate not fit, whatever the others say. A result type nobody has marked counts for nothing either way."
+msgstr "Begitu pemeriksaannya disimpan, status medis kandidat dihitung ulang dari seluruh pemeriksaannya. Perhitungannya berhati-hati: satu hasil yang ditandai tidak lolos membuat kandidatnya tidak lolos, apa pun kata yang lain. Jenis hasil yang belum ditetapkan tidak dihitung ke arah mana pun."
+
+msgid "The promotion screen lists the candidates institutions have put forward, with their scores and document completeness side by side. Promoting one creates a trainee record and copies the whole profile across - education, experience, certifications, courses and family. Whether a candidate is promoted is recruitment's decision alone; the institution only proposes."
+msgstr "Halaman promosi mendaftar kandidat yang sudah diajukan LPK, beserta nilai dan kelengkapan dokumennya berdampingan. Mempromosikan salah satunya menciptakan data trainee dan menyalin seluruh profilnya - pendidikan, pengalaman, sertifikasi, kursus, dan keluarga. Dipromosikan atau tidaknya seorang kandidat adalah kewenangan rekrutmen semata; LPK hanya mengajukan."
+
+msgid "The proposing institution"
+msgstr "LPK pengaju"
+
+msgid "The standing is decided for you"
+msgstr "Statusnya diputuskan untuk Anda"
+
+msgid "This candidate is now marked not medically fit, and cannot be put forward for promotion until that changes."
+msgstr "Kandidat ini sekarang ditandai tidak lolos medis, dan tidak bisa diajukan untuk promosi sampai itu berubah."
+
+msgid "This installation cannot record a proposal yet. An administrator needs to run the selection-flow update first."
+msgstr "Instalasi ini belum bisa mencatat pengajuan. Administrator perlu menjalankan pembaruan alur seleksi lebih dulu."
+
+msgid "What each result type means - fit, not fit, or not said - is set once on the master screen, and every check-up recorded with that result inherits it."
+msgstr "Arti tiap jenis hasil - lolos, tidak lolos, atau belum ditetapkan - disetel sekali di halaman induk, dan setiap pemeriksaan yang dicatat dengan hasil itu mewarisinya."
+
+msgid "When the tests, the interview and the documents are done, put the candidate forward from their own page. Nothing is copied and nothing is decided - you are saying the candidate has passed your selection."
+msgstr "Setelah tes, wawancara, dan dokumennya selesai, ajukan kandidatnya dari halamannya sendiri. Tidak ada yang disalin dan tidak ada yang diputuskan - Anda sedang menyatakan bahwa kandidat itu lulus seleksi Anda."
+
+msgid "fit"
+msgstr "lolos"
+
+msgid "nobody said"
+msgstr "belum ditetapkan"
+
+msgid "not fit"
+msgstr "tidak lolos"

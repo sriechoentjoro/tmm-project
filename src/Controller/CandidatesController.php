@@ -1687,6 +1687,172 @@ class CandidatesController extends AppController
         }
     }
 
+
+
+    /**
+     * Roles that may declare a candidate through selection, or take that back.
+     *
+     * The institution owns the decision; an administrator supports it.
+     *
+     * @var array
+     */
+    const PROPOSER_ROLES = ['administrator', 'lpk-penyangga'];
+
+    /**
+     * Actions the menu permissions cannot be expected to know about.
+     *
+     * @var array
+     */
+    const SELECTION_ACTIONS = ['propose', 'withdrawProposal'];
+
+    /**
+     * Let the proposing institution reach the two selection actions.
+     *
+     * Without this the feature would ship dead for the role it was built for.
+     * AppController::isAuthorized() asks hasPermission(), which reads
+     * role_menus.granted_actions - and a value of "*" there does NOT mean every
+     * action: getMenuRolePermissions() expands it to the menu's own action plus
+     * index and view. A brand-new action is in nobody's granted list, so
+     * lpk-penyangga would have been refused on a button built for it, and the
+     * refusal would have looked like a permissions bug rather than a missing
+     * row of data.
+     *
+     * Everything else still goes through the normal DB-driven check.
+     *
+     * @param array $user The authenticated user.
+     * @return bool
+     */
+    public function isAuthorized($user)
+    {
+        $this->currentUser = $user;
+
+        $action = $this->request->getParam('action');
+        if (!in_array($action, self::SELECTION_ACTIONS, true)) {
+            return parent::isAuthorized($user);
+        }
+
+        foreach (self::PROPOSER_ROLES as $role) {
+            if ($this->hasRole($role)) {
+                return true;
+            }
+        }
+
+        $this->handleUnauthorizedAccess(
+            $action,
+            __('Only the proposing institution can declare a candidate through selection.')
+        );
+
+        return false;
+    }
+
+    /**
+     * The institution declares a candidate through its own selection.
+     *
+     * This is the step that was missing. Recruitment's promotion list used to
+     * ask for a flag that only promotion itself set, so nobody could ever reach
+     * it. What puts a candidate in front of recruitment is their institution
+     * saying the candidate has passed selection; whether that candidate then
+     * becomes a trainee stays recruitment's decision, recorded by promoting.
+     *
+     * A candidate whose medical check-up says not fit is refused here rather
+     * than further along, where the refusal would be harder to explain.
+     *
+     * @param string|null $id Candidate id.
+     * @return \Cake\Http\Response|null
+     */
+    public function propose($id = null)
+    {
+        $this->request->allowMethod(['post']);
+
+        if (!$this->Candidates->getSchema()->hasColumn('lpk_proposed_at')) {
+            $this->Flash->error(__('This installation cannot record a proposal yet. An administrator needs to run the selection-flow update first.'));
+
+            return $this->redirect($this->referer(['action' => 'index']));
+        }
+
+        $candidate = $this->Candidates->get($id);
+        if (!$this->canAccessRecord($candidate)) {
+            $this->Flash->error(__('That candidate belongs to another institution.'));
+
+            return $this->redirect(['action' => 'index']);
+        }
+        if (!$this->hasRole('administrator') && !$this->hasRole('lpk-penyangga')) {
+            $this->Flash->error(__('Only the proposing institution can declare a candidate through selection.'));
+
+            return $this->redirect($this->referer(['action' => 'index']));
+        }
+
+        if ($this->Candidates->getSchema()->hasColumn('mcu_result')
+            && $candidate->get('mcu_result') === 'fail'
+        ) {
+            $this->Flash->error(__('"{0}" is marked not medically fit and cannot be put forward.', $candidate->name));
+
+            return $this->redirect($this->referer(['action' => 'index']));
+        }
+
+        $candidate->set('lpk_proposed_at', new \Cake\I18n\FrozenTime());
+        if ($this->Candidates->getSchema()->hasColumn('lpk_proposed_by')) {
+            $candidate->set('lpk_proposed_by', $this->Auth->user('id'));
+        }
+
+        // checkRules/validate off: these two fields are not user input, and a
+        // candidate with some unrelated legacy validation problem would
+        // otherwise be impossible to put forward for a reason nobody could see.
+        if ($this->Candidates->save($candidate, ['checkRules' => false, 'validate' => false])) {
+            $this->Flash->success(__('"{0}" has been put forward. Recruitment will see them on the promotion list.', $candidate->name));
+        } else {
+            $this->Flash->error(__('"{0}" could not be put forward. Please, try again.', $candidate->name));
+        }
+
+        return $this->redirect($this->referer(['action' => 'index']));
+    }
+
+    /**
+     * Take back a proposal.
+     *
+     * The candidate leaves recruitment's list and returns to the institution's
+     * own hands. Nothing else about them changes; a candidate who was already
+     * promoted is not affected, because promotion has already copied them.
+     *
+     * @param string|null $id Candidate id.
+     * @return \Cake\Http\Response|null
+     */
+    public function withdrawProposal($id = null)
+    {
+        $this->request->allowMethod(['post']);
+
+        if (!$this->Candidates->getSchema()->hasColumn('lpk_proposed_at')) {
+            $this->Flash->error(__('This installation cannot record a proposal yet. An administrator needs to run the selection-flow update first.'));
+
+            return $this->redirect($this->referer(['action' => 'index']));
+        }
+
+        $candidate = $this->Candidates->get($id);
+        if (!$this->canAccessRecord($candidate)) {
+            $this->Flash->error(__('That candidate belongs to another institution.'));
+
+            return $this->redirect(['action' => 'index']);
+        }
+        if (!$this->hasRole('administrator') && !$this->hasRole('lpk-penyangga')) {
+            $this->Flash->error(__('Only the proposing institution can take a candidate back.'));
+
+            return $this->redirect($this->referer(['action' => 'index']));
+        }
+
+        $candidate->set('lpk_proposed_at', null);
+        if ($this->Candidates->getSchema()->hasColumn('lpk_proposed_by')) {
+            $candidate->set('lpk_proposed_by', null);
+        }
+
+        if ($this->Candidates->save($candidate, ['checkRules' => false, 'validate' => false])) {
+            $this->Flash->success(__('"{0}" has been taken back off the promotion list.', $candidate->name));
+        } else {
+            $this->Flash->error(__('"{0}" could not be taken back. Please, try again.', $candidate->name));
+        }
+
+        return $this->redirect($this->referer(['action' => 'index']));
+    }
+
     /**
      * Recruitment promotion dashboard.
      * Shows all active candidates with physical score, interview score, and document completeness.
@@ -1701,8 +1867,19 @@ class CandidatesController extends AppController
             ->extract('candidate_id')
             ->toList();
 
-        // Eligible: active, not yet promoted, candidate_pass=1
-        $eligibleConditions = ['Candidates.status_flag' => 'active', 'Candidates.is_candidate_pass' => 1];
+        // Eligible: active, put forward by the institution, not yet promoted.
+        //
+        // This used to require is_candidate_pass = 1, which only doPromote()
+        // ever sets - and it sets it at the same moment it creates the trainee,
+        // which then excludes the candidate by the NOT IN below. The list could
+        // therefore only ever be empty. The flag is the outcome of recruitment
+        // promoting somebody, not the ticket that gets them onto the list; what
+        // gets them on the list is their own institution declaring them through
+        // selection.
+        $eligibleConditions = ['Candidates.status_flag' => 'active'];
+        if ($this->Candidates->getSchema()->hasColumn('lpk_proposed_at')) {
+            $eligibleConditions['Candidates.lpk_proposed_at IS NOT'] = null;
+        }
         if (!empty($promotedIds)) {
             $eligibleConditions['Candidates.id NOT IN'] = $promotedIds;
         }
@@ -1724,6 +1901,13 @@ class CandidatesController extends AppController
             'Candidates.mcu_score', 'Candidates.mcu_rank',
             'Candidates.is_candidate_pass', 'Candidates.status_flag',
         ];
+        // Added only where the columns exist, so the screen keeps working on an
+        // installation that has not yet run bin/cake add_selection_flow_columns.
+        foreach (['mcu_result', 'lpk_proposed_at'] as $optional) {
+            if ($this->Candidates->getSchema()->hasColumn($optional)) {
+                $selectFields[] = 'Candidates.' . $optional;
+            }
+        }
 
         $candidates = $this->Candidates->find()
             ->select($selectFields)
@@ -1819,6 +2003,17 @@ class CandidatesController extends AppController
         $existing = $traineesTable->find()->where(['candidate_id' => $candidateId])->first();
         if ($existing) {
             $this->Flash->warning(__('Candidate "{0}" is already a trainee.', $candidate->name));
+            return $this->redirect(['action' => 'promoteToTrainee']);
+        }
+
+        // A candidate marked not medically fit is not promoted, whatever else
+        // their scores say. The check-up screen already warned the institution
+        // when the result was entered; this is the place it actually holds.
+        if ($this->Candidates->getSchema()->hasColumn('mcu_result')
+            && $candidate->get('mcu_result') === 'fail'
+        ) {
+            $this->Flash->error(__('"{0}" is marked not medically fit and cannot be promoted.', $candidate->name));
+
             return $this->redirect(['action' => 'promoteToTrainee']);
         }
 

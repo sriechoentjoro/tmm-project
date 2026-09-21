@@ -49,6 +49,22 @@ $staticAssetsUrl = $protocol . '://' . $host . '/static-assets';
                             'label' => false
                         ]) ?>
                     </div>
+                    <div class="col-12 mb-3">
+                        <label class="form-label"><?= __('Does this result mean the candidate is medically fit?') ?></label>
+                        <?= $this->Form->control('is_fit', [
+                            'type' => 'select',
+                            'class' => 'form-control',
+                            'label' => false,
+                            'options' => [
+                                '1' => __('Fit - the candidate may go forward'),
+                                '0' => __('Not fit - the candidate is held back'),
+                            ],
+                            'empty' => __('Not said - counts for nothing either way'),
+                        ]) ?>
+                        <small class="text-muted">
+                            <?= __('Every check-up recorded with this result inherits this meaning. A single not-fit check-up holds a candidate back; a result left unsaid holds nobody back.') ?>
+                        </small>
+                    </div>
                 </div>
             </fieldset>
             

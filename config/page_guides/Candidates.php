@@ -44,9 +44,17 @@ return [
             'data' => 'fitness_score, interview_score, interview_recommendation',
         ],
         [
+            'title' => __('Declare the candidate through selection'),
+            'who' => __('The proposing institution'),
+            'do' => __('When the tests, the interview and the documents are done, put the candidate forward from their own page. Nothing is copied and nothing is decided - you are saying the candidate has passed your selection.'),
+            'result' => __('The candidate appears on recruitment\'s promotion list. Until somebody puts them forward, recruitment does not see them at all.'),
+            'data' => 'lpk_proposed_at',
+            'note' => __('A candidate whose medical check-up is marked not fit cannot be put forward, and the button says so rather than failing quietly.'),
+        ],
+        [
             'title' => __('Promote to trainee'),
             'who' => __('Recruitment staff, or an administrator'),
-            'do' => __('The promotion screen lists candidates with their scores and document completeness side by side. Promoting one creates a trainee record and copies the whole profile across - education, experience, certifications, courses and family.'),
+            'do' => __('The promotion screen lists the candidates institutions have put forward, with their scores and document completeness side by side. Promoting one creates a trainee record and copies the whole profile across - education, experience, certifications, courses and family. Whether a candidate is promoted is recruitment\'s decision alone; the institution only proposes.'),
             'result' => __('The person becomes a trainee with a new TMM code, and the training phase can begin. The candidate record stays where it is, marked as passed.'),
             'screen' => ['/candidates/promote-to-trainee', __('Promote to Trainee')],
             'data' => 'is_candidate_pass = 1, trainees.candidate_id',
@@ -64,7 +72,8 @@ return [
         . "    D --> G\n"
         . "    E --> G\n"
         . "    F --> G\n"
-        . "    G --> H[" . __('Recruitment promotes') . "]\n"
+        . "    G --> P[" . __('LPK declares passed selection') . "]\n"
+        . "    P --> H[" . __('Recruitment promotes') . "]\n"
         . "    H --> I[" . __('Trainee created, profile copied') . "]\n"
         . "    style B fill:#e3f2fd\n"
         . "    style I fill:#c8e6c9",
@@ -89,6 +98,12 @@ return [
             'label' => __('Trainees'),
         ],
         [
+            'icon' => 'fa-stethoscope',
+            'what' => __('A medical check-up decides the candidate\'s fitness automatically, and a failing one holds them back here. What each result type means is set once on its master screen.'),
+            'url' => '/master-medical-check-up-results',
+            'label' => __('MCU result types'),
+        ],
+        [
             'icon' => 'fa-chart-pie',
             'what' => __('Candidate counts by state feed the dashboards and the recruitment reports.'),
             'url' => '/reports',
@@ -97,8 +112,8 @@ return [
     ],
 
     'cautions' => [
-        __('The promotion list only offers candidates whose is_candidate_pass flag is already 1. No screen in the application sets that flag except promotion itself, so unless it has been set in the database the list stays empty even when candidates are fully scored. If the screen looks empty while you can see scored candidates elsewhere, this is why - it is a known gap, not something you are doing wrong.'),
+        __('An empty promotion list usually means nobody has been put forward yet, not that something is broken. A candidate reaches recruitment only when their own institution declares them through selection.'),
         __('Promotion copies the profile as it stands. Anything corrected on the candidate afterwards does not follow the trainee across - correct it on the trainee instead.'),
-        __('The MCU column on the promotion screen reads candidates.mcu_score, which nothing currently writes. Medical results are recorded, but that particular figure stays blank.'),
+        __('The medical column is worked out from the check-ups, not typed: a result marked not fit shows as failed and stops both the proposal and the promotion. If it is blank, either no check-up has been recorded or nobody has yet said what that result type means.'),
     ],
 ];

@@ -7,7 +7,7 @@ return [
     'icon' => 'fa-stethoscope',
     'title' => __('Candidate Medical Check-Ups'),
     'subtitle' => __('The health record behind a selection decision.'),
-    'lead' => __('A medical check-up is recorded against the candidate with its result and its score. Unlike the physical test and the interview, it is kept as its own record rather than written onto the candidate: one candidate can have several, and the scoring board averages them.'),
+    'lead' => __('A medical check-up is recorded against the candidate with its result. The result type carries the meaning - an administrator says once whether each one counts as medically fit - and from that the candidate\'s standing is worked out the moment the check-up is saved. A candidate marked not fit cannot be put forward for promotion, and the screen that entered the result is the one that says so.'),
 
     'actors' => [
         ['role' => 'lpk-penyangga', 'can' => __('Records check-ups for its own candidates.')],
@@ -29,6 +29,14 @@ return [
             'data' => 'candidate_record_medical_check_ups.final_score',
         ],
         [
+            'title' => __('The standing is decided for you'),
+            'who' => __('The system'),
+            'do' => __('The moment the check-up is saved, the candidate\'s medical standing is recomputed from all of their check-ups. It is cautious: one result marked not fit makes the candidate not fit, whatever the others say. A result type nobody has marked counts for nothing either way.'),
+            'result' => __('The candidate carries pass or fail, and a failing one is held back from the promotion list.'),
+            'data' => 'candidates.mcu_result',
+            'note' => __('If the standing stays blank, nobody has said what that result type means. It is set once per type on the MCU result master screen.'),
+        ],
+        [
             'title' => __('See it counted'),
             'who' => __('Recruitment staff'),
             'do' => __('The scoring board counts how many check-ups each candidate has and averages their final scores.'),
@@ -37,13 +45,29 @@ return [
         ],
     ],
 
-    'diagram' => "graph LR\n"
-        . "    A[" . __('Check-up recorded') . "] --> B[" . __('Averaged on the scoring board') . "]\n"
-        . "    B --> C[" . __('Read when selecting') . "]\n"
+    'diagram' => "graph TD\n"
+        . "    A[" . __('Check-up recorded') . "] --> B{" . __('Result type marked fit?') . "}\n"
+        . "    B -->|" . __('not fit') . "| C[" . __('Candidate held back') . "]\n"
+        . "    B -->|" . __('fit') . "| D[" . __('Candidate may go forward') . "]\n"
+        . "    B -->|" . __('nobody said') . "| E[" . __('Counts for nothing either way') . "]\n"
+        . "    D --> F[" . __('Averaged on the scoring board') . "]\n"
         . "    style A fill:#e3f2fd\n"
-        . "    style C fill:#c8e6c9",
+        . "    style C fill:#ffebee\n"
+        . "    style D fill:#c8e6c9",
 
     'triggers' => [
+        [
+            'icon' => 'fa-sliders',
+            'what' => __('What each result type means - fit, not fit, or not said - is set once on the master screen, and every check-up recorded with that result inherits it.'),
+            'url' => '/master-medical-check-up-results',
+            'label' => __('MCU result types'),
+        ],
+        [
+            'icon' => 'fa-ban',
+            'what' => __('A candidate marked not fit cannot be put forward by their institution and cannot be promoted by recruitment. Both screens refuse it and say why.'),
+            'url' => '/candidates/promote-to-trainee',
+            'label' => __('Promote to Trainee'),
+        ],
         [
             'icon' => 'fa-table-list',
             'what' => __('The scoring board reads these records directly - the count and the average come from here.'),
@@ -53,7 +77,7 @@ return [
     ],
 
     'cautions' => [
-        __('The promotion screen has a medical column of its own, which reads a field on the candidate that nothing writes. Judge the medical side from the scoring board or from these records, not from that column.'),
+        __('Deleting a check-up recomputes the standing too, so removing the only failing one lets the candidate go forward again. That is intended, but it means a deletion is a decision, not just tidying up.'),
         __('Several check-ups for one candidate are averaged, not replaced. A poor early result keeps pulling the average down after a later good one.'),
     ],
 ];

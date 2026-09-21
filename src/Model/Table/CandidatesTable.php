@@ -373,6 +373,128 @@ class CandidatesTable extends Table
         return $rules;
     }
 
+
+    /**
+     * Work out where a candidate stands medically, and record it on them.
+     *
+     * The promotion screen used to read candidates.mcu_score, which nothing
+     * wrote, so its medical column was always blank. The information was there
+     * all along - every check-up names a result type - but nothing said which
+     * result types mean the candidate is fit. master_medical_check_up_results
+     * carries an is_fit flag for exactly that, set once per result type by an
+     * administrator.
+     *
+     * The rule is the cautious one: a single check-up marked not fit makes the
+     * candidate 'fail', whatever the others say. A result nobody has marked
+     * counts for nothing either way - an unset flag must never fail somebody by
+     * accident.
+     *
+     * Returns the standing it wrote: 'pass', 'fail', or null when there is
+     * nothing to say. Writes nothing and returns null when the columns are
+     * absent, which is the state of an installation that has not yet run
+     * bin/cake add_selection_flow_columns - silence is better than saving a
+     * property CakePHP would quietly drop.
+     *
+     * @param int $candidateId Candidate id.
+     * @return string|null
+     */
+    public function refreshMcuStanding($candidateId)
+    {
+        $candidateId = (int)$candidateId;
+        if (!$candidateId || !$this->getSchema()->hasColumn('mcu_result')) {
+            return null;
+        }
+
+        $standing = $this->mcuStandingFor($candidateId);
+
+        $candidate = $this->find()->where(['id' => $candidateId])->first();
+        if (!$candidate) {
+            return null;
+        }
+
+        $candidate->set('mcu_result', $standing);
+        if ($this->getSchema()->hasColumn('mcu_checked_at')) {
+            $candidate->set('mcu_checked_at', $standing === null ? null : new \Cake\I18n\FrozenTime());
+        }
+
+        // Without validation or rules: this writes two derived fields that no
+        // user typed, and a candidate carrying some unrelated legacy problem -
+        // a missing master id, a field that no longer validates - would
+        // otherwise make save() return false and the standing would be lost
+        // without a word. That is the failure this application keeps producing,
+        // so it is refused here.
+        if (!$this->save($candidate, ['checkRules' => false, 'validate' => false])) {
+            \Cake\Log\Log::error(sprintf(
+                'refreshMcuStanding could not save candidate %d: %s',
+                $candidateId,
+                json_encode($candidate->getErrors())
+            ));
+
+            return null;
+        }
+
+        return $standing;
+    }
+
+    /**
+     * The medical standing a candidate's check-ups add up to.
+     *
+     * Two queries rather than a join: the check-ups live on
+     * cms_lpk_candidates and the result types on cms_masters, and CakePHP
+     * cannot join across connections.
+     *
+     * @param int $candidateId Candidate id.
+     * @return string|null 'pass', 'fail', or null when nothing is known.
+     */
+    public function mcuStandingFor($candidateId)
+    {
+        $locator = \Cake\ORM\TableRegistry::getTableLocator();
+
+        try {
+            $resultIds = $locator->get('CandidateRecordMedicalCheckUps')->find()
+                ->select(['medical_check_up_result_id'])
+                ->where(['applicant_id' => (int)$candidateId])
+                ->enableHydration(false)
+                ->extract('medical_check_up_result_id')
+                ->toList();
+        } catch (\Throwable $e) {
+            return null;
+        }
+
+        $resultIds = array_filter(array_unique($resultIds));
+        if (!$resultIds) {
+            return null;
+        }
+
+        try {
+            $results = $locator->get('MasterMedicalCheckUpResults');
+            if (!$results->getSchema()->hasColumn('is_fit')) {
+                return null;
+            }
+            $flags = $results->find()
+                ->select(['id', 'is_fit'])
+                ->where(['id IN' => $resultIds])
+                ->enableHydration(false)
+                ->combine('id', 'is_fit')
+                ->toArray();
+        } catch (\Throwable $e) {
+            return null;
+        }
+
+        $known = false;
+        foreach ($flags as $isFit) {
+            if ($isFit === null || $isFit === '') {
+                continue;
+            }
+            if ((int)$isFit === 0) {
+                return 'fail';
+            }
+            $known = true;
+        }
+
+        return $known ? 'pass' : null;
+    }
+
     /**
      * Returns the database connection name to use by default.
      *

@@ -15305,3 +15305,161 @@ msgstr "その他のロール"
 
 msgid "situation changes"
 msgstr "状況が変わる"
+
+# ── Selection hand-over: LPK proposal and MCU fitness ──────────
+
+msgid "\"{0}\" could not be put forward. Please, try again."
+msgstr "「{0}」を推薦できませんでした。もう一度お試しください。"
+
+msgid "\"{0}\" could not be taken back. Please, try again."
+msgstr "「{0}」の取り下げができませんでした。もう一度お試しください。"
+
+msgid "\"{0}\" has been put forward. Recruitment will see them on the promotion list."
+msgstr "「{0}」を推薦しました。採用側の昇格一覧に表示されます。"
+
+msgid "\"{0}\" has been taken back off the promotion list."
+msgstr "「{0}」を昇格一覧から取り下げました。"
+
+msgid "\"{0}\" is marked not medically fit and cannot be promoted."
+msgstr "「{0}」は健康診断で不適と記録されているため、昇格できません。"
+
+msgid "\"{0}\" is marked not medically fit and cannot be put forward."
+msgstr "「{0}」は健康診断で不適と記録されているため、推薦できません。"
+
+msgid "A candidate marked not fit cannot be put forward by their institution and cannot be promoted by recruitment. Both screens refuse it and say why."
+msgstr "不適と記録された候補者は、所属機関が推薦することも、採用側が昇格させることもできません。どちらの画面も理由を示して拒否します。"
+
+msgid "A candidate whose medical check-up is marked not fit cannot be put forward, and the button says so rather than failing quietly."
+msgstr "健康診断が不適と記録された候補者は推薦できません。ボタンは黙って失敗するのではなく、その旨を伝えます。"
+
+msgid "A check-up recorded for this candidate is marked not fit, so they cannot be put forward until that changes."
+msgstr "この候補者の健診に不適と記録されたものがあるため、それが変わるまで推薦できません。"
+
+msgid "A medical check-up decides the candidate's fitness automatically, and a failing one holds them back here. What each result type means is set once on its master screen."
+msgstr "健康診断が候補者の適否を自動で決め、不適の場合はここで止まります。各結果の意味はマスタ画面で一度だけ設定します。"
+
+msgid "A medical check-up is recorded against the candidate with its result. The result type carries the meaning - an administrator says once whether each one counts as medically fit - and from that the candidate's standing is worked out the moment the check-up is saved. A candidate marked not fit cannot be put forward for promotion, and the screen that entered the result is the one that says so."
+msgstr "健康診断は結果とともに候補者に記録されます。意味を担うのは結果の種別で、それぞれが健康上適合とみなされるかを管理者が一度設定します。そこから、健診を保存した時点で候補者の状態が判定されます。不適と記録された候補者は昇格に推薦できず、その結果を入力した画面がそれを伝えます。"
+
+msgid "An empty promotion list usually means nobody has been put forward yet, not that something is broken. A candidate reaches recruitment only when their own institution declares them through selection."
+msgstr "昇格一覧が空なのは、たいてい誰もまだ推薦されていないからであって、故障ではありません。候補者が採用側に届くのは、所属機関が選考通過を宣言したときだけです。"
+
+msgid "Candidate held back"
+msgstr "候補者を保留"
+
+msgid "Candidate may go forward"
+msgstr "候補者は次へ進める"
+
+msgid "Counts for nothing either way"
+msgstr "どちらにも数えない"
+
+msgid "Declare passed selection"
+msgstr "選考通過を宣言"
+
+msgid "Declare the candidate through selection"
+msgstr "候補者の選考通過を宣言する"
+
+msgid "Declared through selection on {0}. Recruitment can see this candidate on its promotion list."
+msgstr "{0} に選考通過が宣言されました。採用側の昇格一覧にこの候補者が表示されます。"
+
+msgid "Deleting a check-up recomputes the standing too, so removing the only failing one lets the candidate go forward again. That is intended, but it means a deletion is a decision, not just tidying up."
+msgstr "健診を削除しても状態は再計算されるため、唯一の不適記録を消せば候補者は再び進めるようになります。これは意図した動作ですが、削除は整理ではなく判断であることを意味します。"
+
+msgid "Does this result mean the candidate is medically fit?"
+msgstr "この結果は「健康上適合」を意味しますか？"
+
+msgid "Every check-up recorded with this result inherits this meaning. A single not-fit check-up holds a candidate back; a result left unsaid holds nobody back."
+msgstr "この結果で記録されたすべての健診が、この意味を引き継ぎます。不適が一件でもあれば候補者は止まり、未設定のままの結果は誰も止めません。"
+
+msgid "Fit - the candidate may go forward"
+msgstr "適合 — 候補者は次へ進める"
+
+msgid "If the standing stays blank, nobody has said what that result type means. It is set once per type on the MCU result master screen."
+msgstr "状態が空のままなら、その結果種別の意味を誰も設定していません。設定は健診結果のマスタ画面で種別ごとに一度行います。"
+
+msgid "LPK declares passed selection"
+msgstr "LPKが選考通過を宣言"
+
+msgid "MCU result types"
+msgstr "健診結果の種別"
+
+msgid "Not fit - the candidate is held back"
+msgstr "不適 — 候補者は保留"
+
+msgid "Not medically fit"
+msgstr "健康上不適"
+
+msgid "Not put forward"
+msgstr "未推薦"
+
+msgid "Not said - counts for nothing either way"
+msgstr "未設定 — どちらにも数えない"
+
+msgid "Only the proposing institution can declare a candidate through selection."
+msgstr "選考通過を宣言できるのは、推薦する機関だけです。"
+
+msgid "Only the proposing institution can take a candidate back."
+msgstr "候補者を取り下げられるのは、推薦した機関だけです。"
+
+msgid "Put forward"
+msgstr "推薦済み"
+
+msgid "Put {0} forward to recruitment?"
+msgstr "{0} を採用側に推薦しますか？"
+
+msgid "Recruitment does not see this candidate yet. Declare them through selection when the tests, the interview and the documents are done."
+msgstr "採用側にはまだこの候補者が見えていません。測定・面接・書類が揃ったら、選考通過を宣言してください。"
+
+msgid "Result type marked fit?"
+msgstr "結果種別は適合か？"
+
+msgid "Take back"
+msgstr "取り下げる"
+
+msgid "Take {0} back off the promotion list?"
+msgstr "{0} を昇格一覧から取り下げますか？"
+
+msgid "That candidate belongs to another institution."
+msgstr "その候補者は別の機関に属しています。"
+
+msgid "The candidate appears on recruitment's promotion list. Until somebody puts them forward, recruitment does not see them at all."
+msgstr "候補者が採用側の昇格一覧に現れます。誰かが推薦するまで、採用側にはまったく見えません。"
+
+msgid "The candidate carries pass or fail, and a failing one is held back from the promotion list."
+msgstr "候補者は合否の状態を持ち、不適の場合は昇格一覧から外れます。"
+
+msgid "The medical column is worked out from the check-ups, not typed: a result marked not fit shows as failed and stops both the proposal and the promotion. If it is blank, either no check-up has been recorded or nobody has yet said what that result type means."
+msgstr "健診の列は入力ではなく記録から算出されます。不適と記録された結果は不合格として表示され、推薦も昇格も止めます。空欄の場合は、健診が未記録か、その結果種別の意味が未設定かのどちらかです。"
+
+msgid "The moment the check-up is saved, the candidate's medical standing is recomputed from all of their check-ups. It is cautious: one result marked not fit makes the candidate not fit, whatever the others say. A result type nobody has marked counts for nothing either way."
+msgstr "健診を保存した時点で、その候補者のすべての健診から健康状態が再計算されます。判定は慎重で、不適と記録された結果が一つでもあれば、他がどうであれ不適となります。未設定の結果種別は、どちらにも数えられません。"
+
+msgid "The promotion screen lists the candidates institutions have put forward, with their scores and document completeness side by side. Promoting one creates a trainee record and copies the whole profile across - education, experience, certifications, courses and family. Whether a candidate is promoted is recruitment's decision alone; the institution only proposes."
+msgstr "昇格画面には、機関が推薦した候補者が、点数と書類の充足率とともに並びます。昇格させると研修生レコードが作成され、学歴・職歴・資格・講習・家族を含むプロフィール全体が複写されます。昇格させるかどうかは採用側だけの判断であり、機関は推薦するにとどまります。"
+
+msgid "The proposing institution"
+msgstr "推薦する機関"
+
+msgid "The standing is decided for you"
+msgstr "状態は自動で判定される"
+
+msgid "This candidate is now marked not medically fit, and cannot be put forward for promotion until that changes."
+msgstr "この候補者は健康上不適と記録されました。それが変わるまで昇格に推薦できません。"
+
+msgid "This installation cannot record a proposal yet. An administrator needs to run the selection-flow update first."
+msgstr "この環境ではまだ推薦を記録できません。管理者が先に選考フローの更新を実行する必要があります。"
+
+msgid "What each result type means - fit, not fit, or not said - is set once on the master screen, and every check-up recorded with that result inherits it."
+msgstr "各結果種別の意味 — 適合、不適、未設定 — はマスタ画面で一度設定し、その結果で記録されたすべての健診がそれを引き継ぎます。"
+
+msgid "When the tests, the interview and the documents are done, put the candidate forward from their own page. Nothing is copied and nothing is decided - you are saying the candidate has passed your selection."
+msgstr "測定・面接・書類が揃ったら、候補者本人のページから推薦します。何かが複写されるわけでも決定されるわけでもありません。自機関の選考を通過したと述べるだけです。"
+
+msgid "fit"
+msgstr "適合"
+
+msgid "nobody said"
+msgstr "未設定"
+
+msgid "not fit"
+msgstr "不適"
