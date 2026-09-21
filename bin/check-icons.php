@@ -71,9 +71,9 @@ $known = array_flip($m[1]);
 printf("%d icon name(s) defined by the bundled stylesheet\n", count($known));
 
 /**
- * Every file the application renders or runs. A .bak or .ctp.bak.20260611 is
- * not one of them, so it is not searched: an icon nobody can see is not a
- * fault worth reporting.
+ * Every file the application renders or runs. Anything else - a .bak, a
+ * .ctp.bak.<date>, a backup of the bake templates - is not searched: an icon
+ * nobody can see is not a fault worth reporting.
  */
 $exts = ['php', 'ctp', 'js', 'html'];
 $dirs = [$root . '/src', $root . '/config', $root . '/webroot/js'];
