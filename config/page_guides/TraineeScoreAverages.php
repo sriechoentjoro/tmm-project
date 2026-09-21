@@ -39,7 +39,7 @@ return [
 
     'triggers' => [
         [
-            'icon' => 'fa-pen-to-square',
+            'icon' => 'fa-edit',
             'what' => __('The individual test scores are the source the computed averages come from. If a certificate looks wrong, that is where to look, not here.'),
             'url' => '/trainee-training-test-scores',
             'label' => __('Training Test Scores'),

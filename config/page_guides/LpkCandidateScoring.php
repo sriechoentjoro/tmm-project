@@ -4,7 +4,7 @@
  */
 
 return [
-    'icon' => 'fa-table-list',
+    'icon' => 'fa-th-list',
     'title' => __('Candidate Scoring Board'),
     'subtitle' => __('The three selection results, side by side, for a whole institution.'),
     'lead' => __('This screen is a scoreboard, not a form. It gathers the physical test score, the interviews and the medical check-ups for every candidate of an institution and puts them in one table, so selection is a reading exercise rather than a hunt across three screens. Nothing here can be changed; each figure belongs to the screen that produced it.'),

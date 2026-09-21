@@ -87,7 +87,7 @@ return [
             'label' => __('Users'),
         ],
         [
-            'icon' => 'fa-share-nodes',
+            'icon' => 'fa-share-alt',
             'what' => __('Only an active institution can be shared an apprentice order. An institution still pending verification will not be offered in the sharing list.'),
             'url' => '/apprentice-orders',
             'label' => __('Apprentice Orders'),

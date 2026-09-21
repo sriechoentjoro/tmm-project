@@ -62,7 +62,7 @@ return [
             'label' => __('Candidates'),
         ],
         [
-            'icon' => 'fa-arrow-up-right-dots',
+            'icon' => 'fa-chart-line',
             'what' => __('Promotion shows this score beside the physical one, and records a remark if it is missing.'),
             'url' => '/candidates/promote-to-trainee',
             'label' => __('Promote to Trainee'),

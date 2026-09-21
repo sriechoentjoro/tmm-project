@@ -46,7 +46,7 @@ return [
 
     'triggers' => [
         [
-            'icon' => 'fa-arrow-up-right-dots',
+            'icon' => 'fa-chart-line',
             'what' => __('The promotion screen shows document completeness beside the scores, so what is uploaded here changes what recruitment sees there.'),
             'url' => '/candidates/promote-to-trainee',
             'label' => __('Promote to Trainee'),

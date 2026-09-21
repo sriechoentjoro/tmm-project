@@ -4,7 +4,7 @@
  */
 
 return [
-    'icon' => 'fa-chalkboard-user',
+    'icon' => 'fa-chalkboard-teacher',
     'title' => __('Trainings'),
     'subtitle' => __('Extra sessions a trainee can be enrolled into, beside the batch they belong to.'),
     'lead' => __('A batch is the cohort a trainee trains with; a training is a single session with its own title, dates, place, instructor and a limit on how many can attend. It is what you use when somebody needs more of something - a language push before departure, a skill the tests showed was weak - without moving them out of their batch.'),

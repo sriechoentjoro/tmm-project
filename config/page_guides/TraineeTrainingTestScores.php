@@ -4,7 +4,7 @@
  */
 
 return [
-    'icon' => 'fa-pen-to-square',
+    'icon' => 'fa-edit',
     'title' => __('Training Test Scores'),
     'subtitle' => __('One trainee, one competency, one score, on one date.'),
     'lead' => __('Every test a trainee sits is recorded as its own row: which competency, what score, what grade, and when. Nothing here is a total - the averages that appear on certificates and on the promotion checklist are computed from these rows each time they are read, so a correction here corrects everything downstream at once.'),

@@ -158,6 +158,20 @@ class AppController extends Controller
         if ($controller === 'Users' && in_array($action, ['profile', 'settings', 'changeLanguage', 'help', 'logout'])) {
             return true; // All authenticated users can access their own profile and logout
         }
+
+        // The "?" button on every module opens that module's processFlow page.
+        // It is help text: none of the 98 processFlow actions reads a record,
+        // a table or a query - they render a guide and switch the language.
+        //
+        // Without this, the button is governed by getMenuRolePermissions(),
+        // which expands granted_actions = '*' to exactly [menu action, index,
+        // view]. processFlow is in that list only for a menu that happens to
+        // point at it, so on most modules the help button answered "your role
+        // does not have access" - and it did so after opening a new tab, which
+        // looked like the page was broken rather than forbidden.
+        if ($action === 'processFlow') {
+            return true;
+        }
         
         // Single gate: DB-driven permission check via role_menus → menus.granted_actions
         if ($this->hasPermission($controller, $action)) {

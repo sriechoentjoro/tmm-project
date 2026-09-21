@@ -50,7 +50,7 @@ return [
 
     'triggers' => [
         [
-            'icon' => 'fa-pen-to-square',
+            'icon' => 'fa-edit',
             'what' => __('Every figure on the certificate is computed from the test scores when the page is opened. Correcting a score corrects the certificate; deleting one changes a certificate that may already be printed.'),
             'url' => '/trainee-training-test-scores',
             'label' => __('Training Test Scores'),

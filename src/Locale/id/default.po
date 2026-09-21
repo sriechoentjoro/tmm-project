@@ -15957,3 +15957,794 @@ msgstr "kalau pindah"
 
 msgid "separate from"
 msgstr "terpisah dari"
+
+# ── Page guides: apprentice phase ─────────────────────
+
+msgid "A certificate of eligibility expires. No expiry is stored here, so a certificate going stale while the visa is delayed is something you have to watch yourself."
+msgstr "Certificate of eligibility punya masa berlaku. Tidak ada tanggal kedaluwarsa yang disimpan di sini, jadi sertifikat yang basi selagi visanya tertunda adalah hal yang harus Anda awasi sendiri."
+
+msgid "A classification spelled differently is a different classification. \"Workplace\" and \"Work place\" are counted as two."
+msgstr "Klasifikasi yang dieja berbeda adalah klasifikasi yang berbeda. \"Tempat kerja\" dan \"Tempat Kerja\" dihitung sebagai dua."
+
+msgid "A connection that is too tight is caught before the day itself."
+msgstr "Sambungan yang terlalu mepet tertangkap sebelum harinya tiba."
+
+msgid "A document that comes back for correction, or that is finally accepted, gets its status changed rather than a second row."
+msgstr "Dokumen yang dikembalikan untuk diperbaiki, atau yang akhirnya diterima, diubah statusnya, bukan ditambah baris kedua."
+
+msgid "A flight is attached to a ticket, not to an apprentice. To know whose flight it is you follow the ticket, and a ticket with no apprentice on it makes the leg an orphan."
+msgstr "Penerbangan melekat pada tiket, bukan pada apprentice. Untuk tahu penerbangan siapa, Anda menelusuri tiketnya, dan tiket tanpa apprentice membuat ruasnya menjadi yatim."
+
+msgid "A kind of problem that keeps recurring stops looking like bad luck."
+msgstr "Jenis masalah yang terus berulang berhenti tampak seperti nasib buruk."
+
+msgid "A passport still out at the office is visibly different from one in the drawer."
+msgstr "Paspor yang masih di kantor imigrasi terlihat berbeda dari yang sudah ada di laci."
+
+msgid "A picture of what happened, if there is one. The file is uploaded and kept with the story."
+msgstr "Gambar dari apa yang terjadi, bila ada. Berkasnya diunggah dan disimpan bersama ceritanya."
+
+msgid "A required document with no row at all is invisible here: the list shows what was handed in, not what is missing. Missing means \"no row\", and only the required-document master list says what should have been there."
+msgstr "Dokumen wajib yang sama sekali tidak punya baris tidak terlihat di sini: daftarnya menampilkan apa yang diserahkan, bukan apa yang kurang. Kurang berarti \"tidak ada baris\", dan hanya daftar induk dokumen wajib yang menyatakan apa yang seharusnya ada."
+
+msgid "A result marked \"not fit\" here changes nothing automatically. No flag is set on the apprentice and no screen turns red - acting on it is a decision somebody has to make and record elsewhere."
+msgstr "Hasil yang ditandai \"tidak lolos\" di sini tidak mengubah apa pun secara otomatis. Tidak ada penanda yang ditetapkan pada apprentice-nya dan tidak ada layar yang berubah merah - menindaklanjutinya adalah keputusan yang harus diambil dan dicatat seseorang di tempat lain."
+
+msgid "A stored count of how many documents are ready, pending and missing."
+msgstr "Hitungan tersimpan atas berapa dokumen yang siap, tertunda, dan belum ada."
+
+msgid "A story a future intake can be briefed from."
+msgstr "Cerita yang bisa dipakai membekali angkatan berikutnya."
+
+msgid "A summary that is honest about when it was true."
+msgstr "Ringkasan yang jujur soal kapan ia benar."
+
+msgid "A ticket bought before this date is a bet, not a booking."
+msgstr "Tiket yang dibeli sebelum tanggal ini adalah taruhan, bukan pemesanan."
+
+msgid "A ticket is one purchase; a journey is often two or three flights. This register keeps a row per leg - airline, flight number, the airport it leaves from and the one it arrives at, with the departure and arrival times - all hanging off the ticket rather than off the apprentice directly. That is what makes a transit visible: two rows on one ticket, with a gap between the arrival of the first and the departure of the second."
+msgstr "Tiket adalah satu pembelian; perjalanannya kerap dua atau tiga penerbangan. Daftar ini menyimpan satu baris per ruas - maskapai, nomor penerbangan, bandara keberangkatan dan kedatangan, beserta waktunya - semuanya menggantung pada tiketnya, bukan langsung pada apprentice-nya. Itulah yang membuat transit terlihat: dua baris pada satu tiket, dengan jeda antara kedatangan yang pertama dan keberangkatan yang kedua."
+
+msgid "Action taken and recorded"
+msgstr "Tindakan diambil dan dicatat"
+
+msgid "Add COE and Visa"
+msgstr "Tambah COE dan Visa"
+
+msgid "Add Dashboard Row"
+msgstr "Tambah Baris Dashboard"
+
+msgid "Add Family Story"
+msgstr "Tambah Cerita Keluarga"
+
+msgid "Add Passport"
+msgstr "Tambah Paspor"
+
+msgid "Adds, edits and filters document rows."
+msgstr "Menambah, menyunting, dan menyaring baris dokumen."
+
+msgid "Airlines and airports come from master lists, so a flight names the same airport every time. Those two lists have no page of their own - an airline or an airport that is not already in the table cannot be added from anywhere in the application."
+msgstr "Maskapai dan bandara berasal dari daftar induk, sehingga tiap penerbangan menyebut bandara yang sama. Kedua daftar itu tidak punya halaman sendiri - maskapai atau bandara yang belum ada di tabelnya tidak bisa ditambahkan dari mana pun di aplikasi ini."
+
+msgid "Alumni"
+msgstr "Alumni"
+
+msgid "An answer that can be quoted, with its source."
+msgstr "Jawaban yang bisa dikutip, lengkap dengan sumbernya."
+
+msgid "An apprentice is a trainee who was promoted, which makes this the third record of the same person: candidate, then trainee, then apprentice. Promotion copies the whole profile across and starts a fresh document trail, because what an apprentice needs on file is different - a passport, a certificate of eligibility and a visa, a medical check-up, a ticket and a flight. Once they are in Japan the record keeps going: what happened to them, what happened to their family at home, and finally what they did after coming back."
+msgstr "Apprentice adalah trainee yang telah dipromosikan, sehingga ini menjadi catatan ketiga atas orang yang sama: kandidat, lalu trainee, lalu apprentice. Promosi menyalin seluruh profilnya dan memulai jejak dokumen yang baru, karena yang perlu tercatat bagi seorang apprentice memang berbeda - paspor, certificate of eligibility dan visa, pemeriksaan kesehatan, tiket dan penerbangan. Setelah ia di Jepang, catatannya terus berjalan: apa yang terjadi padanya, apa yang terjadi pada keluarganya di rumah, dan akhirnya apa yang dilakukannya setelah pulang."
+
+msgid "An apprentice is examined again before departure: the check taken as a candidate is months old by then, and the receiving side asks for a current one. Each record names the clinic, the date, the result chosen from the shared master list, a comment, and the scanned file. Several records per apprentice are normal here, because a re-check after treatment is a second examination, not a correction of the first."
+msgstr "Apprentice diperiksa lagi sebelum berangkat: pemeriksaan yang dijalaninya sebagai kandidat sudah berbulan-bulan umurnya, dan pihak penerima meminta yang terkini. Tiap catatan menyebut kliniknya, tanggalnya, hasil yang dipilih dari daftar induk bersama, komentar, dan berkas pindaiannya. Beberapa catatan untuk satu apprentice adalah hal biasa di sini, karena pemeriksaan ulang setelah pengobatan adalah pemeriksaan kedua, bukan koreksi atas yang pertama."
+
+msgid "An apprenticeship is three years abroad, and what happens to the family in that time reaches the apprentice whether or not anybody records it - an illness, a death, a debt, a wedding. This register keeps those events in the same shape as the apprentice's own stories: the date, a classification, what happened, what was done and what it taught. It is kept separately because the cause is at home while the effect is in Japan, and the two are easier to read apart than mixed together."
+msgstr "Masa apprentice adalah tiga tahun di luar negeri, dan apa yang terjadi pada keluarga selama itu tetap sampai kepada apprentice-nya entah dicatat atau tidak - sakit, kematian, utang, pernikahan. Daftar ini menyimpan kejadian-kejadian itu dalam bentuk yang sama dengan cerita apprentice sendiri: tanggalnya, klasifikasinya, apa yang terjadi, apa yang dilakukan, dan apa pelajarannya. Ia dipisah karena sebabnya ada di rumah sementara akibatnya ada di Jepang, dan keduanya lebih mudah dibaca terpisah daripada tercampur."
+
+msgid "Anything worth highlighting during the apprenticeship is written down as a story - what happened to the apprentice, and what happened to the family at home."
+msgstr "Apa pun yang layak disorot selama masa apprentice ditulis sebagai cerita - apa yang terjadi pada apprentice-nya, dan apa yang terjadi pada keluarganya di rumah."
+
+msgid "Apprentice Document Register"
+msgstr "Daftar Dokumen Apprentice"
+
+msgid "Apprentice List"
+msgstr "Daftar Apprentice"
+
+msgid "Apprentice Medical Check-Ups"
+msgstr "MCU Apprentice"
+
+msgid "Apprentice Passports"
+msgstr "Paspor Apprentice"
+
+msgid "Apprentice staff"
+msgstr "Staf apprentice"
+
+msgid "Apprentice staff, training staff"
+msgstr "Staf apprentice, staf training"
+
+msgid "Apprentices are not created here. They arrive by being promoted from a trainee, which copies education, experience, certifications, courses and family across."
+msgstr "Apprentice tidak dibuat di sini. Ia datang lewat promosi dari seorang trainee, yang menyalin pendidikan, pengalaman, sertifikasi, kursus, dan keluarganya."
+
+msgid "Apprenticeship ends"
+msgstr "Masa apprentice berakhir"
+
+msgid "Attach the file against the apprentice and the document it satisfies, and set the status."
+msgstr "Lampirkan berkasnya pada apprentice dan pada dokumen yang dipenuhinya, lalu tetapkan statusnya."
+
+msgid "Because both pages write one table, a row deleted here is gone from the submission page as well. There is no second copy to fall back on."
+msgstr "Karena kedua halaman menulis satu tabel, baris yang dihapus di sini hilang pula dari halaman penyerahan. Tidak ada salinan kedua untuk berpegang."
+
+msgid "Because they are typed, the totals can contradict the register. Where they do, the register is right."
+msgstr "Karena diketik, totalnya bisa bertentangan dengan daftar dokumen. Bila bertentangan, daftar dokumen yang benar."
+
+msgid "Both permissions are attached to the passport recorded separately."
+msgstr "Kedua izin itu melekat pada paspor yang dicatat terpisah."
+
+msgid "COE Types"
+msgstr "Jenis COE"
+
+msgid "COE and Visa"
+msgstr "COE dan Visa"
+
+msgid "COE applied for"
+msgstr "COE diajukan"
+
+msgid "COE received from Japan"
+msgstr "COE diterima dari Jepang"
+
+msgid "Check the transit"
+msgstr "Periksa transitnya"
+
+msgid "Choose a file to replace the picture on file ({0}). Leave it empty to keep it."
+msgstr "Pilih berkas untuk mengganti gambar yang tersimpan ({0}). Kosongkan untuk mempertahankannya."
+
+msgid "Choose the apprentice and enter the day they came home from Japan."
+msgstr "Pilih apprentice-nya dan isi hari ia pulang dari Jepang."
+
+msgid "Choose the apprentice and enter the issue date and the place it was issued, exactly as printed on the passport."
+msgstr "Pilih apprentice-nya dan isi tanggal serta tempat penerbitannya, persis seperti tercetak di paspornya."
+
+msgid "Choose the apprentice and the date it happened, give the story a title that says what it is about, and classify the problem."
+msgstr "Pilih apprentice-nya dan tanggal kejadiannya, beri judul yang menyatakan cerita itu tentang apa, lalu klasifikasikan masalahnya."
+
+msgid "Choose the apprentice, give the date and a title, and classify what kind of event it was."
+msgstr "Pilih apprentice-nya, isi tanggal dan judulnya, lalu klasifikasikan jenis kejadiannya."
+
+msgid "Choose the result"
+msgstr "Pilih hasilnya"
+
+msgid "Choose the status from the list, and add the employer and position where there is one. Say in the notes how the news reached us."
+msgstr "Pilih statusnya dari daftar, dan tambahkan tempat kerja serta jabatannya bila ada. Sebutkan di catatan bagaimana kabarnya sampai kepada kita."
+
+msgid "Choose the status rather than typing one: the summary on the list counts by the exact value."
+msgstr "Pilih statusnya, jangan diketik: ringkasan di daftar menghitung berdasarkan nilai yang persis."
+
+msgid "Choose the ticket, then enter the airline, the flight number, the two airports and the two times, one row per leg."
+msgstr "Pilih tiketnya, lalu isi maskapai, nomor penerbangan, kedua bandara, dan kedua waktunya, satu baris per ruas."
+
+msgid "Classified"
+msgstr "Diklasifikasikan"
+
+msgid "Close with an alumni record"
+msgstr "Tutup dengan catatan alumni"
+
+msgid "Correcting the trainee record afterwards does not change the apprentice. Correct it here."
+msgstr "Mengoreksi data trainee setelahnya tidak mengubah apprentice-nya. Koreksi di sini."
+
+msgid "Count the documents"
+msgstr "Hitung dokumennya"
+
+msgid "Counted by classification"
+msgstr "Dihitung per klasifikasi"
+
+msgid "Counted by the register"
+msgstr "Dihitung oleh daftar dokumen"
+
+msgid "Counted in the alumni summary"
+msgstr "Terhitung dalam ringkasan alumni"
+
+msgid "Counted in the summary"
+msgstr "Terhitung dalam ringkasan"
+
+msgid "Deleting an apprentice leaves their stories, documents and alumni record pointing at a row that is gone. Nothing stops the deletion."
+msgstr "Menghapus seorang apprentice membuat cerita, dokumen, dan catatan alumninya menunjuk ke baris yang sudah tiada. Tidak ada yang menghentikan penghapusan itu."
+
+msgid "Departure is a paperwork queue. Each required document is a master entry, and each apprentice needs a row against it: the file itself, a status, who uploaded it and when, and a note if the status alone does not explain matters. The point of the register is not storage - it is being able to answer, for one apprentice or for the whole group, what is still outstanding and who has it."
+msgstr "Keberangkatan adalah antrean berkas. Tiap dokumen wajib adalah satu entri induk, dan tiap apprentice perlu satu baris atasnya: berkasnya sendiri, statusnya, siapa yang mengunggah dan kapan, serta catatan bila statusnya saja tidak cukup menjelaskan. Inti daftar ini bukan penyimpanan - melainkan kemampuan menjawab, untuk satu apprentice atau untuk seluruh kelompok, apa yang masih kurang dan ada di tangan siapa."
+
+msgid "Describe the problem, the action taken, and the lesson. A photograph can be attached if there is one."
+msgstr "Uraikan masalahnya, tindakan yang diambil, dan pelajarannya. Foto bisa dilampirkan bila ada."
+
+msgid "Describe what happened, the action taken, and what it taught. A supporting photograph or scan can be attached."
+msgstr "Uraikan apa yang terjadi, tindakan yang diambil, dan pelajarannya. Foto atau pindaian pendukung bisa dilampirkan."
+
+msgid "Document Register"
+msgstr "Daftar Dokumen"
+
+msgid "Document Register page"
+msgstr "Halaman Daftar Dokumen"
+
+msgid "Documents uploaded and statuses set"
+msgstr "Dokumen diunggah dan status ditetapkan"
+
+msgid "Each result in the master list is marked fit or not fit. On the candidate side that marking decides pass or fail automatically; here it is shown but nothing is derived from it."
+msgstr "Tiap hasil di daftar induk ditandai lolos atau tidak lolos. Di sisi kandidat penandaan itu menentukan lulus atau gagal secara otomatis; di sini ia ditampilkan tetapi tidak ada yang diturunkan darinya."
+
+msgid "Enter the apprentice, the clinic, the date and a title that says which examination this was."
+msgstr "Isi apprentice-nya, kliniknya, tanggalnya, dan judul yang menyatakan pemeriksaan yang mana ini."
+
+msgid "Enter the four totals against the person and set the last-updated date, so a reader knows how old the figures are."
+msgstr "Masukkan empat totalnya untuk orang tersebut dan isi tanggal pemutakhiran terakhir, supaya pembacanya tahu seberapa lama angka itu."
+
+msgid "Event at home"
+msgstr "Kejadian di rumah"
+
+msgid "Every row names an apprentice. Deleting the apprentice does not delete their documents."
+msgstr "Tiap baris menyebut seorang apprentice. Menghapus apprentice-nya tidak menghapus dokumennya."
+
+msgid "Every story names an apprentice. Deleting the apprentice does not delete their stories, and the story is then attached to nobody."
+msgstr "Tiap cerita menyebut seorang apprentice. Menghapus apprentice-nya tidak menghapus ceritanya, dan cerita itu lalu tidak melekat pada siapa pun."
+
+msgid "Everything needed to leave is on file in one trail."
+msgstr "Semua yang dibutuhkan untuk berangkat tercatat dalam satu jejak."
+
+msgid "Everything, including the flags the reports count."
+msgstr "Semuanya, termasuk penanda yang dihitung laporan."
+
+msgid "Everything, including the master list of required documents."
+msgstr "Semuanya, termasuk daftar induk dokumen wajib."
+
+msgid "Everything, including the master list of results."
+msgstr "Semuanya, termasuk daftar induk hasilnya."
+
+msgid "Examination at the clinic"
+msgstr "Pemeriksaan di klinik"
+
+msgid "Family Stories"
+msgstr "Cerita Keluarga"
+
+msgid "Family story recorded"
+msgstr "Cerita keluarga tercatat"
+
+msgid "File uploaded"
+msgstr "Berkas diunggah"
+
+msgid "Fill the application date on the day the papers go to the consulate."
+msgstr "Isi tanggal pengajuan pada hari berkasnya masuk ke konsulat."
+
+msgid "Fill the received date on the day the physical passport arrives, and the paid date when the fee is settled."
+msgstr "Isi tanggal diterima pada hari paspor fisiknya tiba, dan tanggal dibayar ketika biayanya lunas."
+
+msgid "Filter by apprentice when you are preparing one person, or by document when you are collecting one paper from everybody."
+msgstr "Saring per apprentice bila Anda sedang menyiapkan satu orang, atau per dokumen bila Anda sedang mengumpulkan satu berkas dari semua orang."
+
+msgid "Flights hang off a ticket, and apprentice tickets are kept in their own database, separate from the trainee ticketing used earlier in the pipeline. The two are not the same list."
+msgstr "Penerbangan menggantung pada tiket, dan tiket apprentice disimpan di basis datanya sendiri, terpisah dari tiket trainee yang dipakai lebih awal dalam alur. Keduanya bukan daftar yang sama."
+
+msgid "Gather the departure papers"
+msgstr "Kumpulkan berkas keberangkatan"
+
+msgid "Going to Japan takes two separate permissions in a fixed order. The acceptance organization applies in Japan for a certificate of eligibility, which is the Japanese side saying the person may come; only then can a visa be applied for at the consulate here, which is the permission to travel. This register keeps the dates of both against the apprentice, plus the type of certificate and where the visa was issued, so the gap between \"the certificate arrived\" and \"the visa arrived\" is visible while it matters."
+msgstr "Berangkat ke Jepang memerlukan dua izin terpisah dengan urutan yang tetap. Organisasi penerima mengajukan certificate of eligibility di Jepang, yaitu pihak Jepang menyatakan orangnya boleh datang; barulah setelah itu visa bisa diajukan di konsulat di sini, yaitu izin untuk berangkat. Daftar ini menyimpan tanggal keduanya atas apprentice-nya, ditambah jenis sertifikatnya dan tempat visanya diterbitkan, sehingga jarak antara \"sertifikatnya datang\" dan \"visanya datang\" terlihat selagi masih penting."
+
+msgid "If you cannot keep the date current, the numbers are worse than no numbers."
+msgstr "Kalau tanggalnya tidak bisa dijaga tetap mutakhir, angka-angka itu lebih buruk daripada tidak ada angka."
+
+msgid "In Japan: stories recorded"
+msgstr "Di Jepang: cerita dicatat"
+
+msgid "Keep it current"
+msgstr "Jaga tetap mutakhir"
+
+msgid "Keep the history while they are there"
+msgstr "Simpan riwayatnya selama mereka di sana"
+
+msgid "Leg 1 recorded"
+msgstr "Ruas 1 tercatat"
+
+msgid "Leg 2 recorded, if any"
+msgstr "Ruas 2 tercatat, bila ada"
+
+msgid "Lesson read by the next intake"
+msgstr "Pelajarannya dibaca angkatan berikutnya"
+
+msgid "MCU Results"
+msgstr "Hasil MCU"
+
+msgid "Maintains the rows by hand."
+msgstr "Memelihara barisnya secara manual."
+
+msgid "Mark when it reached us"
+msgstr "Tandai kapan sampai kepada kita"
+
+msgid "Move the status as it changes"
+msgstr "Geser statusnya seiring perubahannya"
+
+msgid "Narrow to what you are working on"
+msgstr "Persempit ke yang sedang Anda kerjakan"
+
+msgid "Nothing compares the times for you. Two legs that overlap, or a connection of fifteen minutes, will be saved without a word."
+msgstr "Tidak ada yang membandingkan waktunya untuk Anda. Dua ruas yang bertumpang tindih, atau sambungan lima belas menit, akan tersimpan tanpa sepatah kata pun."
+
+msgid "Nothing else in the application reads these figures. No report, no other dashboard, no export. They are here for a person to look at, and nowhere else."
+msgstr "Tidak ada bagian lain aplikasi yang membaca angka ini. Tidak ada laporan, tidak ada dashboard lain, tidak ada ekspor. Angka ini ada untuk dilihat orang, dan tidak di tempat lain."
+
+msgid "Nothing else in the departure chain can start without a passport: the certificate of eligibility is applied for against a passport, and the visa is stamped into it. This register keeps four dates for each apprentice - issued, issued where, received by us, and paid - so the question \"are we waiting on the passport, or on the payment?\" has an answer on the screen rather than in somebody's memory."
+msgstr "Tidak ada mata rantai keberangkatan lain yang bisa dimulai tanpa paspor: certificate of eligibility diajukan atas sebuah paspor, dan visanya dicap ke dalamnya. Daftar ini menyimpan empat tanggal untuk tiap apprentice - terbit, terbit di mana, diterima oleh kita, dan dibayar - sehingga pertanyaan \"kita sedang menunggu paspornya, atau pembayarannya?\" punya jawaban di layar, bukan di ingatan seseorang."
+
+msgid "Nothing here checks the passport against its expiry, and no expiry date is stored. A passport that runs out before the apprenticeship ends will not be flagged by this page."
+msgstr "Tidak ada di sini yang memeriksa paspor terhadap masa berlakunya, dan tanggal kedaluwarsa tidak disimpan. Paspor yang habis sebelum masa apprentice berakhir tidak akan ditandai oleh halaman ini."
+
+msgid "Nothing is derived from a story. Recording a serious problem does not raise a flag anywhere else, so anything that needs action needs somebody told as well."
+msgstr "Tidak ada yang diturunkan dari sebuah cerita. Mencatat masalah serius tidak memunculkan penanda di tempat lain, jadi apa pun yang perlu tindakan juga perlu memberi tahu seseorang."
+
+msgid "Nothing links a family story to the family list. A relative removed from the profile leaves the story standing on its own."
+msgstr "Tidak ada yang menautkan cerita keluarga ke daftar keluarganya. Anggota keluarga yang dihapus dari profil meninggalkan ceritanya berdiri sendiri."
+
+msgid "Nothing prevents two rows for the same apprentice and the same document. Where that happens the summary counts both."
+msgstr "Tidak ada yang mencegah dua baris untuk apprentice dan dokumen yang sama. Bila itu terjadi, ringkasannya menghitung keduanya."
+
+msgid "Nothing stops two alumni rows for one apprentice, and the summary counts both."
+msgstr "Tidak ada yang mencegah dua baris alumni untuk satu apprentice, dan ringkasannya menghitung keduanya."
+
+msgid "Once an apprentice has left, the record stops being paperwork and starts being history. A story is one thing that happened and was worth keeping: the day it happened, what kind of problem it was, what actually occurred, what was done about it, and what it taught. The last of those is the reason the page exists - a problem that is written down once can be prepared for by every intake after this one, instead of being met again from scratch."
+msgstr "Begitu seorang apprentice berangkat, catatannya berhenti menjadi berkas dan mulai menjadi riwayat. Satu cerita adalah satu hal yang terjadi dan layak disimpan: hari kejadiannya, jenis masalahnya, apa yang sesungguhnya terjadi, apa yang dilakukan atasnya, dan apa pelajarannya. Yang terakhir itulah alasan halaman ini ada - masalah yang ditulis sekali bisa diantisipasi oleh setiap angkatan sesudahnya, alih-alih dihadapi lagi dari nol."
+
+msgid "One apprentice can be given several passport rows. Nothing prevents it, and nothing says which is the current one, so keep to one row per passport."
+msgstr "Satu apprentice bisa diberi beberapa baris paspor. Tidak ada yang mencegahnya, dan tidak ada yang menyatakan mana yang terkini, jadi pertahankan satu baris per paspor."
+
+msgid "One row per alumnus, holding what is true now."
+msgstr "Satu baris per alumnus, memuat apa yang benar sekarang."
+
+msgid "One row per document per apprentice, holding the current truth."
+msgstr "Satu baris per dokumen per apprentice, memuat kebenaran terkini."
+
+msgid "One table"
+msgstr "Satu tabel"
+
+msgid "Open the apprentice and check the profile that was copied, especially the name in katakana, the birth date and the passport name, because these go onto Japanese paperwork exactly as they are here."
+msgstr "Buka apprentice-nya dan periksa profil yang tersalin, terutama nama dalam katakana, tanggal lahir, dan nama pada paspor, karena semuanya masuk ke berkas Jepang persis seperti yang ada di sini."
+
+msgid "Passport issued"
+msgstr "Paspor terbit"
+
+msgid "Passport on file"
+msgstr "Paspor tercatat"
+
+msgid "Passport, COE and visa, MCU"
+msgstr "Paspor, COE dan visa, MCU"
+
+msgid "Passport, certificate of eligibility and visa, medical check-up, and the submitted documents are each kept in their own register, all pointing back at this apprentice."
+msgstr "Paspor, certificate of eligibility dan visa, pemeriksaan kesehatan, serta dokumen yang diserahkan masing-masing disimpan di daftarnya sendiri, semuanya menunjuk kembali ke apprentice ini."
+
+msgid "Pick the result from the master list and attach the scan. Put anything the result does not cover in the comment."
+msgstr "Ambil hasilnya dari daftar induk dan lampirkan pindaiannya. Apa pun yang tidak tercakup oleh hasil itu tulis di komentar."
+
+msgid "Progress across the whole group is visible even while you work on one person."
+msgstr "Kemajuan seluruh kelompok tetap terlihat meski Anda sedang mengerjakan satu orang."
+
+msgid "Promotes trainees into this register from the trainee side."
+msgstr "Mempromosikan trainee ke daftar ini dari sisi trainee."
+
+msgid "Promotion copies the profile as it stood on that day. A correction made on the trainee afterwards does not follow the person across - make it here instead."
+msgstr "Promosi menyalin profil sebagaimana adanya pada hari itu. Koreksi pada trainee setelahnya tidak ikut menyeberang bersama orangnya - lakukan di sini saja."
+
+msgid "Promotion happens on the trainee page, not here. A new apprentice row is written with the profile copied and a check that the same trainee was not promoted twice."
+msgstr "Promosi terjadi di halaman trainee, bukan di sini. Satu baris apprentice baru ditulis dengan profil tersalin dan pemeriksaan bahwa trainee yang sama tidak dipromosikan dua kali."
+
+msgid "Re-uploading against the same document replaces the file on the existing row rather than adding a second one."
+msgstr "Mengunggah ulang atas dokumen yang sama menggantikan berkas pada baris yang ada, bukan menambah yang kedua."
+
+msgid "Read alongside the apprentice stories"
+msgstr "Dibaca berdampingan dengan cerita apprentice"
+
+msgid "Read by the departure paperwork"
+msgstr "Dibaca oleh berkas keberangkatan"
+
+msgid "Read by whoever opens this page"
+msgstr "Dibaca siapa pun yang membuka halaman ini"
+
+msgid "Read the copied profile"
+msgstr "Baca profil yang tersalin"
+
+msgid "Read the pattern"
+msgstr "Baca polanya"
+
+msgid "Read the real figures off the document register, which counts by status across every row."
+msgstr "Baca angka sebenarnya dari daftar dokumen, yang menghitung per status atas seluruh baris."
+
+msgid "Read the status summary"
+msgstr "Baca ringkasan statusnya"
+
+msgid "Read what is outstanding"
+msgstr "Baca apa yang masih kurang"
+
+msgid "Record each leg"
+msgstr "Catat tiap ruas"
+
+msgid "Record the certificate"
+msgstr "Catat sertifikatnya"
+
+msgid "Record the departure"
+msgstr "Catat keberangkatannya"
+
+msgid "Record the event"
+msgstr "Catat kejadiannya"
+
+msgid "Record the examination"
+msgstr "Catat pemeriksaannya"
+
+msgid "Record the passport"
+msgstr "Catat paspornya"
+
+msgid "Record the return"
+msgstr "Catat kepulangannya"
+
+msgid "Record the visa application"
+msgstr "Catat pengajuan visanya"
+
+msgid "Record the visa itself"
+msgstr "Catat visanya sendiri"
+
+msgid "Record what they are doing"
+msgstr "Catat apa yang dikerjakannya"
+
+msgid "Record what was done"
+msgstr "Catat apa yang dilakukan"
+
+msgid "Record what was done and what it taught"
+msgstr "Catat apa yang dilakukan dan apa pelajarannya"
+
+msgid "Recorded here"
+msgstr "Dicatat di sini"
+
+msgid "Recording a departure changes nothing on the apprentice record. The flag the reports read as \"in Japan\" is not set here, or anywhere else automatically."
+msgstr "Mencatat keberangkatan tidak mengubah apa pun pada data apprentice-nya. Penanda yang dibaca laporan sebagai \"di Jepang\" tidak ditetapkan di sini, atau di mana pun secara otomatis."
+
+msgid "Recording a return does not mark the apprenticeship as completed on the apprentice record. The flag the reports read as \"completed\" is written by nothing at all, so an alumnus can exist while the completed count stays at zero."
+msgstr "Mencatat kepulangan tidak menandai masa apprentice sebagai selesai pada data apprentice-nya. Penanda yang dibaca laporan sebagai \"selesai\" tidak ditulis oleh apa pun, jadi seorang alumnus bisa ada sementara hitungan selesai tetap nol."
+
+msgid "Records check-ups and attaches the results."
+msgstr "Mencatat pemeriksaan dan melampirkan hasilnya."
+
+msgid "Records family events and what was done about them."
+msgstr "Mencatat kejadian keluarga dan apa yang dilakukan atasnya."
+
+msgid "Records passports and keeps the dates current."
+msgstr "Mencatat paspor dan menjaga tanggalnya tetap mutakhir."
+
+msgid "Records returns and keeps the alumni status current."
+msgstr "Mencatat kepulangan dan menjaga status alumninya tetap mutakhir."
+
+msgid "Records the certificate and visa dates as they come in."
+msgstr "Mencatat tanggal sertifikat dan visa begitu masuk."
+
+msgid "Records the legs once the ticket is issued."
+msgstr "Mencatat ruas-ruasnya setelah tiketnya terbit."
+
+msgid "Result recorded here"
+msgstr "Hasil dicatat di sini"
+
+msgid "Return recorded"
+msgstr "Kepulangan dicatat"
+
+msgid "Returned: alumni record"
+msgstr "Pulang: catatan alumni"
+
+msgid "Row per apprentice"
+msgstr "Satu baris per apprentice"
+
+msgid "Scan attached"
+msgstr "Pindaian dilampirkan"
+
+msgid "Something happens in Japan"
+msgstr "Sesuatu terjadi di Jepang"
+
+msgid "Status recorded"
+msgstr "Status dicatat"
+
+msgid "Status set"
+msgstr "Status ditetapkan"
+
+msgid "Status summary"
+msgstr "Ringkasan status"
+
+msgid "Story List"
+msgstr "Daftar Cerita"
+
+msgid "Story recorded"
+msgstr "Cerita dicatat"
+
+msgid "Submission Documents page"
+msgstr "Halaman Dokumen Penyerahan"
+
+msgid "Submission Statuses"
+msgstr "Status Penyerahan"
+
+msgid "The \"apprentice pass\" flag, which the reports show as \"completed\", is read in three places and written in none. Until something sets it, the completed count stays at zero however many people have finished."
+msgstr "Penanda \"apprentice pass\", yang ditampilkan laporan sebagai \"selesai\", dibaca di tiga tempat dan ditulis di nol tempat. Sampai ada yang menetapkannya, hitungan selesai tetap nol berapa pun banyaknya orang yang sudah rampung."
+
+msgid "The \"apprenticeship pass\" flag is written as 0 when the record is created, and nothing in the departure screens ever sets it. The reports read it as \"in Japan\", so that number only moves when somebody edits the apprentice by hand."
+msgstr "Penanda \"apprenticeship pass\" ditulis 0 saat datanya dibuat, dan tidak ada satu pun layar keberangkatan yang pernah menetapkannya. Laporan membacanya sebagai \"di Jepang\", jadi angka itu hanya bergerak bila ada yang menyunting apprentice-nya secara manual."
+
+msgid "The Document Register page is a second view over these same rows - the same table, reached by a different menu entry. A row added on either page appears on both, and deleting it on one deletes it on the other."
+msgstr "Halaman Daftar Dokumen adalah tampilan kedua atas baris yang sama ini - tabel yang sama, dicapai lewat entri menu yang berbeda. Baris yang ditambahkan di salah satu halaman muncul di keduanya, dan menghapusnya di satu halaman menghapusnya di halaman lainnya."
+
+msgid "The Japanese side has said yes, and the date is on file."
+msgstr "Pihak Jepang sudah mengiyakan, dan tanggalnya tercatat."
+
+msgid "The Submission Documents page writes these same rows. Anything done there shows here immediately, and the other way round."
+msgstr "Halaman Dokumen Penyerahan menulis baris yang sama ini. Apa pun yang dilakukan di sana langsung tampak di sini, dan sebaliknya."
+
+msgid "The alumnus is the same person as the apprentice, chosen by TMM code. Nothing on the apprentice record changes when an alumni row is added."
+msgstr "Alumnus itu orang yang sama dengan apprentice-nya, dipilih berdasarkan kode TMM. Tidak ada yang berubah pada data apprentice ketika satu baris alumni ditambahkan."
+
+msgid "The apprentice has to be on file. Stories are chosen against the TMM code, not typed as a name."
+msgstr "Apprentice-nya harus sudah tercatat. Cerita dipilih berdasarkan kode TMM, bukan diketik sebagai nama."
+
+msgid "The apprentice has to be on file; the story is recorded against the person, not against a named relative."
+msgstr "Apprentice-nya harus sudah tercatat; ceritanya dicatat atas orangnya, bukan atas anggota keluarga tertentu."
+
+msgid "The apprentice has to exist first, which happens by promotion from the trainee side."
+msgstr "Apprentice-nya harus ada lebih dulu, yang terjadi lewat promosi dari sisi trainee."
+
+msgid "The apprentice has to exist; alumni are chosen from the apprentice register by TMM code."
+msgstr "Apprentice-nya harus ada; alumni dipilih dari daftar apprentice berdasarkan kode TMM."
+
+msgid "The apprentice order says which acceptance organization the person is going to, and how many people that order is for."
+msgstr "Apprentice order menyatakan organisasi penerima mana yang dituju orangnya, dan untuk berapa orang order itu."
+
+msgid "The apprentice profile carries a \"holds a passport\" flag copied down from the candidate form. It is a statement the person made at application time, not a link to this register, and the two can disagree."
+msgstr "Profil apprentice membawa penanda \"memiliki paspor\" yang tersalin turun dari formulir kandidat. Itu pernyataan orangnya saat melamar, bukan tautan ke daftar ini, dan keduanya bisa bertentangan."
+
+msgid "The certificate of eligibility and the visa are recorded separately, but both assume the passport here already exists."
+msgstr "Certificate of eligibility dan visanya dicatat terpisah, tetapi keduanya mengandaikan paspor di sini sudah ada."
+
+msgid "The certificate of eligibility from Japan, and the visa issued against it."
+msgstr "Certificate of eligibility dari Jepang, dan visa yang terbit atasnya."
+
+msgid "The certificate types are a master list, so the type on the record matches what the paper says."
+msgstr "Jenis sertifikatnya adalah daftar induk, sehingga jenis pada datanya sama dengan yang tertulis di kertasnya."
+
+msgid "The check-up taken during selection is a separate record on the candidate, and is what decided whether they could be promoted at all."
+msgstr "Pemeriksaan yang dijalani saat seleksi adalah data terpisah pada kandidatnya, dan itulah yang menentukan apakah ia bisa dipromosikan sama sekali."
+
+msgid "The clock on the consulate is visible, so a slow case can be chased."
+msgstr "Lama waktu di konsulat jadi terlihat, sehingga kasus yang lambat bisa ditagih."
+
+msgid "The counts at the top are over every row, not over the filtered list."
+msgstr "Hitungan di bagian atas mencakup seluruh baris, bukan daftar yang tersaring."
+
+msgid "The document dashboard is meant to summarise readiness, but its totals are typed in by hand rather than counted from these rows."
+msgstr "Dashboard dokumen dimaksudkan meringkas kesiapan, tetapi totalnya diketik manual, bukan dihitung dari baris-baris ini."
+
+msgid "The document is on file with its state, not just in a folder somewhere."
+msgstr "Dokumennya tercatat beserta keadaannya, bukan sekadar berada di suatu folder."
+
+msgid "The documents an apprentice hands in before departure, and the state each one is in."
+msgstr "Dokumen yang diserahkan apprentice sebelum berangkat, dan keadaan masing-masingnya."
+
+msgid "The documents themselves live in the document register, and that is where the real state is."
+msgstr "Dokumennya sendiri ada di daftar dokumen, dan di sanalah keadaan yang sebenarnya."
+
+msgid "The event is on file against the apprentice it affects."
+msgstr "Kejadiannya tercatat atas apprentice yang terdampak."
+
+msgid "The event is on file against the person it happened to."
+msgstr "Kejadiannya tercatat atas orang yang mengalaminya."
+
+msgid "The examination is on file with the clinic that performed it."
+msgstr "Pemeriksaannya tercatat beserta klinik yang melakukannya."
+
+msgid "The family members themselves were copied onto the apprentice at promotion, from the candidate record."
+msgstr "Anggota keluarganya sendiri tersalin ke apprentice saat promosi, dari data kandidatnya."
+
+msgid "The flight is the step that follows this one, and is the reason the visa date matters to anybody else."
+msgstr "Penerbangan adalah langkah setelah ini, dan itulah sebabnya tanggal visanya penting bagi orang lain."
+
+msgid "The handling of the case is on file, not only the case."
+msgstr "Penanganannya ikut tercatat, bukan hanya kejadiannya."
+
+msgid "The health check an apprentice takes before leaving, and the result on file."
+msgstr "Pemeriksaan kesehatan yang dijalani apprentice sebelum berangkat, dan hasilnya yang tercatat."
+
+msgid "The journey is on file."
+msgstr "Perjalanannya tercatat."
+
+msgid "The last record in the chain. When an apprentice comes home, one row here says when they returned and what became of them: employed, self-employed, still studying, not yet working, or something else. It is the only place the programme can answer what its people did afterwards - which is what a new candidate's family asks, and what a partner institution asks before sending anyone."
+msgstr "Catatan terakhir dalam rantainya. Ketika seorang apprentice pulang, satu baris di sini menyatakan kapan ia kembali dan apa jadinya: bekerja, berwirausaha, masih belajar, belum bekerja, atau hal lain. Inilah satu-satunya tempat program ini bisa menjawab apa yang dilakukan orang-orangnya setelahnya - yang justru ditanyakan keluarga calon kandidat, dan ditanyakan lembaga mitra sebelum mengirim siapa pun."
+
+msgid "The legs of the journey to Japan, recorded against the ticket that was bought."
+msgstr "Ruas-ruas perjalanan ke Jepang, dicatat atas tiket yang dibeli."
+
+msgid "The list counts stories by the exact wording of the classification, so reuse a wording that already exists rather than inventing a near-identical one."
+msgstr "Daftarnya menghitung cerita berdasarkan kata persis pada klasifikasinya, jadi pakai ulang kata yang sudah ada alih-alih mengarang yang nyaris sama."
+
+msgid "The list groups the stories by classification and counts them."
+msgstr "Daftarnya mengelompokkan cerita per klasifikasi dan menghitungnya."
+
+msgid "The list is the batch of work in front of you."
+msgstr "Daftarnya menjadi kumpulan pekerjaan di depan Anda."
+
+msgid "The list totals the documents by status, so the size of the queue is visible without opening anyone."
+msgstr "Daftarnya mentotal dokumen per status, sehingga besar antreannya terlihat tanpa membuka siapa pun."
+
+msgid "The next intake can be prepared for what this one met."
+msgstr "Angkatan berikutnya bisa dibekali atas apa yang dihadapi angkatan ini."
+
+msgid "The order this apprentice fills decides the acceptance organization shown on their record, and the order page counts how many of its places are filled."
+msgstr "Order yang diisi apprentice ini menentukan organisasi penerima yang tampil pada datanya, dan halaman order menghitung berapa kursinya yang sudah terisi."
+
+msgid "The passport has to be on file: the certificate is applied for against it and the visa is stamped into it."
+msgstr "Paspornya harus sudah tercatat: sertifikatnya diajukan atas paspor itu dan visanya dicap di dalamnya."
+
+msgid "The passport is on file and the visa application can quote it."
+msgstr "Paspornya tercatat dan pengajuan visanya bisa mengutipnya."
+
+msgid "The people who finished training and are on their way to, or already in, Japan."
+msgstr "Orang-orang yang telah menyelesaikan training dan sedang dalam perjalanan ke Jepang, atau sudah berada di sana."
+
+msgid "The person exists as an apprentice, tied back to the trainee and the candidate they came from."
+msgstr "Orangnya ada sebagai apprentice, tertaut kembali ke trainee dan kandidat asalnya."
+
+msgid "The person may travel, and the ticket can be bought against a real date."
+msgstr "Orangnya boleh berangkat, dan tiketnya bisa dibeli atas tanggal yang nyata."
+
+msgid "The profile that the documents will be written from is the correct one."
+msgstr "Profil yang akan menjadi dasar penulisan dokumennya sudah benar."
+
+msgid "The programme can say what became of the people who went through it."
+msgstr "Program ini bisa menyatakan apa yang terjadi pada orang-orang yang melaluinya."
+
+msgid "The programme knows the apprenticeship is over for this person."
+msgstr "Program ini tahu masa apprentice orang tersebut telah berakhir."
+
+msgid "The reports count apprentices by two flags on this record: one for being in Japan, one for having completed the programme."
+msgstr "Laporan menghitung apprentice berdasarkan dua penanda pada data ini: satu untuk berada di Jepang, satu untuk telah menyelesaikan program."
+
+msgid "The reports show how many alumni rows exist, as the end of the pipeline funnel."
+msgstr "Laporan menampilkan berapa baris alumni yang ada, sebagai ujung corong alur pipelinenya."
+
+msgid "The required documents and the statuses are master lists, shared with the submission page."
+msgstr "Dokumen wajib dan statusnya adalah daftar induk, dipakai bersama halaman penyerahan."
+
+msgid "The result is a value the system can count, not a sentence somebody has to read."
+msgstr "Hasilnya menjadi nilai yang bisa dihitung sistem, bukan kalimat yang harus dibaca orang."
+
+msgid "The result values come from the shared master list, the same one the candidate check-ups use."
+msgstr "Nilai hasilnya berasal dari daftar induk bersama, sama dengan yang dipakai pemeriksaan kandidat."
+
+msgid "The result values, and whether each one counts as fit, are maintained in one master list used by both the candidate and the apprentice check-ups."
+msgstr "Nilai hasilnya, dan apakah masing-masing dihitung lolos, dipelihara dalam satu daftar induk yang dipakai pemeriksaan kandidat maupun apprentice."
+
+msgid "The row is keyed to a candidate, not to an apprentice, and it lives in the candidate document database rather than the apprentice one. On a page named for apprentices that is easy to read past, so check you are choosing the person you mean."
+msgstr "Barisnya dikunci ke kandidat, bukan ke apprentice, dan tersimpan di basis data dokumen kandidat, bukan basis data apprentice. Di halaman yang bernama apprentice hal itu mudah terlewat, jadi pastikan Anda memilih orang yang Anda maksud."
+
+msgid "The same documents as the submission page, listed with filters and a status summary."
+msgstr "Dokumen yang sama dengan halaman penyerahan, ditampilkan dengan filter dan ringkasan status."
+
+msgid "The statuses a document can be in are a master list too, so the summary counts can be trusted."
+msgstr "Status yang bisa disandang sebuah dokumen juga daftar induk, sehingga hitungan ringkasannya bisa dipercaya."
+
+msgid "The story names the apprentice, not the relative. Which family member it concerns has to be said in the text."
+msgstr "Ceritanya menyebut apprentice-nya, bukan anggota keluarganya. Anggota keluarga mana yang dimaksud harus disebut di dalam teksnya."
+
+msgid "The summary ignores the filters on purpose. A filtered list with an unchanged total is not a bug."
+msgstr "Ringkasannya sengaja mengabaikan filter. Daftar tersaring dengan total yang tidak berubah bukanlah kesalahan."
+
+msgid "The three dates are plain dates with nothing enforcing their order. A visa recorded as received before it was applied for will be saved without complaint."
+msgstr "Ketiga tanggalnya adalah tanggal biasa tanpa apa pun yang menegakkan urutannya. Visa yang tercatat diterima sebelum diajukan akan tersimpan tanpa keluhan."
+
+msgid "The ticket and the flight legs are recorded, so the day and the route are on file rather than in somebody's inbox."
+msgstr "Tiket dan ruas penerbangannya dicatat, sehingga harinya dan rutenya tercatat, bukan tersimpan di kotak masuk seseorang."
+
+msgid "The two dates are independent: a passport can be paid for and not yet received, or received and not yet paid."
+msgstr "Kedua tanggal itu berdiri sendiri: paspor bisa sudah dibayar tetapi belum diterima, atau sudah diterima tetapi belum dibayar."
+
+msgid "The two pages show different columns for the same row. A field you cannot see on one of them is not empty - it is just not on that screen."
+msgstr "Kedua halaman menampilkan kolom berbeda untuk baris yang sama. Kolom yang tidak terlihat di salah satunya bukan berarti kosong - ia hanya tidak ada di layar itu."
+
+msgid "The visa date is what makes a booking safe to make."
+msgstr "Tanggal visanya itulah yang membuat pemesanan aman dilakukan."
+
+msgid "The visa has to be in hand: the date on the ticket is only real once the person may actually travel."
+msgstr "Visanya harus sudah di tangan: tanggal pada tiket baru nyata setelah orangnya benar-benar boleh berangkat."
+
+msgid "The whole journey is on file and can be read at a glance."
+msgstr "Seluruh perjalanannya tercatat dan bisa dibaca sekilas."
+
+msgid "The whole record is copied from the trainee at the moment of promotion. Nothing flows between the two afterwards, in either direction."
+msgstr "Seluruh datanya disalin dari trainee pada saat promosi. Setelah itu tidak ada yang mengalir di antara keduanya, ke arah mana pun."
+
+msgid "They arrive by promotion"
+msgstr "Mereka datang lewat promosi"
+
+msgid "This page and the Submission Documents page read and write the same table. They are not two registers that need reconciling: they are two doors into one. What this one adds is the working view - filter by apprentice, by document or by status, and a count per status across everything, so the question \"how much is left\" is answered at the top of the page rather than by scrolling."
+msgstr "Halaman ini dan halaman Dokumen Penyerahan membaca dan menulis tabel yang sama. Keduanya bukan dua daftar yang perlu dicocokkan: keduanya adalah dua pintu ke satu ruangan. Yang ditambahkan halaman ini adalah tampilan kerja - saring per apprentice, per dokumen, atau per status, plus hitungan tiap status atas keseluruhan, sehingga pertanyaan \"tinggal berapa lagi\" terjawab di bagian atas halaman, bukan dengan menggulir."
+
+msgid "This page holds one row per person with four numbers on it: how many documents there are in total, how many are ready, how many are pending and how many are missing, plus the date the row was last brought up to date. It is worth knowing before you use it that these numbers are typed in, not counted. Nothing in the application recalculates them when a document is uploaded or a status changes, so the row says what it said the last time somebody edited it."
+msgstr "Halaman ini menyimpan satu baris per orang dengan empat angka: berapa dokumen seluruhnya, berapa yang siap, berapa yang tertunda, dan berapa yang belum ada, ditambah tanggal baris itu terakhir dimutakhirkan. Perlu diketahui sebelum memakainya: angka-angka ini diketik, bukan dihitung. Tidak ada bagian aplikasi yang menghitung ulang ketika sebuah dokumen diunggah atau statusnya berubah, jadi barisnya menyatakan apa yang dinyatakannya terakhir kali seseorang menyuntingnya."
+
+msgid "Ticket and flight"
+msgstr "Tiket dan penerbangan"
+
+msgid "Ticket and flight booked"
+msgstr "Tiket dan penerbangan dipesan"
+
+msgid "Ticket issued"
+msgstr "Tiket terbit"
+
+msgid "Totals typed here"
+msgstr "Total diketik di sini"
+
+msgid "Trainee promoted"
+msgstr "Trainee dipromosikan"
+
+msgid "Uploading a document or changing its status does not touch these totals. Nothing writes to this table except this form."
+msgstr "Mengunggah dokumen atau mengubah statusnya tidak menyentuh total ini. Tidak ada yang menulis ke tabel ini selain formulir ini."
+
+msgid "Uploads documents, sets their status and chases what is missing."
+msgstr "Mengunggah dokumen, menetapkan statusnya, dan menagih yang kurang."
+
+msgid "Visa applied for"
+msgstr "Visa diajukan"
+
+msgid "Visa received"
+msgstr "Visa diterima"
+
+msgid "Visa stamped into it"
+msgstr "Visa dicap ke dalamnya"
+
+msgid "What happened to an apprentice in Japan, written down while it is still fresh."
+msgstr "Apa yang terjadi pada seorang apprentice di Jepang, ditulis selagi masih segar."
+
+msgid "What happened to the apprentice themselves is the companion register, in the same shape."
+msgstr "Apa yang terjadi pada apprentice-nya sendiri ada di daftar pendampingnya, dalam bentuk yang sama."
+
+msgid "What happened to the family at home while the apprentice was away."
+msgstr "Apa yang terjadi pada keluarga di rumah selama apprentice-nya pergi."
+
+msgid "What happens to the family at home while the apprentice is away is kept in its own register, in the same shape as this one."
+msgstr "Apa yang terjadi pada keluarga di rumah selama apprentice-nya pergi disimpan di daftarnya sendiri, dalam bentuk yang sama dengan ini."
+
+msgid "When the certificate of eligibility arrives from Japan, record its type and the date it was received."
+msgstr "Ketika certificate of eligibility tiba dari Jepang, catat jenisnya dan tanggal diterimanya."
+
+msgid "When the passport was issued, where, when it reached us and when it was paid for."
+msgstr "Kapan paspornya terbit, di mana, kapan sampai kepada kita, dan kapan dibayar."
+
+msgid "When the visa comes back, record the date received and the place it was issued."
+msgstr "Ketika visanya kembali, catat tanggal diterima dan tempat penerbitannya."
+
+msgid "When they come home, record the return date and what they are doing now."
+msgstr "Ketika mereka pulang, catat tanggal kepulangan dan apa yang mereka kerjakan sekarang."
+
+msgid "When you hear that someone has changed job, edit the row rather than adding a second one."
+msgstr "Ketika Anda dengar seseorang berganti pekerjaan, sunting barisnya, jangan menambah yang kedua."
+
+msgid "Where several check-ups exist for one apprentice, nothing marks which is the current one. The list is ordered by when it was entered, not by the date of the examination."
+msgstr "Bila ada beberapa pemeriksaan untuk satu apprentice, tidak ada yang menandai mana yang terkini. Daftarnya diurutkan menurut kapan datanya dimasukkan, bukan menurut tanggal pemeriksaannya."
+
+msgid "Which documents are required is a master list. A document not on that list cannot be recorded against anyone."
+msgstr "Dokumen apa saja yang wajib adalah daftar induk. Dokumen yang tidak ada di daftar itu tidak bisa dicatat atas siapa pun."
+
+msgid "Who the family are is recorded on the apprentice profile, copied down from the candidate form."
+msgstr "Siapa saja keluarganya tercatat di profil apprentice, tersalin turun dari formulir kandidat."
+
+msgid "With both legs entered, compare the arrival time of the first against the departure of the second."
+msgstr "Setelah kedua ruas dimasukkan, bandingkan waktu kedatangan yang pertama dengan keberangkatan yang kedua."
+
+msgid "Write down what happened"
+msgstr "Tuliskan apa yang terjadi"
+
+msgid "Write them down here"
+msgstr "Tuliskan di sini"
+
+msgid "Writes stories and keeps the classifications consistent."
+msgstr "Menulis cerita dan menjaga klasifikasinya konsisten."
+
+msgid "You have the numbers this page is supposed to hold."
+msgstr "Anda punya angka yang seharusnya disimpan halaman ini."
+
+msgid "by hand"
+msgstr "manual"

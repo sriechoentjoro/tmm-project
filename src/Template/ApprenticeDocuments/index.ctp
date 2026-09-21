@@ -312,3 +312,5 @@ $hasFilter = $filterApprentice || $filterDocument || $filterStatus;
     });
 })();
 </script>
+
+<?= $this->element('process_flow_help') ?>

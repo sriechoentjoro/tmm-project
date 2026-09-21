@@ -1,6 +1,6 @@
 <?php
 /**
- * Edit form for an apprentice story.
+ * Add / edit form for an apprentice story.
  *
  * A story is a problem an apprentice ran into in Japan, written down so the
  * next intake does not meet it unprepared: what happened, how it was
@@ -12,9 +12,11 @@
  * @var bool $isEdit
  */
 $isEdit = $isEdit ?? true;
+$currentImage = $apprenticeStory->image_path ?? null;
 ?>
 <?= $this->element('entity_form', [
     'entity' => $apprenticeStory,
+    'formOptions' => ['enctype' => 'multipart/form-data'],
     'icon' => 'fa-book-open',
     'title' => $isEdit ? __('Edit Story') : __('Add Story'),
     'subtitle' => __('A problem an apprentice met, and what came of it.'),
@@ -78,12 +80,14 @@ $isEdit = $isEdit ?? true;
                     'width' => 12,
                     'help' => __('The part a future intake reads.'),
                 ],
-                'image_path' => [
-                    'label' => __('Image path'),
-                    'type' => 'text',
+                'image_upload' => [
+                    'label' => __('Photo'),
+                    'type' => 'file',
+                    'accept' => 'image/*',
                     'width' => 12,
-                    'placeholder' => 'files/uploads/apprentice_stories/…',
-                    'help' => __('A path to an image already on the server. This field stores text, it does not upload.'),
+                    'help' => $currentImage
+                        ? __('Choose a file to replace the picture on file ({0}). Leave it empty to keep it.', $currentImage)
+                        : __('A picture of what happened, if there is one. The file is uploaded and kept with the story.'),
                 ],
             ],
         ],

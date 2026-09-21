@@ -60,7 +60,7 @@ return [
 
     'triggers' => [
         [
-            'icon' => 'fa-share-nodes',
+            'icon' => 'fa-share-alt',
             'what' => __('An active institution becomes selectable when an apprentice order is shared. Sharing sends it the apprentice_order_shared email and it can then propose candidates.'),
             'url' => '/apprentice-orders',
             'label' => __('Apprentice Orders'),

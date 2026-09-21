@@ -33,3 +33,5 @@
 <?php $this->end(); ?>
 
 <?= $this->element('view_tabs') ?>
+
+<?= $this->element('process_flow_help') ?>

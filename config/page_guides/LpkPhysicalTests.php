@@ -61,13 +61,13 @@ return [
             'label' => __('Candidates'),
         ],
         [
-            'icon' => 'fa-table-list',
+            'icon' => 'fa-th-list',
             'what' => __('The scoring board puts this figure beside the interview and medical results for the whole institution.'),
             'url' => '/lpk-candidate-scoring',
             'label' => __('Candidate scoring board'),
         ],
         [
-            'icon' => 'fa-arrow-up-right-dots',
+            'icon' => 'fa-chart-line',
             'what' => __('Promoting a candidate with no physical score is possible, but the promotion records a remark saying the score was missing.'),
             'url' => '/candidates/promote-to-trainee',
             'label' => __('Promote to Trainee'),

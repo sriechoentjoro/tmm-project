@@ -57,7 +57,7 @@ return [
 
     'triggers' => [
         [
-            'icon' => 'fa-sliders',
+            'icon' => 'fa-sliders-h',
             'what' => __('What each result type means - fit, not fit, or not said - is set once on the master screen, and every check-up recorded with that result inherits it.'),
             'url' => '/master-medical-check-up-results',
             'label' => __('MCU result types'),
@@ -69,7 +69,7 @@ return [
             'label' => __('Promote to Trainee'),
         ],
         [
-            'icon' => 'fa-table-list',
+            'icon' => 'fa-th-list',
             'what' => __('The scoring board reads these records directly - the count and the average come from here.'),
             'url' => '/lpk-candidate-scoring',
             'label' => __('Candidate scoring board'),

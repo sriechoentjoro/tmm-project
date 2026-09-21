@@ -15957,3 +15957,794 @@ msgstr "移転した場合"
 
 msgid "separate from"
 msgstr "とは別"
+
+# ── Page guides: apprentice phase ─────────────────────
+
+msgid "A certificate of eligibility expires. No expiry is stored here, so a certificate going stale while the visa is delayed is something you have to watch yourself."
+msgstr "在留資格認定証明書には有効期限があります。ここに期限は保存されないため、ビザが遅れるあいだに証明書が失効することは、自分で見張る必要があります。"
+
+msgid "A classification spelled differently is a different classification. \"Workplace\" and \"Work place\" are counted as two."
+msgstr "表記が違えば、別の分類になります。「職場」と「職 場」は二つとして数えられます。"
+
+msgid "A connection that is too tight is caught before the day itself."
+msgstr "乗り継ぎが厳しすぎる場合、当日を待たずに気づけます。"
+
+msgid "A document that comes back for correction, or that is finally accepted, gets its status changed rather than a second row."
+msgstr "差し戻された書類も、最終的に受理された書類も、二行目を作るのではなく状態を変えます。"
+
+msgid "A flight is attached to a ticket, not to an apprentice. To know whose flight it is you follow the ticket, and a ticket with no apprentice on it makes the leg an orphan."
+msgstr "フライトは実習生ではなく航空券に紐づきます。誰の便かを知るには航空券をたどります。実習生が入っていない航空券では、その区間は宙に浮きます。"
+
+msgid "A kind of problem that keeps recurring stops looking like bad luck."
+msgstr "繰り返し起きる種類の問題が、運の悪さには見えなくなります。"
+
+msgid "A passport still out at the office is visibly different from one in the drawer."
+msgstr "まだ役所にある旅券と、引き出しにある旅券とが、見て区別できます。"
+
+msgid "A picture of what happened, if there is one. The file is uploaded and kept with the story."
+msgstr "起きたことの写真があれば添えます。ファイルはアップロードされ、記録とともに保管されます。"
+
+msgid "A required document with no row at all is invisible here: the list shows what was handed in, not what is missing. Missing means \"no row\", and only the required-document master list says what should have been there."
+msgstr "行がまったく無い必要書類は、ここには現れません。一覧が示すのは提出されたものであって、欠けているものではありません。欠けているとは「行が無い」ことであり、何があるべきかを述べるのは必要書類のマスタ一覧だけです。"
+
+msgid "A result marked \"not fit\" here changes nothing automatically. No flag is set on the apprentice and no screen turns red - acting on it is a decision somebody has to make and record elsewhere."
+msgstr "ここで「不適」と記録しても、自動では何も変わりません。実習生に印が立つわけでも、画面が赤くなるわけでもありません。それにどう対応するかは、誰かが判断し、別の場所に記録することです。"
+
+msgid "A stored count of how many documents are ready, pending and missing."
+msgstr "何件の書類が準備済み・保留中・未提出かを保存した集計です。"
+
+msgid "A story a future intake can be briefed from."
+msgstr "次の期への事前説明に使える記録になります。"
+
+msgid "A summary that is honest about when it was true."
+msgstr "いつ時点の内容かを正直に示す集計です。"
+
+msgid "A ticket bought before this date is a bet, not a booking."
+msgstr "この日付より前に買う航空券は、予約ではなく賭けです。"
+
+msgid "A ticket is one purchase; a journey is often two or three flights. This register keeps a row per leg - airline, flight number, the airport it leaves from and the one it arrives at, with the departure and arrival times - all hanging off the ticket rather than off the apprentice directly. That is what makes a transit visible: two rows on one ticket, with a gap between the arrival of the first and the departure of the second."
+msgstr "航空券は一回の購入ですが、旅程はしばしば二便、三便になります。この台帳は区間ごとに一行を持ちます。航空会社、便名、出発空港と到着空港、そして出発と到着の時刻です。いずれも実習生ではなく航空券にぶら下がります。乗り継ぎが見えるのはそのためです。一枚の航空券に二行があり、最初の到着と次の出発のあいだに間隔があります。"
+
+msgid "Action taken and recorded"
+msgstr "対応を行い記録"
+
+msgid "Add COE and Visa"
+msgstr "COEとビザを追加"
+
+msgid "Add Dashboard Row"
+msgstr "ダッシュボード行を追加"
+
+msgid "Add Family Story"
+msgstr "家族の記録を追加"
+
+msgid "Add Passport"
+msgstr "旅券を追加"
+
+msgid "Adds, edits and filters document rows."
+msgstr "書類の行を追加・編集・絞り込みします。"
+
+msgid "Airlines and airports come from master lists, so a flight names the same airport every time. Those two lists have no page of their own - an airline or an airport that is not already in the table cannot be added from anywhere in the application."
+msgstr "航空会社と空港はマスタ一覧から選ばれるため、どの便も同じ空港名を用います。この二つの一覧には専用のページがありません。表にまだ無い航空会社や空港は、アプリケーションのどこからも追加できません。"
+
+msgid "Alumni"
+msgstr "アルムナイ"
+
+msgid "An answer that can be quoted, with its source."
+msgstr "出所とともに引用できる答えになります。"
+
+msgid "An apprentice is a trainee who was promoted, which makes this the third record of the same person: candidate, then trainee, then apprentice. Promotion copies the whole profile across and starts a fresh document trail, because what an apprentice needs on file is different - a passport, a certificate of eligibility and a visa, a medical check-up, a ticket and a flight. Once they are in Japan the record keeps going: what happened to them, what happened to their family at home, and finally what they did after coming back."
+msgstr "実習生とは昇格した研修生であり、つまり同じ人物についての三つ目の記録です。候補者、研修生、そして実習生。昇格はプロフィール全体を複写し、新しい書類の系列を始めます。実習生に必要な記録は別物だからです。旅券、在留資格認定証明書とビザ、健康診断、航空券とフライト。日本に着いた後も記録は続きます。本人に何が起きたか、故郷の家族に何が起きたか、そして帰国後に何をしたかです。"
+
+msgid "An apprentice is examined again before departure: the check taken as a candidate is months old by then, and the receiving side asks for a current one. Each record names the clinic, the date, the result chosen from the shared master list, a comment, and the scanned file. Several records per apprentice are normal here, because a re-check after treatment is a second examination, not a correction of the first."
+msgstr "実習生は出発前に再び検査を受けます。候補者のときの検査はその頃には数か月前のもので、受入側は最新のものを求めます。各記録には、医療機関、日付、共通のマスタ一覧から選んだ結果、所見、そしてスキャンした書類が入ります。一人に複数の記録があるのはここでは普通のことです。治療後の再検査は、最初の記録の訂正ではなく二回目の検査だからです。"
+
+msgid "An apprenticeship is three years abroad, and what happens to the family in that time reaches the apprentice whether or not anybody records it - an illness, a death, a debt, a wedding. This register keeps those events in the same shape as the apprentice's own stories: the date, a classification, what happened, what was done and what it taught. It is kept separately because the cause is at home while the effect is in Japan, and the two are easier to read apart than mixed together."
+msgstr "実習は三年の海外生活であり、その間に家族に起きたことは、記録の有無にかかわらず本人に届きます。病気、死、借金、結婚。この台帳はそうした出来事を、実習生自身の記録と同じ形で保ちます。日付、分類、何が起きたか、何をしたか、何を教えたかです。原因は故郷にあり結果は日本にあるため、混ぜるより分けたほうが読みやすく、別に保たれています。"
+
+msgid "Anything worth highlighting during the apprenticeship is written down as a story - what happened to the apprentice, and what happened to the family at home."
+msgstr "実習期間中に書き留める価値のあることは、記録として残します。実習生本人に起きたこと、そして故郷の家族に起きたことです。"
+
+msgid "Apprentice Document Register"
+msgstr "実習生書類台帳"
+
+msgid "Apprentice List"
+msgstr "実習生一覧"
+
+msgid "Apprentice Medical Check-Ups"
+msgstr "実習生の健康診断"
+
+msgid "Apprentice Passports"
+msgstr "実習生の旅券"
+
+msgid "Apprentice staff"
+msgstr "実習生担当"
+
+msgid "Apprentice staff, training staff"
+msgstr "実習生担当、訓練担当"
+
+msgid "Apprentices are not created here. They arrive by being promoted from a trainee, which copies education, experience, certifications, courses and family across."
+msgstr "実習生はここで作成しません。研修生からの昇格によって現れ、その際に学歴・職歴・資格・講習・家族が複写されます。"
+
+msgid "Apprenticeship ends"
+msgstr "実習が終わる"
+
+msgid "Attach the file against the apprentice and the document it satisfies, and set the status."
+msgstr "実習生と、その書類が満たす項目に対してファイルを添付し、状態を設定します。"
+
+msgid "Because both pages write one table, a row deleted here is gone from the submission page as well. There is no second copy to fall back on."
+msgstr "両方のページが一つの表に書き込むため、ここで削除した行は提出書類ページからも消えます。戻れる二つ目の控えはありません。"
+
+msgid "Because they are typed, the totals can contradict the register. Where they do, the register is right."
+msgstr "手入力である以上、合計が台帳と食い違うことがあります。その場合に正しいのは台帳です。"
+
+msgid "Both permissions are attached to the passport recorded separately."
+msgstr "二つの許可はいずれも、別に記録された旅券に結び付いています。"
+
+msgid "COE Types"
+msgstr "COEの種別"
+
+msgid "COE and Visa"
+msgstr "COEとビザ"
+
+msgid "COE applied for"
+msgstr "COEを申請"
+
+msgid "COE received from Japan"
+msgstr "日本からCOEを受領"
+
+msgid "Check the transit"
+msgstr "乗り継ぎを確認する"
+
+msgid "Choose a file to replace the picture on file ({0}). Leave it empty to keep it."
+msgstr "保存済みの画像（{0}）を差し替えるファイルを選びます。そのままにする場合は空のままにしてください。"
+
+msgid "Choose the apprentice and enter the day they came home from Japan."
+msgstr "実習生を選び、日本から帰国した日を入力します。"
+
+msgid "Choose the apprentice and enter the issue date and the place it was issued, exactly as printed on the passport."
+msgstr "実習生を選び、発給日と発給地を、旅券の記載どおりに入力します。"
+
+msgid "Choose the apprentice and the date it happened, give the story a title that says what it is about, and classify the problem."
+msgstr "実習生と発生日を選び、内容が分かる表題を付け、問題を分類します。"
+
+msgid "Choose the apprentice, give the date and a title, and classify what kind of event it was."
+msgstr "実習生を選び、日付と表題を入れ、どの種類の出来事かを分類します。"
+
+msgid "Choose the result"
+msgstr "結果を選ぶ"
+
+msgid "Choose the status from the list, and add the employer and position where there is one. Say in the notes how the news reached us."
+msgstr "状態を一覧から選び、勤め先と役職があれば添えます。その知らせがどう届いたかは備考に書きます。"
+
+msgid "Choose the status rather than typing one: the summary on the list counts by the exact value."
+msgstr "状態は入力せず選んでください。一覧の集計は、値をそのまま突き合わせて数えます。"
+
+msgid "Choose the ticket, then enter the airline, the flight number, the two airports and the two times, one row per leg."
+msgstr "航空券を選び、航空会社、便名、二つの空港と二つの時刻を、区間ごとに一行ずつ入力します。"
+
+msgid "Classified"
+msgstr "分類される"
+
+msgid "Close with an alumni record"
+msgstr "アルムナイの記録で締める"
+
+msgid "Correcting the trainee record afterwards does not change the apprentice. Correct it here."
+msgstr "後から研修生の記録を直しても、実習生は変わりません。ここで直してください。"
+
+msgid "Count the documents"
+msgstr "書類を数える"
+
+msgid "Counted by classification"
+msgstr "分類ごとに集計"
+
+msgid "Counted by the register"
+msgstr "台帳が集計する"
+
+msgid "Counted in the alumni summary"
+msgstr "アルムナイ集計に数えられる"
+
+msgid "Counted in the summary"
+msgstr "集計に数えられる"
+
+msgid "Deleting an apprentice leaves their stories, documents and alumni record pointing at a row that is gone. Nothing stops the deletion."
+msgstr "実習生を削除すると、その記録・書類・アルムナイの行は、既に無い行を指したまま残ります。削除を止めるものはありません。"
+
+msgid "Departure is a paperwork queue. Each required document is a master entry, and each apprentice needs a row against it: the file itself, a status, who uploaded it and when, and a note if the status alone does not explain matters. The point of the register is not storage - it is being able to answer, for one apprentice or for the whole group, what is still outstanding and who has it."
+msgstr "出発とは書類の行列です。必要書類はそれぞれマスタの一件であり、実習生ごとにそれに対する一行が要ります。ファイルそのもの、状態、誰がいつアップロードしたか、そして状態だけでは足りないときの備考です。この台帳の眼目は保管ではありません。一人についても集団全体についても、何がまだ足りず、それが誰の手元にあるかを答えられることです。"
+
+msgid "Describe the problem, the action taken, and the lesson. A photograph can be attached if there is one."
+msgstr "問題、とった対応、そして教訓を記します。写真があれば添付できます。"
+
+msgid "Describe what happened, the action taken, and what it taught. A supporting photograph or scan can be attached."
+msgstr "何が起きたか、どう対応したか、何を教えたかを記します。裏付けの写真やスキャンを添付できます。"
+
+msgid "Document Register"
+msgstr "書類台帳"
+
+msgid "Document Register page"
+msgstr "書類台帳ページ"
+
+msgid "Documents uploaded and statuses set"
+msgstr "書類がアップロードされ状態が設定される"
+
+msgid "Each result in the master list is marked fit or not fit. On the candidate side that marking decides pass or fail automatically; here it is shown but nothing is derived from it."
+msgstr "マスタ一覧の各結果には、適合か不適かの印が付いています。候補者側ではその印が合否を自動で決めますが、ここでは表示されるだけで、そこから何も導かれません。"
+
+msgid "Enter the apprentice, the clinic, the date and a title that says which examination this was."
+msgstr "実習生、医療機関、日付、そしてどの検査かが分かる表題を入力します。"
+
+msgid "Enter the four totals against the person and set the last-updated date, so a reader knows how old the figures are."
+msgstr "その人物について四つの合計を入力し、最終更新日を設定します。読む人が数字の古さを判断できるようにするためです。"
+
+msgid "Event at home"
+msgstr "故郷での出来事"
+
+msgid "Every row names an apprentice. Deleting the apprentice does not delete their documents."
+msgstr "各行は実習生を指しています。実習生を削除しても、その書類は削除されません。"
+
+msgid "Every story names an apprentice. Deleting the apprentice does not delete their stories, and the story is then attached to nobody."
+msgstr "各記録は実習生を指しています。実習生を削除しても記録は消えず、その記録は誰にも紐づかなくなります。"
+
+msgid "Everything needed to leave is on file in one trail."
+msgstr "出発に必要なものが、一つの系列にまとめて記録されます。"
+
+msgid "Everything, including the flags the reports count."
+msgstr "レポートが数える印を含め、すべてを扱えます。"
+
+msgid "Everything, including the master list of required documents."
+msgstr "必要書類のマスタ一覧を含め、すべてを扱えます。"
+
+msgid "Everything, including the master list of results."
+msgstr "結果のマスタ一覧を含め、すべてを扱えます。"
+
+msgid "Examination at the clinic"
+msgstr "医療機関での検査"
+
+msgid "Family Stories"
+msgstr "家族の記録"
+
+msgid "Family story recorded"
+msgstr "家族の記録を作成"
+
+msgid "File uploaded"
+msgstr "ファイルをアップロード"
+
+msgid "Fill the application date on the day the papers go to the consulate."
+msgstr "書類を領事館に出した日に、申請日を入力します。"
+
+msgid "Fill the received date on the day the physical passport arrives, and the paid date when the fee is settled."
+msgstr "旅券の現物が届いた日に受領日を、費用が精算された日に支払日を入力します。"
+
+msgid "Filter by apprentice when you are preparing one person, or by document when you are collecting one paper from everybody."
+msgstr "一人分を準備しているときは実習生で、全員から一つの書類を集めているときは書類で絞り込みます。"
+
+msgid "Flights hang off a ticket, and apprentice tickets are kept in their own database, separate from the trainee ticketing used earlier in the pipeline. The two are not the same list."
+msgstr "フライトは航空券にぶら下がります。実習生の航空券は専用のデータベースに保管され、工程の前段で使う研修生の発券とは別です。二つは同じ一覧ではありません。"
+
+msgid "Gather the departure papers"
+msgstr "出発書類を揃える"
+
+msgid "Going to Japan takes two separate permissions in a fixed order. The acceptance organization applies in Japan for a certificate of eligibility, which is the Japanese side saying the person may come; only then can a visa be applied for at the consulate here, which is the permission to travel. This register keeps the dates of both against the apprentice, plus the type of certificate and where the visa was issued, so the gap between \"the certificate arrived\" and \"the visa arrived\" is visible while it matters."
+msgstr "日本へ渡るには、決まった順序で二つの許可が要ります。受入機関が日本で在留資格認定証明書を申請します。これは日本側が来てよいと述べるものです。その後にはじめて、こちらの領事館でビザを申請できます。これは渡航の許可です。この台帳は両方の日付を実習生ごとに保ち、証明書の種別とビザの発給地も記録します。「証明書が届いた」と「ビザが届いた」のあいだの空きが、まだ手を打てるうちに見えるようにするためです。"
+
+msgid "If you cannot keep the date current, the numbers are worse than no numbers."
+msgstr "日付を最新に保てないのであれば、その数字は無いよりも悪いものになります。"
+
+msgid "In Japan: stories recorded"
+msgstr "日本滞在中、記録を残す"
+
+msgid "Keep it current"
+msgstr "最新に保つ"
+
+msgid "Keep the history while they are there"
+msgstr "滞在中の履歴を残す"
+
+msgid "Leg 1 recorded"
+msgstr "区間1を記録"
+
+msgid "Leg 2 recorded, if any"
+msgstr "区間2があれば記録"
+
+msgid "Lesson read by the next intake"
+msgstr "次の期が教訓を読む"
+
+msgid "MCU Results"
+msgstr "健康診断の結果"
+
+msgid "Maintains the rows by hand."
+msgstr "行を手作業で維持します。"
+
+msgid "Mark when it reached us"
+msgstr "手元に届いた日を記す"
+
+msgid "Move the status as it changes"
+msgstr "状態が変わったら移す"
+
+msgid "Narrow to what you are working on"
+msgstr "いま扱っている範囲に絞る"
+
+msgid "Nothing compares the times for you. Two legs that overlap, or a connection of fifteen minutes, will be saved without a word."
+msgstr "時刻を突き合わせてくれる仕組みはありません。重なり合う二区間も、十五分の乗り継ぎも、何も言われずに保存されます。"
+
+msgid "Nothing else in the application reads these figures. No report, no other dashboard, no export. They are here for a person to look at, and nowhere else."
+msgstr "アプリケーションの他のどこも、この数値を読んでいません。レポートも、他のダッシュボードも、エクスポートもです。人が見るためだけに、ここにあります。"
+
+msgid "Nothing else in the departure chain can start without a passport: the certificate of eligibility is applied for against a passport, and the visa is stamped into it. This register keeps four dates for each apprentice - issued, issued where, received by us, and paid - so the question \"are we waiting on the passport, or on the payment?\" has an answer on the screen rather than in somebody's memory."
+msgstr "旅券なしには、出発に向けたどの手続きも始まりません。在留資格認定証明書は旅券に対して申請され、ビザはその旅券に貼られます。この台帳は実習生ごとに四つの日付を保ちます。発給日、発給地、当方での受領日、支払日です。「待っているのは旅券か、それとも支払いか」という問いに、誰かの記憶ではなく画面が答えられるようにするためです。"
+
+msgid "Nothing here checks the passport against its expiry, and no expiry date is stored. A passport that runs out before the apprenticeship ends will not be flagged by this page."
+msgstr "ここには有効期限を照合する仕組みがなく、期限そのものも保存されません。実習が終わる前に切れる旅券を、このページが知らせることはありません。"
+
+msgid "Nothing is derived from a story. Recording a serious problem does not raise a flag anywhere else, so anything that needs action needs somebody told as well."
+msgstr "記録から何かが導かれることはありません。重大な問題を書いても、他のどこにも印は立ちません。対応が要ることは、併せて誰かに伝える必要があります。"
+
+msgid "Nothing links a family story to the family list. A relative removed from the profile leaves the story standing on its own."
+msgstr "家族の記録と家族一覧を結ぶものはありません。プロフィールから家族を削除しても、記録は単独で残ります。"
+
+msgid "Nothing prevents two rows for the same apprentice and the same document. Where that happens the summary counts both."
+msgstr "同じ実習生・同じ書類で二行作ることを妨げるものはありません。そうなった場合、集計は両方を数えます。"
+
+msgid "Nothing stops two alumni rows for one apprentice, and the summary counts both."
+msgstr "一人の実習生にアルムナイの行を二つ作ることを妨げるものはなく、集計は両方を数えます。"
+
+msgid "Once an apprentice has left, the record stops being paperwork and starts being history. A story is one thing that happened and was worth keeping: the day it happened, what kind of problem it was, what actually occurred, what was done about it, and what it taught. The last of those is the reason the page exists - a problem that is written down once can be prepared for by every intake after this one, instead of being met again from scratch."
+msgstr "実習生が発った時点で、その記録は書類であることをやめ、履歴になります。一つの記録は、起きた出来事のうち残す価値のあるもの一件です。起きた日、問題の種類、実際に何が起きたか、どう対応したか、そして何を教えたかです。最後のものが、このページの存在理由です。一度書かれた問題は、次の期以降が毎回一から出会い直すのではなく、備えられるようになります。"
+
+msgid "One apprentice can be given several passport rows. Nothing prevents it, and nothing says which is the current one, so keep to one row per passport."
+msgstr "一人の実習生に旅券の行を複数作れます。止めるものも、どれが最新かを示すものもないため、旅券一冊につき一行にとどめてください。"
+
+msgid "One row per alumnus, holding what is true now."
+msgstr "アルムナイ一人につき一行で、いまの事実を保ちます。"
+
+msgid "One row per document per apprentice, holding the current truth."
+msgstr "実習生ごと・書類ごとに一行で、いまの事実を保ちます。"
+
+msgid "One table"
+msgstr "一つの表"
+
+msgid "Open the apprentice and check the profile that was copied, especially the name in katakana, the birth date and the passport name, because these go onto Japanese paperwork exactly as they are here."
+msgstr "実習生を開き、複写されたプロフィールを確認します。とくにカタカナの氏名、生年月日、旅券上の氏名です。これらはここにあるとおりの形で日本側の書類に載ります。"
+
+msgid "Passport issued"
+msgstr "旅券が発給される"
+
+msgid "Passport on file"
+msgstr "旅券が登録済み"
+
+msgid "Passport, COE and visa, MCU"
+msgstr "旅券、COEとビザ、健康診断"
+
+msgid "Passport, certificate of eligibility and visa, medical check-up, and the submitted documents are each kept in their own register, all pointing back at this apprentice."
+msgstr "旅券、在留資格認定証明書とビザ、健康診断、そして提出書類は、それぞれ専用の台帳に保たれ、いずれもこの実習生を指しています。"
+
+msgid "Pick the result from the master list and attach the scan. Put anything the result does not cover in the comment."
+msgstr "結果をマスタ一覧から選び、スキャンを添付します。結果で表せないことは所見に書きます。"
+
+msgid "Progress across the whole group is visible even while you work on one person."
+msgstr "一人分の作業中でも、全体の進み具合が見えます。"
+
+msgid "Promotes trainees into this register from the trainee side."
+msgstr "研修生側から、この台帳へ昇格させます。"
+
+msgid "Promotion copies the profile as it stood on that day. A correction made on the trainee afterwards does not follow the person across - make it here instead."
+msgstr "昇格は、その日の時点のプロフィールを複写します。後から研修生側で直しても、その人物とともに渡ってはいきません。ここで直してください。"
+
+msgid "Promotion happens on the trainee page, not here. A new apprentice row is written with the profile copied and a check that the same trainee was not promoted twice."
+msgstr "昇格は研修生のページで行い、ここでは行いません。プロフィールを複写した実習生の行が新たに書かれ、同じ研修生が二重に昇格していないかも確かめられます。"
+
+msgid "Re-uploading against the same document replaces the file on the existing row rather than adding a second one."
+msgstr "同じ書類に再アップロードすると、二行目が増えるのではなく既存の行のファイルが置き換わります。"
+
+msgid "Read alongside the apprentice stories"
+msgstr "実習生の記録と併せて読む"
+
+msgid "Read by the departure paperwork"
+msgstr "出発書類の一部として読まれる"
+
+msgid "Read by whoever opens this page"
+msgstr "このページを開いた人が読む"
+
+msgid "Read the copied profile"
+msgstr "複写されたプロフィールを読む"
+
+msgid "Read the pattern"
+msgstr "傾向を読む"
+
+msgid "Read the real figures off the document register, which counts by status across every row."
+msgstr "書類台帳から実際の数字を読み取ります。台帳は全行を状態ごとに集計します。"
+
+msgid "Read the status summary"
+msgstr "状態別の集計を読む"
+
+msgid "Read what is outstanding"
+msgstr "不足分を読む"
+
+msgid "Record each leg"
+msgstr "区間ごとに記録する"
+
+msgid "Record the certificate"
+msgstr "証明書を記録する"
+
+msgid "Record the departure"
+msgstr "出発を記録する"
+
+msgid "Record the event"
+msgstr "出来事を記録する"
+
+msgid "Record the examination"
+msgstr "検査を記録する"
+
+msgid "Record the passport"
+msgstr "旅券を記録する"
+
+msgid "Record the return"
+msgstr "帰国を記録する"
+
+msgid "Record the visa application"
+msgstr "ビザの申請を記録する"
+
+msgid "Record the visa itself"
+msgstr "ビザそのものを記録する"
+
+msgid "Record what they are doing"
+msgstr "いま何をしているかを記録する"
+
+msgid "Record what was done"
+msgstr "対応を記録する"
+
+msgid "Record what was done and what it taught"
+msgstr "対応と教訓を記録する"
+
+msgid "Recorded here"
+msgstr "ここに記録"
+
+msgid "Recording a departure changes nothing on the apprentice record. The flag the reports read as \"in Japan\" is not set here, or anywhere else automatically."
+msgstr "出発を記録しても、実習生のレコードは何も変わりません。レポートが「日本にいる」と読む印は、ここでも他のどこでも、自動では立ちません。"
+
+msgid "Recording a return does not mark the apprenticeship as completed on the apprentice record. The flag the reports read as \"completed\" is written by nothing at all, so an alumnus can exist while the completed count stays at zero."
+msgstr "帰国を記録しても、実習生の記録上で実習が修了扱いになるわけではありません。レポートが「修了」と読む印は、どこからも書かれていません。そのため、アルムナイが存在しても修了の件数はゼロのままになりえます。"
+
+msgid "Records check-ups and attaches the results."
+msgstr "健康診断を記録し、結果を添付します。"
+
+msgid "Records family events and what was done about them."
+msgstr "家族の出来事と、それへの対応を記録します。"
+
+msgid "Records passports and keeps the dates current."
+msgstr "旅券を記録し、日付を最新に保ちます。"
+
+msgid "Records returns and keeps the alumni status current."
+msgstr "帰国を記録し、アルムナイの状況を最新に保ちます。"
+
+msgid "Records the certificate and visa dates as they come in."
+msgstr "証明書とビザの日付を、届いた順に記録します。"
+
+msgid "Records the legs once the ticket is issued."
+msgstr "航空券が発券された後、各区間を記録します。"
+
+msgid "Result recorded here"
+msgstr "ここに結果を記録"
+
+msgid "Return recorded"
+msgstr "帰国を記録"
+
+msgid "Returned: alumni record"
+msgstr "帰国後、アルムナイの記録"
+
+msgid "Row per apprentice"
+msgstr "実習生ごとの行"
+
+msgid "Scan attached"
+msgstr "スキャンを添付"
+
+msgid "Something happens in Japan"
+msgstr "日本で何かが起きる"
+
+msgid "Status recorded"
+msgstr "状況を記録"
+
+msgid "Status set"
+msgstr "状態を設定"
+
+msgid "Status summary"
+msgstr "状態別の集計"
+
+msgid "Story List"
+msgstr "記録一覧"
+
+msgid "Story recorded"
+msgstr "記録を作成"
+
+msgid "Submission Documents page"
+msgstr "提出書類ページ"
+
+msgid "Submission Statuses"
+msgstr "提出の状態"
+
+msgid "The \"apprentice pass\" flag, which the reports show as \"completed\", is read in three places and written in none. Until something sets it, the completed count stays at zero however many people have finished."
+msgstr "レポートが「修了」として示す「実習生合格」の印は、三か所で読まれ、どこでも書かれていません。何かがこれを立てるまで、何人終えても修了の件数はゼロのままです。"
+
+msgid "The \"apprenticeship pass\" flag is written as 0 when the record is created, and nothing in the departure screens ever sets it. The reports read it as \"in Japan\", so that number only moves when somebody edits the apprentice by hand."
+msgstr "「実習合格」の印は、記録の作成時に0として書かれ、出発関連のどの画面もこれを立てません。レポートはこれを「日本にいる」と読むため、その数字が動くのは誰かが実習生を手で編集したときだけです。"
+
+msgid "The Document Register page is a second view over these same rows - the same table, reached by a different menu entry. A row added on either page appears on both, and deleting it on one deletes it on the other."
+msgstr "書類台帳ページは、この同じ行に対する二つ目の見え方です。表は同じで、たどり着くメニューが違うだけです。どちらのページで追加した行も両方に現れ、片方で削除すればもう片方からも消えます。"
+
+msgid "The Japanese side has said yes, and the date is on file."
+msgstr "日本側の了承が出たこと、そしてその日付が記録に残ります。"
+
+msgid "The Submission Documents page writes these same rows. Anything done there shows here immediately, and the other way round."
+msgstr "提出書類ページは、ここと同じ行に書き込みます。あちらでの操作はすぐここに現れ、その逆も同じです。"
+
+msgid "The alumnus is the same person as the apprentice, chosen by TMM code. Nothing on the apprentice record changes when an alumni row is added."
+msgstr "アルムナイは実習生と同一人物で、TMMコードで選びます。アルムナイの行を追加しても、実習生の記録は何も変わりません。"
+
+msgid "The apprentice has to be on file. Stories are chosen against the TMM code, not typed as a name."
+msgstr "実習生が登録済みである必要があります。記録はTMMコードで選び、名前を打ち込むのではありません。"
+
+msgid "The apprentice has to be on file; the story is recorded against the person, not against a named relative."
+msgstr "実習生が登録済みである必要があります。記録は本人に対して行い、特定の家族に対しては行いません。"
+
+msgid "The apprentice has to exist first, which happens by promotion from the trainee side."
+msgstr "まず実習生が存在している必要があり、それは研修生側からの昇格によって生まれます。"
+
+msgid "The apprentice has to exist; alumni are chosen from the apprentice register by TMM code."
+msgstr "実習生が存在している必要があります。アルムナイは実習生台帳からTMMコードで選びます。"
+
+msgid "The apprentice order says which acceptance organization the person is going to, and how many people that order is for."
+msgstr "実習生オーダーは、その人物がどの受入機関へ行くのか、そのオーダーが何名分かを示します。"
+
+msgid "The apprentice profile carries a \"holds a passport\" flag copied down from the candidate form. It is a statement the person made at application time, not a link to this register, and the two can disagree."
+msgstr "実習生のプロフィールには、候補者の申込書から複写された「旅券を持っている」という印があります。それは応募時の本人の申告であって、この台帳への参照ではありません。両者は食い違うことがあります。"
+
+msgid "The certificate of eligibility and the visa are recorded separately, but both assume the passport here already exists."
+msgstr "在留資格認定証明書とビザは別に記録されますが、どちらもここの旅券が既にあることを前提にしています。"
+
+msgid "The certificate of eligibility from Japan, and the visa issued against it."
+msgstr "日本から届く在留資格認定証明書と、それに基づいて発給されるビザです。"
+
+msgid "The certificate types are a master list, so the type on the record matches what the paper says."
+msgstr "証明書の種別はマスタ一覧です。記録上の種別が、書面の記載と一致します。"
+
+msgid "The check-up taken during selection is a separate record on the candidate, and is what decided whether they could be promoted at all."
+msgstr "選考時の健康診断は候補者側の別の記録であり、そもそも昇格できるかを決めたものです。"
+
+msgid "The clock on the consulate is visible, so a slow case can be chased."
+msgstr "領事館側で経過している時間が見えるため、遅い案件を催促できます。"
+
+msgid "The counts at the top are over every row, not over the filtered list."
+msgstr "上部の件数は絞り込み後ではなく、全行を対象にしています。"
+
+msgid "The document dashboard is meant to summarise readiness, but its totals are typed in by hand rather than counted from these rows."
+msgstr "書類ダッシュボードは準備状況をまとめるためのものですが、その合計はこれらの行から集計されたものではなく、手で入力されたものです。"
+
+msgid "The document is on file with its state, not just in a folder somewhere."
+msgstr "書類が、どこかのフォルダにあるだけでなく、状態とともに記録されます。"
+
+msgid "The documents an apprentice hands in before departure, and the state each one is in."
+msgstr "実習生が出発前に提出する書類と、それぞれの状態です。"
+
+msgid "The documents themselves live in the document register, and that is where the real state is."
+msgstr "書類そのものは書類台帳にあり、本当の状態はそちらにあります。"
+
+msgid "The event is on file against the apprentice it affects."
+msgstr "出来事が、影響を受ける実習生に紐づいて記録されます。"
+
+msgid "The event is on file against the person it happened to."
+msgstr "出来事が、それを経験した本人に紐づいて記録されます。"
+
+msgid "The examination is on file with the clinic that performed it."
+msgstr "検査が、実施した医療機関とともに記録されます。"
+
+msgid "The family members themselves were copied onto the apprentice at promotion, from the candidate record."
+msgstr "家族の情報そのものは、昇格時に候補者の記録から実習生へ複写されました。"
+
+msgid "The flight is the step that follows this one, and is the reason the visa date matters to anybody else."
+msgstr "次の段階がフライトであり、ビザの日付が他の人にとっても重要になる理由です。"
+
+msgid "The handling of the case is on file, not only the case."
+msgstr "出来事だけでなく、その処理の仕方も記録に残ります。"
+
+msgid "The health check an apprentice takes before leaving, and the result on file."
+msgstr "実習生が出発前に受ける健康診断と、記録される結果です。"
+
+msgid "The journey is on file."
+msgstr "旅程が記録に残ります。"
+
+msgid "The last record in the chain. When an apprentice comes home, one row here says when they returned and what became of them: employed, self-employed, still studying, not yet working, or something else. It is the only place the programme can answer what its people did afterwards - which is what a new candidate's family asks, and what a partner institution asks before sending anyone."
+msgstr "一連の記録の最後です。実習生が帰国すると、ここの一行が、いつ戻り、その後どうなったかを述べます。就業、自営、進学、未就業、その他です。この制度を通った人たちがその後どうしたかを答えられる場所は、ここだけです。それは新しい候補者の家族が尋ねることであり、送り出す前に提携機関が尋ねることでもあります。"
+
+msgid "The legs of the journey to Japan, recorded against the ticket that was bought."
+msgstr "日本までの各区間を、購入した航空券に紐づけて記録します。"
+
+msgid "The list counts stories by the exact wording of the classification, so reuse a wording that already exists rather than inventing a near-identical one."
+msgstr "一覧は分類の表記をそのまま突き合わせて数えます。ほとんど同じ言い回しを新たに作らず、既にある表記を再利用してください。"
+
+msgid "The list groups the stories by classification and counts them."
+msgstr "一覧は記録を分類ごとにまとめ、件数を数えます。"
+
+msgid "The list is the batch of work in front of you."
+msgstr "一覧が、目の前の作業のまとまりになります。"
+
+msgid "The list totals the documents by status, so the size of the queue is visible without opening anyone."
+msgstr "一覧は書類を状態ごとに合計するため、誰かを開かなくても行列の長さが見えます。"
+
+msgid "The next intake can be prepared for what this one met."
+msgstr "この期が出会ったことに、次の期が備えられるようになります。"
+
+msgid "The order this apprentice fills decides the acceptance organization shown on their record, and the order page counts how many of its places are filled."
+msgstr "この実習生が充てられるオーダーが、記録上の受入機関を決めます。オーダーのページは、その枠が何名埋まったかを数えます。"
+
+msgid "The passport has to be on file: the certificate is applied for against it and the visa is stamped into it."
+msgstr "旅券が登録済みである必要があります。証明書は旅券に対して申請され、ビザはその旅券に貼られます。"
+
+msgid "The passport is on file and the visa application can quote it."
+msgstr "旅券が記録され、ビザ申請でその内容を引用できます。"
+
+msgid "The people who finished training and are on their way to, or already in, Japan."
+msgstr "訓練を終え、日本へ向かっている、あるいは既に日本にいる人たちです。"
+
+msgid "The person exists as an apprentice, tied back to the trainee and the candidate they came from."
+msgstr "その人物が実習生として存在し、元の研修生と候補者に紐づきます。"
+
+msgid "The person may travel, and the ticket can be bought against a real date."
+msgstr "本人が渡航できるようになり、現実の日付に対して航空券を手配できます。"
+
+msgid "The profile that the documents will be written from is the correct one."
+msgstr "書類のもとになるプロフィールが、正しいものになります。"
+
+msgid "The programme can say what became of the people who went through it."
+msgstr "この制度を通った人たちがその後どうなったかを、制度の側が語れるようになります。"
+
+msgid "The programme knows the apprenticeship is over for this person."
+msgstr "その人物の実習が終わったことを、制度の側が把握します。"
+
+msgid "The reports count apprentices by two flags on this record: one for being in Japan, one for having completed the programme."
+msgstr "レポートはこの記録上の二つの印で実習生を数えます。日本にいることを示す印と、制度を修了したことを示す印です。"
+
+msgid "The reports show how many alumni rows exist, as the end of the pipeline funnel."
+msgstr "レポートは、工程全体の漏斗の末端として、アルムナイの行数を示します。"
+
+msgid "The required documents and the statuses are master lists, shared with the submission page."
+msgstr "必要書類と状態はマスタ一覧で、提出書類ページと共通です。"
+
+msgid "The result is a value the system can count, not a sentence somebody has to read."
+msgstr "結果が、人が読まねばならない文ではなく、システムが数えられる値になります。"
+
+msgid "The result values come from the shared master list, the same one the candidate check-ups use."
+msgstr "結果の値は共通のマスタ一覧に由来し、候補者の健康診断と同じものを使います。"
+
+msgid "The result values, and whether each one counts as fit, are maintained in one master list used by both the candidate and the apprentice check-ups."
+msgstr "結果の値と、それぞれが適合とみなされるかどうかは、候補者と実習生の双方の健康診断が使う一つのマスタ一覧で管理されます。"
+
+msgid "The row is keyed to a candidate, not to an apprentice, and it lives in the candidate document database rather than the apprentice one. On a page named for apprentices that is easy to read past, so check you are choosing the person you mean."
+msgstr "この行は実習生ではなく候補者に紐づいており、実習生側ではなく候補者書類のデータベースに置かれています。実習生の名を冠したページでは見落としやすいので、意図した人物を選んでいるか確認してください。"
+
+msgid "The same documents as the submission page, listed with filters and a status summary."
+msgstr "提出書類ページと同じ書類を、絞り込みと状態別の集計付きで一覧にしたものです。"
+
+msgid "The statuses a document can be in are a master list too, so the summary counts can be trusted."
+msgstr "書類が取りうる状態もマスタ一覧です。だからこそ集計の数字を信用できます。"
+
+msgid "The story names the apprentice, not the relative. Which family member it concerns has to be said in the text."
+msgstr "記録が指すのは実習生であって家族ではありません。どの家族についてかは、本文中で述べる必要があります。"
+
+msgid "The summary ignores the filters on purpose. A filtered list with an unchanged total is not a bug."
+msgstr "この集計は意図的に絞り込みを無視します。絞り込んでも合計が変わらないのは不具合ではありません。"
+
+msgid "The three dates are plain dates with nothing enforcing their order. A visa recorded as received before it was applied for will be saved without complaint."
+msgstr "三つの日付はただの日付で、順序を守らせる仕組みはありません。申請より前に受領したビザも、何も言われずに保存されます。"
+
+msgid "The ticket and the flight legs are recorded, so the day and the route are on file rather than in somebody's inbox."
+msgstr "航空券と各区間を記録します。日付と経路が、誰かの受信箱ではなく記録に残ります。"
+
+msgid "The two dates are independent: a passport can be paid for and not yet received, or received and not yet paid."
+msgstr "二つの日付は独立しています。支払済みで未受領のことも、受領済みで未払いのこともあります。"
+
+msgid "The two pages show different columns for the same row. A field you cannot see on one of them is not empty - it is just not on that screen."
+msgstr "二つのページは、同じ行について別々の列を表示します。片方で見えない項目は空なのではなく、その画面に出ていないだけです。"
+
+msgid "The visa date is what makes a booking safe to make."
+msgstr "予約を安全に入れられるようにするのは、ビザの日付です。"
+
+msgid "The visa has to be in hand: the date on the ticket is only real once the person may actually travel."
+msgstr "ビザが手元にある必要があります。券面の日付が現実になるのは、本人が実際に渡航できるようになってからです。"
+
+msgid "The whole journey is on file and can be read at a glance."
+msgstr "旅程全体が記録され、一目で読み取れます。"
+
+msgid "The whole record is copied from the trainee at the moment of promotion. Nothing flows between the two afterwards, in either direction."
+msgstr "記録全体は、昇格の時点で研修生から複写されます。その後は両者のあいだを、どちら向きにも何も流れません。"
+
+msgid "They arrive by promotion"
+msgstr "昇格によって現れる"
+
+msgid "This page and the Submission Documents page read and write the same table. They are not two registers that need reconciling: they are two doors into one. What this one adds is the working view - filter by apprentice, by document or by status, and a count per status across everything, so the question \"how much is left\" is answered at the top of the page rather than by scrolling."
+msgstr "このページと提出書類ページは、同じ表を読み書きします。突き合わせが必要な二つの台帳ではなく、一つの台帳への二つの入口です。こちらが加えているのは作業用の見え方です。実習生別・書類別・状態別に絞り込め、全体の状態別件数も出るため、「あと何件か」という問いがスクロールではなくページ上部で答えられます。"
+
+msgid "This page holds one row per person with four numbers on it: how many documents there are in total, how many are ready, how many are pending and how many are missing, plus the date the row was last brought up to date. It is worth knowing before you use it that these numbers are typed in, not counted. Nothing in the application recalculates them when a document is uploaded or a status changes, so the row says what it said the last time somebody edited it."
+msgstr "このページは一人につき一行を持ち、そこに四つの数字が入ります。書類の総数、準備済みの数、保留中の数、未提出の数、そしてその行を最後に更新した日付です。使う前に知っておくべきことがあります。これらの数字は集計されたものではなく、手で入力されたものです。書類がアップロードされても状態が変わっても、アプリケーションはこれを再計算しません。つまりこの行は、誰かが最後に編集したときの内容を述べているだけです。"
+
+msgid "Ticket and flight"
+msgstr "航空券とフライト"
+
+msgid "Ticket and flight booked"
+msgstr "航空券とフライトを手配"
+
+msgid "Ticket issued"
+msgstr "航空券発券"
+
+msgid "Totals typed here"
+msgstr "ここに合計を入力"
+
+msgid "Trainee promoted"
+msgstr "研修生が昇格"
+
+msgid "Uploading a document or changing its status does not touch these totals. Nothing writes to this table except this form."
+msgstr "書類をアップロードしても状態を変えても、この合計には触れません。この表に書き込むのはこのフォームだけです。"
+
+msgid "Uploads documents, sets their status and chases what is missing."
+msgstr "書類をアップロードし、状態を設定し、不足分を催促します。"
+
+msgid "Visa applied for"
+msgstr "ビザを申請"
+
+msgid "Visa received"
+msgstr "ビザ受領"
+
+msgid "Visa stamped into it"
+msgstr "ビザが貼られる"
+
+msgid "What happened to an apprentice in Japan, written down while it is still fresh."
+msgstr "日本で実習生の身に起きたことを、記憶が新しいうちに書き留めたものです。"
+
+msgid "What happened to the apprentice themselves is the companion register, in the same shape."
+msgstr "実習生本人に起きたことは、同じ形をした対になる台帳にあります。"
+
+msgid "What happened to the family at home while the apprentice was away."
+msgstr "実習生が留守の間に、家族の身に起きたことです。"
+
+msgid "What happens to the family at home while the apprentice is away is kept in its own register, in the same shape as this one."
+msgstr "実習生が留守の間に家族に起きたことは、これと同じ形の専用の台帳に保たれます。"
+
+msgid "When the certificate of eligibility arrives from Japan, record its type and the date it was received."
+msgstr "在留資格認定証明書が日本から届いたら、その種別と受領日を記録します。"
+
+msgid "When the passport was issued, where, when it reached us and when it was paid for."
+msgstr "旅券がいつどこで発給され、いつ手元に届き、いつ支払われたかです。"
+
+msgid "When the visa comes back, record the date received and the place it was issued."
+msgstr "ビザが戻ってきたら、受領日と発給地を記録します。"
+
+msgid "When they come home, record the return date and what they are doing now."
+msgstr "帰国したら、帰国日といま何をしているかを記録します。"
+
+msgid "When you hear that someone has changed job, edit the row rather than adding a second one."
+msgstr "転職したと聞いたら、二行目を作らずその行を編集します。"
+
+msgid "Where several check-ups exist for one apprentice, nothing marks which is the current one. The list is ordered by when it was entered, not by the date of the examination."
+msgstr "一人の実習生に複数の検査がある場合、どれが最新かを示す印はありません。一覧は検査日ではなく、入力された順に並びます。"
+
+msgid "Which documents are required is a master list. A document not on that list cannot be recorded against anyone."
+msgstr "どの書類が必要かはマスタ一覧です。その一覧に無い書類は、誰に対しても記録できません。"
+
+msgid "Who the family are is recorded on the apprentice profile, copied down from the candidate form."
+msgstr "家族の構成は実習生のプロフィールに記録されており、候補者の申込書から複写されたものです。"
+
+msgid "With both legs entered, compare the arrival time of the first against the departure of the second."
+msgstr "両方の区間を入力したら、最初の到着時刻と次の出発時刻を見比べます。"
+
+msgid "Write down what happened"
+msgstr "起きたことを書き留める"
+
+msgid "Write them down here"
+msgstr "ここに書き写す"
+
+msgid "Writes stories and keeps the classifications consistent."
+msgstr "記録を書き、分類の表記を揃えます。"
+
+msgid "You have the numbers this page is supposed to hold."
+msgstr "このページが本来持つべき数字が手元にあります。"
+
+msgid "by hand"
+msgstr "手作業で"
