@@ -129,4 +129,24 @@ class LpkPhysicalTestsController extends AppController
 
         $this->set(compact('candidate', 'viewOnly'));
     }
+
+    /**
+     * The guide behind the "?" button.
+     *
+     * The query parameter is handled here rather than by Users::changeLanguage
+     * so the switcher on the guide works the same way it does on every other
+     * guide page.
+     *
+     * @return \Cake\Http\Response|null
+     */
+    public function processFlow()
+    {
+        if ($lang = $this->request->getQuery('lang')) {
+            if (in_array($lang, ['ind', 'eng', 'jpn'], true)) {
+                $this->request->getSession()->write('Config.language', $lang);
+
+                return $this->redirect(['action' => 'processFlow']);
+            }
+        }
+    }
 }

@@ -216,3 +216,5 @@
 })();
 </script>
 <?php endif; ?>
+
+<?= $this->element('process_flow_help') ?>

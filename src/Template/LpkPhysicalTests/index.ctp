@@ -139,3 +139,5 @@ document.getElementById('pftSearch').addEventListener('input', function () {
     });
 });
 </script>
+
+<?= $this->element('process_flow_help') ?>

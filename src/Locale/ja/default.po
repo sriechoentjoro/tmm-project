@@ -14730,3 +14730,578 @@ msgstr "機関自身"
 
 msgid "yes"
 msgstr "はい"
+
+# ── Page guides: candidate phase ─────────────────────────
+
+msgid "2.4 km run, max 30 pts"
+msgstr "2.4km走・最大30点"
+
+msgid "A candidate is a person an institution has found in answer to an apprentice order. This screen is where their profile is built up and where three kinds of result accumulate against them: a physical test score, an interview score from the accepting company, and a medical check-up. When those are in, recruitment decides who goes forward, and a candidate who goes forward becomes a trainee - the same person, carried over with their whole profile, into the training phase."
+msgstr "候補者とは、実習生オーダーに応えてLPKが見つけた人です。この画面でその人のプロフィールが組み上げられ、三種類の結果が積み重なります。体力測定の点数、受入企業による面接の点数、そして健康診断です。これらが揃うと採用側が次へ進む人を決め、進んだ候補者は研修生になります。同じ人物が、プロフィールごと訓練フェーズへ引き継がれます。"
+
+msgid "A candidate is proposed against an order that was shared with the institution. Without a shared order there is nothing to recruit for."
+msgstr "候補者は、その機関に共有されたオーダーに対して提案されます。共有されたオーダーがなければ、募集する対象もありません。"
+
+msgid "A candidate who is ready shows three filled columns; one who is not shows where the gap is."
+msgstr "準備ができた候補者は三つの列が埋まっており、そうでない候補者はどこが欠けているかが見えます。"
+
+msgid "A candidate with no check-up is visibly different from one who passed."
+msgstr "健診を受けていない候補者は、合格した候補者と一目で区別がつきます。"
+
+msgid "A medical check-up is recorded against the candidate with its result and its score. Unlike the physical test and the interview, it is kept as its own record rather than written onto the candidate: one candidate can have several, and the scoring board averages them."
+msgstr "健康診断は、結果と点数とともに候補者に紐づけて記録されます。体力測定や面接と異なり、候補者本体に書き込むのではなく独立した記録として保持されます。一人が複数回持つことができ、採点ボードではそれを平均します。"
+
+msgid "A recommendation of reserved is not a rejection, and nothing in the system turns it into one. Someone has to decide."
+msgstr "「保留」は不合格ではなく、システムがそれを不合格に変えることもありません。誰かが判断する必要があります。"
+
+msgid "A score of zero and no test at all look the same on the list. Leave a candidate untested rather than entering zeros to fill the column."
+msgstr "0点と未実施は一覧上で見分けがつきません。列を埋めるために0を入力するくらいなら、未実施のままにしてください。"
+
+msgid "A second interview for the same candidate overwrites the figures mirrored onto them, although both interview records are kept. The candidate screen therefore shows the latest, not the best."
+msgstr "同じ候補者に二度目の面接を行うと、候補者側に写された数値は上書きされます。面接記録自体は両方残りますが、候補者画面に出るのは最新であって最良ではありません。"
+
+msgid "AO interview"
+msgstr "受入企業面接"
+
+msgid "Adaptability"
+msgstr "適応力"
+
+msgid "An apprentice order is a Japanese company asking for a number of apprentices: which job, how many men and women, when they should depart, and what else is required of them. Nothing in recruitment happens before one exists. Once it does, you share it with the partner institutions that should go looking, and each of them receives it by email."
+msgstr "実習生オーダーとは、日本の企業が実習生を求める依頼です。職種、男女の人数、出発時期、その他の条件が記されます。オーダーがなければ採用活動は何も始まりません。作成したら、探すべき提携機関に共有し、各機関がメールで受け取ります。"
+
+msgid "An average of one check-up is that one check-up. Read the count beside it before trusting the number."
+msgstr "1件だけの平均は、その1件そのものです。数値を信じる前に、隣の件数を確認してください。"
+
+msgid "An empty column is filled on the screen that owns it, not here."
+msgstr "空の列は、その列を持つ画面で埋めます。ここでは入力できません。"
+
+msgid "An institution answers an order by registering candidates against it, which is how recruitment work reaches the candidate screens."
+msgstr "機関はオーダーに対して候補者を登録することで応えます。そうして採用活動が候補者画面に現れます。"
+
+msgid "An interview is scored on five things - politeness, communication, motivation, adaptability and technical ability - and ends with a recommendation. The five make an overall score out of a hundred, and both the score and the recommendation are written onto the candidate so the promotion screen can show them without anyone retyping."
+msgstr "面接は五つの観点 — 礼儀、コミュニケーション、意欲、適応力、技術力 — で採点し、最後に推薦区分を付けます。五つから100点満点の総合点が出て、点数と推薦区分の両方が候補者に書き込まれるため、昇格画面では誰も入力し直す必要がありません。"
+
+msgid "An order names the company that will accept the apprentices. It has to exist too."
+msgstr "オーダーには実習生を受け入れる企業を記載します。これも事前に登録が必要です。"
+
+msgid "An order names the cooperative that will supervise it. It has to exist before the order can be raised."
+msgstr "オーダーには監理する協同組合を記載します。オーダー作成前に登録されている必要があります。"
+
+msgid "An overall score out of 100 is computed and the interview record is saved."
+msgstr "100点満点の総合点が計算され、面接記録が保存されます。"
+
+msgid "Attach the file against the candidate and the document it satisfies."
+msgstr "候補者と、その書類が満たす項目に対してファイルを添付します。"
+
+msgid "Averaged on the scoring board"
+msgstr "採点ボードで平均化"
+
+msgid "Candidate Interviews"
+msgstr "候補者面接"
+
+msgid "Candidate Medical Check-Ups"
+msgstr "候補者の健康診断"
+
+msgid "Candidate Scoring Board"
+msgstr "候補者採点ボード"
+
+msgid "Candidate counts by state feed the dashboards and the recruitment reports."
+msgstr "状態別の候補者数は、ダッシュボードと採用レポートの元になります。"
+
+msgid "Candidate scoring board"
+msgstr "候補者採点ボード"
+
+msgid "Check-up recorded"
+msgstr "健診を記録"
+
+msgid "Checklist per candidate"
+msgstr "候補者ごとのチェックリスト"
+
+msgid "Checks completeness before promoting."
+msgstr "昇格の前に書類の充足を確認します。"
+
+msgid "Choose one institution, several, or all of them. Sharing is deliberate and selective - an order is not broadcast on its own."
+msgstr "機関を一つ、複数、あるいは全部から選びます。共有は意図的かつ選択的で、オーダーが勝手に配信されることはありません。"
+
+msgid "Collect the documents"
+msgstr "書類を集める"
+
+msgid "Communication"
+msgstr "コミュニケーション"
+
+msgid "Completeness counts documents, not their quality. A blurred photograph of the right document counts as present."
+msgstr "充足率は書類の枚数を数えるもので、品質は見ません。ぼやけた写真でも、正しい書類であれば「提出済み」と数えられます。"
+
+msgid "Completeness on the promotion screen"
+msgstr "昇格画面での充足率"
+
+msgid "Cooperative + accepting company on file"
+msgstr "協同組合と受入企業を登録"
+
+msgid "Counts above the cap earn nothing extra. Forty-five push-ups score the same forty points as forty."
+msgstr "上限を超えた回数は加点されません。腕立て45回も40回も同じ40点です。"
+
+msgid "Document checklist"
+msgstr "書類チェックリスト"
+
+msgid "Document completeness becomes visible, and it is shown again on the promotion screen."
+msgstr "書類の充足状況が見えるようになり、昇格画面でも再び表示されます。"
+
+msgid "Documents do not follow a candidate into the trainee phase - trainee documents are collected separately."
+msgstr "書類は研修生フェーズには引き継がれません。研修生の書類は別途収集します。"
+
+msgid "Each chosen institution is recorded as a share and receives the apprentice_order_shared email at its registered address. From that moment it can start proposing candidates against this order."
+msgstr "選ばれた各機関は共有として記録され、登録済みのアドレスに apprentice_order_shared のメールが届きます。その時点から、この オーダーに対して候補者を提案できます。"
+
+msgid "Email to each LPK"
+msgstr "各LPKへメール"
+
+msgid "Enter the date, the result and the final score from the examining clinic."
+msgstr "受診日、結果、検査機関が出した最終点数を入力します。"
+
+msgid "Enter the person: identity, family, education, experience, certifications and courses. The wizard walks through it in order; the plain form is there when you already know what you are doing."
+msgstr "本人の情報を入力します。身元、家族、学歴、職歴、資格、講習。ウィザードは順を追って案内し、通常のフォームは勝手が分かっている人のためにあります。"
+
+msgid "Enter what was measured"
+msgstr "測定した値を入力する"
+
+msgid "Everything, without restriction."
+msgstr "制限なくすべて。"
+
+msgid "Everything."
+msgstr "すべて。"
+
+msgid "Fill the gaps at their source"
+msgstr "欠けている箇所は元の画面で埋める"
+
+msgid "Fitness comes from the physical test, the interview count and result from the interview records, the medical count and average from the check-ups."
+msgstr "体力は体力測定から、面接の件数と結果は面接記録から、健診の件数と平均は健康診断の記録から来ています。"
+
+msgid "Fitness score /100"
+msgstr "体力点 /100"
+
+msgid "Give each of politeness, communication, motivation, adaptability and technical ability its score, and write what was actually said in the comments. The comments are the part a later reader learns from; the numbers only rank."
+msgstr "礼儀、コミュニケーション、意欲、適応力、技術力にそれぞれ点数を付け、実際にどうだったかをコメント欄に書きます。後から読む人が学ぶのはコメントの方で、数字は順位をつけるだけです。"
+
+msgid "Give the recommendation"
+msgstr "推薦区分を付ける"
+
+msgid "How the score is reached"
+msgstr "点数の出し方"
+
+msgid "Institutions answer by registering candidates. The candidate list is where the answers arrive."
+msgstr "機関は候補者を登録することで応えます。その答えが届く場所が候補者一覧です。"
+
+msgid "LPK recruits and registers candidates"
+msgstr "LPKが募集し候補者を登録"
+
+msgid "LPK registers the candidate"
+msgstr "LPKが候補者を登録"
+
+msgid "Let it reach the candidate"
+msgstr "候補者に反映される"
+
+msgid "Medical check-up"
+msgstr "健康診断"
+
+msgid "Medical check-ups"
+msgstr "健康診断"
+
+msgid "Mirrored onto the candidate"
+msgstr "候補者へ反映"
+
+msgid "Motivation"
+msgstr "意欲"
+
+msgid "New Medical Check-Up"
+msgstr "健康診断の新規登録"
+
+msgid "Only institutions that finished registration can be shared an order. Check the register first if the one you want is not offered."
+msgstr "オーダーを共有できるのは登録を完了した機関だけです。目当ての機関が出てこない場合は、まず登録簿を確認してください。"
+
+msgid "Open the candidate to be scored"
+msgstr "採点する候補者を開く"
+
+msgid "Order raised"
+msgstr "オーダー作成"
+
+msgid "Order shared with the LPK"
+msgstr "オーダーをLPKへ共有"
+
+msgid "Overall /100"
+msgstr "総合 /100"
+
+msgid "Pass, reserved or fail. Reserved is the honest middle when the answer is not yet no."
+msgstr "合格、保留、不合格。まだ「いいえ」ではないときの正直な中間が「保留」です。"
+
+msgid "Physical test"
+msgstr "体力測定"
+
+msgid "Politeness"
+msgstr "礼儀"
+
+msgid "Promote to trainee"
+msgstr "研修生へ昇格させる"
+
+msgid "Promoting a candidate with no physical score is possible, but the promotion records a remark saying the score was missing."
+msgstr "体力点がない候補者でも昇格は可能ですが、点数が欠けている旨が備考として記録されます。"
+
+msgid "Promoting is refused for anyone who is already a trainee, so a double click cannot create two of the same person."
+msgstr "すでに研修生になっている人の昇格は拒否されるため、二度押しで同じ人が二人になることはありません。"
+
+msgid "Promotion copies the profile as it stands. Anything corrected on the candidate afterwards does not follow the trainee across - correct it on the trainee instead."
+msgstr "昇格はその時点のプロフィールを複写します。その後に候補者側を直しても研修生には反映されないため、研修生側で修正してください。"
+
+msgid "Promotion creates the trainee. From that point the person is worked on in the training screens, and the candidate record becomes history."
+msgstr "昇格によって研修生が作成されます。以降その人物は訓練側の画面で扱われ、候補者レコードは履歴になります。"
+
+msgid "Promotion shows this score beside the physical one, and records a remark if it is missing."
+msgstr "昇格画面ではこの点数が体力点の隣に表示され、欠けている場合は備考が記録されます。"
+
+msgid "Push-ups and sit-ups as counts, the 2.4 km run as minutes and seconds. Enter what happened; do not convert anything yourself."
+msgstr "腕立てと腹筋は回数、2.4km走は分と秒で入力します。実際の値をそのまま入力し、自分で換算しないでください。"
+
+msgid "Push-ups count one point each up to 40. Sit-ups count one point each up to 30. The run is worth 30 points at 10 minutes or under, then 25, 20, 15 and 10 as it passes 11, 12, 13 and 14 minutes, and 5 beyond that."
+msgstr "腕立ては1回1点で40点まで、腹筋は1回1点で30点まで。走は10分以内で30点、11分・12分・13分・14分を超えるごとに25点・20点・15点・10点となり、それ以上は5点です。"
+
+msgid "Push-ups, max 40 pts"
+msgstr "腕立て・最大40点"
+
+msgid "Push-ups, sit-ups and a run, turned into one score out of a hundred."
+msgstr "腕立て・腹筋・持久走を、100点満点の一つの点数にまとめます。"
+
+msgid "Raise the order"
+msgstr "オーダーを作成する"
+
+msgid "Raises an order, shares it with institutions, withdraws a share."
+msgstr "オーダーの作成、機関への共有、共有の取り消しを行います。"
+
+msgid "Re-uploading a document a candidate already submitted replaces the existing record rather than adding a second one."
+msgstr "候補者がすでに提出した書類を再アップロードすると、二件目が増えるのではなく既存の記録が置き換わります。"
+
+msgid "Read on the promotion screen"
+msgstr "昇格画面で参照"
+
+msgid "Read the checklist"
+msgstr "チェックリストを読む"
+
+msgid "Read the three columns together"
+msgstr "三つの列をまとめて読む"
+
+msgid "Read when selecting"
+msgstr "選考時に参照"
+
+msgid "Reads every candidate, records interview results, and promotes candidates to trainee."
+msgstr "すべての候補者を閲覧し、面接結果を記録し、候補者を研修生へ昇格させます。"
+
+msgid "Reads every institution, which is the point: it is the comparison view before promotion."
+msgstr "すべての機関を横断して閲覧できます。それが狙いで、昇格前の比較用の画面です。"
+
+msgid "Reads orders. The add, edit, delete, share and withdraw actions are refused in the controller, so the restriction holds even for a hand-typed address."
+msgstr "オーダーの閲覧のみ。追加・編集・削除・共有・取り消しはコントローラー側で拒否されるため、URLを手入力しても制限は保たれます。"
+
+msgid "Reads the scores but cannot change them. The screen refuses the save, not just hides the button."
+msgstr "点数の閲覧はできますが変更はできません。ボタンを隠すだけでなく、画面が保存自体を拒否します。"
+
+msgid "Reads them when deciding who goes forward."
+msgstr "次に進む人を決める際に参照します。"
+
+msgid "Recommendation: pass / reserved / fail"
+msgstr "推薦区分：合格／保留／不合格"
+
+msgid "Record the check-up"
+msgstr "健診を記録する"
+
+msgid "Record the job category, how many men and women are wanted, the departure month and year, and any other requirement the company has set. Those are the fields the email to the institutions is built from, so what you write here is what they will read."
+msgstr "職種、希望する男女それぞれの人数、出発の年月、企業が定めたその他の条件を記入します。機関へのメールはこれらの項目から組み立てられるため、ここに書いた内容がそのまま相手に読まれます。"
+
+msgid "Record the three results"
+msgstr "三つの結果を記録する"
+
+msgid "Records check-ups for its own candidates."
+msgstr "自機関の候補者について健診を記録します。"
+
+msgid "Records the interview on behalf of the accepting company."
+msgstr "受入企業に代わって面接を記録します。"
+
+msgid "Recruitment can see who has been proposed, by which institution, against which order."
+msgstr "誰が、どの機関から、どのオーダーに対して提案されたかを採用側が確認できます。"
+
+msgid "Recruitment promotes"
+msgstr "採用側が昇格させる"
+
+msgid "Recruitment staff"
+msgstr "採用担当"
+
+msgid "Recruitment staff or the institution"
+msgstr "採用担当または機関"
+
+msgid "Recruitment staff, or an administrator"
+msgstr "採用担当、または管理者"
+
+msgid "Register the candidate"
+msgstr "候補者を登録する"
+
+msgid "Registers and maintains its own candidates. It sees only its own; the filter is applied in the controller."
+msgstr "自機関の候補者を登録・管理します。見えるのは自機関のものだけで、絞り込みはコントローラー側で行われます。"
+
+msgid "Required document list"
+msgstr "必要書類の一覧"
+
+msgid "Required documents"
+msgstr "必要書類"
+
+msgid "Score the five parts"
+msgstr "五つの観点を採点する"
+
+msgid "Scores any candidate."
+msgstr "どの候補者でも採点できます。"
+
+msgid "Scores its own candidates only. A candidate from another institution is refused even if the address is typed by hand."
+msgstr "採点できるのは自機関の候補者のみです。他機関の候補者は、URLを手入力しても拒否されます。"
+
+msgid "Scoring again overwrites the previous result. There is no history of earlier attempts, so if a re-test matters, note it somewhere before saving."
+msgstr "再採点すると前の結果は上書きされます。過去の記録は残らないため、再測定に意味がある場合は保存前にどこかに控えてください。"
+
+msgid "Scoring board"
+msgstr "採点ボード"
+
+msgid "See it counted"
+msgstr "集計に反映されるのを見る"
+
+msgid "Sees its own candidates only."
+msgstr "自機関の候補者のみが見えます。"
+
+msgid "Sees the result for its own candidates."
+msgstr "自機関の候補者の結果を閲覧します。"
+
+msgid "Selection decision"
+msgstr "選考の判断"
+
+msgid "Selection needs paperwork as much as scores. This is where a candidate document is uploaded and where the checklist shows, per candidate, which of the required documents are in. Document completeness is one of the three things the promotion screen puts in front of recruitment."
+msgstr "選考には点数と同じだけ書類が必要です。ここで候補者の書類をアップロードし、チェックリストが候補者ごとにどの必要書類が揃っているかを示します。書類の充足率は、昇格画面が採用側に提示する三つの材料の一つです。"
+
+msgid "Several check-ups for one candidate are averaged, not replaced. A poor early result keeps pulling the average down after a later good one."
+msgstr "一人の候補者に複数の健診があれば平均され、置き換わりはしません。初回の悪い結果は、後で良い結果が出ても平均を下げ続けます。"
+
+msgid "Share it with the institutions"
+msgstr "機関に共有する"
+
+msgid "Share withdrawn, LPK told"
+msgstr "共有を取り消し、LPKへ通知"
+
+msgid "Shared with chosen LPKs"
+msgstr "選んだLPKへ共有"
+
+msgid "Sharing sends apprentice_order_shared and withdrawing sends apprentice_order_cancelled. Both are templates you can edit - the wording that reaches the institutions is not fixed in the code."
+msgstr "共有では apprentice_order_shared、取り消しでは apprentice_order_cancelled が送られます。どちらも編集可能なテンプレートで、機関に届く文面はコードに固定されていません。"
+
+msgid "Sharing the same order with an institution twice does not duplicate it - the existing share is reused and its details refreshed."
+msgstr "同じオーダーを同じ機関に二度共有しても重複しません。既存の共有が再利用され、内容が更新されます。"
+
+msgid "Sit-ups, max 30 pts"
+msgstr "腹筋・最大30点"
+
+msgid "Technical"
+msgstr "技術力"
+
+msgid "The MCU column on the promotion screen reads candidates.mcu_score, which nothing currently writes. Medical results are recorded, but that particular figure stays blank."
+msgstr "昇格画面のMCU列は candidates.mcu_score を読んでいますが、現在この項目には何も書き込まれていません。健診結果自体は記録されていても、この数値だけは空のままです。"
+
+msgid "The board fills in as the work is done."
+msgstr "作業が進むにつれてボードが埋まっていきます。"
+
+msgid "The candidate carries a fitness score, an interview score with a recommendation, and medical records."
+msgstr "候補者は体力点、推薦区分つきの面接点、そして健診記録を持つことになります。"
+
+msgid "The candidate exists and can be tested, interviewed and examined."
+msgstr "候補者が登録され、測定・面接・健診が可能になります。"
+
+msgid "The candidate has to be registered first - this screen scores people, it does not create them."
+msgstr "先に候補者が登録されている必要があります。この画面は採点するものであって、人を作るものではありません。"
+
+msgid "The candidate has to exist before a check-up can be recorded against them."
+msgstr "健診を記録するには、先に候補者が存在している必要があります。"
+
+msgid "The candidate must exist and, in practice, should have been physically tested first - the interview is the second of the three results."
+msgstr "候補者が存在している必要があり、実務上は体力測定を先に済ませておくべきです。面接は三つの結果のうち二番目にあたります。"
+
+msgid "The candidate record carries the interview result, so nothing needs to be entered twice."
+msgstr "面接結果は候補者レコードに保持されるため、二度入力する必要はありません。"
+
+msgid "The check-up is on file against that candidate."
+msgstr "その候補者に紐づけて健診が記録されます。"
+
+msgid "The checklist shows the required documents against what has arrived, one row per candidate."
+msgstr "チェックリストは必要書類と提出済みの書類を突き合わせ、候補者ごとに一行で表示します。"
+
+msgid "The document is on file and counts towards completeness."
+msgstr "書類が登録され、充足率に数えられます。"
+
+msgid "The email goes to the address the institution registered with. If it has changed address since, fix it on the register before sharing."
+msgstr "メールは機関が登録時に使ったアドレスに送られます。その後アドレスが変わっているなら、共有の前に登録簿を直してください。"
+
+msgid "The fitness column is written by the physical test screen."
+msgstr "体力の列は体力測定の画面が書き込みます。"
+
+msgid "The five sub-scores, the overall score, the notes and the recommendation are copied onto the candidate record."
+msgstr "五つの観点別の点数、総合点、所見、推薦区分が候補者レコードに複写されます。"
+
+msgid "The health record behind a selection decision."
+msgstr "選考判断の背後にある健康記録です。"
+
+msgid "The institution and recruitment"
+msgstr "機関と採用担当"
+
+msgid "The institution measures three things and the system does the arithmetic. What you enter are raw counts and a running time; what comes out is a fitness score written straight onto the candidate, where recruitment reads it when deciding who goes forward."
+msgstr "機関は三つを測り、計算はシステムが行います。入力するのは実測の回数と走破タイム、出てくるのは候補者に直接書き込まれる体力点です。採用側は次に進む人を決めるときにそれを読みます。"
+
+msgid "The institution or recruitment"
+msgstr "機関または採用担当"
+
+msgid "The institution receives the apprentice_order_cancelled email. Candidates it already proposed are not removed."
+msgstr "機関には apprentice_order_cancelled のメールが届きます。すでに提案済みの候補者が削除されることはありません。"
+
+msgid "The interview columns come from the interview records."
+msgstr "面接の列は面接記録から来ています。"
+
+msgid "The interview is readable from the candidate screens and from the promotion list."
+msgstr "面接の結果は候補者画面からも昇格一覧からも読めます。"
+
+msgid "The interview screen mirrors its five sub-scores, the overall result and the recommendation onto the candidate."
+msgstr "面接画面は、五つの観点別の点数・総合結果・推薦区分を候補者に反映します。"
+
+msgid "The list shows your candidates with the score each already has, so it is easy to see who has not been tested."
+msgstr "一覧には自機関の候補者と、それぞれがすでに持っている点数が表示されるため、未実施の人がすぐ分かります。"
+
+msgid "The medical columns are counted and averaged from the check-up records."
+msgstr "健診の列は、健康診断の記録から件数と平均を算出しています。"
+
+msgid "The order exists and can be shared."
+msgstr "オーダーが作成され、共有できる状態になります。"
+
+msgid "The people an institution proposes, and everything selection needs to decide about them."
+msgstr "機関が提案する人々と、その選考判断に必要なすべての情報です。"
+
+msgid "The person becomes a trainee with a new TMM code, and the training phase can begin. The candidate record stays where it is, marked as passed."
+msgstr "その人物は新しいTMMコードを持つ研修生になり、訓練フェーズが始まります。候補者レコードはそのまま残り、合格として記録されます。"
+
+msgid "The physical test is scored by the institution, the interview by recruitment on behalf of the accepting company, and the medical check-up is recorded as its own document. Each writes its score back onto the candidate so it can be read at a glance."
+msgstr "体力測定は機関が、面接は受入企業に代わって採用側が採点し、健康診断は独立した記録として残されます。いずれも点数を候補者に書き戻すため、一目で把握できます。"
+
+msgid "The physical test screen writes the fitness score straight onto the candidate, which is why it appears here without being typed twice."
+msgstr "体力測定の画面が体力点を候補者に直接書き込むため、二度入力しなくてもここに表示されます。"
+
+msgid "The promotion list only offers candidates whose is_candidate_pass flag is already 1. No screen in the application sets that flag except promotion itself, so unless it has been set in the database the list stays empty even when candidates are fully scored. If the screen looks empty while you can see scored candidates elsewhere, this is why - it is a known gap, not something you are doing wrong."
+msgstr "昇格一覧に出てくるのは is_candidate_pass が既に1の候補者だけです。このフラグを立てる画面は昇格処理そのもの以外に存在しないため、データベースで直接設定されていない限り、候補者が十分に採点されていても一覧は空のままになります。他の画面では採点済みの候補者が見えるのにここが空なら、理由はこれです。既知の不備であって、操作の誤りではありません。"
+
+msgid "The promotion screen has a medical column of its own, which reads a field on the candidate that nothing writes. Judge the medical side from the scoring board or from these records, not from that column."
+msgstr "昇格画面には独自の健診列がありますが、それは何も書き込まれていない候補者側の項目を読んでいます。健診については、その列ではなく採点ボードかこれらの記録で判断してください。"
+
+msgid "The promotion screen lists candidates with their scores and document completeness side by side. Promoting one creates a trainee record and copies the whole profile across - education, experience, certifications, courses and family."
+msgstr "昇格画面には、候補者の点数と書類の充足率が並べて表示されます。昇格させると研修生レコードが作成され、学歴・職歴・資格・講習・家族を含むプロフィール全体が複写されます。"
+
+msgid "The promotion screen shows document completeness beside the scores, so what is uploaded here changes what recruitment sees there."
+msgstr "昇格画面では書類の充足率が点数の隣に表示されるため、ここでアップロードしたものが採用側の見え方を変えます。"
+
+msgid "The recommendation is stored as an interview result and mirrored onto the candidate."
+msgstr "推薦区分は面接結果として保存され、候補者にも反映されます。"
+
+msgid "The request from Japan that sets the whole recruitment in motion."
+msgstr "採用活動全体を動かし始める、日本側からの依頼です。"
+
+msgid "The same, without restriction."
+msgstr "同じことを、制限なく。"
+
+msgid "The same."
+msgstr "同じです。"
+
+msgid "The score is computed and saved on the candidate."
+msgstr "点数が計算され、候補者に保存されます。"
+
+msgid "The score is stored on the candidate, not in a separate test record, so it appears on the candidate screens the moment it is saved."
+msgstr "点数は別個の測定記録ではなく候補者本体に保存されるため、保存した瞬間に候補者画面へ現れます。"
+
+msgid "The scoring board counts how many check-ups each candidate has and averages their final scores."
+msgstr "採点ボードは候補者ごとの健診件数を数え、最終点数を平均します。"
+
+msgid "The scoring board puts this figure beside the interview and medical results for the whole institution."
+msgstr "採点ボードでは、この数値が機関全体の面接結果・健診結果と並べて表示されます。"
+
+msgid "The scoring board reads these records directly - the count and the average come from here."
+msgstr "採点ボードはこれらの記録を直接読んでいます。件数も平均もここから来ています。"
+
+msgid "The share email carries the numbers and requirements as they stood when you shared. Editing the order afterwards does not re-send anything, so an institution can be working from the old figures - share again, or tell them."
+msgstr "共有メールには、共有した時点の人数や条件がそのまま載ります。その後オーダーを編集しても再送はされないため、機関が古い数字のまま動いていることがあり得ます。再共有するか、直接伝えてください。"
+
+msgid "The submission checklist shows which required documents are in and which are missing."
+msgstr "提出チェックリストは、必要書類のうち何が揃い何が欠けているかを示します。"
+
+msgid "The system"
+msgstr "システム"
+
+msgid "The three parts add up to a fitness score out of 100."
+msgstr "三つの合計が100点満点の体力点になります。"
+
+msgid "The three selection results, side by side, for a whole institution."
+msgstr "選考の三つの結果を、機関全体について並べて示します。"
+
+msgid "This screen is a scoreboard, not a form. It gathers the physical test score, the interviews and the medical check-ups for every candidate of an institution and puts them in one table, so selection is a reading exercise rather than a hunt across three screens. Nothing here can be changed; each figure belongs to the screen that produced it."
+msgstr "この画面はフォームではなくスコアボードです。機関の全候補者について体力測定・面接・健康診断を集め、一つの表にまとめます。選考は三画面を探し回る作業ではなく、読む作業になります。ここでは何も変更できません。各数値は、それを生んだ画面のものです。"
+
+msgid "Trainee Documents"
+msgstr "研修生の書類"
+
+msgid "Trainee created, profile copied"
+msgstr "研修生を作成、プロフィールを複写"
+
+msgid "Upload a document"
+msgstr "書類をアップロード"
+
+msgid "Upload what the candidate hands in"
+msgstr "候補者が提出したものをアップロードする"
+
+msgid "Uploaded document"
+msgstr "アップロード済み書類"
+
+msgid "Uploads and maintains documents for its own candidates."
+msgstr "自機関の候補者の書類をアップロードし管理します。"
+
+msgid "Watch what comes back"
+msgstr "返ってくるものを見る"
+
+msgid "What each candidate has handed in, and what is still missing."
+msgstr "候補者ごとに、何を提出し、何が足りていないか。"
+
+msgid "What is missing is visible without opening each candidate."
+msgstr "候補者を一人ずつ開かなくても、欠けているものが分かります。"
+
+msgid "What the accepting company thought, in five parts and one recommendation."
+msgstr "受入企業の評価を、五つの観点と一つの推薦区分で表します。"
+
+msgid "Which documents are required is a master list. A document nobody added there cannot be checked off here."
+msgstr "どの書類が必要かはマスタ一覧で定義されます。そこに追加されていない書類は、ここでチェックできません。"
+
+msgid "Withdraw a share when the situation changes"
+msgstr "状況が変わったら共有を取り消す"
+
+msgid "Withdraw the order from one institution. The share is not deleted; it is marked withdrawn, so the history of who was asked and when survives."
+msgstr "一つの機関からオーダーを取り消します。共有は削除されず「取り消し済み」と記録されるため、誰にいつ依頼したかの履歴は残ります。"
+
+msgid "Withdrawing a share does not withdraw the candidates that institution already proposed. Those remain, and remain yours to decide about."
+msgstr "共有を取り消しても、その機関がすでに提案した候補者は取り下げられません。候補者は残り、その判断は依然としてこちらの手にあります。"
+
+msgid "Withdrawing twice is harmless: the screen says the share was already withdrawn and sends nothing."
+msgstr "二度取り消しても害はありません。画面が「すでに取り消し済み」と伝え、メールは送られません。"
+
+msgid "Written onto the candidate"
+msgstr "候補者へ書き込み"
+
+msgid "You know who is still to do."
+msgstr "まだ手を付けていない人が分かります。"
+
+msgid "everyone else"
+msgstr "その他のロール"
+
+msgid "situation changes"
+msgstr "状況が変わる"

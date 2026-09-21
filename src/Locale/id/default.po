@@ -14730,3 +14730,578 @@ msgstr "lembaganya sendiri"
 
 msgid "yes"
 msgstr "ya"
+
+# ── Page guides: candidate phase ─────────────────────────
+
+msgid "2.4 km run, max 30 pts"
+msgstr "Lari 2,4 km, maks 30 poin"
+
+msgid "A candidate is a person an institution has found in answer to an apprentice order. This screen is where their profile is built up and where three kinds of result accumulate against them: a physical test score, an interview score from the accepting company, and a medical check-up. When those are in, recruitment decides who goes forward, and a candidate who goes forward becomes a trainee - the same person, carried over with their whole profile, into the training phase."
+msgstr "Kandidat adalah orang yang ditemukan sebuah LPK sebagai jawaban atas apprentice order. Di halaman inilah profilnya dibangun dan tiga jenis hasil menumpuk atasnya: nilai tes fisik, nilai wawancara dari perusahaan penerima, dan pemeriksaan kesehatan. Setelah ketiganya masuk, rekrutmen memutuskan siapa yang lanjut, dan kandidat yang lanjut menjadi trainee - orang yang sama, terbawa beserta seluruh profilnya, ke fase pelatihan."
+
+msgid "A candidate is proposed against an order that was shared with the institution. Without a shared order there is nothing to recruit for."
+msgstr "Kandidat diajukan terhadap sebuah order yang sudah dibagikan ke LPK itu. Tanpa order yang dibagikan, tidak ada yang perlu direkrut."
+
+msgid "A candidate who is ready shows three filled columns; one who is not shows where the gap is."
+msgstr "Kandidat yang siap menampilkan tiga kolom terisi; yang belum memperlihatkan di mana lubangnya."
+
+msgid "A candidate with no check-up is visibly different from one who passed."
+msgstr "Kandidat tanpa pemeriksaan terlihat jelas berbeda dari yang sudah lulus."
+
+msgid "A medical check-up is recorded against the candidate with its result and its score. Unlike the physical test and the interview, it is kept as its own record rather than written onto the candidate: one candidate can have several, and the scoring board averages them."
+msgstr "Pemeriksaan kesehatan dicatat pada kandidat beserta hasil dan nilainya. Berbeda dari tes fisik dan wawancara, ia disimpan sebagai data tersendiri, bukan dituliskan ke kandidat: satu kandidat bisa punya beberapa, dan papan penilaian merata-ratakannya."
+
+msgid "A recommendation of reserved is not a rejection, and nothing in the system turns it into one. Someone has to decide."
+msgstr "Rekomendasi 'reserved' bukan penolakan, dan tidak ada apa pun di sistem yang mengubahnya menjadi penolakan. Harus ada orang yang memutuskan."
+
+msgid "A score of zero and no test at all look the same on the list. Leave a candidate untested rather than entering zeros to fill the column."
+msgstr "Nilai nol dan belum dites sama saja tampilannya di daftar. Biarkan kandidat tanpa tes daripada mengisi nol sekadar supaya kolomnya terisi."
+
+msgid "A second interview for the same candidate overwrites the figures mirrored onto them, although both interview records are kept. The candidate screen therefore shows the latest, not the best."
+msgstr "Wawancara kedua untuk kandidat yang sama menimpa angka yang disalin ke kandidatnya, meskipun kedua catatan wawancara tetap tersimpan. Jadi halaman kandidat menampilkan yang terbaru, bukan yang terbaik."
+
+msgid "AO interview"
+msgstr "Wawancara AO"
+
+msgid "Adaptability"
+msgstr "Adaptasi"
+
+msgid "An apprentice order is a Japanese company asking for a number of apprentices: which job, how many men and women, when they should depart, and what else is required of them. Nothing in recruitment happens before one exists. Once it does, you share it with the partner institutions that should go looking, and each of them receives it by email."
+msgstr "Apprentice order adalah permintaan sebuah perusahaan Jepang atas sejumlah apprentice: pekerjaan apa, berapa laki-laki dan perempuan, kapan berangkat, dan syarat lain apa yang dituntut. Tidak ada satu pun proses rekrutmen berjalan sebelum ada order. Begitu ada, Anda membagikannya ke LPK mitra yang seharusnya mencari, dan masing-masing menerimanya lewat email."
+
+msgid "An average of one check-up is that one check-up. Read the count beside it before trusting the number."
+msgstr "Rata-rata dari satu pemeriksaan ya pemeriksaan itu sendiri. Baca dulu jumlahnya di sebelahnya sebelum mempercayai angkanya."
+
+msgid "An empty column is filled on the screen that owns it, not here."
+msgstr "Kolom kosong diisi di halaman yang memilikinya, bukan di sini."
+
+msgid "An institution answers an order by registering candidates against it, which is how recruitment work reaches the candidate screens."
+msgstr "LPK menjawab sebuah order dengan mendaftarkan kandidat terhadapnya, dan lewat jalan itulah kerja rekrutmen sampai ke halaman kandidat."
+
+msgid "An interview is scored on five things - politeness, communication, motivation, adaptability and technical ability - and ends with a recommendation. The five make an overall score out of a hundred, and both the score and the recommendation are written onto the candidate so the promotion screen can show them without anyone retyping."
+msgstr "Wawancara dinilai atas lima hal - kesopanan, komunikasi, motivasi, adaptasi, dan kemampuan teknis - dan ditutup dengan rekomendasi. Kelimanya membentuk nilai keseluruhan dari seratus, dan baik nilai maupun rekomendasinya dituliskan ke kandidat sehingga halaman promosi bisa menampilkannya tanpa ada yang mengetik ulang."
+
+msgid "An order names the company that will accept the apprentices. It has to exist too."
+msgstr "Order menyebut perusahaan yang akan menerima apprentice. Itu pun harus sudah ada."
+
+msgid "An order names the cooperative that will supervise it. It has to exist before the order can be raised."
+msgstr "Order menyebut koperasi yang akan mengawasinya. Itu harus ada sebelum order bisa dibuat."
+
+msgid "An overall score out of 100 is computed and the interview record is saved."
+msgstr "Nilai keseluruhan dari 100 dihitung dan catatan wawancaranya tersimpan."
+
+msgid "Attach the file against the candidate and the document it satisfies."
+msgstr "Lampirkan berkasnya pada kandidat dan pada dokumen yang dipenuhinya."
+
+msgid "Averaged on the scoring board"
+msgstr "Dirata-ratakan di papan penilaian"
+
+msgid "Candidate Interviews"
+msgstr "Wawancara Kandidat"
+
+msgid "Candidate Medical Check-Ups"
+msgstr "Pemeriksaan Kesehatan Kandidat"
+
+msgid "Candidate Scoring Board"
+msgstr "Papan Penilaian Kandidat"
+
+msgid "Candidate counts by state feed the dashboards and the recruitment reports."
+msgstr "Jumlah kandidat per keadaan menyuplai dasbor dan laporan rekrutmen."
+
+msgid "Candidate scoring board"
+msgstr "Papan penilaian kandidat"
+
+msgid "Check-up recorded"
+msgstr "Pemeriksaan tercatat"
+
+msgid "Checklist per candidate"
+msgstr "Checklist per kandidat"
+
+msgid "Checks completeness before promoting."
+msgstr "Memeriksa kelengkapan sebelum mempromosikan."
+
+msgid "Choose one institution, several, or all of them. Sharing is deliberate and selective - an order is not broadcast on its own."
+msgstr "Pilih satu LPK, beberapa, atau semuanya. Pembagian bersifat sengaja dan terpilih - order tidak menyebar sendiri."
+
+msgid "Collect the documents"
+msgstr "Kumpulkan dokumennya"
+
+msgid "Communication"
+msgstr "Komunikasi"
+
+msgid "Completeness counts documents, not their quality. A blurred photograph of the right document counts as present."
+msgstr "Kelengkapan menghitung dokumen, bukan mutunya. Foto buram dari dokumen yang benar tetap terhitung ada."
+
+msgid "Completeness on the promotion screen"
+msgstr "Kelengkapan di halaman promosi"
+
+msgid "Cooperative + accepting company on file"
+msgstr "Koperasi + perusahaan penerima tercatat"
+
+msgid "Counts above the cap earn nothing extra. Forty-five push-ups score the same forty points as forty."
+msgstr "Hitungan di atas batas tidak menambah nilai. Empat puluh lima push-up bernilai sama empat puluh poin dengan empat puluh."
+
+msgid "Document checklist"
+msgstr "Checklist dokumen"
+
+msgid "Document completeness becomes visible, and it is shown again on the promotion screen."
+msgstr "Kelengkapan dokumen menjadi terlihat, dan ditampilkan lagi di halaman promosi."
+
+msgid "Documents do not follow a candidate into the trainee phase - trainee documents are collected separately."
+msgstr "Dokumen tidak ikut terbawa ke fase trainee - dokumen trainee dikumpulkan tersendiri."
+
+msgid "Each chosen institution is recorded as a share and receives the apprentice_order_shared email at its registered address. From that moment it can start proposing candidates against this order."
+msgstr "Setiap LPK yang dipilih tercatat sebagai pembagian dan menerima email apprentice_order_shared di alamat terdaftarnya. Sejak saat itu ia bisa mulai mengajukan kandidat terhadap order ini."
+
+msgid "Email to each LPK"
+msgstr "Email ke tiap LPK"
+
+msgid "Enter the date, the result and the final score from the examining clinic."
+msgstr "Isikan tanggal, hasil, dan nilai akhir dari klinik pemeriksa."
+
+msgid "Enter the person: identity, family, education, experience, certifications and courses. The wizard walks through it in order; the plain form is there when you already know what you are doing."
+msgstr "Isikan orangnya: identitas, keluarga, pendidikan, pengalaman, sertifikasi, dan kursus. Wizard menuntun berurutan; formulir biasa tersedia kalau Anda sudah paham betul."
+
+msgid "Enter what was measured"
+msgstr "Isikan yang terukur"
+
+msgid "Everything, without restriction."
+msgstr "Semuanya, tanpa batas."
+
+msgid "Everything."
+msgstr "Semuanya."
+
+msgid "Fill the gaps at their source"
+msgstr "Isi lubangnya di sumbernya"
+
+msgid "Fitness comes from the physical test, the interview count and result from the interview records, the medical count and average from the check-ups."
+msgstr "Kebugaran berasal dari tes fisik, jumlah dan hasil wawancara dari catatan wawancara, jumlah dan rata-rata medis dari pemeriksaan kesehatan."
+
+msgid "Fitness score /100"
+msgstr "Nilai kebugaran /100"
+
+msgid "Give each of politeness, communication, motivation, adaptability and technical ability its score, and write what was actually said in the comments. The comments are the part a later reader learns from; the numbers only rank."
+msgstr "Beri nilai untuk kesopanan, komunikasi, motivasi, adaptasi, dan kemampuan teknis, lalu tuliskan apa yang sebenarnya terjadi di kolom komentar. Komentarlah yang dipelajari pembaca berikutnya; angka hanya memeringkat."
+
+msgid "Give the recommendation"
+msgstr "Beri rekomendasinya"
+
+msgid "How the score is reached"
+msgstr "Bagaimana nilainya diperoleh"
+
+msgid "Institutions answer by registering candidates. The candidate list is where the answers arrive."
+msgstr "LPK menjawab dengan mendaftarkan kandidat. Daftar kandidat adalah tempat jawaban itu tiba."
+
+msgid "LPK recruits and registers candidates"
+msgstr "LPK merekrut dan mendaftarkan kandidat"
+
+msgid "LPK registers the candidate"
+msgstr "LPK mendaftarkan kandidat"
+
+msgid "Let it reach the candidate"
+msgstr "Biarkan sampai ke kandidat"
+
+msgid "Medical check-up"
+msgstr "Pemeriksaan kesehatan"
+
+msgid "Medical check-ups"
+msgstr "Pemeriksaan kesehatan"
+
+msgid "Mirrored onto the candidate"
+msgstr "Disalin ke kandidat"
+
+msgid "Motivation"
+msgstr "Motivasi"
+
+msgid "New Medical Check-Up"
+msgstr "Pemeriksaan Kesehatan Baru"
+
+msgid "Only institutions that finished registration can be shared an order. Check the register first if the one you want is not offered."
+msgstr "Hanya LPK yang sudah menyelesaikan pendaftaran yang bisa dibagikan order. Periksa registernya dulu kalau yang Anda cari tidak muncul."
+
+msgid "Open the candidate to be scored"
+msgstr "Buka kandidat yang akan dinilai"
+
+msgid "Order raised"
+msgstr "Order dibuat"
+
+msgid "Order shared with the LPK"
+msgstr "Order dibagikan ke LPK"
+
+msgid "Overall /100"
+msgstr "Keseluruhan /100"
+
+msgid "Pass, reserved or fail. Reserved is the honest middle when the answer is not yet no."
+msgstr "Lulus, ditangguhkan, atau tidak lulus. 'Ditangguhkan' adalah jalan tengah yang jujur ketika jawabannya belum tidak."
+
+msgid "Physical test"
+msgstr "Tes fisik"
+
+msgid "Politeness"
+msgstr "Kesopanan"
+
+msgid "Promote to trainee"
+msgstr "Promosikan menjadi trainee"
+
+msgid "Promoting a candidate with no physical score is possible, but the promotion records a remark saying the score was missing."
+msgstr "Mempromosikan kandidat tanpa nilai fisik tetap bisa, tetapi promosinya mencatat keterangan bahwa nilainya tidak ada."
+
+msgid "Promoting is refused for anyone who is already a trainee, so a double click cannot create two of the same person."
+msgstr "Promosi ditolak untuk siapa pun yang sudah menjadi trainee, jadi klik ganda tidak bisa menciptakan dua orang yang sama."
+
+msgid "Promotion copies the profile as it stands. Anything corrected on the candidate afterwards does not follow the trainee across - correct it on the trainee instead."
+msgstr "Promosi menyalin profil apa adanya saat itu. Apa pun yang dikoreksi pada kandidat setelahnya tidak ikut ke traineenya - koreksi di traineenya."
+
+msgid "Promotion creates the trainee. From that point the person is worked on in the training screens, and the candidate record becomes history."
+msgstr "Promosi menciptakan traineenya. Sejak titik itu orangnya dikerjakan di halaman-halaman pelatihan, dan data kandidatnya menjadi riwayat."
+
+msgid "Promotion shows this score beside the physical one, and records a remark if it is missing."
+msgstr "Promosi menampilkan nilai ini di sebelah nilai fisik, dan mencatat keterangan kalau nilainya tidak ada."
+
+msgid "Push-ups and sit-ups as counts, the 2.4 km run as minutes and seconds. Enter what happened; do not convert anything yourself."
+msgstr "Push-up dan sit-up sebagai jumlah, lari 2,4 km sebagai menit dan detik. Isikan apa adanya; jangan mengonversi sendiri."
+
+msgid "Push-ups count one point each up to 40. Sit-ups count one point each up to 30. The run is worth 30 points at 10 minutes or under, then 25, 20, 15 and 10 as it passes 11, 12, 13 and 14 minutes, and 5 beyond that."
+msgstr "Push-up bernilai satu poin masing-masing sampai 40. Sit-up satu poin masing-masing sampai 30. Larinya bernilai 30 poin pada 10 menit atau kurang, lalu 25, 20, 15, dan 10 saat melewati 11, 12, 13, dan 14 menit, dan 5 di atas itu."
+
+msgid "Push-ups, max 40 pts"
+msgstr "Push-up, maks 40 poin"
+
+msgid "Push-ups, sit-ups and a run, turned into one score out of a hundred."
+msgstr "Push-up, sit-up, dan lari, diubah menjadi satu nilai dari seratus."
+
+msgid "Raise the order"
+msgstr "Buat ordernya"
+
+msgid "Raises an order, shares it with institutions, withdraws a share."
+msgstr "Membuat order, membagikannya ke LPK, menarik kembali pembagian."
+
+msgid "Re-uploading a document a candidate already submitted replaces the existing record rather than adding a second one."
+msgstr "Mengunggah ulang dokumen yang sudah diserahkan kandidat menggantikan data yang ada, bukan menambah yang kedua."
+
+msgid "Read on the promotion screen"
+msgstr "Dibaca di halaman promosi"
+
+msgid "Read the checklist"
+msgstr "Baca checklistnya"
+
+msgid "Read the three columns together"
+msgstr "Baca ketiga kolomnya bersamaan"
+
+msgid "Read when selecting"
+msgstr "Dibaca saat menyeleksi"
+
+msgid "Reads every candidate, records interview results, and promotes candidates to trainee."
+msgstr "Membaca semua kandidat, mencatat hasil wawancara, dan mempromosikan kandidat menjadi trainee."
+
+msgid "Reads every institution, which is the point: it is the comparison view before promotion."
+msgstr "Membaca semua LPK, dan justru itulah gunanya: ini pandangan pembanding sebelum promosi."
+
+msgid "Reads orders. The add, edit, delete, share and withdraw actions are refused in the controller, so the restriction holds even for a hand-typed address."
+msgstr "Membaca order. Aksi tambah, ubah, hapus, bagikan, dan tarik ditolak di controller, jadi pembatasannya tetap berlaku bahkan untuk alamat yang diketik manual."
+
+msgid "Reads the scores but cannot change them. The screen refuses the save, not just hides the button."
+msgstr "Membaca nilainya tetapi tidak bisa mengubah. Halamannya menolak penyimpanan, bukan sekadar menyembunyikan tombol."
+
+msgid "Reads them when deciding who goes forward."
+msgstr "Membacanya saat menentukan siapa yang lanjut."
+
+msgid "Recommendation: pass / reserved / fail"
+msgstr "Rekomendasi: lulus / ditangguhkan / tidak lulus"
+
+msgid "Record the check-up"
+msgstr "Catat pemeriksaannya"
+
+msgid "Record the job category, how many men and women are wanted, the departure month and year, and any other requirement the company has set. Those are the fields the email to the institutions is built from, so what you write here is what they will read."
+msgstr "Catat kategori pekerjaan, berapa laki-laki dan perempuan yang diminta, bulan dan tahun keberangkatan, serta syarat lain yang ditetapkan perusahaan. Kolom-kolom itulah yang menyusun email ke LPK, jadi apa yang Anda tulis di sini itulah yang mereka baca."
+
+msgid "Record the three results"
+msgstr "Catat ketiga hasilnya"
+
+msgid "Records check-ups for its own candidates."
+msgstr "Mencatat pemeriksaan untuk kandidatnya sendiri."
+
+msgid "Records the interview on behalf of the accepting company."
+msgstr "Mencatat wawancara atas nama perusahaan penerima."
+
+msgid "Recruitment can see who has been proposed, by which institution, against which order."
+msgstr "Rekrutmen bisa melihat siapa yang diajukan, oleh LPK mana, terhadap order mana."
+
+msgid "Recruitment promotes"
+msgstr "Rekrutmen mempromosikan"
+
+msgid "Recruitment staff"
+msgstr "Staf rekrutmen"
+
+msgid "Recruitment staff or the institution"
+msgstr "Staf rekrutmen atau LPK"
+
+msgid "Recruitment staff, or an administrator"
+msgstr "Staf rekrutmen, atau administrator"
+
+msgid "Register the candidate"
+msgstr "Daftarkan kandidatnya"
+
+msgid "Registers and maintains its own candidates. It sees only its own; the filter is applied in the controller."
+msgstr "Mendaftarkan dan merawat kandidatnya sendiri. Ia hanya melihat miliknya; penyaringan dilakukan di controller."
+
+msgid "Required document list"
+msgstr "Daftar dokumen wajib"
+
+msgid "Required documents"
+msgstr "Dokumen wajib"
+
+msgid "Score the five parts"
+msgstr "Nilai kelima bagiannya"
+
+msgid "Scores any candidate."
+msgstr "Menilai kandidat mana pun."
+
+msgid "Scores its own candidates only. A candidate from another institution is refused even if the address is typed by hand."
+msgstr "Hanya menilai kandidatnya sendiri. Kandidat dari LPK lain ditolak sekalipun alamatnya diketik manual."
+
+msgid "Scoring again overwrites the previous result. There is no history of earlier attempts, so if a re-test matters, note it somewhere before saving."
+msgstr "Menilai ulang menimpa hasil sebelumnya. Tidak ada riwayat percobaan terdahulu, jadi kalau tes ulang itu penting, catat dulu sebelum menyimpan."
+
+msgid "Scoring board"
+msgstr "Papan penilaian"
+
+msgid "See it counted"
+msgstr "Lihat terhitungnya"
+
+msgid "Sees its own candidates only."
+msgstr "Hanya melihat kandidatnya sendiri."
+
+msgid "Sees the result for its own candidates."
+msgstr "Melihat hasilnya untuk kandidatnya sendiri."
+
+msgid "Selection decision"
+msgstr "Keputusan seleksi"
+
+msgid "Selection needs paperwork as much as scores. This is where a candidate document is uploaded and where the checklist shows, per candidate, which of the required documents are in. Document completeness is one of the three things the promotion screen puts in front of recruitment."
+msgstr "Seleksi membutuhkan berkas sebanyak ia membutuhkan nilai. Di sinilah dokumen kandidat diunggah dan checklist menampilkan, per kandidat, dokumen wajib mana yang sudah masuk. Kelengkapan dokumen adalah satu dari tiga hal yang disodorkan halaman promosi kepada rekrutmen."
+
+msgid "Several check-ups for one candidate are averaged, not replaced. A poor early result keeps pulling the average down after a later good one."
+msgstr "Beberapa pemeriksaan untuk satu kandidat dirata-ratakan, bukan digantikan. Hasil buruk yang awal tetap menarik turun rata-ratanya meski ada hasil bagus setelahnya."
+
+msgid "Share it with the institutions"
+msgstr "Bagikan ke LPK"
+
+msgid "Share withdrawn, LPK told"
+msgstr "Pembagian ditarik, LPK diberi tahu"
+
+msgid "Shared with chosen LPKs"
+msgstr "Dibagikan ke LPK terpilih"
+
+msgid "Sharing sends apprentice_order_shared and withdrawing sends apprentice_order_cancelled. Both are templates you can edit - the wording that reaches the institutions is not fixed in the code."
+msgstr "Pembagian mengirim apprentice_order_shared dan penarikan mengirim apprentice_order_cancelled. Keduanya template yang bisa Anda ubah - kata-kata yang sampai ke LPK tidak terkunci di dalam kode."
+
+msgid "Sharing the same order with an institution twice does not duplicate it - the existing share is reused and its details refreshed."
+msgstr "Membagikan order yang sama ke satu LPK dua kali tidak menggandakannya - pembagian yang ada dipakai ulang dan datanya disegarkan."
+
+msgid "Sit-ups, max 30 pts"
+msgstr "Sit-up, maks 30 poin"
+
+msgid "Technical"
+msgstr "Teknis"
+
+msgid "The MCU column on the promotion screen reads candidates.mcu_score, which nothing currently writes. Medical results are recorded, but that particular figure stays blank."
+msgstr "Kolom MCU di halaman promosi membaca candidates.mcu_score, yang saat ini tidak ditulis oleh apa pun. Hasil medisnya tercatat, tetapi angka yang satu itu tetap kosong."
+
+msgid "The board fills in as the work is done."
+msgstr "Papannya terisi seiring pekerjaannya dikerjakan."
+
+msgid "The candidate carries a fitness score, an interview score with a recommendation, and medical records."
+msgstr "Kandidatnya membawa nilai kebugaran, nilai wawancara beserta rekomendasi, dan catatan medis."
+
+msgid "The candidate exists and can be tested, interviewed and examined."
+msgstr "Kandidatnya ada dan bisa dites, diwawancarai, serta diperiksa."
+
+msgid "The candidate has to be registered first - this screen scores people, it does not create them."
+msgstr "Kandidatnya harus terdaftar dulu - halaman ini menilai orang, bukan menciptakannya."
+
+msgid "The candidate has to exist before a check-up can be recorded against them."
+msgstr "Kandidatnya harus ada sebelum pemeriksaan bisa dicatat atasnya."
+
+msgid "The candidate must exist and, in practice, should have been physically tested first - the interview is the second of the three results."
+msgstr "Kandidatnya harus ada dan, dalam praktiknya, sebaiknya sudah dites fisik lebih dulu - wawancara adalah yang kedua dari tiga hasil."
+
+msgid "The candidate record carries the interview result, so nothing needs to be entered twice."
+msgstr "Data kandidat membawa hasil wawancaranya, jadi tidak ada yang perlu diisi dua kali."
+
+msgid "The check-up is on file against that candidate."
+msgstr "Pemeriksaannya tercatat pada kandidat itu."
+
+msgid "The checklist shows the required documents against what has arrived, one row per candidate."
+msgstr "Checklist menampilkan dokumen wajib dibandingkan apa yang sudah tiba, satu baris per kandidat."
+
+msgid "The document is on file and counts towards completeness."
+msgstr "Dokumennya tercatat dan ikut menghitung kelengkapan."
+
+msgid "The email goes to the address the institution registered with. If it has changed address since, fix it on the register before sharing."
+msgstr "Emailnya dikirim ke alamat yang dipakai LPK saat mendaftar. Kalau alamatnya sudah berganti, betulkan di registernya sebelum membagikan."
+
+msgid "The fitness column is written by the physical test screen."
+msgstr "Kolom kebugaran ditulis oleh halaman tes fisik."
+
+msgid "The five sub-scores, the overall score, the notes and the recommendation are copied onto the candidate record."
+msgstr "Kelima sub-nilai, nilai keseluruhan, catatan, dan rekomendasinya disalin ke data kandidat."
+
+msgid "The health record behind a selection decision."
+msgstr "Catatan kesehatan di balik sebuah keputusan seleksi."
+
+msgid "The institution and recruitment"
+msgstr "LPK dan rekrutmen"
+
+msgid "The institution measures three things and the system does the arithmetic. What you enter are raw counts and a running time; what comes out is a fitness score written straight onto the candidate, where recruitment reads it when deciding who goes forward."
+msgstr "LPK mengukur tiga hal dan sistem yang berhitung. Yang Anda isi adalah jumlah mentah dan catatan waktu lari; yang keluar adalah nilai kebugaran yang langsung dituliskan ke kandidat, tempat rekrutmen membacanya saat menentukan siapa yang lanjut."
+
+msgid "The institution or recruitment"
+msgstr "LPK atau rekrutmen"
+
+msgid "The institution receives the apprentice_order_cancelled email. Candidates it already proposed are not removed."
+msgstr "LPK menerima email apprentice_order_cancelled. Kandidat yang sudah diajukannya tidak dihapus."
+
+msgid "The interview columns come from the interview records."
+msgstr "Kolom wawancara berasal dari catatan wawancara."
+
+msgid "The interview is readable from the candidate screens and from the promotion list."
+msgstr "Wawancaranya terbaca dari halaman kandidat dan dari daftar promosi."
+
+msgid "The interview screen mirrors its five sub-scores, the overall result and the recommendation onto the candidate."
+msgstr "Halaman wawancara menyalin kelima sub-nilainya, hasil keseluruhan, dan rekomendasinya ke kandidat."
+
+msgid "The list shows your candidates with the score each already has, so it is easy to see who has not been tested."
+msgstr "Daftarnya menampilkan kandidat Anda beserta nilai yang sudah dimiliki masing-masing, jadi mudah melihat siapa yang belum dites."
+
+msgid "The medical columns are counted and averaged from the check-up records."
+msgstr "Kolom medis dihitung dan dirata-ratakan dari catatan pemeriksaan."
+
+msgid "The order exists and can be shared."
+msgstr "Ordernya ada dan bisa dibagikan."
+
+msgid "The people an institution proposes, and everything selection needs to decide about them."
+msgstr "Orang-orang yang diajukan LPK, beserta semua yang dibutuhkan seleksi untuk memutuskan tentang mereka."
+
+msgid "The person becomes a trainee with a new TMM code, and the training phase can begin. The candidate record stays where it is, marked as passed."
+msgstr "Orangnya menjadi trainee dengan kode TMM baru, dan fase pelatihan bisa dimulai. Data kandidatnya tetap di tempatnya, ditandai lulus."
+
+msgid "The physical test is scored by the institution, the interview by recruitment on behalf of the accepting company, and the medical check-up is recorded as its own document. Each writes its score back onto the candidate so it can be read at a glance."
+msgstr "Tes fisik dinilai oleh LPK, wawancara oleh rekrutmen atas nama perusahaan penerima, dan pemeriksaan kesehatan dicatat sebagai dokumen tersendiri. Masing-masing menuliskan nilainya kembali ke kandidat supaya bisa dibaca sekilas."
+
+msgid "The physical test screen writes the fitness score straight onto the candidate, which is why it appears here without being typed twice."
+msgstr "Halaman tes fisik menuliskan nilai kebugaran langsung ke kandidat, itulah sebabnya ia muncul di sini tanpa diketik dua kali."
+
+msgid "The promotion list only offers candidates whose is_candidate_pass flag is already 1. No screen in the application sets that flag except promotion itself, so unless it has been set in the database the list stays empty even when candidates are fully scored. If the screen looks empty while you can see scored candidates elsewhere, this is why - it is a known gap, not something you are doing wrong."
+msgstr "Daftar promosi hanya menawarkan kandidat yang penanda is_candidate_pass-nya sudah bernilai 1. Tidak ada satu pun halaman di aplikasi ini yang menyetel penanda itu selain promosi itu sendiri, jadi kecuali sudah disetel langsung di basis data, daftarnya tetap kosong sekalipun kandidatnya sudah dinilai lengkap. Kalau halamannya tampak kosong padahal Anda melihat kandidat bernilai di tempat lain, inilah sebabnya - ini celah yang sudah diketahui, bukan kesalahan Anda."
+
+msgid "The promotion screen has a medical column of its own, which reads a field on the candidate that nothing writes. Judge the medical side from the scoring board or from these records, not from that column."
+msgstr "Halaman promosi punya kolom medisnya sendiri, yang membaca kolom pada kandidat yang tidak ditulis oleh apa pun. Nilailah sisi medisnya dari papan penilaian atau dari catatan ini, bukan dari kolom itu."
+
+msgid "The promotion screen lists candidates with their scores and document completeness side by side. Promoting one creates a trainee record and copies the whole profile across - education, experience, certifications, courses and family."
+msgstr "Halaman promosi mendaftar kandidat beserta nilai dan kelengkapan dokumennya berdampingan. Mempromosikan salah satunya menciptakan data trainee dan menyalin seluruh profilnya - pendidikan, pengalaman, sertifikasi, kursus, dan keluarga."
+
+msgid "The promotion screen shows document completeness beside the scores, so what is uploaded here changes what recruitment sees there."
+msgstr "Halaman promosi menampilkan kelengkapan dokumen di sebelah nilai, jadi apa yang diunggah di sini mengubah apa yang dilihat rekrutmen di sana."
+
+msgid "The recommendation is stored as an interview result and mirrored onto the candidate."
+msgstr "Rekomendasinya disimpan sebagai hasil wawancara dan disalin ke kandidat."
+
+msgid "The request from Japan that sets the whole recruitment in motion."
+msgstr "Permintaan dari Jepang yang menggerakkan seluruh rekrutmen."
+
+msgid "The same, without restriction."
+msgstr "Sama, tanpa batas."
+
+msgid "The same."
+msgstr "Sama."
+
+msgid "The score is computed and saved on the candidate."
+msgstr "Nilainya dihitung dan tersimpan pada kandidat."
+
+msgid "The score is stored on the candidate, not in a separate test record, so it appears on the candidate screens the moment it is saved."
+msgstr "Nilainya disimpan pada kandidat, bukan pada data tes tersendiri, jadi ia muncul di halaman kandidat begitu tersimpan."
+
+msgid "The scoring board counts how many check-ups each candidate has and averages their final scores."
+msgstr "Papan penilaian menghitung berapa pemeriksaan yang dimiliki tiap kandidat dan merata-ratakan nilai akhirnya."
+
+msgid "The scoring board puts this figure beside the interview and medical results for the whole institution."
+msgstr "Papan penilaian menaruh angka ini di sebelah hasil wawancara dan medis untuk seluruh LPK."
+
+msgid "The scoring board reads these records directly - the count and the average come from here."
+msgstr "Papan penilaian membaca catatan ini langsung - jumlah dan rata-ratanya berasal dari sini."
+
+msgid "The share email carries the numbers and requirements as they stood when you shared. Editing the order afterwards does not re-send anything, so an institution can be working from the old figures - share again, or tell them."
+msgstr "Email pembagian membawa angka dan syarat sebagaimana adanya saat Anda membagikan. Mengubah ordernya setelah itu tidak mengirim apa pun lagi, jadi sebuah LPK bisa saja bekerja dari angka lama - bagikan ulang, atau beri tahu mereka."
+
+msgid "The submission checklist shows which required documents are in and which are missing."
+msgstr "Checklist penyerahan menampilkan dokumen wajib mana yang sudah masuk dan mana yang belum."
+
+msgid "The system"
+msgstr "Sistem"
+
+msgid "The three parts add up to a fitness score out of 100."
+msgstr "Ketiga bagian itu dijumlahkan menjadi nilai kebugaran dari 100."
+
+msgid "The three selection results, side by side, for a whole institution."
+msgstr "Ketiga hasil seleksi, berdampingan, untuk satu LPK utuh."
+
+msgid "This screen is a scoreboard, not a form. It gathers the physical test score, the interviews and the medical check-ups for every candidate of an institution and puts them in one table, so selection is a reading exercise rather than a hunt across three screens. Nothing here can be changed; each figure belongs to the screen that produced it."
+msgstr "Halaman ini papan skor, bukan formulir. Ia mengumpulkan nilai tes fisik, wawancara, dan pemeriksaan kesehatan untuk setiap kandidat sebuah LPK dan menaruhnya dalam satu tabel, sehingga seleksi menjadi kegiatan membaca, bukan berburu di tiga halaman. Tidak ada yang bisa diubah di sini; setiap angka milik halaman yang menghasilkannya."
+
+msgid "Trainee Documents"
+msgstr "Dokumen Trainee"
+
+msgid "Trainee created, profile copied"
+msgstr "Trainee dibuat, profil tersalin"
+
+msgid "Upload a document"
+msgstr "Unggah dokumen"
+
+msgid "Upload what the candidate hands in"
+msgstr "Unggah apa yang diserahkan kandidat"
+
+msgid "Uploaded document"
+msgstr "Dokumen terunggah"
+
+msgid "Uploads and maintains documents for its own candidates."
+msgstr "Mengunggah dan merawat dokumen untuk kandidatnya sendiri."
+
+msgid "Watch what comes back"
+msgstr "Amati apa yang kembali"
+
+msgid "What each candidate has handed in, and what is still missing."
+msgstr "Apa yang sudah diserahkan tiap kandidat, dan apa yang masih kurang."
+
+msgid "What is missing is visible without opening each candidate."
+msgstr "Yang kurang terlihat tanpa harus membuka tiap kandidat."
+
+msgid "What the accepting company thought, in five parts and one recommendation."
+msgstr "Apa yang dinilai perusahaan penerima, dalam lima bagian dan satu rekomendasi."
+
+msgid "Which documents are required is a master list. A document nobody added there cannot be checked off here."
+msgstr "Dokumen apa saja yang wajib adalah daftar induk. Dokumen yang belum ditambahkan di sana tidak bisa dicentang di sini."
+
+msgid "Withdraw a share when the situation changes"
+msgstr "Tarik pembagian ketika keadaan berubah"
+
+msgid "Withdraw the order from one institution. The share is not deleted; it is marked withdrawn, so the history of who was asked and when survives."
+msgstr "Tarik ordernya dari satu LPK. Pembagiannya tidak dihapus; ia ditandai ditarik, sehingga riwayat siapa yang diminta dan kapan tetap hidup."
+
+msgid "Withdrawing a share does not withdraw the candidates that institution already proposed. Those remain, and remain yours to decide about."
+msgstr "Menarik pembagian tidak menarik kandidat yang sudah diajukan LPK itu. Mereka tetap ada, dan tetap menjadi keputusan Anda."
+
+msgid "Withdrawing twice is harmless: the screen says the share was already withdrawn and sends nothing."
+msgstr "Menarik dua kali tidak berbahaya: halamannya mengatakan pembagian itu sudah ditarik dan tidak mengirim apa pun."
+
+msgid "Written onto the candidate"
+msgstr "Dituliskan ke kandidat"
+
+msgid "You know who is still to do."
+msgstr "Anda tahu siapa yang belum dikerjakan."
+
+msgid "everyone else"
+msgstr "semua peran lain"
+
+msgid "situation changes"
+msgstr "keadaan berubah"
