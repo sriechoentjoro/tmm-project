@@ -94,12 +94,23 @@ function templates($root)
  * English whatever language was selected, while the summary said nothing was
  * missing. They are scanned for __() here; the unwrapped-literal check stays
  * on templates, where markup is what it knows how to read.
+ *
+ * config/page_guides is scanned for the same reason. The per-page guides the
+ * "?" button opens are arrays of __() strings held outside src/ entirely, so
+ * every sentence in them would otherwise be invisible here - and a guide that
+ * silently renders English to an Indonesian reader is exactly what this report
+ * exists to catch.
  */
 function sources($root)
 {
     $out = [];
-    foreach (['Controller', 'Model', 'Shell', 'View', 'Mailer', 'Command'] as $dir) {
-        $base = $root . '/src/' . $dir;
+    $dirs = [
+        '/src/Controller', '/src/Model', '/src/Shell',
+        '/src/View', '/src/Mailer', '/src/Command',
+        '/config/page_guides',
+    ];
+    foreach ($dirs as $dir) {
+        $base = $root . $dir;
         if (!is_dir($base)) {
             continue;
         }
@@ -119,6 +130,9 @@ function sources($root)
 /** The area a template or class belongs to — its directory under src/. */
 function areaOf($root, $path)
 {
+    if (strpos($path, $root . '/config/page_guides') === 0) {
+        return 'PageGuides';
+    }
     foreach (['/src/Template' => '', '/src/' => ''] as $prefix => $_) {
         if (strpos($path, $root . $prefix) === 0) {
             $rel = ltrim(substr($path, strlen($root . $prefix)), '/');

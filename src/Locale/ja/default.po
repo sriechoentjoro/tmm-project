@@ -14287,3 +14287,446 @@ msgstr "仕訳 {0} を更新しました。"
 
 msgid "Edit Journal Entry {0}"
 msgstr "仕訳 {0} の編集"
+
+# ── Per-page guides (Element/page_guide + config/page_guides) ───────
+
+msgid "A cooperative association is the supervising body between the sending side and the accepting company. Like the accepting organisations, this is a master list whose real weight is felt elsewhere: an apprentice order names both the cooperative and the accepting company, and the order cannot be raised until both exist here."
+msgstr "協同組合は、送り出し側と受入企業の間に立つ監理団体です。受入機関と同じく、これはマスタ一覧であり、その重みは別の画面で効いてきます。実習生オーダーは協同組合と受入企業の両方を指定するため、双方がここに登録されるまでオーダーは作成できません。"
+
+msgid "A figure that looks wrong is usually a registration that bypassed the normal flow rather than a fault in the counting. Check the institution on the register before doubting the dashboard."
+msgstr "数字が不自然に見える場合、多くは集計の誤りではなく、通常の流れを経ずに登録された機関が原因です。ダッシュボードを疑う前に、登録簿でその機関を確認してください。"
+
+msgid "A file for reporting outside the system."
+msgstr "システムの外で報告に使うファイルです。"
+
+msgid "A fresh email goes to the same address."
+msgstr "同じアドレスに新しいメールが送られます。"
+
+msgid "A link that was already used says so plainly rather than failing: an already-active account is sent to the login page, a verified one to the password screen."
+msgstr "使用済みのリンクは、ただ失敗するのではなく、その旨をはっきり伝えます。すでに有効なアカウントはログイン画面へ、確認済みのものはパスワード設定画面へ案内されます。"
+
+msgid "A pending institution is chased from the registration screen, which resends its verification email."
+msgstr "保留中の機関へのフォローは登録画面から行い、確認メールを再送します。"
+
+msgid "A user account is created for the institution and the registration is complete. From here its staff can log in with the username shown in the email."
+msgstr "機関のユーザーアカウントが作成され、登録が完了します。以降、職員はメールに記載されたユーザー名でログインできます。"
+
+msgid "Acceptance organization on file"
+msgstr "受入機関を登録"
+
+msgid "Account active - can log in"
+msgstr "アカウント有効 — ログイン可能"
+
+msgid "Activity log"
+msgstr "活動ログ"
+
+msgid "Add Acceptance Organization"
+msgstr "受入機関の追加"
+
+msgid "Add Institution"
+msgstr "機関の追加"
+
+msgid "Adds, edits and deletes cooperatives."
+msgstr "協同組合の追加・編集・削除を行います。"
+
+msgid "Adds, edits and deletes institutions, and attaches user accounts to them."
+msgstr "機関の追加・編集・削除と、ユーザーアカウントの紐づけを行います。"
+
+msgid "Adds, edits and deletes organisations."
+msgstr "機関の追加・編集・削除を行います。"
+
+msgid "Administrator or recruitment staff"
+msgstr "管理者または採用担当"
+
+msgid "Administrator registers the LPK"
+msgstr "管理者がLPKを登録"
+
+msgid "An LPK is the partner that finds and trains candidates in Indonesia. This screen is the register of them: who they are, whether their account works, and which ones are ready to be given apprentice orders. Registration itself happens on the LPK Registration screen - here you read the result and repair what is stuck."
+msgstr "LPKは、インドネシアで候補者を募集し訓練する提携機関です。この画面はその登録簿で、どの機関か、アカウントが使える状態か、実習生オーダーを渡せる状態かを示します。登録そのものはLPK登録画面で行い、ここではその結果を読み、滞っているものを手当てします。"
+
+msgid "An acceptance organization is the company in Japan that will take the apprentices. It is a master list: kept once, chosen many times. Its importance is not in this screen but in the screens that cannot work without it - an apprentice order names the accepting company, and so do candidates, trainees and apprentices as they move through the pipeline."
+msgstr "受入機関とは、実習生を受け入れる日本側の企業です。これはマスタ一覧で、一度登録して何度も選ばれます。重要なのはこの画面ではなく、これなしには成り立たない画面の方です。実習生オーダーは受入企業を指定し、候補者・研修生・実習生も工程を通じてこれを保持します。"
+
+msgid "An active institution becomes selectable when an apprentice order is shared. Sharing sends it the apprentice_order_shared email and it can then propose candidates."
+msgstr "有効な機関は、実習生オーダーを共有する際の選択肢になります。共有すると apprentice_order_shared のメールが送られ、その機関は候補者を提案できるようになります。"
+
+msgid "An apprentice order cannot name an accepting company that is not on this list. If the one you need is missing, it has to be added here first."
+msgstr "この一覧にない受入企業を実習生オーダーに指定することはできません。必要な企業がなければ、まずここで追加してください。"
+
+msgid "An institution appears here only after it has been registered, which is a separate screen with its own three-step flow."
+msgstr "機関がここに現れるのは登録された後です。登録は三段階の流れを持つ別画面で行います。"
+
+msgid "An institution sitting at pending_verification has received an email nobody opened. Check the address is right before resending a third time - a typo in the address cannot be seen from this screen, only from the institution never answering."
+msgstr "pending_verification のまま止まっている機関は、誰も開いていないメールを受け取っている状態です。三度目の再送をする前に、アドレスが正しいか確認してください。アドレスの打ち間違いはこの画面からは見えず、機関がいつまでも応答しないことでしか分かりません。"
+
+msgid "An institution that never verified its email has no account at all. It will not appear in any login report, and its staff cannot be helped by resetting a password that does not exist - resend the verification instead."
+msgstr "メール確認を一度も行っていない機関には、そもそもアカウントがありません。ログイン関連のレポートには現れず、存在しないパスワードを再設定しても助けにはなりません。確認メールを再送してください。"
+
+msgid "Attach a user to it"
+msgstr "ユーザーを紐づける"
+
+msgid "Bringing a vocational training institution into the system, in three steps that are not all yours."
+msgstr "LPKをシステムに迎え入れる三段階。そのすべてが自分の手の内にあるわけではありません。"
+
+msgid "CSV, Excel and PDF exports produce the same list you are looking at, filters included."
+msgstr "CSV・Excel・PDF のエクスポートは、絞り込みも含めて今見ている一覧をそのまま出力します。"
+
+msgid "Can receive apprentice orders"
+msgstr "実習生オーダーを受け取れる"
+
+msgid "Candidates carry the institution that proposed them, so deleting an institution leaves its candidates pointing at nothing."
+msgstr "候補者は自分を提案した機関を保持しているため、機関を削除すると、その候補者は存在しない先を指すことになります。"
+
+msgid "Candidates, trainees and apprentices each carry the accepting organisation, which is how a person can be traced back to the company that accepted them."
+msgstr "候補者・研修生・実習生はそれぞれ受入機関を保持しており、これによって個人から受入企業へ遡ることができます。"
+
+msgid "Carried by the apprentice in Japan"
+msgstr "日本の実習生が保持"
+
+msgid "Carried by the candidate"
+msgstr "候補者が保持"
+
+msgid "Carried by the trainee"
+msgstr "研修生が保持"
+
+msgid "Chooses a password of at least eight characters containing an upper-case letter, a lower-case letter, a digit and a symbol. The system refuses anything weaker and says which rule failed."
+msgstr "大文字・小文字・数字・記号を含む8文字以上のパスワードを設定します。これを満たさないものは拒否され、どの条件を満たしていないかが表示されます。"
+
+msgid "Chooses one when raising an apprentice order."
+msgstr "実習生オーダーを作成する際に選択します。"
+
+msgid "Chosen on a user account"
+msgstr "ユーザーアカウントで選択"
+
+msgid "Cooperative on file"
+msgstr "協同組合を登録"
+
+msgid "Dashboard counts"
+msgstr "ダッシュボードの集計"
+
+msgid "Deleting a registration removes the institution record. If it has already been shared apprentice orders, remove those shares first - they refer to an institution that will no longer exist."
+msgstr "登録を削除すると機関のレコードごと消えます。すでに実習生オーダーを共有している場合は、先にその共有を解除してください。共有は、もう存在しない機関を指すことになります。"
+
+msgid "Deleting an institution is not undone by re-registering it: candidates, shares and users that referred to it keep an id that no longer resolves. Prefer leaving a dormant institution on file."
+msgstr "機関を削除しても、登録し直せば元に戻るわけではありません。その機関を参照していた候補者・共有・ユーザーは、もう解決できないIDを持ち続けます。休眠中の機関は、そのまま残しておく方が安全です。"
+
+msgid "Deleting an institution that user accounts are attached to leaves those accounts bound to a record that no longer exists. Move the users first."
+msgstr "ユーザーアカウントが紐づいた機関を削除すると、それらのアカウントは存在しないレコードに結びついたままになります。先にユーザーを移してください。"
+
+msgid "Deleting one that is already named on an order leaves that order pointing at a company that no longer exists on file."
+msgstr "すでにオーダーに記載されているものを削除すると、そのオーダーは登録簿にない企業を指すことになります。"
+
+msgid "Email verified"
+msgstr "メール確認済み"
+
+msgid "Enough to decide whether to send this institution an apprentice order, or to chase it."
+msgstr "この機関に実習生オーダーを渡すか、それとも催促するかを判断するのに十分な材料です。"
+
+msgid "Enter the company and its contact details. This is a master record, so keep the name exactly as it should appear on every order and document that will cite it."
+msgstr "企業名と連絡先を入力します。これはマスタ情報なので、名称はこれを引用するすべてのオーダーや書類に表示されるとおり正確に記入してください。"
+
+msgid "Enter the cooperative and its contact details, with the name spelled as it should appear on every order that cites it."
+msgstr "協同組合名と連絡先を入力します。名称は、これを引用するすべてのオーダーに表示されるとおりに記入してください。"
+
+msgid "Enter the institution and its contact details."
+msgstr "機関名と連絡先を入力します。"
+
+msgid "Every count here can be opened as a list on the institution register."
+msgstr "ここにあるどの集計も、機関登録簿の一覧として開くことができます。"
+
+msgid "Experience stays with the record instead of with whoever happened to be there."
+msgstr "経験が、たまたま担当していた人ではなく、記録の側に残ります。"
+
+msgid "Export the register"
+msgstr "登録簿をエクスポート"
+
+msgid "Export the statistics"
+msgstr "統計をエクスポート"
+
+msgid "Fill in the institution name, director, email, username and the MoU file. The email address is where the verification link goes, so it must be one the institution actually reads."
+msgstr "機関名、代表者、メールアドレス、ユーザー名、MoUファイルを入力します。確認リンクはこのメールアドレスに送られるため、その機関が実際に読んでいるアドレスである必要があります。"
+
+msgid "Flow of this screen"
+msgstr "この画面の流れ"
+
+msgid "If an institution has been pending for days, the address is the first thing to doubt, not the email system. Check it before resending again."
+msgstr "何日も保留のままの機関がある場合、まず疑うべきはメールの仕組みではなくアドレスです。再送の前に確認してください。"
+
+msgid "If the institution forwards the link to a colleague who opens it first, the flow still works: whoever opens it sets the password, and that password belongs to the institution, not to the person."
+msgstr "機関がリンクを同僚に転送し、その人が先に開いた場合でも流れは成立します。開いた人がパスワードを設定しますが、そのパスワードは個人ではなく機関のものです。"
+
+msgid "Institution on file"
+msgstr "機関を登録"
+
+msgid "Institution register"
+msgstr "機関登録簿"
+
+msgid "Institution sets its password"
+msgstr "機関がパスワードを設定"
+
+msgid "It becomes selectable on the user form."
+msgstr "ユーザー登録画面の選択肢になります。"
+
+msgid "Keep its history"
+msgstr "その履歴を残す"
+
+msgid "LPK Registration list"
+msgstr "LPK登録の一覧"
+
+msgid "LPK list"
+msgstr "LPK一覧"
+
+msgid "LPK registration"
+msgstr "LPK登録"
+
+msgid "Limits what that user sees"
+msgstr "そのユーザーに見える範囲を決める"
+
+msgid "Link opened?"
+msgstr "リンクは開かれたか？"
+
+msgid "Named on an apprentice order"
+msgstr "実習生オーダーに記載"
+
+msgid "On the user form, choose this institution in the supporting-institution field rather than an LPK."
+msgstr "ユーザー登録画面で、LPKではなく支援機関の欄にこの機関を選びます。"
+
+msgid "One email address, one institution. Registering an address that already exists is refused - that is a safeguard, not a fault."
+msgstr "1つのメールアドレスにつき1機関です。既存のアドレスでの登録は拒否されますが、それは不具合ではなく安全装置です。"
+
+msgid "One view of where every partner institution stands."
+msgstr "提携機関それぞれの状況を一望する画面です。"
+
+msgid "Only an active institution can be shared an apprentice order. An institution still pending verification will not be offered in the sharing list."
+msgstr "実習生オーダーを共有できるのは有効な機関だけです。確認待ちの機関は共有先の一覧に表示されません。"
+
+msgid "Open one institution"
+msgstr "機関を1件開く"
+
+msgid "Open the system documentation"
+msgstr "システムドキュメントを開く"
+
+msgid "Opens the link from the email and sets its own password. It has no account until it does."
+msgstr "メールのリンクを開き、自分でパスワードを設定します。それまではアカウントが存在しません。"
+
+msgid "Opens the link in the email. The link carries a 64-character token that works once and expires 24 hours after it was sent."
+msgstr "メール内のリンクを開きます。リンクには64文字のトークンが含まれ、一度だけ有効で、送信から24時間で失効します。"
+
+msgid "Order shared with LPKs"
+msgstr "オーダーをLPKへ共有"
+
+msgid "Proposes candidates"
+msgstr "候補者を提案"
+
+msgid "Push a stuck registration along"
+msgstr "滞った登録を前に進める"
+
+msgid "Read the state of the partnership"
+msgstr "提携の状況を読む"
+
+msgid "Read the status of each institution"
+msgstr "各機関の状態を読む"
+
+msgid "Reads every figure and exports the statistics."
+msgstr "すべての数値を閲覧し、統計をエクスポートします。"
+
+msgid "Reads the list to know which institutions are ready to receive apprentice orders."
+msgstr "どの機関が実習生オーダーを受け取れる状態かを一覧で確認します。"
+
+msgid "Reads the register to decide which institutions to share an apprentice order with."
+msgstr "どの機関に実習生オーダーを共有するかを登録簿で判断します。"
+
+msgid "Receives apprentice orders"
+msgstr "実習生オーダーを受け取る"
+
+msgid "Record the cooperative"
+msgstr "協同組合を登録する"
+
+msgid "Record the institution"
+msgstr "機関を登録する"
+
+msgid "Record the organisation before it is needed"
+msgstr "必要になる前に機関を登録する"
+
+msgid "Register the institution"
+msgstr "機関を登録する"
+
+msgid "Registering, and resending, both send the lpk_verification email. Its wording, and the letterhead around it, come from the email template of that name - edit the template and every future email changes."
+msgstr "登録も再送も、送られるのは lpk_verification のメールです。文面もそれを囲む書式も同名のメールテンプレートから来ているため、テンプレートを編集すれば以後のすべてのメールが変わります。"
+
+msgid "Registers an institution, resends the verification email, deletes a registration that was a mistake."
+msgstr "機関の登録、確認メールの再送、誤って作成した登録の削除を行います。"
+
+msgid "Registration and activation are written to the stakeholder activity log, which is what the stakeholder dashboard counts."
+msgstr "登録と有効化はステークホルダー活動ログに記録され、ステークホルダー・ダッシュボードはそれを集計しています。"
+
+msgid "Registration is a conversation between two sides. You create the institution and the system emails it a verification link; the institution clicks the link and chooses its own password. Only then can its staff log in. An institution stops halfway more often than it finishes in one sitting, so this screen is mostly about seeing where each one is stuck and pushing it along."
+msgstr "登録は双方のやり取りです。こちらが機関を作成するとシステムが確認リンクをメールで送り、機関側がそのリンクを開いて自らパスワードを決めます。そこで初めて職員がログインできます。一度で完了するより途中で止まる方が多いため、この画面の主な役目は、どこで止まっているかを見て前に進めることです。"
+
+msgid "Renaming an organisation changes it everywhere at once, including on orders already raised. That is usually what you want; be sure it is."
+msgstr "機関名を変更すると、すでに作成済みのオーダーも含め、あらゆる場所で同時に変わります。多くの場合それが狙いですが、本当にそうか確かめてください。"
+
+msgid "Resend Verification Email issues a new link and invalidates the old one."
+msgstr "「確認メールを再送」は新しいリンクを発行し、古いリンクを無効にします。"
+
+msgid "Resend verification"
+msgstr "確認メールを再送"
+
+msgid "Resending only works while the institution is still pending_verification. Once it is verified or active there is nothing to resend, and the screen will say so."
+msgstr "再送が有効なのは機関が pending_verification の間だけです。verified や active になっていれば再送するものはなく、画面がその旨を伝えます。"
+
+msgid "Sees every institution, edits, deletes, resends a verification email."
+msgstr "すべての機関を閲覧し、編集・削除・確認メールの再送を行います。"
+
+msgid "Sees only its own institution. The filter is applied in the controller, not in the page, so the restriction holds however the page is reached."
+msgstr "自分の機関のみが見えます。絞り込みは画面ではなくコントローラー側で行われるため、どの経路から開いても制限は保たれます。"
+
+msgid "Setting the password creates a real user account. From that moment the institution appears in user administration like any other user."
+msgstr "パスワードの設定によって実際のユーザーアカウントが作成されます。その時点から、その機関は他のユーザーと同様にユーザー管理に現れます。"
+
+msgid "Something to attach to a report."
+msgstr "報告書に添付できるものです。"
+
+msgid "Stakeholder Dashboard"
+msgstr "ステークホルダー・ダッシュボード"
+
+msgid "Step by step"
+msgstr "手順"
+
+msgid "Stories against a cooperative record how the relationship has actually gone."
+msgstr "協同組合に紐づく記録は、その関係が実際にどう進んできたかを残します。"
+
+msgid "Stories recorded against an organisation collect what happened with it over time - problems met, how they were handled."
+msgstr "機関に紐づけて記録された事例は、そこで何が起きてきたか — 直面した問題とその対処 — を積み上げていきます。"
+
+msgid "That user is bound to the institution, and what they can see follows from it."
+msgstr "そのユーザーは機関に結びつき、見える範囲はその結びつきに従います。"
+
+msgid "The Japanese companies that accept apprentices."
+msgstr "実習生を受け入れる日本側の企業です。"
+
+msgid "The cooperative becomes selectable when an apprentice order is raised."
+msgstr "実習生オーダーを作成する際の選択肢になります。"
+
+msgid "The counts on the stakeholder dashboard are drawn from this register and its activity log."
+msgstr "ステークホルダー・ダッシュボードの集計は、この登録簿とその活動ログから取られています。"
+
+msgid "The counts separate institutions that can log in from those still pending verification or verified but without a password."
+msgstr "集計は、ログインできる機関と、確認待ち、あるいは確認済みだがパスワード未設定の機関とを分けて示します。"
+
+msgid "The detail page gathers what is on file: contact details, the MoU document, and the account state."
+msgstr "詳細ページには、連絡先、MoU書類、アカウントの状態など、登録されている情報がまとまっています。"
+
+msgid "The email address is confirmed and the institution is sent on to choose a password."
+msgstr "メールアドレスが確認され、機関はパスワード設定へ進みます。"
+
+msgid "The export produces the same figures as a file."
+msgstr "エクスポートは同じ数値をファイルとして出力します。"
+
+msgid "The figures are only as complete as the register behind them. An institution registered outside the registration flow is counted, but has no activity history to show."
+msgstr "数値の完全さは、その背後にある登録簿の完全さ以上にはなりません。登録フローを経ずに登録された機関も集計には入りますが、表示できる活動履歴を持ちません。"
+
+msgid "The guides are being written one workflow phase at a time. Until this module is reached, the system documentation describes the process it belongs to."
+msgstr "この案内は、業務フローの段階ごとに順に書かれています。このモジュールの番が来るまでは、システムドキュメントが該当する工程を説明します。"
+
+msgid "The institution"
+msgstr "機関側"
+
+msgid "The institution is saved and a verification email is sent. Nobody can log in yet."
+msgstr "機関が保存され、確認メールが送られます。この時点ではまだ誰もログインできません。"
+
+msgid "The institution receives a fresh email at the same address."
+msgstr "同じアドレスに新しいメールが届きます。"
+
+msgid "The institution sets its password"
+msgstr "機関がパスワードを設定する"
+
+msgid "The institution verifies its email"
+msgstr "機関がメールを確認する"
+
+msgid "The institution, from its own inbox"
+msgstr "機関側（自分の受信トレイから）"
+
+msgid "The kumiai that supervises the apprenticeship in Japan."
+msgstr "日本での実習を監理する協同組合です。"
+
+msgid "The link is good for 24 hours and for one use. An institution that opens it on the third day is not doing anything wrong - it simply needs a fresh one, which is what Resend Verification Email is for."
+msgstr "リンクの有効期間は24時間、使用は一度きりです。三日目に開いた機関が何か間違えたわけではなく、新しいリンクが必要なだけです。そのために「確認メールを再送」があります。"
+
+msgid "The list shows the registration state of every institution. Three values matter: pending_verification means the email was sent and never acted on, verified means the address was confirmed but no password chosen, active means the institution can log in."
+msgstr "一覧には各機関の登録状態が表示されます。重要なのは三つの値です。pending_verification はメールを送ったが反応がない状態、verified はアドレスは確認されたがパスワード未設定の状態、active はログインできる状態です。"
+
+msgid "The next person choosing this company can see what the last one learned."
+msgstr "次にこの企業を選ぶ人が、前任者の学びを見ることができます。"
+
+msgid "The organisation becomes selectable everywhere it is required."
+msgstr "必要とされるすべての画面で選択できるようになります。"
+
+msgid "The register of partner institutions, and the state each one is in."
+msgstr "提携機関の登録簿と、それぞれの状態です。"
+
+msgid "The supporting bodies a user account can belong to."
+msgstr "ユーザーアカウントが所属しうる支援機関です。"
+
+msgid "The user form offers this list beside the LPK list. Which of the two you pick decides which body the account belongs to."
+msgstr "ユーザー登録画面では、この一覧がLPKの一覧と並んで示されます。どちらを選ぶかで、そのアカウントがどの機関に属するかが決まります。"
+
+msgid "These are the registered support institutions on the specified-skilled-worker side. In this system their practical role is narrow but important: when a user account is created, it is attached either to one of these institutions or to an LPK, and that attachment is what decides how much of the application that person can see."
+msgstr "これらは特定技能側の登録支援機関です。本システムでの役割は限られていますが重要です。ユーザーアカウントを作成する際、これらの機関かLPKのいずれかに紐づけられ、その紐づけがその人に見えるアプリケーションの範囲を決めます。"
+
+msgid "Things that go wrong here"
+msgstr "ここで起きやすい問題"
+
+msgid "This page has no guide yet."
+msgstr "このページの案内はまだ用意されていません。"
+
+msgid "This screen counts rather than edits. It reads the institution register and the activity log that registration writes to, and turns them into the question an administrator actually has: how many partners are usable today, and how many are stuck part-way through joining. Nothing here changes data - every number is a link back to the screen that can."
+msgstr "この画面は編集ではなく集計をします。機関登録簿と、登録処理が書き込む活動ログを読み、管理者が実際に抱える問いに変えます。今日使える提携機関はいくつあり、参加の途中で止まっているものがいくつあるか。ここでデータは変わりません。どの数字も、変えられる画面への入り口です。"
+
+msgid "Together with the accepting organisation, the cooperative is what an apprentice order is built on. Both must exist before an order can be raised."
+msgstr "受入機関とともに、協同組合は実習生オーダーの土台です。オーダーを作成するには双方が登録されている必要があります。"
+
+msgid "Two records for the same cooperative, differing only in spelling, will split its orders into two groups that no report puts back together. Search before adding."
+msgstr "同じ協同組合の表記違いが二件あると、そのオーダーは二つの塊に分かれ、どのレポートでも合算されません。追加する前に検索してください。"
+
+msgid "Use Resend Verification Email on the institution. A new token is generated, valid for another 24 hours, and the previous link stops working."
+msgstr "その機関に対して「確認メールを再送」を使います。新しいトークンが発行されて再び24時間有効となり、以前のリンクは使えなくなります。"
+
+msgid "Users of the lpk-penyangga role are attached to one institution, and that attachment is what limits everything they can see across the application."
+msgstr "lpk-penyangga ロールのユーザーは一つの機関に紐づき、その紐づけがアプリケーション全体で見える範囲を制限します。"
+
+msgid "Verification email sent"
+msgstr "確認メールを送信"
+
+msgid "What has to exist first"
+msgstr "先に必要なもの"
+
+msgid "What this screen sets off elsewhere"
+msgstr "この画面が他で引き起こすこと"
+
+msgid "When nothing arrives"
+msgstr "何も届かないとき"
+
+msgid "Who"
+msgstr "誰が"
+
+msgid "Who needs chasing"
+msgstr "誰を催促すべきか"
+
+msgid "Who works on this screen"
+msgstr "この画面を使う人"
+
+msgid "You know where to spend the afternoon: chasing, or nothing."
+msgstr "午後を何に使うべきかが分かります。催促か、あるいは何もしないか。"
+
+msgid "You know which institutions are usable and which are waiting on someone."
+msgstr "どの機関が使える状態で、どれが誰かの対応待ちかが分かります。"
+
+msgid "not yet"
+msgstr "まだ"
+
+msgid "the institution itself"
+msgstr "機関自身"
+
+msgid "yes"
+msgstr "はい"

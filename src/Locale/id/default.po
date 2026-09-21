@@ -14287,3 +14287,446 @@ msgstr "Entri jurnal {0} diperbarui."
 
 msgid "Edit Journal Entry {0}"
 msgstr "Ubah Entri Jurnal {0}"
+
+# ── Per-page guides (Element/page_guide + config/page_guides) ───────
+
+msgid "A cooperative association is the supervising body between the sending side and the accepting company. Like the accepting organisations, this is a master list whose real weight is felt elsewhere: an apprentice order names both the cooperative and the accepting company, and the order cannot be raised until both exist here."
+msgstr "Koperasi (kumiai) adalah badan pengawas antara pihak pengirim dan perusahaan penerima. Seperti organisasi penerima, ini daftar induk yang bobot sesungguhnya terasa di halaman lain: satu apprentice order menyebut koperasi sekaligus perusahaan penerima, dan order tidak bisa dibuat sebelum keduanya ada di sini."
+
+msgid "A figure that looks wrong is usually a registration that bypassed the normal flow rather than a fault in the counting. Check the institution on the register before doubting the dashboard."
+msgstr "Angka yang terlihat janggal biasanya berasal dari pendaftaran yang melewati alur normal, bukan dari kesalahan penghitungan. Periksa lembaganya di daftar sebelum meragukan dasbor."
+
+msgid "A file for reporting outside the system."
+msgstr "Berkas untuk pelaporan di luar sistem."
+
+msgid "A fresh email goes to the same address."
+msgstr "Email baru dikirim ke alamat yang sama."
+
+msgid "A link that was already used says so plainly rather than failing: an already-active account is sent to the login page, a verified one to the password screen."
+msgstr "Tautan yang sudah terpakai akan mengatakannya terus terang, bukan gagal begitu saja: akun yang sudah aktif diarahkan ke halaman masuk, yang baru terverifikasi diarahkan ke halaman pembuatan kata sandi."
+
+msgid "A pending institution is chased from the registration screen, which resends its verification email."
+msgstr "Lembaga yang masih tertunda ditindaklanjuti dari halaman pendaftaran, yang mengirim ulang email verifikasinya."
+
+msgid "A user account is created for the institution and the registration is complete. From here its staff can log in with the username shown in the email."
+msgstr "Akun pengguna dibuat untuk lembaga itu dan pendaftaran selesai. Mulai dari sini stafnya bisa masuk dengan nama pengguna yang tertera di email."
+
+msgid "Acceptance organization on file"
+msgstr "Organisasi penerima tercatat"
+
+msgid "Account active - can log in"
+msgstr "Akun aktif - bisa masuk"
+
+msgid "Activity log"
+msgstr "Catatan aktivitas"
+
+msgid "Add Acceptance Organization"
+msgstr "Tambah Organisasi Penerima"
+
+msgid "Add Institution"
+msgstr "Tambah Lembaga"
+
+msgid "Adds, edits and deletes cooperatives."
+msgstr "Menambah, mengubah, dan menghapus koperasi."
+
+msgid "Adds, edits and deletes institutions, and attaches user accounts to them."
+msgstr "Menambah, mengubah, dan menghapus lembaga, serta mengaitkan akun pengguna kepadanya."
+
+msgid "Adds, edits and deletes organisations."
+msgstr "Menambah, mengubah, dan menghapus organisasi."
+
+msgid "Administrator or recruitment staff"
+msgstr "Administrator atau staf rekrutmen"
+
+msgid "Administrator registers the LPK"
+msgstr "Administrator mendaftarkan LPK"
+
+msgid "An LPK is the partner that finds and trains candidates in Indonesia. This screen is the register of them: who they are, whether their account works, and which ones are ready to be given apprentice orders. Registration itself happens on the LPK Registration screen - here you read the result and repair what is stuck."
+msgstr "LPK adalah mitra yang mencari dan melatih kandidat di Indonesia. Halaman ini adalah daftarnya: siapa mereka, apakah akunnya berfungsi, dan mana yang siap diberi apprentice order. Pendaftarannya sendiri berlangsung di halaman Pendaftaran LPK - di sini Anda membaca hasilnya dan membetulkan yang tersangkut."
+
+msgid "An acceptance organization is the company in Japan that will take the apprentices. It is a master list: kept once, chosen many times. Its importance is not in this screen but in the screens that cannot work without it - an apprentice order names the accepting company, and so do candidates, trainees and apprentices as they move through the pipeline."
+msgstr "Organisasi penerima adalah perusahaan di Jepang yang akan menerima apprentice. Ini daftar induk: dicatat sekali, dipilih berkali-kali. Pentingnya bukan pada halaman ini, melainkan pada halaman-halaman yang tidak bisa bekerja tanpanya - apprentice order menyebut perusahaan penerima, begitu pula kandidat, trainee, dan apprentice sepanjang alurnya."
+
+msgid "An active institution becomes selectable when an apprentice order is shared. Sharing sends it the apprentice_order_shared email and it can then propose candidates."
+msgstr "Lembaga yang aktif menjadi bisa dipilih saat sebuah apprentice order dibagikan. Pembagian mengirimkan email apprentice_order_shared kepadanya, dan sejak itu ia bisa mengajukan kandidat."
+
+msgid "An apprentice order cannot name an accepting company that is not on this list. If the one you need is missing, it has to be added here first."
+msgstr "Apprentice order tidak bisa menyebut perusahaan penerima yang tidak ada di daftar ini. Kalau yang Anda perlukan belum ada, tambahkan di sini lebih dulu."
+
+msgid "An institution appears here only after it has been registered, which is a separate screen with its own three-step flow."
+msgstr "Sebuah lembaga baru muncul di sini setelah didaftarkan, dan pendaftarannya adalah halaman tersendiri dengan alur tiga langkahnya."
+
+msgid "An institution sitting at pending_verification has received an email nobody opened. Check the address is right before resending a third time - a typo in the address cannot be seen from this screen, only from the institution never answering."
+msgstr "Lembaga yang mandek di pending_verification berarti sudah menerima email yang tidak dibuka siapa pun. Periksa kebenaran alamatnya sebelum mengirim ulang untuk ketiga kalinya - salah ketik pada alamat tidak terlihat dari halaman ini, hanya terlihat dari lembaga yang tak pernah menjawab."
+
+msgid "An institution that never verified its email has no account at all. It will not appear in any login report, and its staff cannot be helped by resetting a password that does not exist - resend the verification instead."
+msgstr "Lembaga yang tidak pernah memverifikasi emailnya sama sekali tidak punya akun. Ia tidak akan muncul di laporan login mana pun, dan stafnya tidak bisa ditolong dengan mengatur ulang kata sandi yang memang belum ada - kirim ulang verifikasinya."
+
+msgid "Attach a user to it"
+msgstr "Kaitkan pengguna kepadanya"
+
+msgid "Bringing a vocational training institution into the system, in three steps that are not all yours."
+msgstr "Memasukkan sebuah LPK ke dalam sistem, lewat tiga langkah yang tidak semuanya ada di tangan Anda."
+
+msgid "CSV, Excel and PDF exports produce the same list you are looking at, filters included."
+msgstr "Ekspor CSV, Excel, dan PDF menghasilkan daftar yang sama dengan yang sedang Anda lihat, termasuk filternya."
+
+msgid "Can receive apprentice orders"
+msgstr "Bisa menerima apprentice order"
+
+msgid "Candidates carry the institution that proposed them, so deleting an institution leaves its candidates pointing at nothing."
+msgstr "Setiap kandidat membawa lembaga yang mengajukannya, jadi menghapus sebuah lembaga membuat kandidatnya menunjuk ke ketiadaan."
+
+msgid "Candidates, trainees and apprentices each carry the accepting organisation, which is how a person can be traced back to the company that accepted them."
+msgstr "Kandidat, trainee, dan apprentice masing-masing membawa organisasi penerimanya, dan dari situlah seseorang bisa dirunut kembali ke perusahaan yang menerimanya."
+
+msgid "Carried by the apprentice in Japan"
+msgstr "Dibawa oleh apprentice di Jepang"
+
+msgid "Carried by the candidate"
+msgstr "Dibawa oleh kandidat"
+
+msgid "Carried by the trainee"
+msgstr "Dibawa oleh trainee"
+
+msgid "Chooses a password of at least eight characters containing an upper-case letter, a lower-case letter, a digit and a symbol. The system refuses anything weaker and says which rule failed."
+msgstr "Memilih kata sandi minimal delapan karakter yang memuat huruf besar, huruf kecil, angka, dan simbol. Sistem menolak yang lebih lemah dan menyebutkan aturan mana yang tidak terpenuhi."
+
+msgid "Chooses one when raising an apprentice order."
+msgstr "Memilih salah satunya saat membuat apprentice order."
+
+msgid "Chosen on a user account"
+msgstr "Dipilih pada akun pengguna"
+
+msgid "Cooperative on file"
+msgstr "Koperasi tercatat"
+
+msgid "Dashboard counts"
+msgstr "Hitungan dasbor"
+
+msgid "Deleting a registration removes the institution record. If it has already been shared apprentice orders, remove those shares first - they refer to an institution that will no longer exist."
+msgstr "Menghapus pendaftaran berarti menghapus data lembaganya. Kalau ia sudah pernah dibagikan apprentice order, cabut dulu pembagian itu - keduanya menunjuk ke lembaga yang tak akan ada lagi."
+
+msgid "Deleting an institution is not undone by re-registering it: candidates, shares and users that referred to it keep an id that no longer resolves. Prefer leaving a dormant institution on file."
+msgstr "Menghapus lembaga tidak bisa dibatalkan dengan mendaftarkannya ulang: kandidat, pembagian order, dan pengguna yang merujuknya tetap memegang id yang tak lagi tertuju ke mana pun. Lebih baik biarkan lembaga yang tidak aktif tetap tercatat."
+
+msgid "Deleting an institution that user accounts are attached to leaves those accounts bound to a record that no longer exists. Move the users first."
+msgstr "Menghapus lembaga yang masih ditempeli akun pengguna membuat akun-akun itu terikat pada data yang sudah tidak ada. Pindahkan penggunanya lebih dulu."
+
+msgid "Deleting one that is already named on an order leaves that order pointing at a company that no longer exists on file."
+msgstr "Menghapus yang sudah tercantum pada sebuah order membuat order itu menunjuk ke perusahaan yang tak lagi tercatat."
+
+msgid "Email verified"
+msgstr "Email terverifikasi"
+
+msgid "Enough to decide whether to send this institution an apprentice order, or to chase it."
+msgstr "Cukup untuk memutuskan apakah lembaga ini dikirimi apprentice order, atau justru perlu ditagih."
+
+msgid "Enter the company and its contact details. This is a master record, so keep the name exactly as it should appear on every order and document that will cite it."
+msgstr "Isikan perusahaan beserta detail kontaknya. Ini data induk, jadi tulis namanya persis seperti yang harus muncul pada setiap order dan dokumen yang mengutipnya."
+
+msgid "Enter the cooperative and its contact details, with the name spelled as it should appear on every order that cites it."
+msgstr "Isikan koperasi beserta detail kontaknya, dengan nama ditulis persis seperti yang akan muncul pada setiap order yang mengutipnya."
+
+msgid "Enter the institution and its contact details."
+msgstr "Isikan lembaga beserta detail kontaknya."
+
+msgid "Every count here can be opened as a list on the institution register."
+msgstr "Setiap angka di sini bisa dibuka sebagai daftar pada register lembaga."
+
+msgid "Experience stays with the record instead of with whoever happened to be there."
+msgstr "Pengalaman tersimpan pada datanya, bukan pada siapa pun yang kebetulan menanganinya."
+
+msgid "Export the register"
+msgstr "Ekspor register"
+
+msgid "Export the statistics"
+msgstr "Ekspor statistik"
+
+msgid "Fill in the institution name, director, email, username and the MoU file. The email address is where the verification link goes, so it must be one the institution actually reads."
+msgstr "Isikan nama lembaga, direktur, email, nama pengguna, dan berkas MoU. Alamat email itulah tujuan tautan verifikasi, jadi harus alamat yang memang dibaca oleh lembaganya."
+
+msgid "Flow of this screen"
+msgstr "Alur halaman ini"
+
+msgid "If an institution has been pending for days, the address is the first thing to doubt, not the email system. Check it before resending again."
+msgstr "Kalau sebuah lembaga tertunda berhari-hari, yang pertama patut diragukan adalah alamatnya, bukan sistem emailnya. Periksa dulu sebelum mengirim ulang lagi."
+
+msgid "If the institution forwards the link to a colleague who opens it first, the flow still works: whoever opens it sets the password, and that password belongs to the institution, not to the person."
+msgstr "Kalau lembaga meneruskan tautan itu ke rekannya dan rekannya yang membuka lebih dulu, alurnya tetap berjalan: siapa pun yang membukanya menetapkan kata sandi, dan kata sandi itu milik lembaganya, bukan milik orangnya."
+
+msgid "Institution on file"
+msgstr "Lembaga tercatat"
+
+msgid "Institution register"
+msgstr "Register lembaga"
+
+msgid "Institution sets its password"
+msgstr "Lembaga menetapkan kata sandinya"
+
+msgid "It becomes selectable on the user form."
+msgstr "Ia menjadi bisa dipilih pada formulir pengguna."
+
+msgid "Keep its history"
+msgstr "Simpan riwayatnya"
+
+msgid "LPK Registration list"
+msgstr "Daftar Pendaftaran LPK"
+
+msgid "LPK list"
+msgstr "Daftar LPK"
+
+msgid "LPK registration"
+msgstr "Pendaftaran LPK"
+
+msgid "Limits what that user sees"
+msgstr "Membatasi apa yang dilihat pengguna itu"
+
+msgid "Link opened?"
+msgstr "Tautan dibuka?"
+
+msgid "Named on an apprentice order"
+msgstr "Tercantum pada apprentice order"
+
+msgid "On the user form, choose this institution in the supporting-institution field rather than an LPK."
+msgstr "Pada formulir pengguna, pilih lembaga ini di kolom lembaga penyangga, bukan LPK."
+
+msgid "One email address, one institution. Registering an address that already exists is refused - that is a safeguard, not a fault."
+msgstr "Satu alamat email, satu lembaga. Mendaftarkan alamat yang sudah ada akan ditolak - itu pengaman, bukan kerusakan."
+
+msgid "One view of where every partner institution stands."
+msgstr "Satu pandangan atas posisi setiap lembaga mitra."
+
+msgid "Only an active institution can be shared an apprentice order. An institution still pending verification will not be offered in the sharing list."
+msgstr "Hanya lembaga yang aktif yang bisa dibagikan apprentice order. Lembaga yang masih menunggu verifikasi tidak akan muncul di daftar pembagian."
+
+msgid "Open one institution"
+msgstr "Buka satu lembaga"
+
+msgid "Open the system documentation"
+msgstr "Buka dokumentasi sistem"
+
+msgid "Opens the link from the email and sets its own password. It has no account until it does."
+msgstr "Membuka tautan dari email dan menetapkan kata sandinya sendiri. Sebelum itu, ia belum punya akun sama sekali."
+
+msgid "Opens the link in the email. The link carries a 64-character token that works once and expires 24 hours after it was sent."
+msgstr "Membuka tautan di email. Tautan itu membawa token 64 karakter yang hanya berlaku sekali dan kedaluwarsa 24 jam setelah dikirim."
+
+msgid "Order shared with LPKs"
+msgstr "Order dibagikan ke LPK"
+
+msgid "Proposes candidates"
+msgstr "Mengajukan kandidat"
+
+msgid "Push a stuck registration along"
+msgstr "Dorong pendaftaran yang tersangkut"
+
+msgid "Read the state of the partnership"
+msgstr "Baca keadaan kemitraan"
+
+msgid "Read the status of each institution"
+msgstr "Baca status tiap lembaga"
+
+msgid "Reads every figure and exports the statistics."
+msgstr "Membaca semua angka dan mengekspor statistiknya."
+
+msgid "Reads the list to know which institutions are ready to receive apprentice orders."
+msgstr "Membaca daftarnya untuk tahu lembaga mana yang siap menerima apprentice order."
+
+msgid "Reads the register to decide which institutions to share an apprentice order with."
+msgstr "Membaca register untuk menentukan lembaga mana yang akan dibagikan apprentice order."
+
+msgid "Receives apprentice orders"
+msgstr "Menerima apprentice order"
+
+msgid "Record the cooperative"
+msgstr "Catat koperasinya"
+
+msgid "Record the institution"
+msgstr "Catat lembaganya"
+
+msgid "Record the organisation before it is needed"
+msgstr "Catat organisasinya sebelum dibutuhkan"
+
+msgid "Register the institution"
+msgstr "Daftarkan lembaganya"
+
+msgid "Registering, and resending, both send the lpk_verification email. Its wording, and the letterhead around it, come from the email template of that name - edit the template and every future email changes."
+msgstr "Mendaftarkan maupun mengirim ulang sama-sama mengirim email lpk_verification. Kata-katanya, beserta kop surat yang membungkusnya, berasal dari template email bernama sama - ubah template-nya, berubah pula semua email berikutnya."
+
+msgid "Registers an institution, resends the verification email, deletes a registration that was a mistake."
+msgstr "Mendaftarkan lembaga, mengirim ulang email verifikasi, menghapus pendaftaran yang keliru."
+
+msgid "Registration and activation are written to the stakeholder activity log, which is what the stakeholder dashboard counts."
+msgstr "Pendaftaran dan aktivasi dicatat ke log aktivitas stakeholder, dan itulah yang dihitung oleh dasbor stakeholder."
+
+msgid "Registration is a conversation between two sides. You create the institution and the system emails it a verification link; the institution clicks the link and chooses its own password. Only then can its staff log in. An institution stops halfway more often than it finishes in one sitting, so this screen is mostly about seeing where each one is stuck and pushing it along."
+msgstr "Pendaftaran adalah percakapan dua pihak. Anda membuat data lembaganya dan sistem mengirimkan tautan verifikasi; lembaganya membuka tautan itu dan memilih kata sandinya sendiri. Baru setelah itu stafnya bisa masuk. Lembaga lebih sering berhenti di tengah jalan daripada selesai sekali duduk, jadi halaman ini sebagian besar soal melihat di mana masing-masing tersangkut dan mendorongnya."
+
+msgid "Renaming an organisation changes it everywhere at once, including on orders already raised. That is usually what you want; be sure it is."
+msgstr "Mengganti nama organisasi mengubahnya sekaligus di semua tempat, termasuk pada order yang sudah dibuat. Biasanya memang itu yang diinginkan; pastikan memang begitu."
+
+msgid "Resend Verification Email issues a new link and invalidates the old one."
+msgstr "Kirim Ulang Email Verifikasi menerbitkan tautan baru dan membatalkan yang lama."
+
+msgid "Resend verification"
+msgstr "Kirim ulang verifikasi"
+
+msgid "Resending only works while the institution is still pending_verification. Once it is verified or active there is nothing to resend, and the screen will say so."
+msgstr "Pengiriman ulang hanya berlaku selama lembaga masih pending_verification. Begitu ia verified atau active, tidak ada yang perlu dikirim ulang, dan halamannya akan mengatakan demikian."
+
+msgid "Sees every institution, edits, deletes, resends a verification email."
+msgstr "Melihat semua lembaga, mengubah, menghapus, mengirim ulang email verifikasi."
+
+msgid "Sees only its own institution. The filter is applied in the controller, not in the page, so the restriction holds however the page is reached."
+msgstr "Hanya melihat lembaganya sendiri. Penyaringan dilakukan di controller, bukan di halamannya, sehingga pembatasan itu tetap berlaku dari jalan mana pun halaman ini dibuka."
+
+msgid "Setting the password creates a real user account. From that moment the institution appears in user administration like any other user."
+msgstr "Menetapkan kata sandi menciptakan akun pengguna sungguhan. Sejak saat itu lembaganya muncul di administrasi pengguna seperti pengguna lain."
+
+msgid "Something to attach to a report."
+msgstr "Sesuatu untuk dilampirkan ke laporan."
+
+msgid "Stakeholder Dashboard"
+msgstr "Dasbor Stakeholder"
+
+msgid "Step by step"
+msgstr "Langkah demi langkah"
+
+msgid "Stories against a cooperative record how the relationship has actually gone."
+msgstr "Catatan cerita pada sebuah koperasi merekam bagaimana hubungannya berjalan sebenarnya."
+
+msgid "Stories recorded against an organisation collect what happened with it over time - problems met, how they were handled."
+msgstr "Cerita yang dicatat pada sebuah organisasi mengumpulkan apa yang terjadi dengannya dari waktu ke waktu - masalah yang ditemui dan bagaimana ditangani."
+
+msgid "That user is bound to the institution, and what they can see follows from it."
+msgstr "Pengguna itu terikat pada lembaganya, dan apa yang bisa ia lihat mengikuti ikatan itu."
+
+msgid "The Japanese companies that accept apprentices."
+msgstr "Perusahaan-perusahaan Jepang yang menerima apprentice."
+
+msgid "The cooperative becomes selectable when an apprentice order is raised."
+msgstr "Koperasi itu menjadi bisa dipilih saat sebuah apprentice order dibuat."
+
+msgid "The counts on the stakeholder dashboard are drawn from this register and its activity log."
+msgstr "Angka-angka di dasbor stakeholder ditarik dari register ini beserta log aktivitasnya."
+
+msgid "The counts separate institutions that can log in from those still pending verification or verified but without a password."
+msgstr "Hitungannya memisahkan lembaga yang sudah bisa masuk dari yang masih menunggu verifikasi atau sudah terverifikasi tetapi belum berkata sandi."
+
+msgid "The detail page gathers what is on file: contact details, the MoU document, and the account state."
+msgstr "Halaman detail mengumpulkan apa yang tercatat: detail kontak, dokumen MoU, dan keadaan akunnya."
+
+msgid "The email address is confirmed and the institution is sent on to choose a password."
+msgstr "Alamat emailnya terkonfirmasi dan lembaganya diteruskan untuk memilih kata sandi."
+
+msgid "The export produces the same figures as a file."
+msgstr "Ekspor menghasilkan angka yang sama dalam bentuk berkas."
+
+msgid "The figures are only as complete as the register behind them. An institution registered outside the registration flow is counted, but has no activity history to show."
+msgstr "Angkanya hanya selengkap register di belakangnya. Lembaga yang didaftarkan di luar alur pendaftaran tetap ikut terhitung, tetapi tidak punya riwayat aktivitas untuk ditampilkan."
+
+msgid "The guides are being written one workflow phase at a time. Until this module is reached, the system documentation describes the process it belongs to."
+msgstr "Panduan ini ditulis satu fase alur kerja pada satu waktu. Sampai giliran modul ini tiba, dokumentasi sistem menjelaskan proses tempat modul ini berada."
+
+msgid "The institution"
+msgstr "Lembaganya"
+
+msgid "The institution is saved and a verification email is sent. Nobody can log in yet."
+msgstr "Data lembaganya tersimpan dan email verifikasi terkirim. Belum ada yang bisa masuk."
+
+msgid "The institution receives a fresh email at the same address."
+msgstr "Lembaganya menerima email baru di alamat yang sama."
+
+msgid "The institution sets its password"
+msgstr "Lembaganya menetapkan kata sandi"
+
+msgid "The institution verifies its email"
+msgstr "Lembaganya memverifikasi emailnya"
+
+msgid "The institution, from its own inbox"
+msgstr "Lembaganya, dari kotak masuknya sendiri"
+
+msgid "The kumiai that supervises the apprenticeship in Japan."
+msgstr "Kumiai yang mengawasi pemagangan di Jepang."
+
+msgid "The link is good for 24 hours and for one use. An institution that opens it on the third day is not doing anything wrong - it simply needs a fresh one, which is what Resend Verification Email is for."
+msgstr "Tautannya berlaku 24 jam dan hanya sekali pakai. Lembaga yang baru membukanya di hari ketiga tidak melakukan kesalahan - ia hanya perlu tautan baru, dan untuk itulah Kirim Ulang Email Verifikasi ada."
+
+msgid "The list shows the registration state of every institution. Three values matter: pending_verification means the email was sent and never acted on, verified means the address was confirmed but no password chosen, active means the institution can log in."
+msgstr "Daftar ini menampilkan keadaan pendaftaran tiap lembaga. Tiga nilai yang penting: pending_verification berarti emailnya terkirim tetapi tidak ditindaklanjuti, verified berarti alamatnya sudah dikonfirmasi tetapi kata sandi belum dipilih, active berarti lembaganya sudah bisa masuk."
+
+msgid "The next person choosing this company can see what the last one learned."
+msgstr "Orang berikutnya yang memilih perusahaan ini bisa melihat apa yang dipelajari orang sebelumnya."
+
+msgid "The organisation becomes selectable everywhere it is required."
+msgstr "Organisasi itu menjadi bisa dipilih di semua tempat yang memerlukannya."
+
+msgid "The register of partner institutions, and the state each one is in."
+msgstr "Register lembaga mitra, beserta keadaan masing-masing."
+
+msgid "The supporting bodies a user account can belong to."
+msgstr "Badan penyangga tempat sebuah akun pengguna bisa bernaung."
+
+msgid "The user form offers this list beside the LPK list. Which of the two you pick decides which body the account belongs to."
+msgstr "Formulir pengguna menyodorkan daftar ini berdampingan dengan daftar LPK. Pilihan di antara keduanya menentukan badan mana yang menaungi akun itu."
+
+msgid "These are the registered support institutions on the specified-skilled-worker side. In this system their practical role is narrow but important: when a user account is created, it is attached either to one of these institutions or to an LPK, and that attachment is what decides how much of the application that person can see."
+msgstr "Ini adalah lembaga penyangga terdaftar di jalur specified skilled worker. Dalam sistem ini perannya sempit tetapi penting: ketika sebuah akun pengguna dibuat, ia dikaitkan entah ke salah satu lembaga ini atau ke sebuah LPK, dan kaitan itulah yang menentukan seberapa banyak bagian aplikasi yang bisa dilihat orang tersebut."
+
+msgid "Things that go wrong here"
+msgstr "Hal yang sering keliru di sini"
+
+msgid "This page has no guide yet."
+msgstr "Halaman ini belum punya panduan."
+
+msgid "This screen counts rather than edits. It reads the institution register and the activity log that registration writes to, and turns them into the question an administrator actually has: how many partners are usable today, and how many are stuck part-way through joining. Nothing here changes data - every number is a link back to the screen that can."
+msgstr "Halaman ini menghitung, bukan mengubah. Ia membaca register lembaga dan log aktivitas yang ditulis oleh pendaftaran, lalu mengubahnya menjadi pertanyaan yang sebenarnya dipunyai seorang administrator: berapa mitra yang hari ini bisa dipakai, dan berapa yang tersangkut di tengah proses bergabung. Tidak ada yang diubah di sini - setiap angka adalah tautan kembali ke halaman yang bisa mengubahnya."
+
+msgid "Together with the accepting organisation, the cooperative is what an apprentice order is built on. Both must exist before an order can be raised."
+msgstr "Bersama organisasi penerima, koperasi adalah fondasi sebuah apprentice order. Keduanya harus ada sebelum order bisa dibuat."
+
+msgid "Two records for the same cooperative, differing only in spelling, will split its orders into two groups that no report puts back together. Search before adding."
+msgstr "Dua data untuk koperasi yang sama, berbeda hanya pada ejaannya, akan memecah order-ordernya menjadi dua kelompok yang tak disatukan kembali oleh laporan mana pun. Cari dulu sebelum menambah."
+
+msgid "Use Resend Verification Email on the institution. A new token is generated, valid for another 24 hours, and the previous link stops working."
+msgstr "Gunakan Kirim Ulang Email Verifikasi pada lembaga itu. Token baru dibuat, berlaku 24 jam lagi, dan tautan sebelumnya berhenti berfungsi."
+
+msgid "Users of the lpk-penyangga role are attached to one institution, and that attachment is what limits everything they can see across the application."
+msgstr "Pengguna dengan peran lpk-penyangga terikat pada satu lembaga, dan ikatan itulah yang membatasi semua yang bisa mereka lihat di seluruh aplikasi."
+
+msgid "Verification email sent"
+msgstr "Email verifikasi terkirim"
+
+msgid "What has to exist first"
+msgstr "Apa yang harus ada lebih dulu"
+
+msgid "What this screen sets off elsewhere"
+msgstr "Apa yang dipicu halaman ini di tempat lain"
+
+msgid "When nothing arrives"
+msgstr "Ketika tidak ada yang datang"
+
+msgid "Who"
+msgstr "Siapa"
+
+msgid "Who needs chasing"
+msgstr "Siapa yang perlu ditagih"
+
+msgid "Who works on this screen"
+msgstr "Siapa yang bekerja di halaman ini"
+
+msgid "You know where to spend the afternoon: chasing, or nothing."
+msgstr "Anda tahu sore ini dihabiskan untuk apa: menagih, atau tidak sama sekali."
+
+msgid "You know which institutions are usable and which are waiting on someone."
+msgstr "Anda tahu lembaga mana yang sudah bisa dipakai dan mana yang masih menunggu seseorang."
+
+msgid "not yet"
+msgstr "belum"
+
+msgid "the institution itself"
+msgstr "lembaganya sendiri"
+
+msgid "yes"
+msgstr "ya"
