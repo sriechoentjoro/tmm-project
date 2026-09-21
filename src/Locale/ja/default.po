@@ -15463,3 +15463,497 @@ msgstr "未設定"
 
 msgid "not fit"
 msgstr "不適"
+
+# ── Page guides: training phase ───────────────────────
+
+msgid "A batch is a group of trainees trained together on one schedule: how many months it runs, where it trains, and when the group is due to depart for Japan. It also carries the case where the training location changes part-way through, which is why it keeps both an original location and a moved one."
+msgstr "期とは、一つのスケジュールでまとめて訓練を受ける研修生の集団です。何か月続くか、どこで訓練するか、いつ日本へ出発する予定かを持ちます。訓練場所が途中で変わる場合にも対応するため、当初の場所と移転後の場所の両方を保持します。"
+
+msgid "A batch is the cohort a trainee trains with; a training is a single session with its own title, dates, place, instructor and a limit on how many can attend. It is what you use when somebody needs more of something - a language push before departure, a skill the tests showed was weak - without moving them out of their batch."
+msgstr "期は研修生が所属する集団、トレーニングは題目・日程・場所・講師・定員を持つ単発の講座です。出発前の語学の追い込みや、試験で弱さが出た技能など、期から動かさずに補いたいときに使います。"
+
+msgid "A batch is the cohort: when it starts, how many months it runs, where it trains, and when it is due to depart."
+msgstr "期は集団の単位です。開始時期、期間の月数、訓練場所、そして出発予定です。"
+
+msgid "A batch with trainees in it should not be deleted. Close it instead: the trainees, their scores and their certificates all refer back to it."
+msgstr "研修生が在籍する期は削除すべきではありません。締めるにとどめてください。研修生も点数も証明書も、すべてその期を参照しています。"
+
+msgid "A certificate is issued against the trainee and the batch, and the certificate page computes its own averages from the test scores."
+msgstr "証明書は研修生と期に対して発行され、証明書ページは試験の点数から独自に平均を算出します。"
+
+msgid "A certificate names the batch a trainee finished, so a batch deleted afterwards leaves certificates pointing at nothing."
+msgstr "証明書には修了した期が記載されるため、後から期を削除すると証明書は存在しない先を指すことになります。"
+
+msgid "A certificate ties a trainee to the batch they finished and the number on the paper they were handed. What makes it useful is what it gathers: opening one computes the trainee's average, highest and lowest test scores and how many tests they passed, straight from the individual test records. Nothing is stored twice, so a score corrected later shows corrected here."
+msgstr "証明書は、研修生を修了した期と、手渡された用紙の番号に結び付けます。有用なのはそれが集めてくるものです。開くたびに、平均点・最高点・最低点・合格した試験数を、個々の試験記録から直接計算します。二重に保存しないため、後から点数を訂正すれば、ここにも訂正された数字が出ます。"
+
+msgid "A document marked as costing something but never marked paid stays in the outstanding total indefinitely. The total is only as honest as the marking."
+msgstr "費用が計上されたまま支払済みにされない書類は、いつまでも未払い合計に残ります。合計の正しさは、記入の正しさ止まりです。"
+
+msgid "A printed certificate whose figures match what is on file."
+msgstr "記録と数字が一致した印刷用の証明書です。"
+
+msgid "A trainee is a candidate who was promoted - the same person, with their whole profile copied across and a new TMM code. This is where training happens: they are placed in a batch, tested, given extra courses where needed, and their documents collected. When training is done, the training side promotes them to apprentice, and the profile is copied once more."
+msgstr "研修生とは、昇格した候補者です。同じ人物が、プロフィールごと複写され、新しいTMMコードを持ちます。ここで訓練が行われます。期に配属され、試験を受け、必要に応じて追加講座を受け、書類が集められます。訓練が終わると訓練側が実習生へ昇格させ、プロフィールがもう一度複写されます。"
+
+msgid "A trainee is not created here. They arrive by being promoted from the candidate side, which copies education, experience, certifications, courses and family across."
+msgstr "研修生はここで作成しません。候補者側からの昇格によって現れ、その際に学歴・職歴・資格・講習・家族が複写されます。"
+
+msgid "A trainee who is already an apprentice is refused, so a double click cannot create two of the same person."
+msgstr "すでに実習生になっている研修生は拒否されるため、二度押しで同じ人が二人になることはありません。"
+
+msgid "A trainee who needs more of something is enrolled into an additional training session - its own course with a date, a place and an instructor."
+msgstr "補いが必要な研修生は、追加のトレーニングに登録します。日程・場所・講師を持つ独立した講座です。"
+
+msgid "A training session is not a batch. The batch is the cohort and the schedule; this is one extra session inside it."
+msgstr "トレーニングは期ではありません。期は集団とその日程であり、これはその中の追加の一講座です。"
+
+msgid "A typed summary of a trainee's standing in one competency."
+msgstr "一つの科目における研修生の到達度を、手入力でまとめたものです。"
+
+msgid "Add extra training where it is needed"
+msgstr "必要に応じて追加訓練を行う"
+
+msgid "Apprentice created, profile copied"
+msgstr "実習生を作成、プロフィールを複写"
+
+msgid "Attach the file against the trainee and the document it satisfies, and set its status."
+msgstr "研修生と、その書類が満たす項目に対してファイルを添付し、状態を設定します。"
+
+msgid "Attendance and outcome"
+msgstr "出席と結果"
+
+msgid "Average on the promotion checklist"
+msgstr "昇格チェックリストの平均"
+
+msgid "Average typed here"
+msgstr "ここで入力した平均"
+
+msgid "Averages computed on open"
+msgstr "開いたときに平均を算出"
+
+msgid "Averages computed when read"
+msgstr "読み込み時に平均を算出"
+
+msgid "Averages on the certificate"
+msgstr "証明書の平均"
+
+msgid "Batch opened"
+msgstr "期を開設"
+
+msgid "Because it is typed rather than derived, an average here can drift out of step with the test scores it was meant to summarise. Re-check it when new tests are recorded."
+msgstr "導出ではなく手入力であるため、ここの平均は本来まとめるはずの試験結果とずれていくことがあります。新しい試験を記録したら見直してください。"
+
+msgid "Because the averages are computed rather than stored, deleting a test changes the certificate of a trainee who may already hold the printed copy. Correct a score rather than deleting and re-entering it where you can."
+msgstr "平均は保存されず計算されるため、試験を一件削除すると、すでに印刷物を手にしている研修生の証明書の数字が変わります。可能な限り、削除して入れ直すのではなく点数を訂正してください。"
+
+msgid "Both the plan and what actually happened stay on file."
+msgstr "計画と実際の経過の両方が記録に残ります。"
+
+msgid "Certificate and promotion checklist"
+msgstr "証明書と昇格チェックリスト"
+
+msgid "Certificates cite the batch"
+msgstr "証明書が期を引用"
+
+msgid "Checklist per trainee"
+msgstr "研修生ごとのチェックリスト"
+
+msgid "Choose the trainee and the batch, and record the certificate number exactly as it appears on the paper."
+msgstr "研修生と期を選び、証明書番号を用紙に記載されているとおり正確に記録します。"
+
+msgid "Choose the trainee and the competency, enter the average, and pick the grade band it falls in."
+msgstr "研修生と科目を選び、平均点を入力し、該当する評価区分を選びます。"
+
+msgid "Choose the trainee, the competency, the score and the grade band it falls in."
+msgstr "研修生、科目、点数、そして該当する評価区分を選びます。"
+
+msgid "Competencies"
+msgstr "科目"
+
+msgid "Cost recorded"
+msgstr "費用を記録"
+
+msgid "Creates batches and maintains their schedule."
+msgstr "期を作成し、その日程を管理します。"
+
+msgid "Daily test scores"
+msgstr "日次の試験点数"
+
+msgid "Departure runs on paperwork. This is where a trainee's documents are uploaded, where the checklist shows which required ones are still missing, and where the money each document cost is recorded against whether it has been paid. Candidate documents do not follow a person into the training phase, so this collection starts fresh."
+msgstr "出発は書類で動きます。ここで研修生の書類をアップロードし、チェックリストがどの必要書類が足りないかを示し、各書類の費用と支払状況を記録します。候補者の書類は訓練フェーズには引き継がれないため、この収集は一から始まります。"
+
+msgid "Document costs"
+msgstr "書類費用"
+
+msgid "Document costs are their own record here. They are not the same thing as the installments a trainee pays, which live in the accounting screens."
+msgstr "書類費用はここで独立した記録です。研修生が支払う分割金とは別物で、そちらは会計の画面にあります。"
+
+msgid "Documentation or training staff"
+msgstr "書類担当または訓練担当"
+
+msgid "Documentation staff"
+msgstr "書類担当"
+
+msgid "Documents collected"
+msgstr "書類を収集"
+
+msgid "Each document cost is recorded with its amount, its currency and whether it has been paid."
+msgstr "各書類の費用は、金額・通貨・支払状況とともに記録されます。"
+
+msgid "Each test is one trainee, one competency, one score, on one date. The daily screen is the quick way in: pick the date and enter the room's scores together."
+msgstr "試験は一件につき、研修生一人・科目一つ・点数一つ・日付一つです。日次画面が近道で、日付を選んで教室分の点数をまとめて入力できます。"
+
+msgid "Enrol the trainees who need it"
+msgstr "必要な研修生を登録する"
+
+msgid "Enrolment happens from the trainee, so a trainee's page is where their extra sessions are listed."
+msgstr "登録は研修生側から行うため、追加講座の一覧は研修生のページにあります。"
+
+msgid "Enrolment is done from the trainee side, against the session."
+msgstr "登録は研修生側から、対象の講座に対して行います。"
+
+msgid "Enter a room's scores together"
+msgstr "教室分の点数をまとめて入力する"
+
+msgid "Every figure on the certificate is computed from the test scores when the page is opened. Correcting a score corrects the certificate; deleting one changes a certificate that may already be printed."
+msgstr "証明書のすべての数字は、ページを開いた時点で試験の点数から計算されます。点数を訂正すれば証明書も直り、削除すれば、すでに印刷済みかもしれない証明書の内容が変わります。"
+
+msgid "Every test a trainee sits is recorded as its own row: which competency, what score, what grade, and when. Nothing here is a total - the averages that appear on certificates and on the promotion checklist are computed from these rows each time they are read, so a correction here corrects everything downstream at once."
+msgstr "研修生が受けた試験は、一件ごとに行として記録されます。科目、点数、評価、日付です。ここに合計値はありません。証明書や昇格チェックリストに出る平均は、読み込むたびにこれらの行から計算されるため、ここでの一つの訂正が下流のすべてを同時に直します。"
+
+msgid "Extra sessions a trainee can be enrolled into, beside the batch they belong to."
+msgstr "所属する期とは別に、研修生が登録できる追加の講座です。"
+
+msgid "Extra training"
+msgstr "追加訓練"
+
+msgid "Follow a batch whose location changed"
+msgstr "訓練場所が変わった期を追う"
+
+msgid "Give it a name, the training term in months, the original training location, and the planned start, finish and departure dates."
+msgstr "名称、訓練期間（月数）、当初の訓練場所、そして開始・終了・出発の予定日を入力します。"
+
+msgid "Give it a title, its start and end dates, where it is held, who teaches it, and the maximum number of participants."
+msgstr "題目、開始日と終了日、開催場所、講師、そして定員を入力します。"
+
+msgid "How far the whole cohort has got, in one view."
+msgstr "集団全体がどこまで進んだかを一望できます。"
+
+msgid "Individual test scores"
+msgstr "個々の試験点数"
+
+msgid "Issue the certificate"
+msgstr "証明書を発行する"
+
+msgid "Issues certificates and prints them."
+msgstr "証明書を発行し、印刷します。"
+
+msgid "Kept as a record"
+msgstr "記録として保持"
+
+msgid "Location shift"
+msgstr "訓練場所の移転"
+
+msgid "Moved location recorded"
+msgstr "移転後の場所を記録"
+
+msgid "New Batch"
+msgstr "期の新規作成"
+
+msgid "New Score Average"
+msgstr "平均点の新規登録"
+
+msgid "New Test Score"
+msgstr "試験点数の新規登録"
+
+msgid "Notes recorded against a certificate are kept on file only; they do not appear on the printed certificate."
+msgstr "証明書に記録した備考は保管用であり、印刷される証明書には表示されません。"
+
+msgid "Nothing else in the application currently reads these figures: no dashboard, no report, and not the certificate. Typing an average here will not change any of them."
+msgstr "現時点では、これらの数値を読んでいる箇所は他にありません。ダッシュボードも、レポートも、証明書も参照していません。ここに平均を入力しても、それらは変わりません。"
+
+msgid "One row, which every average downstream will include."
+msgstr "一行の記録であり、下流のあらゆる平均に含まれます。"
+
+msgid "One trainee, one competency, one score, on one date."
+msgstr "研修生一人、科目一つ、点数一つ、日付一つ。"
+
+msgid "Open the batch"
+msgstr "期を開設する"
+
+msgid "Open the session"
+msgstr "講座を開設する"
+
+msgid "Opens sessions and enrols trainees into them."
+msgstr "講座を開設し、研修生を登録します。"
+
+msgid "Overwriting the original location instead of marking the move loses the fact that it ever changed."
+msgstr "移転を記録せずに当初の場所を上書きすると、場所が変わったという事実そのものが失われます。"
+
+msgid "Paid and outstanding"
+msgstr "支払済みと未払い"
+
+msgid "Paperwork readiness is visible without opening every trainee."
+msgstr "研修生を一人ずつ開かなくても、書類の準備状況が見えます。"
+
+msgid "Place the trainee in a batch"
+msgstr "研修生を期に配属する"
+
+msgid "Placed in a batch"
+msgstr "期に配属"
+
+msgid "Print it"
+msgstr "印刷する"
+
+msgid "Printed certificate"
+msgstr "印刷された証明書"
+
+msgid "Progress across the cohort"
+msgstr "集団全体の進捗"
+
+msgid "Promote to apprentice"
+msgstr "実習生へ昇格させる"
+
+msgid "Promoted from candidate"
+msgstr "候補者から昇格"
+
+msgid "Promotion checklist"
+msgstr "昇格チェックリスト"
+
+msgid "Promotion copies the profile as it stands. Anything corrected on the trainee afterwards does not follow the apprentice across - correct it on the apprentice instead."
+msgstr "昇格はその時点のプロフィールを複写します。その後に研修生側を直しても実習生には反映されないため、実習生側で修正してください。"
+
+msgid "Promotion creates the apprentice. From there the person is worked on in the apprentice screens - tickets, flights, COE and visa, passport."
+msgstr "昇格によって実習生が作成されます。以降その人物は実習生側の画面で扱われます。航空券、フライト、COEとビザ、パスポートです。"
+
+msgid "Re-uploading a document a trainee already submitted replaces the existing record rather than adding a second one."
+msgstr "研修生がすでに提出した書類を再アップロードすると、二件目が増えるのではなく既存の記録が置き換わります。"
+
+msgid "Read the summary"
+msgstr "集計を読む"
+
+msgid "Read what it gathered"
+msgstr "集めてきた内容を読む"
+
+msgid "Readiness to be promoted to apprentice is partly a paperwork question, and this is where that part is answered."
+msgstr "実習生へ昇格できるかは一部が書類の問題であり、その部分はここで答えが出ます。"
+
+msgid "Reads the checklist to know whether a trainee is ready."
+msgstr "研修生が準備できているかをチェックリストで確認します。"
+
+msgid "Reads the register to see what became of the candidates it promoted."
+msgstr "自分が昇格させた候補者のその後を登録簿で確認します。"
+
+msgid "Record a change of location"
+msgstr "場所の変更を記録する"
+
+msgid "Record a single test"
+msgstr "試験を一件記録する"
+
+msgid "Record the average"
+msgstr "平均点を記録する"
+
+msgid "Record the tests"
+msgstr "試験を記録する"
+
+msgid "Record what it cost"
+msgstr "費用を記録する"
+
+msgid "Records and corrects scores."
+msgstr "点数の記録と訂正を行います。"
+
+msgid "Records and maintains the averages."
+msgstr "平均点の記録と管理を行います。"
+
+msgid "Runs the training, records the tests, and promotes a trainee to apprentice."
+msgstr "訓練を運営し、試験を記録し、研修生を実習生へ昇格させます。"
+
+msgid "Score Averages"
+msgstr "平均点"
+
+msgid "Score report"
+msgstr "点数レポート"
+
+msgid "Session opened"
+msgstr "講座を開設"
+
+msgid "Test recorded"
+msgstr "試験を記録"
+
+msgid "Test scores recorded"
+msgstr "試験点数を記録"
+
+msgid "Tests and training"
+msgstr "試験と訓練"
+
+msgid "Tests recorded"
+msgstr "試験を記録"
+
+msgid "The batch named on the certificate comes from the batch register."
+msgstr "証明書に記載される期は、期の登録簿から来ています。"
+
+msgid "The certificate a trainee receives at the end of a batch, and the scores behind it."
+msgstr "期の修了時に研修生が受け取る証明書と、その背後にある点数です。"
+
+msgid "The certificate is backed by the record, not by memory."
+msgstr "証明書の裏付けは記憶ではなく記録です。"
+
+msgid "The certificate is on file and can be opened or printed."
+msgstr "証明書が登録され、閲覧も印刷もできます。"
+
+msgid "The certificate number is yours to keep consistent - nothing generates it, and nothing checks that two certificates do not share one."
+msgstr "証明書番号の一貫性は利用者側の責任です。自動採番もされず、二つの証明書が同じ番号を持っていないかの確認も行われません。"
+
+msgid "The certificate page computes the average, the highest and the lowest score, and how many tests were passed, straight from these rows. It does not read any stored average."
+msgstr "証明書ページは、平均点・最高点・最低点・合格した試験数を、これらの行から直接計算します。保存された平均は一切参照しません。"
+
+msgid "The checklist shows the required documents against what has arrived, one row per trainee, so the gaps are visible without opening anybody."
+msgstr "チェックリストは必要書類と提出済みの書類を突き合わせ、研修生ごとに一行で表示するため、誰も開かずに不足が分かります。"
+
+msgid "The cohort a trainee trains with, and where and when it happens."
+msgstr "研修生が所属して訓練を受ける集団と、その場所と時期です。"
+
+msgid "The competency and the grade band are both master lists."
+msgstr "科目も評価区分も、どちらもマスタ一覧です。"
+
+msgid "The competency being tested and the grade bands both come from master lists, so a test cannot be recorded against a subject nobody has defined."
+msgstr "試験する科目も評価区分もマスタ一覧から来るため、誰も定義していない科目に対して試験を記録することはできません。"
+
+msgid "The daily screen asks for a date and then shows that day's tests in one place, which is faster and less error-prone than opening one trainee at a time."
+msgstr "日次画面は日付を尋ね、その日の試験を一箇所に表示します。研修生を一人ずつ開くより速く、間違いも起きにくくなります。"
+
+msgid "The day's results are on file."
+msgstr "その日の結果が記録されます。"
+
+msgid "The detail page shows the per-competency breakdown with each grade, and the summary figures above it."
+msgstr "詳細ページには科目ごとの内訳と評価、その上に集計値が表示されます。"
+
+msgid "The document counts towards that trainee's completeness."
+msgstr "その書類は当該研修生の充足率に数えられます。"
+
+msgid "The enrolment is on file against both the trainee and the session."
+msgstr "登録は研修生側と講座側の双方に記録されます。"
+
+msgid "The enrolment is on file for both, and can be changed or withdrawn later."
+msgstr "登録は双方に記録され、後から変更も取り消しもできます。"
+
+msgid "The figure is on file against that trainee and competency."
+msgstr "その数値は、当該の研修生と科目に紐づけて記録されます。"
+
+msgid "The individual test scores are the source the computed averages come from. If a certificate looks wrong, that is where to look, not here."
+msgstr "計算される平均の出どころは、個々の試験点数です。証明書がおかしく見えるなら、確認すべきはここではなくそちらです。"
+
+msgid "The location-shift screen gathers the batches whose training location has moved, with their original and moved schedules side by side."
+msgstr "移転画面は、訓練場所が移った期を集め、当初の日程と移転後の日程を並べて表示します。"
+
+msgid "The outstanding total is visible beside the paid one."
+msgstr "未払い合計が、支払済みの合計と並んで表示されます。"
+
+msgid "The participant limit is recorded but nothing enforces it - enrolling more people than the room holds is a decision, not an error the system will stop."
+msgstr "定員は記録されますが、強制はされません。部屋の収容を超えて登録することは判断であって、システムが止めるエラーではありません。"
+
+msgid "The person becomes an apprentice and the apprentice phase begins. The trainee record stays, marked as having passed training."
+msgstr "その人物は実習生となり、実習フェーズが始まります。研修生のレコードは訓練修了として残ります。"
+
+msgid "The print view lays the same information out for paper."
+msgstr "印刷表示は、同じ情報を紙向けに配置します。"
+
+msgid "The progress screen counts the documents by status across everybody."
+msgstr "進捗画面は、全員分の書類を状態ごとに集計します。"
+
+msgid "The promotion checklist gathers each trainee with the average of their test scores, so readiness is read rather than remembered."
+msgstr "昇格チェックリストは、各研修生を試験点数の平均とともに一覧にします。準備状況は記憶ではなく、読んで確かめるものになります。"
+
+msgid "The promotion checklist shows each trainee's average from here beside their name."
+msgstr "昇格チェックリストには、ここから算出した各研修生の平均が名前の横に表示されます。"
+
+msgid "The promotion list offers every trainee not yet promoted, whatever their scores. The average beside each name is information, not a gate: the decision is the training side's."
+msgstr "昇格一覧には、点数にかかわらず未昇格の研修生がすべて並びます。名前の横の平均は情報であって関門ではありません。判断は訓練側のものです。"
+
+msgid "The promotion screen lists trainees who have not yet been promoted, with their average test score beside them. Promoting one creates the apprentice and copies education, experience, certifications, courses, family and family stories across."
+msgstr "昇格画面には、未昇格の研修生が試験点数の平均とともに並びます。昇格させると実習生が作成され、学歴・職歴・資格・講習・家族・家族の記録が複写されます。"
+
+msgid "The report gathers the scores into something you can look at rather than scroll through."
+msgstr "レポートは点数をまとめ、延々とスクロールするのではなく一望できる形にします。"
+
+msgid "The scores accumulate, and the averages on the certificate are computed from them."
+msgstr "点数が積み上がり、証明書の平均はそこから計算されます。"
+
+msgid "The test scores have to be recorded first: the certificate reads them rather than asking for them."
+msgstr "先に試験点数が記録されている必要があります。証明書は入力を求めるのではなく、記録を読みます。"
+
+msgid "The trainee checklist shows which required documents are in, and the cost screen records what each document cost and whether it has been paid."
+msgstr "研修生のチェックリストはどの必要書類が揃ったかを示し、費用画面は各書類の費用と支払状況を記録します。"
+
+msgid "The trainee trains with a group and appears on that batch's lists."
+msgstr "研修生は集団で訓練を受け、その期の一覧に表示されます。"
+
+msgid "The training phase, from the day a candidate is promoted to the day they become an apprentice."
+msgstr "候補者が昇格した日から実習生になる日までの、訓練フェーズです。"
+
+msgid "This screen holds an average you type: one trainee, one competency, the figure and the grade band it falls in. It is worth knowing what it is not - the averages shown on a certificate and on the promotion checklist are computed from the individual test scores every time they are read, and they do not come from here. Use this screen for a standing you want recorded deliberately, not as the place the system gets its numbers."
+msgstr "この画面が持つのは手入力の平均です。研修生一人、科目一つ、その数値と該当する評価区分。何ではないかを知っておく価値があります。証明書や昇格チェックリストに出る平均は、読み込むたびに個々の試験点数から計算されており、ここから来てはいません。意図して残しておきたい到達度の記録として使ってください。システムが数字を取りに来る場所ではありません。"
+
+msgid "Trainees are placed into a batch, and the batch appears wherever they are listed."
+msgstr "研修生は期に配属され、その期は研修生が一覧に出るあらゆる場所に表示されます。"
+
+msgid "Trainees can be enrolled into it."
+msgstr "研修生をここに登録できます。"
+
+msgid "Trainees can be placed in it and certificates can cite it."
+msgstr "研修生を配属でき、証明書がこれを引用できます。"
+
+msgid "Trainees enrolled"
+msgstr "研修生を登録"
+
+msgid "Trainees placed in it"
+msgstr "研修生を配属"
+
+msgid "Training Test Scores"
+msgstr "訓練の試験点数"
+
+msgid "Training promotes"
+msgstr "訓練側が昇格させる"
+
+msgid "Training staff"
+msgstr "訓練担当"
+
+msgid "Training staff, or an administrator"
+msgstr "訓練担当、または管理者"
+
+msgid "Upload what arrives"
+msgstr "届いたものをアップロードする"
+
+msgid "Uploads documents, chases the missing ones, records the costs."
+msgstr "書類をアップロードし、不足分を催促し、費用を記録します。"
+
+msgid "Watch the progress"
+msgstr "進捗を見る"
+
+msgid "What each trainee has submitted, what is missing, and what it cost."
+msgstr "研修生ごとに、何を提出し、何が足りず、いくらかかったか。"
+
+msgid "When the training moves, mark the batch as moved and fill in the new location with its own start and finish dates. The original dates are kept rather than overwritten."
+msgstr "訓練が移転したら、その期を移転済みとして記録し、新しい場所を開始日・終了日とともに入力します。当初の日付は上書きされず保持されます。"
+
+msgid "Where a trainee or a competency is weak becomes visible."
+msgstr "どの研修生、どの科目が弱いかが見えるようになります。"
+
+msgid "Where each group is actually training is visible in one place."
+msgstr "各集団が実際にどこで訓練しているかが、一箇所で分かります。"
+
+msgid "Which documents are required is a master list, and only those marked required are counted by the checklist."
+msgstr "どの書類が必要かはマスタ一覧で定義され、必須と指定されたものだけがチェックリストで数えられます。"
+
+msgid "Work from the checklist"
+msgstr "チェックリストから進める"
+
+msgid "You know who to chase and for what."
+msgstr "誰に何を催促すべきかが分かります。"
+
+msgid "if it moves"
+msgstr "移転した場合"
+
+msgid "separate from"
+msgstr "とは別"

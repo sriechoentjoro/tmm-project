@@ -285,3 +285,5 @@ $progressColor = function ($percent) {
 .text-warning { color: #f5a623; }
 .text-danger { color: #dc3545; }
 </style>
+
+<?= $this->element('process_flow_help') ?>

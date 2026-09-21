@@ -375,3 +375,5 @@ $gradeStyle = [
     </div><!-- /.right -->
 
 </div><!-- /.cert-view-grid -->
+
+<?= $this->element('process_flow_help') ?>

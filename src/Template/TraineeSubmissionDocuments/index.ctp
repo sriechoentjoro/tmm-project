@@ -303,3 +303,5 @@ $hasFilter = $filterTrainee || $filterDocument || $filterStatus;
 .empty-state h4 { margin: 10px 0; color: #495057; }
 .empty-state .btn { margin: 5px; }
 </style>
+
+<?= $this->element('process_flow_help') ?>

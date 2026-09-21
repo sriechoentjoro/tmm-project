@@ -15463,3 +15463,497 @@ msgstr "belum ditetapkan"
 
 msgid "not fit"
 msgstr "tidak lolos"
+
+# ── Page guides: training phase ───────────────────────
+
+msgid "A batch is a group of trainees trained together on one schedule: how many months it runs, where it trains, and when the group is due to depart for Japan. It also carries the case where the training location changes part-way through, which is why it keeps both an original location and a moved one."
+msgstr "Angkatan adalah sekelompok trainee yang dilatih bersama dalam satu jadwal: berapa bulan berjalan, di mana berlatih, dan kapan kelompok itu dijadwalkan berangkat ke Jepang. Ia juga menampung kasus perpindahan lokasi pelatihan di tengah jalan - itulah sebabnya ia menyimpan lokasi asal sekaligus lokasi pindahan."
+
+msgid "A batch is the cohort a trainee trains with; a training is a single session with its own title, dates, place, instructor and a limit on how many can attend. It is what you use when somebody needs more of something - a language push before departure, a skill the tests showed was weak - without moving them out of their batch."
+msgstr "Angkatan adalah kelompok tempat seorang trainee berlatih; training adalah satu sesi tersendiri dengan judul, tanggal, tempat, pengajar, dan batas jumlah peserta. Inilah yang dipakai ketika seseorang butuh tambahan - dorongan bahasa menjelang keberangkatan, keterampilan yang menurut ujian masih lemah - tanpa memindahkannya dari angkatannya."
+
+msgid "A batch is the cohort: when it starts, how many months it runs, where it trains, and when it is due to depart."
+msgstr "Angkatan adalah kelompoknya: kapan mulai, berapa bulan berjalan, di mana berlatih, dan kapan dijadwalkan berangkat."
+
+msgid "A batch with trainees in it should not be deleted. Close it instead: the trainees, their scores and their certificates all refer back to it."
+msgstr "Angkatan yang masih berisi trainee sebaiknya tidak dihapus. Tutup saja: trainee-nya, nilainya, dan sertifikatnya semua merujuk kembali ke sana."
+
+msgid "A certificate is issued against the trainee and the batch, and the certificate page computes its own averages from the test scores."
+msgstr "Sertifikat diterbitkan atas trainee dan angkatannya, dan halaman sertifikat menghitung sendiri rata-ratanya dari nilai ujian."
+
+msgid "A certificate names the batch a trainee finished, so a batch deleted afterwards leaves certificates pointing at nothing."
+msgstr "Sertifikat menyebut angkatan yang diselesaikan trainee, jadi angkatan yang dihapus belakangan membuat sertifikatnya menunjuk ke ketiadaan."
+
+msgid "A certificate ties a trainee to the batch they finished and the number on the paper they were handed. What makes it useful is what it gathers: opening one computes the trainee's average, highest and lowest test scores and how many tests they passed, straight from the individual test records. Nothing is stored twice, so a score corrected later shows corrected here."
+msgstr "Sertifikat mengikat seorang trainee pada angkatan yang diselesaikannya dan nomor pada lembar yang diterimanya. Yang membuatnya berguna adalah apa yang dikumpulkannya: membukanya menghitung rata-rata, nilai tertinggi dan terendah, serta berapa ujian yang lulus - langsung dari catatan ujian satu per satu. Tidak ada yang disimpan dua kali, jadi nilai yang dikoreksi belakangan langsung tampak terkoreksi di sini."
+
+msgid "A document marked as costing something but never marked paid stays in the outstanding total indefinitely. The total is only as honest as the marking."
+msgstr "Dokumen yang ditandai berbiaya tetapi tidak pernah ditandai lunas akan terus berada di total tunggakan. Totalnya hanya sejujur penandaannya."
+
+msgid "A printed certificate whose figures match what is on file."
+msgstr "Sertifikat cetak yang angkanya sama dengan yang tercatat."
+
+msgid "A trainee is a candidate who was promoted - the same person, with their whole profile copied across and a new TMM code. This is where training happens: they are placed in a batch, tested, given extra courses where needed, and their documents collected. When training is done, the training side promotes them to apprentice, and the profile is copied once more."
+msgstr "Trainee adalah kandidat yang telah dipromosikan - orang yang sama, dengan seluruh profilnya tersalin dan kode TMM baru. Di sinilah pelatihannya berlangsung: ia ditempatkan di sebuah angkatan, diuji, diberi kursus tambahan bila perlu, dan dokumennya dikumpulkan. Setelah pelatihan selesai, pihak training mempromosikannya menjadi apprentice, dan profilnya disalin sekali lagi."
+
+msgid "A trainee is not created here. They arrive by being promoted from the candidate side, which copies education, experience, certifications, courses and family across."
+msgstr "Trainee tidak dibuat di sini. Ia datang lewat promosi dari sisi kandidat, yang menyalin pendidikan, pengalaman, sertifikasi, kursus, dan keluarganya."
+
+msgid "A trainee who is already an apprentice is refused, so a double click cannot create two of the same person."
+msgstr "Trainee yang sudah menjadi apprentice akan ditolak, jadi klik ganda tidak bisa menciptakan dua orang yang sama."
+
+msgid "A trainee who needs more of something is enrolled into an additional training session - its own course with a date, a place and an instructor."
+msgstr "Trainee yang butuh tambahan didaftarkan ke sesi pelatihan tambahan - kursus tersendiri dengan tanggal, tempat, dan pengajarnya."
+
+msgid "A training session is not a batch. The batch is the cohort and the schedule; this is one extra session inside it."
+msgstr "Sesi pelatihan bukan angkatan. Angkatan adalah kelompok dan jadwalnya; ini satu sesi tambahan di dalamnya."
+
+msgid "A typed summary of a trainee's standing in one competency."
+msgstr "Ringkasan yang diketik atas posisi seorang trainee pada satu kompetensi."
+
+msgid "Add extra training where it is needed"
+msgstr "Tambahkan pelatihan ekstra bila perlu"
+
+msgid "Apprentice created, profile copied"
+msgstr "Apprentice dibuat, profil tersalin"
+
+msgid "Attach the file against the trainee and the document it satisfies, and set its status."
+msgstr "Lampirkan berkasnya pada trainee dan pada dokumen yang dipenuhinya, lalu tetapkan statusnya."
+
+msgid "Attendance and outcome"
+msgstr "Kehadiran dan hasilnya"
+
+msgid "Average on the promotion checklist"
+msgstr "Rata-rata di checklist promosi"
+
+msgid "Average typed here"
+msgstr "Rata-rata yang diketik di sini"
+
+msgid "Averages computed on open"
+msgstr "Rata-rata dihitung saat dibuka"
+
+msgid "Averages computed when read"
+msgstr "Rata-rata dihitung saat dibaca"
+
+msgid "Averages on the certificate"
+msgstr "Rata-rata di sertifikat"
+
+msgid "Batch opened"
+msgstr "Angkatan dibuka"
+
+msgid "Because it is typed rather than derived, an average here can drift out of step with the test scores it was meant to summarise. Re-check it when new tests are recorded."
+msgstr "Karena diketik dan bukan diturunkan, rata-rata di sini bisa melenceng dari nilai ujian yang seharusnya diringkasnya. Periksa ulang setiap kali ada ujian baru dicatat."
+
+msgid "Because the averages are computed rather than stored, deleting a test changes the certificate of a trainee who may already hold the printed copy. Correct a score rather than deleting and re-entering it where you can."
+msgstr "Karena rata-ratanya dihitung dan bukan disimpan, menghapus satu ujian mengubah sertifikat trainee yang mungkin sudah memegang cetakannya. Sebisa mungkin koreksi nilainya, bukan menghapus lalu memasukkan ulang."
+
+msgid "Both the plan and what actually happened stay on file."
+msgstr "Rencana dan kenyataannya sama-sama tersimpan."
+
+msgid "Certificate and promotion checklist"
+msgstr "Sertifikat dan checklist promosi"
+
+msgid "Certificates cite the batch"
+msgstr "Sertifikat menyebut angkatannya"
+
+msgid "Checklist per trainee"
+msgstr "Checklist per trainee"
+
+msgid "Choose the trainee and the batch, and record the certificate number exactly as it appears on the paper."
+msgstr "Pilih trainee dan angkatannya, lalu catat nomor sertifikat persis seperti yang tertera di lembarnya."
+
+msgid "Choose the trainee and the competency, enter the average, and pick the grade band it falls in."
+msgstr "Pilih trainee dan kompetensinya, isikan rata-ratanya, lalu pilih rentang huruf mutu tempatnya jatuh."
+
+msgid "Choose the trainee, the competency, the score and the grade band it falls in."
+msgstr "Pilih trainee, kompetensinya, nilainya, dan rentang huruf mutu tempatnya jatuh."
+
+msgid "Competencies"
+msgstr "Kompetensi"
+
+msgid "Cost recorded"
+msgstr "Biaya tercatat"
+
+msgid "Creates batches and maintains their schedule."
+msgstr "Membuat angkatan dan merawat jadwalnya."
+
+msgid "Daily test scores"
+msgstr "Nilai ujian harian"
+
+msgid "Departure runs on paperwork. This is where a trainee's documents are uploaded, where the checklist shows which required ones are still missing, and where the money each document cost is recorded against whether it has been paid. Candidate documents do not follow a person into the training phase, so this collection starts fresh."
+msgstr "Keberangkatan berjalan di atas berkas. Di sinilah dokumen trainee diunggah, checklist menampilkan dokumen wajib mana yang masih kurang, dan biaya tiap dokumen dicatat berikut status lunasnya. Dokumen kandidat tidak ikut terbawa ke fase pelatihan, jadi kumpulan ini dimulai dari nol."
+
+msgid "Document costs"
+msgstr "Biaya dokumen"
+
+msgid "Document costs are their own record here. They are not the same thing as the installments a trainee pays, which live in the accounting screens."
+msgstr "Biaya dokumen adalah catatan tersendiri di sini. Ia bukan hal yang sama dengan cicilan yang dibayar trainee, yang berada di halaman akuntansi."
+
+msgid "Documentation or training staff"
+msgstr "Staf dokumentasi atau training"
+
+msgid "Documentation staff"
+msgstr "Staf dokumentasi"
+
+msgid "Documents collected"
+msgstr "Dokumen terkumpul"
+
+msgid "Each document cost is recorded with its amount, its currency and whether it has been paid."
+msgstr "Tiap biaya dokumen dicatat beserta jumlah, mata uang, dan status lunasnya."
+
+msgid "Each test is one trainee, one competency, one score, on one date. The daily screen is the quick way in: pick the date and enter the room's scores together."
+msgstr "Setiap ujian adalah satu trainee, satu kompetensi, satu nilai, pada satu tanggal. Halaman harian adalah jalan cepatnya: pilih tanggalnya, lalu isikan nilai satu ruangan sekaligus."
+
+msgid "Enrol the trainees who need it"
+msgstr "Daftarkan trainee yang membutuhkannya"
+
+msgid "Enrolment happens from the trainee, so a trainee's page is where their extra sessions are listed."
+msgstr "Pendaftaran dilakukan dari sisi trainee, jadi halaman traineelah tempat sesi tambahannya terdaftar."
+
+msgid "Enrolment is done from the trainee side, against the session."
+msgstr "Pendaftaran dilakukan dari sisi trainee, terhadap sesinya."
+
+msgid "Enter a room's scores together"
+msgstr "Isikan nilai satu ruangan sekaligus"
+
+msgid "Every figure on the certificate is computed from the test scores when the page is opened. Correcting a score corrects the certificate; deleting one changes a certificate that may already be printed."
+msgstr "Setiap angka di sertifikat dihitung dari nilai ujian saat halamannya dibuka. Mengoreksi satu nilai mengoreksi sertifikatnya; menghapus satu nilai mengubah sertifikat yang mungkin sudah dicetak."
+
+msgid "Every test a trainee sits is recorded as its own row: which competency, what score, what grade, and when. Nothing here is a total - the averages that appear on certificates and on the promotion checklist are computed from these rows each time they are read, so a correction here corrects everything downstream at once."
+msgstr "Setiap ujian yang ditempuh trainee dicatat sebagai barisnya sendiri: kompetensi apa, nilai berapa, huruf mutu apa, dan kapan. Tidak ada yang berupa total di sini - rata-rata yang muncul di sertifikat dan di checklist promosi dihitung dari baris-baris ini setiap kali dibaca, jadi satu koreksi di sini mengoreksi semuanya sekaligus di hilir."
+
+msgid "Extra sessions a trainee can be enrolled into, beside the batch they belong to."
+msgstr "Sesi tambahan yang bisa diikuti trainee, di samping angkatan tempatnya bernaung."
+
+msgid "Extra training"
+msgstr "Pelatihan tambahan"
+
+msgid "Follow a batch whose location changed"
+msgstr "Ikuti angkatan yang lokasinya berubah"
+
+msgid "Give it a name, the training term in months, the original training location, and the planned start, finish and departure dates."
+msgstr "Beri nama, lama pelatihan dalam bulan, lokasi pelatihan awal, serta rencana tanggal mulai, selesai, dan keberangkatan."
+
+msgid "Give it a title, its start and end dates, where it is held, who teaches it, and the maximum number of participants."
+msgstr "Beri judul, tanggal mulai dan selesai, tempat penyelenggaraan, pengajarnya, dan jumlah peserta maksimal."
+
+msgid "How far the whole cohort has got, in one view."
+msgstr "Sejauh mana seluruh angkatan sudah berjalan, dalam satu pandangan."
+
+msgid "Individual test scores"
+msgstr "Nilai ujian satu per satu"
+
+msgid "Issue the certificate"
+msgstr "Terbitkan sertifikatnya"
+
+msgid "Issues certificates and prints them."
+msgstr "Menerbitkan sertifikat dan mencetaknya."
+
+msgid "Kept as a record"
+msgstr "Disimpan sebagai catatan"
+
+msgid "Location shift"
+msgstr "Perpindahan lokasi"
+
+msgid "Moved location recorded"
+msgstr "Lokasi pindahan tercatat"
+
+msgid "New Batch"
+msgstr "Angkatan Baru"
+
+msgid "New Score Average"
+msgstr "Rata-rata Nilai Baru"
+
+msgid "New Test Score"
+msgstr "Nilai Ujian Baru"
+
+msgid "Notes recorded against a certificate are kept on file only; they do not appear on the printed certificate."
+msgstr "Catatan yang ditulis pada sertifikat hanya tersimpan sebagai arsip; ia tidak muncul pada sertifikat cetak."
+
+msgid "Nothing else in the application currently reads these figures: no dashboard, no report, and not the certificate. Typing an average here will not change any of them."
+msgstr "Saat ini tidak ada bagian lain aplikasi yang membaca angka-angka ini: tidak dasbor, tidak laporan, dan bukan pula sertifikat. Mengetik rata-rata di sini tidak akan mengubah satu pun di antaranya."
+
+msgid "One row, which every average downstream will include."
+msgstr "Satu baris, yang akan ikut dihitung di setiap rata-rata di hilir."
+
+msgid "One trainee, one competency, one score, on one date."
+msgstr "Satu trainee, satu kompetensi, satu nilai, pada satu tanggal."
+
+msgid "Open the batch"
+msgstr "Buka angkatannya"
+
+msgid "Open the session"
+msgstr "Buka sesinya"
+
+msgid "Opens sessions and enrols trainees into them."
+msgstr "Membuka sesi dan mendaftarkan trainee ke dalamnya."
+
+msgid "Overwriting the original location instead of marking the move loses the fact that it ever changed."
+msgstr "Menimpa lokasi asal alih-alih menandai perpindahannya menghilangkan fakta bahwa lokasinya pernah berubah."
+
+msgid "Paid and outstanding"
+msgstr "Lunas dan tunggakan"
+
+msgid "Paperwork readiness is visible without opening every trainee."
+msgstr "Kesiapan berkas terlihat tanpa harus membuka tiap trainee."
+
+msgid "Place the trainee in a batch"
+msgstr "Tempatkan trainee di sebuah angkatan"
+
+msgid "Placed in a batch"
+msgstr "Ditempatkan di angkatan"
+
+msgid "Print it"
+msgstr "Cetak"
+
+msgid "Printed certificate"
+msgstr "Sertifikat cetak"
+
+msgid "Progress across the cohort"
+msgstr "Kemajuan seluruh angkatan"
+
+msgid "Promote to apprentice"
+msgstr "Promosikan menjadi apprentice"
+
+msgid "Promoted from candidate"
+msgstr "Dipromosikan dari kandidat"
+
+msgid "Promotion checklist"
+msgstr "Checklist promosi"
+
+msgid "Promotion copies the profile as it stands. Anything corrected on the trainee afterwards does not follow the apprentice across - correct it on the apprentice instead."
+msgstr "Promosi menyalin profil apa adanya saat itu. Apa pun yang dikoreksi pada trainee setelahnya tidak ikut ke apprentice-nya - koreksi di apprentice-nya."
+
+msgid "Promotion creates the apprentice. From there the person is worked on in the apprentice screens - tickets, flights, COE and visa, passport."
+msgstr "Promosi menciptakan apprentice-nya. Dari situ orangnya dikerjakan di halaman-halaman apprentice - tiket, penerbangan, COE dan visa, paspor."
+
+msgid "Re-uploading a document a trainee already submitted replaces the existing record rather than adding a second one."
+msgstr "Mengunggah ulang dokumen yang sudah diserahkan trainee menggantikan data yang ada, bukan menambah yang kedua."
+
+msgid "Read the summary"
+msgstr "Baca ringkasannya"
+
+msgid "Read what it gathered"
+msgstr "Baca apa yang dikumpulkannya"
+
+msgid "Readiness to be promoted to apprentice is partly a paperwork question, and this is where that part is answered."
+msgstr "Kesiapan dipromosikan menjadi apprentice sebagian adalah soal berkas, dan di sinilah bagian itu dijawab."
+
+msgid "Reads the checklist to know whether a trainee is ready."
+msgstr "Membaca checklist untuk tahu apakah seorang trainee sudah siap."
+
+msgid "Reads the register to see what became of the candidates it promoted."
+msgstr "Membaca registernya untuk melihat bagaimana nasib kandidat yang dipromosikannya."
+
+msgid "Record a change of location"
+msgstr "Catat perpindahan lokasinya"
+
+msgid "Record a single test"
+msgstr "Catat satu ujian"
+
+msgid "Record the average"
+msgstr "Catat rata-ratanya"
+
+msgid "Record the tests"
+msgstr "Catat ujiannya"
+
+msgid "Record what it cost"
+msgstr "Catat biayanya"
+
+msgid "Records and corrects scores."
+msgstr "Mencatat dan mengoreksi nilai."
+
+msgid "Records and maintains the averages."
+msgstr "Mencatat dan merawat rata-ratanya."
+
+msgid "Runs the training, records the tests, and promotes a trainee to apprentice."
+msgstr "Menjalankan pelatihan, mencatat ujian, dan mempromosikan trainee menjadi apprentice."
+
+msgid "Score Averages"
+msgstr "Rata-rata Nilai"
+
+msgid "Score report"
+msgstr "Laporan nilai"
+
+msgid "Session opened"
+msgstr "Sesi dibuka"
+
+msgid "Test recorded"
+msgstr "Ujian tercatat"
+
+msgid "Test scores recorded"
+msgstr "Nilai ujian tercatat"
+
+msgid "Tests and training"
+msgstr "Ujian dan pelatihan"
+
+msgid "Tests recorded"
+msgstr "Ujian tercatat"
+
+msgid "The batch named on the certificate comes from the batch register."
+msgstr "Angkatan yang tertera di sertifikat berasal dari register angkatan."
+
+msgid "The certificate a trainee receives at the end of a batch, and the scores behind it."
+msgstr "Sertifikat yang diterima trainee di akhir sebuah angkatan, beserta nilai-nilai di baliknya."
+
+msgid "The certificate is backed by the record, not by memory."
+msgstr "Sertifikatnya bersandar pada catatan, bukan pada ingatan."
+
+msgid "The certificate is on file and can be opened or printed."
+msgstr "Sertifikatnya tercatat dan bisa dibuka atau dicetak."
+
+msgid "The certificate number is yours to keep consistent - nothing generates it, and nothing checks that two certificates do not share one."
+msgstr "Nomor sertifikat adalah tanggung jawab Anda untuk dijaga konsisten - tidak ada yang membuatkannya, dan tidak ada yang memeriksa bahwa dua sertifikat tidak memakai nomor yang sama."
+
+msgid "The certificate page computes the average, the highest and the lowest score, and how many tests were passed, straight from these rows. It does not read any stored average."
+msgstr "Halaman sertifikat menghitung rata-rata, nilai tertinggi dan terendah, serta berapa ujian yang lulus, langsung dari baris-baris ini. Ia tidak membaca rata-rata tersimpan mana pun."
+
+msgid "The checklist shows the required documents against what has arrived, one row per trainee, so the gaps are visible without opening anybody."
+msgstr "Checklist menampilkan dokumen wajib dibandingkan apa yang sudah tiba, satu baris per trainee, sehingga kekurangannya terlihat tanpa membuka siapa pun."
+
+msgid "The cohort a trainee trains with, and where and when it happens."
+msgstr "Kelompok tempat seorang trainee berlatih, beserta di mana dan kapan itu berlangsung."
+
+msgid "The competency and the grade band are both master lists."
+msgstr "Kompetensi dan rentang huruf mutunya sama-sama daftar induk."
+
+msgid "The competency being tested and the grade bands both come from master lists, so a test cannot be recorded against a subject nobody has defined."
+msgstr "Kompetensi yang diuji dan rentang huruf mutunya sama-sama berasal dari daftar induk, jadi ujian tidak bisa dicatat atas mata pelajaran yang belum didefinisikan siapa pun."
+
+msgid "The daily screen asks for a date and then shows that day's tests in one place, which is faster and less error-prone than opening one trainee at a time."
+msgstr "Halaman harian meminta tanggal lalu menampilkan ujian hari itu dalam satu tempat, yang lebih cepat dan lebih kecil kemungkinan salahnya daripada membuka trainee satu per satu."
+
+msgid "The day's results are on file."
+msgstr "Hasil hari itu tercatat."
+
+msgid "The detail page shows the per-competency breakdown with each grade, and the summary figures above it."
+msgstr "Halaman detail menampilkan rincian per kompetensi beserta huruf mutunya, dan angka ringkasannya di atasnya."
+
+msgid "The document counts towards that trainee's completeness."
+msgstr "Dokumennya ikut menghitung kelengkapan trainee itu."
+
+msgid "The enrolment is on file against both the trainee and the session."
+msgstr "Pendaftarannya tercatat pada trainee maupun pada sesinya."
+
+msgid "The enrolment is on file for both, and can be changed or withdrawn later."
+msgstr "Pendaftarannya tercatat pada keduanya, dan bisa diubah atau dibatalkan kemudian."
+
+msgid "The figure is on file against that trainee and competency."
+msgstr "Angkanya tercatat pada trainee dan kompetensi itu."
+
+msgid "The individual test scores are the source the computed averages come from. If a certificate looks wrong, that is where to look, not here."
+msgstr "Nilai ujian satu per satu itulah sumber rata-rata yang dihitung. Kalau sertifikat terlihat salah, di sanalah tempat memeriksanya, bukan di sini."
+
+msgid "The location-shift screen gathers the batches whose training location has moved, with their original and moved schedules side by side."
+msgstr "Halaman perpindahan lokasi mengumpulkan angkatan yang lokasi pelatihannya berpindah, dengan jadwal asal dan jadwal pindahannya berdampingan."
+
+msgid "The outstanding total is visible beside the paid one."
+msgstr "Total tunggakan terlihat di sebelah yang sudah lunas."
+
+msgid "The participant limit is recorded but nothing enforces it - enrolling more people than the room holds is a decision, not an error the system will stop."
+msgstr "Batas peserta dicatat tetapi tidak ada yang menegakkannya - mendaftarkan orang melebihi daya tampung ruangan adalah keputusan, bukan kesalahan yang akan dihentikan sistem."
+
+msgid "The person becomes an apprentice and the apprentice phase begins. The trainee record stays, marked as having passed training."
+msgstr "Orangnya menjadi apprentice dan fase apprentice dimulai. Data traineenya tetap ada, ditandai telah lulus pelatihan."
+
+msgid "The print view lays the same information out for paper."
+msgstr "Tampilan cetak menata informasi yang sama untuk kertas."
+
+msgid "The progress screen counts the documents by status across everybody."
+msgstr "Halaman kemajuan menghitung dokumen menurut statusnya untuk semua orang."
+
+msgid "The promotion checklist gathers each trainee with the average of their test scores, so readiness is read rather than remembered."
+msgstr "Checklist promosi mengumpulkan tiap trainee beserta rata-rata nilai ujiannya, sehingga kesiapan dibaca, bukan diingat-ingat."
+
+msgid "The promotion checklist shows each trainee's average from here beside their name."
+msgstr "Checklist promosi menampilkan rata-rata tiap trainee dari sini di sebelah namanya."
+
+msgid "The promotion list offers every trainee not yet promoted, whatever their scores. The average beside each name is information, not a gate: the decision is the training side's."
+msgstr "Daftar promosi menawarkan setiap trainee yang belum dipromosikan, berapa pun nilainya. Rata-rata di sebelah tiap nama adalah informasi, bukan penghalang: keputusannya ada di pihak training."
+
+msgid "The promotion screen lists trainees who have not yet been promoted, with their average test score beside them. Promoting one creates the apprentice and copies education, experience, certifications, courses, family and family stories across."
+msgstr "Halaman promosi mendaftar trainee yang belum dipromosikan, beserta rata-rata nilai ujiannya. Mempromosikan salah satunya menciptakan apprentice dan menyalin pendidikan, pengalaman, sertifikasi, kursus, keluarga, dan cerita keluarganya."
+
+msgid "The report gathers the scores into something you can look at rather than scroll through."
+msgstr "Laporannya mengumpulkan nilai menjadi sesuatu yang bisa dipandang, bukan digulir panjang."
+
+msgid "The scores accumulate, and the averages on the certificate are computed from them."
+msgstr "Nilainya menumpuk, dan rata-rata di sertifikat dihitung dari situ."
+
+msgid "The test scores have to be recorded first: the certificate reads them rather than asking for them."
+msgstr "Nilai ujiannya harus dicatat lebih dulu: sertifikat membacanya, bukan menanyakannya."
+
+msgid "The trainee checklist shows which required documents are in, and the cost screen records what each document cost and whether it has been paid."
+msgstr "Checklist trainee menampilkan dokumen wajib mana yang sudah masuk, dan halaman biaya mencatat berapa biaya tiap dokumen serta status lunasnya."
+
+msgid "The trainee trains with a group and appears on that batch's lists."
+msgstr "Traineenya berlatih bersama satu kelompok dan muncul di daftar angkatan itu."
+
+msgid "The training phase, from the day a candidate is promoted to the day they become an apprentice."
+msgstr "Fase pelatihan, dari hari seorang kandidat dipromosikan sampai hari ia menjadi apprentice."
+
+msgid "This screen holds an average you type: one trainee, one competency, the figure and the grade band it falls in. It is worth knowing what it is not - the averages shown on a certificate and on the promotion checklist are computed from the individual test scores every time they are read, and they do not come from here. Use this screen for a standing you want recorded deliberately, not as the place the system gets its numbers."
+msgstr "Halaman ini menyimpan rata-rata yang Anda ketik: satu trainee, satu kompetensi, angkanya, dan rentang huruf mutu tempatnya jatuh. Perlu diketahui apa yang bukan - rata-rata yang tampil di sertifikat dan di checklist promosi dihitung dari nilai ujian satu per satu setiap kali dibaca, dan tidak berasal dari sini. Pakai halaman ini untuk posisi yang ingin Anda catat secara sengaja, bukan sebagai tempat sistem mengambil angkanya."
+
+msgid "Trainees are placed into a batch, and the batch appears wherever they are listed."
+msgstr "Trainee ditempatkan ke dalam sebuah angkatan, dan angkatannya muncul di mana pun mereka terdaftar."
+
+msgid "Trainees can be enrolled into it."
+msgstr "Trainee bisa didaftarkan ke dalamnya."
+
+msgid "Trainees can be placed in it and certificates can cite it."
+msgstr "Trainee bisa ditempatkan di dalamnya dan sertifikat bisa menyebutnya."
+
+msgid "Trainees enrolled"
+msgstr "Trainee terdaftar"
+
+msgid "Trainees placed in it"
+msgstr "Trainee ditempatkan di dalamnya"
+
+msgid "Training Test Scores"
+msgstr "Nilai Ujian Pelatihan"
+
+msgid "Training promotes"
+msgstr "Training mempromosikan"
+
+msgid "Training staff"
+msgstr "Staf training"
+
+msgid "Training staff, or an administrator"
+msgstr "Staf training, atau administrator"
+
+msgid "Upload what arrives"
+msgstr "Unggah apa yang datang"
+
+msgid "Uploads documents, chases the missing ones, records the costs."
+msgstr "Mengunggah dokumen, menagih yang kurang, mencatat biayanya."
+
+msgid "Watch the progress"
+msgstr "Amati kemajuannya"
+
+msgid "What each trainee has submitted, what is missing, and what it cost."
+msgstr "Apa yang sudah diserahkan tiap trainee, apa yang kurang, dan berapa biayanya."
+
+msgid "When the training moves, mark the batch as moved and fill in the new location with its own start and finish dates. The original dates are kept rather than overwritten."
+msgstr "Ketika pelatihannya pindah, tandai angkatan itu sebagai pindah lalu isikan lokasi barunya beserta tanggal mulai dan selesainya sendiri. Tanggal aslinya disimpan, bukan ditimpa."
+
+msgid "Where a trainee or a competency is weak becomes visible."
+msgstr "Di mana seorang trainee atau sebuah kompetensi lemah menjadi terlihat."
+
+msgid "Where each group is actually training is visible in one place."
+msgstr "Di mana tiap kelompok sebenarnya berlatih terlihat dalam satu tempat."
+
+msgid "Which documents are required is a master list, and only those marked required are counted by the checklist."
+msgstr "Dokumen apa saja yang wajib adalah daftar induk, dan hanya yang ditandai wajib yang dihitung oleh checklist."
+
+msgid "Work from the checklist"
+msgstr "Bekerja dari checklist"
+
+msgid "You know who to chase and for what."
+msgstr "Anda tahu siapa yang perlu ditagih dan untuk apa."
+
+msgid "if it moves"
+msgstr "kalau pindah"
+
+msgid "separate from"
+msgstr "terpisah dari"

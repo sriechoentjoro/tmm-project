@@ -541,4 +541,24 @@ class TraineeSubmissionDocumentsController extends AppController
 
         $this->set(compact('costs', 'traineeMap', 'summary', 'byType'));
     }
+
+    /**
+     * The guide behind the "?" button.
+     *
+     * The language switcher on the guide posts ?lang=, handled here rather than
+     * through Users::changeLanguage so it behaves the same as every other
+     * guide page.
+     *
+     * @return \Cake\Http\Response|null
+     */
+    public function processFlow()
+    {
+        if ($lang = $this->request->getQuery('lang')) {
+            if (in_array($lang, ['ind', 'eng', 'jpn'], true)) {
+                $this->request->getSession()->write('Config.language', $lang);
+
+                return $this->redirect(['action' => 'processFlow']);
+            }
+        }
+    }
 }
