@@ -16748,3 +16748,233 @@ msgstr "このページが本来持つべき数字が手元にあります。"
 
 msgid "by hand"
 msgstr "手作業で"
+
+# ── Departure and completion: the two calls TMM Training makes ──
+
+msgid "\"{0}\" could not be recorded as completed. Please, try again."
+msgstr "「{0}」を修了として記録できませんでした。もう一度お試しください。"
+
+msgid "\"{0}\" could not be recorded as departed. Please, try again."
+msgstr "「{0}」を出発として記録できませんでした。もう一度お試しください。"
+
+msgid "\"{0}\" is marked not medically fit, so a departure cannot be recorded."
+msgstr "「{0}」は医学的に不適と記録されているため、出発を記録できません。"
+
+msgid "\"{0}\" is not recorded as having left, so the programme cannot be recorded as finished."
+msgstr "「{0}」は出発が記録されていないため、プログラムを修了として記録できません。"
+
+msgid "\"{0}\" is recorded as having completed the programme."
+msgstr "「{0}」はプログラムを修了したと記録されました。"
+
+msgid "\"{0}\" is recorded as having left for Japan."
+msgstr "「{0}」は日本へ出発したと記録されました。"
+
+msgid "A check-up marked not fit refuses the call outright. Everything else is training's judgement, not a rule the screen enforces."
+msgstr "不適と記録された健康診断は、この判断を無条件で拒みます。それ以外は訓練側の判断であり、画面が強制する規則ではありません。"
+
+msgid "A check-up recorded for this apprentice is marked not fit, so a departure cannot be recorded until that changes."
+msgstr "この実習生に不適と記録された健康診断があるため、それが変わるまで出発を記録できません。"
+
+msgid "A result marked \"not fit\" refuses a departure until it changes. Nothing else happens automatically - the apprentice is not rejected, and nobody is notified, so anything beyond the departure still needs somebody told."
+msgstr "「不適」と記録された結果は、それが変わるまで出発を拒みます。それ以外に自動で起きることはありません。実習生が不合格になるわけでも、誰かに通知が届くわけでもないため、出発以外のことは依然として誰かに伝える必要があります。"
+
+msgid "Apprentices on file"
+msgstr "登録済みの実習生"
+
+msgid "Both calls are training's alone. Buying a ticket, recording a flight or writing an alumni record changes neither of them - if the reports show nobody in Japan, it is because nobody has made the call on the departure screen."
+msgstr "二つの判断はいずれも訓練側だけのものです。航空券の購入も、フライトの記録も、アルムナイの記録も、どちらの印も動かしません。レポートで日本にいる人がゼロなら、それは出発の画面で誰も判断していないからです。"
+
+msgid "Call"
+msgstr "判断"
+
+msgid "Collects the departure documents and runs the pre-departure check-up. Training hears both before deciding."
+msgstr "出発書類を集め、出発前の健康診断を実施します。訓練側は判断の前に、その両方を聞きます。"
+
+msgid "Departure and Completion"
+msgstr "出発と修了"
+
+msgid "Each result in the master list is marked fit or not fit. Saving the check-up works the apprentice's standing out from that marking straight away: any result marked not fit makes the standing \"not fit\", and that is what TMM Training sees on the departure screen."
+msgstr "マスタ一覧の各結果には、適合か不適かの印が付いています。健康診断を保存すると、その印から実習生の状態がただちに導かれます。不適と印の付いた結果が一つでもあれば状態は「不適」となり、それが出発の画面で訓練側に見えるものになります。"
+
+msgid "Go to Trainees"
+msgstr "研修生の一覧へ"
+
+msgid "How many required documents are accepted here is one of the three things TMM Training weighs before recording a departure. It is counted live from these rows, so accepting a document changes what training sees at once."
+msgstr "ここで必要書類が何件受理されているかは、訓練側が出発を記録する前に量る三つのうちの一つです。この行から直接数えられるため、書類を受理すればその場で訓練側の見え方が変わります。"
+
+msgid "In Japan"
+msgstr "日本に滞在中"
+
+msgid "Left for Japan"
+msgstr "日本へ出発"
+
+msgid "Marked not medically fit"
+msgstr "医学的に不適と記録"
+
+msgid "No apprentices yet. They arrive by being promoted from a trainee."
+msgstr "まだ実習生がいません。研修生からの昇格によって現れます。"
+
+msgid "Not departed"
+msgstr "未出発"
+
+msgid "Once the journey is booked, TMM Training makes the call that the apprentice has left. That is the flag the reports read as \"in Japan\"."
+msgstr "旅程が確定したら、訓練側が「出発した」という判断を下します。それがレポートで「日本にいる」と読まれる印です。"
+
+msgid "Only TMM Training can record a departure or the end of a programme."
+msgstr "出発やプログラムの終了を記録できるのは訓練側だけです。"
+
+msgid "Programme completed"
+msgstr "プログラム修了"
+
+msgid "Programme finished"
+msgstr "プログラムを修了"
+
+msgid "Promotes trainees into this register, and makes the two calls at the end: that somebody has left for Japan, and that their programme is finished."
+msgstr "研修生をこの台帳へ昇格させ、最後の二つの判断を下します。日本へ出発したこと、そしてプログラムを修了したことです。"
+
+msgid "Record that {0} has completed the programme?"
+msgstr "{0} がプログラムを修了したと記録しますか。"
+
+msgid "Record that {0} has left for Japan?"
+msgstr "{0} が日本へ出発したと記録しますか。"
+
+msgid "Record the journey"
+msgstr "旅程を記録する"
+
+msgid "Recorded as completed"
+msgstr "修了として記録"
+
+msgid "Recorded as having left on {0}. The reports count this apprentice as in Japan."
+msgstr "{0} に出発したと記録されています。レポートはこの実習生を日本にいるものとして数えます。"
+
+msgid "Recorded as having left. The reports count this apprentice as in Japan."
+msgstr "出発したと記録されています。レポートはこの実習生を日本にいるものとして数えます。"
+
+msgid "Recorded as in Japan"
+msgstr "日本滞在として記録"
+
+msgid "Recording a flight does not put the apprentice in Japan as far as the reports are concerned. That is a separate call, made by TMM Training on the departure screen once the certificate, the documents and the check-up are in."
+msgstr "フライトを記録しても、レポート上で実習生が日本にいることにはなりません。それは別の判断であり、証明書と書類と健康診断が揃った後に、訓練側が出発の画面で下します。"
+
+msgid "Recording a return does not mark the programme as completed. That is TMM Training's call, made on the departure screen, and the two are deliberately separate: this page says what somebody is doing now, that one says the programme is over."
+msgstr "帰国を記録しても、プログラムが修了扱いになるわけではありません。それは訓練側の判断で、出発の画面で行います。二つは意図的に分けてあります。このページはいま何をしているかを述べ、あちらはプログラムが終わったことを述べます。"
+
+msgid "Refused until that changes"
+msgstr "それが変わるまで拒否"
+
+msgid "State"
+msgstr "状態"
+
+msgid "Stories recorded during the programme"
+msgstr "プログラム中の記録を残す"
+
+msgid "TMM Training"
+msgstr "訓練担当"
+
+msgid "TMM Training makes both calls. The certificate is training's own evidence; the documents and the medical check-up come from TMM Documentation. Nothing here decides for you - a result marked not fit is the only thing that refuses a departure outright."
+msgstr "二つの判断はいずれも訓練側が下します。証明書は訓練側自身の根拠であり、書類と健康診断は書類担当から届きます。ここに、あなたの代わりに決めるものはありません。出発を無条件で拒むのは、不適と記録された結果だけです。"
+
+msgid "TMM Training recorded this programme as finished. The reports count this apprentice as completed."
+msgstr "訓練側がこのプログラムを修了として記録しました。レポートはこの実習生を修了として数えます。"
+
+msgid "TMM Training records the end of the programme on the apprentice side. An alumni record does not set it, and it does not set an alumni record."
+msgstr "プログラムの終了は、訓練側が実習生の画面で記録します。アルムナイの記録がそれを立てることはなく、その逆もありません。"
+
+msgid "Take back the completion recorded for {0}?"
+msgstr "{0} について記録した修了を取り消しますか。"
+
+msgid "Take back the departure recorded for {0}? This takes back the completion as well."
+msgstr "{0} について記録した出発を取り消しますか。修了の記録も併せて取り消されます。"
+
+msgid "Taking a departure back also takes the completion back, because a programme that never started cannot have finished."
+msgstr "出発を取り消すと修了も併せて取り消されます。始まっていないプログラムが終わっていることはありえないからです。"
+
+msgid "That apprentice could not be found."
+msgstr "その実習生が見つかりませんでした。"
+
+msgid "The apprentice counts as being in Japan, in this screen and in the reports."
+msgstr "この画面でもレポートでも、その実習生は日本にいるものとして数えられます。"
+
+msgid "The apprentice counts as completed in the reports."
+msgstr "レポートで、その実習生は修了として数えられます。"
+
+msgid "The columns that record who made a call and when are missing, so the buttons below would save less than they appear to. An administrator should run {0} first."
+msgstr "誰がいつ判断したかを記録する列がないため、下のボタンは見かけより少ないことしか保存しません。管理者がまず {0} を実行してください。"
+
+msgid "The completion for \"{0}\" could not be taken back. Please, try again."
+msgstr "「{0}」の修了を取り消せませんでした。もう一度お試しください。"
+
+msgid "The completion recorded for \"{0}\" has been taken back."
+msgstr "「{0}」について記録した修了を取り消しました。"
+
+msgid "The departure for \"{0}\" could not be taken back. Please, try again."
+msgstr "「{0}」の出発を取り消せませんでした。もう一度お試しください。"
+
+msgid "The departure recorded for \"{0}\" has been taken back."
+msgstr "「{0}」について記録した出発を取り消しました。"
+
+msgid "The reports count apprentices by the two flags training sets here: one for being in Japan, one for having completed the programme."
+msgstr "レポートは、訓練側がここで立てる二つの印で実習生を数えます。日本にいることを示す印と、プログラムを修了したことを示す印です。"
+
+msgid "The reports do not count this apprentice as in Japan yet. TMM Training records the departure once the certificate, the documents and the check-up are in."
+msgstr "レポートはまだ、この実習生を日本にいるものとして数えていません。証明書と書類と健康診断が揃った時点で、訓練側が出発を記録します。"
+
+msgid "The standing worked out here is one of the three things TMM Training weighs before recording a departure, and the only one that refuses it outright."
+msgstr "ここで導かれる状態は、訓練側が出発を記録する前に量る三つのうちの一つであり、唯一それを無条件で拒めるものです。"
+
+msgid "This apprentice is now marked not medically fit, and a departure cannot be recorded until that changes."
+msgstr "この実習生は医学的に不適と記録されました。それが変わるまで出発を記録できません。"
+
+msgid "This installation cannot record a completed programme yet. An administrator needs to run the apprentice-flow update first."
+msgstr "このインストールではまだ修了を記録できません。管理者がまず実習フローの更新を実行する必要があります。"
+
+msgid "This installation is not ready yet."
+msgstr "このインストールはまだ準備ができていません。"
+
+msgid "Training says the programme is finished"
+msgstr "訓練側がプログラムの終了を告げる"
+
+msgid "Training says they have left"
+msgstr "訓練側が出発を告げる"
+
+msgid "Training watches the apprenticeship as it runs and writes down anything worth highlighting as a story - what happened to the apprentice, and what happened to the family at home."
+msgstr "訓練側は実習の進行を見守り、書き留める価値のあることを記録として残します。実習生本人に起きたこと、そして故郷の家族に起きたことです。"
+
+msgid "Training weighs the evidence"
+msgstr "訓練側が根拠を量る"
+
+msgid "Training weighs three things: its own test results, summarised in the certificate; whether documentation has the departure papers; and what the pre-departure check-up came to. The departure screen shows all three beside each apprentice, and the call is made there."
+msgstr "訓練側は三つを量ります。証明書にまとめられた自らの試験結果、書類担当が出発書類を揃えているか、そして出発前の健康診断の結果です。出発の画面は実習生ごとにその三つを並べて示し、判断はそこで下されます。"
+
+msgid "Watches the apprenticeship as it runs and writes down what is worth highlighting."
+msgstr "実習の進行を見守り、書き留める価値のあることを記録します。"
+
+msgid "When the apprenticeship ends, training records it on the same screen. Only somebody already recorded as having left can be recorded as finished."
+msgstr "実習が終わったら、訓練側が同じ画面でそれを記録します。修了を記録できるのは、すでに出発が記録されている人だけです。"
+
+msgid "avg {0}"
+msgstr "平均 {0}"
+
+msgid "blocked by the check-up"
+msgstr "健康診断により保留"
+
+msgid "certificate, documents, check-up"
+msgstr "証明書・書類・健康診断"
+
+msgid "check-up not fit"
+msgstr "健康診断が不適"
+
+msgid "completed"
+msgstr "修了"
+
+msgid "in Japan"
+msgstr "日本に滞在中"
+
+msgid "no required list"
+msgstr "必須一覧が未設定"
+
+msgid "none issued"
+msgstr "未発行"
+
+msgid "not departed"
+msgstr "未出発"

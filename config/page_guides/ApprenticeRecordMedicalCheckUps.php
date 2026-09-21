@@ -32,7 +32,7 @@ return [
             'who' => __('Apprentice staff'),
             'do' => __('Pick the result from the master list and attach the scan. Put anything the result does not cover in the comment.'),
             'result' => __('The result is a value the system can count, not a sentence somebody has to read.'),
-            'note' => __('Each result in the master list is marked fit or not fit. On the candidate side that marking decides pass or fail automatically; here it is shown but nothing is derived from it.'),
+            'note' => __('Each result in the master list is marked fit or not fit. Saving the check-up works the apprentice\'s standing out from that marking straight away: any result marked not fit makes the standing "not fit", and that is what TMM Training sees on the departure screen.'),
         ],
     ],
 
@@ -51,6 +51,12 @@ return [
             'label' => __('MCU Results'),
         ],
         [
+            'icon' => 'fa-plane-departure',
+            'what' => __('The standing worked out here is one of the three things TMM Training weighs before recording a departure, and the only one that refuses it outright.'),
+            'url' => '/apprentices/departure-readiness',
+            'label' => __('Departure and Completion'),
+        ],
+        [
             'icon' => 'fa-file-medical',
             'what' => __('The check-up taken during selection is a separate record on the candidate, and is what decided whether they could be promoted at all.'),
             'url' => '/candidate-record-medical-check-ups',
@@ -59,7 +65,7 @@ return [
     ],
 
     'cautions' => [
-        __('A result marked "not fit" here changes nothing automatically. No flag is set on the apprentice and no screen turns red - acting on it is a decision somebody has to make and record elsewhere.'),
+        __('A result marked "not fit" refuses a departure until it changes. Nothing else happens automatically - the apprentice is not rejected, and nobody is notified, so anything beyond the departure still needs somebody told.'),
         __('Where several check-ups exist for one apprentice, nothing marks which is the current one. The list is ordered by when it was entered, not by the date of the examination.'),
     ],
 ];

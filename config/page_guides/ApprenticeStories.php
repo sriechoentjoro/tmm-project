@@ -11,6 +11,7 @@ return [
     'lead' => __('Once an apprentice has left, the record stops being paperwork and starts being history. A story is one thing that happened and was worth keeping: the day it happened, what kind of problem it was, what actually occurred, what was done about it, and what it taught. The last of those is the reason the page exists - a problem that is written down once can be prepared for by every intake after this one, instead of being met again from scratch.'),
 
     'actors' => [
+        ['role' => 'tmm-training', 'can' => __('Watches the apprenticeship as it runs and writes down what is worth highlighting.')],
         ['role' => 'tmm-apprentice', 'can' => __('Writes stories and keeps the classifications consistent.')],
         ['role' => 'administrator', 'can' => __('Everything.')],
     ],

@@ -101,6 +101,7 @@ $this->set(compact('apprenticeRecordMedicalCheckUps', 'apprentices', 'mastermedi
             $apprenticeRecordMedicalCheckUp = $this->ApprenticeRecordMedicalCheckUps->patchEntity($apprenticeRecordMedicalCheckUp, $data);
             if ($this->ApprenticeRecordMedicalCheckUps->save($apprenticeRecordMedicalCheckUp)) {
                 $this->Flash->success(__('The apprentice record medical check up has been saved.'));
+                $this->_refreshApprentice($apprenticeRecordMedicalCheckUp->apprentice_id);
 
                 return $this->redirect(['action' => 'index']);
             }
@@ -165,6 +166,7 @@ $this->set(compact('apprenticeRecordMedicalCheckUps', 'apprentices', 'mastermedi
             $apprenticeRecordMedicalCheckUp = $this->ApprenticeRecordMedicalCheckUps->patchEntity($apprenticeRecordMedicalCheckUp, $data);
             if ($this->ApprenticeRecordMedicalCheckUps->save($apprenticeRecordMedicalCheckUp)) {
                 $this->Flash->success(__('The apprentice record medical check up has been saved.'));
+                $this->_refreshApprentice($apprenticeRecordMedicalCheckUp->apprentice_id);
 
                 return $this->redirect(['action' => 'index']);
             }
@@ -186,8 +188,13 @@ $this->set(compact('apprenticeRecordMedicalCheckUps', 'apprentices', 'mastermedi
     {
         $this->request->allowMethod(['post', 'delete']);
         $apprenticeRecordMedicalCheckUp = $this->ApprenticeRecordMedicalCheckUps->get($id);
+        // Read before the delete: afterwards the entity is still in memory but
+        // the row it names is gone, and the standing has to be recalculated
+        // from the check-ups that remain.
+        $apprenticeId = $apprenticeRecordMedicalCheckUp->apprentice_id;
         if ($this->ApprenticeRecordMedicalCheckUps->delete($apprenticeRecordMedicalCheckUp)) {
             $this->Flash->success(__('The apprentice record medical check up has been deleted.'));
+            $this->_refreshApprentice($apprenticeId);
         } else {
             $this->Flash->error(__('The apprentice record medical check up could not be deleted. Please, try again.'));
         }
@@ -272,6 +279,38 @@ $this->set(compact('apprenticeRecordMedicalCheckUps', 'apprentices', 'mastermedi
                 $this->request->getSession()->write('Config.language', $lang);
                 return $this->redirect(['action' => 'processFlow']);
             }
+        }
+    }
+
+    /**
+     * Recalculate the apprentice's medical standing after a check-up changes.
+     *
+     * tmm-documentation records the check-up; tmm-training reads what it came
+     * to on the departure screen. Without this the standing would only be as
+     * fresh as the last time somebody happened to save the apprentice.
+     *
+     * @param int|null $apprenticeId Apprentice id.
+     * @return void
+     */
+    protected function _refreshApprentice($apprenticeId)
+    {
+        if (!$apprenticeId) {
+            return;
+        }
+
+        try {
+            $apprentices = \Cake\ORM\TableRegistry::getTableLocator()->get('Apprentices');
+            $standing = $apprentices->refreshMcuStanding($apprenticeId);
+        } catch (\Throwable $e) {
+            // The check-up itself saved. A standing that could not be worked
+            // out is worth a log line, not a failed save.
+            $this->log('refreshMcuStanding failed: ' . $e->getMessage(), 'error');
+
+            return;
+        }
+
+        if ($standing === 'fail') {
+            $this->Flash->warning(__('This apprentice is now marked not medically fit, and a departure cannot be recorded until that changes.'));
         }
     }
 }

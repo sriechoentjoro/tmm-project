@@ -218,6 +218,18 @@
         </div>
     </div>
 
+<?php
+// Where this apprentice stands in the last two steps, and TMM Training's calls.
+// $canDecide is computed here rather than inside the element so the element
+// stays about rendering: training owns both calls, and an administrator
+// supports them.
+$viewerRoles = (array)$this->request->getSession()->read('Auth.User.role_names');
+?>
+<?= $this->element('apprentice_flow', [
+    'apprentice' => $apprentice,
+    'canDecide' => (bool)array_intersect(['administrator', 'tmm-training'], $viewerRoles),
+]) ?>
+
     <!-- View Content Wrapper - Modal Safe -->
     <div class="view-content-wrapper" data-view-template="true">
     

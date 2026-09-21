@@ -54,6 +54,12 @@ return [
             'label' => __('COE and Visa'),
         ],
         [
+            'icon' => 'fa-plane-departure',
+            'what' => __('Once the journey is booked, TMM Training makes the call that the apprentice has left. That is the flag the reports read as "in Japan".'),
+            'url' => '/apprentices/departure-readiness',
+            'label' => __('Departure and Completion'),
+        ],
+        [
             'icon' => 'fa-ticket-alt',
             'what' => __('Flights hang off a ticket, and apprentice tickets are kept in their own database, separate from the trainee ticketing used earlier in the pipeline. The two are not the same list.'),
             'url' => '/tickets',
@@ -63,6 +69,6 @@ return [
 
     'cautions' => [
         __('A flight is attached to a ticket, not to an apprentice. To know whose flight it is you follow the ticket, and a ticket with no apprentice on it makes the leg an orphan.'),
-        __('Recording a departure changes nothing on the apprentice record. The flag the reports read as "in Japan" is not set here, or anywhere else automatically.'),
+        __('Recording a flight does not put the apprentice in Japan as far as the reports are concerned. That is a separate call, made by TMM Training on the departure screen once the certificate, the documents and the check-up are in.'),
     ],
 ];

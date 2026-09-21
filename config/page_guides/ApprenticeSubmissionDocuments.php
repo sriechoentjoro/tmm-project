@@ -60,6 +60,12 @@ return [
             'label' => __('Document Register'),
         ],
         [
+            'icon' => 'fa-plane-departure',
+            'what' => __('How many required documents are accepted here is one of the three things TMM Training weighs before recording a departure. It is counted live from these rows, so accepting a document changes what training sees at once.'),
+            'url' => '/apprentices/departure-readiness',
+            'label' => __('Departure and Completion'),
+        ],
+        [
             'icon' => 'fa-chart-pie',
             'what' => __('The document dashboard is meant to summarise readiness, but its totals are typed in by hand rather than counted from these rows.'),
             'url' => '/apprentice-document-management-dashboards',

@@ -16748,3 +16748,233 @@ msgstr "Anda punya angka yang seharusnya disimpan halaman ini."
 
 msgid "by hand"
 msgstr "manual"
+
+# ── Departure and completion: the two calls TMM Training makes ──
+
+msgid "\"{0}\" could not be recorded as completed. Please, try again."
+msgstr "\"{0}\" tidak bisa dicatat selesai. Silakan coba lagi."
+
+msgid "\"{0}\" could not be recorded as departed. Please, try again."
+msgstr "\"{0}\" tidak bisa dicatat berangkat. Silakan coba lagi."
+
+msgid "\"{0}\" is marked not medically fit, so a departure cannot be recorded."
+msgstr "\"{0}\" ditandai tidak lolos secara medis, sehingga keberangkatannya tidak bisa dicatat."
+
+msgid "\"{0}\" is not recorded as having left, so the programme cannot be recorded as finished."
+msgstr "\"{0}\" belum tercatat berangkat, sehingga programnya tidak bisa dicatat selesai."
+
+msgid "\"{0}\" is recorded as having completed the programme."
+msgstr "\"{0}\" tercatat telah menyelesaikan programnya."
+
+msgid "\"{0}\" is recorded as having left for Japan."
+msgstr "\"{0}\" tercatat telah berangkat ke Jepang."
+
+msgid "A check-up marked not fit refuses the call outright. Everything else is training's judgement, not a rule the screen enforces."
+msgstr "Pemeriksaan yang ditandai tidak lolos menolak keputusan ini secara mutlak. Selebihnya adalah pertimbangan tmm-training, bukan aturan yang ditegakkan layar ini."
+
+msgid "A check-up recorded for this apprentice is marked not fit, so a departure cannot be recorded until that changes."
+msgstr "Ada pemeriksaan yang tercatat untuk apprentice ini dan ditandai tidak lolos, sehingga keberangkatannya tidak bisa dicatat sampai itu berubah."
+
+msgid "A result marked \"not fit\" refuses a departure until it changes. Nothing else happens automatically - the apprentice is not rejected, and nobody is notified, so anything beyond the departure still needs somebody told."
+msgstr "Hasil yang ditandai \"tidak lolos\" menolak keberangkatan sampai hasilnya berubah. Selebihnya tidak ada yang terjadi otomatis - apprentice-nya tidak ditolak, dan tidak ada yang diberi tahu, jadi apa pun di luar keberangkatan tetap perlu memberi tahu seseorang."
+
+msgid "Apprentices on file"
+msgstr "Apprentice tercatat"
+
+msgid "Both calls are training's alone. Buying a ticket, recording a flight or writing an alumni record changes neither of them - if the reports show nobody in Japan, it is because nobody has made the call on the departure screen."
+msgstr "Kedua keputusan itu sepenuhnya milik tmm-training. Membeli tiket, mencatat penerbangan, atau menulis catatan alumni tidak mengubah keduanya - kalau laporan menampilkan nol orang di Jepang, itu karena belum ada yang mengambil keputusannya di halaman keberangkatan."
+
+msgid "Call"
+msgstr "Keputusan"
+
+msgid "Collects the departure documents and runs the pre-departure check-up. Training hears both before deciding."
+msgstr "Mengumpulkan dokumen keberangkatan dan menyelenggarakan pemeriksaan kesehatan sebelum berangkat. tmm-training mendengar keduanya sebelum memutuskan."
+
+msgid "Departure and Completion"
+msgstr "Keberangkatan dan Penyelesaian"
+
+msgid "Each result in the master list is marked fit or not fit. Saving the check-up works the apprentice's standing out from that marking straight away: any result marked not fit makes the standing \"not fit\", and that is what TMM Training sees on the departure screen."
+msgstr "Tiap hasil di daftar induk ditandai lolos atau tidak lolos. Menyimpan pemeriksaannya langsung menurunkan posisi apprentice-nya dari penandaan itu: hasil mana pun yang ditandai tidak lolos membuat posisinya menjadi \"tidak lolos\", dan itulah yang dilihat tmm-training di halaman keberangkatan."
+
+msgid "Go to Trainees"
+msgstr "Buka halaman Trainee"
+
+msgid "How many required documents are accepted here is one of the three things TMM Training weighs before recording a departure. It is counted live from these rows, so accepting a document changes what training sees at once."
+msgstr "Berapa dokumen wajib yang diterima di sini adalah salah satu dari tiga hal yang ditimbang tmm-training sebelum mencatat keberangkatan. Angkanya dihitung langsung dari baris-baris ini, jadi menerima satu dokumen langsung mengubah apa yang dilihat tmm-training."
+
+msgid "In Japan"
+msgstr "Di Jepang"
+
+msgid "Left for Japan"
+msgstr "Berangkat ke Jepang"
+
+msgid "Marked not medically fit"
+msgstr "Ditandai tidak lolos medis"
+
+msgid "No apprentices yet. They arrive by being promoted from a trainee."
+msgstr "Belum ada apprentice. Mereka datang lewat promosi dari trainee."
+
+msgid "Not departed"
+msgstr "Belum berangkat"
+
+msgid "Once the journey is booked, TMM Training makes the call that the apprentice has left. That is the flag the reports read as \"in Japan\"."
+msgstr "Setelah perjalanannya dipesan, tmm-training mengambil keputusan bahwa apprentice-nya telah berangkat. Itulah penanda yang dibaca laporan sebagai \"di Jepang\"."
+
+msgid "Only TMM Training can record a departure or the end of a programme."
+msgstr "Hanya tmm-training yang bisa mencatat keberangkatan atau berakhirnya sebuah program."
+
+msgid "Programme completed"
+msgstr "Program selesai"
+
+msgid "Programme finished"
+msgstr "Program selesai"
+
+msgid "Promotes trainees into this register, and makes the two calls at the end: that somebody has left for Japan, and that their programme is finished."
+msgstr "Mempromosikan trainee ke daftar ini, dan mengambil dua keputusan di ujungnya: bahwa seseorang telah berangkat ke Jepang, dan bahwa programnya telah selesai."
+
+msgid "Record that {0} has completed the programme?"
+msgstr "Catat bahwa {0} telah menyelesaikan programnya?"
+
+msgid "Record that {0} has left for Japan?"
+msgstr "Catat bahwa {0} telah berangkat ke Jepang?"
+
+msgid "Record the journey"
+msgstr "Catat perjalanannya"
+
+msgid "Recorded as completed"
+msgstr "Tercatat selesai"
+
+msgid "Recorded as having left on {0}. The reports count this apprentice as in Japan."
+msgstr "Tercatat berangkat pada {0}. Laporan menghitung apprentice ini sebagai berada di Jepang."
+
+msgid "Recorded as having left. The reports count this apprentice as in Japan."
+msgstr "Tercatat telah berangkat. Laporan menghitung apprentice ini sebagai berada di Jepang."
+
+msgid "Recorded as in Japan"
+msgstr "Tercatat di Jepang"
+
+msgid "Recording a flight does not put the apprentice in Japan as far as the reports are concerned. That is a separate call, made by TMM Training on the departure screen once the certificate, the documents and the check-up are in."
+msgstr "Mencatat penerbangan tidak menempatkan apprentice-nya di Jepang menurut laporan. Itu keputusan tersendiri, diambil tmm-training di halaman keberangkatan setelah sertifikat, dokumen, dan pemeriksaan kesehatannya masuk."
+
+msgid "Recording a return does not mark the programme as completed. That is TMM Training's call, made on the departure screen, and the two are deliberately separate: this page says what somebody is doing now, that one says the programme is over."
+msgstr "Mencatat kepulangan tidak menandai programnya selesai. Itu keputusan tmm-training, diambil di halaman keberangkatan, dan keduanya sengaja dipisah: halaman ini menyatakan apa yang dikerjakan seseorang sekarang, halaman itu menyatakan programnya telah berakhir."
+
+msgid "Refused until that changes"
+msgstr "Ditolak sampai itu berubah"
+
+msgid "State"
+msgstr "Keadaan"
+
+msgid "Stories recorded during the programme"
+msgstr "Cerita dicatat selama program berlangsung"
+
+msgid "TMM Training"
+msgstr "tmm-training"
+
+msgid "TMM Training makes both calls. The certificate is training's own evidence; the documents and the medical check-up come from TMM Documentation. Nothing here decides for you - a result marked not fit is the only thing that refuses a departure outright."
+msgstr "tmm-training mengambil kedua keputusan itu. Sertifikat adalah bukti milik tmm-training sendiri; dokumen dan pemeriksaan kesehatan datang dari tmm-documentation. Tidak ada di sini yang memutuskan untuk Anda - hasil yang ditandai tidak lolos adalah satu-satunya yang menolak keberangkatan secara mutlak."
+
+msgid "TMM Training recorded this programme as finished. The reports count this apprentice as completed."
+msgstr "tmm-training telah mencatat program ini selesai. Laporan menghitung apprentice ini sebagai selesai."
+
+msgid "TMM Training records the end of the programme on the apprentice side. An alumni record does not set it, and it does not set an alumni record."
+msgstr "tmm-training mencatat berakhirnya program di sisi apprentice. Catatan alumni tidak menetapkannya, dan ia pun tidak membuat catatan alumni."
+
+msgid "Take back the completion recorded for {0}?"
+msgstr "Tarik kembali catatan selesai untuk {0}?"
+
+msgid "Take back the departure recorded for {0}? This takes back the completion as well."
+msgstr "Tarik kembali catatan keberangkatan untuk {0}? Ini sekaligus menarik kembali catatan selesainya."
+
+msgid "Taking a departure back also takes the completion back, because a programme that never started cannot have finished."
+msgstr "Menarik kembali keberangkatan sekaligus menarik kembali penyelesaiannya, karena program yang tidak pernah dimulai tidak mungkin selesai."
+
+msgid "That apprentice could not be found."
+msgstr "Apprentice tersebut tidak ditemukan."
+
+msgid "The apprentice counts as being in Japan, in this screen and in the reports."
+msgstr "Apprentice-nya dihitung berada di Jepang, di layar ini maupun di laporan."
+
+msgid "The apprentice counts as completed in the reports."
+msgstr "Apprentice-nya dihitung selesai di laporan."
+
+msgid "The columns that record who made a call and when are missing, so the buttons below would save less than they appear to. An administrator should run {0} first."
+msgstr "Kolom yang mencatat siapa mengambil keputusan dan kapan belum ada, sehingga tombol di bawah akan menyimpan lebih sedikit daripada yang terlihat. Administrator perlu menjalankan {0} lebih dulu."
+
+msgid "The completion for \"{0}\" could not be taken back. Please, try again."
+msgstr "Catatan selesai untuk \"{0}\" tidak bisa ditarik kembali. Silakan coba lagi."
+
+msgid "The completion recorded for \"{0}\" has been taken back."
+msgstr "Catatan selesai untuk \"{0}\" telah ditarik kembali."
+
+msgid "The departure for \"{0}\" could not be taken back. Please, try again."
+msgstr "Catatan keberangkatan untuk \"{0}\" tidak bisa ditarik kembali. Silakan coba lagi."
+
+msgid "The departure recorded for \"{0}\" has been taken back."
+msgstr "Catatan keberangkatan untuk \"{0}\" telah ditarik kembali."
+
+msgid "The reports count apprentices by the two flags training sets here: one for being in Japan, one for having completed the programme."
+msgstr "Laporan menghitung apprentice berdasarkan dua penanda yang ditetapkan tmm-training di sini: satu untuk berada di Jepang, satu untuk telah menyelesaikan program."
+
+msgid "The reports do not count this apprentice as in Japan yet. TMM Training records the departure once the certificate, the documents and the check-up are in."
+msgstr "Laporan belum menghitung apprentice ini sebagai berada di Jepang. tmm-training mencatat keberangkatannya setelah sertifikat, dokumen, dan pemeriksaan kesehatannya masuk."
+
+msgid "The standing worked out here is one of the three things TMM Training weighs before recording a departure, and the only one that refuses it outright."
+msgstr "Posisi yang diturunkan di sini adalah salah satu dari tiga hal yang ditimbang tmm-training sebelum mencatat keberangkatan, dan satu-satunya yang menolaknya secara mutlak."
+
+msgid "This apprentice is now marked not medically fit, and a departure cannot be recorded until that changes."
+msgstr "Apprentice ini kini ditandai tidak lolos secara medis, dan keberangkatannya tidak bisa dicatat sampai itu berubah."
+
+msgid "This installation cannot record a completed programme yet. An administrator needs to run the apprentice-flow update first."
+msgstr "Instalasi ini belum bisa mencatat program yang selesai. Administrator perlu menjalankan pembaruan alur apprentice lebih dulu."
+
+msgid "This installation is not ready yet."
+msgstr "Instalasi ini belum siap."
+
+msgid "Training says the programme is finished"
+msgstr "tmm-training menyatakan programnya selesai"
+
+msgid "Training says they have left"
+msgstr "tmm-training menyatakan mereka telah berangkat"
+
+msgid "Training watches the apprenticeship as it runs and writes down anything worth highlighting as a story - what happened to the apprentice, and what happened to the family at home."
+msgstr "tmm-training memperhatikan masa apprentice selagi berlangsung dan menuliskan apa pun yang layak disorot sebagai cerita - apa yang terjadi pada apprentice-nya, dan apa yang terjadi pada keluarganya di rumah."
+
+msgid "Training weighs the evidence"
+msgstr "tmm-training menimbang buktinya"
+
+msgid "Training weighs three things: its own test results, summarised in the certificate; whether documentation has the departure papers; and what the pre-departure check-up came to. The departure screen shows all three beside each apprentice, and the call is made there."
+msgstr "tmm-training menimbang tiga hal: hasil ujiannya sendiri yang diringkas dalam sertifikat; apakah tmm-documentation sudah memegang berkas keberangkatannya; dan hasil pemeriksaan kesehatan sebelum berangkat. Halaman keberangkatan menampilkan ketiganya di samping tiap apprentice, dan keputusannya diambil di sana."
+
+msgid "Watches the apprenticeship as it runs and writes down what is worth highlighting."
+msgstr "Memperhatikan masa apprentice selagi berlangsung dan menuliskan apa yang layak disorot."
+
+msgid "When the apprenticeship ends, training records it on the same screen. Only somebody already recorded as having left can be recorded as finished."
+msgstr "Ketika masa apprentice berakhir, tmm-training mencatatnya di layar yang sama. Hanya orang yang sudah tercatat berangkat yang bisa dicatat selesai."
+
+msgid "avg {0}"
+msgstr "rata-rata {0}"
+
+msgid "blocked by the check-up"
+msgstr "terhalang pemeriksaan kesehatan"
+
+msgid "certificate, documents, check-up"
+msgstr "sertifikat, dokumen, pemeriksaan"
+
+msgid "check-up not fit"
+msgstr "pemeriksaan tidak lolos"
+
+msgid "completed"
+msgstr "selesai"
+
+msgid "in Japan"
+msgstr "di Jepang"
+
+msgid "no required list"
+msgstr "daftar wajib belum ada"
+
+msgid "none issued"
+msgstr "belum diterbitkan"
+
+msgid "not departed"
+msgstr "belum berangkat"

@@ -57,6 +57,12 @@ return [
             'label' => __('Apprentices'),
         ],
         [
+            'icon' => 'fa-flag-checkered',
+            'what' => __('TMM Training records the end of the programme on the apprentice side. An alumni record does not set it, and it does not set an alumni record.'),
+            'url' => '/apprentices/departure-readiness',
+            'label' => __('Departure and Completion'),
+        ],
+        [
             'icon' => 'fa-chart-pie',
             'what' => __('The reports show how many alumni rows exist, as the end of the pipeline funnel.'),
             'url' => '/reports',
@@ -65,7 +71,7 @@ return [
     ],
 
     'cautions' => [
-        __('Recording a return does not mark the apprenticeship as completed on the apprentice record. The flag the reports read as "completed" is written by nothing at all, so an alumnus can exist while the completed count stays at zero.'),
+        __('Recording a return does not mark the programme as completed. That is TMM Training\'s call, made on the departure screen, and the two are deliberately separate: this page says what somebody is doing now, that one says the programme is over.'),
         __('Nothing stops two alumni rows for one apprentice, and the summary counts both.'),
     ],
 ];

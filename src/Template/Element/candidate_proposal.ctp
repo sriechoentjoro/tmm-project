@@ -74,7 +74,7 @@ $canPropose = $canPropose ?? false;
     <?php if ($canPropose && $mcu !== 'fail') : ?>
         <?php if ($proposedAt) : ?>
             <?= $this->Form->postLink(
-                '<i class="fas fa-rotate-left"></i> ' . __('Take back'),
+                '<i class="fas fa-undo"></i> ' . __('Take back'),
                 ['action' => 'withdrawProposal', $candidate->id],
                 [
                     'class' => 'btn-selection withdraw',

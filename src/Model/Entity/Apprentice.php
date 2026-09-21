@@ -154,6 +154,18 @@ class Apprentice extends Entity
         'master_interview_result_id' => true,
         'is_training_pass' => true,
         'is_apprenticeship_pass' => true,
+        // Written by the departure and completion calls on the apprentice
+        // screens, never by the generic form. Listing them here is what lets
+        // patchEntity() keep them: a field missing from this array is dropped
+        // silently, which is how is_apprentice_pass came to be readable by the
+        // reports and writable by nothing.
+        'is_apprentice_pass' => true,
+        'departed_at' => true,
+        'departed_by' => true,
+        'completed_at' => true,
+        'completed_by' => true,
+        'mcu_result' => true,
+        'mcu_checked_at' => true,
         'master_rejected_reason_id' => true,
         'specific_rejected_reason' => true,
         'candidate' => true,

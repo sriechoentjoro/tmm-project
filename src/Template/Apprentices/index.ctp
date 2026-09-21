@@ -23,6 +23,11 @@
                     ['action' => 'add'],
                     ['class' => 'dropdown-item', 'escape' => false]
                 ) ?>
+                <?= $this->Html->link(
+                    '<i class="fas fa-plane-departure"></i> ' . __('Departure and Completion'),
+                    ['action' => 'departureReadiness'],
+                    ['class' => 'dropdown-item', 'escape' => false]
+                ) ?>
                 <div class="dropdown-divider"></div>
                 <?= $this->Html->link(
                     '<i class="fas fa-list"></i> ' . __('List Candidates'),

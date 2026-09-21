@@ -394,6 +394,297 @@ class ApprenticesTable extends Table
     }
 
     /**
+     * Recalculate an apprentice's medical standing from their check-ups.
+     *
+     * tmm-documentation runs the pre-departure check-up; tmm-training has to
+     * hear the outcome before deciding that somebody leaves. Storing the
+     * standing on the apprentice is what lets the departure screen show it
+     * without opening every check-up, and it is the same rule the candidate
+     * side already uses: any result an administrator has marked not fit makes
+     * the standing 'fail'; otherwise a known fit result makes it 'pass'; a
+     * check-up whose result nobody has classified leaves it unknown.
+     *
+     * @param int $apprenticeId Apprentice id.
+     * @return string|null 'pass', 'fail', or null when nothing is known.
+     */
+    public function refreshMcuStanding($apprenticeId)
+    {
+        $apprenticeId = (int)$apprenticeId;
+        if (!$apprenticeId || !$this->getSchema()->hasColumn('mcu_result')) {
+            return null;
+        }
+
+        $standing = $this->mcuStandingFor($apprenticeId);
+
+        $apprentice = $this->find()->where(['id' => $apprenticeId])->first();
+        if (!$apprentice) {
+            return null;
+        }
+
+        $apprentice->set('mcu_result', $standing);
+        if ($this->getSchema()->hasColumn('mcu_checked_at')) {
+            $apprentice->set('mcu_checked_at', $standing === null ? null : new \Cake\I18n\FrozenTime());
+        }
+
+        // Without validation or rules: these two fields are derived, not typed,
+        // and an apprentice carrying some unrelated legacy problem would
+        // otherwise make save() return false and lose the standing silently.
+        if (!$this->save($apprentice, ['checkRules' => false, 'validate' => false])) {
+            \Cake\Log\Log::error(sprintf(
+                'refreshMcuStanding could not save apprentice %d: %s',
+                $apprenticeId,
+                json_encode($apprentice->getErrors())
+            ));
+
+            return null;
+        }
+
+        return $standing;
+    }
+
+    /**
+     * The medical standing an apprentice's check-ups add up to.
+     *
+     * Two queries rather than a join: the check-ups live on
+     * cms_tmm_apprentice_documents and the result types on cms_masters, and
+     * CakePHP cannot join across connections.
+     *
+     * @param int $apprenticeId Apprentice id.
+     * @return string|null 'pass', 'fail', or null when nothing is known.
+     */
+    public function mcuStandingFor($apprenticeId)
+    {
+        $locator = \Cake\ORM\TableRegistry::getTableLocator();
+
+        try {
+            $resultIds = $locator->get('ApprenticeRecordMedicalCheckUps')->find()
+                ->select(['master_medical_check_up_result_id'])
+                ->where(['apprentice_id' => (int)$apprenticeId])
+                ->enableHydration(false)
+                ->extract('master_medical_check_up_result_id')
+                ->toList();
+        } catch (\Throwable $e) {
+            return null;
+        }
+
+        $resultIds = array_filter(array_unique($resultIds));
+        if (!$resultIds) {
+            return null;
+        }
+
+        try {
+            $results = $locator->get('MasterMedicalCheckUpResults');
+            if (!$results->getSchema()->hasColumn('is_fit')) {
+                return null;
+            }
+            $flags = $results->find()
+                ->select(['id', 'is_fit'])
+                ->where(['id IN' => $resultIds])
+                ->enableHydration(false)
+                ->combine('id', 'is_fit')
+                ->toArray();
+        } catch (\Throwable $e) {
+            return null;
+        }
+
+        $known = false;
+        foreach ($flags as $isFit) {
+            if ($isFit === null || $isFit === '') {
+                continue;
+            }
+            if ((int)$isFit === 0) {
+                return 'fail';
+            }
+            $known = true;
+        }
+
+        return $known ? 'pass' : null;
+    }
+
+    /**
+     * The three things tmm-training listens to before saying somebody leaves.
+     *
+     * Gathered for a whole list in four queries rather than four per row,
+     * because the departure screen shows every apprentice at once.
+     *
+     *   certificate  the trainee certificate and the test average behind it,
+     *                which is training's own evidence
+     *   documents    how many required documents tmm-documentation has
+     *                accepted, out of how many are required
+     *   mcu          the standing from the pre-departure check-up
+     *
+     * Every lookup is wrapped: a missing table on an older installation
+     * should leave a column blank, not take the screen down.
+     *
+     * @param array $apprentices Apprentice entities or arrays with id and trainee_id.
+     * @return array Keyed by apprentice id.
+     */
+    public function departureEvidenceFor(array $apprentices)
+    {
+        $locator = \Cake\ORM\TableRegistry::getTableLocator();
+
+        $evidence = [];
+        $traineeIds = [];
+        $apprenticeIds = [];
+        foreach ($apprentices as $apprentice) {
+            $id = (int)(is_array($apprentice) ? $apprentice['id'] : $apprentice->id);
+            $traineeId = (int)(is_array($apprentice)
+                ? ($apprentice['trainee_id'] ?? 0)
+                : ($apprentice->trainee_id ?? 0));
+            $apprenticeIds[] = $id;
+            if ($traineeId) {
+                $traineeIds[$traineeId][] = $id;
+            }
+            $evidence[$id] = [
+                'certificate' => null,
+                'score_average' => null,
+                'documents_accepted' => 0,
+                'documents_required' => 0,
+                'mcu' => null,
+            ];
+        }
+
+        if (!$apprenticeIds) {
+            return $evidence;
+        }
+
+        // --- training's own evidence: the certificate, and the average behind it
+        if ($traineeIds) {
+            try {
+                $certificates = $locator->get('TraineeCertificates')->find()
+                    ->select(['trainee_id', 'certificate_no'])
+                    ->where(['trainee_id IN' => array_keys($traineeIds)])
+                    ->enableHydration(false)
+                    ->toArray();
+                foreach ($certificates as $row) {
+                    foreach ($traineeIds[$row['trainee_id']] ?? [] as $apprenticeId) {
+                        $evidence[$apprenticeId]['certificate'] = $row['certificate_no'];
+                    }
+                }
+            } catch (\Throwable $e) {
+                // no certificate column on this installation - leave it blank
+            }
+
+            try {
+                $scores = $locator->get('TraineeTrainingTestScores');
+                $query = $scores->find();
+                $rows = $query
+                    ->select([
+                        'trainee_id' => 'trainee_id',
+                        'average' => $query->func()->avg('score'),
+                    ])
+                    ->where(['trainee_id IN' => array_keys($traineeIds)])
+                    ->group(['trainee_id'])
+                    ->enableHydration(false)
+                    ->toArray();
+                foreach ($rows as $row) {
+                    foreach ($traineeIds[$row['trainee_id']] ?? [] as $apprenticeId) {
+                        $evidence[$apprenticeId]['score_average'] = $row['average'] === null
+                            ? null
+                            : round((float)$row['average'], 1);
+                    }
+                }
+            } catch (\Throwable $e) {
+                // leave the average blank
+            }
+        }
+
+        // --- documentation's evidence: required documents, and what is accepted
+        $requiredIds = [];
+        try {
+            $required = $locator->get('MasterApprenticeSubmissionDocuments')->find()
+                ->enableHydration(false)
+                ->toArray();
+            foreach ($required as $row) {
+                // Only the documents marked required count towards readiness;
+                // where no such column exists every document counts.
+                if (array_key_exists('is_required', $row) && !$row['is_required']) {
+                    continue;
+                }
+                $requiredIds[] = (int)$row['id'];
+            }
+        } catch (\Throwable $e) {
+            $requiredIds = [];
+        }
+
+        $acceptedStatusIds = [];
+        try {
+            $statuses = $locator->get('MasterDocumentSubmissionStatuses')->find()
+                ->enableHydration(false)
+                ->toArray();
+            foreach ($statuses as $row) {
+                $title = strtolower((string)($row['name'] ?? $row['title'] ?? ''));
+                if (strpos($title, 'accept') !== false
+                    || strpos($title, 'approve') !== false
+                    || strpos($title, 'complete') !== false
+                    || strpos($title, 'verif') !== false
+                    || strpos($title, 'terima') !== false
+                    || strpos($title, 'lengkap') !== false
+                ) {
+                    $acceptedStatusIds[] = (int)$row['id'];
+                }
+            }
+        } catch (\Throwable $e) {
+            $acceptedStatusIds = [];
+        }
+
+        try {
+            $documents = $locator->get('ApprenticeSubmissionDocuments')->find()
+                ->select(['apprentice_id', 'apprenticeship_submission_document_id', 'master_document_submission_status_id'])
+                ->where(['apprentice_id IN' => $apprenticeIds])
+                ->enableHydration(false)
+                ->toArray();
+            $seen = [];
+            foreach ($documents as $row) {
+                $apprenticeId = (int)$row['apprentice_id'];
+                $documentId = (int)$row['apprenticeship_submission_document_id'];
+                if ($requiredIds && !in_array($documentId, $requiredIds, true)) {
+                    continue;
+                }
+                // A document handed in twice is still one document.
+                $key = $apprenticeId . ':' . $documentId;
+                if (isset($seen[$key])) {
+                    continue;
+                }
+                $statusId = (int)$row['master_document_submission_status_id'];
+                // With no status list to go on, anything handed in counts.
+                $accepted = $acceptedStatusIds
+                    ? in_array($statusId, $acceptedStatusIds, true)
+                    : true;
+                if ($accepted) {
+                    $seen[$key] = true;
+                    $evidence[$apprenticeId]['documents_accepted']++;
+                }
+            }
+        } catch (\Throwable $e) {
+            // leave the counts at zero
+        }
+
+        foreach ($evidence as $id => $row) {
+            $evidence[$id]['documents_required'] = count($requiredIds);
+        }
+
+        // --- the medical standing, already stored by refreshMcuStanding()
+        if ($this->getSchema()->hasColumn('mcu_result')) {
+            try {
+                $standings = $this->find()
+                    ->select(['id', 'mcu_result'])
+                    ->where(['id IN' => $apprenticeIds])
+                    ->enableHydration(false)
+                    ->combine('id', 'mcu_result')
+                    ->toArray();
+                foreach ($standings as $id => $standing) {
+                    $evidence[$id]['mcu'] = $standing;
+                }
+            } catch (\Throwable $e) {
+                // leave it unknown
+            }
+        }
+
+        return $evidence;
+    }
+
+    /**
      * Returns the database connection name to use by default.
      *
      * @return string

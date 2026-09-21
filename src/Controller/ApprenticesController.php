@@ -556,4 +556,316 @@ class ApprenticesController extends AppController
             }
         }
     }
+
+    /**
+     * Who may say that an apprentice has left for Japan, or has finished.
+     *
+     * @var array
+     */
+    const FLOW_ROLES = ['administrator', 'tmm-training'];
+
+    /**
+     * Actions the menu permissions cannot be expected to know about.
+     *
+     * @var array
+     */
+    const FLOW_ACTIONS = ['departureReadiness', 'markDeparted', 'undoDeparted', 'markCompleted', 'undoCompleted'];
+
+    /**
+     * Let tmm-training reach the two calls that are theirs to make.
+     *
+     * AppController::isAuthorized() asks hasPermission(), which reads
+     * role_menus.granted_actions - and "*" there does not mean every action:
+     * getMenuRolePermissions() expands it to the menu's own action plus index
+     * and view. A brand-new action is in nobody's granted list, so without
+     * this the departure screen would refuse the one role it was built for,
+     * and the refusal would look like a permissions bug rather than a missing
+     * row of data.
+     *
+     * @param array $user The authenticated user.
+     * @return bool
+     */
+    public function isAuthorized($user)
+    {
+        $this->currentUser = $user;
+
+        $action = $this->request->getParam('action');
+        if (!in_array($action, self::FLOW_ACTIONS, true)) {
+            return parent::isAuthorized($user);
+        }
+
+        foreach (self::FLOW_ROLES as $role) {
+            if ($this->hasRole($role)) {
+                return true;
+            }
+        }
+
+        $this->handleUnauthorizedAccess(
+            $action,
+            __('Only TMM Training can record a departure or the end of a programme.')
+        );
+
+        return false;
+    }
+
+    /**
+     * What tmm-training needs in front of them to make the two calls.
+     *
+     * Training hears three things before saying that somebody leaves: its own
+     * test results, summarised in the certificate; whether tmm-documentation
+     * has the departure documents; and what tmm-documentation's medical
+     * check-up came to. All three are shown here beside each apprentice. None
+     * of them decides anything - the call is training's, and the screen exists
+     * so the call is made on evidence rather than on memory.
+     *
+     * @return \Cake\Http\Response|null
+     */
+    public function departureReadiness()
+    {
+        $schema = $this->Apprentices->getSchema();
+        $ready = $schema->hasColumn('departed_at');
+
+        $apprentices = $this->Apprentices->find()
+            ->contain(['ApprenticeOrders', 'AcceptanceOrganizations'])
+            ->order(['Apprentices.name' => 'ASC'])
+            ->limit(500)
+            ->toArray();
+
+        $evidence = $this->Apprentices->departureEvidenceFor($apprentices);
+
+        $summary = [
+            'total' => count($apprentices),
+            'departed' => 0,
+            'completed' => 0,
+            'mcu_fail' => 0,
+        ];
+        foreach ($apprentices as $apprentice) {
+            if ($apprentice->is_apprenticeship_pass) {
+                $summary['departed']++;
+            }
+            if ($schema->hasColumn('is_apprentice_pass') && $apprentice->get('is_apprentice_pass')) {
+                $summary['completed']++;
+            }
+            if (($evidence[$apprentice->id]['mcu'] ?? null) === 'fail') {
+                $summary['mcu_fail']++;
+            }
+        }
+
+        $this->set(compact('apprentices', 'evidence', 'summary', 'ready'));
+
+        return null;
+    }
+
+    /**
+     * Training says this apprentice has left for Japan.
+     *
+     * This is the flag the reports read as "in Japan". Nothing else in the
+     * application sets it, so until somebody makes this call the report shows
+     * zero however many people have gone.
+     *
+     * A medical standing of "not fit" refuses the call here, where the reason
+     * is in front of the person making it, rather than somewhere further on
+     * where it would be harder to explain.
+     *
+     * @param string|null $id Apprentice id.
+     * @return \Cake\Http\Response|null
+     */
+    public function markDeparted($id = null)
+    {
+        $this->request->allowMethod(['post']);
+
+        $apprentice = $this->_flowRecord($id);
+        if (!$apprentice) {
+            return $this->redirect($this->referer(['action' => 'departureReadiness']));
+        }
+
+        if ($apprentice->get('mcu_result') === 'fail') {
+            $this->Flash->error(__('"{0}" is marked not medically fit, so a departure cannot be recorded.', $apprentice->name));
+
+            return $this->redirect($this->referer(['action' => 'departureReadiness']));
+        }
+
+        $apprentice->set('is_apprenticeship_pass', 1);
+        $this->_stamp($apprentice, 'departed');
+
+        if ($this->_saveFlow($apprentice)) {
+            $this->Flash->success(__('"{0}" is recorded as having left for Japan.', $apprentice->name));
+        } else {
+            $this->Flash->error(__('"{0}" could not be recorded as departed. Please, try again.', $apprentice->name));
+        }
+
+        return $this->redirect($this->referer(['action' => 'departureReadiness']));
+    }
+
+    /**
+     * Take back a departure recorded in error.
+     *
+     * Taking a departure back also takes back the completion, because a
+     * programme that never started cannot have finished.
+     *
+     * @param string|null $id Apprentice id.
+     * @return \Cake\Http\Response|null
+     */
+    public function undoDeparted($id = null)
+    {
+        $this->request->allowMethod(['post']);
+
+        $apprentice = $this->_flowRecord($id);
+        if (!$apprentice) {
+            return $this->redirect($this->referer(['action' => 'departureReadiness']));
+        }
+
+        $apprentice->set('is_apprenticeship_pass', 0);
+        $this->_stamp($apprentice, 'departed', true);
+
+        if ($this->Apprentices->getSchema()->hasColumn('is_apprentice_pass')) {
+            $apprentice->set('is_apprentice_pass', 0);
+            $this->_stamp($apprentice, 'completed', true);
+        }
+
+        if ($this->_saveFlow($apprentice)) {
+            $this->Flash->success(__('The departure recorded for "{0}" has been taken back.', $apprentice->name));
+        } else {
+            $this->Flash->error(__('The departure for "{0}" could not be taken back. Please, try again.', $apprentice->name));
+        }
+
+        return $this->redirect($this->referer(['action' => 'departureReadiness']));
+    }
+
+    /**
+     * Training says this apprentice has finished the programme.
+     *
+     * This is the flag the reports read as "completed", and the same one that
+     * colours an apprentice as finished on the report list. Recording the
+     * return on the alumni page does not set it: that page says what somebody
+     * is doing now, this one says the programme is over.
+     *
+     * @param string|null $id Apprentice id.
+     * @return \Cake\Http\Response|null
+     */
+    public function markCompleted($id = null)
+    {
+        $this->request->allowMethod(['post']);
+
+        $apprentice = $this->_flowRecord($id);
+        if (!$apprentice) {
+            return $this->redirect($this->referer(['action' => 'departureReadiness']));
+        }
+
+        if (!$this->Apprentices->getSchema()->hasColumn('is_apprentice_pass')) {
+            $this->Flash->error(__('This installation cannot record a completed programme yet. An administrator needs to run the apprentice-flow update first.'));
+
+            return $this->redirect($this->referer(['action' => 'departureReadiness']));
+        }
+
+        if (!$apprentice->is_apprenticeship_pass) {
+            $this->Flash->error(__('"{0}" is not recorded as having left, so the programme cannot be recorded as finished.', $apprentice->name));
+
+            return $this->redirect($this->referer(['action' => 'departureReadiness']));
+        }
+
+        $apprentice->set('is_apprentice_pass', 1);
+        $this->_stamp($apprentice, 'completed');
+
+        if ($this->_saveFlow($apprentice)) {
+            $this->Flash->success(__('"{0}" is recorded as having completed the programme.', $apprentice->name));
+        } else {
+            $this->Flash->error(__('"{0}" could not be recorded as completed. Please, try again.', $apprentice->name));
+        }
+
+        return $this->redirect($this->referer(['action' => 'departureReadiness']));
+    }
+
+    /**
+     * Take back a completion recorded in error.
+     *
+     * @param string|null $id Apprentice id.
+     * @return \Cake\Http\Response|null
+     */
+    public function undoCompleted($id = null)
+    {
+        $this->request->allowMethod(['post']);
+
+        $apprentice = $this->_flowRecord($id);
+        if (!$apprentice) {
+            return $this->redirect($this->referer(['action' => 'departureReadiness']));
+        }
+
+        if (!$this->Apprentices->getSchema()->hasColumn('is_apprentice_pass')) {
+            $this->Flash->error(__('This installation cannot record a completed programme yet. An administrator needs to run the apprentice-flow update first.'));
+
+            return $this->redirect($this->referer(['action' => 'departureReadiness']));
+        }
+
+        $apprentice->set('is_apprentice_pass', 0);
+        $this->_stamp($apprentice, 'completed', true);
+
+        if ($this->_saveFlow($apprentice)) {
+            $this->Flash->success(__('The completion recorded for "{0}" has been taken back.', $apprentice->name));
+        } else {
+            $this->Flash->error(__('The completion for "{0}" could not be taken back. Please, try again.', $apprentice->name));
+        }
+
+        return $this->redirect($this->referer(['action' => 'departureReadiness']));
+    }
+
+    /**
+     * The apprentice a flow action was asked about, or null with the reason
+     * already flashed.
+     *
+     * @param string|null $id Apprentice id.
+     * @return \App\Model\Entity\Apprentice|null
+     */
+    protected function _flowRecord($id)
+    {
+        if (!$this->hasRole('administrator') && !$this->hasRole('tmm-training')) {
+            $this->Flash->error(__('Only TMM Training can record a departure or the end of a programme.'));
+
+            return null;
+        }
+
+        try {
+            return $this->Apprentices->get($id);
+        } catch (\Exception $e) {
+            $this->Flash->error(__('That apprentice could not be found.'));
+
+            return null;
+        }
+    }
+
+    /**
+     * Record who made a call and when, where the columns exist.
+     *
+     * @param \App\Model\Entity\Apprentice $apprentice The apprentice.
+     * @param string $which 'departed' or 'completed'.
+     * @param bool $clear True to blank the stamp instead of setting it.
+     * @return void
+     */
+    protected function _stamp($apprentice, $which, $clear = false)
+    {
+        $schema = $this->Apprentices->getSchema();
+        if ($schema->hasColumn($which . '_at')) {
+            $apprentice->set($which . '_at', $clear ? null : new \Cake\I18n\FrozenTime());
+        }
+        if ($schema->hasColumn($which . '_by')) {
+            $apprentice->set($which . '_by', $clear ? null : $this->Auth->user('id'));
+        }
+    }
+
+    /**
+     * Save a flow decision without validation or rules.
+     *
+     * These fields are not user input, and an apprentice carrying some
+     * unrelated legacy problem - a master id that no longer exists, a field
+     * that no longer validates - would otherwise make save() return false and
+     * the decision would be lost with no reason anybody could see. That is the
+     * failure this application keeps producing, so it is refused here.
+     *
+     * @param \App\Model\Entity\Apprentice $apprentice The apprentice.
+     * @return bool
+     */
+    protected function _saveFlow($apprentice)
+    {
+        return (bool)$this->Apprentices->save($apprentice, ['checkRules' => false, 'validate' => false]);
+    }
 }
