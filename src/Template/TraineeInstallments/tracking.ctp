@@ -32,13 +32,13 @@ $hasFilter = $filterTrainee || $filterPaid === '1' || $filterPaid === '0';
 <div class="tracking-page">
     <div class="page-header">
         <div>
-            <h2><i class="fa fa-money"></i> <?= __('Payment Tracking') ?></h2>
+            <h2><i class="fa fa-money-bill"></i> <?= __('Payment Tracking') ?></h2>
             <p class="text-muted"><?= __('Trainee installment payments - who has paid, who still owes') ?></p>
         </div>
         <div class="page-header-actions">
             <?= $this->Html->link('<i class="fa fa-plus-circle"></i> ' . __('Add Installment'),
                 ['action' => 'add'], ['escape' => false, 'class' => 'btn btn-sm btn-success']) ?>
-            <?= $this->Html->link('<i class="fa fa-file-text-o"></i> ' . __('Receipts'),
+            <?= $this->Html->link('<i class="fa fa-file-alt"></i> ' . __('Receipts'),
                 ['action' => 'receipts'], ['escape' => false, 'class' => 'btn btn-sm btn-outline-secondary']) ?>
         </div>
     </div>
@@ -75,7 +75,7 @@ $hasFilter = $filterTrainee || $filterPaid === '1' || $filterPaid === '0';
                     <?php foreach ($traineesWithoutCost as $traineeId => $name): ?>
                         <?= $this->Form->create(null, ['url' => ['action' => 'setOwingCost'], 'class' => 'owing-item']) ?>
                             <?= $this->Form->hidden('trainee_id', ['value' => $traineeId, 'id' => false]) ?>
-                            <span class="owing-name"><i class="fa fa-user-o"></i> <?= h($name) ?></span>
+                            <span class="owing-name"><i class="fa fa-user"></i> <?= h($name) ?></span>
                             <input type="number" name="full_payment_amount" min="1" step="1" required
                                    placeholder="<?= __('Owing cost (Rp)') ?>" class="owing-input">
                             <?= $this->Form->button('<i class="fa fa-flag"></i> ' . __('Set'),
@@ -102,7 +102,7 @@ $hasFilter = $filterTrainee || $filterPaid === '1' || $filterPaid === '0';
                                 <?php if ($row['is_paid_off']): ?>
                                     <i class="fa fa-check-circle text-success"></i>
                                 <?php else: ?>
-                                    <i class="fa fa-clock-o text-warning"></i>
+                                    <i class="fa fa-clock text-warning"></i>
                                 <?php endif; ?>
                                 <?= h($row['name']) ?>
                             </span>

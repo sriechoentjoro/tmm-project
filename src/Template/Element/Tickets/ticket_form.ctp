@@ -29,7 +29,7 @@ $formatDatetime = function ($value) {
     <div class="page-header">
         <div>
             <h2>
-                <i class="fa fa-ticket"></i>
+                <i class="fa fa-ticket-alt"></i>
                 <?= $isEdit ? __('Edit Ticket') . ' <span class="ticket-id">#' . h($ticket->id) . '</span>' : __('Add Ticket') ?>
             </h2>
             <p class="text-muted"><?= __('Departure ticket for a trainee going to Japan') ?> 🇯🇵</p>
@@ -43,7 +43,7 @@ $formatDatetime = function ($value) {
     <div class="row">
         <div class="col-md-7">
             <div class="card">
-                <div class="card-header"><h4><i class="fa fa-pencil-square-o"></i> <?= __('Ticket Details') ?></h4></div>
+                <div class="card-header"><h4><i class="fa fa-edit"></i> <?= __('Ticket Details') ?></h4></div>
                 <div class="card-body">
                     <?= $this->Form->create($ticket) ?>
 
@@ -56,7 +56,7 @@ $formatDatetime = function ($value) {
                     ]) ?>
 
                     <hr class="field-divider">
-                    <div class="form-section-label"><i class="fa fa-ticket"></i> <?= __('Booking') ?></div>
+                    <div class="form-section-label"><i class="fa fa-ticket-alt"></i> <?= __('Booking') ?></div>
                     <div class="field-grid">
                         <?= $this->Form->control('ticket_number', [
                             'label' => __('Ticket Number'),
@@ -83,7 +83,7 @@ $formatDatetime = function ($value) {
                     </div>
 
                     <hr class="field-divider">
-                    <div class="form-section-label"><i class="fa fa-money"></i> <?= __('Cost') ?></div>
+                    <div class="form-section-label"><i class="fa fa-money-bill"></i> <?= __('Cost') ?></div>
                     <div class="field-grid">
                         <?= $this->Form->control('total_price', [
                             'label' => __('Total Price'),
@@ -156,14 +156,14 @@ $formatDatetime = function ($value) {
                                             <strong><?= h($flight['dep_code'] ?: '?') ?></strong>
                                             <small><?= h($flight['dep_city'] ?: '') ?></small>
                                         </span>
-                                        <i class="fa fa-long-arrow-right"></i>
+                                        <i class="fa fa-long-arrow-alt-right"></i>
                                         <span class="airport">
                                             <strong><?= h($flight['arr_code'] ?: '?') ?></strong>
                                             <small><?= h($flight['arr_city'] ?: '') ?></small>
                                         </span>
                                     </div>
                                     <div class="flight-times text-muted">
-                                        <i class="fa fa-clock-o"></i>
+                                        <i class="fa fa-clock"></i>
                                         <?= h($formatDatetime($flight['departure_datetime'])) ?>
                                         &rarr; <?= h($formatDatetime($flight['arrival_datetime'])) ?>
                                     </div>
@@ -189,7 +189,7 @@ $formatDatetime = function ($value) {
                                 <?= __('No flights linked to this ticket yet.') ?>
                             </p>
                         <?php endif; ?>
-                        <?= $this->Html->link('<i class="fa fa-exchange"></i> ' . __('Manage Transit Routes'),
+                        <?= $this->Html->link('<i class="fa fa-exchange-alt"></i> ' . __('Manage Transit Routes'),
                             ['action' => 'transit'], ['escape' => false, 'class' => 'btn btn-sm btn-outline-secondary btn-block-link']) ?>
                     </div>
                 </div>

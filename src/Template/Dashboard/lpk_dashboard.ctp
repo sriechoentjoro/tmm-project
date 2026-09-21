@@ -18,7 +18,7 @@
             <div class="stat-card stat-card-warning">
                 <h3><?= number_format(isset($stats['pendingCandidates']) ? $stats['pendingCandidates'] : 0) ?></h3>
                 <p><?= __('Pending Candidates') ?></p>
-                <i class="fa fa-clock-o"></i>
+                <i class="fa fa-clock"></i>
             </div>
         </div>
         <div class="col-md-4">
@@ -98,7 +98,7 @@
                     <?= $this->Html->link('<i class="fa fa-list"></i> ' . __('View All Candidates'), 
                         ['controller' => 'Candidates', 'action' => 'index'], 
                         ['escape' => false, 'class' => 'btn btn-primary btn-lg']) ?>
-                    <?= $this->Html->link('<i class="fa fa-file-text"></i> ' . __('View Documents'), 
+                    <?= $this->Html->link('<i class="fa fa-file-alt"></i> ' . __('View Documents'), 
                         ['controller' => 'CandidateDocuments', 'action' => 'index'], 
                         ['escape' => false, 'class' => 'btn btn-info btn-lg']) ?>
                 </div>

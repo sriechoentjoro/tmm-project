@@ -22,7 +22,7 @@ $dateVal = function ($value) {
 <div class="coop-form-page">
     <div class="page-header">
         <div>
-            <h2><i class="fa fa-handshake-o"></i> <?= $isEdit ? __('Edit Cooperative Association') : __('Add Cooperative Association') ?></h2>
+            <h2><i class="fa fa-handshake"></i> <?= $isEdit ? __('Edit Cooperative Association') : __('Add Cooperative Association') ?></h2>
             <p class="text-muted"><?= __('Register a cooperative association (kumiai) partner') ?> 🇯🇵</p>
         </div>
         <?= $this->Html->link('<i class="fa fa-th-list"></i> ' . __('Back to List'),
@@ -35,7 +35,7 @@ $dateVal = function ($value) {
             <div class="card">
                 <div class="card-header"><h4><i class="fa fa-building"></i> <?= __('Association Details') ?></h4></div>
                 <div class="card-body">
-                    <div class="form-section-label"><i class="fa fa-id-card-o"></i> <?= __('Identity') ?></div>
+                    <div class="form-section-label"><i class="fa fa-id-card"></i> <?= __('Identity') ?></div>
                     <div class="input">
                         <label><?= __('Name') ?></label>
                         <?= $this->Form->text('name', [

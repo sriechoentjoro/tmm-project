@@ -12,8 +12,8 @@
 $this->assign('title', 'Departure Documents');
 
 $checkColumns = [
-    'passport' => ['label' => __('Passport'), 'icon' => 'fa-id-card-o', 'controller' => 'TraineeRecordPasports', 'prefill' => true],
-    'coe_visa' => ['label' => __('COE / Visa'), 'icon' => 'fa-file-text-o', 'controller' => 'TraineeRecordCoeVisas', 'prefill' => true],
+    'passport' => ['label' => __('Passport'), 'icon' => 'fa-id-card', 'controller' => 'TraineeRecordPasports', 'prefill' => true],
+    'coe_visa' => ['label' => __('COE / Visa'), 'icon' => 'fa-file-alt', 'controller' => 'TraineeRecordCoeVisas', 'prefill' => true],
     'medical' => ['label' => __('Medical'), 'icon' => 'fa-heartbeat', 'controller' => 'TraineeRecordMedicalCheckUps', 'prefill' => true],
     'ticket' => ['label' => __('Ticket'), 'icon' => 'fa-plane', 'controller' => 'Tickets', 'prefill' => false],
 ];
@@ -25,7 +25,7 @@ $checkColumns = [
             <h2><i class="fa fa-plane"></i> <?= __('Departure Documents') ?></h2>
             <p class="text-muted"><?= __('Everything a trainee needs before boarding the flight to Japan') ?> 🇯🇵</p>
         </div>
-        <?= $this->Html->link('<i class="fa fa-dashboard"></i> ' . __('Dashboard'),
+        <?= $this->Html->link('<i class="fa fa-tachometer-alt"></i> ' . __('Dashboard'),
             ['controller' => 'Dashboard', 'action' => 'documentation'],
             ['escape' => false, 'class' => 'btn btn-sm btn-outline-secondary']) ?>
     </div>

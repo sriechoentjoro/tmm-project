@@ -46,11 +46,11 @@ foreach ($legsByTicket as $legs) {
 <div class="transit-page">
     <div class="page-header">
         <div>
-            <h2><i class="fa fa-exchange"></i> <?= __('Transit Routes') ?></h2>
+            <h2><i class="fa fa-exchange-alt"></i> <?= __('Transit Routes') ?></h2>
             <p class="text-muted"><?= __('Build and manage flight itineraries per ticket - legs, routes and layovers') ?> 🇯🇵</p>
         </div>
         <div class="page-header-actions">
-            <?= $this->Html->link('<i class="fa fa-ticket"></i> ' . __('Tickets'),
+            <?= $this->Html->link('<i class="fa fa-ticket-alt"></i> ' . __('Tickets'),
                 ['action' => 'index'], ['escape' => false, 'class' => 'btn btn-sm btn-outline-secondary']) ?>
             <?= $this->Html->link('<i class="fa fa-plus-circle"></i> ' . __('Add Ticket'),
                 ['action' => 'add'], ['escape' => false, 'class' => 'btn btn-sm btn-success']) ?>
@@ -69,7 +69,7 @@ foreach ($legsByTicket as $legs) {
         </div>
         <div class="summary-card summary-transit">
             <span class="summary-number"><?= $transitCount ?></span>
-            <span class="summary-label"><i class="fa fa-exchange"></i> <?= __('With Transit') ?></span>
+            <span class="summary-label"><i class="fa fa-exchange-alt"></i> <?= __('With Transit') ?></span>
         </div>
         <div class="summary-card summary-missing">
             <span class="summary-number"><?= count($ticketsWithoutLegs) ?></span>
@@ -107,7 +107,7 @@ foreach ($legsByTicket as $legs) {
                         <div class="layover-row">
                             <?php if ($layover >= 0): ?>
                                 <span class="layover-chip">
-                                    <i class="fa fa-clock-o"></i>
+                                    <i class="fa fa-clock"></i>
                                     <?= __('Layover in {0}', h($previous['arr_code'] ?: '?')) ?>: <?= $formatDuration($layover) ?>
                                 </span>
                             <?php else: ?>

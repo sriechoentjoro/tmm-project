@@ -64,7 +64,7 @@ $typeMeta = [
                     </thead>
                     <tbody>
                         <?php foreach ($rows as $row): ?>
-                        <?php $meta = isset($typeMeta[$row['type']]) ? $typeMeta[$row['type']] : ['icon' => 'fa-circle-o', 'class' => 'type-other']; ?>
+                        <?php $meta = isset($typeMeta[$row['type']]) ? $typeMeta[$row['type']] : ['icon' => 'fa-circle', 'class' => 'type-other']; ?>
                         <tr>
                             <td class="actions">
                                 <?= $this->Html->link('<i class="fa fa-eye"></i>', ['action' => 'view', $row['id']],

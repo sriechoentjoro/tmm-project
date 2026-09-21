@@ -15,11 +15,11 @@ $this->assign('title', 'Add Installment Payment');
 <div class="installment-form-page">
     <div class="page-header">
         <div>
-            <h2><i class="fa fa-money"></i> <?= __('Add Installment Payment') ?></h2>
+            <h2><i class="fa fa-money-bill"></i> <?= __('Add Installment Payment') ?></h2>
             <p class="text-muted"><?= __('Record a payment - the running balance is calculated automatically') ?></p>
         </div>
         <div class="page-header-actions">
-            <?= $this->Html->link('<i class="fa fa-line-chart"></i> ' . __('Payment Tracking'),
+            <?= $this->Html->link('<i class="fa fa-chart-line"></i> ' . __('Payment Tracking'),
                 ['action' => 'tracking'], ['escape' => false, 'class' => 'btn btn-sm btn-primary']) ?>
             <?= $this->Html->link('<i class="fa fa-th-list"></i> ' . __('Back to List'),
                 ['action' => 'index'], ['escape' => false, 'class' => 'btn btn-sm btn-outline-secondary']) ?>
@@ -29,7 +29,7 @@ $this->assign('title', 'Add Installment Payment');
     <div class="row">
         <div class="col-md-7">
             <div class="card">
-                <div class="card-header"><h4><i class="fa fa-pencil-square-o"></i> <?= __('Payment Details') ?></h4></div>
+                <div class="card-header"><h4><i class="fa fa-edit"></i> <?= __('Payment Details') ?></h4></div>
                 <div class="card-body">
                     <?= $this->Form->create($traineeInstallment) ?>
 
@@ -57,7 +57,7 @@ $this->assign('title', 'Add Installment Payment');
                     <div class="mode-cards">
                         <label class="mode-card" id="mode-card-partial">
                             <input type="radio" name="payment_mode" value="partial" checked>
-                            <span class="mode-title"><i class="fa fa-sliders"></i> <?= __('Free Amount') ?></span>
+                            <span class="mode-title"><i class="fa fa-sliders-h"></i> <?= __('Free Amount') ?></span>
                             <span class="mode-desc"><?= __('Pay any amount toward the balance') ?></span>
                         </label>
                         <label class="mode-card" id="mode-card-full">

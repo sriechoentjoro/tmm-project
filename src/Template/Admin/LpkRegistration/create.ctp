@@ -336,7 +336,7 @@
                                             <i class="fas fa-home"></i> <?= __('Complete address including street name, number, RT/RW') ?>
                                         </small>
                                         <small class="form-text text-muted">
-                                            <i class="fas fa-wand-magic-sparkles"></i>
+                                            <i class="fas fa-magic"></i>
                                             <?= __('The region you select above is appended here automatically. Type the street, number and RT/RW in front of it.') ?>
                                         </small>
                                     </div>

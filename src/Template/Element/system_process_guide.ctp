@@ -200,7 +200,7 @@ $phases = [
                 ],
             ],
             [
-                'n' => '2b', 'icon' => 'fa-share-nodes', 'colour' => $colour['lpk'],
+                'n' => '2b', 'icon' => 'fa-share-alt', 'colour' => $colour['lpk'],
                 'title' => __('Share the Order with LPKs'), 'jp' => 'オーダー共有',
                 'text' => __('Offer the order to one or more institutions so they can start recruiting against it. Each one is emailed the order details, and withdrawing it later emails them again.'),
                 'links' => [['/apprentice-orders', __('Open an order, then Shared with Institutions')]],
@@ -387,7 +387,7 @@ $phases = [
     <?php endif; ?>
 <?php endforeach; ?>
 
-<div class="spg-arrow"><i class="fas fa-ellipsis"></i></div>
+<div class="spg-arrow"><i class="fas fa-ellipsis-h"></i></div>
 
 <div class="flow-section">
     <h2><i class="fas fa-layer-group"></i> <?= __('Supporting Areas') ?></h2>

@@ -28,7 +28,7 @@ foreach ($pendingByType as $items) {
             <p class="text-muted"><?= __('Turn source cost/price records into balanced double-entry journals, matched to the Chart of Accounts') ?></p>
         </div>
         <div class="page-header-actions">
-            <?= $this->Html->link('<i class="fa fa-pencil-square-o"></i> ' . __('Manual Entry'),
+            <?= $this->Html->link('<i class="fa fa-edit"></i> ' . __('Manual Entry'),
                 ['action' => 'add'], ['escape' => false, 'class' => 'btn btn-sm btn-outline-secondary']) ?>
             <?= $this->Html->link('<i class="fa fa-book"></i> ' . __('All Journals'),
                 ['action' => 'index'], ['escape' => false, 'class' => 'btn btn-sm btn-outline-secondary']) ?>
@@ -43,7 +43,7 @@ foreach ($pendingByType as $items) {
         </div>
         <div class="summary-card summary-value">
             <span class="summary-number summary-money"><?= $money($pendingTotal) ?></span>
-            <span class="summary-label"><i class="fa fa-money"></i> <?= __('Pending Value') ?></span>
+            <span class="summary-label"><i class="fa fa-money-bill"></i> <?= __('Pending Value') ?></span>
         </div>
         <div class="summary-card summary-done">
             <span class="summary-number"><?= number_format($generatedCount) ?></span>
@@ -53,7 +53,7 @@ foreach ($pendingByType as $items) {
 
     <!-- COA mapping reference -->
     <div class="card">
-        <div class="card-header"><h4><i class="fa fa-exchange"></i> <?= __('How each source maps to the Chart of Accounts') ?></h4></div>
+        <div class="card-header"><h4><i class="fa fa-exchange-alt"></i> <?= __('How each source maps to the Chart of Accounts') ?></h4></div>
         <div class="card-body">
             <div class="mapping-grid">
                 <?php foreach ($mappings as $type => $map): ?>
@@ -127,7 +127,7 @@ foreach ($pendingByType as $items) {
                                     <td class="text-muted"><?= h($item['date']) ?></td>
                                     <td class="entry-cell">
                                         <span class="dc dc-debit"><?= __('Dr') ?></span> <?= h($map['debit_code']) ?>
-                                        <i class="fa fa-long-arrow-right"></i>
+                                        <i class="fa fa-long-arrow-alt-right"></i>
                                         <span class="dc dc-credit"><?= __('Cr') ?></span> <?= h($map['credit_code']) ?>
                                     </td>
                                     <td class="text-right"><strong><?= $money($item['amount']) ?></strong></td>

@@ -70,7 +70,7 @@ $accountTypeMeta = [
             <div class="stat-card stat-card-purple">
                 <h3><?= number_format($stats['totalInstallments']) ?></h3>
                 <p><?= __('Installment Payments') ?></p>
-                <i class="fa fa-money"></i>
+                <i class="fa fa-money-bill"></i>
             </div>
         </div>
         <div class="col-md-3">
@@ -101,7 +101,7 @@ $accountTypeMeta = [
                                         <?php if ($row['is_paid_off']): ?>
                                             <i class="fa fa-check-circle text-success"></i>
                                         <?php else: ?>
-                                            <i class="fa fa-clock-o text-warning"></i>
+                                            <i class="fa fa-clock text-warning"></i>
                                         <?php endif; ?>
                                         <?= h($row['name']) ?>
                                     </span>
@@ -228,10 +228,10 @@ $accountTypeMeta = [
                     <?= $this->Html->link('<i class="fa fa-plus-circle"></i> ' . __('Add Installment Payment'),
                         ['controller' => 'TraineeInstallments', 'action' => 'add'],
                         ['escape' => false, 'class' => 'btn btn-success btn-block']) ?>
-                    <?= $this->Html->link('<i class="fa fa-line-chart"></i> ' . __('Payment Tracking'),
+                    <?= $this->Html->link('<i class="fa fa-chart-line"></i> ' . __('Payment Tracking'),
                         ['controller' => 'TraineeInstallments', 'action' => 'tracking'],
                         ['escape' => false, 'class' => 'btn btn-primary btn-block']) ?>
-                    <?= $this->Html->link('<i class="fa fa-file-text-o"></i> ' . __('Receipts (Paid Off)'),
+                    <?= $this->Html->link('<i class="fa fa-file-alt"></i> ' . __('Receipts (Paid Off)'),
                         ['controller' => 'TraineeInstallments', 'action' => 'receipts'],
                         ['escape' => false, 'class' => 'btn btn-primary btn-block']) ?>
                     <?= $this->Html->link('<i class="fa fa-book"></i> ' . __('Journal Entries'),
@@ -240,7 +240,7 @@ $accountTypeMeta = [
                     <?= $this->Html->link('<i class="fa fa-sitemap"></i> ' . __('Chart of Accounts'),
                         ['controller' => 'ChartOfAccounts', 'action' => 'index'],
                         ['escape' => false, 'class' => 'btn btn-info btn-block']) ?>
-                    <?= $this->Html->link('<i class="fa fa-bar-chart"></i> ' . __('Financial Reports'),
+                    <?= $this->Html->link('<i class="fa fa-chart-bar"></i> ' . __('Financial Reports'),
                         ['controller' => 'Reports', 'action' => 'index'],
                         ['escape' => false, 'class' => 'btn btn-secondary btn-block']) ?>
                 </div>

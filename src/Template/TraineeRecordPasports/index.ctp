@@ -21,13 +21,13 @@ $formatDate = function ($value) {
 <div class="passports-page">
     <div class="page-header">
         <div>
-            <h2><i class="fa fa-id-card-o"></i> <?= __('Passport Records') ?></h2>
+            <h2><i class="fa fa-id-card"></i> <?= __('Passport Records') ?></h2>
             <p class="text-muted"><?= __('Passport administration for trainees going to Japan') ?> 🇯🇵</p>
         </div>
         <div class="page-header-actions">
             <?= $this->Html->link('<i class="fa fa-plus-circle"></i> ' . __('Add Record'),
                 ['action' => 'add'], ['escape' => false, 'class' => 'btn btn-sm btn-success']) ?>
-            <?= $this->Html->link('<i class="fa fa-dashboard"></i> ' . __('Dashboard'),
+            <?= $this->Html->link('<i class="fa fa-tachometer-alt"></i> ' . __('Dashboard'),
                 ['controller' => 'Dashboard', 'action' => 'documentation'],
                 ['escape' => false, 'class' => 'btn btn-sm btn-outline-secondary']) ?>
         </div>
@@ -59,7 +59,7 @@ $formatDate = function ($value) {
                 <div class="missing-grid">
                     <?php foreach ($missingTrainees as $traineeId => $name): ?>
                         <div class="missing-item">
-                            <span><i class="fa fa-user-o"></i> <?= h($name) ?></span>
+                            <span><i class="fa fa-user"></i> <?= h($name) ?></span>
                             <?= $this->Html->link('<i class="fa fa-plus"></i> ' . __('Add record'),
                                 ['action' => 'add', '?' => ['trainee_id' => $traineeId]],
                                 ['escape' => false, 'class' => 'btn btn-sm btn-success']) ?>
@@ -121,7 +121,7 @@ $formatDate = function ($value) {
     <?php else: ?>
         <div class="card">
             <div class="empty-state">
-                <i class="fa fa-id-card-o fa-4x"></i>
+                <i class="fa fa-id-card fa-4x"></i>
                 <h4><?= __('No passport records yet.') ?></h4>
                 <p class="text-muted"><?= __('Use the buttons above to add each trainee\'s passport details.') ?></p>
             </div>

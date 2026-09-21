@@ -154,7 +154,7 @@
                             <div class="col-md-6">
                                 <h5 class="border-bottom pb-2 mb-3">2. Crop Photo (Square)</h5>
                                 <div id="cropped-preview-container" style="display: none;">
-                                    <p class="text-muted"><i class="fa fa-scissors"></i> <?= __('Cropped Preview:') ?></p>
+                                    <p class="text-muted"><i class="fa fa-cut"></i> <?= __('Cropped Preview:') ?></p>
                                     <div style="width: 200px; height: 200px; border: 2px solid #ddd; overflow: hidden; margin: 0 auto;">
                                         <img id="cropped-preview" style="width: 100%;">
                                     </div>

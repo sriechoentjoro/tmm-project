@@ -56,7 +56,7 @@ $progressColor = function ($percent) {
             <div class="stat-card stat-card-blue">
                 <h3><?= number_format($stats['totalSubmissions']) ?></h3>
                 <p><?= __('Document Submissions') ?></p>
-                <i class="fa fa-files-o"></i>
+                <i class="fa fa-copy"></i>
             </div>
         </div>
         <div class="col-md-3">
@@ -85,7 +85,7 @@ $progressColor = function ($percent) {
                 <div class="card-body">
                     <div class="pipeline">
                         <?= $this->Html->link(
-                            '<span class="pipeline-icon"><i class="fa fa-file-text"></i></span>' .
+                            '<span class="pipeline-icon"><i class="fa fa-file-alt"></i></span>' .
                             '<span class="pipeline-count">' . number_format($stats['totalSubmissions']) . '</span>' .
                             '<span class="pipeline-label">' . __('Submission Docs') . '</span>',
                             ['controller' => 'TraineeSubmissionDocuments', 'action' => 'index'],
@@ -93,7 +93,7 @@ $progressColor = function ($percent) {
                         ) ?>
                         <span class="pipeline-arrow"><i class="fa fa-angle-right"></i></span>
                         <?= $this->Html->link(
-                            '<span class="pipeline-icon"><i class="fa fa-id-card-o"></i></span>' .
+                            '<span class="pipeline-icon"><i class="fa fa-id-card"></i></span>' .
                             '<span class="pipeline-count">' . number_format($stats['passportRecords']) . '</span>' .
                             '<span class="pipeline-label">Passports</span>',
                             ['controller' => 'TraineeRecordPasports', 'action' => 'index'],
@@ -109,7 +109,7 @@ $progressColor = function ($percent) {
                         ) ?>
                         <span class="pipeline-arrow"><i class="fa fa-angle-right"></i></span>
                         <?= $this->Html->link(
-                            '<span class="pipeline-icon"><i class="fa fa-file-text-o"></i></span>' .
+                            '<span class="pipeline-icon"><i class="fa fa-file-alt"></i></span>' .
                             '<span class="pipeline-count">' . number_format($stats['coeVisaRecords']) . '</span>' .
                             '<span class="pipeline-label">COE / Visa</span>',
                             ['controller' => 'TraineeRecordCoeVisas', 'action' => 'index'],
@@ -185,7 +185,7 @@ $progressColor = function ($percent) {
         <div class="col-md-5">
             <div class="card">
                 <div class="card-header">
-                    <h4><i class="fa fa-pie-chart"></i> <?= __('Submissions by Category') ?></h4>
+                    <h4><i class="fa fa-chart-pie"></i> <?= __('Submissions by Category') ?></h4>
                 </div>
                 <div class="card-body">
                     <?php if (!empty($categoryProgress)): ?>
@@ -328,7 +328,7 @@ $progressColor = function ($percent) {
                                                 $from = $flight['departure_airport'] ?: $flight['departure_city'];
                                                 $to = $flight['arrival_airport'] ?: $flight['arrival_city'];
                                                 ?>
-                                                <?= h($from ?: '?') ?> <i class="fa fa-long-arrow-right"></i> <?= h($to ?: '?') ?>
+                                                <?= h($from ?: '?') ?> <i class="fa fa-long-arrow-alt-right"></i> <?= h($to ?: '?') ?>
                                             </td>
                                             <td><?= h($formatDatetime($flight['departure_datetime'])) ?></td>
                                             <td><?= h($formatDatetime($flight['arrival_datetime'])) ?></td>
@@ -356,16 +356,16 @@ $progressColor = function ($percent) {
                     <?= $this->Html->link('<i class="fa fa-plus-circle"></i> ' . __('Add Submission Document'),
                         ['controller' => 'TraineeSubmissionDocuments', 'action' => 'add'],
                         ['escape' => false, 'class' => 'btn btn-success btn-block']) ?>
-                    <?= $this->Html->link('<i class="fa fa-check-square-o"></i> ' . __('Document Checklist'),
+                    <?= $this->Html->link('<i class="fa fa-check-square"></i> ' . __('Document Checklist'),
                         ['controller' => 'TraineeSubmissionDocuments', 'action' => 'checklist'],
                         ['escape' => false, 'class' => 'btn btn-primary btn-block']) ?>
-                    <?= $this->Html->link('<i class="fa fa-line-chart"></i> ' . __('Progress Tracking'),
+                    <?= $this->Html->link('<i class="fa fa-chart-line"></i> ' . __('Progress Tracking'),
                         ['controller' => 'TraineeSubmissionDocuments', 'action' => 'progress'],
                         ['escape' => false, 'class' => 'btn btn-primary btn-block']) ?>
-                    <?= $this->Html->link('<i class="fa fa-id-card-o"></i> ' . __('Passport Records'),
+                    <?= $this->Html->link('<i class="fa fa-id-card"></i> ' . __('Passport Records'),
                         ['controller' => 'TraineeRecordPasports', 'action' => 'index'],
                         ['escape' => false, 'class' => 'btn btn-primary btn-block']) ?>
-                    <?= $this->Html->link('<i class="fa fa-file-text-o"></i> COE &amp; Visa Records',
+                    <?= $this->Html->link('<i class="fa fa-file-alt"></i> COE &amp; Visa Records',
                         ['controller' => 'TraineeRecordCoeVisas', 'action' => 'index'],
                         ['escape' => false, 'class' => 'btn btn-primary btn-block']) ?>
                     <?= $this->Html->link('<i class="fa fa-heartbeat"></i> ' . __('Medical Check-Ups'),
@@ -374,7 +374,7 @@ $progressColor = function ($percent) {
                     <?= $this->Html->link('<i class="fa fa-plane"></i> Tickets &amp; Flights',
                         ['controller' => 'Tickets', 'action' => 'index'],
                         ['escape' => false, 'class' => 'btn btn-info btn-block']) ?>
-                    <?= $this->Html->link('<i class="fa fa-folder-open-o"></i> ' . __('Departure Documents'),
+                    <?= $this->Html->link('<i class="fa fa-folder-open"></i> ' . __('Departure Documents'),
                         ['controller' => 'TraineeDocuments', 'action' => 'departure'],
                         ['escape' => false, 'class' => 'btn btn-secondary btn-block']) ?>
                 </div>

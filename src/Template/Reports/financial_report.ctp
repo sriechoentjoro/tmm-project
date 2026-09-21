@@ -49,7 +49,7 @@ if ($isIncome) {
         ['label' => __('Revenue'), 'value' => $money($revenue), 'class' => 'summary-green', 'icon' => 'fa-arrow-circle-down'],
         ['label' => __('Expenses'), 'value' => $money($expense), 'class' => 'summary-pink', 'icon' => 'fa-arrow-circle-up'],
         ['label' => $net >= 0 ? __('Net Profit') : __('Net Loss'), 'value' => $money($net),
-         'class' => $net >= 0 ? 'summary-blue' : 'summary-pink', 'icon' => $net >= 0 ? 'fa-smile-o' : 'fa-frown-o'],
+         'class' => $net >= 0 ? 'summary-blue' : 'summary-pink', 'icon' => $net >= 0 ? 'fa-smile' : 'fa-frown'],
     ];
 } else {
     $assets = isset($byType['Asset']) ? $byType['Asset']['debit'] - $byType['Asset']['credit'] : 0;
@@ -76,11 +76,11 @@ $typeBadge = [
 <div class="finreport-page">
     <div class="page-header">
         <div>
-            <h2><i class="fa <?= $isIncome ? 'fa-line-chart' : 'fa-balance-scale' ?>"></i> <?= h($reportTitle) ?></h2>
+            <h2><i class="fa <?= $isIncome ? 'fa-chart-line' : 'fa-balance-scale' ?>"></i> <?= h($reportTitle) ?></h2>
             <p class="text-muted"><?= __('Aggregated from journal details per account - post journals to update the figures') ?></p>
         </div>
         <div class="page-header-actions">
-            <?= $this->Html->link('<i class="fa fa-bar-chart"></i> ' . __('All Reports'),
+            <?= $this->Html->link('<i class="fa fa-chart-bar"></i> ' . __('All Reports'),
                 ['action' => 'index'], ['escape' => false, 'class' => 'btn btn-sm btn-outline-secondary']) ?>
             <?= $this->Html->link('<i class="fa fa-book"></i> ' . __('Journals'),
                 ['controller' => 'Journals', 'action' => 'index'],

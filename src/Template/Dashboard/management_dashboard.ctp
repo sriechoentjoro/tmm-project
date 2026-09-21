@@ -1,7 +1,7 @@
 <div class="dashboard management-dashboard">
     <div class="row">
         <div class="col-md-12">
-            <h2><i class="fa fa-bar-chart"></i> <?= __('Management Dashboard') ?></h2>
+            <h2><i class="fa fa-chart-bar"></i> <?= __('Management Dashboard') ?></h2>
             <p class="text-muted"><?= __('Read-only system overview and analytics') ?></p>
         </div>
     </div>
@@ -40,7 +40,7 @@
         <div class="col-md-6">
             <div class="card">
                 <div class="card-header">
-                    <h4><i class="fa fa-pie-chart"></i> <?= __('Candidate Overview') ?></h4>
+                    <h4><i class="fa fa-chart-pie"></i> <?= __('Candidate Overview') ?></h4>
                 </div>
                 <div class="card-body">
                     <?php
@@ -51,7 +51,7 @@
                     ?>
                     <?php if (empty($overviewData)): ?>
                         <div class="chart-placeholder text-center">
-                            <i class="fa fa-line-chart fa-5x text-muted"></i>
+                            <i class="fa fa-chart-line fa-5x text-muted"></i>
                             <p class="mt-3 text-muted"><?= __('No candidate data available yet') ?></p>
                         </div>
                     <?php else: ?>
@@ -75,7 +75,7 @@
         <div class="col-md-6">
             <div class="card">
                 <div class="card-header">
-                    <h4><i class="fa fa-pie-chart"></i> <?= __('Trainee Status') ?></h4>
+                    <h4><i class="fa fa-chart-pie"></i> <?= __('Trainee Status') ?></h4>
                 </div>
                 <div class="card-body">
                     <?php
@@ -84,7 +84,7 @@
                     ?>
                     <?php if (empty($traineesByStatus)): ?>
                         <div class="chart-placeholder text-center">
-                            <i class="fa fa-pie-chart fa-5x text-muted"></i>
+                            <i class="fa fa-chart-pie fa-5x text-muted"></i>
                             <p class="mt-3 text-muted"><?= __('No trainee data available yet') ?></p>
                         </div>
                     <?php else: ?>
@@ -137,7 +137,7 @@
                         </div>
                         <div class="col-md-3">
                             <?= $this->Html->link(
-                                '<i class="fa fa-file-text fa-3x"></i><br><br>' . __('View Reports'),
+                                '<i class="fa fa-file-alt fa-3x"></i><br><br>' . __('View Reports'),
                                 ['controller' => 'Reports', 'action' => 'index'],
                                 ['escape' => false, 'class' => 'quick-link-box']
                             ) ?>

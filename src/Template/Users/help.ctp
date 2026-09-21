@@ -160,7 +160,7 @@
             <!-- Best Practices -->
             <div class="mb-5">
                 <h4 class="text-primary border-bottom pb-2">
-                    <i class="fa fa-lightbulb-o"></i> <?= __('Best Practices') ?>
+                    <i class="fa fa-lightbulb"></i> <?= __('Best Practices') ?>
                 </h4>
                 <ul>
                     <li><?= __('<strong>Use Strong Passwords:</strong> Require users to create passwords with at least 8 characters, including uppercase, lowercase, numbers, and symbols') ?></li>

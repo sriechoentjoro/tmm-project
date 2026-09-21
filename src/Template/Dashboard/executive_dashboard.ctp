@@ -28,7 +28,7 @@ $conversion = function ($from, $to) {
 <div class="dashboard executive-dashboard">
     <div class="row">
         <div class="col-md-12">
-            <h2><i class="fa fa-line-chart"></i> <?= __('Executive Dashboard') ?></h2>
+            <h2><i class="fa fa-chart-line"></i> <?= __('Executive Dashboard') ?></h2>
             <p class="text-muted"><?= __('The full journey at a glance: Candidate → Trainee → Apprentice in Japan') ?> 🇯🇵</p>
         </div>
     </div>
@@ -101,7 +101,7 @@ $conversion = function ($from, $to) {
             <div class="stat-card stat-card-purple">
                 <h3><?= number_format($stats['totalOrders']) ?></h3>
                 <p><?= __('Apprentice Orders') ?></p>
-                <i class="fa fa-file-text-o"></i>
+                <i class="fa fa-file-alt"></i>
             </div>
         </div>
     </div>
@@ -161,7 +161,7 @@ $conversion = function ($from, $to) {
             </div>
 
             <div class="card">
-                <div class="card-header"><h4><i class="fa fa-bar-chart"></i> <?= __('Deep-Dive Reports') ?></h4></div>
+                <div class="card-header"><h4><i class="fa fa-chart-bar"></i> <?= __('Deep-Dive Reports') ?></h4></div>
                 <div class="card-body quick-actions">
                     <?= $this->Html->link('<i class="fa fa-filter"></i> ' . __('Candidate Pipeline'),
                         ['controller' => 'Reports', 'action' => 'candidatePipeline'],
@@ -172,7 +172,7 @@ $conversion = function ($from, $to) {
                     <?= $this->Html->link('<i class="fa fa-briefcase"></i> ' . __('Active Apprentices'),
                         ['controller' => 'Reports', 'action' => 'activeApprentices'],
                         ['escape' => false, 'class' => 'btn btn-primary btn-block']) ?>
-                    <?= $this->Html->link('<i class="fa fa-line-chart"></i> ' . __('Income Statement'),
+                    <?= $this->Html->link('<i class="fa fa-chart-line"></i> ' . __('Income Statement'),
                         ['controller' => 'Reports', 'action' => 'incomeStatement'],
                         ['escape' => false, 'class' => 'btn btn-info btn-block']) ?>
                 </div>

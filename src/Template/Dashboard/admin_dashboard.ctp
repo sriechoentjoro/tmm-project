@@ -26,7 +26,7 @@ $pipeLabels = [
 
     <div class="ad-head">
         <div>
-            <h2><i class="fa fa-shield"></i> <?= __('Administrator Dashboard') ?></h2>
+            <h2><i class="fa fa-shield-alt"></i> <?= __('Administrator Dashboard') ?></h2>
             <p class="ad-sub"><?= __('System-wide overview of the TMM Apprentice Management System') ?></p>
         </div>
         <div class="ad-head-meta">
@@ -101,7 +101,7 @@ $pipeLabels = [
         <!-- ── Finance snapshot ─────────────────────────────────── -->
         <div class="ad-card">
             <div class="ad-card-hd">
-                <h4><i class="fa fa-money"></i> <?= __('Finance Snapshot') ?></h4>
+                <h4><i class="fa fa-money-bill"></i> <?= __('Finance Snapshot') ?></h4>
             </div>
             <div class="ad-card-bd">
                 <div class="ad-fin-row">
@@ -148,7 +148,7 @@ $pipeLabels = [
                 ) ?>
                 <?= $this->Html->link(
                     '<span class="ad-mini-num">' . $fmt($stats['totalCoopAssociations']) . '</span>'
-                    . '<span class="ad-mini-lbl"><i class="fa fa-handshake-o"></i> ' . __('Cooperative Associations') . '</span>',
+                    . '<span class="ad-mini-lbl"><i class="fa fa-handshake"></i> ' . __('Cooperative Associations') . '</span>',
                     ['controller' => 'CooperativeAssociations', 'action' => 'index'],
                     ['escape' => false, 'class' => 'ad-mini']
                 ) ?>
@@ -171,7 +171,7 @@ $pipeLabels = [
             <div class="ad-mini-grid">
                 <div class="ad-mini ad-mini--flat">
                     <span class="ad-mini-num"><?= $fmt($stats['totalTickets']) ?></span>
-                    <span class="ad-mini-lbl"><i class="fa fa-ticket"></i> <?= __('Document Tickets') ?></span>
+                    <span class="ad-mini-lbl"><i class="fa fa-ticket-alt"></i> <?= __('Document Tickets') ?></span>
                 </div>
                 <div class="ad-mini ad-mini--flat">
                     <span class="ad-mini-num"><?= $fmt($stats['totalInstallments']) ?></span>
@@ -183,7 +183,7 @@ $pipeLabels = [
                 </div>
                 <div class="ad-mini ad-mini--flat">
                     <span class="ad-mini-num"><?= $fmt($stats['totalRoles']) ?></span>
-                    <span class="ad-mini-lbl"><i class="fa fa-shield"></i> <?= __('Roles') ?></span>
+                    <span class="ad-mini-lbl"><i class="fa fa-shield-alt"></i> <?= __('Roles') ?></span>
                 </div>
             </div>
         </div>
@@ -218,13 +218,13 @@ $pipeLabels = [
                 <div class="ad-actions">
                     <?= $this->Html->link('<i class="fa fa-users"></i> ' . __('Manage Users'),
                         ['controller' => 'Users', 'action' => 'index'], ['escape' => false, 'class' => 'ad-act']) ?>
-                    <?= $this->Html->link('<i class="fa fa-shield"></i> ' . __('Manage Roles'),
+                    <?= $this->Html->link('<i class="fa fa-shield-alt"></i> ' . __('Manage Roles'),
                         ['controller' => 'Roles', 'action' => 'index'], ['escape' => false, 'class' => 'ad-act']) ?>
                     <?= $this->Html->link('<i class="fa fa-user-plus"></i> ' . __('Candidates'),
                         ['controller' => 'Candidates', 'action' => 'index'], ['escape' => false, 'class' => 'ad-act']) ?>
                     <?= $this->Html->link('<i class="fa fa-graduation-cap"></i> ' . __('Trainees'),
                         ['controller' => 'Trainees', 'action' => 'index'], ['escape' => false, 'class' => 'ad-act']) ?>
-                    <?= $this->Html->link('<i class="fa fa-money"></i> ' . __('Installment Records'),
+                    <?= $this->Html->link('<i class="fa fa-money-bill"></i> ' . __('Installment Records'),
                         ['controller' => 'TraineeInstallments', 'action' => 'index'], ['escape' => false, 'class' => 'ad-act']) ?>
                     <?= $this->Html->link('<i class="fa fa-book"></i> ' . __('Journal Entries'),
                         ['controller' => 'Journals', 'action' => 'index'], ['escape' => false, 'class' => 'ad-act']) ?>

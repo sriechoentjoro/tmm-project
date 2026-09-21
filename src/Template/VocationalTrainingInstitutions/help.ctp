@@ -171,7 +171,7 @@
             <!-- Best Practices -->
             <div class="mb-5">
                 <h4 class="text-primary border-bottom pb-2">
-                    <i class="fa fa-lightbulb-o"></i> <?= __('Best Practices') ?>
+                    <i class="fa fa-lightbulb"></i> <?= __('Best Practices') ?>
                 </h4>
                 <ul>
                     <li><?= __('<strong>Verify Credentials:</strong> Always verify institution licenses and certifications before approval') ?></li>

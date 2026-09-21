@@ -386,7 +386,7 @@ $cakeDescription = 'TMM: Apprentice Management Modules';
                                 'url' => ['prefix' => false, 'controller' => 'Users', 'action' => 'logout'],
                                 'style' => 'margin: 0; padding: 0;'
                             ]) ?>
-                                <?= $this->Form->button('<i class="fa fa-sign-out"></i> Logout', [
+                                <?= $this->Form->button('<i class="fa fa-sign-out-alt"></i> Logout', [
                                     'type' => 'submit',
                                     'escape' => false,
                                     'style' => 'background: #d33c44; color: white; border: none; padding: 8px 15px; border-radius: 4px; cursor: pointer; font-weight: bold; font-size: 14px;'
@@ -452,7 +452,7 @@ $cakeDescription = 'TMM: Apprentice Management Modules';
                                         'url' => ['prefix' => false, 'controller' => 'Users', 'action' => 'logout'],
                                         'style' => 'margin: 0;'
                                     ]) ?>
-                                        <?= $this->Form->button('<i class="fa fa-sign-out"></i> Logout', [
+                                        <?= $this->Form->button('<i class="fa fa-sign-out-alt"></i> Logout', [
                                             'type' => 'submit',
                                             'escape' => false,
                                             'style' => 'width: 100%; text-align: left; display: block; padding: 10px 15px; color: #dc3545; background: none; border: none; cursor: pointer; font-size: 14px; transition: background 0.2s;',
@@ -467,7 +467,7 @@ $cakeDescription = 'TMM: Apprentice Management Modules';
                         <!-- Login Link (Styling handled by CSS .user-menu > li > a[href*="login"]) -->
                         <li>
                             <?= $this->Html->link(
-                                '<i class="fa fa-sign-in"></i> Login',
+                                '<i class="fa fa-sign-in-alt"></i> Login',
                                 ['prefix' => false, 'controller' => 'Users', 'action' => 'login'],
                                 ['escape' => false]
                             ) ?>

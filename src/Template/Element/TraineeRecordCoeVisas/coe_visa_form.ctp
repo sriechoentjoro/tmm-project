@@ -35,7 +35,7 @@ $dateField = function ($field, $label) use ($traineeRecordCoeVisa) {
     <div class="page-header">
         <div>
             <h2>
-                <i class="fa fa-file-text-o"></i>
+                <i class="fa fa-file-alt"></i>
                 <?= $isEdit ? __('Edit COE / Visa Record') . ' <span class="record-id">#' . h($traineeRecordCoeVisa->id) . '</span>' : __('Add COE / Visa Record') ?>
             </h2>
             <p class="text-muted"><?= __('Certificate of Eligibility and visa administration for a trainee going to Japan') ?> 🇯🇵</p>
@@ -47,11 +47,11 @@ $dateField = function ($field, $label) use ($traineeRecordCoeVisa) {
     <div class="row">
         <div class="col-md-7">
             <div class="card">
-                <div class="card-header"><h4><i class="fa fa-pencil-square-o"></i> <?= __('COE & Visa Details') ?></h4></div>
+                <div class="card-header"><h4><i class="fa fa-edit"></i> <?= __('COE & Visa Details') ?></h4></div>
                 <div class="card-body">
                     <?php if (!$isEdit && $preselectedTrainee && isset($traineeOptions[$preselectedTrainee])): ?>
                         <div class="preselect-banner">
-                            <i class="fa fa-user-circle-o"></i>
+                            <i class="fa fa-user-circle"></i>
                             <?= __('Adding COE / visa record for') ?>
                             <strong><?= h($traineeOptions[$preselectedTrainee]) ?></strong>
                         </div>
@@ -130,7 +130,7 @@ $dateField = function ($field, $label) use ($traineeRecordCoeVisa) {
                         </li>
                     </ol>
                     <p class="text-muted" style="font-size: 0.85em; margin-top: 12px;">
-                        <i class="fa fa-lightbulb-o"></i>
+                        <i class="fa fa-lightbulb"></i>
                         <?= __('COE Biasa = paper certificate, COE Electronic = e-COE. One record per trainee marks the COE/visa step complete in the pre-departure pipeline.') ?>
                     </p>
                 </div>

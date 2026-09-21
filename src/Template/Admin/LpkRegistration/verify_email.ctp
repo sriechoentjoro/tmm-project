@@ -22,19 +22,19 @@ $panels = [
         'body' => __('Your email address has been successfully verified.'),
     ],
     'invalid' => [
-        'icon' => 'fa-link-slash',
+        'icon' => 'fa-unlink',
         'colour' => 'danger',
         'heading' => __('Registration Link Expired'),
         'body' => __('This verification link is invalid, expired, or has already been used.'),
     ],
     'not_found' => [
-        'icon' => 'fa-circle-question',
+        'icon' => 'fa-question-circle',
         'colour' => 'warning',
         'heading' => __('Institution not found. Please contact support.'),
         'body' => __('Please contact the system administrator to request a new registration link.'),
     ],
     'error' => [
-        'icon' => 'fa-triangle-exclamation',
+        'icon' => 'fa-exclamation-triangle',
         'colour' => 'danger',
         'heading' => __('Error updating verification status. Please try again or contact support.'),
         'body' => __('Please try again later or contact support if the problem persists.'),
@@ -59,7 +59,7 @@ $panel = $panels[$status];
             </a>
         <?php else: ?>
             <?= $this->Html->link(
-                '<i class="fas fa-right-to-bracket"></i> ' . __('Log in to your account'),
+                '<i class="fas fa-sign-in-alt"></i> ' . __('Log in to your account'),
                 ['prefix' => false, 'controller' => 'Users', 'action' => 'login'],
                 ['class' => 'btn btn-outline-secondary', 'escape' => false]
             ) ?>

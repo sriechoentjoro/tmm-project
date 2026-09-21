@@ -41,7 +41,7 @@ $resultBadge = function ($name) {
         <div class="page-header-actions">
             <?= $this->Html->link('<i class="fa fa-plus-circle"></i> ' . __('Add Check-Up'),
                 ['action' => 'add'], ['escape' => false, 'class' => 'btn btn-sm btn-success']) ?>
-            <?= $this->Html->link('<i class="fa fa-dashboard"></i> ' . __('Dashboard'),
+            <?= $this->Html->link('<i class="fa fa-tachometer-alt"></i> ' . __('Dashboard'),
                 ['controller' => 'Dashboard', 'action' => 'documentation'],
                 ['escape' => false, 'class' => 'btn btn-sm btn-outline-secondary']) ?>
         </div>
@@ -63,7 +63,7 @@ $resultBadge = function ($name) {
         </div>
         <div class="summary-card summary-records">
             <span class="summary-number"><?= number_format($summary['records']) ?></span>
-            <span class="summary-label"><i class="fa fa-files-o"></i> <?= __('Total Records') ?></span>
+            <span class="summary-label"><i class="fa fa-copy"></i> <?= __('Total Records') ?></span>
         </div>
     </div>
 
@@ -77,7 +77,7 @@ $resultBadge = function ($name) {
                 <div class="missing-grid">
                     <?php foreach ($missingTrainees as $traineeId => $name): ?>
                         <div class="missing-item">
-                            <span><i class="fa fa-user-o"></i> <?= h($name) ?></span>
+                            <span><i class="fa fa-user"></i> <?= h($name) ?></span>
                             <?= $this->Html->link('<i class="fa fa-plus"></i> ' . __('Add check-up'),
                                 ['action' => 'add', '?' => ['trainee_id' => $traineeId]],
                                 ['escape' => false, 'class' => 'btn btn-sm btn-success']) ?>
@@ -122,13 +122,13 @@ $resultBadge = function ($name) {
                                 <?php $resultName = isset($resultNames[$row['master_medical_check_up_result_id']]) ? $resultNames[$row['master_medical_check_up_result_id']] : null; ?>
                                 <span class="badge badge-<?= $resultBadge($resultName) ?>"><?= h($resultName ?: '-') ?></span>
                             </td>
-                            <td><i class="fa fa-hospital-o text-muted"></i> <?= h($row['clinic'] ?: '-') ?></td>
+                            <td><i class="fa fa-hospital text-muted"></i> <?= h($row['clinic'] ?: '-') ?></td>
                             <td><?= h($formatDate($row['date_issued'])) ?></td>
                             <td>
                                 <?php if ($row['mcu_files']): ?>
                                     <?php $filePath = str_replace('\\', '/', $row['mcu_files']); ?>
                                     <a href="<?= $this->Url->build('/' . ltrim($filePath, '/')) ?>" target="_blank" class="file-link" title="<?= h($filePath) ?>">
-                                        <i class="fa <?= strtolower(pathinfo($filePath, PATHINFO_EXTENSION)) === 'pdf' ? 'fa-file-pdf-o' : 'fa-file-image-o' ?>"></i>
+                                        <i class="fa <?= strtolower(pathinfo($filePath, PATHINFO_EXTENSION)) === 'pdf' ? 'fa-file-pdf' : 'fa-file-image' ?>"></i>
                                         <?= __('Open') ?>
                                     </a>
                                 <?php else: ?>

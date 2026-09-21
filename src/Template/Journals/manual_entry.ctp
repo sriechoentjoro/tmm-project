@@ -38,7 +38,7 @@ if ($isEdit) {
     <div class="page-header">
         <div>
             <h2>
-                <i class="fa <?= $isEdit ? 'fa-edit' : ($isAdjustment ? 'fa-wrench' : 'fa-pencil-square-o') ?>"></i>
+                <i class="fa <?= $isEdit ? 'fa-edit' : ($isAdjustment ? 'fa-wrench' : 'fa-edit') ?>"></i>
                 <?= h($pageTitle) ?>
             </h2>
             <p class="text-muted">

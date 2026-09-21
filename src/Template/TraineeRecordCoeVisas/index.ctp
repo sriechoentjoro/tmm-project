@@ -22,13 +22,13 @@ $formatDate = function ($value) {
 <div class="coevisa-page">
     <div class="page-header">
         <div>
-            <h2><i class="fa fa-file-text-o"></i> <?= __('COE & Visa Records') ?></h2>
+            <h2><i class="fa fa-file-alt"></i> <?= __('COE & Visa Records') ?></h2>
             <p class="text-muted"><?= __('Certificate of Eligibility and visa administration for trainees going to Japan') ?> 🇯🇵</p>
         </div>
         <div class="page-header-actions">
             <?= $this->Html->link('<i class="fa fa-plus-circle"></i> ' . __('Add Record'),
                 ['action' => 'add'], ['escape' => false, 'class' => 'btn btn-sm btn-success']) ?>
-            <?= $this->Html->link('<i class="fa fa-dashboard"></i> ' . __('Dashboard'),
+            <?= $this->Html->link('<i class="fa fa-tachometer-alt"></i> ' . __('Dashboard'),
                 ['controller' => 'Dashboard', 'action' => 'documentation'],
                 ['escape' => false, 'class' => 'btn btn-sm btn-outline-secondary']) ?>
         </div>
@@ -60,7 +60,7 @@ $formatDate = function ($value) {
                 <div class="missing-grid">
                     <?php foreach ($missingTrainees as $traineeId => $name): ?>
                         <div class="missing-item">
-                            <span><i class="fa fa-user-o"></i> <?= h($name) ?></span>
+                            <span><i class="fa fa-user"></i> <?= h($name) ?></span>
                             <?= $this->Html->link('<i class="fa fa-plus"></i> ' . __('Add record'),
                                 ['action' => 'add', '?' => ['trainee_id' => $traineeId]],
                                 ['escape' => false, 'class' => 'btn btn-sm btn-success']) ?>
@@ -103,7 +103,7 @@ $formatDate = function ($value) {
                                 <?php $typeName = isset($coeTypeNames[$row['master_trainee_coe_type_id']]) ? $coeTypeNames[$row['master_trainee_coe_type_id']] : null; ?>
                                 <?php if ($typeName): ?>
                                     <span class="badge <?= strpos($typeName, 'Electronic') !== false ? 'badge-outline-blue' : 'badge-outline-purple' ?>">
-                                        <i class="fa <?= strpos($typeName, 'Electronic') !== false ? 'fa-bolt' : 'fa-file-o' ?>"></i>
+                                        <i class="fa <?= strpos($typeName, 'Electronic') !== false ? 'fa-bolt' : 'fa-file' ?>"></i>
                                         <?= h($typeName) ?>
                                     </span>
                                 <?php else: ?>
@@ -111,7 +111,7 @@ $formatDate = function ($value) {
                                 <?php endif; ?>
                             </td>
                             <td><i class="fa fa-certificate text-muted"></i> <?= h($formatDate($row['date_coe_received'])) ?></td>
-                            <td><i class="fa fa-paper-plane-o text-muted"></i> <?= h($formatDate($row['date_visa_application'])) ?></td>
+                            <td><i class="fa fa-paper-plane text-muted"></i> <?= h($formatDate($row['date_visa_application'])) ?></td>
                             <td><i class="fa fa-check text-success"></i> <?= h($formatDate($row['date_visa_received'])) ?></td>
                             <td><i class="fa fa-map-marker text-muted"></i> <?= h($row['place_visa_issued'] ?: '-') ?></td>
                         </tr>
@@ -134,7 +134,7 @@ $formatDate = function ($value) {
     <?php else: ?>
         <div class="card">
             <div class="empty-state">
-                <i class="fa fa-file-text-o fa-4x"></i>
+                <i class="fa fa-file-alt fa-4x"></i>
                 <h4><?= __('No COE / visa records yet.') ?></h4>
                 <p class="text-muted"><?= __('Use the buttons above to record each trainee\'s COE and visa details.') ?></p>
             </div>

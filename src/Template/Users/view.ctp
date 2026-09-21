@@ -81,7 +81,7 @@ $fmt = function ($value) {
     <div class="row">
         <div class="col-md-6">
             <div class="card">
-                <div class="card-header"><h4><i class="fa fa-address-card-o"></i> <?= __('Account') ?></h4></div>
+                <div class="card-header"><h4><i class="fa fa-address-card"></i> <?= __('Account') ?></h4></div>
                 <div class="card-body">
                     <table class="detail-table">
                         <tr><th><?= __('User ID') ?></th><td>#<?= h($user->id) ?></td></tr>

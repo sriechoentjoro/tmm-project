@@ -31,20 +31,20 @@ $hasFilter = $filterTrainee || $filterCategory || $filterPaid !== '';
 <div class="installments-page">
     <div class="page-header">
         <div>
-            <h2><i class="fa fa-money"></i> <?= __('Trainee Installments') ?></h2>
+            <h2><i class="fa fa-money-bill"></i> <?= __('Trainee Installments') ?></h2>
             <p class="text-muted"><?= __('Every payment recorded - see Payment Tracking for per-trainee balances') ?></p>
         </div>
         <div class="page-header-actions">
             <?= $this->Html->link('<i class="fa fa-plus-circle"></i> ' . __('Add Payment'),
                 ['action' => 'add'], ['escape' => false, 'class' => 'btn btn-sm btn-success']) ?>
-            <?= $this->Html->link('<i class="fa fa-line-chart"></i> ' . __('Tracking'),
+            <?= $this->Html->link('<i class="fa fa-chart-line"></i> ' . __('Tracking'),
                 ['action' => 'tracking'], ['escape' => false, 'class' => 'btn btn-sm btn-primary']) ?>
-            <?= $this->Html->link('<i class="fa fa-file-text-o"></i> ' . __('Receipts'),
+            <?= $this->Html->link('<i class="fa fa-file-alt"></i> ' . __('Receipts'),
                 ['action' => 'receipts'], ['escape' => false, 'class' => 'btn btn-sm btn-outline-secondary']) ?>
             <?= $this->Html->link('<i class="fa fa-download"></i> CSV',
                 ['action' => 'exportCsv', '?' => $this->request->getQueryParams()],
                 ['escape' => false, 'class' => 'btn btn-sm btn-outline-secondary']) ?>
-            <?= $this->Html->link('<i class="fa fa-file-excel-o"></i> Excel',
+            <?= $this->Html->link('<i class="fa fa-file-excel"></i> Excel',
                 ['action' => 'exportExcel', '?' => $this->request->getQueryParams()],
                 ['escape' => false, 'class' => 'btn btn-sm btn-outline-secondary']) ?>
             <?= $this->Html->link('<i class="fa fa-print"></i> ' . __('Print'),
@@ -197,7 +197,7 @@ $hasFilter = $filterTrainee || $filterCategory || $filterPaid !== '';
     <?php else: ?>
         <div class="card">
             <div class="empty-state">
-                <i class="fa fa-money fa-4x"></i>
+                <i class="fa fa-money-bill fa-4x"></i>
                 <h4><?= $hasFilter ? __('No payments match the current filter.') : __('No installment payments yet.') ?></h4>
                 <p class="text-muted"><?= __('Record a trainee\'s owing cost with their first payment - the system tracks the balance until the receipt is issued.') ?></p>
                 <div>

@@ -25,11 +25,11 @@ $formatDatetime = function ($value) {
 $fileIcon = function ($path) {
     $extension = strtolower(pathinfo($path, PATHINFO_EXTENSION));
     $map = [
-        'pdf' => 'fa-file-pdf-o', 'doc' => 'fa-file-word-o', 'docx' => 'fa-file-word-o',
-        'xls' => 'fa-file-excel-o', 'xlsx' => 'fa-file-excel-o', 'zip' => 'fa-file-archive-o',
-        'jpg' => 'fa-file-image-o', 'jpeg' => 'fa-file-image-o', 'png' => 'fa-file-image-o',
+        'pdf' => 'fa-file-pdf', 'doc' => 'fa-file-word', 'docx' => 'fa-file-word',
+        'xls' => 'fa-file-excel', 'xlsx' => 'fa-file-excel', 'zip' => 'fa-file-archive',
+        'jpg' => 'fa-file-image', 'jpeg' => 'fa-file-image', 'png' => 'fa-file-image',
     ];
-    return isset($map[$extension]) ? $map[$extension] : 'fa-file-o';
+    return isset($map[$extension]) ? $map[$extension] : 'fa-file';
 };
 
 $hasFilter = $filterApprentice || $filterDocument || $filterStatus;
@@ -54,7 +54,7 @@ $hasFilter = $filterApprentice || $filterDocument || $filterStatus;
     <div class="summary-strip">
         <div class="summary-card summary-total">
             <span class="summary-number"><?= number_format(isset($summary['total']) ? $summary['total'] : 0) ?></span>
-            <span class="summary-label"><i class="fa fa-files-o"></i> <?= __('Total Documents') ?></span>
+            <span class="summary-label"><i class="fa fa-copy"></i> <?= __('Total Documents') ?></span>
         </div>
         <div class="summary-card summary-submitted">
             <span class="summary-number"><?= number_format(isset($summary['Submitted']) ? $summary['Submitted'] : 0) ?></span>

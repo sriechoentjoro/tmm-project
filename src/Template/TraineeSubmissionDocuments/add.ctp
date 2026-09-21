@@ -17,11 +17,11 @@ $this->assign('title', 'Add Trainee Submission Document');
 <div class="add-submission-page">
     <div class="page-header">
         <div>
-            <h2><i class="fa fa-cloud-upload"></i> <?= __('Add Trainee Submission Document') ?></h2>
+            <h2><i class="fa fa-cloud-upload-alt"></i> <?= __('Add Trainee Submission Document') ?></h2>
             <p class="text-muted"><?= __('Upload a pre-departure document for a trainee going to Japan') ?> 🇯🇵</p>
         </div>
         <div class="page-header-actions">
-            <?= $this->Html->link('<i class="fa fa-check-square-o"></i> ' . __('Checklist'),
+            <?= $this->Html->link('<i class="fa fa-check-square"></i> ' . __('Checklist'),
                 ['controller' => 'TraineeSubmissionDocuments', 'action' => 'checklist'],
                 ['escape' => false, 'class' => 'btn btn-sm btn-primary']) ?>
             <?= $this->Html->link('<i class="fa fa-th-list"></i> ' . __('Back to List'),
@@ -34,7 +34,7 @@ $this->assign('title', 'Add Trainee Submission Document');
         <!-- Form -->
         <div class="col-md-7">
             <div class="card">
-                <div class="card-header"><h4><i class="fa fa-file-text-o"></i> <?= __('Document Details') ?></h4></div>
+                <div class="card-header"><h4><i class="fa fa-file-alt"></i> <?= __('Document Details') ?></h4></div>
                 <div class="card-body">
                     <?= $this->Form->create($traineeSubmissionDocument, ['type' => 'file']) ?>
 
@@ -74,7 +74,7 @@ $this->assign('title', 'Add Trainee Submission Document');
                             <label><?= __('File') ?></label>
                             <div class="drop-zone-wrap">
                                 <div id="drop-zone" class="drop-zone">
-                                    <i class="fa fa-cloud-upload fa-2x"></i>
+                                    <i class="fa fa-cloud-upload-alt fa-2x"></i>
                                     <p id="drop-zone-text"><?= __('Click to choose a file or drag & drop it here') ?></p>
                                     <small class="text-muted">PDF, JPG, PNG, DOC(X), XLS(X), ZIP</small>
                                 </div>
@@ -154,7 +154,7 @@ $this->assign('title', 'Add Trainee Submission Document');
                         <div id="progress-fill" class="progress-fill"></div>
                     </div>
                     <p class="text-muted" style="margin-top:10px; font-size:0.85em;">
-                        <i class="fa fa-lightbulb-o"></i>
+                        <i class="fa fa-lightbulb"></i>
                         <?= __('See every remaining document for this trainee in the') ?>
                         <a href="#" id="checklist-link"><?= __('checklist') ?></a>.
                     </p>
@@ -162,13 +162,13 @@ $this->assign('title', 'Add Trainee Submission Document');
             </div>
 
             <div class="card">
-                <div class="card-header"><h4><i class="fa fa-shield"></i> <?= __('Upload Rules') ?></h4></div>
+                <div class="card-header"><h4><i class="fa fa-shield-alt"></i> <?= __('Upload Rules') ?></h4></div>
                 <div class="card-body">
                     <ul class="rules-list">
                         <li><i class="fa fa-check text-success"></i> <?= __('Allowed types: PDF, JPG, PNG, DOC(X), XLS(X), ZIP') ?></li>
                         <li><i class="fa fa-check text-success"></i> <?= __('Files are stored under') ?> <code>files/uploads/trainee_documents/</code></li>
                         <li><i class="fa fa-check text-success"></i> <?= __('Uploader and upload time are recorded automatically') ?></li>
-                        <li><i class="fa fa-refresh text-warning"></i> <?= __('Re-uploading a document replaces the previous record') ?></li>
+                        <li><i class="fa fa-sync-alt text-warning"></i> <?= __('Re-uploading a document replaces the previous record') ?></li>
                         <li><i class="fa fa-flag text-info"></i> <?= __('Status "Submitted" counts toward departure readiness') ?></li>
                     </ul>
                 </div>

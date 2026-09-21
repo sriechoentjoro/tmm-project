@@ -16,15 +16,15 @@ $net = $figures['revenue'] - $figures['expense'];
 $reportGroups = [
     [
         'title' => __('Financial Reports'),
-        'icon' => 'fa-money',
+        'icon' => 'fa-money-bill',
         'reports' => [
-            ['title' => __('Income Statement'), 'icon' => 'fa-line-chart', 'action' => 'incomeStatement',
+            ['title' => __('Income Statement'), 'icon' => 'fa-chart-line', 'action' => 'incomeStatement',
              'description' => __('Revenue vs expenses from posted journals'),
              'figure' => ($net >= 0 ? '+' : '') . $money($net), 'figureLabel' => __('Net result')],
             ['title' => __('Balance Sheet'), 'icon' => 'fa-balance-scale', 'action' => 'balanceSheet',
              'description' => __('Assets, liabilities and equity balances'),
              'figure' => $money($figures['assets']), 'figureLabel' => __('Total assets')],
-            ['title' => __('Cash Flow'), 'icon' => 'fa-exchange', 'action' => 'cashFlow',
+            ['title' => __('Cash Flow'), 'icon' => 'fa-exchange-alt', 'action' => 'cashFlow',
              'description' => __('Monthly debit / credit journal totals'),
              'figure' => number_format($figures['journals']), 'figureLabel' => __('Journal entries')],
         ],
@@ -50,11 +50,11 @@ $reportGroups = [
 <div class="reports-hub">
     <div class="page-header">
         <div>
-            <h2><i class="fa fa-bar-chart"></i> <?= __('Reports') ?></h2>
+            <h2><i class="fa fa-chart-bar"></i> <?= __('Reports') ?></h2>
             <p class="text-muted"><?= __('Financial and operational reporting - {0} of {1} journals posted',
                 number_format($figures['posted']), number_format($figures['journals'])) ?></p>
         </div>
-        <?= $this->Html->link('<i class="fa fa-dashboard"></i> ' . __('Dashboard'),
+        <?= $this->Html->link('<i class="fa fa-tachometer-alt"></i> ' . __('Dashboard'),
             ['controller' => 'Dashboard', 'action' => 'index'],
             ['escape' => false, 'class' => 'btn btn-sm btn-outline-secondary']) ?>
     </div>
@@ -73,7 +73,7 @@ $reportGroups = [
                     </div>
                     <h4><?= h($report['title']) ?></h4>
                     <p><?= h($report['description']) ?></p>
-                    <span class="report-open"><?= __('Open report') ?> <i class="fa fa-long-arrow-right"></i></span>
+                    <span class="report-open"><?= __('Open report') ?> <i class="fa fa-long-arrow-alt-right"></i></span>
                 </a>
             <?php endforeach; ?>
         </div>

@@ -47,7 +47,7 @@ $hasFilter = $filterRole || $filterStatus !== '' || $search !== '';
         <div class="page-header-actions">
             <?= $this->Html->link('<i class="fa fa-plus-circle"></i> ' . __('New User'),
                 ['action' => 'add'], ['escape' => false, 'class' => 'btn btn-sm btn-success']) ?>
-            <?= $this->Html->link('<i class="fa fa-shield"></i> ' . __('Manage Roles'),
+            <?= $this->Html->link('<i class="fa fa-shield-alt"></i> ' . __('Manage Roles'),
                 ['controller' => 'Roles', 'action' => 'index'],
                 ['escape' => false, 'class' => 'btn btn-sm btn-outline-secondary']) ?>
         </div>
@@ -69,7 +69,7 @@ $hasFilter = $filterRole || $filterStatus !== '' || $search !== '';
         </div>
         <div class="summary-card summary-roles">
             <span class="summary-number"><?= number_format(count($roleList)) ?></span>
-            <span class="summary-label"><i class="fa fa-shield"></i> <?= __('Roles') ?></span>
+            <span class="summary-label"><i class="fa fa-shield-alt"></i> <?= __('Roles') ?></span>
         </div>
     </div>
 
@@ -163,7 +163,7 @@ $hasFilter = $filterRole || $filterStatus !== '' || $search !== '';
                             </td>
                             <td>
                                 <?php if ($user->institution_id): ?>
-                                    <span class="inst-chip"><i class="fa fa-building-o"></i>
+                                    <span class="inst-chip"><i class="fa fa-building"></i>
                                         <?= h($user->institution_type === 'vocational_training' ? 'LPK' : 'SO') ?> #<?= h($user->institution_id) ?>
                                     </span>
                                 <?php else: ?>

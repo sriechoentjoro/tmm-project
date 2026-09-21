@@ -26,11 +26,11 @@ $formatDate = function ($value) {
 <div class="receipts-page">
     <div class="page-header">
         <div>
-            <h2><i class="fa fa-file-text-o"></i> <?= __('Receipt Management') ?></h2>
+            <h2><i class="fa fa-file-alt"></i> <?= __('Receipt Management') ?></h2>
             <p class="text-muted"><?= __('Payments that fully settled a trainee\'s balance') ?></p>
         </div>
         <div class="page-header-actions">
-            <?= $this->Html->link('<i class="fa fa-line-chart"></i> ' . __('Payment Tracking'),
+            <?= $this->Html->link('<i class="fa fa-chart-line"></i> ' . __('Payment Tracking'),
                 ['action' => 'tracking'], ['escape' => false, 'class' => 'btn btn-sm btn-primary']) ?>
             <?= $this->Html->link('<i class="fa fa-th-list"></i> ' . __('All Installments'),
                 ['action' => 'index'], ['escape' => false, 'class' => 'btn btn-sm btn-outline-secondary']) ?>
@@ -41,7 +41,7 @@ $formatDate = function ($value) {
     <div class="summary-strip">
         <div class="summary-card summary-total">
             <span class="summary-number"><?= number_format($summary['receipts']) ?></span>
-            <span class="summary-label"><i class="fa fa-file-text-o"></i> <?= __('Receipts') ?></span>
+            <span class="summary-label"><i class="fa fa-file-alt"></i> <?= __('Receipts') ?></span>
         </div>
         <div class="summary-card summary-settled">
             <span class="summary-number"><?= number_format($summary['traineesSettled']) ?></span>
@@ -49,7 +49,7 @@ $formatDate = function ($value) {
         </div>
         <div class="summary-card summary-amount">
             <span class="summary-number summary-money"><?= $money($summary['totalSettled']) ?></span>
-            <span class="summary-label"><i class="fa fa-money"></i> <?= __('Total Settled Value') ?></span>
+            <span class="summary-label"><i class="fa fa-money-bill"></i> <?= __('Total Settled Value') ?></span>
         </div>
     </div>
 
@@ -111,10 +111,10 @@ $formatDate = function ($value) {
     <?php else: ?>
         <div class="card">
             <div class="empty-state">
-                <i class="fa fa-file-text-o fa-4x"></i>
+                <i class="fa fa-file-alt fa-4x"></i>
                 <h4><?= __('No settled payments yet.') ?></h4>
                 <p class="text-muted"><?= __('When a payment clears a trainee\'s full balance it appears here as a receipt.') ?></p>
-                <?= $this->Html->link('<i class="fa fa-line-chart"></i> ' . __('Open Payment Tracking'),
+                <?= $this->Html->link('<i class="fa fa-chart-line"></i> ' . __('Open Payment Tracking'),
                     ['action' => 'tracking'], ['escape' => false, 'class' => 'btn btn-primary']) ?>
             </div>
         </div>

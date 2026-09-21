@@ -44,7 +44,7 @@ class JournalsController extends AppController
             ],
             'doc_cost' => [
                 'label' => __('Document Processing Cost'),
-                'icon' => 'fa-file-text-o',
+                'icon' => 'fa-file-alt',
                 'ref_prefix' => 'DOC',
                 'debit_code' => '5100',   // Document Expense
                 'credit_code' => '1000',  // Cash

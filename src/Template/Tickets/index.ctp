@@ -48,7 +48,7 @@ $hasFilter = $filterTrainee || $filterType || $filterStatus;
         <div class="page-header-actions">
             <?= $this->Html->link('<i class="fa fa-plus-circle"></i> ' . __('Add Ticket'),
                 ['action' => 'add'], ['escape' => false, 'class' => 'btn btn-sm btn-success']) ?>
-            <?= $this->Html->link('<i class="fa fa-exchange"></i> ' . __('Transit Routes'),
+            <?= $this->Html->link('<i class="fa fa-exchange-alt"></i> ' . __('Transit Routes'),
                 ['action' => 'transit'], ['escape' => false, 'class' => 'btn btn-sm btn-outline-secondary']) ?>
         </div>
     </div>
@@ -57,7 +57,7 @@ $hasFilter = $filterTrainee || $filterType || $filterStatus;
     <div class="summary-strip">
         <div class="summary-card summary-total">
             <span class="summary-number"><?= number_format(isset($summary['total']) ? $summary['total'] : 0) ?></span>
-            <span class="summary-label"><i class="fa fa-ticket"></i> <?= __('Total Tickets') ?></span>
+            <span class="summary-label"><i class="fa fa-ticket-alt"></i> <?= __('Total Tickets') ?></span>
         </div>
         <div class="summary-card summary-booked">
             <span class="summary-number"><?= number_format(isset($summary['Booked']) ? $summary['Booked'] : 0) ?></span>
@@ -168,14 +168,14 @@ $hasFilter = $filterTrainee || $filterType || $filterStatus;
                                 <?php if ($row['ticket_number']): ?>
                                     <strong><?= h($row['ticket_number']) ?></strong><br>
                                 <?php endif; ?>
-                                <small class="text-muted"><i class="fa fa-bookmark-o"></i> <?= h($row['booking_ref'] ?: '-') ?></small>
+                                <small class="text-muted"><i class="fa fa-bookmark"></i> <?= h($row['booking_ref'] ?: '-') ?></small>
                             </td>
                             <td>
                                 <?php $typeName = isset($typeNames[$row['master_ticket_type_id']]) ? $typeNames[$row['master_ticket_type_id']] : null; ?>
                                 <?php if ($typeName === 'Direct'): ?>
-                                    <span class="badge badge-outline-blue"><i class="fa fa-long-arrow-right"></i> <?= h($typeName) ?></span>
+                                    <span class="badge badge-outline-blue"><i class="fa fa-long-arrow-alt-right"></i> <?= h($typeName) ?></span>
                                 <?php elseif ($typeName === 'Transit'): ?>
-                                    <span class="badge badge-outline-purple"><i class="fa fa-exchange"></i> <?= h($typeName) ?></span>
+                                    <span class="badge badge-outline-purple"><i class="fa fa-exchange-alt"></i> <?= h($typeName) ?></span>
                                 <?php else: ?>
                                     <span class="text-muted">-</span>
                                 <?php endif; ?>
@@ -187,7 +187,7 @@ $hasFilter = $filterTrainee || $filterType || $filterStatus;
                                             <i class="fa fa-plane"></i>
                                             <strong><?= h($flight['flight_number']) ?></strong>
                                             <?php if ($flight['dep_code'] || $flight['arr_code']): ?>
-                                                <?= h($flight['dep_code'] ?: '?') ?> <i class="fa fa-long-arrow-right"></i> <?= h($flight['arr_code'] ?: '?') ?>
+                                                <?= h($flight['dep_code'] ?: '?') ?> <i class="fa fa-long-arrow-alt-right"></i> <?= h($flight['arr_code'] ?: '?') ?>
                                             <?php endif; ?>
                                             <small class="text-muted"><?= h($formatFlightDate($flight['departure_datetime'])) ?></small>
                                         </div>

@@ -32,11 +32,11 @@ $monthLabel = function ($ym) {
 <div class="cashflow-page">
     <div class="page-header">
         <div>
-            <h2><i class="fa fa-exchange"></i> <?= __('Cash Flow') ?></h2>
+            <h2><i class="fa fa-exchange-alt"></i> <?= __('Cash Flow') ?></h2>
             <p class="text-muted"><?= __('Monthly journal debit / credit volume') ?></p>
         </div>
         <div class="page-header-actions">
-            <?= $this->Html->link('<i class="fa fa-bar-chart"></i> ' . __('All Reports'),
+            <?= $this->Html->link('<i class="fa fa-chart-bar"></i> ' . __('All Reports'),
                 ['action' => 'index'], ['escape' => false, 'class' => 'btn btn-sm btn-outline-secondary']) ?>
             <?= $this->Html->link('<i class="fa fa-book"></i> ' . __('Journals'),
                 ['controller' => 'Journals', 'action' => 'index'],
@@ -60,7 +60,7 @@ $monthLabel = function ($ym) {
         </div>
         <div class="summary-card summary-green">
             <span class="summary-number summary-money"><?= $money($totalDebit - $totalCredit) ?></span>
-            <span class="summary-label"><i class="fa fa-line-chart"></i> <?= __('Net') ?></span>
+            <span class="summary-label"><i class="fa fa-chart-line"></i> <?= __('Net') ?></span>
         </div>
     </div>
 
@@ -100,7 +100,7 @@ $monthLabel = function ($ym) {
                 <?php endforeach; ?>
             <?php else: ?>
                 <p class="text-center text-muted py-4">
-                    <i class="fa fa-exchange fa-3x"></i><br>
+                    <i class="fa fa-exchange-alt fa-3x"></i><br>
                     <?= __('No journal entries yet - the monthly cash flow will appear here.') ?><br>
                     <?= $this->Html->link('<i class="fa fa-plus-circle"></i> ' . __('Add Journal Entry'),
                         ['controller' => 'Journals', 'action' => 'add'],

@@ -25,11 +25,11 @@ $formatDatetime = function ($value) {
 $fileIcon = function ($path) {
     $extension = strtolower(pathinfo($path, PATHINFO_EXTENSION));
     $map = [
-        'pdf' => 'fa-file-pdf-o', 'doc' => 'fa-file-word-o', 'docx' => 'fa-file-word-o',
-        'xls' => 'fa-file-excel-o', 'xlsx' => 'fa-file-excel-o', 'zip' => 'fa-file-archive-o',
-        'jpg' => 'fa-file-image-o', 'jpeg' => 'fa-file-image-o', 'png' => 'fa-file-image-o',
+        'pdf' => 'fa-file-pdf', 'doc' => 'fa-file-word', 'docx' => 'fa-file-word',
+        'xls' => 'fa-file-excel', 'xlsx' => 'fa-file-excel', 'zip' => 'fa-file-archive',
+        'jpg' => 'fa-file-image', 'jpeg' => 'fa-file-image', 'png' => 'fa-file-image',
     ];
-    return isset($map[$extension]) ? $map[$extension] : 'fa-file-o';
+    return isset($map[$extension]) ? $map[$extension] : 'fa-file';
 };
 
 $hasFilter = $filterTrainee || $filterDocument || $filterStatus;
@@ -38,15 +38,15 @@ $hasFilter = $filterTrainee || $filterDocument || $filterStatus;
 <div class="tsd-index-page">
     <div class="page-header">
         <div>
-            <h2><i class="fa fa-files-o"></i> <?= __('Trainee Submission Documents') ?></h2>
+            <h2><i class="fa fa-copy"></i> <?= __('Trainee Submission Documents') ?></h2>
             <p class="text-muted"><?= __('Pre-departure documents submitted by trainees going to Japan') ?> 🇯🇵</p>
         </div>
         <div class="page-header-actions">
             <?= $this->Html->link('<i class="fa fa-plus-circle"></i> ' . __('Add New'),
                 ['action' => 'add'], ['escape' => false, 'class' => 'btn btn-sm btn-success']) ?>
-            <?= $this->Html->link('<i class="fa fa-check-square-o"></i> ' . __('Checklist'),
+            <?= $this->Html->link('<i class="fa fa-check-square"></i> ' . __('Checklist'),
                 ['action' => 'checklist'], ['escape' => false, 'class' => 'btn btn-sm btn-primary']) ?>
-            <?= $this->Html->link('<i class="fa fa-line-chart"></i> ' . __('Progress'),
+            <?= $this->Html->link('<i class="fa fa-chart-line"></i> ' . __('Progress'),
                 ['action' => 'progress'], ['escape' => false, 'class' => 'btn btn-sm btn-outline-secondary']) ?>
         </div>
     </div>
@@ -55,7 +55,7 @@ $hasFilter = $filterTrainee || $filterDocument || $filterStatus;
     <div class="summary-strip">
         <div class="summary-card summary-total">
             <span class="summary-number"><?= number_format(isset($summary['total']) ? $summary['total'] : 0) ?></span>
-            <span class="summary-label"><i class="fa fa-files-o"></i> <?= __('Total Submissions') ?></span>
+            <span class="summary-label"><i class="fa fa-copy"></i> <?= __('Total Submissions') ?></span>
         </div>
         <div class="summary-card summary-submitted">
             <span class="summary-number"><?= number_format(isset($summary['Submitted']) ? $summary['Submitted'] : 0) ?></span>
@@ -190,7 +190,7 @@ $hasFilter = $filterTrainee || $filterDocument || $filterStatus;
                 <div>
                     <?= $this->Html->link('<i class="fa fa-plus-circle"></i> ' . __('Add Submission'),
                         ['action' => 'add'], ['escape' => false, 'class' => 'btn btn-success']) ?>
-                    <?= $this->Html->link('<i class="fa fa-check-square-o"></i> ' . __('Open Checklist'),
+                    <?= $this->Html->link('<i class="fa fa-check-square"></i> ' . __('Open Checklist'),
                         ['action' => 'checklist'], ['escape' => false, 'class' => 'btn btn-primary']) ?>
                     <?php if ($hasFilter): ?>
                         <?= $this->Html->link(__('Reset Filter'), ['action' => 'index'], ['class' => 'btn btn-outline-secondary']) ?>

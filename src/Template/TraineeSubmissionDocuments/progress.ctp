@@ -26,13 +26,13 @@ $progressColor = function ($percent) {
 <div class="progress-page">
     <div class="page-header">
         <div>
-            <h2><i class="fa fa-line-chart"></i> <?= __('Submission Progress') ?></h2>
+            <h2><i class="fa fa-chart-line"></i> <?= __('Submission Progress') ?></h2>
             <p class="text-muted"><?= __('Pre-departure document readiness for trainees going to Japan') ?> 🇯🇵</p>
         </div>
         <div class="page-header-actions">
             <?= $this->Html->link('<i class="fa fa-plus-circle"></i> ' . __('Add Submission'),
                 ['action' => 'add'], ['escape' => false, 'class' => 'btn btn-sm btn-success']) ?>
-            <?= $this->Html->link('<i class="fa fa-check-square-o"></i> ' . __('Checklist'),
+            <?= $this->Html->link('<i class="fa fa-check-square"></i> ' . __('Checklist'),
                 ['action' => 'checklist'], ['escape' => false, 'class' => 'btn btn-sm btn-primary']) ?>
             <?= $this->Html->link('<i class="fa fa-th-list"></i> ' . __('All Documents'),
                 ['action' => 'index'], ['escape' => false, 'class' => 'btn btn-sm btn-outline-secondary']) ?>
@@ -88,7 +88,7 @@ $progressColor = function ($percent) {
                                             <?php if ($row['percent'] >= 100): ?>
                                                 <i class="fa fa-check-circle text-success"></i>
                                             <?php elseif ($row['percent'] > 0): ?>
-                                                <i class="fa fa-clock-o text-warning"></i>
+                                                <i class="fa fa-clock text-warning"></i>
                                             <?php else: ?>
                                                 <i class="fa fa-exclamation-circle text-danger"></i>
                                             <?php endif; ?>
@@ -110,11 +110,11 @@ $progressColor = function ($percent) {
                                         <p class="missing-title"><?= __('Missing {0} document(s):', count($row['missing'])) ?></p>
                                         <ul class="missing-list">
                                             <?php foreach ($row['missing'] as $title): ?>
-                                                <li><i class="fa fa-square-o"></i> <?= h($title) ?></li>
+                                                <li><i class="fa fa-square"></i> <?= h($title) ?></li>
                                             <?php endforeach; ?>
                                         </ul>
                                     <?php endif; ?>
-                                    <?= $this->Html->link('<i class="fa fa-check-square-o"></i> ' . __('Open checklist for {0}', h($row['name'])),
+                                    <?= $this->Html->link('<i class="fa fa-check-square"></i> ' . __('Open checklist for {0}', h($row['name'])),
                                         ['action' => 'checklist', '?' => ['trainee_id' => $row['id']]],
                                         ['escape' => false, 'class' => 'btn btn-sm btn-primary']) ?>
                                 </div>
@@ -133,7 +133,7 @@ $progressColor = function ($percent) {
         <div class="col-md-6">
             <div class="card">
                 <div class="card-header">
-                    <h4><i class="fa fa-file-text-o"></i> <?= __('By Document') ?></h4>
+                    <h4><i class="fa fa-file-alt"></i> <?= __('By Document') ?></h4>
                     <small class="text-muted"><?= __('Most missing first — these documents are the bottleneck') ?></small>
                 </div>
                 <div class="card-body">

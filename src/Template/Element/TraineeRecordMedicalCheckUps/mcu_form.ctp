@@ -42,11 +42,11 @@ $currentFile = $traineeRecordMedicalCheckUp->mcu_files
     <div class="row">
         <div class="col-md-7">
             <div class="card">
-                <div class="card-header"><h4><i class="fa fa-pencil-square-o"></i> <?= __('Check-Up Details') ?></h4></div>
+                <div class="card-header"><h4><i class="fa fa-edit"></i> <?= __('Check-Up Details') ?></h4></div>
                 <div class="card-body">
                     <?php if (!$isEdit && $preselectedTrainee && isset($traineeOptions[$preselectedTrainee])): ?>
                         <div class="preselect-banner">
-                            <i class="fa fa-user-circle-o"></i>
+                            <i class="fa fa-user-circle"></i>
                             <?= __('Adding medical check-up for') ?>
                             <strong><?= h($traineeOptions[$preselectedTrainee]) ?></strong>
                         </div>
@@ -139,7 +139,7 @@ $currentFile = $traineeRecordMedicalCheckUp->mcu_files
                         <li><span class="badge badge-danger"><?= __('Tidak Fit') ?></span> <?= __('Not cleared - follow-up check-up required') ?></li>
                     </ul>
                     <p class="text-muted" style="font-size: 0.85em; margin-top: 12px;">
-                        <i class="fa fa-lightbulb-o"></i>
+                        <i class="fa fa-lightbulb"></i>
                         <?= __('A trainee can have multiple check-ups (e.g. first and follow-up). Attach the clinic\'s report as PDF or photo. Allowed: PDF, JPG, PNG, DOC(X).') ?>
                     </p>
                 </div>

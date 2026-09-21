@@ -33,7 +33,7 @@ $tip = isset($tip) ? $tip : null;
         <?php endforeach; ?>
     </ul>
     <?php if ($tip): ?>
-        <p class="sgp-tip"><i class="fa fa-lightbulb-o"></i> <?= h($tip) ?></p>
+        <p class="sgp-tip"><i class="fa fa-lightbulb"></i> <?= h($tip) ?></p>
     <?php endif; ?>
 </div>
 

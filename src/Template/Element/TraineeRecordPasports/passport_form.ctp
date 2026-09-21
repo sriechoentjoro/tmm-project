@@ -34,7 +34,7 @@ $dateField = function ($field, $label) use ($traineeRecordPasport) {
     <div class="page-header">
         <div>
             <h2>
-                <i class="fa fa-id-card-o"></i>
+                <i class="fa fa-id-card"></i>
                 <?= $isEdit ? __('Edit Passport Record') . ' <span class="record-id">#' . h($traineeRecordPasport->id) . '</span>' : __('Add Passport Record') ?>
             </h2>
             <p class="text-muted"><?= __('Passport administration for a trainee going to Japan') ?> 🇯🇵</p>
@@ -46,11 +46,11 @@ $dateField = function ($field, $label) use ($traineeRecordPasport) {
     <div class="row">
         <div class="col-md-7">
             <div class="card">
-                <div class="card-header"><h4><i class="fa fa-pencil-square-o"></i> <?= __('Passport Details') ?></h4></div>
+                <div class="card-header"><h4><i class="fa fa-edit"></i> <?= __('Passport Details') ?></h4></div>
                 <div class="card-body">
                     <?php if (!$isEdit && $preselectedTrainee && isset($traineeOptions[$preselectedTrainee])): ?>
                         <div class="preselect-banner">
-                            <i class="fa fa-user-circle-o"></i>
+                            <i class="fa fa-user-circle"></i>
                             <?= __('Adding passport record for') ?>
                             <strong><?= h($traineeOptions[$preselectedTrainee]) ?></strong>
                         </div>
@@ -113,7 +113,7 @@ $dateField = function ($field, $label) use ($traineeRecordPasport) {
                         <li><strong><?= __('Date Paid') ?></strong> — <?= __('when the passport fee was settled') ?></li>
                     </ul>
                     <p class="text-muted" style="font-size: 0.85em; margin-top: 12px;">
-                        <i class="fa fa-lightbulb-o"></i>
+                        <i class="fa fa-lightbulb"></i>
                         <?= __('One record per trainee is enough - it marks the passport step complete in the pre-departure pipeline.') ?>
                     </p>
                 </div>
