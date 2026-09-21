@@ -8,6 +8,9 @@ use Cake\ORM\Entity;
  *
  * @property int $id
  * @property string $title
+ * @property int|null $is_fit Whether this result means the candidate is
+ *     medically fit. 1 fit, 0 not fit, null nobody has said - and null must
+ *     keep nobody out.
  */
 class MasterMedicalCheckUpResult extends Entity
 {
@@ -22,5 +25,10 @@ class MasterMedicalCheckUpResult extends Entity
      */
     protected $_accessible = [
         'title' => true,
+        // Without this line the form saves the title and drops is_fit without
+        // a word: patchEntity() ignores anything not listed here, so an
+        // administrator would choose "Tidak Fit", press save, see a success
+        // message, and nothing would have changed.
+        'is_fit' => true,
     ];
 }
