@@ -145,6 +145,24 @@ try {
     exit(0);
 }
 
+/**
+ * Names the code tests for that are deliberately not roles.
+ *
+ * A name with no row behind it normally means a typo, and the check exists to
+ * find those. But a check written as `management OR director` is not a typo -
+ * it is one branch naming two words for the same job, so that an installation
+ * that calls the role either thing lands on the same screen. The branch that
+ * finds nothing simply never fires, and nobody loses anything.
+ *
+ * Every entry has to say which real role covers it. Anything not listed here
+ * is still reported, which is the point: one explained exception keeps the
+ * check green, so the next genuine typo stands out instead of being lost in a
+ * warning everybody has learned to scroll past.
+ */
+const SYNONYMS = [
+    'director' => 'an alternative spelling of management in DashboardController; the management role exists and covers it',
+];
+
 $actual = [];
 foreach ($rows as $row) {
     $actual[strtolower(trim($row['name']))] = true;
@@ -152,14 +170,27 @@ foreach ($rows as $row) {
 printf("\n%d role(s) in the roles table\n", count($actual));
 
 $missing = [];
+$synonyms = [];
 foreach ($found as $name => $places) {
-    if (!isset($actual[$name])) {
-        $missing[$name] = $places;
+    if (isset($actual[$name])) {
+        continue;
+    }
+    if (isset(SYNONYMS[$name])) {
+        $synonyms[$name] = $places;
+        continue;
+    }
+    $missing[$name] = $places;
+}
+
+if ($synonyms) {
+    printf("\n%d name(s) tested as an alternative to a role that does exist:\n\n", count($synonyms));
+    foreach ($synonyms as $name => $places) {
+        printf("  %-22s %s\n", $name, SYNONYMS[$name]);
     }
 }
 
 if (!$missing) {
-    echo "every role name the code tests exists in the roles table\n";
+    echo "\nevery role name the code tests exists in the roles table\n";
     exit(0);
 }
 

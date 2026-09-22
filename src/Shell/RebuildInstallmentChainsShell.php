@@ -23,7 +23,11 @@ use Cake\ORM\TableRegistry;
  *
  * Usage:
  *     bin/cake rebuild_installment_chains          report the mismatches
+ *     bin/cake rebuild_installment_chains --show=7 read one trainee's rows
  *     bin/cake rebuild_installment_chains --apply  rewrite them
+ *
+ * --show first. A mismatch says the stored figures and the payments disagree;
+ * it cannot say which of the two is wrong, and only the payment column can.
  */
 class RebuildInstallmentChainsShell extends Shell
 {
@@ -37,7 +41,103 @@ class RebuildInstallmentChainsShell extends Shell
             ->addOption('apply', [
                 'help' => 'Rewrite the rows that do not add up. Without it they are only reported.',
                 'boolean' => true,
+            ])
+            ->addOption('show', [
+                'help' => 'Print one trainee\'s rows, stored figures beside recomputed ones, and change nothing.',
             ]);
+    }
+
+    /**
+     * Print one trainee's chain, stored figures beside recomputed ones.
+     *
+     * A summary can only say the two disagree. It cannot say which of them is
+     * right, and the difference between the two readings is the difference
+     * between correcting a stale total and telling somebody who has paid that
+     * they still owe it. So before anything is rewritten, this puts the rows
+     * on the screen and changes nothing.
+     *
+     * @param int $traineeId Trainee id.
+     * @param \Cake\ORM\Table $installments The installments table.
+     * @return int|null
+     */
+    protected function show($traineeId, $installments)
+    {
+        $rows = $installments->find()
+            ->where(['trainee_id' => $traineeId])
+            ->order(['id' => 'ASC'])
+            ->enableHydration(false)
+            ->toArray();
+
+        if (!$rows) {
+            $this->out(sprintf('<warning>No installments for trainee %d.</warning>', $traineeId));
+
+            return null;
+        }
+
+        $name = '#' . $traineeId;
+        try {
+            $trainee = TableRegistry::getTableLocator()->get('Trainees')->find()
+                ->where(['id' => $traineeId])->enableHydration(false)->first();
+            if ($trainee) {
+                $name = $trainee['name'] . ($trainee['tmm_code'] ? ' (' . $trainee['tmm_code'] . ')' : '');
+            }
+        } catch (\Exception $e) {
+        }
+
+        $full = 0;
+        foreach ($rows as $row) {
+            $full = max($full, (int)$row['full_payment_amount']);
+        }
+
+        $this->out('');
+        $this->out(sprintf('<info>%s</info> - %d row(s), owing cost %s',
+            $name, count($rows), number_format($full, 0, ',', '.')));
+        $this->out('');
+        $this->out('  ' . sprintf('%-5s %-12s %14s %6s | %14s %14s %4s | %14s %14s %4s',
+            'id', 'date', 'payment', 'cat', 'accum stored', 'unpaid stored', 'off',
+            'accum should', 'unpaid should', 'off'));
+        $this->out('  ' . str_repeat('-', 125));
+
+        $accumulated = 0;
+        foreach ($rows as $row) {
+            $accumulated += max(0, (int)$row['payment_amount']);
+            $unpaid = max(0, $full - $accumulated);
+            $shouldOff = $unpaid === 0 ? 1 : 0;
+            $differs = (int)$row['payment_accummulated'] !== $accumulated
+                || (int)$row['unpaid_amount'] !== $unpaid
+                || (int)$row['is_paid_off'] !== $shouldOff;
+
+            $this->out(sprintf('  %s%-5s %-12s %14s %6s | %14s %14s %4s | %14s %14s %4s%s',
+                $differs ? '<warning>' : '',
+                $row['id'],
+                substr((string)$row['payment_date'], 0, 10),
+                number_format((int)$row['payment_amount'], 0, ',', '.'),
+                $row['master_transaction_category_id'],
+                number_format((int)$row['payment_accummulated'], 0, ',', '.'),
+                number_format((int)$row['unpaid_amount'], 0, ',', '.'),
+                (int)$row['is_paid_off'] ? 'yes' : 'no',
+                number_format($accumulated, 0, ',', '.'),
+                number_format($unpaid, 0, ',', '.'),
+                $shouldOff ? 'yes' : 'no',
+                $differs ? '</warning>' : ''
+            ));
+        }
+
+        $this->out('');
+        $this->out(sprintf('  payments on file add up to <info>%s</info>, leaving <info>%s</info> of the %s owing cost',
+            number_format($accumulated, 0, ',', '.'),
+            number_format(max(0, $full - $accumulated), 0, ',', '.'),
+            number_format($full, 0, ',', '.')));
+        $this->out('');
+        $this->out('  Read the payment column first. If those amounts are what the trainee');
+        $this->out('  really handed over, the right-hand figures are correct and --apply is');
+        $this->out('  safe. If an accumulated total was ever typed into a payment field, or');
+        $this->out('  a payment is missing from this list, fix the payment itself first -');
+        $this->out('  --apply would build on the wrong numbers.');
+        $this->out('');
+        $this->out('<info>Nothing changed.</info>');
+
+        return null;
     }
 
     /**
@@ -47,6 +147,10 @@ class RebuildInstallmentChainsShell extends Shell
     {
         $apply = (bool)$this->param('apply');
         $installments = TableRegistry::getTableLocator()->get('TraineeInstallments');
+
+        if ($this->param('show') !== null && $this->param('show') !== false) {
+            return $this->show((int)$this->param('show'), $installments);
+        }
 
         try {
             $traineeIds = $installments->find()
@@ -129,10 +233,12 @@ class RebuildInstallmentChainsShell extends Shell
 
         $this->out('');
         $this->out(sprintf('<warning>%d chain(s) do not add up</warning>', count($wrong)));
-        $this->out(sprintf('  %-34s %-7s %-16s %s', 'trainee', 'rows', 'says outstanding', 'really outstanding'));
+        $this->out(sprintf('  %-6s %-30s %-7s %18s %18s',
+            'id', 'trainee', 'rows', 'says outstanding', 'really outstanding'));
         foreach ($wrong as $row) {
-            $this->out(sprintf('  %-34s %-7s %-16s %s',
-                mb_substr($row['name'], 0, 33),
+            $this->out(sprintf('  %-6s %-30s %-7s %18s %18s',
+                $row['trainee_id'],
+                mb_substr($row['name'], 0, 29),
                 $row['mismatch'] . '/' . $row['rows'],
                 number_format($row['stored_unpaid'], 0, ',', '.'),
                 number_format($row['real_unpaid'], 0, ',', '.')
@@ -142,9 +248,22 @@ class RebuildInstallmentChainsShell extends Shell
         $this->out('');
 
         if (!$apply) {
-            $this->out('<info>Nothing changed.</info> Run it again with --apply to rewrite them.');
-            $this->out('The payments themselves are never touched - only the running');
-            $this->out('totals that should have followed from them.');
+            $this->out('<info>Nothing changed.</info>');
+            $this->out('');
+            $this->out('Read a chain before rewriting it:');
+            foreach ($wrong as $row) {
+                $this->out(sprintf('  bin/cake rebuild_installment_chains --show=%d   %s',
+                    $row['trainee_id'], mb_substr($row['name'], 0, 40)));
+            }
+            $this->out('');
+            $this->out('A mismatch means the stored totals and the payments disagree. It does');
+            $this->out('not say which of them is right. Recomputing takes the payment column');
+            $this->out('as the truth, so if a payment is missing or an accumulated total was');
+            $this->out('once typed into a payment field, --apply would spread that mistake');
+            $this->out('across the chain instead of correcting it.');
+            $this->out('');
+            $this->out('Once the payments read correctly, --apply rewrites only the running');
+            $this->out('totals. The payments themselves are never touched.');
 
             return null;
         }
