@@ -16989,3 +16989,23 @@ msgstr "{0} data diperiksa ulang terhadap hasil ini."
 
 msgid "{0} record(s) were re-checked against this result. {1} are now marked not medically fit: a candidate cannot be put forward and an apprentice cannot be recorded as departed until that changes."
 msgstr "{0} data diperiksa ulang terhadap hasil ini. {1} kini ditandai tidak lolos secara medis: kandidatnya tidak bisa diajukan dan apprentice-nya tidak bisa dicatat berangkat sampai itu berubah."
+
+# ── Master MCU result: what fit and not fit mean ─────
+
+msgid "A result that means fit but carries a remark - \"fit with notes\" and the like - is still fit. The note is something to read, not a refusal. Choose not fit only where the result itself means the person may not go."
+msgstr "Hasil yang berarti lolos tetapi disertai catatan - seperti \"fit dengan keterangan\" - tetap lolos. Catatannya untuk dibaca, bukan penolakan. Pilih tidak lolos hanya bila hasilnya sendiri berarti orangnya tidak boleh berangkat."
+
+msgid "Changing this re-checks everybody who ever received this result, and says how many are now held back."
+msgstr "Mengubahnya akan memeriksa ulang semua orang yang pernah menerima hasil ini, dan menyebutkan berapa yang kini tertahan."
+
+msgid "Does this result mean the person is medically fit?"
+msgstr "Apakah hasil ini berarti orangnya lolos secara medis?"
+
+msgid "Every check-up recorded with this result inherits this meaning, and both sides read it: a candidate cannot be put forward for promotion, and an apprentice cannot be recorded as having departed. A single not-fit check-up is enough to hold somebody back; a result left unsaid holds nobody back."
+msgstr "Setiap pemeriksaan yang dicatat dengan hasil ini mewarisi artinya, dan kedua sisi membacanya: kandidatnya tidak bisa diajukan untuk promosi, dan apprentice-nya tidak bisa dicatat berangkat. Satu pemeriksaan tidak lolos saja sudah cukup menahan seseorang; hasil yang dibiarkan tanpa penetapan tidak menahan siapa pun."
+
+msgid "Fit - the person may go forward"
+msgstr "Lolos - orangnya boleh melanjutkan"
+
+msgid "Not fit - the person is held back"
+msgstr "Tidak lolos - orangnya ditahan"

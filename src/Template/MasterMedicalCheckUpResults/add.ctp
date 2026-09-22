@@ -50,19 +50,23 @@ $staticAssetsUrl = $protocol . '://' . $host . '/static-assets';
                         ]) ?>
                     </div>
                     <div class="col-12 mb-3">
-                        <label class="form-label"><?= __('Does this result mean the candidate is medically fit?') ?></label>
+                        <label class="form-label"><?= __('Does this result mean the person is medically fit?') ?></label>
                         <?= $this->Form->control('is_fit', [
                             'type' => 'select',
                             'class' => 'form-control',
                             'label' => false,
                             'options' => [
-                                '1' => __('Fit - the candidate may go forward'),
-                                '0' => __('Not fit - the candidate is held back'),
+                                '1' => __('Fit - the person may go forward'),
+                                '0' => __('Not fit - the person is held back'),
                             ],
                             'empty' => __('Not said - counts for nothing either way'),
                         ]) ?>
                         <small class="text-muted">
-                            <?= __('Every check-up recorded with this result inherits this meaning. A single not-fit check-up holds a candidate back; a result left unsaid holds nobody back.') ?>
+                            <?= __('Every check-up recorded with this result inherits this meaning, and both sides read it: a candidate cannot be put forward for promotion, and an apprentice cannot be recorded as having departed. A single not-fit check-up is enough to hold somebody back; a result left unsaid holds nobody back.') ?>
+                            <br>
+                            <?= __('A result that means fit but carries a remark - "fit with notes" and the like - is still fit. The note is something to read, not a refusal. Choose not fit only where the result itself means the person may not go.') ?>
+                            <br>
+                            <?= __('Changing this re-checks everybody who ever received this result, and says how many are now held back.') ?>
                         </small>
                     </div>
                 </div>

@@ -16989,3 +16989,23 @@ msgstr "この結果に対して {0} 件を再判定しました。"
 
 msgid "{0} record(s) were re-checked against this result. {1} are now marked not medically fit: a candidate cannot be put forward and an apprentice cannot be recorded as departed until that changes."
 msgstr "この結果に対して {0} 件を再判定しました。うち {1} 件が医学的に不適と記録されています。変わるまで、候補者は推薦できず、実習生は出発を記録できません。"
+
+# ── Master MCU result: what fit and not fit mean ─────
+
+msgid "A result that means fit but carries a remark - \"fit with notes\" and the like - is still fit. The note is something to read, not a refusal. Choose not fit only where the result itself means the person may not go."
+msgstr "所見が付いていても適合を意味する結果、たとえば「所見付きで適合」といったものは、やはり適合です。所見は読むためのものであって、拒否ではありません。結果そのものが渡航できないことを意味する場合にのみ、不適を選んでください。"
+
+msgid "Changing this re-checks everybody who ever received this result, and says how many are now held back."
+msgstr "これを変更すると、この結果を受け取ったことのある全員が再判定され、何人が止まっているかが示されます。"
+
+msgid "Does this result mean the person is medically fit?"
+msgstr "この結果は、その人物が医学的に適合であることを意味しますか。"
+
+msgid "Every check-up recorded with this result inherits this meaning, and both sides read it: a candidate cannot be put forward for promotion, and an apprentice cannot be recorded as having departed. A single not-fit check-up is enough to hold somebody back; a result left unsaid holds nobody back."
+msgstr "この結果で記録されたすべての健康診断がこの意味を引き継ぎ、双方がそれを読みます。候補者は昇格に推薦できず、実習生は出発を記録できません。不適の診断が一件あれば、それだけでその人は止まります。未設定のままの結果は、誰も止めません。"
+
+msgid "Fit - the person may go forward"
+msgstr "適合 - 先へ進めます"
+
+msgid "Not fit - the person is held back"
+msgstr "不適 - 先へ進めません"
