@@ -15,15 +15,25 @@ use Cake\Datasource\ConnectionManager;
  * all can only be answered against the real server.
  *
  * This reports what is there before changing anything: whether the table
- * exists, which of the columns the trail needs are present, and which are
- * missing. With --apply it creates the table, or adds only the columns that
- * are absent, and never drops or retypes one that is already there.
+ * exists, which of the things the trail records already have a column, and
+ * which do not. With --apply it creates the table, or adds only what is
+ * absent, and never drops or retypes a column that is already there.
  *
- * Why these columns. A trail that stores only ids answers nothing once a user
- * or a candidate is deleted, and deletion is exactly when somebody starts
- * asking. So the username, the role names and a label for the subject are
- * captured as text at the moment of the decision. They are a photograph, not
- * a reference, and they stay readable when the row they describe is gone.
+ * It does not insist on its own names. The `logs` table on a live
+ * installation turned out to predate the trail and to have names for most of
+ * what it needs - the subject is `model` plus `foreign_key`, the free text is
+ * `description`, the address is `ip_address`. Adding subject_type,
+ * subject_id, detail and ip beside them would have put two names on one
+ * meaning in a single table. AuditTable::COLUMN_CANDIDATES lists the
+ * acceptable names for each thing and this shell honours it, so only what is
+ * genuinely missing gets added.
+ *
+ * Why these things are recorded at all. A trail that stores only ids answers
+ * nothing once a user or a candidate is deleted, and deletion is exactly when
+ * somebody starts asking. So the username, the role names and a label for the
+ * subject are captured as text at the moment of the decision. They are a
+ * photograph, not a reference, and they stay readable when the row they
+ * describe is gone.
  *
  * Usage:
  *     bin/cake add_audit_log             report only
@@ -33,24 +43,6 @@ class AddAuditLogShell extends Shell
 {
     const AUTH_DB = 'cms_authentication_authorization';
     const TABLE = 'logs';
-
-    /**
-     * column => definition. Order is the order they are added in.
-     *
-     * @var array
-     */
-    const COLUMNS = [
-        'user_id' => 'INT NULL',
-        'username' => 'VARCHAR(100) NULL',
-        'role_names' => 'VARCHAR(255) NULL',
-        'action' => 'VARCHAR(100) NULL',
-        'subject_type' => 'VARCHAR(100) NULL',
-        'subject_id' => 'INT NULL',
-        'subject_label' => 'VARCHAR(255) NULL',
-        'detail' => 'TEXT NULL',
-        'ip' => 'VARCHAR(45) NULL',
-        'created' => 'DATETIME NULL',
-    ];
 
     /**
      * @return \Cake\Console\ConsoleOptionParser
@@ -120,17 +112,26 @@ class AddAuditLogShell extends Shell
             $this->abort('Could not describe the table: ' . $e->getMessage());
         }
 
+        $logs = \Cake\ORM\TableRegistry::getTableLocator()->get('Audit');
+        $map = $logs->columnMap($existing);
+
         $statements = [];
-        foreach (self::COLUMNS as $column => $definition) {
-            if (in_array($column, $existing, true)) {
-                $this->out(sprintf('  <success>already there</success>  %s', $column));
+        foreach (\App\Model\Table\AuditTable::COLUMN_CANDIDATES as $canonical => $candidates) {
+            if (isset($map[$canonical])) {
+                $note = $map[$canonical] === $canonical
+                    ? ''
+                    : sprintf(' (as %s)', $map[$canonical]);
+                $this->out(sprintf('  <success>already there</success>  %s%s', $canonical, $note));
                 continue;
             }
+            // Nothing on the table means this thing, under any of its names.
+            $column = $candidates[0];
+            $definition = \App\Model\Table\AuditTable::COLUMN_TYPES[$canonical];
             $this->out(sprintf('  <warning>missing</warning>      %s', $column));
             $statements[] = sprintf('ALTER TABLE %s ADD COLUMN %s %s', self::TABLE, $column, $definition);
         }
 
-        $spare = array_diff($existing, array_keys(self::COLUMNS), ['id']);
+        $spare = array_diff($existing, array_values($map), ['id']);
         if ($spare) {
             $this->out('');
             $this->out('  columns already on the table that the trail does not use, left alone:');
@@ -182,15 +183,34 @@ class AddAuditLogShell extends Shell
      */
     protected function _createSql()
     {
+        // The first name in each candidate list is the one a fresh table gets,
+        // so a new installation ends up with the same shape as the one already
+        // deployed rather than a second vocabulary.
         $lines = [];
-        foreach (self::COLUMNS as $column => $definition) {
-            $lines[] = sprintf('  %s %s,', $column, $definition);
+        $created = null;
+        $subjectType = null;
+        $subjectId = null;
+        foreach (\App\Model\Table\AuditTable::COLUMN_CANDIDATES as $canonical => $candidates) {
+            $column = $candidates[0];
+            $lines[] = sprintf('  %s %s,', $column, \App\Model\Table\AuditTable::COLUMN_TYPES[$canonical]);
+            if ($canonical === 'created') {
+                $created = $column;
+            }
+            if ($canonical === 'subject_type') {
+                $subjectType = $column;
+            }
+            if ($canonical === 'subject_id') {
+                $subjectId = $column;
+            }
         }
 
         return sprintf(
-            "CREATE TABLE %s (\n  id INT AUTO_INCREMENT PRIMARY KEY,\n%s\n  KEY idx_logs_created (created),\n  KEY idx_logs_subject (subject_type, subject_id)\n)",
+            "CREATE TABLE %s (\n  id INT AUTO_INCREMENT PRIMARY KEY,\n%s\n  KEY idx_logs_created (%s),\n  KEY idx_logs_subject (%s, %s)\n)",
             self::TABLE,
-            implode("\n", $lines)
+            implode("\n", $lines),
+            $created,
+            $subjectType,
+            $subjectId
         );
     }
 

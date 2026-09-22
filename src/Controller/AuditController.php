@@ -153,12 +153,12 @@ class AuditController extends AppController
     {
         $logs = \Cake\ORM\TableRegistry::getTableLocator()->get('Audit');
 
-        $ready = false;
-        try {
-            $ready = $logs->getSchema()->hasColumn('action');
-        } catch (\Exception $e) {
-            $ready = false;
-        }
+        // The table calls most of these something else - the subject is
+        // `model` and `foreign_key`, the free text is `description`. Reading
+        // through the map is what lets the trail sit on the table that was
+        // already there instead of a second set of columns beside it.
+        $map = $logs->columnMap();
+        $ready = isset($map['action']);
 
         $entries = [];
         $actions = [];
@@ -167,35 +167,41 @@ class AuditController extends AppController
 
         if ($ready) {
             try {
+                $actionColumn = $map['action'];
+
                 $query = $logs->find()->order(['id' => 'DESC']);
                 if ($filterAction !== '') {
-                    $query->where(['action' => $filterAction]);
+                    $query->where([$actionColumn => $filterAction]);
                 }
                 $this->paginate = ['limit' => 100];
                 $entries = $this->paginate($query);
 
                 foreach ($logs->find()
-                    ->select(['action'])
+                    ->select([$actionColumn])
                     ->enableHydration(false)
-                    ->distinct(['action'])
-                    ->order(['action' => 'ASC']) as $row) {
-                    if (!empty($row['action'])) {
-                        $actions[$row['action']] = $row['action'];
+                    ->distinct([$actionColumn])
+                    ->order([$actionColumn => 'ASC']) as $row) {
+                    if (!empty($row[$actionColumn])) {
+                        $actions[$row[$actionColumn]] = $row[$actionColumn];
                     }
                 }
 
                 $summary['total'] = $logs->find()->count();
-                $summary['people'] = $logs->find()->distinct(['username'])->count();
-                $summary['today'] = $logs->find()
-                    ->where(['created >=' => (new \Cake\I18n\FrozenTime())->startOfDay()])
-                    ->count();
+                if (isset($map['username'])) {
+                    $summary['people'] = $logs->find()->distinct([$map['username']])->count();
+                }
+                if (isset($map['created'])) {
+                    $summary['today'] = $logs->find()
+                        ->where([$map['created'] . ' >=' => (new \Cake\I18n\FrozenTime())->startOfDay()])
+                        ->count();
+                }
             } catch (\Exception $e) {
                 $this->log('audit trail could not be read: ' . $e->getMessage(), 'error');
                 $ready = false;
             }
         }
 
-        $this->set(compact('entries', 'actions', 'summary', 'ready', 'filterAction'));
+        $this->set(compact('entries', 'actions', 'summary', 'ready', 'filterAction', 'map'));
 
         return null;
     }

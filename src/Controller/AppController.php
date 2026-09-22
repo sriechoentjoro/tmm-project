@@ -216,8 +216,13 @@ class AppController extends Controller
     {
         try {
             $logs = \Cake\ORM\TableRegistry::getTableLocator()->get('Audit');
-            $schema = $logs->getSchema();
-            if (!$schema->hasColumn('action')) {
+
+            // The table names most of these differently - the subject is
+            // `model` and `foreign_key`, the free text is `description`. The
+            // map says which column each thing lives in here, so nothing has
+            // to be duplicated to make room for the trail.
+            $map = $logs->columnMap();
+            if (!isset($map['action'])) {
                 // The installation has not run bin/cake add_audit_log yet.
                 return;
             }
@@ -226,12 +231,9 @@ class AppController extends Controller
                 ? (array)$this->currentUser['role_names']
                 : [];
 
-            $row = [
+            $values = [
                 'action' => (string)$action,
                 'created' => new \Cake\I18n\FrozenTime(),
-            ];
-
-            $values = [
                 'user_id' => $this->Auth ? $this->Auth->user('id') : null,
                 'username' => $this->Auth ? $this->Auth->user('username') : null,
                 'role_names' => $roles ? implode(',', $roles) : null,
@@ -240,10 +242,15 @@ class AppController extends Controller
                 'subject_label' => isset($subject['label']) ? mb_substr((string)$subject['label'], 0, 255) : null,
                 'detail' => $detail ? json_encode($detail, JSON_UNESCAPED_UNICODE) : null,
                 'ip' => $this->request ? $this->request->clientIp() : null,
+                'user_agent' => $this->request
+                    ? mb_substr((string)$this->request->getHeaderLine('User-Agent'), 0, 255)
+                    : null,
             ];
-            foreach ($values as $column => $value) {
-                if ($schema->hasColumn($column)) {
-                    $row[$column] = $value;
+
+            $row = [];
+            foreach ($values as $canonical => $value) {
+                if (isset($map[$canonical])) {
+                    $row[$map[$canonical]] = $value;
                 }
             }
 

@@ -14,7 +14,17 @@
  * @var array $summary
  * @var bool $ready Whether the table has been prepared.
  * @var string $filterAction
+ * @var array $map Canonical field name => the column it lives in here.
  */
+$logs = \Cake\ORM\TableRegistry::getTableLocator()->get('Audit');
+$map = $map ?? [];
+
+// The table names most of these differently: the subject is `model` and
+// `foreign_key`, the free text is `description`. Reading through the map
+// keeps the page working on either shape.
+$f = function ($entry, $canonical) use ($logs, $map) {
+    return $logs->field($entry, $canonical, $map);
+};
 $asDateTime = function ($value) {
     if ($value instanceof \Cake\I18n\FrozenTime || $value instanceof \Cake\I18n\Time) {
         return $value->i18nFormat('d MMM yyyy HH:mm');
@@ -135,27 +145,27 @@ $actionParts = function ($action) {
     <tbody>
         <?php foreach ($entries as $entry) : ?>
             <?php
-            list($area, $what) = $actionParts($entry->get('action'));
+            list($area, $what) = $actionParts($f($entry, 'action'));
             $isUndo = stripos((string)$what, 'undo') !== false || stripos((string)$what, 'withdraw') !== false;
             ?>
             <tr>
-                <td class="trail-when"><?= h($asDateTime($entry->get('created'))) ?></td>
+                <td class="trail-when"><?= h($asDateTime($f($entry, 'created'))) ?></td>
                 <td class="trail-who">
-                    <strong><?= h($entry->get('username') ?: __('unknown')) ?></strong>
-                    <?php if ($entry->get('role_names')) : ?>
-                        <small><?= h($entry->get('role_names')) ?></small>
+                    <strong><?= h($f($entry, 'username') ?: __('unknown')) ?></strong>
+                    <?php if ($f($entry, 'role_names')) : ?>
+                        <small><?= h($f($entry, 'role_names')) ?></small>
                     <?php endif; ?>
                 </td>
                 <td>
-                    <span class="trail-act<?= $isUndo ? ' undo' : '' ?>"><?= h($entry->get('action')) ?></span>
+                    <span class="trail-act<?= $isUndo ? ' undo' : '' ?>"><?= h($f($entry, 'action')) ?></span>
                 </td>
                 <td class="trail-subject">
-                    <?= h($entry->get('subject_label') ?: '-') ?>
-                    <?php if ($entry->get('subject_type')) : ?>
-                        <small><?= h($entry->get('subject_type')) ?> #<?= h($entry->get('subject_id')) ?></small>
+                    <?= h($f($entry, 'subject_label') ?: '-') ?>
+                    <?php if ($f($entry, 'subject_type')) : ?>
+                        <small><?= h($f($entry, 'subject_type')) ?> #<?= h($f($entry, 'subject_id')) ?></small>
                     <?php endif; ?>
                 </td>
-                <td class="trail-detail"><?= h($entry->get('detail')) ?></td>
+                <td class="trail-detail"><?= h($f($entry, 'detail')) ?></td>
             </tr>
         <?php endforeach; ?>
     </tbody>
