@@ -304,3 +304,5 @@ $checkColumns = [
     justify-content: center;
 }
 </style>
+
+<?= $this->element('process_flow_help') ?>

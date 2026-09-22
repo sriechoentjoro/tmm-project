@@ -398,3 +398,5 @@ $hasFilter = $filterTrainee || $filterType || $filterStatus;
     });
 })();
 </script>
+
+<?= $this->element('process_flow_help') ?>

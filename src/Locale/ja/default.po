@@ -17009,3 +17009,350 @@ msgstr "適合 - 先へ進めます"
 
 msgid "Not fit - the person is held back"
 msgstr "不適 - 先へ進めません"
+
+# ── Page guides: trainee departure documents and ticketing ──
+
+msgid "A card that matches what is on file at the moment it was printed."
+msgstr "印刷した時点の記録と一致したカードになります。"
+
+msgid "A certificate of eligibility expires. No expiry is stored here, so a certificate going stale while the visa is delayed is yours to watch."
+msgstr "在留資格認定証明書には有効期限があります。ここに期限は保存されないため、ビザが遅れるあいだに証明書が失効しないか見張るのはご自身の役目です。"
+
+msgid "A leg belongs to a ticket, not to a trainee. A leg on a ticket with no trainee on it is attached to nobody."
+msgstr "区間は研修生ではなく航空券に属します。研修生が入っていない航空券の区間は、誰にも紐づきません。"
+
+msgid "A passport still out at the office reads differently from one in the drawer."
+msgstr "まだ役所にある旅券と、引き出しにある旅券とが、読み分けられます。"
+
+msgid "A result marked not fit stops nothing here. On this side it is a record, not a gate - acting on it is a decision somebody has to make and record elsewhere."
+msgstr "不適と記録された結果も、ここでは何も止めません。こちら側では記録であって関門ではありません。それにどう対応するかは、誰かが判断し、別の場所に記録することです。"
+
+msgid "A tick means a row exists, not that the row is complete. A passport record with no dates on it still ticks the box."
+msgstr "チェックは行が存在することを示すだけで、その行が揃っていることを示しません。日付が一つも入っていない旅券の記録でも、チェックは付きます。"
+
+msgid "A trainee with no batch prints with the batch line empty."
+msgstr "期が未設定の研修生は、期の行が空のまま印刷されます。"
+
+msgid "All four: ready to go"
+msgstr "四つとも揃い、出発可能"
+
+msgid "Anything missing: chase it"
+msgstr "不足があれば催促する"
+
+msgid "Apprentice COE and Visa"
+msgstr "実習生のCOEとビザ"
+
+msgid "Apprentice flights hang off a separate ticket register in its own database. Promotion copies nothing across, so a ticket recorded here is not the one an apprentice flight will find."
+msgstr "実習生のフライトは、専用のデータベースにある別の航空券台帳にぶら下がります。昇格は何も複写しないため、ここで記録した航空券は、実習生のフライトが参照するものではありません。"
+
+msgid "Arranges the examination and records the result."
+msgstr "検査を手配し、結果を記録します。"
+
+msgid "Buys and records tickets, enters the legs, tracks what is paid."
+msgstr "航空券を購入して記録し、各区間を入力し、支払状況を追います。"
+
+msgid "COE and visa"
+msgstr "COEとビザ"
+
+msgid "Card laid out"
+msgstr "カードを配置"
+
+msgid "Check the layover"
+msgstr "乗り継ぎ時間を確認する"
+
+msgid "Choose the result and attach the scan"
+msgstr "結果を選び、スキャンを添付する"
+
+msgid "Choose the trainee, then enter the issue date and the place of issue exactly as printed on the passport."
+msgstr "研修生を選び、発給日と発給地を、旅券の記載どおりに入力します。"
+
+msgid "Choose the trainee, then enter the ticket number, the booking reference, the type, the status, and the price with its currency."
+msgstr "研修生を選び、券番号、予約番号、種別、状態、そして金額と通貨を入力します。"
+
+msgid "Choose who to print for"
+msgstr "誰の分を印刷するか選ぶ"
+
+msgid "Collects the papers and keeps all four registers current."
+msgstr "書類を集め、四つの台帳すべてを最新に保ちます。"
+
+msgid "Counted in the cost summary"
+msgstr "費用集計に数えられる"
+
+msgid "Currencies"
+msgstr "通貨"
+
+msgid "Departure Readiness"
+msgstr "出発準備状況"
+
+msgid "Each column links to the screen behind it: passports, certificate and visa, medical check-ups, tickets."
+msgstr "各列は、その背後の画面へのリンクになっています。旅券、証明書とビザ、健康診断、航空券です。"
+
+msgid "Enter the legs"
+msgstr "各区間を入力する"
+
+msgid "Enter the trainee, the clinic, the date, and a title that says which examination this was."
+msgstr "研修生、医療機関、日付、そしてどの検査かが分かる表題を入力します。"
+
+msgid "Everything on the card comes from the trainee record. A name corrected there changes the next card printed, and nothing at all about the cards already handed out."
+msgstr "カードの内容はすべて研修生の記録に由来します。そこで氏名を直せば次に印刷するカードは変わりますが、すでに配ったカードには何の影響もありません。"
+
+msgid "Everything, including the certificate types."
+msgstr "証明書の種別を含め、すべてを扱えます。"
+
+msgid "Everything, including what each result means."
+msgstr "各結果の意味を含め、すべてを扱えます。"
+
+msgid "Layover worked out"
+msgstr "乗り継ぎ時間を算出"
+
+msgid "Leg 1"
+msgstr "区間1"
+
+msgid "Leg 2, if any"
+msgstr "区間2があれば"
+
+msgid "Mark when it reached us and when it was paid"
+msgstr "手元に届いた日と支払った日を記す"
+
+msgid "No expiry date is stored, so a passport running out before departure is something you have to watch yourself."
+msgstr "有効期限は保存されないため、出発前に切れる旅券は自分で見張る必要があります。"
+
+msgid "Nothing compares the times on two legs. Flights that overlap, or a connection of fifteen minutes, save without a word."
+msgstr "二つの区間の時刻を突き合わせる仕組みはありません。重なり合う便も、十五分の乗り継ぎも、何も言われずに保存されます。"
+
+msgid "Nothing on this page writes anything. It is a view; every correction is made in the register it points at."
+msgstr "このページは何も書き込みません。見るための画面であり、修正はすべて、指し示す先の台帳で行います。"
+
+msgid "Nothing records that a card was printed. There is no list of who has one and no way to tell a reprint from a first print."
+msgstr "カードを印刷したという記録は残りません。誰が持っているかの一覧もなく、再印刷か初回かを見分ける手立てもありません。"
+
+msgid "One row per flight: airline, flight number, the airport it leaves from and the one it arrives at, with both times."
+msgstr "便ごとに一行です。航空会社、便名、出発空港と到着空港、そして両方の時刻を入れます。"
+
+msgid "One row per trainee, one tick per requirement, and a count of how many have all four."
+msgstr "研修生ごとに一行、要件ごとにチェック一つ、そして四つすべて揃った人数が出ます。"
+
+msgid "One ticket is one purchase; a journey to Japan is often two or three flights. The ticket carries the booking reference, the type, the status and the price; the legs hang off it, one row each with airline, flight number, the two airports and the two times. That is what makes a transit visible - two rows on one ticket, with a gap between the arrival of the first and the departure of the second, which the transit page works out for you."
+msgstr "航空券一枚は一回の購入ですが、日本までの旅程はしばしば二便、三便になります。航空券は予約番号・種別・状態・金額を持ち、各区間はそこにぶら下がります。区間ごとに一行で、航空会社、便名、二つの空港、二つの時刻が入ります。乗り継ぎが見えるのはそのためです。一枚の航空券に二行があり、最初の到着と次の出発のあいだの間隔は、乗り継ぎのページが計算してくれます。"
+
+msgid "One trainee can be given several passport rows. Nothing prevents it and nothing says which is current, so keep to one row per passport."
+msgstr "一人の研修生に旅券の行を複数作れます。止めるものも、どれが最新かを示すものもないため、旅券一冊につき一行にとどめてください。"
+
+msgid "Pick the result from the master list and attach the file. Anything the result does not cover goes in the comment."
+msgstr "結果をマスタ一覧から選び、ファイルを添付します。結果で表せないことは所見に書きます。"
+
+msgid "Printed"
+msgstr "印刷"
+
+msgid "Prints a replacement when one is needed."
+msgstr "必要になったとき、再発行分を印刷します。"
+
+msgid "Prints cards for a batch as it starts."
+msgstr "期の開始時に、その期の分のカードを印刷します。"
+
+msgid "Promotion to apprentice does not carry any of these documents across. The apprentice side starts with an empty trail and the same papers are recorded again there, in their own registers."
+msgstr "実習生への昇格は、これらの書類を一つも引き継ぎません。実習生側は空の状態から始まり、同じ書類が向こうの専用台帳にあらためて記録されます。"
+
+msgid "Promotion to apprentice does not copy this record either. The apprentice side has its own COE and visa register."
+msgstr "実習生への昇格は、この記録も複写しません。実習生側には専用のCOE・ビザ台帳があります。"
+
+msgid "Promotion to apprentice does not copy this record. An apprentice is examined again, and that examination is what can refuse a departure."
+msgstr "実習生への昇格は、この記録を複写しません。実習生はあらためて検査を受け、その検査が出発を拒みうるものになります。"
+
+msgid "Promotion to apprentice does not copy this record. The apprentice side keeps its own passport register, and the same passport has to be recorded there again."
+msgstr "実習生への昇格は、この記録を複写しません。実習生側は専用の旅券台帳を持ち、同じ旅券をそちらでもう一度記録する必要があります。"
+
+msgid "Read the readiness grid"
+msgstr "準備状況の一覧表を読む"
+
+msgid "Readiness grid"
+msgstr "準備状況の一覧表"
+
+msgid "Readiness grid ticks its box"
+msgstr "準備状況の表にチェックが付く"
+
+msgid "Readiness here counts rows, not contents. Somebody who is \"ready\" by this grid may still have a passport with no expiry recorded and a ticket with no flight legs."
+msgstr "ここでの準備状況は、内容ではなく行の有無を数えます。この表で「準備済み」となっている人でも、有効期限の記録がない旅券や、区間の入っていない航空券のままということがあります。"
+
+msgid "Reads it: the same four things decide whether somebody is ready to be promoted and sent."
+msgstr "これを読みます。同じ四つが、昇格して送り出せるかどうかを決めます。"
+
+msgid "Reads the cost side."
+msgstr "費用の面を参照します。"
+
+msgid "Record the ticket"
+msgstr "航空券を記録する"
+
+msgid "The Departures entry in the menu does not open a page of its own - it sends you straight back to this list."
+msgstr "メニューの「出発」は独自のページを開きません。そのままこの一覧に戻されます。"
+
+msgid "The Ticket Costs entry in the menu opens this same list, with the same rows and the same totals. It is a second door, not a second page."
+msgstr "メニューの「航空券費用」は、この同じ一覧を、同じ行と同じ合計で開きます。二つ目のページではなく、二つ目の入口です。"
+
+msgid "The batch printed on the card is the one the trainee is placed in."
+msgstr "カードに印字される期は、その研修生が配属されている期です。"
+
+msgid "The card carries the name, the TMM code and the batch, so all three have to be right on the trainee first."
+msgstr "カードには氏名・TMMコード・期が載るため、まず研修生の記録でその三つが正しい必要があります。"
+
+msgid "The card opens in a print layout with no menu around it, ready for the printer."
+msgstr "カードはメニューのない印刷用のレイアウトで開き、そのまま印刷できます。"
+
+msgid "The cards are laid out from live data, so a batch printed today and the same batch printed next week can differ without anybody deciding to change them."
+msgstr "カードは現在のデータから組まれるため、今日印刷した期と来週印刷した同じ期とが、誰も変更を決めていないのに違ってくることがあります。"
+
+msgid "The certificate of eligibility and the visa are recorded separately, and both assume this passport already exists."
+msgstr "在留資格認定証明書とビザは別に記録され、どちらもこの旅券が既にあることを前提にしています。"
+
+msgid "The check-up taken during selection is months old by the time training ends, and the receiving side asks for a current one. Each record names the clinic, the date, the result chosen from the shared master list, a comment and the scanned file. Several records for one trainee are normal: a re-check after treatment is a second examination, not a correction of the first."
+msgstr "選考時に受けた健康診断は、訓練が終わる頃には数か月前のものになっており、受入側は最新のものを求めます。各記録には、医療機関、日付、共通のマスタ一覧から選んだ結果、所見、そしてスキャンした書類が入ります。一人に複数の記録があるのは普通のことです。治療後の再検査は、最初の記録の訂正ではなく二回目の検査だからです。"
+
+msgid "The gap is visible at a glance instead of being discovered on the day."
+msgstr "不足が当日になって判明するのではなく、一目で見えます。"
+
+msgid "The grid has no idea whether a medical check-up passed. It counts that one was recorded."
+msgstr "この表は健康診断が適合だったかを知りません。記録が一件あることを数えているだけです。"
+
+msgid "The health check a trainee takes, and the result on file."
+msgstr "研修生が受ける健康診断と、記録される結果です。"
+
+msgid "The journey and its price are on file."
+msgstr "旅程とその金額が記録に残ります。"
+
+msgid "The list shows every trainee with their batch, and every batch with how many trainees are in it."
+msgstr "一覧には、研修生ごとに所属する期が、期ごとに在籍する研修生の人数が示されます。"
+
+msgid "The missing paper is recorded where it belongs."
+msgstr "足りない書類が、あるべき場所に記録されます。"
+
+msgid "The one screen here that produces paper rather than records. It reads the trainees and their batches as they already stand and lays them out for printing - a single card when somebody joins late or loses theirs, or every card in a batch at once when a new intake starts. Nothing is stored: printing the same card twice produces the same card, and correcting a name means correcting the trainee."
+msgstr "ここで唯一、記録ではなく紙を生み出す画面です。研修生とその期を現状のまま読み取り、印刷用に配置します。遅れて加わった人やカードを失くした人には一枚だけ、新しい期が始まるときは期の全員分をまとめて印刷できます。何も保存しません。同じカードを二度刷れば同じものが出ますし、氏名の修正は研修生側で行います。"
+
+msgid "The passport is on file and the readiness grid ticks its box."
+msgstr "旅券が記録され、準備状況の表にチェックが付きます。"
+
+msgid "The passport is the first of the four departure documents, and the other three lean on it: the certificate of eligibility is applied for against a passport, the visa is stamped into it, and the ticket is issued in the name printed on it. Four dates are kept for each trainee - issued, issued where, received by us, paid - so the difference between \"we are waiting for the office\" and \"we are waiting for the payment\" is on the screen rather than in somebody's memory."
+msgstr "旅券は四つの出発書類の最初にあり、残る三つはこれに寄りかかります。在留資格認定証明書は旅券に対して申請され、ビザはその旅券に貼られ、航空券は旅券に印字された氏名で発券されます。研修生ごとに四つの日付を保ちます。発給日、発給地、当方での受領日、支払日です。「役所待ちなのか、支払い待ちなのか」の違いが、誰かの記憶ではなく画面にあるようにするためです。"
+
+msgid "The person has to be a trainee first, which happens by being promoted from a candidate."
+msgstr "まず研修生である必要があり、それは候補者からの昇格によって生まれます。"
+
+msgid "The person may travel, and a ticket can be bought against a real date."
+msgstr "本人が渡航できるようになり、現実の日付に対して航空券を手配できます。"
+
+msgid "The printed card a trainee wears, for one person or for a whole batch."
+msgstr "研修生が身に着ける印刷カードです。一人分でも、期まるごとでも作れます。"
+
+msgid "The purchase is on file and counted in the summary by status."
+msgstr "購入が記録され、状態別の集計に数えられます。"
+
+msgid "The readiness grid ticks the medical column as soon as a row exists here. It does not look at whether the result was fit."
+msgstr "準備状況の表は、ここに行が一つでもあれば健康診断の欄にチェックを付けます。結果が適合だったかは見ません。"
+
+msgid "The readiness grid ticks the passport column as soon as a row exists here, whether or not its dates are filled in."
+msgstr "準備状況の表は、ここに行が一つでもあれば旅券の欄にチェックを付けます。日付が入っているかどうかは問いません。"
+
+msgid "The readiness grid ticks the ticket column as soon as a ticket exists for the trainee, whether or not it has any legs on it."
+msgstr "準備状況の一覧表は、研修生に航空券が一枚でもあればチケットの欄にチェックを付けます。区間が入っているかどうかは問いません。"
+
+msgid "The result is a value that can be counted, not a sentence somebody has to read."
+msgstr "結果が、人が読まねばならない文ではなく、数えられる値になります。"
+
+msgid "The result values come from one master list, shared with the candidate and apprentice check-ups."
+msgstr "結果の値は一つのマスタ一覧に由来し、候補者と実習生の健康診断と共通です。"
+
+msgid "The same master list decides pass or fail automatically for candidates and refuses a departure for apprentices. On the trainee side nothing is derived from it - the result is recorded and read, and that is all."
+msgstr "同じマスタ一覧が、候補者については合否を自動で決め、実習生については出発を拒みます。研修生側では、そこから何も導かれません。結果は記録され、読まれる。それだけです。"
+
+msgid "The three dates are plain dates with nothing enforcing their order. A visa recorded as received before it was applied for saves without complaint."
+msgstr "三つの日付はただの日付で、順序を守らせる仕組みはありません。申請より前に受領したビザも、何も言われずに保存されます。"
+
+msgid "The ticket bought for a trainee, the legs of the journey, and what it cost."
+msgstr "研修生のために購入した航空券、旅程の各区間、そしてその費用です。"
+
+msgid "The ticket is the step that follows, and the visa date is the reason its date can be trusted."
+msgstr "次の段階が航空券であり、その日付を信用できる理由がビザの日付です。"
+
+msgid "The ticketing side"
+msgstr "発券の側"
+
+msgid "The time the consulate is taking becomes visible, so a slow case can be chased."
+msgstr "領事館側でかかっている時間が見えるようになり、遅い案件を催促できます。"
+
+msgid "The trainee has to exist, which happens by being promoted from a candidate."
+msgstr "研修生が存在している必要があり、それは候補者からの昇格によって生まれます。"
+
+msgid "The trainee profile carries a \"holds a passport\" flag copied down from the candidate form. That is what the person said when they applied, not a link to this register, and the two can disagree."
+msgstr "研修生のプロフィールには、候補者の申込書から複写された「旅券を持っている」という印があります。それは応募時の本人の申告であって、この台帳への参照ではありません。両者は食い違うことがあります。"
+
+msgid "The transit page groups the legs by ticket and works out the gap between them."
+msgstr "乗り継ぎのページは各区間を航空券ごとにまとめ、そのあいだの間隔を計算します。"
+
+msgid "The visa should be in hand: a ticket bought before it is a bet, not a booking."
+msgstr "ビザは手元にあるべきです。それより前に買う航空券は、予約ではなく賭けです。"
+
+msgid "The whole journey can be read at a glance."
+msgstr "旅程全体が一目で読み取れます。"
+
+msgid "This is not a register of its own; it is the view over four of them. A trainee cannot leave without a passport, a certificate of eligibility with its visa, a current medical check-up, and a ticket, and each of those lives in its own screen. The readiness page puts all four in one row per trainee so the question \"who is still missing something\" has an answer without opening anybody. The ticketing page does the same for the three ticket screens."
+msgstr "これ自体は台帳ではなく、四つの台帳を見渡すための画面です。研修生は、旅券、在留資格認定証明書とビザ、最新の健康診断、そして航空券がなければ出発できません。そのそれぞれに専用の画面があります。準備状況のページは、その四つを研修生ごとに一行へまとめます。「誰がまだ足りないか」を、誰かを開かずに答えられるようにするためです。発券のページは、三つの航空券画面について同じことをします。"
+
+msgid "Ticket Costs"
+msgstr "航空券費用"
+
+msgid "Ticket booked"
+msgstr "航空券を手配"
+
+msgid "Ticket in the same name"
+msgstr "同じ氏名で航空券"
+
+msgid "Ticket recorded"
+msgstr "航空券を記録"
+
+msgid "Ticket types, statuses and currencies are master lists, so the summary counts can be trusted."
+msgstr "航空券の種別・状態・通貨はマスタ一覧です。だからこそ集計の数字を信用できます。"
+
+msgid "Ticketing"
+msgstr "発券"
+
+msgid "Tickets, the flight legs behind them, and what they cost each have a screen; this page gathers the three."
+msgstr "航空券、その背後の区間、そして費用には、それぞれ画面があります。このページはその三つをまとめます。"
+
+msgid "Trainee COE and Visa"
+msgstr "研修生のCOEとビザ"
+
+msgid "Trainee Departure Documents"
+msgstr "研修生の出発書類"
+
+msgid "Trainee Medical Check-Ups"
+msgstr "研修生の健康診断"
+
+msgid "Trainee Passports"
+msgstr "研修生の旅券"
+
+msgid "Trainee Tickets"
+msgstr "研修生の航空券"
+
+msgid "Trainee and batch on file"
+msgstr "研修生と期が登録済み"
+
+msgid "Two separate permissions, in a fixed order. The receiving side applies in Japan for a certificate of eligibility, which is Japan saying the person may come; only then can a visa be applied for at the consulate here, which is the permission to travel. This register keeps the dates of both against the trainee, plus the type of certificate and where the visa was issued, so the gap between \"the certificate arrived\" and \"the visa arrived\" is visible while there is still time to act on it."
+msgstr "決まった順序の、二つの別々の許可です。受入側が日本で在留資格認定証明書を申請します。これは日本側が来てよいと述べるものです。その後にはじめて、こちらの領事館でビザを申請できます。これは渡航の許可です。この台帳は両方の日付を研修生ごとに保ち、証明書の種別とビザの発給地も記録します。「証明書が届いた」と「ビザが届いた」のあいだの空きが、まだ手を打てるうちに見えるようにするためです。"
+
+msgid "What TMM Training weighs before recording a departure is the apprentice-side documents, not these. These are what gets a trainee to the point of being promoted at all."
+msgstr "訓練側が出発を記録する前に量るのは、実習生側の書類であって、こちらではありません。こちらは、研修生が昇格できる段階まで到達するためのものです。"
+
+msgid "What each result means - fit or not fit - is maintained in one master list used by all three sides. Changing it re-checks the candidates and apprentices who hold that result; the trainees are not re-checked, because nothing on this side derives anything from it."
+msgstr "各結果の意味、適合か不適かは、三つの側が共通で使う一つのマスタ一覧で管理されます。変更すると、その結果を持つ候補者と実習生が再判定されます。研修生は再判定されません。こちら側では、そこから何も導かれないからです。"
+
+msgid "Where a trainee stands across the four things needed before leaving."
+msgstr "出発前に必要な四つについて、研修生がどこまで進んでいるかです。"
+
+msgid "Where several check-ups exist for one trainee, nothing marks which is current. The list is ordered by when it was entered, not by the date of the examination."
+msgstr "一人の研修生に複数の検査がある場合、どれが最新かを示す印はありません。一覧は検査日ではなく、入力された順に並びます。"
+
+msgid "Work the register that is short"
+msgstr "足りない台帳に取りかかる"
+
+msgid "You can print one card or a whole intake from the same page."
+msgstr "同じページから、一枚でも期まるごとでも印刷できます。"

@@ -169,3 +169,5 @@ foreach ($trainees as $t) {
     <p><?= __('No trainees found.') ?></p>
 </div>
 <?php endif; ?>
+
+<?= $this->element('process_flow_help') ?>

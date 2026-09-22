@@ -104,4 +104,25 @@ class TraineeRecordPasportsController extends AppController
 
         return $this->redirect(['action' => 'index']);
     }
+
+    /**
+     * The guide behind the "?" button.
+     *
+     * The page itself is config/page_guides/TraineeRecordPasports.php, rendered by
+     * Element/page_guide.ctp. The language switch writes the choice to the
+     * session so the guide can be read in Indonesian, English or Japanese
+     * without changing the language of the whole application first.
+     *
+     * @return \Cake\Http\Response|null
+     */
+    public function processFlow()
+    {
+        if ($lang = $this->request->getQuery('lang')) {
+            if (in_array($lang, ['ind', 'eng', 'jpn'], true)) {
+                $this->request->getSession()->write('Config.language', $lang);
+
+                return $this->redirect(['action' => 'processFlow']);
+            }
+        }
+    }
 }

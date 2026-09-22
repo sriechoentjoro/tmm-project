@@ -17009,3 +17009,350 @@ msgstr "Lolos - orangnya boleh melanjutkan"
 
 msgid "Not fit - the person is held back"
 msgstr "Tidak lolos - orangnya ditahan"
+
+# ── Page guides: trainee departure documents and ticketing ──
+
+msgid "A card that matches what is on file at the moment it was printed."
+msgstr "Kartu yang sesuai dengan data pada saat ia dicetak."
+
+msgid "A certificate of eligibility expires. No expiry is stored here, so a certificate going stale while the visa is delayed is yours to watch."
+msgstr "Certificate of eligibility punya masa berlaku. Tidak ada tanggal kedaluwarsa yang disimpan di sini, jadi sertifikat yang basi selagi visanya tertunda adalah urusan Anda untuk mengawasinya."
+
+msgid "A leg belongs to a ticket, not to a trainee. A leg on a ticket with no trainee on it is attached to nobody."
+msgstr "Ruas melekat pada tiket, bukan pada trainee. Ruas pada tiket yang tidak punya trainee tidak melekat pada siapa pun."
+
+msgid "A passport still out at the office reads differently from one in the drawer."
+msgstr "Paspor yang masih di kantor imigrasi terbaca berbeda dari yang sudah ada di laci."
+
+msgid "A result marked not fit stops nothing here. On this side it is a record, not a gate - acting on it is a decision somebody has to make and record elsewhere."
+msgstr "Hasil yang ditandai tidak lolos tidak menghentikan apa pun di sini. Di sisi ini ia sebuah catatan, bukan gerbang - menindaklanjutinya adalah keputusan yang harus diambil dan dicatat seseorang di tempat lain."
+
+msgid "A tick means a row exists, not that the row is complete. A passport record with no dates on it still ticks the box."
+msgstr "Centang berarti barisnya ada, bukan berarti barisnya lengkap. Data paspor tanpa satu pun tanggal tetap membuat kotaknya tercentang."
+
+msgid "A trainee with no batch prints with the batch line empty."
+msgstr "Trainee tanpa angkatan akan tercetak dengan baris angkatannya kosong."
+
+msgid "All four: ready to go"
+msgstr "Keempatnya lengkap: siap berangkat"
+
+msgid "Anything missing: chase it"
+msgstr "Ada yang kurang: tagih"
+
+msgid "Apprentice COE and Visa"
+msgstr "COE dan Visa Apprentice"
+
+msgid "Apprentice flights hang off a separate ticket register in its own database. Promotion copies nothing across, so a ticket recorded here is not the one an apprentice flight will find."
+msgstr "Penerbangan apprentice menggantung pada daftar tiket terpisah di basis datanya sendiri. Promosi tidak menyalin apa pun, jadi tiket yang dicatat di sini bukan tiket yang akan ditemukan oleh penerbangan apprentice."
+
+msgid "Arranges the examination and records the result."
+msgstr "Mengatur pemeriksaannya dan mencatat hasilnya."
+
+msgid "Buys and records tickets, enters the legs, tracks what is paid."
+msgstr "Membeli dan mencatat tiket, memasukkan ruas-ruasnya, serta memantau pembayarannya."
+
+msgid "COE and visa"
+msgstr "COE dan visa"
+
+msgid "Card laid out"
+msgstr "Kartu ditata"
+
+msgid "Check the layover"
+msgstr "Periksa jeda transitnya"
+
+msgid "Choose the result and attach the scan"
+msgstr "Pilih hasilnya dan lampirkan pindaiannya"
+
+msgid "Choose the trainee, then enter the issue date and the place of issue exactly as printed on the passport."
+msgstr "Pilih trainee-nya, lalu isi tanggal terbit dan tempat terbitnya persis seperti tercetak di paspornya."
+
+msgid "Choose the trainee, then enter the ticket number, the booking reference, the type, the status, and the price with its currency."
+msgstr "Pilih trainee-nya, lalu isi nomor tiket, kode booking, jenis, status, dan harganya beserta mata uangnya."
+
+msgid "Choose who to print for"
+msgstr "Pilih untuk siapa dicetak"
+
+msgid "Collects the papers and keeps all four registers current."
+msgstr "Mengumpulkan berkasnya dan menjaga keempat daftarnya tetap mutakhir."
+
+msgid "Counted in the cost summary"
+msgstr "Terhitung dalam ringkasan biaya"
+
+msgid "Currencies"
+msgstr "Mata Uang"
+
+msgid "Departure Readiness"
+msgstr "Kesiapan Keberangkatan"
+
+msgid "Each column links to the screen behind it: passports, certificate and visa, medical check-ups, tickets."
+msgstr "Tiap kolom menaut ke layar di baliknya: paspor, sertifikat dan visa, pemeriksaan kesehatan, tiket."
+
+msgid "Enter the legs"
+msgstr "Masukkan ruas-ruasnya"
+
+msgid "Enter the trainee, the clinic, the date, and a title that says which examination this was."
+msgstr "Isi trainee-nya, kliniknya, tanggalnya, dan judul yang menyatakan pemeriksaan yang mana ini."
+
+msgid "Everything on the card comes from the trainee record. A name corrected there changes the next card printed, and nothing at all about the cards already handed out."
+msgstr "Semua yang ada di kartu berasal dari data trainee-nya. Nama yang dikoreksi di sana mengubah kartu yang dicetak berikutnya, dan sama sekali tidak mengubah kartu yang sudah dibagikan."
+
+msgid "Everything, including the certificate types."
+msgstr "Semuanya, termasuk jenis sertifikatnya."
+
+msgid "Everything, including what each result means."
+msgstr "Semuanya, termasuk arti tiap hasilnya."
+
+msgid "Layover worked out"
+msgstr "Jeda transit dihitung"
+
+msgid "Leg 1"
+msgstr "Ruas 1"
+
+msgid "Leg 2, if any"
+msgstr "Ruas 2, bila ada"
+
+msgid "Mark when it reached us and when it was paid"
+msgstr "Tandai kapan sampai kepada kita dan kapan dibayar"
+
+msgid "No expiry date is stored, so a passport running out before departure is something you have to watch yourself."
+msgstr "Tanggal kedaluwarsa tidak disimpan, jadi paspor yang habis sebelum keberangkatan adalah hal yang harus Anda awasi sendiri."
+
+msgid "Nothing compares the times on two legs. Flights that overlap, or a connection of fifteen minutes, save without a word."
+msgstr "Tidak ada yang membandingkan waktu pada dua ruas. Penerbangan yang bertumpang tindih, atau sambungan lima belas menit, tersimpan tanpa sepatah kata pun."
+
+msgid "Nothing on this page writes anything. It is a view; every correction is made in the register it points at."
+msgstr "Tidak ada di halaman ini yang menulis apa pun. Ia sebuah pandangan; tiap koreksi dilakukan di daftar yang ditunjuknya."
+
+msgid "Nothing records that a card was printed. There is no list of who has one and no way to tell a reprint from a first print."
+msgstr "Tidak ada yang mencatat bahwa sebuah kartu sudah dicetak. Tidak ada daftar siapa yang sudah punya, dan tidak ada cara membedakan cetak ulang dari cetak pertama."
+
+msgid "One row per flight: airline, flight number, the airport it leaves from and the one it arrives at, with both times."
+msgstr "Satu baris per penerbangan: maskapai, nomor penerbangan, bandara keberangkatan dan kedatangan, beserta kedua waktunya."
+
+msgid "One row per trainee, one tick per requirement, and a count of how many have all four."
+msgstr "Satu baris per trainee, satu centang per persyaratan, dan hitungan berapa yang sudah lengkap keempatnya."
+
+msgid "One ticket is one purchase; a journey to Japan is often two or three flights. The ticket carries the booking reference, the type, the status and the price; the legs hang off it, one row each with airline, flight number, the two airports and the two times. That is what makes a transit visible - two rows on one ticket, with a gap between the arrival of the first and the departure of the second, which the transit page works out for you."
+msgstr "Satu tiket adalah satu pembelian; perjalanan ke Jepang kerap dua atau tiga penerbangan. Tiketnya membawa kode booking, jenis, status, dan harganya; ruas-ruasnya menggantung padanya, satu baris masing-masing berisi maskapai, nomor penerbangan, dua bandara, dan dua waktu. Itulah yang membuat transit terlihat - dua baris pada satu tiket, dengan jeda antara kedatangan yang pertama dan keberangkatan yang kedua, yang dihitungkan oleh halaman transit."
+
+msgid "One trainee can be given several passport rows. Nothing prevents it and nothing says which is current, so keep to one row per passport."
+msgstr "Satu trainee bisa diberi beberapa baris paspor. Tidak ada yang mencegahnya dan tidak ada yang menyatakan mana yang terkini, jadi pertahankan satu baris per paspor."
+
+msgid "Pick the result from the master list and attach the file. Anything the result does not cover goes in the comment."
+msgstr "Ambil hasilnya dari daftar induk dan lampirkan berkasnya. Apa pun yang tidak tercakup oleh hasil itu masuk ke komentar."
+
+msgid "Printed"
+msgstr "Tercetak"
+
+msgid "Prints a replacement when one is needed."
+msgstr "Mencetak penggantinya bila diperlukan."
+
+msgid "Prints cards for a batch as it starts."
+msgstr "Mencetak kartu untuk sebuah angkatan saat angkatan itu dimulai."
+
+msgid "Promotion to apprentice does not carry any of these documents across. The apprentice side starts with an empty trail and the same papers are recorded again there, in their own registers."
+msgstr "Promosi menjadi apprentice tidak membawa satu pun dokumen ini menyeberang. Sisi apprentice dimulai dengan jejak kosong, dan berkas yang sama dicatat ulang di sana, di daftarnya sendiri."
+
+msgid "Promotion to apprentice does not copy this record either. The apprentice side has its own COE and visa register."
+msgstr "Promosi menjadi apprentice juga tidak menyalin data ini. Sisi apprentice punya daftar COE dan visanya sendiri."
+
+msgid "Promotion to apprentice does not copy this record. An apprentice is examined again, and that examination is what can refuse a departure."
+msgstr "Promosi menjadi apprentice tidak menyalin data ini. Apprentice diperiksa lagi, dan pemeriksaan itulah yang bisa menolak keberangkatan."
+
+msgid "Promotion to apprentice does not copy this record. The apprentice side keeps its own passport register, and the same passport has to be recorded there again."
+msgstr "Promosi menjadi apprentice tidak menyalin data ini. Sisi apprentice memelihara daftar paspornya sendiri, dan paspor yang sama harus dicatat lagi di sana."
+
+msgid "Read the readiness grid"
+msgstr "Baca matriks kesiapannya"
+
+msgid "Readiness grid"
+msgstr "Matriks kesiapan"
+
+msgid "Readiness grid ticks its box"
+msgstr "Matriks kesiapan mencentang kotaknya"
+
+msgid "Readiness here counts rows, not contents. Somebody who is \"ready\" by this grid may still have a passport with no expiry recorded and a ticket with no flight legs."
+msgstr "Kesiapan di sini menghitung baris, bukan isinya. Orang yang \"siap\" menurut matriks ini bisa saja masih punya paspor tanpa masa berlaku tercatat dan tiket tanpa ruas penerbangan."
+
+msgid "Reads it: the same four things decide whether somebody is ready to be promoted and sent."
+msgstr "Membacanya: keempat hal yang sama menentukan apakah seseorang siap dipromosikan dan diberangkatkan."
+
+msgid "Reads the cost side."
+msgstr "Membaca sisi biayanya."
+
+msgid "Record the ticket"
+msgstr "Catat tiketnya"
+
+msgid "The Departures entry in the menu does not open a page of its own - it sends you straight back to this list."
+msgstr "Entri Keberangkatan di menu tidak membuka halaman tersendiri - ia langsung mengembalikan Anda ke daftar ini."
+
+msgid "The Ticket Costs entry in the menu opens this same list, with the same rows and the same totals. It is a second door, not a second page."
+msgstr "Entri Biaya Tiket di menu membuka daftar yang sama ini, dengan baris dan total yang sama. Ia pintu kedua, bukan halaman kedua."
+
+msgid "The batch printed on the card is the one the trainee is placed in."
+msgstr "Angkatan yang tercetak di kartu adalah angkatan tempat trainee-nya ditempatkan."
+
+msgid "The card carries the name, the TMM code and the batch, so all three have to be right on the trainee first."
+msgstr "Kartunya membawa nama, kode TMM, dan angkatannya, jadi ketiganya harus sudah benar pada data trainee-nya lebih dulu."
+
+msgid "The card opens in a print layout with no menu around it, ready for the printer."
+msgstr "Kartunya terbuka dalam tata letak cetak tanpa menu di sekelilingnya, siap untuk printer."
+
+msgid "The cards are laid out from live data, so a batch printed today and the same batch printed next week can differ without anybody deciding to change them."
+msgstr "Kartunya ditata dari data langsung, jadi satu angkatan yang dicetak hari ini dan angkatan yang sama dicetak minggu depan bisa berbeda tanpa ada yang memutuskan mengubahnya."
+
+msgid "The certificate of eligibility and the visa are recorded separately, and both assume this passport already exists."
+msgstr "Certificate of eligibility dan visanya dicatat terpisah, dan keduanya mengandaikan paspor ini sudah ada."
+
+msgid "The check-up taken during selection is months old by the time training ends, and the receiving side asks for a current one. Each record names the clinic, the date, the result chosen from the shared master list, a comment and the scanned file. Several records for one trainee are normal: a re-check after treatment is a second examination, not a correction of the first."
+msgstr "Pemeriksaan yang dijalani saat seleksi sudah berbulan-bulan umurnya ketika training berakhir, dan pihak penerima meminta yang terkini. Tiap catatan menyebut kliniknya, tanggalnya, hasil yang dipilih dari daftar induk bersama, komentar, dan berkas pindaiannya. Beberapa catatan untuk satu trainee adalah hal biasa: pemeriksaan ulang setelah pengobatan adalah pemeriksaan kedua, bukan koreksi atas yang pertama."
+
+msgid "The gap is visible at a glance instead of being discovered on the day."
+msgstr "Kekurangannya terlihat sekilas, bukan baru ketahuan di hari-H."
+
+msgid "The grid has no idea whether a medical check-up passed. It counts that one was recorded."
+msgstr "Matriksnya tidak tahu apakah pemeriksaan kesehatannya lolos. Ia menghitung bahwa ada yang tercatat."
+
+msgid "The health check a trainee takes, and the result on file."
+msgstr "Pemeriksaan kesehatan yang dijalani trainee, dan hasilnya yang tercatat."
+
+msgid "The journey and its price are on file."
+msgstr "Perjalanan dan harganya tercatat."
+
+msgid "The list shows every trainee with their batch, and every batch with how many trainees are in it."
+msgstr "Daftarnya menampilkan tiap trainee beserta angkatannya, dan tiap angkatan beserta jumlah trainee di dalamnya."
+
+msgid "The missing paper is recorded where it belongs."
+msgstr "Berkas yang kurang dicatat di tempatnya."
+
+msgid "The one screen here that produces paper rather than records. It reads the trainees and their batches as they already stand and lays them out for printing - a single card when somebody joins late or loses theirs, or every card in a batch at once when a new intake starts. Nothing is stored: printing the same card twice produces the same card, and correcting a name means correcting the trainee."
+msgstr "Satu-satunya layar di sini yang menghasilkan kertas, bukan data. Ia membaca trainee dan angkatannya apa adanya lalu menatanya untuk dicetak - satu kartu ketika ada yang menyusul atau kehilangan kartunya, atau seluruh kartu satu angkatan sekaligus ketika intake baru dimulai. Tidak ada yang disimpan: mencetak kartu yang sama dua kali menghasilkan kartu yang sama, dan mengoreksi nama berarti mengoreksi trainee-nya."
+
+msgid "The passport is on file and the readiness grid ticks its box."
+msgstr "Paspornya tercatat dan matriks kesiapannya mencentang kotaknya."
+
+msgid "The passport is the first of the four departure documents, and the other three lean on it: the certificate of eligibility is applied for against a passport, the visa is stamped into it, and the ticket is issued in the name printed on it. Four dates are kept for each trainee - issued, issued where, received by us, paid - so the difference between \"we are waiting for the office\" and \"we are waiting for the payment\" is on the screen rather than in somebody's memory."
+msgstr "Paspor adalah yang pertama dari empat dokumen keberangkatan, dan ketiga lainnya bersandar padanya: certificate of eligibility diajukan atas sebuah paspor, visanya dicap ke dalamnya, dan tiketnya diterbitkan atas nama yang tercetak di sana. Empat tanggal disimpan untuk tiap trainee - terbit, terbit di mana, diterima oleh kita, dibayar - sehingga beda antara \"kita menunggu kantornya\" dan \"kita menunggu pembayarannya\" ada di layar, bukan di ingatan seseorang."
+
+msgid "The person has to be a trainee first, which happens by being promoted from a candidate."
+msgstr "Orangnya harus menjadi trainee lebih dulu, yang terjadi lewat promosi dari kandidat."
+
+msgid "The person may travel, and a ticket can be bought against a real date."
+msgstr "Orangnya boleh berangkat, dan tiketnya bisa dibeli atas tanggal yang nyata."
+
+msgid "The printed card a trainee wears, for one person or for a whole batch."
+msgstr "Kartu cetak yang dipakai trainee, untuk satu orang atau untuk satu angkatan penuh."
+
+msgid "The purchase is on file and counted in the summary by status."
+msgstr "Pembeliannya tercatat dan terhitung dalam ringkasan per status."
+
+msgid "The readiness grid ticks the medical column as soon as a row exists here. It does not look at whether the result was fit."
+msgstr "Matriks kesiapan mencentang kolom medis begitu ada baris di sini. Ia tidak melihat apakah hasilnya lolos."
+
+msgid "The readiness grid ticks the passport column as soon as a row exists here, whether or not its dates are filled in."
+msgstr "Matriks kesiapan mencentang kolom paspor begitu ada baris di sini, terisi atau tidak tanggal-tanggalnya."
+
+msgid "The readiness grid ticks the ticket column as soon as a ticket exists for the trainee, whether or not it has any legs on it."
+msgstr "Matriks kesiapan mencentang kolom tiket begitu ada tiket untuk trainee-nya, ada atau tidak ada ruas penerbangan di dalamnya."
+
+msgid "The result is a value that can be counted, not a sentence somebody has to read."
+msgstr "Hasilnya menjadi nilai yang bisa dihitung, bukan kalimat yang harus dibaca orang."
+
+msgid "The result values come from one master list, shared with the candidate and apprentice check-ups."
+msgstr "Nilai hasilnya berasal dari satu daftar induk, dipakai bersama pemeriksaan kandidat dan apprentice."
+
+msgid "The same master list decides pass or fail automatically for candidates and refuses a departure for apprentices. On the trainee side nothing is derived from it - the result is recorded and read, and that is all."
+msgstr "Daftar induk yang sama menentukan lulus atau gagal secara otomatis bagi kandidat, dan menolak keberangkatan bagi apprentice. Di sisi trainee tidak ada yang diturunkan darinya - hasilnya dicatat dan dibaca, sekadar itu."
+
+msgid "The three dates are plain dates with nothing enforcing their order. A visa recorded as received before it was applied for saves without complaint."
+msgstr "Ketiga tanggalnya adalah tanggal biasa tanpa apa pun yang menegakkan urutannya. Visa yang tercatat diterima sebelum diajukan tersimpan tanpa keluhan."
+
+msgid "The ticket bought for a trainee, the legs of the journey, and what it cost."
+msgstr "Tiket yang dibeli untuk seorang trainee, ruas-ruas perjalanannya, dan biayanya."
+
+msgid "The ticket is the step that follows, and the visa date is the reason its date can be trusted."
+msgstr "Tiket adalah langkah sesudahnya, dan tanggal visanya itulah alasan tanggal tiketnya bisa dipercaya."
+
+msgid "The ticketing side"
+msgstr "Sisi ticketing-nya"
+
+msgid "The time the consulate is taking becomes visible, so a slow case can be chased."
+msgstr "Lama waktu yang diambil konsulat menjadi terlihat, sehingga kasus yang lambat bisa ditagih."
+
+msgid "The trainee has to exist, which happens by being promoted from a candidate."
+msgstr "Trainee-nya harus ada, yang terjadi lewat promosi dari kandidat."
+
+msgid "The trainee profile carries a \"holds a passport\" flag copied down from the candidate form. That is what the person said when they applied, not a link to this register, and the two can disagree."
+msgstr "Profil trainee membawa penanda \"memiliki paspor\" yang tersalin turun dari formulir kandidat. Itu yang dinyatakan orangnya saat melamar, bukan tautan ke daftar ini, dan keduanya bisa bertentangan."
+
+msgid "The transit page groups the legs by ticket and works out the gap between them."
+msgstr "Halaman transit mengelompokkan ruas-ruasnya per tiket dan menghitung jeda di antaranya."
+
+msgid "The visa should be in hand: a ticket bought before it is a bet, not a booking."
+msgstr "Visanya sebaiknya sudah di tangan: tiket yang dibeli sebelum itu adalah taruhan, bukan pemesanan."
+
+msgid "The whole journey can be read at a glance."
+msgstr "Seluruh perjalanannya bisa dibaca sekilas."
+
+msgid "This is not a register of its own; it is the view over four of them. A trainee cannot leave without a passport, a certificate of eligibility with its visa, a current medical check-up, and a ticket, and each of those lives in its own screen. The readiness page puts all four in one row per trainee so the question \"who is still missing something\" has an answer without opening anybody. The ticketing page does the same for the three ticket screens."
+msgstr "Ini bukan daftar tersendiri; ini pandangan atas empat daftar lain. Seorang trainee tidak bisa berangkat tanpa paspor, certificate of eligibility beserta visanya, pemeriksaan kesehatan yang terkini, dan tiket - dan masing-masingnya punya layar sendiri. Halaman kesiapan menaruh keempatnya dalam satu baris per trainee, sehingga pertanyaan \"siapa yang masih kurang\" terjawab tanpa membuka siapa pun. Halaman ticketing melakukan hal yang sama untuk ketiga layar tiket."
+
+msgid "Ticket Costs"
+msgstr "Biaya Tiket"
+
+msgid "Ticket booked"
+msgstr "Tiket dipesan"
+
+msgid "Ticket in the same name"
+msgstr "Tiket atas nama yang sama"
+
+msgid "Ticket recorded"
+msgstr "Tiket dicatat"
+
+msgid "Ticket types, statuses and currencies are master lists, so the summary counts can be trusted."
+msgstr "Jenis tiket, status, dan mata uangnya adalah daftar induk, sehingga hitungan ringkasannya bisa dipercaya."
+
+msgid "Ticketing"
+msgstr "Ticketing"
+
+msgid "Tickets, the flight legs behind them, and what they cost each have a screen; this page gathers the three."
+msgstr "Tiket, ruas penerbangan di baliknya, dan biayanya masing-masing punya layar; halaman ini mengumpulkan ketiganya."
+
+msgid "Trainee COE and Visa"
+msgstr "COE dan Visa Trainee"
+
+msgid "Trainee Departure Documents"
+msgstr "Dokumen Keberangkatan Trainee"
+
+msgid "Trainee Medical Check-Ups"
+msgstr "MCU Trainee"
+
+msgid "Trainee Passports"
+msgstr "Paspor Trainee"
+
+msgid "Trainee Tickets"
+msgstr "Tiket Trainee"
+
+msgid "Trainee and batch on file"
+msgstr "Trainee dan angkatannya tercatat"
+
+msgid "Two separate permissions, in a fixed order. The receiving side applies in Japan for a certificate of eligibility, which is Japan saying the person may come; only then can a visa be applied for at the consulate here, which is the permission to travel. This register keeps the dates of both against the trainee, plus the type of certificate and where the visa was issued, so the gap between \"the certificate arrived\" and \"the visa arrived\" is visible while there is still time to act on it."
+msgstr "Dua izin terpisah, dengan urutan yang tetap. Pihak penerima mengajukan certificate of eligibility di Jepang, yaitu Jepang menyatakan orangnya boleh datang; barulah setelah itu visa bisa diajukan di konsulat di sini, yaitu izin untuk berangkat. Daftar ini menyimpan tanggal keduanya atas trainee-nya, ditambah jenis sertifikatnya dan tempat visanya diterbitkan, sehingga jarak antara \"sertifikatnya datang\" dan \"visanya datang\" terlihat selagi masih sempat ditindaklanjuti."
+
+msgid "What TMM Training weighs before recording a departure is the apprentice-side documents, not these. These are what gets a trainee to the point of being promoted at all."
+msgstr "Yang ditimbang tmm-training sebelum mencatat keberangkatan adalah dokumen di sisi apprentice, bukan yang ini. Yang ini adalah yang membawa seorang trainee sampai ke titik bisa dipromosikan."
+
+msgid "What each result means - fit or not fit - is maintained in one master list used by all three sides. Changing it re-checks the candidates and apprentices who hold that result; the trainees are not re-checked, because nothing on this side derives anything from it."
+msgstr "Arti tiap hasil - lolos atau tidak lolos - dipelihara dalam satu daftar induk yang dipakai ketiga sisi. Mengubahnya memeriksa ulang kandidat dan apprentice yang memegang hasil itu; trainee tidak ikut diperiksa ulang, karena di sisi ini tidak ada yang diturunkan darinya."
+
+msgid "Where a trainee stands across the four things needed before leaving."
+msgstr "Posisi seorang trainee atas empat hal yang diperlukan sebelum berangkat."
+
+msgid "Where several check-ups exist for one trainee, nothing marks which is current. The list is ordered by when it was entered, not by the date of the examination."
+msgstr "Bila ada beberapa pemeriksaan untuk satu trainee, tidak ada yang menandai mana yang terkini. Daftarnya diurutkan menurut kapan datanya dimasukkan, bukan menurut tanggal pemeriksaannya."
+
+msgid "Work the register that is short"
+msgstr "Kerjakan daftar yang masih kurang"
+
+msgid "You can print one card or a whole intake from the same page."
+msgstr "Anda bisa mencetak satu kartu atau satu intake penuh dari halaman yang sama."

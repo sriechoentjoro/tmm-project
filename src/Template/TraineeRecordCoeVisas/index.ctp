@@ -243,3 +243,5 @@ $formatDate = function ($value) {
 .empty-state i { margin-bottom: 15px; opacity: 0.5; }
 .empty-state h4 { margin: 10px 0; color: #495057; }
 </style>
+
+<?= $this->element('process_flow_help') ?>
