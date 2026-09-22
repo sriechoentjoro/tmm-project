@@ -18256,3 +18256,26 @@ msgstr "明示した一覧"
 
 msgid "no"
 msgstr "いいえ"
+
+# ── Closing the access findings ───────────────────
+
+msgid "A menu the target role already has is skipped, switched off or not, and the message says how many were skipped. Copying onto a role whose assignment was deliberately switched off leaves it switched off - that is on purpose, so a copy cannot undo a decision somebody made."
+msgstr "複写先のロールが既に持つメニューは、有効か無効かにかかわらず飛ばされ、何件飛ばしたかがメッセージに出ます。意図的に無効にした割り当てを持つロールへ複写しても、無効のまま残ります。これは意図的な動きで、複写が誰かの決定を取り消してしまわないようにするためです。"
+
+msgid "Choose a role to copy from and a role to copy to. Every menu the first role has switched on is assigned to the second, with the same granted actions."
+msgstr "複写元と複写先のロールを選びます。複写元で有効になっているメニューが、同じ許可アクションのまま複写先に割り当てられます。"
+
+msgid "Cloned {0} menu assignment(s), {1} of them carrying an explicit action list."
+msgstr "メニューの割り当てを {0} 件複写しました。うち {1} 件は明示のアクション一覧を伴います。"
+
+msgid "Copying carries the granted actions across with the menu, so a role copied from one that could add, edit and delete can do the same. The message afterwards says how many of the copied assignments carry an explicit list, which is the quickest way to see that the copy took."
+msgstr "複写はメニューとともに許可アクションも運びます。追加・編集・削除ができるロールから複写したロールは、同じことができます。完了後のメッセージは、複写した割り当てのうち何件が明示の一覧を持つかを示します。複写が効いたかを確かめる最短の方法です。"
+
+msgid "The menus live in one database and the role assignments in another, so no foreign key holds them together. A menu deleted here leaves its assignments behind, pointing at an entry that is gone - they grant nothing, but the permission grid still shows the role as having something. Running bin/cake check_role_menus lists them, and --apply clears them."
+msgstr "メニューは一方のデータベースに、ロールの割り当てはもう一方にあるため、両者を結ぶ外部キーはありません。ここでメニューを削除すると割り当ては残り、存在しない項目を指したままになります。それ自体は何も許しませんが、権限表では、そのロールが何かを持っているように見え続けます。bin/cake check_role_menus で一覧でき、--apply で片付きます。"
+
+msgid "The name is what the code tests, not the description. Renaming a role silently breaks every check written against the old name, and those checks fail closed - the button simply stops working for that role. Running php bin/check-role-names.php lists every name the code tests and says which ones the roles table has no row for."
+msgstr "コードが照合するのは名前であって、説明ではありません。ロール名を変えると、旧名に対して書かれたすべての判定が黙って壊れます。判定は閉じる側に倒れるため、そのロールではボタンが単に効かなくなります。php bin/check-role-names.php を実行すると、コードが照合しているすべての名前と、roles 表に行が無いものが一覧で分かります。"
+
+msgid "{0} were skipped because the target role already has that menu - switched on or off. Those assignments were left exactly as they were."
+msgstr "{0} 件は、複写先のロールが既にそのメニューを持っていたため飛ばしました。有効か無効かは問いません。それらの割り当ては、そのままの状態で残されています。"

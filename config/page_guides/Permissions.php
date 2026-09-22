@@ -46,7 +46,7 @@ return [
         [
             'title' => __('Copy a role that already works'),
             'who' => __('Administrator'),
-            'do' => __('Choose a role to copy from and a role to copy to. Every menu the first role has switched on is assigned to the second.'),
+            'do' => __('Choose a role to copy from and a role to copy to. Every menu the first role has switched on is assigned to the second, with the same granted actions.'),
             'result' => __('A new role starts from a working set instead of from nothing.'),
             'screen' => ['/permissions', __('Permissions')],
         ],
@@ -82,8 +82,8 @@ return [
     ],
 
     'cautions' => [
-        __('Copying a role copies which menus it has, not what those assignments grant. The copy gets browse-and-read on every menu, even where the original had an explicit list allowing add, edit and delete - so the new role looks set up and quietly cannot do the work.'),
-        __('A menu the target role already has is skipped, switched off or not. Copying onto a role whose assignment was deliberately switched off leaves it switched off.'),
+        __('Copying carries the granted actions across with the menu, so a role copied from one that could add, edit and delete can do the same. The message afterwards says how many of the copied assignments carry an explicit list, which is the quickest way to see that the copy took.'),
+        __('A menu the target role already has is skipped, switched off or not, and the message says how many were skipped. Copying onto a role whose assignment was deliberately switched off leaves it switched off - that is on purpose, so a copy cannot undo a decision somebody made.'),
         __('Beyond the chain there is a second gate: a role that has no access to the database a screen reads from is refused even when the menu says yes.'),
         __('A few actions are allowed to everybody signed in, whatever the chain says: their own profile and settings, the language switch, logging out, and the "?" guide page on every module.'),
     ],

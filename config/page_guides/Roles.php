@@ -66,7 +66,7 @@ return [
     ],
 
     'cautions' => [
-        __('The name is what the code tests, not the description. Renaming a role silently breaks every check written against the old name, and those checks fail closed - the button simply stops working for that role.'),
+        __('The name is what the code tests, not the description. Renaming a role silently breaks every check written against the old name, and those checks fail closed - the button simply stops working for that role. Running php bin/check-role-names.php lists every name the code tests and says which ones the roles table has no row for.'),
         __('The administrator role is special: it is allowed every action without the menu assignments being consulted at all. Testing a change by signing in as an administrator proves nothing about anybody else.'),
         __('Deleting a role leaves its menu assignments and its people behind. The people lose the access silently.'),
     ],

@@ -18256,3 +18256,26 @@ msgstr "daftar eksplisit"
 
 msgid "no"
 msgstr "tidak"
+
+# ── Closing the access findings ───────────────────
+
+msgid "A menu the target role already has is skipped, switched off or not, and the message says how many were skipped. Copying onto a role whose assignment was deliberately switched off leaves it switched off - that is on purpose, so a copy cannot undo a decision somebody made."
+msgstr "Menu yang sudah dipegang role tujuan akan dilewati, dinyalakan atau tidak, dan pesannya menyebut berapa yang dilewati. Menyalin ke role yang penugasannya sengaja dimatikan membiarkannya tetap mati - itu disengaja, supaya sebuah penyalinan tidak bisa membatalkan keputusan yang sudah diambil seseorang."
+
+msgid "Choose a role to copy from and a role to copy to. Every menu the first role has switched on is assigned to the second, with the same granted actions."
+msgstr "Pilih role asal dan role tujuan. Tiap menu yang dinyalakan role pertama ditugaskan ke role kedua, beserta action yang sama yang diberikannya."
+
+msgid "Cloned {0} menu assignment(s), {1} of them carrying an explicit action list."
+msgstr "Tersalin {0} penugasan menu, {1} di antaranya membawa daftar action eksplisit."
+
+msgid "Copying carries the granted actions across with the menu, so a role copied from one that could add, edit and delete can do the same. The message afterwards says how many of the copied assignments carry an explicit list, which is the quickest way to see that the copy took."
+msgstr "Penyalinannya membawa action yang diberikan ikut bersama menunya, jadi role yang disalin dari role yang bisa menambah, menyunting, dan menghapus pun bisa melakukan hal yang sama. Pesan sesudahnya menyebut berapa dari penugasan yang tersalin membawa daftar eksplisit, dan itulah cara tercepat memastikan penyalinannya berhasil."
+
+msgid "The menus live in one database and the role assignments in another, so no foreign key holds them together. A menu deleted here leaves its assignments behind, pointing at an entry that is gone - they grant nothing, but the permission grid still shows the role as having something. Running bin/cake check_role_menus lists them, and --apply clears them."
+msgstr "Menunya tinggal di satu basis data dan penugasan role-nya di basis data lain, jadi tidak ada foreign key yang mengikat keduanya. Menu yang dihapus di sini meninggalkan penugasannya, menunjuk ke entri yang sudah tiada - penugasan itu tidak memberi apa pun, tetapi grid izinnya tetap menampilkan role itu seolah memegang sesuatu. Menjalankan bin/cake check_role_menus mendaftarnya, dan --apply membersihkannya."
+
+msgid "The name is what the code tests, not the description. Renaming a role silently breaks every check written against the old name, and those checks fail closed - the button simply stops working for that role. Running php bin/check-role-names.php lists every name the code tests and says which ones the roles table has no row for."
+msgstr "Namanyalah yang diuji kodenya, bukan uraiannya. Mengganti nama sebuah role diam-diam merusak tiap pemeriksaan yang ditulis atas nama lamanya, dan pemeriksaan itu gagal secara tertutup - tombolnya cukup berhenti bekerja untuk role itu. Menjalankan php bin/check-role-names.php mendaftar tiap nama yang diuji kodenya dan menyatakan mana yang tidak punya baris di tabel roles."
+
+msgid "{0} were skipped because the target role already has that menu - switched on or off. Those assignments were left exactly as they were."
+msgstr "{0} dilewati karena role tujuan sudah memegang menu itu - dinyalakan atau tidak. Penugasan itu dibiarkan persis seperti adanya."

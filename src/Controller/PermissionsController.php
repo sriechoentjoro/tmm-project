@@ -90,10 +90,16 @@ class PermissionsController extends AppController
 
         $roleMenusTable = TableRegistry::getTableLocator()->get('RoleMenus');
 
-        $sourceMenuIds = $roleMenusTable->find()
+        // granted_actions comes across with the menu id, which it did not use
+        // to. Copying only the menu left the new role with an empty value,
+        // and an empty value is expanded to the menu's own action plus index
+        // and view - browsing and reading. A role cloned from one that could
+        // add, edit and delete therefore looked set up and quietly could not
+        // do the work, which is the hardest kind of permission fault to spot.
+        $sourceRows = $roleMenusTable->find()
             ->where(['role_id' => $fromRoleId, 'is_active' => 1])
-            ->extract('menu_id')
-            ->toList();
+            ->enableHydration(false)
+            ->toArray();
 
         $existingTargetIds = $roleMenusTable->find()
             ->where(['role_id' => $toRoleId])
@@ -101,19 +107,42 @@ class PermissionsController extends AppController
             ->toList();
 
         $cloned = 0;
-        foreach ($sourceMenuIds as $menuId) {
+        $withActions = 0;
+        foreach ($sourceRows as $row) {
+            $menuId = $row['menu_id'];
             if (in_array($menuId, $existingTargetIds)) {
                 continue;
             }
-            $roleMenusTable->save($roleMenusTable->newEntity([
+
+            $values = [
                 'role_id' => $toRoleId,
                 'menu_id' => $menuId,
                 'is_active' => 1,
-            ]));
+            ];
+            if (array_key_exists('granted_actions', $row)) {
+                $values['granted_actions'] = $row['granted_actions'];
+                // An explicit list is the part worth reporting: * and empty
+                // both come to the same browse-and-read default.
+                $ga = trim((string)$row['granted_actions']);
+                if ($ga !== '' && $ga !== '*') {
+                    $withActions++;
+                }
+            }
+
+            $roleMenusTable->save($roleMenusTable->newEntity($values));
             $cloned++;
         }
 
-        $this->Flash->success(__('Cloned {0} menu assignment(s).', $cloned));
+        if ($withActions) {
+            $this->Flash->success(__('Cloned {0} menu assignment(s), {1} of them carrying an explicit action list.', $cloned, $withActions));
+        } else {
+            $this->Flash->success(__('Cloned {0} menu assignment(s).', $cloned));
+        }
+
+        $skipped = count($sourceRows) - $cloned;
+        if ($skipped > 0) {
+            $this->Flash->warning(__('{0} were skipped because the target role already has that menu - switched on or off. Those assignments were left exactly as they were.', $skipped));
+        }
 
         return $this->redirect(['action' => 'index', '?' => ['role_id' => $toRoleId]]);
     }

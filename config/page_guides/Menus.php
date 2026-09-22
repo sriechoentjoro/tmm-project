@@ -77,7 +77,7 @@ return [
     'cautions' => [
         __('A menu with at least one active child assigned to the same role is treated as a navigation container: it grants nothing itself, and the children carry the permissions. Assigning only the parent grants nothing at all.'),
         __('Switching a menu off removes it from everybody at once, whatever their role assignments say.'),
-        __('The menus live in one database and the role assignments in another. A menu deleted here leaves its assignments behind, pointing at an entry that is gone.'),
+        __('The menus live in one database and the role assignments in another, so no foreign key holds them together. A menu deleted here leaves its assignments behind, pointing at an entry that is gone - they grant nothing, but the permission grid still shows the role as having something. Running bin/cake check_role_menus lists them, and --apply clears them.'),
         __('An entry whose controller and action do not match a real screen saves without complaint and fails only when somebody clicks it.'),
     ],
 ];
