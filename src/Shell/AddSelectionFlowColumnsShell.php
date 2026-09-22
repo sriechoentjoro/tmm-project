@@ -219,5 +219,9 @@ class AddSelectionFlowColumnsShell extends Shell
         $this->out('');
         $this->out('Set these on the master screen: <info>/master-medical-check-up-results</info>');
         $this->out('A result nobody has marked counts as unknown and keeps nobody out.');
+        $this->out('Or mark them from their titles, and recalculate every standing that');
+        $this->out('was worked out while they were unknown:');
+        $this->out('  <info>bin/cake mark_mcu_fitness</info>          report only');
+        $this->out('  <info>bin/cake mark_mcu_fitness --apply</info>  write them');
     }
 }
