@@ -16978,3 +16978,14 @@ msgstr "未発行"
 
 msgid "not departed"
 msgstr "未出発"
+
+# ── Re-checking standings when a marking changes ───────
+
+msgid "Changing what a result means, on the master screen, re-checks everybody who ever received it. A result switched to not fit can therefore stop people who were passing this morning, and the screen says how many."
+msgstr "マスタ画面で結果の意味を変更すると、その結果を受け取ったことのある全員が再判定されます。ある結果を不適に切り替えれば、今朝まで問題のなかった人が止まることもあり、その人数は画面に示されます。"
+
+msgid "{0} record(s) were re-checked against this result."
+msgstr "この結果に対して {0} 件を再判定しました。"
+
+msgid "{0} record(s) were re-checked against this result. {1} are now marked not medically fit: a candidate cannot be put forward and an apprentice cannot be recorded as departed until that changes."
+msgstr "この結果に対して {0} 件を再判定しました。うち {1} 件が医学的に不適と記録されています。変わるまで、候補者は推薦できず、実習生は出発を記録できません。"

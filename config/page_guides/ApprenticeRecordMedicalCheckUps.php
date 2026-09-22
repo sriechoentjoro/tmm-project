@@ -67,5 +67,6 @@ return [
     'cautions' => [
         __('A result marked "not fit" refuses a departure until it changes. Nothing else happens automatically - the apprentice is not rejected, and nobody is notified, so anything beyond the departure still needs somebody told.'),
         __('Where several check-ups exist for one apprentice, nothing marks which is the current one. The list is ordered by when it was entered, not by the date of the examination.'),
+        __('Changing what a result means, on the master screen, re-checks everybody who ever received it. A result switched to not fit can therefore stop people who were passing this morning, and the screen says how many.'),
     ],
 ];

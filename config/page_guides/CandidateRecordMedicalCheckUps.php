@@ -77,6 +77,7 @@ return [
     ],
 
     'cautions' => [
+        __('Changing what a result means, on the master screen, re-checks everybody who ever received it. A result switched to not fit can therefore stop people who were passing this morning, and the screen says how many.'),
         __('Deleting a check-up recomputes the standing too, so removing the only failing one lets the candidate go forward again. That is intended, but it means a deletion is a decision, not just tidying up.'),
         __('Several check-ups for one candidate are averaged, not replaced. A poor early result keeps pulling the average down after a later good one.'),
     ],

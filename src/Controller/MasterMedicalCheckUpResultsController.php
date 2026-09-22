@@ -92,6 +92,7 @@ class MasterMedicalCheckUpResultsController extends AppController
             $masterMedicalCheckUpResult = $this->MasterMedicalCheckUpResults->patchEntity($masterMedicalCheckUpResult, $data);
             if ($this->MasterMedicalCheckUpResults->save($masterMedicalCheckUpResult)) {
                 $this->Flash->success(__('The master medical check up result has been saved.'));
+                $this->_restandAfterMarking($masterMedicalCheckUpResult->id);
 
                 return $this->redirect(['action' => 'index']);
             }
@@ -154,6 +155,7 @@ class MasterMedicalCheckUpResultsController extends AppController
             $masterMedicalCheckUpResult = $this->MasterMedicalCheckUpResults->patchEntity($masterMedicalCheckUpResult, $data);
             if ($this->MasterMedicalCheckUpResults->save($masterMedicalCheckUpResult)) {
                 $this->Flash->success(__('The master medical check up result has been saved.'));
+                $this->_restandAfterMarking($masterMedicalCheckUpResult->id);
 
                 return $this->redirect(['action' => 'index']);
             }
@@ -173,14 +175,96 @@ class MasterMedicalCheckUpResultsController extends AppController
     {
         $this->request->allowMethod(['post', 'delete']);
         $masterMedicalCheckUpResult = $this->MasterMedicalCheckUpResults->get($id);
+        // Read before the delete: afterwards the entity is still in memory but
+        // the row is gone, and every check-up that named it has to be counted
+        // again without it.
+        $resultId = $masterMedicalCheckUpResult->id;
         if ($this->MasterMedicalCheckUpResults->delete($masterMedicalCheckUpResult)) {
             $this->Flash->success(__('The master medical check up result has been deleted.'));
+            $this->_restandAfterMarking($resultId);
         } else {
             $this->Flash->error(__('The master medical check up result could not be deleted. Please, try again.'));
         }
 
         return $this->redirect(['action' => 'index']);
     }
+
+    /**
+     * Recalculate everybody whose medical standing this result type decides.
+     *
+     * Marking a result fit or not fit is a statement about every check-up ever
+     * recorded against it, not just the next one. Without this, changing the
+     * marking here changed nothing for anybody already on file: their stored
+     * standing was worked out under the old marking and would sit there until
+     * somebody happened to re-save their check-up. A result switched to "not
+     * fit" would quietly leave people passing who should now be stopped, which
+     * is the failure this column exists to prevent.
+     *
+     * Both sides are covered because both read this one master list: the
+     * candidates, whose standing decides whether they can be put forward for
+     * promotion, and the apprentices, whose standing decides whether a
+     * departure can be recorded.
+     *
+     * @param int|null $resultId The result type that was added, edited or deleted.
+     * @return void
+     */
+    protected function _restandAfterMarking($resultId)
+    {
+        $resultId = (int)$resultId;
+        if (!$resultId) {
+            return;
+        }
+
+        $locator = \Cake\ORM\TableRegistry::getTableLocator();
+        $moved = ['pass' => 0, 'fail' => 0, 'unknown' => 0];
+
+        foreach ([
+            ['CandidateRecordMedicalCheckUps', 'medical_check_up_result_id', 'applicant_id', 'Candidates'],
+            ['ApprenticeRecordMedicalCheckUps', 'master_medical_check_up_result_id', 'apprentice_id', 'Apprentices'],
+        ] as list($recordAlias, $resultField, $ownerField, $ownerAlias)) {
+            try {
+                $ids = $locator->get($recordAlias)->find()
+                    ->select([$ownerField])
+                    ->where([$resultField => $resultId])
+                    ->enableHydration(false)
+                    ->extract($ownerField)
+                    ->toList();
+                $owner = $locator->get($ownerAlias);
+            } catch (\Throwable $e) {
+                // An older installation without one of these tables should not
+                // lose the save it just made.
+                $this->log('restand after marking failed for ' . $recordAlias . ': ' . $e->getMessage(), 'error');
+                continue;
+            }
+
+            foreach (array_unique(array_filter($ids)) as $id) {
+                try {
+                    $standing = $owner->refreshMcuStanding($id);
+                } catch (\Throwable $e) {
+                    continue;
+                }
+                $moved[$standing === null ? 'unknown' : $standing]++;
+            }
+        }
+
+        $total = $moved['pass'] + $moved['fail'] + $moved['unknown'];
+        if (!$total) {
+            return;
+        }
+
+        if ($moved['fail']) {
+            $this->Flash->warning(__(
+                '{0} record(s) were re-checked against this result. {1} are now marked not medically fit: a candidate cannot be put forward and an apprentice cannot be recorded as departed until that changes.',
+                $total,
+                $moved['fail']
+            ));
+
+            return;
+        }
+
+        $this->Flash->success(__('{0} record(s) were re-checked against this result.', $total));
+    }
+
     /**
      * Export to CSV
      *

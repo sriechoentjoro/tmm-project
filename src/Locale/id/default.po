@@ -16978,3 +16978,14 @@ msgstr "belum diterbitkan"
 
 msgid "not departed"
 msgstr "belum berangkat"
+
+# ── Re-checking standings when a marking changes ───────
+
+msgid "Changing what a result means, on the master screen, re-checks everybody who ever received it. A result switched to not fit can therefore stop people who were passing this morning, and the screen says how many."
+msgstr "Mengubah arti sebuah hasil, di halaman daftar induknya, memeriksa ulang semua orang yang pernah menerimanya. Hasil yang diubah menjadi tidak lolos karena itu bisa menahan orang yang tadi pagi masih lolos, dan layarnya menyebutkan berapa banyak."
+
+msgid "{0} record(s) were re-checked against this result."
+msgstr "{0} data diperiksa ulang terhadap hasil ini."
+
+msgid "{0} record(s) were re-checked against this result. {1} are now marked not medically fit: a candidate cannot be put forward and an apprentice cannot be recorded as departed until that changes."
+msgstr "{0} data diperiksa ulang terhadap hasil ini. {1} kini ditandai tidak lolos secara medis: kandidatnya tidak bisa diajukan dan apprentice-nya tidak bisa dicatat berangkat sampai itu berubah."
