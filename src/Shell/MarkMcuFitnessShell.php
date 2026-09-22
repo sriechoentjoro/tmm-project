@@ -224,6 +224,7 @@ class MarkMcuFitnessShell extends Shell
             }
 
             $counts = ['pass' => 0, 'fail' => 0, 'unknown' => 0];
+            $blocked = [];
             foreach ($ids as $id) {
                 try {
                     $standing = $table->refreshMcuStanding($id);
@@ -231,17 +232,122 @@ class MarkMcuFitnessShell extends Shell
                     $standing = null;
                 }
                 $counts[$standing === null ? 'unknown' : $standing]++;
+                if ($standing === 'fail') {
+                    $blocked[] = $id;
+                }
             }
 
             $this->out(sprintf('  %-28s %d', 'fit', $counts['pass']));
             $this->out(sprintf('  %-28s %d', 'not fit', $counts['fail']));
             $this->out(sprintf('  %-28s %d', 'no check-up on file yet', $counts['unknown']));
+
+            if ($blocked) {
+                $this->_reportBlocked($alias, $blocked);
+            }
         }
 
         $this->out('');
         $this->out('A candidate marked not fit cannot be put forward for promotion.');
         $this->out('An apprentice marked not fit cannot be recorded as having departed.');
         $this->out('Both refusals name the reason on screen.');
+    }
+
+
+    /**
+     * Name the people a marking is now stopping, and the result that stops them.
+     *
+     * A count alone raises the question it cannot answer: three candidates not
+     * fit out of three who were examined reads either as "three people failed
+     * their medical" or as "a result type is marked more harshly than anybody
+     * meant". Printing the title behind each one settles it without opening
+     * every record.
+     *
+     * @param string $alias Candidates or Apprentices.
+     * @param array $ids The ids whose standing came out not fit.
+     * @return void
+     */
+    protected function _reportBlocked($alias, array $ids)
+    {
+        $locator = TableRegistry::getTableLocator();
+
+        $spec = [
+            'Candidates' => ['CandidateRecordMedicalCheckUps', 'applicant_id', 'medical_check_up_result_id'],
+            'Apprentices' => ['ApprenticeRecordMedicalCheckUps', 'apprentice_id', 'master_medical_check_up_result_id'],
+        ];
+        if (!isset($spec[$alias])) {
+            return;
+        }
+        list($recordAlias, $ownerField, $resultField) = $spec[$alias];
+
+        $shown = array_slice($ids, 0, 50);
+
+        try {
+            $people = $locator->get($alias)->find()
+                ->where(['id IN' => $shown])
+                ->enableHydration(false)
+                ->toArray();
+        } catch (\Throwable $e) {
+            return;
+        }
+
+        // Three queries, not one: the people, their check-ups and the result
+        // titles can each live on a different connection, and CakePHP cannot
+        // join across connections.
+        $byPerson = [];
+        $resultIds = [];
+        try {
+            foreach ($locator->get($recordAlias)->find()
+                ->select([$ownerField, $resultField])
+                ->where([$ownerField . ' IN' => $shown])
+                ->enableHydration(false) as $row) {
+                $byPerson[(int)$row[$ownerField]][] = (int)$row[$resultField];
+                $resultIds[] = (int)$row[$resultField];
+            }
+        } catch (\Throwable $e) {
+            return;
+        }
+
+        $titles = [];
+        try {
+            $titles = $locator->get('MasterMedicalCheckUpResults')->find()
+                ->select(['id', 'title', 'is_fit'])
+                ->where(['id IN' => array_unique(array_filter($resultIds)) ?: [0]])
+                ->enableHydration(false)
+                ->toArray();
+        } catch (\Throwable $e) {
+            $titles = [];
+        }
+        $byId = [];
+        foreach ($titles as $row) {
+            $byId[(int)$row['id']] = $row;
+        }
+
+        $this->out('');
+        $this->out('  <warning>stopped by their check-up</warning>');
+        foreach ($people as $person) {
+            $names = [];
+            foreach (array_unique($byPerson[(int)$person['id']] ?? []) as $resultId) {
+                $row = $byId[$resultId] ?? null;
+                if (!$row) {
+                    $names[] = sprintf('#%d (result no longer on file)', $resultId);
+                    continue;
+                }
+                // Only the ones marked not fit are the reason; a person can
+                // hold a fit result as well and still be stopped by one.
+                if ($row['is_fit'] !== null && (int)$row['is_fit'] === 0) {
+                    $names[] = $row['title'];
+                }
+            }
+            $label = $person['name'] ?? ('#' . $person['id']);
+            if (!empty($person['tmm_code'])) {
+                $label .= ' (' . $person['tmm_code'] . ')';
+            }
+            $this->out(sprintf('    %-42s %s', $label, implode(', ', $names)));
+        }
+
+        if (count($ids) > count($shown)) {
+            $this->out(sprintf('    ... and %d more', count($ids) - count($shown)));
+        }
     }
 
     /**
