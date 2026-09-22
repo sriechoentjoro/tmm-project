@@ -112,3 +112,5 @@
         </div>
     </div>
 </div>
+
+<?= $this->element('process_flow_help') ?>

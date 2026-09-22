@@ -84,3 +84,5 @@
 
 <button type="submit" class="btn btn-primary" style="margin-bottom: 30px;"><?= __('Save Assignments for') ?> "<?= h(isset($roles[$roleId]) ? $roles[$roleId] : $roleId) ?>"</button>
 <?= $this->Form->end() ?>
+
+<?= $this->element('process_flow_help') ?>

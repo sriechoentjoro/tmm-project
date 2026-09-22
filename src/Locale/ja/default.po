@@ -17753,3 +17753,506 @@ msgstr "現金に関わるものだけでなく、その月の記帳済みの仕
 
 msgid "no status"
 msgstr "状態なし"
+
+# ── Page guides: system administration and access ────
+
+msgid "A few actions are allowed to everybody signed in, whatever the chain says: their own profile and settings, the language switch, logging out, and the \"?\" guide page on every module."
+msgstr "連なりが何を言おうと、サインインしている全員に許されるアクションがいくつかあります。自分のプロフィールと設定、言語の切り替え、サインアウト、そして各モジュールの「?」の案内ページです。"
+
+msgid "A menu that has children assigned to the same role is treated as a navigation container and grants nothing itself - the children carry the real permissions. Assigning only the parent therefore grants nothing at all."
+msgstr "同じロールに割り当てられた子を持つメニューは、ナビゲーションの入れ物として扱われ、それ自体は何も許しません。実際の権限は子が担います。したがって、親だけを割り当てても何も許されません。"
+
+msgid "A menu the target role already has is skipped, switched off or not. Copying onto a role whose assignment was deliberately switched off leaves it switched off."
+msgstr "複写先のロールが既に持つメニューは、有効か無効かにかかわらず飛ばされます。意図的に無効にした割り当てを持つロールへ複写しても、無効のまま残ります。"
+
+msgid "A menu with at least one active child assigned to the same role is treated as a navigation container: it grants nothing itself, and the children carry the permissions. Assigning only the parent grants nothing at all."
+msgstr "同じロールに割り当てられた有効な子を一つでも持つメニューは、ナビゲーションの入れ物として扱われます。それ自体は何も許さず、権限は子が担います。親だけを割り当てても、何も許されません。"
+
+msgid "A new role starts from a working set instead of from nothing."
+msgstr "新しいロールが、ゼロからではなく動いている構成から始められます。"
+
+msgid "A person can hold more than one role, and what they may do is everything their roles allow put together."
+msgstr "一人が複数のロールを持てます。その人ができることは、持つロールが許すものをすべて合わせたものです。"
+
+msgid "A placeholder spelled differently from what the code supplies is left in the message as written, so the recipient sees the placeholder rather than the value."
+msgstr "コードが渡すものと綴りが違うプレースホルダは、書かれたまま本文に残ります。受け取った人には、値ではなくプレースホルダが見えます。"
+
+msgid "A role is little more than a name, and that is the point: everything else hangs off it. Menus are assigned to roles, not to people; the code that decides who may make a decision - who may put a candidate forward, who may record a departure - tests the role name; and a person holds as many roles as their work needs. Because the name is what is tested, the names here are not labels that can be reworded freely."
+msgstr "ロールとは、ほとんど名前でしかありません。そしてそこが要点です。ほかのすべてがそこにぶら下がります。メニューは人ではなくロールに割り当てられます。誰が判断を下してよいか、つまり誰が候補者を推薦でき、誰が出発を記録できるかを決めるコードは、ロール名を照合します。そして人は、仕事に必要なだけロールを持ちます。照合されるのが名前である以上、ここにある名前は、自由に言い換えられるラベルではありません。"
+
+msgid "A role that can open a list but cannot add to it is almost always an assignment left at * when it needed an explicit list."
+msgstr "一覧は開けるのに追加できないロールは、ほぼ必ず、明示した一覧が必要なところを * のままにした割り当てです。"
+
+msgid "A screen somebody expected and cannot see is a missing assignment, or an assignment switched off, or a parent menu assigned without its children."
+msgstr "あるはずの画面が見えないのは、割り当てが無いか、割り当てが切られているか、親メニューだけを割り当てて子を割り当てていないかのいずれかです。"
+
+msgid "A straight answer about your own access, without asking an administrator."
+msgstr "自分の権限について、管理者に尋ねずに率直な答えが得られます。"
+
+msgid "Access is worked out through the role, never against the person directly."
+msgstr "権限はロールを通して決まります。人に直接ひも付くことはありません。"
+
+msgid "Account created"
+msgstr "アカウントを作成"
+
+msgid "Add Template"
+msgstr "テンプレートを追加"
+
+msgid "Add the entry"
+msgstr "項目を追加する"
+
+msgid "Allowed"
+msgstr "許可"
+
+msgid "An account is a username, a password and the roles it holds. Everything about what the person may do comes from those roles, so this screen decides almost nothing on its own - it decides who exists. The two pages every signed-in person can reach whatever their role, their own profile and their own settings, are also here."
+msgstr "アカウントとは、ユーザー名とパスワード、そして持っているロールです。その人が何をしてよいかはすべてロールから来るため、この画面自体はほとんど何も決めません。決めるのは、誰が存在するかです。ロールにかかわらずサインインした全員が到達できる二つのページ、自分のプロフィールと設定も、ここにあります。"
+
+msgid "An account with no role can sign in and reach almost nothing. That is not a fault in the account."
+msgstr "ロールのないアカウントはサインインできますが、ほとんど何にも到達できません。それはアカウントの不具合ではありません。"
+
+msgid "An entry can be moved to another category or under another parent, and switched off entirely without being deleted."
+msgstr "項目は別のカテゴリへ、あるいは別の親の下へ移せますし、削除せずにまるごと無効にもできます。"
+
+msgid "An entry whose controller and action do not match a real screen saves without complaint and fails only when somebody clicks it."
+msgstr "コントローラとアクションが実在の画面と合っていない項目も、何も言われずに保存され、誰かがクリックしたときに初めて失敗します。"
+
+msgid "Anybody signed in"
+msgstr "サインインしている人なら誰でも"
+
+msgid "Appears in the sidebar"
+msgstr "サイドバーに表示"
+
+msgid "Arrange it"
+msgstr "並びを整える"
+
+msgid "Assign every role the work needs. More than one is normal, and the permissions add up rather than conflict."
+msgstr "仕事に必要なロールをすべて割り当てます。複数持つのは普通のことで、権限は衝突せず足し合わされます。"
+
+msgid "Assign the menus it needs, and say which actions each assignment grants. Copying an existing role is faster than starting empty."
+msgstr "必要なメニューを割り当て、各割り当てがどのアクションを許すかを述べます。既存のロールを複写するほうが、空から始めるより早く済みます。"
+
+msgid "Assign the role"
+msgstr "ロールを割り当てる"
+
+msgid "Assign the role to the accounts that need it."
+msgstr "必要なアカウントにそのロールを割り当てます。"
+
+msgid "Assigned to a role"
+msgstr "ロールに割り当て"
+
+msgid "Assigns and removes roles."
+msgstr "ロールを割り当て、また外します。"
+
+msgid "Beyond the chain there is a second gate: a role that has no access to the database a screen reads from is refused even when the menu says yes."
+msgstr "この連なりの先に、もう一つの関門があります。画面が読むデータベースへの権限がないロールは、メニューが許していても拒まれます。"
+
+msgid "Change the wording"
+msgstr "文面を変える"
+
+msgid "Choose a role to copy from and a role to copy to. Every menu the first role has switched on is assigned to the second."
+msgstr "複写元と複写先のロールを選びます。複写元で有効になっているメニューが、複写先に割り当てられます。"
+
+msgid "Choose the person and tick the roles their work needs."
+msgstr "対象の人を選び、その仕事に必要なロールにチェックを入れます。"
+
+msgid "Code asks for a key"
+msgstr "コードがキーを求める"
+
+msgid "Container only: grants nothing"
+msgstr "入れ物のみ、何も許さない"
+
+msgid "Copy a role that already works"
+msgstr "うまく動いているロールを複写する"
+
+msgid "Copying a role copies which menus it has, not what those assignments grant. The copy gets browse-and-read on every menu, even where the original had an explicit list allowing add, edit and delete - so the new role looks set up and quietly cannot do the work."
+msgstr "ロールの複写が写すのは、どのメニューを持つかであって、その割り当てが何を許すかではありません。複写先はどのメニューでも閲覧と参照だけになります。複写元が追加・編集・削除を許す明示の一覧を持っていた場合も同じです。新しいロールは整って見えて、実際には作業ができません。"
+
+msgid "Create the account"
+msgstr "アカウントを作る"
+
+msgid "Create the role"
+msgstr "ロールを作る"
+
+msgid "Creates accounts, resets them, assigns roles."
+msgstr "アカウントを作成し、初期化し、ロールを割り当てます。"
+
+msgid "Decisions in the pipeline are gated by role name: the proposing institution puts a candidate forward, recruitment promotes, training records a departure and the end of a programme."
+msgstr "工程上の判断は、ロール名で守られています。推薦する機関が候補者を推薦し、採用側が昇格させ、訓練側が出発とプログラムの終了を記録します。"
+
+msgid "Deleting a role leaves its menu assignments and its people behind. The people lose the access silently."
+msgstr "ロールを削除しても、そのメニュー割り当てと所属する人は残ります。その人たちは、黙って権限を失います。"
+
+msgid "Deleting an account does not remove what that person recorded. Journals, proposals and decisions keep the id of a user who no longer exists, and those screens then show a number instead of a name."
+msgstr "アカウントを削除しても、その人が記録したものは消えません。仕訳も推薦も判断も、存在しなくなった利用者のIDを保持し続け、それらの画面には名前ではなく数字が表示されます。"
+
+msgid "Does the role reach that database?"
+msgstr "そのロールはそのDBに届くか"
+
+msgid "Each assignment carries a list of granted actions. Leave it empty, or write *, and the role gets the menu's own action plus index and view - browsing and reading, nothing else. Write an explicit list such as index,view,add,edit,delete to grant more."
+msgstr "各割り当ては、許可するアクションの一覧を持ちます。空欄のまま、あるいは * と書くと、そのメニュー自身のアクションに index と view を加えたものになります。閲覧と参照だけで、それ以上はありません。それ以上を許すには、index,view,add,edit,delete のように明示して書きます。"
+
+msgid "Each assignment takes a list of actions. Empty or * grants the menu's own action plus index and view; an explicit list such as index,view,add,edit,delete grants exactly that."
+msgstr "各割り当てはアクションの一覧を受け取ります。空欄または * は、そのメニュー自身のアクションに index と view を加えたものを許します。index,view,add,edit,delete のように明示した一覧は、そのとおりを許します。"
+
+msgid "Editing a template changes every message sent from then on, and nothing already sent."
+msgstr "テンプレートを編集すると、以降に送るすべてのメールが変わります。すでに送ったものは変わりません。"
+
+msgid "Everything both roles reach"
+msgstr "両方のロールが到達できるすべて"
+
+msgid "Everything shown here comes from the menu assignments. Change one and this page changes with it."
+msgstr "ここに表示されるものはすべてメニューの割り当てに由来します。割り当てを変えれば、このページも一緒に変わります。"
+
+msgid "Everything. An administrator is allowed every action without the chain being consulted at all."
+msgstr "すべてです。管理者は、連なりを一切参照せずにあらゆるアクションを許されます。"
+
+msgid "Everything. Nobody else reaches this screen."
+msgstr "すべてです。この画面に到達できるのは管理者だけです。"
+
+msgid "Exactly those actions"
+msgstr "その一覧どおりのアクション"
+
+msgid "Give it a name and a description that says what the role is for."
+msgstr "名前と、そのロールが何のためのものかを述べる説明を与えます。"
+
+msgid "Give it a title, an icon, the controller and action it opens, the category it belongs under and where it sits in the order."
+msgstr "表題、アイコン、開く先のコントローラとアクション、属するカテゴリ、そして並び順を与えます。"
+
+msgid "Give it a username and a password, and say which person it belongs to."
+msgstr "ユーザー名とパスワードを与え、誰のものかを述べます。"
+
+msgid "Give it access"
+msgstr "権限を与える"
+
+msgid "Give it roles"
+msgstr "ロールを与える"
+
+msgid "Give it the key the code asks for, a subject, and a body. Placeholders in the body are filled in when the message is sent."
+msgstr "コードが求めるキー、件名、本文を与えます。本文のプレースホルダは、送信時に埋められます。"
+
+msgid "Give it to people"
+msgstr "人に与える"
+
+msgid "Granted actions on the assignment"
+msgstr "割り当て上の許可アクション"
+
+msgid "Granting the administrator role bypasses the whole menu system for that person. It is not a slightly wider role - it is every action in the application."
+msgstr "管理者ロールを与えると、その人についてメニューの仕組み全体が迂回されます。少し広いロールではありません。アプリケーションのあらゆるアクションです。"
+
+msgid "Grouped by category"
+msgstr "カテゴリごとにまとめる"
+
+msgid "Has children for the same role?"
+msgstr "同じロールに子があるか"
+
+msgid "Institution registration sends a verification message the same way."
+msgstr "機関の登録も、同じ仕組みで確認メールを送ります。"
+
+msgid "It reads the menu assignments, so it is only as right as they are."
+msgstr "メニューの割り当てを読むため、その正しさ止まりの正しさです。"
+
+msgid "It shows which screens a role reaches, not which actions each assignment grants. A screen listed here can still refuse an add or a delete."
+msgstr "示しているのは、ロールがどの画面に到達できるかであって、各割り当てがどのアクションを許すかではありません。ここに並ぶ画面でも、追加や削除は拒まれることがあります。"
+
+msgid "Mail that goes out from the application - an apprentice order shared with institutions, a registration to verify, a notice - takes its subject and body from here rather than from the code. Each template is looked up by a key, and the code asks for the key; that is what lets the wording be changed, or translated, without anybody touching the application."
+msgstr "このアプリケーションから出るメールは、機関へ共有する実習生オーダー、確認が必要な登録、各種の通知など、いずれも件名と本文をコードではなくここから取ります。各テンプレートはキーで引かれ、コードはそのキーを求めます。だからこそ、アプリケーションに手を入れずに文面を変えたり訳したりできます。"
+
+msgid "Menu action, index, view"
+msgstr "メニューのアクション・index・view"
+
+msgid "Menu assignments"
+msgstr "メニューの割り当て"
+
+msgid "Menu entry"
+msgstr "メニュー項目"
+
+msgid "Menus assigned to it"
+msgstr "メニューを割り当て"
+
+msgid "Menus assigned to the role"
+msgstr "ロールに割り当てられたメニュー"
+
+msgid "Menus those roles hold"
+msgstr "それらのロールが持つメニュー"
+
+msgid "Message sent"
+msgstr "メールを送信"
+
+msgid "Messages using that key go out in the new wording."
+msgstr "そのキーを使うメールが、新しい文面で送られるようになります。"
+
+msgid "Nobody has to ask an administrator to change their own name."
+msgstr "自分の名前を変えるために管理者に頼む必要はありません。"
+
+msgid "Nothing here records what was sent. Editing a template changes the future only, and there is no copy of the message a recipient actually received."
+msgstr "ここには送信内容の記録がありません。テンプレートの編集が変えるのは今後だけで、受信者が実際に受け取った文面の控えは残りません。"
+
+msgid "Nothing in this application records who changed what. An account is the only trace of who a person is, not of what they did."
+msgstr "このアプリケーションには、誰が何を変更したかを記録する仕組みがありません。アカウントは、その人が誰かを示す唯一の痕跡であって、何をしたかの痕跡ではありません。"
+
+msgid "Nothing in this application records who changed what. There is a table for it and no code writes to it, so there is no history to look up - a wrong figure can be corrected but not traced."
+msgstr "このアプリケーションには、誰が何を変更したかを記録する仕組みがありません。そのための表はありますが、書き込むコードがないため、たどれる履歴は存在しません。誤った数字は直せても、来歴は追えません。"
+
+msgid "Nothing. A template exists before the first message that uses it is sent."
+msgstr "特にありません。テンプレートは、それを使う最初のメールが送られる前に存在します。"
+
+msgid "Nothing. Roles come first; menus and users are attached to them afterwards."
+msgstr "特にありません。まずロールがあり、メニューと利用者はその後に結び付けます。"
+
+msgid "On the menu screen, each menu can be switched on or off for each role. An assignment that is switched off grants nothing."
+msgstr "メニューの画面では、メニューごと・ロールごとに有効と無効を切り替えられます。無効にした割り当ては何も許しません。"
+
+msgid "People assigned to it"
+msgstr "人を割り当て"
+
+msgid "Person"
+msgstr "人"
+
+msgid "Placeholders filled in"
+msgstr "プレースホルダを埋める"
+
+msgid "Read back per role"
+msgstr "ロールごとに読み解く"
+
+msgid "Read what you can reach"
+msgstr "到達できる範囲を読む"
+
+msgid "Reads and edits their own profile and settings, switches language, signs out."
+msgstr "自分のプロフィールと設定を確認・編集し、言語を切り替え、サインアウトします。"
+
+msgid "Refused"
+msgstr "拒否"
+
+msgid "Removing a role removes the access that came with it, and leaves any other roles the person holds untouched."
+msgstr "ロールを外すと、それに伴う権限も外れます。その人が持つほかのロールには影響しません。"
+
+msgid "Role A"
+msgstr "ロールA"
+
+msgid "Role B"
+msgstr "ロールB"
+
+msgid "Role Features"
+msgstr "ロール別の機能"
+
+msgid "Role created"
+msgstr "ロールを作成"
+
+msgid "Roles add up and never cancel out. There is no way to give somebody a role and take one screen away from them again; the narrowest set that covers the work is the right one."
+msgstr "ロールは足し合わされるだけで、打ち消し合うことはありません。ロールを与えたうえで画面を一つだけ取り上げる方法はありません。仕事を過不足なく覆う、最も狭い組み合わせが正解です。"
+
+msgid "Roles assigned"
+msgstr "ロールを割り当て"
+
+msgid "Roles they hold"
+msgstr "その人が持つロール"
+
+msgid "Say which actions it grants"
+msgstr "どのアクションを許すかを述べる"
+
+msgid "Sees everything, because an administrator reaches everything."
+msgstr "すべてを見られます。管理者はすべてに到達できるためです。"
+
+msgid "Sees what their own roles reach."
+msgstr "自分のロールが到達できる範囲を確認します。"
+
+msgid "Several decisions in the pipeline are gated by role name, so adding or removing a role changes who can make them, not only what they can see."
+msgstr "工程上のいくつかの判断はロール名で守られています。ロールの追加や削除は、見える範囲だけでなく、誰が判断を下せるかも変えます。"
+
+msgid "Sharing an apprentice order with institutions sends one of these messages to every institution on the list."
+msgstr "実習生オーダーを機関へ共有すると、一覧にあるすべての機関へ、このメールのいずれかが送られます。"
+
+msgid "Somebody can sign in - and, until a role is added, reach almost nothing."
+msgstr "その人はサインインできます。そしてロールが追加されるまで、ほとんど何にも到達できません。"
+
+msgid "Switch it on for a role"
+msgstr "ロールに対して有効にする"
+
+msgid "Switching a menu off removes it from everybody at once, whatever their role assignments say."
+msgstr "メニューを無効にすると、ロールの割り当てが何であれ、全員から一斉に消えます。"
+
+msgid "Take a gap back to the grid"
+msgstr "不足は権限表に戻して直す"
+
+msgid "Take one away"
+msgstr "一つ外す"
+
+msgid "Template looked up here"
+msgstr "ここでテンプレートを引く"
+
+msgid "The access chain is easy to get wrong and hard to read back: roles, menus, assignments, granted actions. This page reads it back for you. It shows the person signed in every screen their roles reach, grouped by category, so the answer to \"am I supposed to be able to do this\" is on one page instead of being pieced together from the permission grid."
+msgstr "権限の連なりは間違えやすく、後から読み解くのも骨が折れます。ロール、メニュー、割り当て、許可されたアクション。このページはそれを読み解いて返します。サインインしている本人のロールが到達できる画面を、カテゴリごとにまとめて示します。「これは自分がやってよいことか」の答えが、権限表をつなぎ合わせなくても一ページで得られます。"
+
+msgid "The account can do the work."
+msgstr "そのアカウントで仕事ができるようになります。"
+
+msgid "The account has to exist."
+msgstr "アカウントが存在している必要があります。"
+
+msgid "The account is tied to one or more roles."
+msgstr "アカウントが一つ以上のロールに結び付きます。"
+
+msgid "The accounts people sign in with, and the roles they hold."
+msgstr "人がサインインに使うアカウントと、そのアカウントが持つロールです。"
+
+msgid "The administrator role is special: it is allowed every action without the menu assignments being consulted at all. Testing a change by signing in as an administrator proves nothing about anybody else."
+msgstr "管理者ロールは特別です。メニューの割り当てを一切参照せずに、あらゆるアクションが許されます。管理者としてサインインして変更を確かめても、ほかの誰についても何の証明にもなりません。"
+
+msgid "The assignment says which actions"
+msgstr "割り当てがアクションを述べる"
+
+msgid "The features are grouped by category, with the menus your roles hold under each."
+msgstr "機能はカテゴリごとにまとめられ、その下に自分のロールが持つメニューが並びます。"
+
+msgid "The gap is fixed where it lives."
+msgstr "不足は、それがある場所で直します。"
+
+msgid "The grid has a cell per menu per role. Switching it on creates the assignment; switching it off leaves the assignment behind but grants nothing."
+msgstr "表にはメニューとロールの組み合わせごとに一つのマスがあります。有効にすると割り当てが作られ、無効にすると割り当ては残りますが何も与えません。"
+
+msgid "The join between the two halves of the access system: accounts on one side, roles on the other. A person can hold several roles and their permissions add up - somebody who is both documentation and accounting reaches both sets of screens. Nothing here grants anything directly; it decides which roles a person speaks with, and the roles carry the access."
+msgstr "権限の仕組みの二つの半分をつなぐ場所です。一方にアカウント、もう一方にロールがあります。人は複数のロールを持て、権限は足し合わされます。書類担当と会計担当を兼ねる人は、両方の画面群に到達します。ここが直接何かを許すわけではありません。その人がどのロールで語るかを決め、権限を担うのはロールです。"
+
+msgid "The key is what the code looks for. Renaming or deleting a template leaves the code asking for something that is not there, and the message that depended on it stops going out."
+msgstr "コードが探すのはキーです。テンプレートの名前を変えたり削除したりすると、コードは存在しないものを求めることになり、それに依存していたメールは送られなくなります。"
+
+msgid "The menus are what gets assigned; a screen with no menu entry cannot be granted to anybody."
+msgstr "割り当てられるのはメニューです。メニュー項目のない画面は、誰にも与えられません。"
+
+msgid "The menus live in one database and the role assignments in another. A menu deleted here leaves its assignments behind, pointing at an entry that is gone."
+msgstr "メニューは一方のデータベースに、ロールの割り当てはもう一方にあります。ここでメニューを削除すると、割り当ては残り、存在しない項目を指したままになります。"
+
+msgid "The name is what the code tests, not the description. Renaming a role silently breaks every check written against the old name, and those checks fail closed - the button simply stops working for that role."
+msgstr "コードが照合するのは名前であって、説明ではありません。ロール名を変えると、旧名に対して書かれたすべての判定が黙って壊れます。判定は閉じる側に倒れるため、そのロールではボタンが単に効かなくなります。"
+
+msgid "The navigation, and the grid that decides which role sees what."
+msgstr "ナビゲーションであり、どのロールが何を見るかを決める表でもあります。"
+
+msgid "The person keeps the rest of their work."
+msgstr "その人は、残りの仕事をそのまま続けられます。"
+
+msgid "The person looks after the rest"
+msgstr "残りは本人が扱う"
+
+msgid "The role can do exactly what the list says."
+msgstr "そのロールは、一覧に書かれたとおりのことができます。"
+
+msgid "The role can do the work, not only look at it."
+msgstr "そのロールが、眺めるだけでなく実際に作業できるようになります。"
+
+msgid "The role can reach its work."
+msgstr "そのロールが自分の仕事に到達できるようになります。"
+
+msgid "The role can reach the screen."
+msgstr "そのロールがその画面に到達できるようになります。"
+
+msgid "The role can reach the screens those menus point at."
+msgstr "そのロールが、それらのメニューの指す画面に到達できるようになります。"
+
+msgid "The role gets menus"
+msgstr "ロールにメニューを与える"
+
+msgid "The role has to exist and have its menus assigned, or holding it changes nothing."
+msgstr "ロールが存在し、メニューが割り当てられている必要があります。そうでなければ、持っていても何も変わりません。"
+
+msgid "The roles have to exist before access can be switched on for them."
+msgstr "権限を有効にする前に、ロールが存在している必要があります。"
+
+msgid "The roles have to exist before an account can be given one."
+msgstr "アカウントにロールを与える前に、ロールが存在している必要があります。"
+
+msgid "The roles have to exist before anything can be assigned to them."
+msgstr "何かを割り当てる前に、ロールが存在している必要があります。"
+
+msgid "The roles themselves are a short list, and the name is what the code tests against. Renaming a role breaks every check written against the old name."
+msgstr "ロールそのものは短い一覧で、コードが照合するのはその名前です。ロール名を変えると、旧名に対して書かれたすべての判定が壊れます。"
+
+msgid "The screen has a handle the permission system can hold it by."
+msgstr "その画面に、権限の仕組みがつかむための取っ手ができます。"
+
+msgid "The short list of names the whole access system is built on."
+msgstr "権限の仕組み全体が土台にしている、短い名前の一覧です。"
+
+msgid "The sidebar reads the way the work runs."
+msgstr "サイドバーが、実際の仕事の流れどおりに読めるようになります。"
+
+msgid "The user gets a role"
+msgstr "利用者にロールを与える"
+
+msgid "The whole access chain, from the user to the action, is set out on the permissions page."
+msgstr "利用者からアクションまでの権限の連なり全体は、権限のページに書かれています。"
+
+msgid "The wording follows the programme without a deployment."
+msgstr "デプロイをせずに、文面を運用に合わせられます。"
+
+msgid "The wording of every message the application sends."
+msgstr "このアプリケーションが送るすべてのメッセージの文面です。"
+
+msgid "Their own profile and settings are theirs to change, and the language switch is on every page."
+msgstr "自分のプロフィールと設定は本人が変更できますし、言語の切り替えはどのページにもあります。"
+
+msgid "There is no table of permissions in this application. What a person may do is worked out from a chain: the user has roles, a role is assigned menus, and each of those assignments carries a list of the actions it grants. This page is the overview of that chain - it shows what each role can reach and lets one role's assignments be copied to another. Understanding the chain matters, because a screen that refuses somebody is almost never a bug in that screen."
+msgstr "このアプリケーションに権限の表はありません。誰が何をしてよいかは、連なりから導かれます。利用者がロールを持ち、ロールにメニューが割り当てられ、その各割り当てが許可するアクションの一覧を持つ、という連なりです。このページはその全体像です。各ロールが到達できる範囲を示し、あるロールの割り当てを別のロールへ複写できます。連なりを理解することが大切なのは、誰かを拒む画面の原因が、その画面にあることはまずないからです。"
+
+msgid "There is something to assign menus and people to."
+msgstr "メニューと人を割り当てる先ができます。"
+
+msgid "They can reach everything those roles reach, from their next page load."
+msgstr "次にページを開いた時点から、それらのロールが到達できるすべてに到達できます。"
+
+msgid "This is the step people miss. * does not mean every action: it means the menu's action, index and view. A role that needs to add or delete has to be given an explicit list."
+msgstr "見落とされがちなのがこの段階です。* はすべてのアクションを意味しません。そのメニューのアクションと index と view を意味します。追加や削除が必要なロールには、明示した一覧を与える必要があります。"
+
+msgid "This page is called Audit, and it is not an audit trail. It answers what a role can reach, not what anybody did."
+msgstr "このページは「監査」という名ですが、監査証跡ではありません。答えるのはロールが何に到達できるかであって、誰が何をしたかではありません。"
+
+msgid "This screen does two jobs. It holds the navigation - what appears in the sidebar, under which category, in what order, and which entry is a parent of which - and it holds the permission grid, because a role is given access by being assigned a menu. That is why a screen with no menu entry cannot be granted to anybody: the menu is not a shortcut to the page, it is the handle the permission system holds the page by."
+msgstr "この画面は二つの役目を持ちます。一つはナビゲーションです。サイドバーに何が、どのカテゴリの下に、どの順で並び、どれがどれの親かを持ちます。もう一つは権限表です。ロールに権限を与える手段が、メニューの割り当てだからです。メニュー項目のない画面を誰にも与えられないのはそのためです。メニューはページへの近道ではなく、権限の仕組みがページをつかむための取っ手です。"
+
+msgid "Those people can do the work."
+msgstr "その人たちが仕事をできるようになります。"
+
+msgid "User Roles"
+msgstr "利用者のロール"
+
+msgid "What each role can actually reach, read back from these assignments, is what the features page shows them."
+msgstr "各ロールが実際に到達できる範囲を、この割り当てから読み解いて示すのが、機能のページです。"
+
+msgid "What the person may do"
+msgstr "その人ができること"
+
+msgid "What the role may do"
+msgstr "そのロールができること"
+
+msgid "What the role you are signed in as can actually reach."
+msgstr "いまサインインしているロールが実際に到達できる範囲です。"
+
+msgid "What the roles come to is worked out through the menu assignments, and set out in full on the permissions page."
+msgstr "ロールが何に行き着くかは、メニューの割り当てを通して決まり、権限のページに詳しく書かれています。"
+
+msgid "What those people may do"
+msgstr "その人たちができること"
+
+msgid "What you can reach"
+msgstr "到達できる範囲"
+
+msgid "Which person holds which role."
+msgstr "誰がどのロールを持つかです。"
+
+msgid "Which role can reach which screen, and how that is worked out."
+msgstr "どのロールがどの画面に到達できるか、そしてそれがどう決まるかです。"
+
+msgid "Write the template"
+msgstr "テンプレートを書く"
+
+msgid "Writes and edits the templates."
+msgstr "テンプレートを作成・編集します。"
+
+msgid "empty or *"
+msgstr "空欄または *"
+
+msgid "explicit list"
+msgstr "明示した一覧"
+
+msgid "no"
+msgstr "いいえ"

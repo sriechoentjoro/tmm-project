@@ -365,3 +365,5 @@ tbody.menu-group:hover tr.menu-role-row td { background: #e8f4ff; }
     });
 })();
 </script>
+
+<?= $this->element('process_flow_help') ?>

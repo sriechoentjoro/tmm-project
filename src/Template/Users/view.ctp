@@ -202,3 +202,5 @@ $fmt = function ($value) {
 .st-other { background: #f1f3f5; color: #6c757d; }
 .mini-ok { color: #1e7e42; font-weight: bold; }
 </style>
+
+<?= $this->element('process_flow_help') ?>
