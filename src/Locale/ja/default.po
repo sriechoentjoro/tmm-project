@@ -18426,3 +18426,29 @@ msgstr "記録されたままの金額"
 msgid "Collected and Outstanding above are plain sums, written as {0}. {1} trainee(s) have their payments recorded in a different currency, and nothing here converts between them - those amounts were added to the two figures as if they were {0}. Each line in the table below shows its own currency."
 msgstr "上の「回収済み」と「未収」は単純な合計で、{0} として書かれています。{1} 名の研修生は別の通貨で入金が記録されており、ここには換算するものがないため、その金額も {0} であるかのように二つの数字へ加算されています。下の表の各行には、それぞれの通貨が表示されます。"
 
+
+msgid "If the same trainee already has a payment of that amount on that date, the screen stops and names it rather than saving. Two genuine payments on one day are possible, so you can record it anyway - but a second copy made by accident moves the balance by a whole payment and nothing later notices."
+msgstr "同じ研修生に同じ日付・同じ金額の入金がすでにあるとき、画面は保存せずに停止し、その入金を示します。同じ日に本当に二度支払うこともあるため、それでも記録は可能です。ただし誤って作られた二重の記録は残高を入金一件分ずらし、その後それに気づくものはありません。"
+
+msgid "This payment is already on file {0} times"
+msgstr "この入金はすでに {0} 件記録されています"
+
+msgid "This payment is already on file"
+msgstr "この入金はすでに記録されています"
+
+msgid "Nothing has been saved. A payment of this amount, from this trainee, on this date was already recorded:"
+msgstr "何も保存していません。この研修生から、この日付で、この金額の入金がすでに記録されています。"
+
+msgid "If the trainee really paid this amount twice on the same day, record it anyway. If you are not sure, open the payment above first - saving a second copy makes the balance wrong by the size of a payment, and nothing later will notice."
+msgstr "研修生が同じ日に本当に二度この金額を支払ったのであれば、そのまま記録してください。確信が持てない場合は、まず上の入金を開いてください。二重に保存すると残高が入金一件分ずれ、その後それに気づくものはありません。"
+
+msgid "Record it anyway"
+msgstr "それでも記録する"
+
+msgid "This looks like a payment that is already recorded. Nothing has been saved - check the payment named below first."
+msgstr "すでに記録されている入金のようです。何も保存していません。下に示した入金をまず確認してください。"
+
+
+msgid "Rp {0} recorded on {1}"
+msgstr "{1} に Rp {0} を記録"
+

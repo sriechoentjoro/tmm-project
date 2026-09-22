@@ -18426,3 +18426,29 @@ msgstr "Nominal sebagaimana dicatat"
 msgid "Collected and Outstanding above are plain sums, written as {0}. {1} trainee(s) have their payments recorded in a different currency, and nothing here converts between them - those amounts were added to the two figures as if they were {0}. Each line in the table below shows its own currency."
 msgstr "Terkumpul dan Sisa di atas adalah penjumlahan biasa, ditulis sebagai {0}. {1} trainee memiliki pembayaran yang tercatat dalam mata uang berbeda, dan tidak ada yang mengonversi di antaranya - jumlah-jumlah itu ditambahkan ke kedua angka tersebut seolah-olah dalam {0}. Tiap baris pada tabel di bawah menampilkan mata uangnya sendiri."
 
+
+msgid "If the same trainee already has a payment of that amount on that date, the screen stops and names it rather than saving. Two genuine payments on one day are possible, so you can record it anyway - but a second copy made by accident moves the balance by a whole payment and nothing later notices."
+msgstr "Bila trainee yang sama sudah punya pembayaran sebesar itu pada tanggal itu, layarnya berhenti dan menyebutkannya alih-alih menyimpan. Dua pembayaran sungguhan pada satu hari memang mungkin, jadi Anda tetap bisa mencatatnya - tetapi salinan kedua yang terjadi tanpa sengaja menggeser saldo sebesar satu pembayaran penuh dan tidak ada yang menyadarinya kemudian."
+
+msgid "This payment is already on file {0} times"
+msgstr "Pembayaran ini sudah tercatat {0} kali"
+
+msgid "This payment is already on file"
+msgstr "Pembayaran ini sudah tercatat"
+
+msgid "Nothing has been saved. A payment of this amount, from this trainee, on this date was already recorded:"
+msgstr "Tidak ada yang disimpan. Pembayaran sebesar ini, dari trainee ini, pada tanggal ini sudah pernah dicatat:"
+
+msgid "If the trainee really paid this amount twice on the same day, record it anyway. If you are not sure, open the payment above first - saving a second copy makes the balance wrong by the size of a payment, and nothing later will notice."
+msgstr "Bila trainee memang membayar sebesar ini dua kali pada hari yang sama, catat saja. Bila Anda ragu, buka dulu pembayaran di atas - menyimpan salinan kedua membuat saldonya keliru sebesar satu pembayaran, dan tidak ada yang akan menyadarinya kemudian."
+
+msgid "Record it anyway"
+msgstr "Tetap catat"
+
+msgid "This looks like a payment that is already recorded. Nothing has been saved - check the payment named below first."
+msgstr "Ini tampak seperti pembayaran yang sudah tercatat. Tidak ada yang disimpan - periksa dulu pembayaran yang disebutkan di bawah."
+
+
+msgid "Rp {0} recorded on {1}"
+msgstr "Rp {0} dicatat pada {1}"
+

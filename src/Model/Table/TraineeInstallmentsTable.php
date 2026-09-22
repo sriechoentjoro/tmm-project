@@ -61,10 +61,15 @@ class TraineeInstallmentsTable extends Table
      */
     public function validationDefault(Validator $validator)
     {
+        // The primary key is auto-increment: the database supplies it, so a
+        // form never sends one. Requiring it on create - which is what was
+        // here - made every save from the add screen fail, and fail the way
+        // save() always fails: by returning false with the error tucked inside
+        // the entity, where the controller's generic "could not be saved"
+        // message never showed it.
         $validator
             ->integer('id')
-            ->requirePresence('id', 'create')
-            ->notEmptyString('id');
+            ->allowEmptyString('id', null, 'create');
 
         $validator
             ->integer('payment_amount')

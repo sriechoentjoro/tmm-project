@@ -34,6 +34,7 @@ return [
             'do' => __('Choose the trainee and enter the amount received. The accumulated and outstanding figures are worked out for you from the previous row.'),
             'result' => __('The balance moves, and the trainee is marked settled the moment it reaches zero.'),
             'screen' => ['/trainee-installments/add', __('Record a Payment')],
+            'note' => __('If the same trainee already has a payment of that amount on that date, the screen stops and names it rather than saving. Two genuine payments on one day are possible, so you can record it anyway - but a second copy made by accident moves the balance by a whole payment and nothing later notices.'),
         ],
         [
             'title' => __('Correct a payment'),

@@ -120,6 +120,10 @@ class TraineeInstallmentsController extends AppController
     public function add()
     {
         $traineeInstallment = $this->TraineeInstallments->newEntity();
+        // Payments already on file that match what is being entered. Empty
+        // unless the form comes back asking about them.
+        $duplicates = [];
+        $submitted = ['payment_amount' => '', 'payment_date' => date('Y-m-d')];
         if ($this->request->is('post')) {
             // Get request data
             $data = $this->request->getData();
@@ -173,7 +177,38 @@ class TraineeInstallmentsController extends AppController
                 ? (int)$previous->unpaid_amount
                 : (int)(isset($data['payment_amount']) ? $data['payment_amount'] : 0);
             $data['payment_amount'] = $paymentAmount;
-            unset($data['payment_mode']);
+            $paymentDate = isset($data['payment_date']) ? trim((string)$data['payment_date']) : '';
+            $confirmed = isset($data['confirm_duplicate']) && $data['confirm_duplicate'] === '1';
+            unset($data['payment_mode'], $data['confirm_duplicate']);
+
+            // Hand the figures back to the form if it has to be shown again.
+            $submitted['payment_amount'] = $paymentAmount ?: '';
+            $submitted['payment_date'] = $paymentDate ?: date('Y-m-d');
+
+            // The same amount, from the same trainee, on the same day. Two
+            // genuine payments can look like this, so it is a question and not
+            // a refusal - but it is asked, because the alternative is a second
+            // row nobody meant to create and a balance that is wrong by the
+            // size of a payment.
+            //
+            // This catches the ordinary case: somebody submits, the page is
+            // slow, they submit again. It cannot catch two requests genuinely
+            // in flight at once - both would look and find nothing - which is
+            // what the submit button being disabled on the form is for.
+            if ($traineeId && $paymentAmount > 0 && $paymentDate !== '' && !$confirmed) {
+                try {
+                    $duplicates = $this->TraineeInstallments->find()
+                        ->where([
+                            'trainee_id' => $traineeId,
+                            'payment_amount' => $paymentAmount,
+                            'payment_date' => $paymentDate,
+                        ])
+                        ->order(['id' => 'ASC'])
+                        ->toArray();
+                } catch (\Exception $e) {
+                    $duplicates = [];
+                }
+            }
 
             $fullAmount = $previous ? (int)$previous->full_payment_amount : 0;
 
@@ -183,6 +218,11 @@ class TraineeInstallmentsController extends AppController
                 $this->Flash->error(__('This trainee is already paid off - the receipt has been issued and no further installments are needed.'));
             } elseif ($paymentAmount <= 0) {
                 $this->Flash->error(__('The payment amount must be greater than zero.'));
+            } elseif ($duplicates) {
+                // Nothing is saved on this pass. The form comes back with the
+                // matching payment named and a button that says so.
+                $this->Flash->warning(__('This looks like a payment that is already recorded. Nothing has been saved - check the payment named below first.'));
+                $traineeInstallment = $this->TraineeInstallments->patchEntity($traineeInstallment, $data);
             } else {
                 $accumulated = ($previous ? (int)$previous->payment_accummulated : 0) + $paymentAmount;
                 $unpaid = max(0, $fullAmount - $accumulated);
@@ -239,7 +279,9 @@ class TraineeInstallmentsController extends AppController
 
         $masterTransactionCategories = $this->TraineeInstallments->MasterTransactionCategories->find('list', ['limit' => 200]);
         $masterCurrencies = $this->TraineeInstallments->MasterCurrencies->find('list', ['limit' => 200]);
-        $this->set(compact('traineeInstallment', 'trainees', 'traineeStatus', 'masterTransactionCategories', 'masterCurrencies'));
+        $bookCurrencyId = $this->TraineeInstallments->MasterCurrencies->bookCurrencyId();
+        $this->set(compact('traineeInstallment', 'trainees', 'traineeStatus', 'masterTransactionCategories',
+            'masterCurrencies', 'duplicates', 'submitted', 'bookCurrencyId'));
     }
 
     /**

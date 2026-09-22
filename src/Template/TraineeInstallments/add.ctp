@@ -8,6 +8,9 @@
  * @var array $traineeStatus               [id => ['accumulated','full','unpaid','is_paid_off']]
  * @var \Cake\ORM\Query $masterTransactionCategories
  * @var \Cake\ORM\Query $masterCurrencies
+ * @var array $duplicates                  payments already on file that match this one
+ * @var array $submitted                   ['payment_amount','payment_date'] as typed
+ * @var int $bookCurrencyId
  */
 $this->assign('title', 'Add Installment Payment');
 ?>
@@ -31,7 +34,34 @@ $this->assign('title', 'Add Installment Payment');
             <div class="card">
                 <div class="card-header"><h4><i class="fa fa-edit"></i> <?= __('Payment Details') ?></h4></div>
                 <div class="card-body">
-                    <?= $this->Form->create($traineeInstallment) ?>
+                    <?php if (!empty($duplicates)): ?>
+                        <div class="duplicate-warning">
+                            <div class="duplicate-head">
+                                <i class="fa fa-exclamation-triangle"></i>
+                                <?= count($duplicates) > 1
+                                    ? __('This payment is already on file {0} times', count($duplicates))
+                                    : __('This payment is already on file') ?>
+                            </div>
+                            <p><?= __('Nothing has been saved. A payment of this amount, from this trainee, on this date was already recorded:') ?></p>
+                            <ul class="duplicate-list">
+                                <?php foreach ($duplicates as $existing): ?>
+                                    <li>
+                                        <?= $this->Html->link('#' . $existing->id,
+                                            ['action' => 'view', $existing->id]) ?>
+                                        &mdash;
+                                        <?= __('Rp {0} recorded on {1}',
+                                            number_format((int)$existing->payment_amount, 0, ',', '.'),
+                                            $existing->payment_date ? $existing->payment_date->format('Y-m-d') : '?') ?>
+                                    </li>
+                                <?php endforeach; ?>
+                            </ul>
+                            <p class="duplicate-ask">
+                                <?= __('If the trainee really paid this amount twice on the same day, record it anyway. If you are not sure, open the payment above first - saving a second copy makes the balance wrong by the size of a payment, and nothing later will notice.') ?>
+                            </p>
+                        </div>
+                    <?php endif; ?>
+
+                    <?= $this->Form->create($traineeInstallment, ['id' => 'installment-form']) ?>
 
                     <?= $this->Form->control('trainee_id', [
                         'label' => __('Trainee'),
@@ -70,11 +100,13 @@ $this->assign('title', 'Add Installment Payment');
                     <div class="field-grid">
                         <div class="input number required">
                             <label for="payment-amount"><?= __('Payment Amount (Rp)') ?></label>
-                            <input type="number" name="payment_amount" id="payment-amount" min="1" step="1" required placeholder="e.g. 1000000">
+                            <input type="number" name="payment_amount" id="payment-amount" min="1" step="1" required
+                                   placeholder="e.g. 1000000" value="<?= h($submitted['payment_amount']) ?>">
                         </div>
                         <div class="input date required">
                             <label for="payment-date"><?= __('Payment Date') ?></label>
-                            <input type="date" name="payment_date" id="payment-date" required value="<?= date('Y-m-d') ?>">
+                            <input type="date" name="payment_date" id="payment-date" required
+                                   value="<?= h($submitted['payment_date']) ?>">
                         </div>
                     </div>
 
@@ -88,13 +120,21 @@ $this->assign('title', 'Add Installment Payment');
                         <?= $this->Form->control('master_currency_id', [
                             'label' => __('Currency'),
                             'options' => $masterCurrencies,
-                            'default' => 66,
+                            'default' => $bookCurrencyId,
                         ]) ?>
                     </div>
 
                     <div class="form-actions">
-                        <?= $this->Form->button('<i class="fa fa-save"></i> ' . __('Save Payment'),
-                            ['escapeTitle' => false, 'class' => 'btn btn-success btn-lg']) ?>
+                        <?php if (!empty($duplicates)): ?>
+                            <?= $this->Form->hidden('confirm_duplicate', ['value' => '1']) ?>
+                            <?= $this->Form->button('<i class="fa fa-exclamation-triangle"></i> ' . __('Record it anyway'),
+                                ['escapeTitle' => false, 'class' => 'btn btn-warning btn-lg',
+                                 'id' => 'installment-submit']) ?>
+                        <?php else: ?>
+                            <?= $this->Form->button('<i class="fa fa-save"></i> ' . __('Save Payment'),
+                                ['escapeTitle' => false, 'class' => 'btn btn-success btn-lg',
+                                 'id' => 'installment-submit']) ?>
+                        <?php endif; ?>
                         <?= $this->Html->link(__('Cancel'), ['action' => 'tracking'],
                             ['class' => 'btn btn-outline-secondary btn-lg']) ?>
                     </div>
@@ -258,10 +298,47 @@ $this->assign('title', 'Add Installment Payment');
         radio.addEventListener('change', update);
     });
     update();
+
+    // One submission per click. The server refuses a payment that matches one
+    // already on file, but two requests genuinely in flight at once would both
+    // look and both find nothing - so the second click has to not happen.
+    // Re-enabled after a few seconds so a rejected form is not left dead.
+    var form = document.getElementById('installment-form');
+    var submit = document.getElementById('installment-submit');
+    if (form && submit) {
+        form.addEventListener('submit', function () {
+            if (!form.checkValidity || form.checkValidity()) {
+                submit.disabled = true;
+                submit.classList.add('is-submitting');
+                window.setTimeout(function () {
+                    submit.disabled = false;
+                    submit.classList.remove('is-submitting');
+                }, 8000);
+            }
+        });
+    }
 })();
 </script>
 
 <style>
+.duplicate-warning {
+    margin-bottom: 20px;
+    padding: 14px 18px;
+    border-left: 4px solid #e65100;
+    border-radius: 6px;
+    background: #fff3e0;
+    color: #5d4037;
+}
+.duplicate-warning .duplicate-head {
+    font-weight: 700;
+    color: #e65100;
+    margin-bottom: 8px;
+}
+.duplicate-warning p { margin: 0 0 8px; font-size: 13px; line-height: 1.6; }
+.duplicate-warning .duplicate-ask { margin-bottom: 0; }
+.duplicate-list { margin: 0 0 10px; padding-left: 20px; font-size: 13px; }
+.duplicate-list li { margin-bottom: 4px; }
+.is-submitting { opacity: 0.6; cursor: progress; }
 .installment-form-page .page-header {
     display: flex;
     justify-content: space-between;
