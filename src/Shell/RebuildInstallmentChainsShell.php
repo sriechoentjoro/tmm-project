@@ -90,49 +90,84 @@ class RebuildInstallmentChainsShell extends Shell
         }
 
         $this->out('');
-        $this->out(sprintf('<info>%s</info> - %d row(s), owing cost %s',
-            $name, count($rows), number_format($full, 0, ',', '.')));
+        $this->out(sprintf('<info>%s</info> - %d row(s)', $name, count($rows)));
+        $this->out(sprintf('  owing cost taken as %s (the largest any row carries)',
+            number_format($full, 0, ',', '.')));
         $this->out('');
-        $this->out('  ' . sprintf('%-5s %-12s %14s %6s | %14s %14s %4s | %14s %14s %4s',
-            'id', 'date', 'payment', 'cat', 'accum stored', 'unpaid stored', 'off',
-            'accum should', 'unpaid should', 'off'));
-        $this->out('  ' . str_repeat('-', 125));
+
+        $money = function ($n) {
+            return number_format((int)$n, 0, ',', '.');
+        };
+        $date = function ($value) {
+            if ($value instanceof \DateTimeInterface) {
+                return $value->format('Y-m-d');
+            }
+
+            return substr((string)$value, 0, 10);
+        };
 
         $accumulated = 0;
+        $seen = [];
+        $notes = [];
+        $stale = [];
         foreach ($rows as $row) {
             $accumulated += max(0, (int)$row['payment_amount']);
             $unpaid = max(0, $full - $accumulated);
             $shouldOff = $unpaid === 0 ? 1 : 0;
-            $differs = (int)$row['payment_accummulated'] !== $accumulated
-                || (int)$row['unpaid_amount'] !== $unpaid
-                || (int)$row['is_paid_off'] !== $shouldOff;
+            $storedAccum = (int)$row['payment_accummulated'];
+            $storedUnpaid = (int)$row['unpaid_amount'];
+            $storedOff = (int)$row['is_paid_off'];
+            $rowFull = (int)$row['full_payment_amount'];
+            $differs = $storedAccum !== $accumulated || $storedUnpaid !== $unpaid || $storedOff !== $shouldOff;
 
-            $this->out(sprintf('  %s%-5s %-12s %14s %6s | %14s %14s %4s | %14s %14s %4s%s',
-                $differs ? '<warning>' : '',
-                $row['id'],
-                substr((string)$row['payment_date'], 0, 10),
-                number_format((int)$row['payment_amount'], 0, ',', '.'),
-                $row['master_transaction_category_id'],
-                number_format((int)$row['payment_accummulated'], 0, ',', '.'),
-                number_format((int)$row['unpaid_amount'], 0, ',', '.'),
-                (int)$row['is_paid_off'] ? 'yes' : 'no',
-                number_format($accumulated, 0, ',', '.'),
-                number_format($unpaid, 0, ',', '.'),
-                $shouldOff ? 'yes' : 'no',
-                $differs ? '</warning>' : ''
-            ));
+            $this->out(sprintf('  %-5s %-11s paid %14s   owing on this row %14s',
+                $row['id'], $date($row['payment_date']), $money($row['payment_amount']), $money($rowFull)));
+            $this->out(sprintf('        stored   accumulated %14s   outstanding %14s   settled %s',
+                $money($storedAccum), $money($storedUnpaid), $storedOff ? 'yes' : 'no'));
+            $this->out(sprintf('        %s   accumulated %14s   outstanding %14s   settled %s%s',
+                $differs ? '<warning>should</warning>' : 'should',
+                $money($accumulated), $money($unpaid), $shouldOff ? 'yes' : 'no',
+                $differs ? '   <warning><-- differs</warning>' : ''));
+            $this->out('');
+
+            // Two things explain most broken chains, and both are visible here
+            // rather than inferred: an owing cost that was changed after the
+            // payments were written, and the same payment entered twice.
+            if ($rowFull !== $full && $rowFull > 0) {
+                $stale[$rowFull][] = $row['id'];
+            }
+            $fingerprint = $date($row['payment_date']) . '/' . (int)$row['payment_amount'];
+            if ((int)$row['payment_amount'] > 0 && isset($seen[$fingerprint])) {
+                $notes[] = sprintf('rows %s and %s are the same amount on the same day - check whether that is two payments or one entered twice',
+                    $seen[$fingerprint], $row['id']);
+            }
+            $seen[$fingerprint] = $row['id'];
+        }
+
+        $this->out(sprintf('  payments on file add up to <info>%s</info>, leaving <info>%s</info> of the %s owing cost',
+            $money($accumulated), $money(max(0, $full - $accumulated)), $money($full)));
+
+        foreach ($stale as $rowFull => $ids) {
+            $notes[] = sprintf('row%s %s %s written when the owing cost was %s, not %s - the cost was changed afterwards and %s never followed',
+                count($ids) === 1 ? '' : 's',
+                implode(' and ', $ids),
+                count($ids) === 1 ? 'was' : 'were',
+                $money($rowFull), $money($full),
+                count($ids) === 1 ? 'it' : 'they');
+        }
+
+        if ($notes) {
+            $this->out('');
+            foreach (array_unique($notes) as $note) {
+                $this->out('  <warning>note</warning>  ' . $note);
+            }
         }
 
         $this->out('');
-        $this->out(sprintf('  payments on file add up to <info>%s</info>, leaving <info>%s</info> of the %s owing cost',
-            number_format($accumulated, 0, ',', '.'),
-            number_format(max(0, $full - $accumulated), 0, ',', '.'),
-            number_format($full, 0, ',', '.')));
-        $this->out('');
-        $this->out('  Read the payment column first. If those amounts are what the trainee');
-        $this->out('  really handed over, the right-hand figures are correct and --apply is');
-        $this->out('  safe. If an accumulated total was ever typed into a payment field, or');
-        $this->out('  a payment is missing from this list, fix the payment itself first -');
+        $this->out('  Read the paid column first. If those amounts are what the trainee');
+        $this->out('  really handed over, the should lines are correct and --apply is safe.');
+        $this->out('  If an accumulated total was ever typed into a payment field, or a');
+        $this->out('  payment is missing from this list, fix the payment itself first -');
         $this->out('  --apply would build on the wrong numbers.');
         $this->out('');
         $this->out('<info>Nothing changed.</info>');
