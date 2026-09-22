@@ -74,6 +74,7 @@ $typeBadge = [
 ?>
 
 <div class="finreport-page">
+    <?= $this->element('report_scope_note') ?>
     <div class="page-header">
         <div>
             <h2><i class="fa <?= $isIncome ? 'fa-chart-line' : 'fa-balance-scale' ?>"></i> <?= h($reportTitle) ?></h2>

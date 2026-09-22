@@ -7,7 +7,7 @@ return [
     'icon' => 'fa-chart-pie',
     'title' => __('Reports'),
     'subtitle' => __('The pipeline counted, and the books summarised.'),
-    'lead' => __('Six reports over two different kinds of thing. Three of them count people - how many candidates, trainees and apprentices there are and how far each has got - and read the operational records directly. The other three summarise the books, and read nothing but the journal lines. Both kinds are worked out when you open them, so nothing here is ever stale; what they are is only ever as good as what was recorded underneath.'),
+    'lead' => __('Six reports over two different kinds of thing. Three of them count people - how many candidates, trainees and apprentices there are and how far each has got - and read the operational records directly. The other three summarise the books, and read nothing but the journal lines of posted entries. Both kinds are worked out when you open them, so nothing here is ever stale; what they are is only ever as good as what was recorded underneath.'),
 
     'actors' => [
         ['role' => 'administrator', 'can' => __('Reads everything.')],
@@ -34,7 +34,7 @@ return [
             'do' => __('Every revenue and expense account, with what it has accumulated.'),
             'result' => __('What came in and what went out.'),
             'screen' => ['/reports/income-statement', __('Income Statement')],
-            'note' => __('It covers everything ever booked. There is no date range, so this is not a statement for a month or a year.'),
+            'note' => __('It covers everything ever posted. There is no date range, so this is not a statement for a month or a year.'),
         ],
         [
             'title' => __('Read the balance sheet'),
@@ -49,7 +49,7 @@ return [
             'do' => __('Journals grouped by the month they are dated, with how many entries and what they totalled.'),
             'result' => __('The shape of the year at a glance.'),
             'screen' => ['/reports/cash-flow', __('Cash Flow')],
-            'note' => __('This counts every entry in the month, not just the ones touching cash. It shows how busy a month was, not how much cash moved.'),
+            'note' => __('This counts every posted entry in the month, not just the ones touching cash. It shows how busy a month was, not how much cash moved.'),
         ],
     ],
 
@@ -67,7 +67,7 @@ return [
     'triggers' => [
         [
             'icon' => 'fa-book',
-            'what' => __('Every figure in the three financial reports comes from the journal lines. Booking an entry changes them at once; there is nothing to refresh.'),
+            'what' => __('Every figure in the three financial reports comes from the journal lines of posted entries. Posting an entry changes them at once, and marking one Void takes its amounts back out; there is nothing to refresh.'),
             'url' => '/journals',
             'label' => __('Journals'),
         ],
@@ -86,7 +86,8 @@ return [
     ],
 
     'cautions' => [
-        __('The financial reports count every journal line whatever the entry\'s status. An entry marked Void is still counted, and so is one still in Draft - marking an entry Void removes it from nothing.'),
+        __('The financial reports count posted entries only. An entry still in Draft, or marked Void, is left out - and each report says at the top how many were left out and under what status, so a figure that looks low can be explained without opening the journal.'),
+        __('An account whose only entries are voided still appears, at zero, rather than dropping off the report. An account that has quietly disappeared from a statement is much harder to notice than one showing nothing.'),
         __('The income statement has no period. It is everything since the books began, so it cannot be compared with last month or last year.'),
         __('The page called Cash Flow is a monthly summary of journal totals, not a cash flow statement. Read it as how much was booked, not how much cash moved.'),
     ],

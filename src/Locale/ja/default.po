@@ -17718,3 +17718,38 @@ msgstr "残高がゼロ"
 
 msgid "reference already exists"
 msgstr "参照番号が既にある"
+
+# ── Financial reports: posted entries only ────────
+
+msgid "An account whose only entries are voided still appears, at zero, rather than dropping off the report. An account that has quietly disappeared from a statement is much harder to notice than one showing nothing."
+msgstr "仕訳がすべてVoidの科目も、レポートから消えるのではなく、ゼロとして表示されます。財務諸表から科目が黙って消えているほうが、ゼロが出ているよりもはるかに気づきにくいからです。"
+
+msgid "Counted: entries marked {0}."
+msgstr "集計対象は、状態が {0} の仕訳です。"
+
+msgid "Every figure in the three financial reports comes from the journal lines of posted entries. Posting an entry changes them at once, and marking one Void takes its amounts back out; there is nothing to refresh."
+msgstr "財務の三つのレポートの数字は、すべて記帳済みの仕訳明細に由来します。記帳すればその場で変わり、Voidにすればその金額は差し戻されます。更新の操作は要りません。"
+
+msgid "It covers everything ever posted. There is no date range, so this is not a statement for a month or a year."
+msgstr "これまでに記帳したすべてを対象にします。期間指定がないため、月次や年次の報告書ではありません。"
+
+msgid "Left out: {0} ({1})."
+msgstr "除外: {0} 件（{1}）。"
+
+msgid "Nothing is left out - every entry on file is posted."
+msgstr "除外はありません。記録されているすべての仕訳が記帳済みです。"
+
+msgid "Only posted entries reach the financial reports. An entry left in Draft is on file but counts for nothing, and marking one Void takes its amounts back out of the statements."
+msgstr "財務のレポートに届くのは、記帳済み（Posted）の仕訳だけです。Draftのまま置かれた仕訳は記録には残りますが、まったく数えられません。Voidにすれば、その金額は財務諸表から差し戻されます。"
+
+msgid "Six reports over two different kinds of thing. Three of them count people - how many candidates, trainees and apprentices there are and how far each has got - and read the operational records directly. The other three summarise the books, and read nothing but the journal lines of posted entries. Both kinds are worked out when you open them, so nothing here is ever stale; what they are is only ever as good as what was recorded underneath."
+msgstr "二つの性質の異なるものを扱う、六つのレポートです。三つは人を数えます。候補者・研修生・実習生が何人いて、それぞれどこまで進んだかを、業務データから直接読みます。残る三つは帳簿をまとめ、記帳済みの仕訳明細以外は読みません。どちらも開いた時点で計算されるため、古い数字が残ることはありません。ただし内容の正しさは、その下に記録されたものの正しさ止まりです。"
+
+msgid "The financial reports count posted entries only. An entry still in Draft, or marked Void, is left out - and each report says at the top how many were left out and under what status, so a figure that looks low can be explained without opening the journal."
+msgstr "財務のレポートが数えるのは記帳済みの仕訳だけです。Draftのままの仕訳やVoidと記した仕訳は除かれます。各レポートの冒頭に、何件がどの状態で除かれたかが示されるため、数字が小さく見えても、仕訳を開かずに説明がつきます。"
+
+msgid "This counts every posted entry in the month, not just the ones touching cash. It shows how busy a month was, not how much cash moved."
+msgstr "現金に関わるものだけでなく、その月の記帳済みの仕訳をすべて数えます。示しているのは、その月がどれだけ忙しかったかであって、現金がどれだけ動いたかではありません。"
+
+msgid "no status"
+msgstr "状態なし"

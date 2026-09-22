@@ -238,6 +238,8 @@ class ReportsController extends AppController
     {
         $rows = $this->accountBalances(['revenue', 'income', 'expense']);
         $this->set(compact('rows'));
+        $this->set('excluded', $this->excludedEntries());
+        $this->set('countedStatus', self::COUNTED_STATUS);
         $this->set('reportTitle', 'Income Statement');
         $this->render('financial_report');
     }
@@ -249,6 +251,8 @@ class ReportsController extends AppController
     {
         $rows = $this->accountBalances(['asset', 'liability', 'equity']);
         $this->set(compact('rows'));
+        $this->set('excluded', $this->excludedEntries());
+        $this->set('countedStatus', self::COUNTED_STATUS);
         $this->set('reportTitle', 'Balance Sheet');
         $this->render('financial_report');
     }
@@ -265,10 +269,14 @@ class ReportsController extends AppController
                     COALESCE(SUM(total_debit), 0) AS total_debit,
                     COALESCE(SUM(total_credit), 0) AS total_credit
              FROM journals
+             WHERE status = ?
              GROUP BY DATE_FORMAT(transaction_date, '%Y-%m')
-             ORDER BY month DESC"
+             ORDER BY month DESC",
+            [self::COUNTED_STATUS]
         )->fetchAll('assoc');
         $this->set(compact('months'));
+        $this->set('excluded', $this->excludedEntries());
+        $this->set('countedStatus', self::COUNTED_STATUS);
     }
 
     /**
@@ -287,22 +295,79 @@ class ReportsController extends AppController
     /**
      * Helper: debit/credit balance per account, filtered by account type
      */
+    /**
+     * The one status the financial reports count. Everything else is left out.
+     */
+    const COUNTED_STATUS = 'Posted';
+
+    /**
+     * Per-account totals for the financial reports, from posted entries only.
+     *
+     * This used to sum every journal_details row there was, whatever the
+     * entry's status. A journal marked Void still counted, and so did one
+     * still in Draft - marking an entry Void removed it from nothing, which
+     * made the income statement and the balance sheet quietly wrong in the one
+     * way an accountant would never expect.
+     *
+     * The status is applied inside the sums rather than as a WHERE, so an
+     * account whose only lines are voided still appears - at zero - instead of
+     * vanishing from the report altogether. An account that has dropped off a
+     * statement is much harder to notice than one showing nothing.
+     *
+     * @param array $types Account types to include.
+     * @return array
+     */
     protected function accountBalances(array $types)
     {
         $conn = ConnectionManager::get('cms_tmm_trainee_accountings');
         $placeholders = implode(',', array_fill(0, count($types), '?'));
+
         return $conn->execute(
             "SELECT coa.code, coa.name, coa.type,
-                    COALESCE(SUM(jd.debit), 0) AS total_debit,
-                    COALESCE(SUM(jd.credit), 0) AS total_credit,
-                    COALESCE(SUM(jd.debit), 0) - COALESCE(SUM(jd.credit), 0) AS balance
+                    COALESCE(SUM(CASE WHEN j.status = ? THEN jd.debit  ELSE 0 END), 0) AS total_debit,
+                    COALESCE(SUM(CASE WHEN j.status = ? THEN jd.credit ELSE 0 END), 0) AS total_credit,
+                    COALESCE(SUM(CASE WHEN j.status = ? THEN jd.debit  ELSE 0 END), 0)
+                  - COALESCE(SUM(CASE WHEN j.status = ? THEN jd.credit ELSE 0 END), 0) AS balance
              FROM chart_of_accounts coa
              LEFT JOIN journal_details jd ON jd.chart_of_account_id = coa.id
+             LEFT JOIN journals j ON j.id = jd.journal_id
              WHERE LOWER(coa.type) IN ($placeholders)
              GROUP BY coa.id, coa.code, coa.name, coa.type
              ORDER BY coa.code",
-            array_map('strtolower', $types)
+            array_merge(array_fill(0, 4, self::COUNTED_STATUS), array_map('strtolower', $types))
         )->fetchAll('assoc');
+    }
+
+    /**
+     * How many entries the reports are leaving out, and under what status.
+     *
+     * A number that changed because the rule behind it changed is worse than
+     * a wrong number: nobody can tell the difference without being told. Every
+     * financial report therefore says what it counted and what it did not.
+     *
+     * @return array [status => count] for everything that is not counted.
+     */
+    protected function excludedEntries()
+    {
+        try {
+            $rows = ConnectionManager::get('cms_tmm_trainee_accountings')->execute(
+                'SELECT status, COUNT(*) AS total
+                 FROM journals
+                 WHERE status IS NULL OR status <> ?
+                 GROUP BY status',
+                [self::COUNTED_STATUS]
+            )->fetchAll('assoc');
+        } catch (\Exception $e) {
+            return [];
+        }
+
+        $excluded = [];
+        foreach ($rows as $row) {
+            $label = ($row['status'] === null || $row['status'] === '') ? __('no status') : $row['status'];
+            $excluded[$label] = (int)$row['total'];
+        }
+
+        return $excluded;
     }
 
     /**

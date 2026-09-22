@@ -30,6 +30,7 @@ $monthLabel = function ($ym) {
 ?>
 
 <div class="cashflow-page">
+    <?= $this->element('report_scope_note') ?>
     <div class="page-header">
         <div>
             <h2><i class="fa fa-exchange-alt"></i> <?= __('Cash Flow') ?></h2>

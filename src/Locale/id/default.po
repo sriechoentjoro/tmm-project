@@ -17718,3 +17718,38 @@ msgstr "sisanya nol"
 
 msgid "reference already exists"
 msgstr "referensinya sudah ada"
+
+# ── Financial reports: posted entries only ────────
+
+msgid "An account whose only entries are voided still appears, at zero, rather than dropping off the report. An account that has quietly disappeared from a statement is much harder to notice than one showing nothing."
+msgstr "Akun yang seluruh entrinya Void tetap muncul, dengan nilai nol, alih-alih hilang dari laporan. Akun yang diam-diam lenyap dari sebuah laporan jauh lebih sulit disadari daripada akun yang menampilkan nol."
+
+msgid "Counted: entries marked {0}."
+msgstr "Yang dihitung: entri berstatus {0}."
+
+msgid "Every figure in the three financial reports comes from the journal lines of posted entries. Posting an entry changes them at once, and marking one Void takes its amounts back out; there is nothing to refresh."
+msgstr "Tiap angka di ketiga laporan keuangan berasal dari baris jurnal entri berstatus Posted. Memposting sebuah entri langsung mengubahnya, dan menandainya Void menarik jumlahnya kembali keluar; tidak ada yang perlu disegarkan."
+
+msgid "It covers everything ever posted. There is no date range, so this is not a statement for a month or a year."
+msgstr "Ia mencakup semua yang pernah diposting. Tidak ada rentang tanggal, jadi ini bukan laporan untuk satu bulan atau satu tahun."
+
+msgid "Left out: {0} ({1})."
+msgstr "Tidak diikutkan: {0} ({1})."
+
+msgid "Nothing is left out - every entry on file is posted."
+msgstr "Tidak ada yang tidak diikutkan - tiap entri yang tercatat sudah diposting."
+
+msgid "Only posted entries reach the financial reports. An entry left in Draft is on file but counts for nothing, and marking one Void takes its amounts back out of the statements."
+msgstr "Hanya entri berstatus Posted yang sampai ke laporan keuangan. Entri yang dibiarkan Draft tercatat tetapi tidak dihitung sama sekali, dan menandai sebuah entri Void menarik jumlahnya kembali keluar dari laporannya."
+
+msgid "Six reports over two different kinds of thing. Three of them count people - how many candidates, trainees and apprentices there are and how far each has got - and read the operational records directly. The other three summarise the books, and read nothing but the journal lines of posted entries. Both kinds are worked out when you open them, so nothing here is ever stale; what they are is only ever as good as what was recorded underneath."
+msgstr "Enam laporan atas dua jenis hal yang berbeda. Tiga di antaranya menghitung orang - berapa kandidat, trainee, dan apprentice yang ada dan sejauh mana masing-masingnya - dan membaca data operasional secara langsung. Tiga lainnya meringkas pembukuan, dan tidak membaca apa pun selain baris jurnal dari entri berstatus Posted. Keduanya dihitung saat Anda membukanya, jadi tidak ada yang basi di sini; seberapa benar isinya hanya sebaik apa yang tercatat di bawahnya."
+
+msgid "The financial reports count posted entries only. An entry still in Draft, or marked Void, is left out - and each report says at the top how many were left out and under what status, so a figure that looks low can be explained without opening the journal."
+msgstr "Laporan keuangannya hanya menghitung entri berstatus Posted. Entri yang masih Draft, atau ditandai Void, tidak diikutkan - dan tiap laporan menyebutkan di bagian atas berapa yang tidak diikutkan dan dengan status apa, sehingga angka yang tampak kecil bisa dijelaskan tanpa membuka jurnalnya."
+
+msgid "This counts every posted entry in the month, not just the ones touching cash. It shows how busy a month was, not how much cash moved."
+msgstr "Ini menghitung tiap entri berstatus Posted dalam bulan itu, bukan hanya yang menyentuh kas. Ia menunjukkan seberapa sibuk sebuah bulan, bukan berapa banyak kas yang bergerak."
+
+msgid "no status"
+msgstr "tanpa status"

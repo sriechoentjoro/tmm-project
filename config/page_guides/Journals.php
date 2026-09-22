@@ -83,5 +83,6 @@ return [
         __('Amounts are booked at face value with no currency attached. A ticket priced in yen and one priced in rupiah are added together as if they were the same money.'),
         __('A source whose two accounts are not both in the chart of accounts is skipped silently. The page says only that nothing was generated, not which account is missing.'),
         __('Deleting an entry frees its reference, so the source it came from reappears on the pending list and can be booked again.'),
+        __('Only posted entries reach the financial reports. An entry left in Draft is on file but counts for nothing, and marking one Void takes its amounts back out of the statements.'),
     ],
 ];
