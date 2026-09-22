@@ -63,6 +63,14 @@ $hasFilter = $filterTrainee || $filterPaid === '1' || $filterPaid === '0';
         </div>
     </div>
 
+    <?php if (!empty($summary['otherCurrency'])): ?>
+        <div class="currency-note">
+            <i class="fa fa-exclamation-triangle"></i>
+            <?= __('Collected and Outstanding above are plain sums, written as {0}. {1} trainee(s) have their payments recorded in a different currency, and nothing here converts between them - those amounts were added to the two figures as if they were {0}. Each line in the table below shows its own currency.',
+                h($bookCurrency['code']), (int)$summary['otherCurrency']) ?>
+        </div>
+    <?php endif; ?>
+
     <?php if (!empty($traineesWithoutCost)): ?>
         <!-- Step 1: set the owing cost -->
         <div class="card owing-card">
@@ -242,6 +250,17 @@ $hasFilter = $filterTrainee || $filterPaid === '1' || $filterPaid === '0';
 </div>
 
 <style>
+.currency-note {
+    margin-bottom: 20px;
+    padding: 12px 16px;
+    border-left: 4px solid #e65100;
+    border-radius: 6px;
+    background: #fff3e0;
+    color: #6d4c41;
+    font-size: 13px;
+    line-height: 1.6;
+}
+.currency-note i { color: #e65100; margin-right: 6px; }
 .tracking-page .page-header {
     display: flex;
     justify-content: space-between;

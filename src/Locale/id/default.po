@@ -18365,3 +18365,64 @@ msgstr "Siapa mengambil tiap keputusan, kapan, dan tentang siapa. Dua belas mome
 
 msgid "unknown"
 msgstr "tidak diketahui"
+
+msgid "A journal entry carries no currency. The books are kept in rupiah and nothing here converts between currencies, so a source record priced in something else is not generated into an entry at all - it is listed separately on the auto-generated page with its currency named, and left for somebody to decide what it is worth."
+msgstr "Sebuah jurnal tidak membawa mata uang apa pun. Pembukuan dipegang dalam rupiah dan tidak ada yang mengonversi antar mata uang di sini, sehingga catatan sumber yang dihargai dalam mata uang lain sama sekali tidak dibuatkan jurnal - ia didaftar terpisah di halaman jurnal otomatis dengan nama mata uangnya, dan diserahkan kepada seseorang untuk menilai berapa nilainya."
+
+msgid "A record with no currency set is read as rupiah. Most of what is on file was written before anybody chose one, and every screen shows those amounts with an Rp in front of them, so reading them as anything else would rewrite history on a guess."
+msgstr "Catatan yang tidak diisi mata uangnya dibaca sebagai rupiah. Sebagian besar data yang ada ditulis sebelum ada yang memilih mata uang, dan semua halaman menampilkan angka-angka itu dengan Rp di depannya, sehingga membacanya sebagai hal lain berarti menulis ulang sejarah berdasarkan tebakan."
+
+msgid "The currency chosen here decides whether the price reaches the books. Accounting keeps its books in rupiah and nothing converts between currencies, so a ticket priced in yen is held back on the auto-generated journal page instead of being booked at its face value."
+msgstr "Mata uang yang dipilih di sini menentukan apakah harganya sampai ke pembukuan. Akuntansi memegang pembukuannya dalam rupiah dan tidak ada yang mengonversi antar mata uang, sehingga tiket yang dihargai dalam yen ditahan di halaman jurnal otomatis alih-alih dibukukan sebesar angka apa adanya."
+
+msgid "Correct a payment"
+msgstr "Mengoreksi pembayaran"
+
+msgid "Edit the row, or delete it if it should never have been recorded. The chain is walked again from the opening row, so every later payment gets the accumulated and outstanding figures it should have had."
+msgstr "Ubah barisnya, atau hapus bila memang seharusnya tidak pernah dicatat. Rangkaiannya ditelusuri ulang dari baris pembuka, sehingga setiap pembayaran sesudahnya memperoleh angka akumulasi dan sisa yang semestinya."
+
+msgid "The tracking page shows what the remaining payments really come to, and a message names how many rows were recalculated."
+msgstr "Halaman pelacakan menampilkan jumlah yang sebenarnya dari pembayaran yang tersisa, dan sebuah pesan menyebutkan berapa baris yang dihitung ulang."
+
+msgid "All Payments"
+msgstr "Semua Pembayaran"
+
+msgid "Only the running totals are rewritten. The amounts and dates you entered are left exactly as they are."
+msgstr "Hanya angka berjalannya yang ditulis ulang. Nominal dan tanggal yang Anda masukkan dibiarkan persis seperti adanya."
+
+msgid "The running totals are derived, not typed. Correcting or removing a payment in the middle recalculates every row after it, and the page tells you how many were recalculated - so the figures always add up to the payments actually on file."
+msgstr "Angka berjalannya diturunkan, bukan diketik. Mengoreksi atau menghapus pembayaran di tengah akan menghitung ulang setiap baris sesudahnya, dan halamannya memberi tahu berapa yang dihitung ulang - sehingga angkanya selalu cocok dengan pembayaran yang benar-benar tercatat."
+
+msgid "Chains recorded before that recalculation existed can still be wrong. An administrator can list them with the repair command, which reports what each trainee is shown as owing against what their payments really come to, and rewrites only the running totals - never the payments."
+msgstr "Rangkaian yang tercatat sebelum penghitungan ulang itu ada masih bisa keliru. Administrator dapat mendaftarnya dengan perintah perbaikan, yang melaporkan berapa sisa yang ditampilkan untuk tiap trainee dibanding jumlah pembayarannya yang sebenarnya, dan hanya menulis ulang angka berjalannya - tidak pernah pembayarannya."
+
+msgid "Each row stores its own currency and the table shows it, but the Collected and Outstanding figures at the top are plain sums written as rupiah. Where any trainee is recorded in another currency the page says so above those figures, with how many - nothing converts between currencies anywhere in this system."
+msgstr "Tiap baris menyimpan mata uangnya sendiri dan tabelnya menampilkannya, tetapi angka Terkumpul dan Sisa di bagian atas adalah penjumlahan biasa yang ditulis sebagai rupiah. Bila ada trainee yang tercatat dalam mata uang lain, halamannya menyatakan hal itu di atas angka-angka tersebut beserta jumlahnya - tidak ada yang mengonversi antar mata uang di mana pun dalam sistem ini."
+
+msgid "An owing cost set here is stamped with the rupiah entry from the currency master list, found by its code rather than by a fixed number, so it stays right if that list is ever renumbered."
+msgstr "Biaya terutang yang ditetapkan di sini dicap dengan entri rupiah dari daftar induk mata uang, dicari lewat kodenya alih-alih lewat angka tetap, sehingga tetap benar bila daftar itu suatu saat dinomori ulang."
+
+msgid "{0} record(s) were left alone because they are priced in another currency. They are listed on this page with the currency named."
+msgstr "{0} catatan dibiarkan karena dihargai dalam mata uang lain. Semuanya didaftar di halaman ini dengan nama mata uangnya."
+
+msgid "Priced in {0}. The books are kept in {1} and nothing converts between them, so this amount cannot be posted as it stands."
+msgstr "Dihargai dalam {0}. Pembukuan dipegang dalam {1} dan tidak ada yang mengonversi di antara keduanya, sehingga jumlah ini tidak bisa diposkan apa adanya."
+
+msgid "All {0} payment(s) for this trainee were recalculated: Rp {1} paid, Rp {2} outstanding."
+msgstr "Seluruh {0} pembayaran trainee ini dihitung ulang: Rp {1} terbayar, Rp {2} tersisa."
+
+msgid "The {0} remaining payment(s) were recalculated: Rp {1} paid, Rp {2} outstanding."
+msgstr "{0} pembayaran yang tersisa dihitung ulang: Rp {1} terbayar, Rp {2} tersisa."
+
+msgid "Priced in another currency - not posted"
+msgstr "Dihargai dalam mata uang lain - tidak diposkan"
+
+msgid "The books are kept in {0} and nothing here converts between currencies - a journal entry carries no currency at all. These source records are priced in something else, so their amounts are not added to the figures above and no entry is generated from them. Decide what each one is worth in {0} and record that, or leave it out of the books deliberately."
+msgstr "Pembukuan dipegang dalam {0} dan tidak ada yang mengonversi antar mata uang di sini - sebuah jurnal sama sekali tidak membawa mata uang. Catatan sumber berikut dihargai dalam mata uang lain, sehingga nominalnya tidak ditambahkan ke angka di atas dan tidak ada jurnal yang dibuat darinya. Tentukan berapa nilai masing-masing dalam {0} lalu catat, atau tinggalkan di luar pembukuan dengan sengaja."
+
+msgid "Amount as recorded"
+msgstr "Nominal sebagaimana dicatat"
+
+msgid "Collected and Outstanding above are plain sums, written as {0}. {1} trainee(s) have their payments recorded in a different currency, and nothing here converts between them - those amounts were added to the two figures as if they were {0}. Each line in the table below shows its own currency."
+msgstr "Terkumpul dan Sisa di atas adalah penjumlahan biasa, ditulis sebagai {0}. {1} trainee memiliki pembayaran yang tercatat dalam mata uang berbeda, dan tidak ada yang mengonversi di antaranya - jumlah-jumlah itu ditambahkan ke kedua angka tersebut seolah-olah dalam {0}. Tiap baris pada tabel di bawah menampilkan mata uangnya sendiri."
+

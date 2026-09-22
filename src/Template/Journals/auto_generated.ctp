@@ -8,6 +8,8 @@
  * @var int $generatedCount
  * @var array $mappings        source type -> COA mapping meta
  * @var array $coa             [code => ['id','name','type']]
+ * @var array $blocked         source records priced in another currency
+ * @var array $bookCurrency    ['id','code','title','resolved']
  */
 $this->assign('title', 'Auto-Generated Journals');
 
@@ -150,6 +152,46 @@ foreach ($pendingByType as $items) {
             </div>
         </div>
     <?php endif; ?>
+
+    <?php if (!empty($blocked)): ?>
+        <div class="card card-blocked">
+            <div class="card-header">
+                <h4><i class="fa fa-exclamation-triangle"></i>
+                    <?= __('Priced in another currency - not posted') ?>
+                    <span class="count-chip"><?= count($blocked) ?></span>
+                </h4>
+            </div>
+            <div class="card-body">
+                <p class="text-muted">
+                    <?= __('The books are kept in {0} and nothing here converts between currencies - a journal entry carries no currency at all. These source records are priced in something else, so their amounts are not added to the figures above and no entry is generated from them. Decide what each one is worth in {0} and record that, or leave it out of the books deliberately.', h($bookCurrency['code'])) ?>
+                </p>
+                <div class="table-scroll-wrapper" style="overflow-x:auto;">
+                    <table class="pending-table">
+                        <thead>
+                            <tr>
+                                <th><?= __('Reference') ?></th>
+                                <th><?= __('Subject') ?></th>
+                                <th><?= __('Date') ?></th>
+                                <th><?= __('Currency') ?></th>
+                                <th class="text-right"><?= __('Amount as recorded') ?></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php foreach ($blocked as $item): ?>
+                            <tr>
+                                <td><code class="ref-code"><?= h($item['reference_no']) ?></code></td>
+                                <td><?= h($item['subject']) ?></td>
+                                <td class="text-muted"><?= h($item['date']) ?></td>
+                                <td><span class="currency-chip"><?= h($item['currency']) ?></span></td>
+                                <td class="text-right"><strong><?= h($item['currency']) ?> <?= number_format((float)$item['amount'], 0, ',', '.') ?></strong></td>
+                            </tr>
+                            <?php endforeach; ?>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    <?php endif; ?>
 </div>
 
 <style>
@@ -162,6 +204,17 @@ foreach ($pendingByType as $items) {
     gap: 10px;
 }
 .autogen-page .page-header h2 { margin: 0 0 5px 0; }
+.card-blocked { border-left: 4px solid #e65100; }
+.card-blocked .card-header h4 { color: #e65100; }
+.currency-chip {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 10px;
+    background: #fff3e0;
+    color: #e65100;
+    font-weight: 600;
+    font-size: 12px;
+}
 .summary-strip { display: flex; gap: 15px; margin-bottom: 20px; flex-wrap: wrap; }
 .summary-card {
     flex: 1;

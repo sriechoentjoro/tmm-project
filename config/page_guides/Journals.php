@@ -80,7 +80,8 @@ return [
 
     'cautions' => [
         __('An entry is booked from the source amount as it stood at that moment. Changing the installment, the ticket price or the document cost afterwards does not change the journal and does not bring the source back onto the pending list - the correction has to be typed.'),
-        __('Amounts are booked at face value with no currency attached. A ticket priced in yen and one priced in rupiah are added together as if they were the same money.'),
+        __('A journal entry carries no currency. The books are kept in rupiah and nothing here converts between currencies, so a source record priced in something else is not generated into an entry at all - it is listed separately on the auto-generated page with its currency named, and left for somebody to decide what it is worth.'),
+        __('A record with no currency set is read as rupiah. Most of what is on file was written before anybody chose one, and every screen shows those amounts with an Rp in front of them, so reading them as anything else would rewrite history on a guess.'),
         __('A source whose two accounts are not both in the chart of accounts is skipped silently. The page says only that nothing was generated, not which account is missing.'),
         __('Deleting an entry frees its reference, so the source it came from reappears on the pending list and can be booked again.'),
         __('Only posted entries reach the financial reports. An entry left in Draft is on file but counts for nothing, and marking one Void takes its amounts back out of the statements.'),

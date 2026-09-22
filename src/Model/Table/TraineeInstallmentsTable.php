@@ -115,6 +115,87 @@ class TraineeInstallmentsTable extends Table
     }
 
     /**
+     * Recompute one trainee's running totals from their payments.
+     *
+     * Every row carries the accumulated total and the outstanding balance as
+     * they stood when it was written, and each was worked out from the row
+     * before it. That is fine while payments are only ever appended - and it
+     * quietly falls apart the moment one is deleted or edited from the middle,
+     * because nothing walked forward to fix the rows after it. The tracking
+     * page reads the LAST row, so a trainee could be shown as owing a figure
+     * that none of their payments add up to.
+     *
+     * This walks the chain in id order and rewrites it: the opening row keeps
+     * the owing cost, every payment adds to the accumulated total, and the
+     * outstanding balance follows. It is the one authority for those three
+     * fields, so add, edit and delete all end by calling it rather than each
+     * keeping its own arithmetic.
+     *
+     * Saved without validation or rules: these are derived fields, not user
+     * input, and a legacy row with some unrelated problem must not be able to
+     * leave the chain half-rebuilt.
+     *
+     * @param int $traineeId Trainee id.
+     * @return array ['rows' => n, 'full' => n, 'accumulated' => n, 'unpaid' => n]
+     */
+    public function rebuildChain($traineeId)
+    {
+        $traineeId = (int)$traineeId;
+        $summary = ['rows' => 0, 'full' => 0, 'accumulated' => 0, 'unpaid' => 0];
+        if (!$traineeId) {
+            return $summary;
+        }
+
+        $rows = $this->find()
+            ->where(['trainee_id' => $traineeId])
+            ->order(['id' => 'ASC'])
+            ->toArray();
+
+        if (!$rows) {
+            return $summary;
+        }
+
+        // The owing cost is set once, on the opening row. Later rows carry a
+        // copy of it; the opening row is the one to trust, and where an older
+        // row somehow has a larger figure the largest is taken rather than
+        // silently shrinking what the trainee owes.
+        $full = 0;
+        foreach ($rows as $row) {
+            $full = max($full, (int)$row->full_payment_amount);
+        }
+
+        $accumulated = 0;
+        foreach ($rows as $row) {
+            $accumulated += max(0, (int)$row->payment_amount);
+            $unpaid = max(0, $full - $accumulated);
+
+            $row->set('full_payment_amount', $full);
+            $row->set('payment_accummulated', $accumulated);
+            $row->set('unpaid_amount', $unpaid);
+            $row->set('is_paid_off', $unpaid === 0 ? 1 : 0);
+
+            if ($row->isDirty()) {
+                if (!$this->save($row, ['checkRules' => false, 'validate' => false])) {
+                    \Cake\Log\Log::error(sprintf(
+                        'rebuildChain could not save installment %d for trainee %d: %s',
+                        $row->id,
+                        $traineeId,
+                        json_encode($row->getErrors())
+                    ));
+                }
+            }
+
+            $summary['rows']++;
+        }
+
+        $summary['full'] = $full;
+        $summary['accumulated'] = $accumulated;
+        $summary['unpaid'] = max(0, $full - $accumulated);
+
+        return $summary;
+    }
+
+    /**
      * Returns the database connection name to use by default.
      *
      * @return string

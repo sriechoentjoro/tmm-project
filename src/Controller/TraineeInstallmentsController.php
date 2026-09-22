@@ -194,6 +194,10 @@ class TraineeInstallmentsController extends AppController
 
                 $traineeInstallment = $this->TraineeInstallments->patchEntity($traineeInstallment, $data);
                 if ($this->TraineeInstallments->save($traineeInstallment)) {
+                    // The figures above are what this payment makes the balance;
+                    // rebuilding afterwards keeps one authority for them rather
+                    // than two sets of arithmetic that could drift apart.
+                    $this->TraineeInstallments->rebuildChain($traineeId);
                     if ($data['is_paid_off']) {
                         $this->Flash->success(__('Balance settled - the receipt has been issued.'));
 
@@ -265,7 +269,7 @@ class TraineeInstallmentsController extends AppController
                 'full_payment_amount' => $amount,
                 'payment_accummulated' => 0,
                 'unpaid_amount' => $amount,
-                'master_currency_id' => 66,
+                'master_currency_id' => $this->TraineeInstallments->MasterCurrencies->bookCurrencyId(),
                 'is_paid_off' => 0,
             ]);
             if ($this->TraineeInstallments->save($opening)) {
@@ -335,7 +339,15 @@ class TraineeInstallmentsController extends AppController
             
             $traineeInstallment = $this->TraineeInstallments->patchEntity($traineeInstallment, $data);
             if ($this->TraineeInstallments->save($traineeInstallment)) {
+                // Editing an amount in the middle changes every row after it.
+                $summary = $this->TraineeInstallments->rebuildChain($traineeInstallment->trainee_id);
                 $this->Flash->success(__('The trainee installment has been saved.'));
+                if ($summary['rows'] > 1) {
+                    $this->Flash->info(__('All {0} payment(s) for this trainee were recalculated: Rp {1} paid, Rp {2} outstanding.',
+                        $summary['rows'],
+                        number_format($summary['accumulated'], 0, ',', '.'),
+                        number_format($summary['unpaid'], 0, ',', '.')));
+                }
 
                 return $this->redirect(['action' => 'index']);
             }
@@ -358,8 +370,18 @@ class TraineeInstallmentsController extends AppController
     {
         $this->request->allowMethod(['post', 'delete']);
         $traineeInstallment = $this->TraineeInstallments->get($id);
+        // Read before the delete: afterwards the entity is still in memory but
+        // the chain that has to be rebuilt is the one this row belonged to.
+        $traineeId = (int)$traineeInstallment->trainee_id;
         if ($this->TraineeInstallments->delete($traineeInstallment)) {
+            $summary = $this->TraineeInstallments->rebuildChain($traineeId);
             $this->Flash->success(__('The trainee installment has been deleted.'));
+            if ($summary['rows']) {
+                $this->Flash->info(__('The {0} remaining payment(s) were recalculated: Rp {1} paid, Rp {2} outstanding.',
+                    $summary['rows'],
+                    number_format($summary['accumulated'], 0, ',', '.'),
+                    number_format($summary['unpaid'], 0, ',', '.')));
+            }
         } else {
             $this->Flash->error(__('The trainee installment could not be deleted. Please, try again.'));
         }
@@ -508,7 +530,9 @@ class TraineeInstallmentsController extends AppController
         // Per-trainee payment progress: latest installment row per trainee carries
         // the running accumulated / unpaid figures.
         $paymentProgress = [];
-        $summary = ['payingTrainees' => 0, 'paidOff' => 0, 'collected' => 0, 'outstanding' => 0];
+        $summary = ['payingTrainees' => 0, 'paidOff' => 0, 'collected' => 0, 'outstanding' => 0,
+            'otherCurrency' => 0];
+        $bookCurrency = $this->TraineeInstallments->MasterCurrencies->bookCurrency();
         try {
             $conn = \Cake\Datasource\ConnectionManager::get('cms_tmm_trainee_accountings');
             $rows = $conn->execute(
@@ -540,6 +564,13 @@ class TraineeInstallmentsController extends AppController
                 if ($row['is_paid_off']) {
                     $summary['paidOff']++;
                 }
+                // The totals above add the numbers up whatever currency each
+                // row claims, and the strip writes the result with an Rp in
+                // front of it. Counting the odd ones out is what lets the page
+                // say so instead of quietly presenting a meaningless sum.
+                if (!$this->TraineeInstallments->MasterCurrencies->isBookCurrency($row['master_currency_id'])) {
+                    $summary['otherCurrency']++;
+                }
             }
         } catch (\Exception $e) {
         }
@@ -549,7 +580,8 @@ class TraineeInstallmentsController extends AppController
             array_flip(array_column($paymentProgress, 'trainee_id')));
 
         $this->set(compact('installments', 'traineeNames', 'categoryNames', 'currencyNames',
-            'paymentProgress', 'summary', 'filterTrainee', 'filterPaid', 'traineesWithoutCost'));
+            'paymentProgress', 'summary', 'filterTrainee', 'filterPaid', 'traineesWithoutCost',
+            'bookCurrency'));
     }
 
     /**

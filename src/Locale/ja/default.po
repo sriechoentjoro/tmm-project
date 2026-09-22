@@ -18365,3 +18365,64 @@ msgstr "誰が、いつ、誰について、どの判断を下したか。工程
 
 msgid "unknown"
 msgstr "不明"
+
+msgid "A journal entry carries no currency. The books are kept in rupiah and nothing here converts between currencies, so a source record priced in something else is not generated into an entry at all - it is listed separately on the auto-generated page with its currency named, and left for somebody to decide what it is worth."
+msgstr "仕訳には通貨が付きません。帳簿はルピアで保たれ、ここには通貨を換算するものが一切ないため、別の通貨で値付けされた元データからは仕訳がまったく作られません。自動仕訳のページに通貨名とともに別枠で並び、いくらに当たるかは人が決めることになります。"
+
+msgid "A record with no currency set is read as rupiah. Most of what is on file was written before anybody chose one, and every screen shows those amounts with an Rp in front of them, so reading them as anything else would rewrite history on a guess."
+msgstr "通貨が設定されていないデータはルピアとして読みます。保存されているものの多くは誰も通貨を選ばない時代に書かれ、どの画面もその金額に Rp を付けて表示してきました。別の通貨として読み直すことは、推測で過去を書き換えることになります。"
+
+msgid "The currency chosen here decides whether the price reaches the books. Accounting keeps its books in rupiah and nothing converts between currencies, so a ticket priced in yen is held back on the auto-generated journal page instead of being booked at its face value."
+msgstr "ここで選ぶ通貨が、その価格が帳簿に届くかどうかを決めます。会計はルピアで帳簿を保ち、通貨を換算するものはありません。そのため円建ての航空券は、額面のまま計上されるのではなく自動仕訳のページで保留されます。"
+
+msgid "Correct a payment"
+msgstr "入金を訂正する"
+
+msgid "Edit the row, or delete it if it should never have been recorded. The chain is walked again from the opening row, so every later payment gets the accumulated and outstanding figures it should have had."
+msgstr "その行を編集するか、そもそも記録すべきでなかったものなら削除します。連なりは冒頭の行から改めてたどり直されるため、それ以降の各入金には本来あるべき累計額と残額が入ります。"
+
+msgid "The tracking page shows what the remaining payments really come to, and a message names how many rows were recalculated."
+msgstr "追跡ページには残った入金の実際の合計が表示され、何行を計算し直したかがメッセージに示されます。"
+
+msgid "All Payments"
+msgstr "入金一覧"
+
+msgid "Only the running totals are rewritten. The amounts and dates you entered are left exactly as they are."
+msgstr "書き換えられるのは累計の数字だけです。入力した金額と日付はそのまま残ります。"
+
+msgid "The running totals are derived, not typed. Correcting or removing a payment in the middle recalculates every row after it, and the page tells you how many were recalculated - so the figures always add up to the payments actually on file."
+msgstr "累計の数字は入力するものではなく、導かれるものです。途中の入金を訂正・削除すると、それ以降の行がすべて計算し直され、何行を直したかが画面に示されます。数字は常に、実際に記録されている入金の合計と一致します。"
+
+msgid "Chains recorded before that recalculation existed can still be wrong. An administrator can list them with the repair command, which reports what each trainee is shown as owing against what their payments really come to, and rewrites only the running totals - never the payments."
+msgstr "この計算し直しができる前に記録された連なりは、まだ誤っている可能性があります。管理者は修復コマンドで一覧でき、各研修生の表示上の残額と実際の入金合計とを対照して報告します。書き換えるのは累計の数字だけで、入金そのものには触れません。"
+
+msgid "Each row stores its own currency and the table shows it, but the Collected and Outstanding figures at the top are plain sums written as rupiah. Where any trainee is recorded in another currency the page says so above those figures, with how many - nothing converts between currencies anywhere in this system."
+msgstr "各行は自分の通貨を保持し、表にも表示されますが、上部の「回収済み」と「未収」はルピアとして書かれた単純な合計です。別の通貨で記録された研修生がいる場合、その数とともにその旨が数字の上に示されます。このシステムのどこにも通貨を換算するものはありません。"
+
+msgid "An owing cost set here is stamped with the rupiah entry from the currency master list, found by its code rather than by a fixed number, so it stays right if that list is ever renumbered."
+msgstr "ここで設定する負担額には、通貨マスタのルピアの項目が刻まれます。固定の番号ではなくコードで引き当てるため、マスタの採番がいつか変わっても正しいままです。"
+
+msgid "{0} record(s) were left alone because they are priced in another currency. They are listed on this page with the currency named."
+msgstr "{0} 件は別の通貨で値付けされているため、そのままにしました。このページに通貨名とともに並んでいます。"
+
+msgid "Priced in {0}. The books are kept in {1} and nothing converts between them, so this amount cannot be posted as it stands."
+msgstr "{0} 建てです。帳簿は {1} で保たれ、両者を換算するものはないため、この金額はそのままでは計上できません。"
+
+msgid "All {0} payment(s) for this trainee were recalculated: Rp {1} paid, Rp {2} outstanding."
+msgstr "この研修生の入金 {0} 件をすべて計算し直しました。支払済み Rp {1}、残り Rp {2}。"
+
+msgid "The {0} remaining payment(s) were recalculated: Rp {1} paid, Rp {2} outstanding."
+msgstr "残る入金 {0} 件を計算し直しました。支払済み Rp {1}、残り Rp {2}。"
+
+msgid "Priced in another currency - not posted"
+msgstr "別通貨建て - 未計上"
+
+msgid "The books are kept in {0} and nothing here converts between currencies - a journal entry carries no currency at all. These source records are priced in something else, so their amounts are not added to the figures above and no entry is generated from them. Decide what each one is worth in {0} and record that, or leave it out of the books deliberately."
+msgstr "帳簿は {0} で保たれ、ここには通貨を換算するものがありません。仕訳には通貨がまったく付かないためです。次の元データは別の通貨で値付けされているので、その金額は上の数字に加えられず、仕訳も作られません。それぞれ {0} でいくらに当たるかを決めて記録するか、意図して帳簿の外に置いてください。"
+
+msgid "Amount as recorded"
+msgstr "記録されたままの金額"
+
+msgid "Collected and Outstanding above are plain sums, written as {0}. {1} trainee(s) have their payments recorded in a different currency, and nothing here converts between them - those amounts were added to the two figures as if they were {0}. Each line in the table below shows its own currency."
+msgstr "上の「回収済み」と「未収」は単純な合計で、{0} として書かれています。{1} 名の研修生は別の通貨で入金が記録されており、ここには換算するものがないため、その金額も {0} であるかのように二つの数字へ加算されています。下の表の各行には、それぞれの通貨が表示されます。"
+

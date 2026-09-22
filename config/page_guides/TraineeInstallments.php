@@ -36,6 +36,14 @@ return [
             'screen' => ['/trainee-installments/add', __('Record a Payment')],
         ],
         [
+            'title' => __('Correct a payment'),
+            'who' => __('Accounting staff'),
+            'do' => __('Edit the row, or delete it if it should never have been recorded. The chain is walked again from the opening row, so every later payment gets the accumulated and outstanding figures it should have had.'),
+            'result' => __('The tracking page shows what the remaining payments really come to, and a message names how many rows were recalculated.'),
+            'screen' => ['/trainee-installments', __('All Payments')],
+            'note' => __('Only the running totals are rewritten. The amounts and dates you entered are left exactly as they are.'),
+        ],
+        [
             'title' => __('Read who still owes'),
             'who' => __('Accounting staff'),
             'do' => __('The tracking page shows one line per trainee - paid, outstanding, and how far through they are - taken from their most recent row.'),
@@ -76,8 +84,10 @@ return [
     ],
 
     'cautions' => [
-        __('The running totals are computed from the previous row, so the rows have to stay in order. Deleting a payment from the middle leaves every row after it carrying figures that no longer add up - the later rows are not recalculated.'),
+        __('The running totals are derived, not typed. Correcting or removing a payment in the middle recalculates every row after it, and the page tells you how many were recalculated - so the figures always add up to the payments actually on file.'),
+        __('Chains recorded before that recalculation existed can still be wrong. An administrator can list them with the repair command, which reports what each trainee is shown as owing against what their payments really come to, and rewrites only the running totals - never the payments.'),
         __('Amounts are whole numbers. There are no cents, and a figure entered with a decimal loses it.'),
-        __('A currency is stored against the row, but nothing converts anything and every screen writes the amounts as rupiah. An amount in another currency will be shown as though it were rupiah.'),
+        __('Each row stores its own currency and the table shows it, but the Collected and Outstanding figures at the top are plain sums written as rupiah. Where any trainee is recorded in another currency the page says so above those figures, with how many - nothing converts between currencies anywhere in this system.'),
+        __('An owing cost set here is stamped with the rupiah entry from the currency master list, found by its code rather than by a fixed number, so it stays right if that list is ever renumbered.'),
     ],
 ];
