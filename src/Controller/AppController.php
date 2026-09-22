@@ -185,6 +185,76 @@ class AppController extends Controller
     }
     
     /**
+     * Write one line of the decision trail.
+     *
+     * Nothing in this application used to record who changed what. There was a
+     * `logs` table and no code that wrote to it, so a wrong figure could be
+     * corrected but never traced, and the module named Audit answers a
+     * different question entirely - what a role can reach.
+     *
+     * This records the decisions rather than every save: putting a candidate
+     * forward, promoting, recording a departure or a completed programme,
+     * setting an owing cost, changing what a role may do. Those are the twelve
+     * moments somebody later asks about by name. Logging every column of every
+     * table would bury them.
+     *
+     * The username, the role names and the subject's label are stored as text,
+     * not looked up later through an id. A trail that resolves its ids at
+     * reading time says nothing once the user or the candidate is deleted -
+     * and deletion is exactly when the question gets asked.
+     *
+     * It never throws and never blocks: a decision that was made must not fail
+     * to save because the trail could not be written. A trail that cannot be
+     * written is a log line, not a refusal.
+     *
+     * @param string $action Short dotted name, e.g. 'candidate.propose'.
+     * @param array $subject ['type' => 'Candidate', 'id' => 12, 'label' => 'Budi'].
+     * @param array $detail Anything else worth keeping, stored as JSON.
+     * @return void
+     */
+    protected function recordDecision($action, array $subject = [], array $detail = [])
+    {
+        try {
+            $logs = \Cake\ORM\TableRegistry::getTableLocator()->get('Audit');
+            $schema = $logs->getSchema();
+            if (!$schema->hasColumn('action')) {
+                // The installation has not run bin/cake add_audit_log yet.
+                return;
+            }
+
+            $roles = isset($this->currentUser['role_names'])
+                ? (array)$this->currentUser['role_names']
+                : [];
+
+            $row = [
+                'action' => (string)$action,
+                'created' => new \Cake\I18n\FrozenTime(),
+            ];
+
+            $values = [
+                'user_id' => $this->Auth ? $this->Auth->user('id') : null,
+                'username' => $this->Auth ? $this->Auth->user('username') : null,
+                'role_names' => $roles ? implode(',', $roles) : null,
+                'subject_type' => isset($subject['type']) ? (string)$subject['type'] : null,
+                'subject_id' => isset($subject['id']) ? (int)$subject['id'] : null,
+                'subject_label' => isset($subject['label']) ? mb_substr((string)$subject['label'], 0, 255) : null,
+                'detail' => $detail ? json_encode($detail, JSON_UNESCAPED_UNICODE) : null,
+                'ip' => $this->request ? $this->request->clientIp() : null,
+            ];
+            foreach ($values as $column => $value) {
+                if ($schema->hasColumn($column)) {
+                    $row[$column] = $value;
+                }
+            }
+
+            $entity = $logs->newEntity($row, ['validate' => false]);
+            $logs->save($entity, ['checkRules' => false, 'validate' => false]);
+        } catch (\Throwable $e) {
+            $this->log('recordDecision failed for ' . $action . ': ' . $e->getMessage(), 'error');
+        }
+    }
+
+    /**
      * Check if current user has a specific role
      * 
      * @param string $roleName Role name to check

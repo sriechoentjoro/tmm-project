@@ -242,4 +242,21 @@ $roleBadgeColors = [
 
 </div>
 
+<?php
+// The trail is the other half of this module and has no menu row of its own,
+// so the link lives here. Only an administrator can open it.
+$viewerRoles = (array)$this->request->getSession()->read('Auth.User.role_names');
+?>
+<?php if (in_array('administrator', $viewerRoles, true)) : ?>
+    <div style="margin: 18px 0; padding: 14px 18px; background: #fff; border: 1px solid #e6ecf1; border-left: 5px solid #455a64; border-radius: 12px; font-size: 13.5px; color: #46586b;">
+        <strong style="color:#2c3e50;"><?= __('Looking for who changed what?') ?></strong>
+        <?= __('This page answers what a role can reach. The decision trail answers who made which call.') ?>
+        <?= $this->Html->link(
+            '<i class="fas fa-clipboard-list"></i> ' . __('Open the Decision Trail'),
+            ['action' => 'trail'],
+            ['escape' => false, 'style' => 'display:inline-flex;align-items:center;gap:7px;margin-left:8px;padding:7px 14px;border-radius:8px;background:#455a64;color:#fff !important;text-decoration:none !important;font-weight:600;']
+        ) ?>
+    </div>
+<?php endif; ?>
+
 <?= $this->element('process_flow_help') ?>

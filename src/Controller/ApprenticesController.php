@@ -689,6 +689,9 @@ class ApprenticesController extends AppController
         $this->_stamp($apprentice, 'departed');
 
         if ($this->_saveFlow($apprentice)) {
+            $this->recordDecision('apprentice.markDeparted', [
+                'type' => 'Apprentice', 'id' => $apprentice->id, 'label' => $apprentice->name,
+            ], ['tmm_code' => $apprentice->tmm_code, 'mcu_result' => $apprentice->get('mcu_result')]);
             $this->Flash->success(__('"{0}" is recorded as having left for Japan.', $apprentice->name));
         } else {
             $this->Flash->error(__('"{0}" could not be recorded as departed. Please, try again.', $apprentice->name));
@@ -724,6 +727,9 @@ class ApprenticesController extends AppController
         }
 
         if ($this->_saveFlow($apprentice)) {
+            $this->recordDecision('apprentice.undoDeparted', [
+                'type' => 'Apprentice', 'id' => $apprentice->id, 'label' => $apprentice->name,
+            ], ['tmm_code' => $apprentice->tmm_code]);
             $this->Flash->success(__('The departure recorded for "{0}" has been taken back.', $apprentice->name));
         } else {
             $this->Flash->error(__('The departure for "{0}" could not be taken back. Please, try again.', $apprentice->name));
@@ -768,6 +774,9 @@ class ApprenticesController extends AppController
         $this->_stamp($apprentice, 'completed');
 
         if ($this->_saveFlow($apprentice)) {
+            $this->recordDecision('apprentice.markCompleted', [
+                'type' => 'Apprentice', 'id' => $apprentice->id, 'label' => $apprentice->name,
+            ], ['tmm_code' => $apprentice->tmm_code]);
             $this->Flash->success(__('"{0}" is recorded as having completed the programme.', $apprentice->name));
         } else {
             $this->Flash->error(__('"{0}" could not be recorded as completed. Please, try again.', $apprentice->name));
@@ -801,6 +810,9 @@ class ApprenticesController extends AppController
         $this->_stamp($apprentice, 'completed', true);
 
         if ($this->_saveFlow($apprentice)) {
+            $this->recordDecision('apprentice.undoCompleted', [
+                'type' => 'Apprentice', 'id' => $apprentice->id, 'label' => $apprentice->name,
+            ], ['tmm_code' => $apprentice->tmm_code]);
             $this->Flash->success(__('The completion recorded for "{0}" has been taken back.', $apprentice->name));
         } else {
             $this->Flash->error(__('The completion for "{0}" could not be taken back. Please, try again.', $apprentice->name));

@@ -95,6 +95,10 @@ class MenusController extends AppController
             $ga = '*';
         }
 
+        $this->recordDecision('permission.toggleRoleAccess', [
+            'type' => 'Menu', 'id' => $menuId,
+        ], ['role_id' => (int)$roleId, 'active' => (bool)$nowActive, 'granted_actions' => $ga]);
+
         return $this->response
             ->withType('application/json')
             ->withStringBody(json_encode([
@@ -122,8 +126,13 @@ class MenusController extends AppController
                 ->withStringBody(json_encode(['error' => 'not found']));
         }
 
+        $was = $row->getOriginal('granted_actions');
         $row->granted_actions = $ga === '' ? '*' : $ga;
         $RoleMenus->save($row);
+
+        $this->recordDecision('permission.setGrantedActions', [
+            'type' => 'Menu', 'id' => $menuId,
+        ], ['role_id' => (int)$roleId, 'from' => $was, 'to' => $row->granted_actions]);
 
         return $this->response
             ->withType('application/json')

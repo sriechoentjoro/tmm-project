@@ -18279,3 +18279,89 @@ msgstr "Namanyalah yang diuji kodenya, bukan uraiannya. Mengganti nama sebuah ro
 
 msgid "{0} were skipped because the target role already has that menu - switched on or off. Those assignments were left exactly as they were."
 msgstr "{0} dilewati karena role tujuan sudah memegang menu itu - dinyalakan atau tidak. Penugasan itu dibiarkan persis seperti adanya."
+
+# ── The decision trail ──────────────────────────
+
+msgid "A line keeps the username and the subject's name as text, written at the moment of the decision. That is deliberate: the line still reads correctly after the account or the candidate is deleted, which is exactly when somebody asks."
+msgstr "Sebuah baris menyimpan nama pengguna dan nama subjeknya sebagai teks, ditulis pada saat keputusannya diambil. Itu disengaja: barisnya tetap terbaca benar setelah akun atau kandidatnya dihapus, dan justru saat itulah orang bertanya."
+
+msgid "A question about a past decision has an answer that does not depend on anybody remembering."
+msgstr "Pertanyaan tentang keputusan masa lalu punya jawaban yang tidak bergantung pada ingatan siapa pun."
+
+msgid "About"
+msgstr "Tentang"
+
+msgid "Decision"
+msgstr "Keputusan"
+
+msgid "Decision Trail"
+msgstr "Jejak Keputusan"
+
+msgid "Decisions recorded"
+msgstr "Keputusan tercatat"
+
+msgid "Everything on the features page comes from the menu assignments. Change one and that page changes with it - and the change itself is written to the trail."
+msgstr "Semua di halaman fitur berasal dari penugasan menu. Ubah satu, dan halaman itu ikut berubah - dan perubahannya sendiri tertulis di jejaknya."
+
+msgid "It starts from the day the table was prepared. Nothing before that was recorded, and nothing can be recovered - the earlier decisions are genuinely gone."
+msgstr "Ia dimulai dari hari tabelnya disiapkan. Tidak ada yang tercatat sebelum itu, dan tidak ada yang bisa dipulihkan - keputusan-keputusan sebelumnya memang benar-benar hilang."
+
+msgid "Looking for who changed what?"
+msgstr "Mencari siapa mengubah apa?"
+
+msgid "Nothing can be recorded until the table is prepared."
+msgstr "Tidak ada yang bisa dicatat sampai tabelnya disiapkan."
+
+msgid "Nothing recorded yet. The trail starts from the next decision somebody makes."
+msgstr "Belum ada yang tercatat. Jejaknya dimulai dari keputusan berikutnya yang diambil seseorang."
+
+msgid "Only an administrator can read the decision trail."
+msgstr "Hanya administrator yang bisa membaca jejak keputusannya."
+
+msgid "Open the Decision Trail"
+msgstr "Buka Jejak Keputusan"
+
+msgid "Page {{page}} of {{pages}}, showing {{current}} of {{count}} total"
+msgstr "Halaman {{page}} dari {{pages}}, menampilkan {{current}} dari {{count}} total"
+
+msgid "People who made them"
+msgstr "Orang yang mengambilnya"
+
+msgid "Read who decided what"
+msgstr "Baca siapa memutuskan apa"
+
+msgid "Recording a departure or the end of a programme writes a line naming who made the call."
+msgstr "Mencatat keberangkatan atau berakhirnya program menulis satu baris yang menyebut siapa yang mengambil keputusannya."
+
+msgid "The decision trail keeps the username as text at the moment of each decision, so the line still names the person after the account is deleted. Ordinary edits are not recorded - only the twelve decisions."
+msgstr "Jejak keputusannya menyimpan nama pengguna sebagai teks pada saat tiap keputusan, sehingga barisnya tetap menyebut orangnya setelah akunnya dihapus. Suntingan biasa tidak dicatat - hanya kedua belas keputusan itu."
+
+msgid "The table it writes to has not been prepared on this installation, so decisions made until then leave no line. An administrator should run {0}."
+msgstr "Tabel tempatnya menulis belum disiapkan di instalasi ini, jadi keputusan yang diambil sampai saat itu tidak meninggalkan baris. Administrator perlu menjalankan {0}."
+
+msgid "The trail is not recording yet."
+msgstr "Jejaknya belum merekam."
+
+msgid "The trail lists the decisions in the order they were made, and can be narrowed to one kind. Each line names the person, the roles they held at the time, what they decided and about whom."
+msgstr "Jejaknya mendaftar keputusan menurut urutan diambilnya, dan bisa dipersempit ke satu jenis. Tiap baris menyebut orangnya, role yang dipegangnya saat itu, apa yang diputuskannya, dan tentang siapa."
+
+msgid "The trail records decisions, not edits. Correcting a name, a date or an amount on an ordinary form leaves no line - only the twelve moments where somebody decides something do. A trail of every column change would bury the decisions it exists to surface."
+msgstr "Jejaknya mencatat keputusan, bukan suntingan. Mengoreksi nama, tanggal, atau jumlah pada formulir biasa tidak meninggalkan baris - hanya kedua belas momen ketika seseorang memutuskan sesuatu yang meninggalkannya. Jejak atas tiap perubahan kolom akan mengubur keputusan yang justru ingin ditampilkannya."
+
+msgid "This page answers what a role can reach. The decision trail answers who made which call."
+msgstr "Halaman ini menjawab apa yang bisa dijangkau sebuah role. Jejak keputusannya menjawab siapa yang mengambil keputusan yang mana."
+
+msgid "Twelve moments write a line: putting a candidate forward and taking it back, the two promotions, recording a departure or a completed programme and taking either back, setting an owing cost, and the three permission changes."
+msgstr "Dua belas momen menulis satu baris: mengajukan kandidat dan menariknya kembali, kedua promosinya, mencatat keberangkatan atau program yang selesai dan menarik kembali salah satunya, menetapkan biaya terutang, serta ketiga perubahan izinnya."
+
+msgid "Two pages under one name. The features page reads the access chain back for you - it shows the person signed in every screen their roles reach, grouped by category, so the answer to \"am I supposed to be able to do this\" is on one page instead of being pieced together from the permission grid. The decision trail answers the other question the word audit suggests: who made which call, when, and about whom."
+msgstr "Dua halaman dalam satu nama. Halaman fiturnya membacakan kembali rantai aksesnya untuk Anda - ia menampilkan kepada orang yang sedang masuk tiap layar yang dijangkau role-nya, dikelompokkan per kategori, sehingga jawaban atas \"apakah saya memang boleh melakukan ini\" ada di satu halaman, bukan disusun potongan demi potongan dari grid izinnya. Jejak keputusannya menjawab pertanyaan lain yang disiratkan kata audit: siapa mengambil keputusan yang mana, kapan, dan tentang siapa."
+
+msgid "What your role can reach, and who made which decision."
+msgstr "Apa yang bisa dijangkau role Anda, dan siapa mengambil keputusan yang mana."
+
+msgid "Who made each call, when, and about whom. Twelve moments in the pipeline write a line here; ordinary edits do not, so what is left is the decisions somebody may later be asked about."
+msgstr "Siapa mengambil tiap keputusan, kapan, dan tentang siapa. Dua belas momen dalam alurnya menulis satu baris di sini; suntingan biasa tidak, sehingga yang tersisa adalah keputusan yang mungkin ditanyakan kepada seseorang di kemudian hari."
+
+msgid "unknown"
+msgstr "tidak diketahui"

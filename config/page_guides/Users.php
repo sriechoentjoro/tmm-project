@@ -67,6 +67,6 @@ return [
 
     'cautions' => [
         __('Deleting an account does not remove what that person recorded. Journals, proposals and decisions keep the id of a user who no longer exists, and those screens then show a number instead of a name.'),
-        __('Nothing in this application records who changed what. An account is the only trace of who a person is, not of what they did.'),
+        __('The decision trail keeps the username as text at the moment of each decision, so the line still names the person after the account is deleted. Ordinary edits are not recorded - only the twelve decisions.'),
     ],
 ];

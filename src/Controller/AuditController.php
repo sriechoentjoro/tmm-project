@@ -107,6 +107,99 @@ class AuditController extends AppController
         $this->set(compact('guide', 'roleNames', 'displayName'));
     }
 
+    /**
+     * Let the trail be reached without a menu row existing for it.
+     *
+     * AppController::isAuthorized() asks hasPermission(), which reads
+     * role_menus.granted_actions - and "*" there expands to the menu's own
+     * action plus index and view. A brand-new action is in nobody's granted
+     * list, so without this the page would refuse everybody until an
+     * administrator remembered to add a menu entry and grant it.
+     *
+     * It is deliberately narrow: only an administrator reads the trail, which
+     * is the same rule the rest of this module already follows.
+     *
+     * @param array $user The authenticated user.
+     * @return bool
+     */
+    public function isAuthorized($user)
+    {
+        $this->currentUser = $user;
+
+        if ($this->request->getParam('action') === 'trail') {
+            if ($this->hasRole('administrator')) {
+                return true;
+            }
+
+            $this->handleUnauthorizedAccess('trail', __('Only an administrator can read the decision trail.'));
+
+            return false;
+        }
+
+        return parent::isAuthorized($user);
+    }
+
+    /**
+     * The decision trail: who made which call, when, and about whom.
+     *
+     * This is the page the module's name promised and did not have. It reads
+     * the rows recordDecision() writes at the twelve points in the pipeline
+     * where somebody decides something, rather than every save - a trail of
+     * every column change would bury the decisions it exists to surface.
+     *
+     * @return \Cake\Http\Response|null
+     */
+    public function trail()
+    {
+        $logs = \Cake\ORM\TableRegistry::getTableLocator()->get('Audit');
+
+        $ready = false;
+        try {
+            $ready = $logs->getSchema()->hasColumn('action');
+        } catch (\Exception $e) {
+            $ready = false;
+        }
+
+        $entries = [];
+        $actions = [];
+        $summary = ['total' => 0, 'people' => 0, 'today' => 0];
+        $filterAction = (string)$this->request->getQuery('action');
+
+        if ($ready) {
+            try {
+                $query = $logs->find()->order(['id' => 'DESC']);
+                if ($filterAction !== '') {
+                    $query->where(['action' => $filterAction]);
+                }
+                $this->paginate = ['limit' => 100];
+                $entries = $this->paginate($query);
+
+                foreach ($logs->find()
+                    ->select(['action'])
+                    ->enableHydration(false)
+                    ->distinct(['action'])
+                    ->order(['action' => 'ASC']) as $row) {
+                    if (!empty($row['action'])) {
+                        $actions[$row['action']] = $row['action'];
+                    }
+                }
+
+                $summary['total'] = $logs->find()->count();
+                $summary['people'] = $logs->find()->distinct(['username'])->count();
+                $summary['today'] = $logs->find()
+                    ->where(['created >=' => (new \Cake\I18n\FrozenTime())->startOfDay()])
+                    ->count();
+            } catch (\Exception $e) {
+                $this->log('audit trail could not be read: ' . $e->getMessage(), 'error');
+                $ready = false;
+            }
+        }
+
+        $this->set(compact('entries', 'actions', 'summary', 'ready', 'filterAction'));
+
+        return null;
+    }
+
     public function view($id = null)
     {
         // Redirect to index — individual log view no longer used

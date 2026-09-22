@@ -1178,6 +1178,10 @@ class TraineesController extends AppController
         $trainee->is_training_pass = 1;
         $this->Trainees->save($trainee);
 
+        $this->recordDecision('trainee.promoteToApprentice', [
+            'type' => 'Trainee', 'id' => $trainee->id, 'label' => $trainee->name,
+        ], ['tmm_code' => $trainee->tmm_code]);
+
         $this->Flash->success(__('"{0}" has been promoted to apprentice. All profile data copied successfully.', $trainee->name));
         return $this->redirect(['action' => 'promoteToApprentice']);
 

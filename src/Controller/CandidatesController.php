@@ -1799,6 +1799,9 @@ class CandidatesController extends AppController
         // candidate with some unrelated legacy validation problem would
         // otherwise be impossible to put forward for a reason nobody could see.
         if ($this->Candidates->save($candidate, ['checkRules' => false, 'validate' => false])) {
+            $this->recordDecision('candidate.propose', [
+                'type' => 'Candidate', 'id' => $candidate->id, 'label' => $candidate->name,
+            ], ['mcu_result' => $candidate->get('mcu_result')]);
             $this->Flash->success(__('"{0}" has been put forward. Recruitment will see them on the promotion list.', $candidate->name));
         } else {
             $this->Flash->error(__('"{0}" could not be put forward. Please, try again.', $candidate->name));
@@ -1845,6 +1848,9 @@ class CandidatesController extends AppController
         }
 
         if ($this->Candidates->save($candidate, ['checkRules' => false, 'validate' => false])) {
+            $this->recordDecision('candidate.withdrawProposal', [
+                'type' => 'Candidate', 'id' => $candidate->id, 'label' => $candidate->name,
+            ]);
             $this->Flash->success(__('"{0}" has been taken back off the promotion list.', $candidate->name));
         } else {
             $this->Flash->error(__('"{0}" could not be taken back. Please, try again.', $candidate->name));
@@ -2143,6 +2149,10 @@ class CandidatesController extends AppController
         // Mark candidate as promoted
         $candidate->is_candidate_pass = 1;
         $this->Candidates->save($candidate);
+
+        $this->recordDecision('candidate.promoteToTrainee', [
+            'type' => 'Candidate', 'id' => $candidate->id, 'label' => $candidate->name,
+        ], ['trainee_id' => $trainee->id]);
 
         $this->Flash->success(__('"{0}" has been promoted to trainee. All profile data copied successfully.', $candidate->name));
         return $this->redirect(['action' => 'promoteToTrainee']);

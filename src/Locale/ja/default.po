@@ -18279,3 +18279,89 @@ msgstr "コードが照合するのは名前であって、説明ではありま
 
 msgid "{0} were skipped because the target role already has that menu - switched on or off. Those assignments were left exactly as they were."
 msgstr "{0} 件は、複写先のロールが既にそのメニューを持っていたため飛ばしました。有効か無効かは問いません。それらの割り当ては、そのままの状態で残されています。"
+
+# ── The decision trail ──────────────────────────
+
+msgid "A line keeps the username and the subject's name as text, written at the moment of the decision. That is deliberate: the line still reads correctly after the account or the candidate is deleted, which is exactly when somebody asks."
+msgstr "各行は、利用者名と対象者の名前を、判断が下された時点のテキストとして保持します。これは意図的です。アカウントや候補者が削除された後でも、その行は正しく読めます。人が尋ねてくるのは、まさにそのときだからです。"
+
+msgid "A question about a past decision has an answer that does not depend on anybody remembering."
+msgstr "過去の判断についての問いに、誰かの記憶に頼らない答えが用意されます。"
+
+msgid "About"
+msgstr "対象"
+
+msgid "Decision"
+msgstr "判断"
+
+msgid "Decision Trail"
+msgstr "判断の記録"
+
+msgid "Decisions recorded"
+msgstr "記録された判断"
+
+msgid "Everything on the features page comes from the menu assignments. Change one and that page changes with it - and the change itself is written to the trail."
+msgstr "機能のページに出るものはすべてメニューの割り当てに由来します。割り当てを変えればそのページも変わり、その変更自体も記録に残ります。"
+
+msgid "It starts from the day the table was prepared. Nothing before that was recorded, and nothing can be recovered - the earlier decisions are genuinely gone."
+msgstr "記録は、表が用意された日から始まります。それ以前は何も記録されておらず、取り戻すこともできません。それ以前の判断は本当に失われています。"
+
+msgid "Looking for who changed what?"
+msgstr "誰が何を変えたかをお探しですか。"
+
+msgid "Nothing can be recorded until the table is prepared."
+msgstr "表が用意されるまで、何も記録できません。"
+
+msgid "Nothing recorded yet. The trail starts from the next decision somebody makes."
+msgstr "まだ記録はありません。次に誰かが判断を下した時点から始まります。"
+
+msgid "Only an administrator can read the decision trail."
+msgstr "判断の記録を読めるのは管理者だけです。"
+
+msgid "Open the Decision Trail"
+msgstr "判断の記録を開く"
+
+msgid "Page {{page}} of {{pages}}, showing {{current}} of {{count}} total"
+msgstr "{{pages}} ページ中 {{page}} ページ目、全 {{count}} 件中 {{current}} 件を表示"
+
+msgid "People who made them"
+msgstr "判断した人数"
+
+msgid "Read who decided what"
+msgstr "誰が何を決めたかを読む"
+
+msgid "Recording a departure or the end of a programme writes a line naming who made the call."
+msgstr "出発やプログラムの終了を記録すると、誰がその判断を下したかを示す行が書かれます。"
+
+msgid "The decision trail keeps the username as text at the moment of each decision, so the line still names the person after the account is deleted. Ordinary edits are not recorded - only the twelve decisions."
+msgstr "判断の記録は、各判断の時点の利用者名をテキストとして保持します。そのため、アカウントを削除した後もその行は本人の名前を示し続けます。通常の編集は記録されません。記録されるのは十二の判断だけです。"
+
+msgid "The table it writes to has not been prepared on this installation, so decisions made until then leave no line. An administrator should run {0}."
+msgstr "書き込み先の表がこのインストールではまだ用意されていないため、それまでに下された判断は行を残しません。管理者は {0} を実行してください。"
+
+msgid "The trail is not recording yet."
+msgstr "記録はまだ始まっていません。"
+
+msgid "The trail lists the decisions in the order they were made, and can be narrowed to one kind. Each line names the person, the roles they held at the time, what they decided and about whom."
+msgstr "記録は、判断が下された順に並び、一種類に絞り込めます。各行は、その人、そのときに持っていたロール、何を決めたか、そして誰についてかを示します。"
+
+msgid "The trail records decisions, not edits. Correcting a name, a date or an amount on an ordinary form leaves no line - only the twelve moments where somebody decides something do. A trail of every column change would bury the decisions it exists to surface."
+msgstr "記録に残るのは判断であって、編集ではありません。通常のフォームで名前や日付や金額を直しても行は残りません。残るのは、誰かが何かを決める十二の場面だけです。すべての列の変更を記録すれば、本来浮かび上がらせたい判断が埋もれてしまいます。"
+
+msgid "This page answers what a role can reach. The decision trail answers who made which call."
+msgstr "このページは、ロールが何に到達できるかに答えます。判断の記録は、誰がどの判断を下したかに答えます。"
+
+msgid "Twelve moments write a line: putting a candidate forward and taking it back, the two promotions, recording a departure or a completed programme and taking either back, setting an owing cost, and the three permission changes."
+msgstr "行を書くのは十二の場面です。候補者の推薦とその取り消し、二つの昇格、出発や修了の記録とその取り消し、負担額の設定、そして三つの権限変更です。"
+
+msgid "Two pages under one name. The features page reads the access chain back for you - it shows the person signed in every screen their roles reach, grouped by category, so the answer to \"am I supposed to be able to do this\" is on one page instead of being pieced together from the permission grid. The decision trail answers the other question the word audit suggests: who made which call, when, and about whom."
+msgstr "一つの名前のもとにある二つのページです。機能のページは、権限の連なりを読み解いて返します。サインインしている本人のロールが到達できる画面を、カテゴリごとにまとめて示すため、「これは自分がやってよいことか」の答えが、権限表をつなぎ合わせなくても一ページで得られます。判断の記録は、監査という言葉が示すもう一つの問いに答えます。誰が、いつ、誰について、どの判断を下したかです。"
+
+msgid "What your role can reach, and who made which decision."
+msgstr "自分のロールが到達できる範囲と、誰がどの判断を下したかです。"
+
+msgid "Who made each call, when, and about whom. Twelve moments in the pipeline write a line here; ordinary edits do not, so what is left is the decisions somebody may later be asked about."
+msgstr "誰が、いつ、誰について、どの判断を下したか。工程上の十二の場面がここに行を書きます。通常の編集は書きません。そのため残るのは、後から説明を求められうる判断だけです。"
+
+msgid "unknown"
+msgstr "不明"

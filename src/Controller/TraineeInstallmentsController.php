@@ -269,6 +269,9 @@ class TraineeInstallmentsController extends AppController
                 'is_paid_off' => 0,
             ]);
             if ($this->TraineeInstallments->save($opening)) {
+                $this->recordDecision('installment.setOwingCost', [
+                    'type' => 'Trainee', 'id' => $traineeId,
+                ], ['full_payment_amount' => $amount]);
                 $this->Flash->success(__('Owing cost set: Rp {0}. Payments can now be recorded.',
                     number_format($amount, 0, ',', '.')));
             } else {

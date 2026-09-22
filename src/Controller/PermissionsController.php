@@ -139,6 +139,10 @@ class PermissionsController extends AppController
             $this->Flash->success(__('Cloned {0} menu assignment(s).', $cloned));
         }
 
+        $this->recordDecision('permission.cloneAccess', [
+            'type' => 'Role', 'id' => $toRoleId,
+        ], ['from_role_id' => $fromRoleId, 'cloned' => $cloned, 'with_explicit_actions' => $withActions]);
+
         $skipped = count($sourceRows) - $cloned;
         if ($skipped > 0) {
             $this->Flash->warning(__('{0} were skipped because the target role already has that menu - switched on or off. Those assignments were left exactly as they were.', $skipped));
