@@ -135,3 +135,5 @@ $reportGroups = [
 .report-card p { margin: 0 0 10px 0; color: #6c757d; font-size: 13px; flex: 1; }
 .report-open { color: #667eea; font-size: 13px; font-weight: bold; }
 </style>
+
+<?= $this->element('process_flow_help') ?>

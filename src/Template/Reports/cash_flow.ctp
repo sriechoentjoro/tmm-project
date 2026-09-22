@@ -189,3 +189,5 @@ $monthLabel = function ($ym) {
 .text-success { color: #28a745; }
 .text-danger { color: #dc3545; }
 </style>
+
+<?= $this->element('process_flow_help') ?>

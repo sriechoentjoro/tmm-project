@@ -432,3 +432,5 @@ function aaFilter() {
 }
 </script>
 <?php $this->end(); ?>
+
+<?= $this->element('process_flow_help') ?>

@@ -401,3 +401,5 @@ if ($isEdit) {
 .text-success { color: #28a745; }
 .text-info { color: #17a2b8; }
 </style>
+
+<?= $this->element('process_flow_help') ?>

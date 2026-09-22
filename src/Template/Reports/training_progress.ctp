@@ -407,3 +407,5 @@ $batchStatusMeta = [
   </table>
   <?php endif; ?>
 </div>
+
+<?= $this->element('process_flow_help') ?>

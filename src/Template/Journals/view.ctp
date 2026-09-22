@@ -165,3 +165,5 @@ $typeClass = [
 .badge-warning { background: #ffc107; color: #333; }
 .badge-danger { background: #dc3545; color: white; }
 </style>
+
+<?= $this->element('process_flow_help') ?>

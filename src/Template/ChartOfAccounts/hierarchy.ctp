@@ -78,3 +78,5 @@ $money = function ($v) { return number_format((float)$v, 0); };
 <?php if (empty($grouped)): ?>
 <p style="color:#6c757d"><?= __('No accounts defined yet.') ?></p>
 <?php endif; ?>
+
+<?= $this->element('process_flow_help') ?>

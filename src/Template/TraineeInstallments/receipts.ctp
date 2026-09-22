@@ -209,3 +209,5 @@ $formatDate = function ($value) {
     });
 })();
 </script>
+
+<?= $this->element('process_flow_help') ?>

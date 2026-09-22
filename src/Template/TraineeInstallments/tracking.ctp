@@ -403,3 +403,5 @@ $hasFilter = $filterTrainee || $filterPaid === '1' || $filterPaid === '0';
     });
 })();
 </script>
+
+<?= $this->element('process_flow_help') ?>

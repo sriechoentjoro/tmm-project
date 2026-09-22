@@ -17356,3 +17356,365 @@ msgstr "Kerjakan daftar yang masih kurang"
 
 msgid "You can print one card or a whole intake from the same page."
 msgstr "Anda bisa mencetak satu kartu atau satu intake penuh dari halaman yang sama."
+
+# ── Page guides: accounting and reports ───────────
+
+msgid "A currency is stored against the row, but nothing converts anything and every screen writes the amounts as rupiah. An amount in another currency will be shown as though it were rupiah."
+msgstr "Mata uang disimpan pada barisnya, tetapi tidak ada yang mengonversi apa pun dan tiap layar menuliskan jumlahnya sebagai rupiah. Jumlah dalam mata uang lain akan ditampilkan seolah-olah rupiah."
+
+msgid "A journal entry has a date, a reference, a description and two or more lines, and its debits and its credits have to come to the same total. Most of them do not need typing: three things that happen elsewhere in the application - an installment paid, a ticket bought, a document cost settled - are read straight off their own screens and booked for you, each matched by its reference so the same event can never be booked twice. What is left is typed by hand on the adjustments page."
+msgstr "Satu entri jurnal punya tanggal, referensi, uraian, dan dua baris atau lebih, dan debit serta kreditnya harus berjumlah sama. Sebagian besar tidak perlu diketik: tiga hal yang terjadi di tempat lain dalam aplikasi ini - angsuran dibayar, tiket dibeli, biaya dokumen dilunasi - dibaca langsung dari layarnya masing-masing dan dibukukan untuk Anda, tiap satunya dicocokkan lewat referensinya sehingga satu kejadian tidak mungkin terbukukan dua kali. Sisanya diketik manual di halaman penyesuaian."
+
+msgid "A payment recorded against a trainee appears on the auto-generated page as cash in against training revenue."
+msgstr "Pembayaran yang dicatat atas seorang trainee muncul di halaman otomatis sebagai kas masuk berlawanan pendapatan training."
+
+msgid "A record of who has paid in full."
+msgstr "Catatan siapa yang sudah membayar lunas."
+
+msgid "A source whose two accounts are not both in the chart of accounts is skipped silently. The page says only that nothing was generated, not which account is missing."
+msgstr "Sumber yang kedua akunnya tidak sama-sama ada di daftar akun dilewati diam-diam. Halamannya hanya menyatakan tidak ada yang dibuat, bukan akun mana yang hilang."
+
+msgid "A ticket with a price on it appears as a transport expense against accounts payable. The price is taken as it stands, and the entry is dated the day you generate it, not the day the ticket was bought."
+msgstr "Tiket yang ada harganya muncul sebagai beban transportasi berlawanan utang usaha. Harganya diambil apa adanya, dan entrinya bertanggal hari Anda membuatnya, bukan hari tiketnya dibeli."
+
+msgid "A trainee is given one opening figure - the whole cost they owe - and then a row for every payment that comes in. Each payment row is worked out from the one before it: the accumulated total goes up, the unpaid balance comes down, and when the balance reaches zero the row is marked settled and appears on the receipts page. Nothing is typed twice and no running total is typed at all, so the balance cannot drift from the payments behind it."
+msgstr "Seorang trainee diberi satu angka pembuka - seluruh biaya yang terutang - lalu satu baris untuk tiap pembayaran yang masuk. Tiap baris pembayaran dihitung dari baris sebelumnya: total terkumpulnya naik, sisa yang belum dibayar turun, dan ketika sisanya mencapai nol barisnya ditandai lunas dan muncul di halaman kuitansi. Tidak ada yang diketik dua kali dan tidak ada total berjalan yang diketik sama sekali, sehingga saldonya tidak mungkin melenceng dari pembayaran di belakangnya."
+
+msgid "Account balances and reports"
+msgstr "Saldo akun dan laporan"
+
+msgid "Account created here"
+msgstr "Akun dibuat di sini"
+
+msgid "Accounting staff"
+msgstr "Staf akuntansi"
+
+msgid "Accumulated up, outstanding down"
+msgstr "Terkumpul naik, sisa turun"
+
+msgid "Add the account"
+msgstr "Tambahkan akunnya"
+
+msgid "Adjustments"
+msgstr "Penyesuaian"
+
+msgid "Amounts are booked at face value with no currency attached. A ticket priced in yen and one priced in rupiah are added together as if they were the same money."
+msgstr "Jumlahnya dibukukan apa adanya tanpa mata uang yang melekat. Tiket berharga yen dan tiket berharga rupiah dijumlahkan seolah uangnya sama."
+
+msgid "Amounts are whole numbers. There are no cents, and a figure entered with a decimal loses it."
+msgstr "Jumlahnya bilangan bulat. Tidak ada sen, dan angka yang dimasukkan dengan desimal akan kehilangan desimalnya."
+
+msgid "An account with no type behaves as its own group and is left out of the reports, which ask for named types."
+msgstr "Akun tanpa jenis berlaku sebagai kelompoknya sendiri dan tidak masuk laporan, yang meminta jenis yang bernama."
+
+msgid "An entry can be reopened and rewritten: the lines are replaced and the totals recalculated in one transaction, so a half-rewritten entry cannot be left behind."
+msgstr "Sebuah entri bisa dibuka ulang dan ditulis ulang: baris-barisnya diganti dan totalnya dihitung ulang dalam satu transaksi, sehingga entri yang setengah tertulis ulang tidak mungkin tertinggal."
+
+msgid "An entry is booked from the source amount as it stood at that moment. Changing the installment, the ticket price or the document cost afterwards does not change the journal and does not bring the source back onto the pending list - the correction has to be typed."
+msgstr "Entri dibukukan dari jumlah sumbernya sebagaimana adanya pada saat itu. Mengubah angsurannya, harga tiketnya, atau biaya dokumennya setelah itu tidak mengubah jurnalnya dan tidak mengembalikan sumbernya ke daftar tertunda - koreksinya harus diketik."
+
+msgid "An entry that balances, whatever it is for."
+msgstr "Entri yang seimbang, untuk keperluan apa pun."
+
+msgid "Anyone with access"
+msgstr "Siapa pun yang punya akses"
+
+msgid "Anything else"
+msgstr "Selain itu"
+
+msgid "Auto-Generated"
+msgstr "Jurnal Otomatis"
+
+msgid "Balance accumulates"
+msgstr "Saldonya terkumpul"
+
+msgid "Balance sheet"
+msgstr "Neraca"
+
+msgid "Bookable as a journal entry"
+msgstr "Bisa dibukukan sebagai entri jurnal"
+
+msgid "Candidates, trainees, apprentices"
+msgstr "Kandidat, trainee, apprentice"
+
+msgid "Chart of accounts: the type"
+msgstr "Daftar akun: jenisnya"
+
+msgid "Choose the trainee and enter the amount received. The accumulated and outstanding figures are worked out for you from the previous row."
+msgstr "Pilih trainee-nya dan masukkan jumlah yang diterima. Angka terkumpul dan sisanya dihitungkan untuk Anda dari baris sebelumnya."
+
+msgid "Choose the trainee and enter the whole cost once. This writes an opening row of zero paid, with the full amount outstanding."
+msgstr "Pilih trainee-nya dan masukkan seluruh biayanya sekali. Ini menulis baris pembuka dengan nol terbayar dan seluruh jumlahnya masih terutang."
+
+msgid "Count the pipeline"
+msgstr "Hitung alurnya"
+
+msgid "Deleting an account that journal lines already name leaves those lines pointing at nothing, and the amount disappears from every total. Nothing stops the deletion."
+msgstr "Menghapus akun yang sudah disebut baris jurnal membuat baris-baris itu menunjuk ke ketiadaan, dan jumlahnya lenyap dari semua total. Tidak ada yang menghentikan penghapusan itu."
+
+msgid "Deleting an entry frees its reference, so the source it came from reappears on the pending list and can be booked again."
+msgstr "Menghapus sebuah entri membebaskan referensinya, sehingga sumber asalnya muncul lagi di daftar tertunda dan bisa dibukukan ulang."
+
+msgid "Document cost paid"
+msgstr "Biaya dokumen dibayar"
+
+msgid "Every amount the programme takes in or pays out, booked in double entry."
+msgstr "Setiap jumlah yang diterima atau dikeluarkan program ini, dibukukan secara berpasangan."
+
+msgid "Every asset, liability and equity account, with what it has accumulated."
+msgstr "Tiap akun aset, kewajiban, dan ekuitas, beserta apa yang terkumpul padanya."
+
+msgid "Every figure in the three financial reports comes from the journal lines. Booking an entry changes them at once; there is nothing to refresh."
+msgstr "Tiap angka di ketiga laporan keuangan berasal dari baris jurnal. Membukukan satu entri langsung mengubahnya; tidak ada yang perlu disegarkan."
+
+msgid "Every payment with an amount on it appears on the auto-generated journal page as cash in against training revenue, and is booked once."
+msgstr "Tiap pembayaran yang ada jumlahnya muncul di halaman jurnal otomatis sebagai kas masuk berlawanan pendapatan training, dan dibukukan sekali."
+
+msgid "Every revenue and expense account, with what it has accumulated."
+msgstr "Tiap akun pendapatan dan beban, beserta apa yang terkumpul padanya."
+
+msgid "Generates and types entries, and decides what is posted."
+msgstr "Membuat dan mengetik entri, serta memutuskan apa yang diposting."
+
+msgid "Give it a code, a name, and the type it belongs to."
+msgstr "Beri kode, nama, dan jenis yang menjadi golongannya."
+
+msgid "How many people are at each stage, without anybody keeping a tally."
+msgstr "Berapa orang di tiap tahapnya, tanpa ada yang perlu mencatat hitungan."
+
+msgid "Income statement"
+msgstr "Laporan laba rugi"
+
+msgid "Installment paid"
+msgstr "Angsuran dibayar"
+
+msgid "It can only be set once. A trainee who already has an owing cost is refused, and correcting the figure means editing the opening row."
+msgstr "Ia hanya bisa ditetapkan sekali. Trainee yang sudah punya biaya terutang akan ditolak, dan mengoreksi angkanya berarti menyunting baris pembukanya."
+
+msgid "It covers everything ever booked. There is no date range, so this is not a statement for a month or a year."
+msgstr "Ia mencakup semua yang pernah dibukukan. Tidak ada rentang tanggal, jadi ini bukan laporan untuk satu bulan atau satu tahun."
+
+msgid "Journal List"
+msgstr "Daftar Jurnal"
+
+msgid "Journal generated, status Posted"
+msgstr "Jurnal dibuat, status Posted"
+
+msgid "Journal lines"
+msgstr "Baris jurnal"
+
+msgid "Journals grouped by the month they are dated, with how many entries and what they totalled."
+msgstr "Jurnal dikelompokkan menurut bulan tanggalnya, beserta berapa entri dan berapa totalnya."
+
+msgid "Let the application book what it can"
+msgstr "Biarkan aplikasinya membukukan yang bisa ia bukukan"
+
+msgid "Maintains the accounts and reads the balances."
+msgstr "Memelihara akun-akunnya dan membaca saldonya."
+
+msgid "Marked settled"
+msgstr "Ditandai lunas"
+
+msgid "Matching is by reference - INST-12, TKT-3, DOC-7. A source already booked simply stops appearing."
+msgstr "Pencocokannya lewat referensi - INST-12, TKT-3, DOC-7. Sumber yang sudah dibukukan cukup berhenti muncul."
+
+msgid "Monthly summary"
+msgstr "Ringkasan bulanan"
+
+msgid "Named on a journal line"
+msgstr "Disebut pada baris jurnal"
+
+msgid "Not booked yet?"
+msgstr "Belum dibukukan?"
+
+msgid "Nothing can be booked against an account that does not exist here, so this list is the vocabulary the whole accounting side speaks. Each account has a code, a name and a type - asset, liability, equity, revenue or expense - and the type is what decides which way its balance runs. The hierarchy page groups the accounts by type and shows what each one has accumulated, worked out from the journal lines rather than stored."
+msgstr "Tidak ada yang bisa dibukukan atas akun yang tidak ada di sini, jadi daftar ini adalah kosakata yang dipakai seluruh sisi akuntansi. Tiap akun punya kode, nama, dan jenis - aset, kewajiban, ekuitas, pendapatan, atau beban - dan jenis itulah yang menentukan ke arah mana saldonya berjalan. Halaman hierarki mengelompokkan akun per jenis dan menampilkan apa yang terkumpul pada masing-masingnya, dihitung dari baris jurnal, bukan disimpan."
+
+msgid "Nothing has to exist first. This is the foundation the journals stand on, so it is set up before anything is booked."
+msgstr "Tidak ada yang harus ada lebih dulu. Ini fondasi tempat jurnal berdiri, jadi disiapkan sebelum apa pun dibukukan."
+
+msgid "Owing cost set once"
+msgstr "Biaya terutang ditetapkan sekali"
+
+msgid "Payment recorded"
+msgstr "Pembayaran dicatat"
+
+msgid "Pipeline reports"
+msgstr "Laporan alur"
+
+msgid "Read and correct"
+msgstr "Baca dan koreksi"
+
+msgid "Read the balance sheet"
+msgstr "Baca neracanya"
+
+msgid "Read the income statement"
+msgstr "Baca laporan laba ruginya"
+
+msgid "Read the monthly summary"
+msgstr "Baca ringkasan bulanannya"
+
+msgid "Read what has accumulated"
+msgstr "Baca apa yang terkumpul"
+
+msgid "Read who has finished"
+msgstr "Baca siapa yang sudah selesai"
+
+msgid "Read who still owes"
+msgstr "Baca siapa yang masih berutang"
+
+msgid "Reads everything."
+msgstr "Membaca semuanya."
+
+msgid "Reads the financial three."
+msgstr "Membaca ketiga laporan keuangannya."
+
+msgid "Reads the pipeline."
+msgstr "Membaca alurnya."
+
+msgid "Record a Payment"
+msgstr "Catat Pembayaran"
+
+msgid "Record each payment"
+msgstr "Catat tiap pembayaran"
+
+msgid "Set what they owe"
+msgstr "Tetapkan apa yang terutang"
+
+msgid "Sets the owing cost, records payments, reads the tracking."
+msgstr "Menetapkan biaya terutang, mencatat pembayaran, membaca pemantauannya."
+
+msgid "Shown in the financial reports"
+msgstr "Tampil di laporan keuangan"
+
+msgid "Shown on the hierarchy page"
+msgstr "Tampil di halaman hierarki"
+
+msgid "Six reports over two different kinds of thing. Three of them count people - how many candidates, trainees and apprentices there are and how far each has got - and read the operational records directly. The other three summarise the books, and read nothing but the journal lines. Both kinds are worked out when you open them, so nothing here is ever stale; what they are is only ever as good as what was recorded underneath."
+msgstr "Enam laporan atas dua jenis hal yang berbeda. Tiga di antaranya menghitung orang - berapa kandidat, trainee, dan apprentice yang ada dan sejauh mana masing-masingnya - dan membaca data operasional secara langsung. Tiga lainnya meringkas pembukuan, dan tidak membaca apa pun selain baris jurnal. Keduanya dihitung saat Anda membukanya, jadi tidak ada yang basi di sini; seberapa benar isinya hanya sebaik apa yang tercatat di bawahnya."
+
+msgid "Skipped"
+msgstr "Dilewati"
+
+msgid "The account can be named on a journal line."
+msgstr "Akunnya bisa disebut pada baris jurnal."
+
+msgid "The account types decide which report an account appears in, so an account with no type appears in neither."
+msgstr "Jenis akunnya menentukan di laporan mana sebuah akun muncul, jadi akun tanpa jenis tidak muncul di keduanya."
+
+msgid "The accounts have to exist, and the five the automatic entries use have to keep their codes."
+msgstr "Akun-akunnya harus ada, dan kelima akun yang dipakai entri otomatis harus tetap dengan kodenya."
+
+msgid "The adjustments page takes a date, a description and the lines. It will not save until the debits and the credits agree."
+msgstr "Halaman penyesuaian menerima tanggal, uraian, dan baris-barisnya. Ia tidak akan menyimpan sampai debit dan kreditnya sepakat."
+
+msgid "The apprentice report counts two flags on the apprentice record: in Japan, and completed. Both are set by TMM Training and by nothing else, so a report showing zero usually means nobody has made the call rather than that nobody has gone."
+msgstr "Laporan apprentice menghitung dua penanda pada data apprentice: di Jepang, dan selesai. Keduanya ditetapkan tmm-training dan tidak oleh apa pun selainnya, jadi laporan yang menampilkan nol biasanya berarti belum ada yang mengambil keputusannya, bukan berarti belum ada yang berangkat."
+
+msgid "The auto-generated page lists every operational record that has no journal yet, with the two accounts each one would touch, and books the ones you choose."
+msgstr "Halaman otomatis mendaftar tiap data operasional yang belum punya jurnal, beserta dua akun yang akan disentuhnya, lalu membukukan yang Anda pilih."
+
+msgid "The automatic journals look up five accounts by their code: 1000 cash, 2000 accounts payable, 4000 training revenue, 5100 document expense, 5200 transport expense. A source whose two accounts are not both present is skipped without a word, so those five codes have to exist and keep their codes."
+msgstr "Jurnal otomatis mencari lima akun berdasarkan kodenya: 1000 kas, 2000 utang usaha, 4000 pendapatan training, 5100 beban dokumen, 5200 beban transportasi. Sumber yang kedua akunnya tidak lengkap dilewati tanpa sepatah kata pun, jadi kelima kode itu harus ada dan kodenya harus tetap."
+
+msgid "The balance moves, and the trainee is marked settled the moment it reaches zero."
+msgstr "Saldonya bergerak, dan trainee-nya ditandai lunas begitu mencapai nol."
+
+msgid "The balances are not stored anywhere. They are added up from the journal lines each time a page is opened, so they cannot drift - but they also cannot be corrected here. A wrong balance is a wrong journal."
+msgstr "Saldonya tidak disimpan di mana pun. Ia dijumlahkan dari baris jurnal setiap kali halamannya dibuka, jadi tidak bisa melenceng - tetapi juga tidak bisa dikoreksi di sini. Saldo yang salah berarti jurnal yang salah."
+
+msgid "The book says what happened."
+msgstr "Pembukuannya menyatakan apa yang terjadi."
+
+msgid "The candidate pipeline, the training progress and the active apprentices each read their own side of the application and count it as it stands."
+msgstr "Alur kandidat, kemajuan training, dan apprentice aktif masing-masing membaca sisinya sendiri dalam aplikasi ini dan menghitungnya apa adanya."
+
+msgid "The code is what the automatic journals look for, not the name. Renaming an account is safe; changing its code is not."
+msgstr "Kode itulah yang dicari jurnal otomatis, bukan namanya. Mengganti nama akun aman; mengganti kodenya tidak."
+
+msgid "The figures follow the trainee. Promotion to apprentice does not carry them across, and there is no equivalent register on the apprentice side."
+msgstr "Angkanya mengikuti trainee-nya. Promosi menjadi apprentice tidak membawanya menyeberang, dan tidak ada daftar setara di sisi apprentice."
+
+msgid "The financial reports count every journal line whatever the entry's status. An entry marked Void is still counted, and so is one still in Draft - marking an entry Void removes it from nothing."
+msgstr "Laporan keuangannya menghitung tiap baris jurnal apa pun status entrinya. Entri yang ditandai Void tetap terhitung, begitu pula yang masih Draft - menandai sebuah entri Void tidak mengeluarkannya dari apa pun."
+
+msgid "The financial reports have nothing to show until entries exist in the journal."
+msgstr "Laporan keuangannya tidak punya apa pun untuk ditampilkan sampai ada entri di jurnalnya."
+
+msgid "The hierarchy page groups the accounts by type, totals each group, and shows how many journal lines are behind every figure."
+msgstr "Halaman hierarki mengelompokkan akun per jenis, mentotal tiap kelompok, dan menampilkan berapa baris jurnal yang ada di balik tiap angkanya."
+
+msgid "The income statement and the balance sheet are built from these lines."
+msgstr "Laporan laba rugi dan neraca dibangun dari baris-baris ini."
+
+msgid "The income statement and the balance sheet are this list with its accumulated figures, split by type."
+msgstr "Laporan laba rugi dan neraca adalah daftar ini beserta angka terkumpulnya, dipilah per jenis."
+
+msgid "The income statement has no period. It is everything since the books began, so it cannot be compared with last month or last year."
+msgstr "Laporan laba ruginya tidak punya periode. Ia mencakup semua sejak pembukuannya dimulai, jadi tidak bisa dibandingkan dengan bulan lalu atau tahun lalu."
+
+msgid "The list of accounts every journal line has to name."
+msgstr "Daftar akun yang harus disebut oleh tiap baris jurnal."
+
+msgid "The page called Cash Flow is a monthly summary of journal totals, not a cash flow statement. Read it as how much was booked, not how much cash moved."
+msgstr "Halaman bernama Arus Kas adalah ringkasan bulanan atas total jurnal, bukan laporan arus kas. Bacalah sebagai berapa yang dibukukan, bukan berapa kas yang bergerak."
+
+msgid "The pipeline counted, and the books summarised."
+msgstr "Alurnya dihitung, dan pembukuannya diringkas."
+
+msgid "The receipts page lists the settled rows."
+msgstr "Halaman kuitansi mendaftar baris-baris yang sudah lunas."
+
+msgid "The routine entries are on the books without anybody typing an amount twice."
+msgstr "Entri rutinnya masuk pembukuan tanpa ada yang mengetik jumlah dua kali."
+
+msgid "The running totals are computed from the previous row, so the rows have to stay in order. Deleting a payment from the middle leaves every row after it carrying figures that no longer add up - the later rows are not recalculated."
+msgstr "Total berjalannya dihitung dari baris sebelumnya, jadi barisnya harus tetap berurutan. Menghapus satu pembayaran di tengah membuat tiap baris sesudahnya membawa angka yang tidak lagi cocok - baris-baris berikutnya tidak dihitung ulang."
+
+msgid "The shape of the year at a glance."
+msgstr "Bentuk setahunnya sekilas."
+
+msgid "The state of the books without opening a single journal."
+msgstr "Keadaan pembukuannya tanpa membuka satu pun jurnal."
+
+msgid "The tracking page shows one line per trainee - paid, outstanding, and how far through they are - taken from their most recent row."
+msgstr "Halaman pemantauan menampilkan satu baris per trainee - terbayar, sisa, dan sejauh mana - diambil dari baris terbarunya."
+
+msgid "The trainee appears on the tracking page with nothing paid and everything owing."
+msgstr "Trainee-nya muncul di halaman pemantauan dengan belum ada yang dibayar dan semuanya masih terutang."
+
+msgid "This counts every entry in the month, not just the ones touching cash. It shows how busy a month was, not how much cash moved."
+msgstr "Ini menghitung tiap entri dalam bulan itu, bukan hanya yang menyentuh kas. Ia menunjukkan seberapa sibuk sebuah bulan, bukan berapa banyak kas yang bergerak."
+
+msgid "Ticket bought"
+msgstr "Tiket dibeli"
+
+msgid "Type what is left"
+msgstr "Ketik sisanya"
+
+msgid "Typed on the adjustments page"
+msgstr "Diketik di halaman penyesuaian"
+
+msgid "What a trainee owes, what they have paid, and what is left."
+msgstr "Apa yang terutang seorang trainee, apa yang sudah dibayarnya, dan berapa sisanya."
+
+msgid "What came in and what went out."
+msgstr "Apa yang masuk dan apa yang keluar."
+
+msgid "What is owned and what is owed."
+msgstr "Apa yang dimiliki dan apa yang terutang."
+
+msgid "Which report an account lands in is decided by its type, and the sign its balance is shown with is decided by that type too."
+msgstr "Di laporan mana sebuah akun mendarat ditentukan oleh jenisnya, dan tanda saldo yang ditampilkan pun ditentukan jenis itu."
+
+msgid "You know who to chase and for how much."
+msgstr "Anda tahu siapa yang perlu ditagih dan berapa jumlahnya."
+
+msgid "outstanding above zero"
+msgstr "sisanya di atas nol"
+
+msgid "outstanding zero"
+msgstr "sisanya nol"
+
+msgid "reference already exists"
+msgstr "referensinya sudah ada"

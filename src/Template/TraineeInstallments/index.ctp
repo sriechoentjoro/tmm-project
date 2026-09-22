@@ -330,3 +330,5 @@ $hasFilter = $filterTrainee || $filterCategory || $filterPaid !== '';
     });
 })();
 </script>
+
+<?= $this->element('process_flow_help') ?>

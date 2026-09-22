@@ -250,3 +250,5 @@ foreach ($pendingByType as $items) {
 .empty-state i { margin-bottom: 15px; opacity: 0.5; color: #43e97b; }
 .empty-state h4 { margin: 10px 0; color: #495057; }
 </style>
+
+<?= $this->element('process_flow_help') ?>

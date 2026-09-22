@@ -214,3 +214,5 @@ $typeBadge = [
 .text-danger { color: #dc3545; }
 .footnote { font-size: 0.85em; }
 </style>
+
+<?= $this->element('process_flow_help') ?>

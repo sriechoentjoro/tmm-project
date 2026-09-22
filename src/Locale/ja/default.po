@@ -17356,3 +17356,365 @@ msgstr "足りない台帳に取りかかる"
 
 msgid "You can print one card or a whole intake from the same page."
 msgstr "同じページから、一枚でも期まるごとでも印刷できます。"
+
+# ── Page guides: accounting and reports ───────────
+
+msgid "A currency is stored against the row, but nothing converts anything and every screen writes the amounts as rupiah. An amount in another currency will be shown as though it were rupiah."
+msgstr "行には通貨が保存されますが、換算は一切行われず、どの画面も金額をルピアとして表示します。他の通貨の金額も、ルピアであるかのように表示されます。"
+
+msgid "A journal entry has a date, a reference, a description and two or more lines, and its debits and its credits have to come to the same total. Most of them do not need typing: three things that happen elsewhere in the application - an installment paid, a ticket bought, a document cost settled - are read straight off their own screens and booked for you, each matched by its reference so the same event can never be booked twice. What is left is typed by hand on the adjustments page."
+msgstr "仕訳には日付、参照番号、摘要、そして二行以上の明細があり、借方と貸方の合計は一致していなければなりません。その多くは入力不要です。アプリケーションの他の場所で起きる三つの出来事、すなわち分割金の入金、航空券の購入、書類費の支払いは、それぞれの画面から直接読み取られて記帳されます。いずれも参照番号で照合されるため、同じ出来事が二度計上されることはありません。残りは調整のページで手入力します。"
+
+msgid "A payment recorded against a trainee appears on the auto-generated page as cash in against training revenue."
+msgstr "研修生について記録した入金は、自動生成のページに、現金の増加と訓練収益の組み合わせとして現れます。"
+
+msgid "A record of who has paid in full."
+msgstr "誰が全額を支払ったかの記録です。"
+
+msgid "A source whose two accounts are not both in the chart of accounts is skipped silently. The page says only that nothing was generated, not which account is missing."
+msgstr "対応する二つの科目が勘定科目一覧に揃っていない取引は、黙って飛ばされます。画面は何も生成されなかったとしか述べず、どの科目が足りないかは告げません。"
+
+msgid "A ticket with a price on it appears as a transport expense against accounts payable. The price is taken as it stands, and the entry is dated the day you generate it, not the day the ticket was bought."
+msgstr "金額の入った航空券は、交通費と買掛金の組み合わせとして現れます。金額はそのまま採られ、仕訳の日付は航空券を買った日ではなく、生成した日になります。"
+
+msgid "A trainee is given one opening figure - the whole cost they owe - and then a row for every payment that comes in. Each payment row is worked out from the one before it: the accumulated total goes up, the unpaid balance comes down, and when the balance reaches zero the row is marked settled and appears on the receipts page. Nothing is typed twice and no running total is typed at all, so the balance cannot drift from the payments behind it."
+msgstr "研修生にはまず期首の一つの数字、すなわち負担すべき総額が設定され、その後は入金のたびに一行が加わります。各入金行は直前の行から計算されます。累計が増え、未払残高が減り、残高がゼロになるとその行は完済と記され、領収のページに現れます。二度入力されるものはなく、累計を手で打つこともないため、残高がその背後の入金とずれることはありません。"
+
+msgid "Account balances and reports"
+msgstr "科目残高と財務諸表"
+
+msgid "Account created here"
+msgstr "ここで科目を作成"
+
+msgid "Accounting staff"
+msgstr "会計担当"
+
+msgid "Accumulated up, outstanding down"
+msgstr "累計が増え、残高が減る"
+
+msgid "Add the account"
+msgstr "勘定科目を追加する"
+
+msgid "Adjustments"
+msgstr "調整"
+
+msgid "Amounts are booked at face value with no currency attached. A ticket priced in yen and one priced in rupiah are added together as if they were the same money."
+msgstr "金額は通貨を伴わず額面のまま記帳されます。円建ての航空券とルピア建ての航空券が、同じ通貨であるかのように合算されます。"
+
+msgid "Amounts are whole numbers. There are no cents, and a figure entered with a decimal loses it."
+msgstr "金額は整数です。小数はなく、小数を入れてもその部分は失われます。"
+
+msgid "An account with no type behaves as its own group and is left out of the reports, which ask for named types."
+msgstr "区分のない科目は独立した一群として扱われ、区分名を指定して集める財務諸表には載りません。"
+
+msgid "An entry can be reopened and rewritten: the lines are replaced and the totals recalculated in one transaction, so a half-rewritten entry cannot be left behind."
+msgstr "仕訳は開き直して書き換えられます。明細が差し替えられ、合計が一つのトランザクション内で再計算されるため、書き換えの途中で止まった仕訳が残ることはありません。"
+
+msgid "An entry is booked from the source amount as it stood at that moment. Changing the installment, the ticket price or the document cost afterwards does not change the journal and does not bring the source back onto the pending list - the correction has to be typed."
+msgstr "仕訳は、その時点の元データの金額で記帳されます。後から分割金や航空券の金額、書類費を変更しても、仕訳は変わらず、元データが未記帳の一覧に戻ることもありません。訂正は手入力する必要があります。"
+
+msgid "An entry that balances, whatever it is for."
+msgstr "用途が何であれ、貸借の合った仕訳になります。"
+
+msgid "Anyone with access"
+msgstr "アクセス権のある人"
+
+msgid "Anything else"
+msgstr "それ以外"
+
+msgid "Auto-Generated"
+msgstr "自動生成"
+
+msgid "Balance accumulates"
+msgstr "残高が積み上がる"
+
+msgid "Balance sheet"
+msgstr "貸借対照表"
+
+msgid "Bookable as a journal entry"
+msgstr "仕訳として記帳できる"
+
+msgid "Candidates, trainees, apprentices"
+msgstr "候補者・研修生・実習生"
+
+msgid "Chart of accounts: the type"
+msgstr "勘定科目一覧の区分"
+
+msgid "Choose the trainee and enter the amount received. The accumulated and outstanding figures are worked out for you from the previous row."
+msgstr "研修生を選び、受け取った額を入力します。累計と残高は、直前の行から自動で計算されます。"
+
+msgid "Choose the trainee and enter the whole cost once. This writes an opening row of zero paid, with the full amount outstanding."
+msgstr "研修生を選び、総額を一度だけ入力します。これにより、支払ゼロ・全額未払いの期首行が作られます。"
+
+msgid "Count the pipeline"
+msgstr "工程を数える"
+
+msgid "Deleting an account that journal lines already name leaves those lines pointing at nothing, and the amount disappears from every total. Nothing stops the deletion."
+msgstr "すでに仕訳明細が指定している科目を削除すると、その明細は存在しない先を指すことになり、金額はすべての合計から消えます。削除を止めるものはありません。"
+
+msgid "Deleting an entry frees its reference, so the source it came from reappears on the pending list and can be booked again."
+msgstr "仕訳を削除すると参照番号が解放されるため、元の取引が未記帳の一覧に再び現れ、もう一度記帳できるようになります。"
+
+msgid "Document cost paid"
+msgstr "書類費の支払い"
+
+msgid "Every amount the programme takes in or pays out, booked in double entry."
+msgstr "この制度が受け取り、支払うすべての金額を、複式で記帳します。"
+
+msgid "Every asset, liability and equity account, with what it has accumulated."
+msgstr "資産・負債・資本のすべての科目と、それぞれに積み上がった額です。"
+
+msgid "Every figure in the three financial reports comes from the journal lines. Booking an entry changes them at once; there is nothing to refresh."
+msgstr "財務の三つのレポートの数字は、すべて仕訳明細に由来します。記帳すればその場で変わり、更新の操作は要りません。"
+
+msgid "Every payment with an amount on it appears on the auto-generated journal page as cash in against training revenue, and is booked once."
+msgstr "金額の入ったすべての入金が、自動生成の仕訳ページに現金の増加と訓練収益の組み合わせとして現れ、一度だけ記帳されます。"
+
+msgid "Every revenue and expense account, with what it has accumulated."
+msgstr "収益と費用のすべての科目と、それぞれに積み上がった額です。"
+
+msgid "Generates and types entries, and decides what is posted."
+msgstr "仕訳を生成・入力し、何を記帳済みとするかを決めます。"
+
+msgid "Give it a code, a name, and the type it belongs to."
+msgstr "コード、名称、そして属する区分を与えます。"
+
+msgid "How many people are at each stage, without anybody keeping a tally."
+msgstr "誰も集計表を付けなくても、各段階に何人いるかが分かります。"
+
+msgid "Income statement"
+msgstr "損益計算書"
+
+msgid "Installment paid"
+msgstr "分割金の入金"
+
+msgid "It can only be set once. A trainee who already has an owing cost is refused, and correcting the figure means editing the opening row."
+msgstr "設定できるのは一度だけです。すでに負担額のある研修生は拒否され、金額の訂正は期首行の編集で行います。"
+
+msgid "It covers everything ever booked. There is no date range, so this is not a statement for a month or a year."
+msgstr "これまでに記帳したすべてを対象にします。期間指定がないため、月次や年次の報告書ではありません。"
+
+msgid "Journal List"
+msgstr "仕訳一覧"
+
+msgid "Journal generated, status Posted"
+msgstr "仕訳を生成、状態はPosted"
+
+msgid "Journal lines"
+msgstr "仕訳明細"
+
+msgid "Journals grouped by the month they are dated, with how many entries and what they totalled."
+msgstr "仕訳を日付の月ごとにまとめ、件数と合計額を示します。"
+
+msgid "Let the application book what it can"
+msgstr "できる分はアプリケーションに記帳させる"
+
+msgid "Maintains the accounts and reads the balances."
+msgstr "勘定科目を維持し、残高を確認します。"
+
+msgid "Marked settled"
+msgstr "完済と記録"
+
+msgid "Matching is by reference - INST-12, TKT-3, DOC-7. A source already booked simply stops appearing."
+msgstr "照合は参照番号で行います。INST-12、TKT-3、DOC-7 のような形です。すでに記帳された取引は、一覧に出てこなくなるだけです。"
+
+msgid "Monthly summary"
+msgstr "月次集計"
+
+msgid "Named on a journal line"
+msgstr "仕訳明細で指定される"
+
+msgid "Not booked yet?"
+msgstr "未記帳か"
+
+msgid "Nothing can be booked against an account that does not exist here, so this list is the vocabulary the whole accounting side speaks. Each account has a code, a name and a type - asset, liability, equity, revenue or expense - and the type is what decides which way its balance runs. The hierarchy page groups the accounts by type and shows what each one has accumulated, worked out from the journal lines rather than stored."
+msgstr "ここに存在しない勘定科目には何も計上できません。この一覧が、会計側全体の語彙です。各科目はコード・名称・区分を持ちます。資産、負債、資本、収益、費用です。その区分が、残高がどちら向きに動くかを決めます。階層のページは科目を区分ごとにまとめ、それぞれに積み上がった額を示します。保存された値ではなく、仕訳明細から計算したものです。"
+
+msgid "Nothing has to exist first. This is the foundation the journals stand on, so it is set up before anything is booked."
+msgstr "先に必要なものはありません。これは仕訳が立つ土台であり、何かを計上する前に整えます。"
+
+msgid "Owing cost set once"
+msgstr "負担額を一度設定"
+
+msgid "Payment recorded"
+msgstr "入金を記録"
+
+msgid "Pipeline reports"
+msgstr "工程のレポート"
+
+msgid "Read and correct"
+msgstr "読んで訂正する"
+
+msgid "Read the balance sheet"
+msgstr "貸借対照表を読む"
+
+msgid "Read the income statement"
+msgstr "損益計算書を読む"
+
+msgid "Read the monthly summary"
+msgstr "月次の集計を読む"
+
+msgid "Read what has accumulated"
+msgstr "積み上がった額を読む"
+
+msgid "Read who has finished"
+msgstr "完済した人を読む"
+
+msgid "Read who still owes"
+msgstr "誰にまだ残りがあるかを読む"
+
+msgid "Reads everything."
+msgstr "すべてを参照します。"
+
+msgid "Reads the financial three."
+msgstr "財務の三つを参照します。"
+
+msgid "Reads the pipeline."
+msgstr "工程の状況を参照します。"
+
+msgid "Record a Payment"
+msgstr "入金を記録"
+
+msgid "Record each payment"
+msgstr "入金ごとに記録する"
+
+msgid "Set what they owe"
+msgstr "負担額を設定する"
+
+msgid "Sets the owing cost, records payments, reads the tracking."
+msgstr "負担額を設定し、入金を記録し、進捗を確認します。"
+
+msgid "Shown in the financial reports"
+msgstr "財務諸表に表示"
+
+msgid "Shown on the hierarchy page"
+msgstr "階層のページに表示"
+
+msgid "Six reports over two different kinds of thing. Three of them count people - how many candidates, trainees and apprentices there are and how far each has got - and read the operational records directly. The other three summarise the books, and read nothing but the journal lines. Both kinds are worked out when you open them, so nothing here is ever stale; what they are is only ever as good as what was recorded underneath."
+msgstr "二つの性質の異なるものを扱う、六つのレポートです。三つは人を数えます。候補者・研修生・実習生が何人いて、それぞれどこまで進んだかを、業務データから直接読みます。残る三つは帳簿をまとめ、仕訳明細以外は読みません。どちらも開いた時点で計算されるため、古い数字が残ることはありません。ただし内容の正しさは、その下に記録されたものの正しさ止まりです。"
+
+msgid "Skipped"
+msgstr "スキップ"
+
+msgid "The account can be named on a journal line."
+msgstr "その科目を仕訳明細で指定できるようになります。"
+
+msgid "The account types decide which report an account appears in, so an account with no type appears in neither."
+msgstr "科目の区分が、どのレポートに載るかを決めます。区分のない科目は、どちらにも載りません。"
+
+msgid "The accounts have to exist, and the five the automatic entries use have to keep their codes."
+msgstr "勘定科目が存在している必要があり、自動仕訳が使う五つはコードのまま保たれる必要があります。"
+
+msgid "The adjustments page takes a date, a description and the lines. It will not save until the debits and the credits agree."
+msgstr "調整のページは、日付・摘要・明細を受け取ります。借方と貸方が一致するまで保存されません。"
+
+msgid "The apprentice report counts two flags on the apprentice record: in Japan, and completed. Both are set by TMM Training and by nothing else, so a report showing zero usually means nobody has made the call rather than that nobody has gone."
+msgstr "実習生のレポートは、実習生の記録にある二つの印を数えます。日本にいること、そして修了したことです。どちらも訓練側だけが立てるため、レポートがゼロであれば、誰も行っていないのではなく、誰も判断を下していないことを意味するのが普通です。"
+
+msgid "The auto-generated page lists every operational record that has no journal yet, with the two accounts each one would touch, and books the ones you choose."
+msgstr "自動生成のページは、まだ仕訳のない業務レコードを、それぞれが触れる二つの科目とともに一覧にし、選んだものを記帳します。"
+
+msgid "The automatic journals look up five accounts by their code: 1000 cash, 2000 accounts payable, 4000 training revenue, 5100 document expense, 5200 transport expense. A source whose two accounts are not both present is skipped without a word, so those five codes have to exist and keep their codes."
+msgstr "自動仕訳は五つの科目をコードで探します。1000 現金、2000 買掛金、4000 訓練収益、5100 書類費、5200 交通費です。対応する二科目が揃っていない取引は、何も言われずに飛ばされます。この五つのコードは存在し、かつコードのまま保たれる必要があります。"
+
+msgid "The balance moves, and the trainee is marked settled the moment it reaches zero."
+msgstr "残高が動き、ゼロになった時点で完済と記されます。"
+
+msgid "The balances are not stored anywhere. They are added up from the journal lines each time a page is opened, so they cannot drift - but they also cannot be corrected here. A wrong balance is a wrong journal."
+msgstr "残高はどこにも保存されません。ページを開くたびに仕訳明細から合計されるため、ずれることはありません。その代わり、ここでは直せません。残高が違うのは、仕訳が違うということです。"
+
+msgid "The book says what happened."
+msgstr "帳簿が、実際に起きたことを述べます。"
+
+msgid "The candidate pipeline, the training progress and the active apprentices each read their own side of the application and count it as it stands."
+msgstr "候補者の工程、訓練の進捗、在籍中の実習生は、それぞれアプリケーションの担当部分を読み、現状のまま数えます。"
+
+msgid "The code is what the automatic journals look for, not the name. Renaming an account is safe; changing its code is not."
+msgstr "自動仕訳が探すのは名称ではなくコードです。科目名の変更は安全ですが、コードの変更は安全ではありません。"
+
+msgid "The figures follow the trainee. Promotion to apprentice does not carry them across, and there is no equivalent register on the apprentice side."
+msgstr "数字は研修生に紐づきます。実習生への昇格はこれを引き継がず、実習生側に同等の台帳はありません。"
+
+msgid "The financial reports count every journal line whatever the entry's status. An entry marked Void is still counted, and so is one still in Draft - marking an entry Void removes it from nothing."
+msgstr "財務のレポートは、仕訳の状態にかかわらず、すべての明細を数えます。Voidと記した仕訳も、Draftのままの仕訳も数えられます。Voidにしても、どこからも除かれません。"
+
+msgid "The financial reports have nothing to show until entries exist in the journal."
+msgstr "仕訳が存在するまで、財務のレポートに表示するものはありません。"
+
+msgid "The hierarchy page groups the accounts by type, totals each group, and shows how many journal lines are behind every figure."
+msgstr "階層のページは科目を区分ごとにまとめ、区分ごとに合計し、各数字の背後にある仕訳明細の件数も示します。"
+
+msgid "The income statement and the balance sheet are built from these lines."
+msgstr "損益計算書と貸借対照表は、この明細から組み立てられます。"
+
+msgid "The income statement and the balance sheet are this list with its accumulated figures, split by type."
+msgstr "損益計算書と貸借対照表は、この一覧と積み上がった数字を区分ごとに分けたものです。"
+
+msgid "The income statement has no period. It is everything since the books began, so it cannot be compared with last month or last year."
+msgstr "損益計算書に期間はありません。帳簿を始めて以来のすべてであるため、前月や前年と比べることはできません。"
+
+msgid "The list of accounts every journal line has to name."
+msgstr "すべての仕訳明細が指定しなければならない勘定科目の一覧です。"
+
+msgid "The page called Cash Flow is a monthly summary of journal totals, not a cash flow statement. Read it as how much was booked, not how much cash moved."
+msgstr "「キャッシュフロー」という名のページは、仕訳合計の月次集計であって、キャッシュフロー計算書ではありません。現金がどれだけ動いたかではなく、どれだけ記帳されたかとして読んでください。"
+
+msgid "The pipeline counted, and the books summarised."
+msgstr "工程を数え、帳簿をまとめたものです。"
+
+msgid "The receipts page lists the settled rows."
+msgstr "領収のページには、完済した行が並びます。"
+
+msgid "The routine entries are on the books without anybody typing an amount twice."
+msgstr "定型の仕訳が、誰も金額を二度入力することなく帳簿に載ります。"
+
+msgid "The running totals are computed from the previous row, so the rows have to stay in order. Deleting a payment from the middle leaves every row after it carrying figures that no longer add up - the later rows are not recalculated."
+msgstr "累計は直前の行から計算されるため、行の並びは保たれている必要があります。途中の入金を削除すると、それ以降のすべての行は合わない数字を抱えたまま残ります。後続の行は再計算されません。"
+
+msgid "The shape of the year at a glance."
+msgstr "一年の形が一目で分かります。"
+
+msgid "The state of the books without opening a single journal."
+msgstr "仕訳を一件も開かずに、帳簿の状態が分かります。"
+
+msgid "The tracking page shows one line per trainee - paid, outstanding, and how far through they are - taken from their most recent row."
+msgstr "進捗のページは研修生ごとに一行を示します。支払済み、残高、そしてどこまで進んだかを、その人の最新の行から取ります。"
+
+msgid "The trainee appears on the tracking page with nothing paid and everything owing."
+msgstr "研修生が、支払ゼロ・全額未払いの状態で進捗のページに現れます。"
+
+msgid "This counts every entry in the month, not just the ones touching cash. It shows how busy a month was, not how much cash moved."
+msgstr "現金に関わるものだけでなく、その月のすべての仕訳を数えます。示しているのは、その月がどれだけ忙しかったかであって、現金がどれだけ動いたかではありません。"
+
+msgid "Ticket bought"
+msgstr "航空券の購入"
+
+msgid "Type what is left"
+msgstr "残りを入力する"
+
+msgid "Typed on the adjustments page"
+msgstr "調整のページで入力"
+
+msgid "What a trainee owes, what they have paid, and what is left."
+msgstr "研修生が負う額、支払った額、そして残りです。"
+
+msgid "What came in and what went out."
+msgstr "何が入り、何が出たかです。"
+
+msgid "What is owned and what is owed."
+msgstr "何を持ち、何を負っているかです。"
+
+msgid "Which report an account lands in is decided by its type, and the sign its balance is shown with is decided by that type too."
+msgstr "科目がどのレポートに載るかは区分が決め、残高をどちらの符号で示すかも同じ区分が決めます。"
+
+msgid "You know who to chase and for how much."
+msgstr "誰にいくら催促すべきかが分かります。"
+
+msgid "outstanding above zero"
+msgstr "残高がゼロより多い"
+
+msgid "outstanding zero"
+msgstr "残高がゼロ"
+
+msgid "reference already exists"
+msgstr "参照番号が既にある"

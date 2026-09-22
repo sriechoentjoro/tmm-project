@@ -277,3 +277,5 @@ $journalBadge = function ($status) {
     });
 })();
 </script>
+
+<?= $this->element('process_flow_help') ?>

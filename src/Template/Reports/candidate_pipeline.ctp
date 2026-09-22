@@ -518,3 +518,5 @@ $batchStatusMeta = [
     ) ?>
   <?php endforeach; ?>
 </div>
+
+<?= $this->element('process_flow_help') ?>
