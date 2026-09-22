@@ -96,12 +96,26 @@ $fine = [];
 foreach ($files as $file) {
     $alias = basename($file, 'Table.php');
 
+    // Which database a class reads is worth recording even when it works,
+    // because "could not be reached" on its own says nothing about whether
+    // the table is missing or the class is looking in the wrong place.
+    // Cleared every pass: left over from the previous table, these would
+    // report the last class that worked instead of this one that did not.
+    $connection = '?';
+    $physical = '?';
+    $table = null;
     try {
         $table = $locator->get($alias);
+        $connection = $table->getConnection()->configName();
+        $physical = $table->getTable();
         $schema = $table->getSchema();
         $primary = (array)$table->getPrimaryKey();
     } catch (\Throwable $e) {
-        $unreachable[$alias] = $e->getMessage();
+        $unreachable[$alias] = [
+            'connection' => $connection,
+            'table' => $physical,
+            'why' => $e->getMessage(),
+        ];
         continue;
     }
 
@@ -154,7 +168,16 @@ if ($checked === 0) {
     echo "\nNothing could be checked - no table class reached its database.\n";
     if ($unreachable) {
         $first = reset($unreachable);
-        printf("First reason given: %s\n", substr(str_replace("\n", ' ', $first), 0, 160));
+        printf("First reason given: %s\n", substr(str_replace("\n", ' ', $first['why']), 0, 160));
+        if ($showAll) {
+            echo "\n";
+            printf("  %-32s %-34s %s\n", 'class', 'looked in', 'for table');
+            foreach ($unreachable as $alias => $info) {
+                printf("  %-32s %-34s %s\n", $alias, $info['connection'], $info['table']);
+            }
+        } else {
+            echo "Run with --all to see which class looked in which database.\n";
+        }
     }
     if ($suspectSource) {
         printf("\nFrom the source alone, %d table(s) require 'id' on create:\n\n",
@@ -173,9 +196,14 @@ if ($showAll) {
     }
     if ($unreachable) {
         echo "\nNo table behind the class:\n\n";
-        foreach ($unreachable as $alias => $why) {
-            printf("  %-38s %s\n", $alias, substr(str_replace("\n", ' ', $why), 0, 70));
+        printf("  %-32s %-34s %s\n", 'class', 'looked in', 'for table');
+        foreach ($unreachable as $alias => $info) {
+            printf("  %-32s %-34s %s\n", $alias, $info['connection'], $info['table']);
         }
+        echo "\nA class with no defaultConnectionName() reads the 'default' connection.\n";
+        echo "Where the only code using it passes a connectionName to loadModel(),\n";
+        echo "the class works there and nowhere else - anything reaching for it\n";
+        echo "through the table locator gets the wrong database and no warning.\n";
     }
 }
 
