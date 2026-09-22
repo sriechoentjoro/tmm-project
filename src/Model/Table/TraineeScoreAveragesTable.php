@@ -61,10 +61,15 @@ class TraineeScoreAveragesTable extends Table
      */
     public function validationDefault(Validator $validator)
     {
+        // Auto-increment primary key: the database supplies it, so no form
+        // ever sends one. Requiring it on create made save() refuse every add
+        // while edit carried on working, and refuse it the way save() always
+        // does - returning false with the reason inside the entity, where the
+        // controller's generic "could not be saved" never showed it. See
+        // bin/check-create-validation.php, which is what found this.
         $validator
             ->integer('id')
-            ->requirePresence('id', 'create')
-            ->notEmptyString('id');
+            ->allowEmptyString('id', null, 'create');
 
         $validator
             ->decimal('score_average')
