@@ -32,6 +32,9 @@ class CompareDuplicateTableShell extends Shell
     /** Rows read per copy. Enough for the duplicates on file, with a warning. */
     const LIMIT = 2000;
 
+    /** Unmatched rows printed in full before the rest are summarised. */
+    const DUMP_LIMIT = 10;
+
     /**
      * @return \Cake\Console\ConsoleOptionParser
      */
@@ -162,11 +165,16 @@ class CompareDuplicateTableShell extends Shell
         $this->out(sprintf('  %d %s in both, %d only in %s, %d only in %s',
             count($both), $key, count($onlyLeft), $sides['left'], count($onlyRight), $sides['right']));
 
+        // Naming the keys is not enough to judge them. A row that exists on one
+        // side only is the case where somebody has to decide whether it is
+        // worth keeping, and that decision needs to see what is in it.
         if ($onlyLeft) {
             $this->out(sprintf('    only in %s: %s', $sides['left'], implode(', ', $onlyLeft)));
+            $this->dump($rows['left'], $onlyLeft, $shared, $key);
         }
         if ($onlyRight) {
             $this->out(sprintf('    only in %s: %s', $sides['right'], implode(', ', $onlyRight)));
+            $this->dump($rows['right'], $onlyRight, $shared, $key);
         }
 
         $differing = [];
@@ -208,6 +216,47 @@ class CompareDuplicateTableShell extends Shell
                     $this->short($pair[0]),
                     $this->short($pair[1])));
             }
+        }
+    }
+
+    /**
+     * Print the rows that exist on one side only, so they can be judged.
+     *
+     * Capped: a copy that turns out to hold thousands of unmatched rows is a
+     * finding in itself, and printing all of them would bury it.
+     *
+     * @param array $rows All rows on that side, keyed.
+     * @param array $keys The keys unique to that side.
+     * @param array $columns Columns worth printing.
+     * @param string $key The key column, already named on the line above.
+     * @return void
+     */
+    protected function dump(array $rows, array $keys, array $columns, $key)
+    {
+        $shown = 0;
+        foreach ($keys as $id) {
+            if ($shown >= self::DUMP_LIMIT) {
+                $this->out(sprintf('      ... and %d more not shown',
+                    count($keys) - self::DUMP_LIMIT));
+                break;
+            }
+            $parts = [];
+            foreach ($columns as $column) {
+                // The key is on the line above; repeating it here would hide
+                // a row that holds nothing else behind its own id.
+                if ($column === $key) {
+                    continue;
+                }
+                $value = $rows[$id][$column];
+                if ($value === null || $value === '') {
+                    continue;
+                }
+                $parts[] = $column . '=' . $this->short($value);
+            }
+            $this->out(sprintf('      %s%s',
+                $key === 'id' ? '' : $key . ' ' . $id . ': ',
+                $parts ? implode('  ', $parts) : '(nothing but the key)'));
+            $shown++;
         }
     }
 
