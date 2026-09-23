@@ -88,7 +88,7 @@ class CompareDuplicateTableShell extends Shell
 
         $this->reportColumns($columns, $sides);
         $shared = array_values(array_intersect($columns['left'], $columns['right']));
-        $this->reportRows($rows, $shared, $sides, $key);
+        $this->reportRows($rows, $shared, $sides, $key, $columns);
 
         if ($table === 'apprentice_orders') {
             // The question that started this. Kept here rather than in a tool
@@ -150,7 +150,7 @@ class CompareDuplicateTableShell extends Shell
      * Which keys are in one copy, the other, or both - and for the ones in
      * both, which columns disagree.
      */
-    protected function reportRows(array $rows, array $shared, array $sides, $key)
+    protected function reportRows(array $rows, array $shared, array $sides, $key, array $columns)
     {
         $leftKeys = array_keys($rows['left']);
         $rightKeys = array_keys($rows['right']);
@@ -170,11 +170,11 @@ class CompareDuplicateTableShell extends Shell
         // worth keeping, and that decision needs to see what is in it.
         if ($onlyLeft) {
             $this->out(sprintf('    only in %s: %s', $sides['left'], implode(', ', $onlyLeft)));
-            $this->dump($rows['left'], $onlyLeft, $shared, $key);
+            $this->dump($rows['left'], $onlyLeft, $columns['left'], $key);
         }
         if ($onlyRight) {
             $this->out(sprintf('    only in %s: %s', $sides['right'], implode(', ', $onlyRight)));
-            $this->dump($rows['right'], $onlyRight, $shared, $key);
+            $this->dump($rows['right'], $onlyRight, $columns['right'], $key);
         }
 
         $differing = [];
@@ -221,6 +221,14 @@ class CompareDuplicateTableShell extends Shell
 
     /**
      * Print the rows that exist on one side only, so they can be judged.
+     *
+     * Every column that side has, not just the ones both sides share. The
+     * shared-column restriction belongs to the comparison - there is nothing
+     * to compare a lone row against - and applying it here hid exactly the
+     * columns worth seeing: a promotion_histories row printed as source_table
+     * and source_id alone, while promotion_date, promoted_by and
+     * promotion_reason went unmentioned because the other copy had no such
+     * columns. That is a decision made on a partial view.
      *
      * Capped: a copy that turns out to hold thousands of unmatched rows is a
      * finding in itself, and printing all of them would bury it.
