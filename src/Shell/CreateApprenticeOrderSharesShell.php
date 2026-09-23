@@ -41,21 +41,40 @@ use Cake\ORM\TableRegistry;
  * when the order is shared, so a share stays readable whatever happens to the
  * institution afterwards.
  *
+ * A copy of this table was found in cms_tmm_apprentices, beside an abandoned
+ * apprentice_orders of an older design - different columns, four rows of
+ * placeholder data, and nothing in the application reading either. Creating
+ * the table in the right place while leaving that one standing would put the
+ * same table name in two databases again, which is the very shape this was
+ * meant to resolve. So the second step sets the stray copy aside by renaming
+ * it rather than dropping it: a table that turns out to matter can be renamed
+ * back, and one that is dropped cannot.
+ *
  * Usage:
  *     bin/cake create_apprentice_order_shares            report only
- *     bin/cake create_apprentice_order_shares --apply    create the table
+ *     bin/cake create_apprentice_order_shares --apply    create it, set strays aside
  */
 class CreateApprenticeOrderSharesShell extends Shell
 {
+    /** The table this shell is about. */
+    const TABLE = 'apprentice_order_shares';
+
+    /** What a copy in the wrong database is renamed to. */
+    const SET_ASIDE = 'apprentice_order_shares_old';
+
     /**
      * @return \Cake\Console\ConsoleOptionParser
      */
     public function getOptionParser()
     {
         return parent::getOptionParser()
-            ->setDescription('Create the apprentice_order_shares table.')
+            ->setDescription('Create the apprentice_order_shares table, and set aside any stray copy.')
             ->addOption('apply', [
-                'help' => 'Run the CREATE. Without it the table is only reported on.',
+                'help' => 'Run the CREATE and the renames. Without it they are only reported on.',
+                'boolean' => true,
+            ])
+            ->addOption('keep-strays', [
+                'help' => 'Create the table but leave a copy in another database alone.',
                 'boolean' => true,
             ]);
     }
@@ -74,8 +93,13 @@ class CreateApprenticeOrderSharesShell extends Shell
         $this->out(sprintf('Connection: <info>%s</info>', $connectionName));
 
         $existing = $connection->getSchemaCollection()->listTables();
-        if (in_array('apprentice_order_shares', $existing, true)) {
-            $this->out('<success>Nothing to do: apprentice_order_shares is already there.</success>');
+        $present = in_array(self::TABLE, $existing, true);
+
+        if ($present) {
+            $this->out(sprintf('<success>%s is already there.</success>', self::TABLE));
+            // Not a return: a stray copy elsewhere still needs setting aside,
+            // and that is the case this shell was extended to handle.
+            $this->setAsideStrays($connectionName, $apply);
 
             return null;
         }
@@ -113,13 +137,15 @@ class CreateApprenticeOrderSharesShell extends Shell
                    KEY idx_order (apprentice_order_id)
                ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4';
 
-        $this->out('The table is missing. This would run:');
+        $this->out(sprintf('%s is missing here. This would run:', self::TABLE));
         $this->out('');
         $this->out('  <info>' . preg_replace('/\s+/', ' ', $sql) . '</info>');
         $this->out('');
 
         if (!$apply) {
-            $this->out('<info>Nothing changed.</info> Run it again with --apply to create the table.');
+            $this->setAsideStrays($connectionName, false);
+            $this->out('');
+            $this->out('<info>Nothing changed.</info> Run it again with --apply.');
 
             return null;
         }
@@ -133,9 +159,122 @@ class CreateApprenticeOrderSharesShell extends Shell
         \Cake\Cache\Cache::clear(false, '_cake_model_');
 
         $this->out('<success>Table created.</success>');
+
+        // Only now: a stray is set aside once the real table exists, never
+        // before. Renaming first would leave a window with no table at all.
+        $this->setAsideStrays($connectionName, $apply);
+
         $this->out('Clear the application cache too, so the web process sees it:');
         $this->out('  <info>rm -rf tmp/cache/models/*</info>');
 
         return null;
+    }
+
+    /**
+     * Rename any copy of the table living in another database.
+     *
+     * Renamed, not dropped. A table that turns out to matter can be renamed
+     * back; one that is dropped is gone, and this copy holds rows somebody
+     * once entered. The row count is printed for the same reason - setting
+     * aside an empty table and setting aside a table with data in it are
+     * different decisions, and the person running this should see which one
+     * they are making.
+     *
+     * @param string $canonical The connection the table belongs on.
+     * @param bool $apply Whether to run the renames.
+     * @return void
+     */
+    protected function setAsideStrays($canonical, $apply)
+    {
+        if ($this->param('keep-strays')) {
+            return;
+        }
+
+        // Skipping the canonical connection by name is not enough. Several
+        // aliases point at one database here - 'default' and 'cms_masters'
+        // deliberately so - and an alias for the canonical database would
+        // find the table just created and rename it straight back out of
+        // existence. So the canonical DATABASE is what gets skipped, and each
+        // database is visited once however many names it answers to.
+        $seen = [];
+        try {
+            $canonicalConfig = ConnectionManager::get($canonical)->config();
+            $seen[isset($canonicalConfig['database']) ? $canonicalConfig['database'] : $canonical] = true;
+        } catch (\Exception $e) {
+            return;
+        }
+
+        $strays = [];
+        foreach (ConnectionManager::configured() as $name) {
+            if ($name === $canonical) {
+                continue;
+            }
+            try {
+                $connection = ConnectionManager::get($name);
+                $config = $connection->config();
+                $database = isset($config['database']) ? $config['database'] : $name;
+                if (isset($seen[$database])) {
+                    continue;
+                }
+                $seen[$database] = true;
+                $tables = $connection->getSchemaCollection()->listTables();
+            } catch (\Exception $e) {
+                continue;
+            }
+            if (in_array(self::TABLE, $tables, true)) {
+                $strays[$name] = [
+                    'connection' => $connection,
+                    'taken' => in_array(self::SET_ASIDE, $tables, true),
+                ];
+            }
+        }
+
+        if (!$strays) {
+            return;
+        }
+
+        $this->out('');
+        $this->out(sprintf('<warning>%s also exists in %d other database(s)</warning>',
+            self::TABLE, count($strays)));
+
+        foreach ($strays as $name => $stray) {
+            $rows = '?';
+            try {
+                $rows = (int)$stray['connection']
+                    ->execute('SELECT COUNT(*) FROM `' . self::TABLE . '`')->fetch()[0];
+            } catch (\Exception $e) {
+            }
+
+            if ($stray['taken']) {
+                $this->out(sprintf('  %-36s %s row(s) - <warning>%s already exists there, left alone</warning>',
+                    $name, $rows, self::SET_ASIDE));
+                continue;
+            }
+
+            if (!$apply) {
+                $this->out(sprintf('  %-36s %s row(s) - would be renamed to %s',
+                    $name, $rows, self::SET_ASIDE));
+                continue;
+            }
+
+            $sqlite = strpos(strtolower(get_class($stray['connection']->getDriver())), 'sqlite') !== false;
+            $sql = $sqlite
+                ? 'ALTER TABLE `' . self::TABLE . '` RENAME TO `' . self::SET_ASIDE . '`'
+                : 'RENAME TABLE `' . self::TABLE . '` TO `' . self::SET_ASIDE . '`';
+            try {
+                $stray['connection']->execute($sql);
+                $this->out(sprintf('  %-36s %s row(s) - <success>renamed to %s</success>',
+                    $name, $rows, self::SET_ASIDE));
+            } catch (\Exception $e) {
+                $this->out(sprintf('  %-36s <warning>rename failed: %s</warning>',
+                    $name, $e->getMessage()));
+            }
+        }
+
+        if (!$apply) {
+            $this->out('');
+            $this->out('  Nothing renamed. The rename happens with --apply, or never');
+            $this->out('  with --keep-strays.');
+        }
     }
 }
