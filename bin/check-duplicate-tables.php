@@ -115,12 +115,22 @@ if (!$duplicates) {
     exit(0);
 }
 
-/** Which connection the application's Table class for this table reads. */
+/**
+ * Which connection the application's Table class for this table reads.
+ *
+ * Returns null when there is no Table class. That is not the same as nothing
+ * reading the table: journal_details has no class and is queried by raw SQL
+ * from two controllers, holding live accounting rows. An earlier version of
+ * this script reported those twelve rows as read by nobody, which is exactly
+ * the kind of confident wrong answer that gets data deleted.
+ *
+ * @return string|null
+ */
 function readsFrom($table)
 {
     $alias = \Cake\Utility\Inflector::camelize($table);
     if (!is_file(APP . 'Model' . DS . 'Table' . DS . $alias . 'Table.php')) {
-        return '(no Table class)';
+        return null;
     }
     try {
         return \Cake\ORM\TableRegistry::getTableLocator()->get($alias)->getConnection()->configName();
@@ -129,23 +139,67 @@ function readsFrom($table)
     }
 }
 
+/**
+ * How many source files mention this table name at all.
+ *
+ * A crude grep, and deliberately so: it is the only way to notice a table
+ * reached by raw SQL, which the Table classes know nothing about. Zero means
+ * nothing in the application names it, which is worth knowing on its own.
+ */
+function mentionedIn($table)
+{
+    $count = 0;
+    $iterator = new RecursiveIteratorIterator(
+        new RecursiveDirectoryIterator(APP, FilesystemIterator::SKIP_DOTS));
+    foreach ($iterator as $file) {
+        if (!$file->isFile()) {
+            continue;
+        }
+        if (!in_array(strtolower($file->getExtension()), ['php', 'ctp'], true)) {
+            continue;
+        }
+        if (strpos((string)file_get_contents($file->getPathname()), $table) !== false) {
+            $count++;
+        }
+    }
+
+    return $count;
+}
+
 echo "\nThe same table name in more than one database:\n\n";
 $serious = 0;
+$unknown = 0;
 foreach ($duplicates as $table => $copies) {
     $reads = readsFrom($table);
     printf("  %s\n", $table);
-    printf("      %-36s %-12s %s\n", 'database', 'rows', 'read by the application');
+    printf("      %-38s %-10s %s\n", 'database', 'rows', 'the Table class reads');
     foreach ($copies as $name => $rows) {
-        printf("      %-36s %-12s %s\n", $name,
+        printf("      %-38s %-10s %s\n", $name,
             $rows < 0 ? '(not counted)' : $rows,
-            $name === $reads ? 'yes' : '');
+            $reads !== null && $name === $reads ? 'yes' : '');
     }
 
-    // The copy nobody reads holding rows is the dangerous shape: somebody
-    // wrote them expecting them to be seen.
+    if ($reads === null) {
+        // No class means no opinion. Saying "nothing reads this" here would be
+        // a guess dressed as a finding.
+        $mentions = mentionedIn($table);
+        if ($mentions > 0) {
+            printf("      ?  no Table class - but %d source file(s) name this table,\n", $mentions);
+            printf("         so it is reached by raw SQL and this check cannot say which copy\n");
+        } else {
+            printf("      ?  no Table class and no source file names it - nothing in the\n");
+            printf("         application appears to use either copy\n");
+        }
+        $unknown++;
+        echo "\n";
+        continue;
+    }
+
+    // The copy the class does not read, holding rows, is the dangerous shape:
+    // somebody wrote them expecting them to be seen.
     foreach ($copies as $name => $rows) {
         if ($name !== $reads && $rows > 0) {
-            printf("      <- %s holds %d row(s) that nothing reads\n", $name, $rows);
+            printf("      <- %s holds %d row(s) the Table class does not read\n", $name, $rows);
             $serious++;
         }
     }
@@ -157,7 +211,14 @@ echo "symptom is a screen showing the wrong rows - or an association that finds\
 echo "nothing, because CakePHP cannot join across connections and the two\n";
 echo "tables ended up on opposite sides of that boundary.\n";
 if ($serious) {
-    echo "\nRows sitting in a copy nothing reads are the ones to look at first:\n";
-    echo "somebody entered them expecting them to be seen.\n";
+    echo "\nRows in a copy the Table class does not read are the ones to look at\n";
+    echo "first: somebody entered them expecting them to be seen. Compare the two\n";
+    echo "copies before moving or deleting anything - equal row counts do not mean\n";
+    echo "equal rows.\n";
+}
+if ($unknown) {
+    printf("\n%d of these have no Table class, so this check cannot say which copy\n", $unknown);
+    echo "is live. Where source files name the table it is queried by raw SQL, and\n";
+    echo "only reading that SQL will say which database it opens.\n";
 }
 exit(1);
