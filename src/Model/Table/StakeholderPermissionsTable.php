@@ -233,4 +233,22 @@ class StakeholderPermissionsTable extends Table
 
         return $result;
     }
+
+    /**
+     * Returns the database connection name to use by default.
+     *
+     * This table lives in the authentication database, beside
+     * stakeholder_activities. Saying so here rather than only at the call site
+     * is the whole point: the admin dashboard passed a connectionName to
+     * loadModel() and so worked, while anything reaching for this table
+     * through the table locator - a shell, a report, a later controller - was
+     * handed the default connection instead and found no such table. Its
+     * sibling StakeholderActivities declared this; these two did not.
+     *
+     * @return string
+     */
+    public static function defaultConnectionName()
+    {
+        return 'cms_authentication_authorization';
+    }
 }
