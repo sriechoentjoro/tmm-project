@@ -208,25 +208,48 @@ class ReportsController extends AppController
         $postTotal = (int)($conn->execute("SELECT COUNT(*) AS c FROM post_apprentices")->fetch('assoc')['c'] ?? 0);
 
         // Enriched apprentice list (vti is in cms_tmm_stakeholders, cross-join with full DB name)
+        //
+        // The orders join used to read cms_tmm_apprentices.apprentice_orders.
+        // Two tables carry that name, in two databases, with different columns
+        // - and apprentices.apprentice_order_id holds ids from the OTHER one:
+        // every path that writes the column takes its values from
+        // ApprenticeOrdersTable, which reads cms_tmm_trainees, and the
+        // existsIn rule on ApprenticesTable enforces it. So this report was
+        // joining ids against a table whose ids mean something else. Both had
+        // four rows numbered 1 to 4, so the join matched and quietly showed
+        // the wrong order against every apprentice.
+        //
+        // The trainees copy records a departure year and month rather than a
+        // date, so the date below is the first of that month and the screen
+        // shows it to month precision. It carries no status column at all,
+        // which is why one is no longer selected: an order's status was never
+        // recorded on the table this id points at, and showing the other
+        // table's status was the bug, not a feature worth keeping.
         $apprentices = $conn->execute("
             SELECT a.id, a.name, a.tmm_code, a.email, a.telephone_mobile,
               a.master_gender_id, a.is_apprentice_pass, a.is_apprenticeship_pass,
               a.name_katakana, a.birth_date, a.image_photo,
               a.link_whatsapp, a.strengths,
-              ao.title AS order_title, ao.departure_date, ao.status AS order_status,
+              ao.title AS order_title,
+              CONCAT(ao.departure_year, '-', LPAD(ao.departure_month, 2, '0'), '-01') AS departure_date,
+              NULL AS order_status,
               vti.name AS vti_name
             FROM cms_tmm_apprentices.apprentices a
-            LEFT JOIN cms_tmm_apprentices.apprentice_orders ao ON ao.id = a.apprentice_order_id
+            LEFT JOIN cms_tmm_trainees.apprentice_orders ao ON ao.id = a.apprentice_order_id
             LEFT JOIN cms_tmm_stakeholders.vocational_training_institutions vti ON vti.id = a.vocational_training_institution_id
             ORDER BY a.is_apprenticeship_pass DESC, a.name ASC
             LIMIT 500")->fetchAll('assoc');
 
         // Orders summary
         $orders = $conn->execute("
-            SELECT ao.title, ao.departure_date, ao.status, COUNT(a.id) AS count
-            FROM cms_tmm_apprentices.apprentice_orders ao
+            SELECT ao.title,
+                   CONCAT(ao.departure_year, '-', LPAD(ao.departure_month, 2, '0'), '-01') AS departure_date,
+                   NULL AS status,
+                   COUNT(a.id) AS count
+            FROM cms_tmm_trainees.apprentice_orders ao
             LEFT JOIN cms_tmm_apprentices.apprentices a ON a.apprentice_order_id = ao.id
-            GROUP BY ao.id ORDER BY ao.departure_date DESC LIMIT 10")->fetchAll('assoc');
+            GROUP BY ao.id, ao.title, ao.departure_year, ao.departure_month
+            ORDER BY ao.departure_year DESC, ao.departure_month DESC LIMIT 10")->fetchAll('assoc');
 
         $this->set(compact('apprentices','stats','postTotal','orders'));
     }

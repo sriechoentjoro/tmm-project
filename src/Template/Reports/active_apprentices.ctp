@@ -214,8 +214,10 @@ $preparing = $total - $inJapan - $completed;
           'closed' => ['bg'=>'#f5f7fa','color'=>'#78909c','dot'=>'#90a4ae'],
         ];
         foreach ($orders as $o):
-          $osm = $ordStatusMeta[$o['status']] ?? ['bg'=>'#f5f7fa','color'=>'#78909c','dot'=>'#90a4ae'];
-          $depDate = !empty($o['departure_date']) ? (new \DateTime($o['departure_date']))->format('d M Y') : '—';
+          $osm = $ordStatusMeta[$o['status'] ?? ''] ?? ['bg'=>'#f5f7fa','color'=>'#78909c','dot'=>'#90a4ae'];
+          // Month precision: the orders table records a departure year and
+          // month, not a day, so printing one would invent a date.
+          $depDate = !empty($o['departure_date']) ? (new \DateTime($o['departure_date']))->format('M Y') : '—';
       ?>
       <tr>
         <td style="font-size:12px">
@@ -225,7 +227,7 @@ $preparing = $total - $inJapan - $completed;
         <td>
           <span style="display:inline-flex;align-items:center;gap:4px;padding:2px 8px;border-radius:8px;font-size:10px;font-weight:800;background:<?= $osm['bg'] ?>;color:<?= $osm['color'] ?>">
             <span style="width:5px;height:5px;border-radius:50%;background:<?= $osm['dot'] ?>"></span>
-            <?= ucfirst($o['status']) ?>
+            <?= $o['status'] ? ucfirst($o['status']) : __('not recorded') ?>
           </span>
         </td>
         <td style="text-align:center;font-weight:800;color:#1565c0"><?= $o['count'] ?></td>
