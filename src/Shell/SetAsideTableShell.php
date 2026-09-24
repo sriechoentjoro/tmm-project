@@ -253,7 +253,12 @@ class SetAsideTableShell extends Shell
             if ($file->getPathname() === $own) {
                 continue;
             }
-            if (strpos($this->code($file->getPathname()), $table) !== false) {
+            // Whole word: without it, setting aside promotion_histories would
+            // be blocked by a reference to promotion_histories_old, which is a
+            // different table. An underscore counts as a word character, so
+            // the boundary falls exactly where the name ends.
+            if (preg_match('/\b' . preg_quote($table, '/') . '\b/',
+                $this->code($file->getPathname()))) {
                 $found[] = str_replace(APP, '', $file->getPathname());
             }
         }

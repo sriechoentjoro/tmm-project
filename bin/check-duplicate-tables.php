@@ -116,27 +116,69 @@ if (!$duplicates) {
 }
 
 /**
- * Which connection the application's Table class for this table reads.
+ * Every Table class in the application, by the physical table it maps to.
  *
- * Returns null when there is no Table class. That is not the same as nothing
- * reading the table: journal_details has no class and is queried by raw SQL
- * from two controllers, holding live accounting rows. An earlier version of
- * this script reported those twelve rows as read by nobody, which is exactly
- * the kind of confident wrong answer that gets data deleted.
+ * Camelizing the table name finds at most one class, and that is not enough:
+ * ApprenticeTicketsTable also calls setTable('tickets'), on the apprentice
+ * connection, and is used throughout ApprenticeFlightsController. Looking only
+ * for TicketsTable made this script announce that six live rows were read by
+ * nobody - a report that, acted on, would have taken apprentice flights down.
  *
- * @return string|null
+ * So every class is read for what it actually maps, and a table can be read
+ * from more than one connection.
+ *
+ * @return array table name => [alias, ...]
+ */
+function classesByTable()
+{
+    static $map = null;
+    if ($map !== null) {
+        return $map;
+    }
+
+    $map = [];
+    foreach (glob(APP . 'Model' . DS . 'Table' . DS . '*Table.php') as $file) {
+        $alias = basename($file, 'Table.php');
+        $source = (string)file_get_contents($file);
+        if (preg_match("/setTable\(\s*'([a-z0-9_]+)'\s*\)/i", $source, $m)) {
+            $map[$m[1]][] = $alias;
+            continue;
+        }
+        // No setTable() means the class takes the conventional name.
+        $map[\Cake\Utility\Inflector::underscore($alias)][] = $alias;
+    }
+
+    return $map;
+}
+
+/**
+ * Which connections the application's Table classes read this table from.
+ *
+ * Empty when no class maps it. That is not the same as nothing reading the
+ * table: journal_details has no class and is queried by raw SQL from two
+ * controllers, holding live accounting rows.
+ *
+ * @return array connection name => alias that reads it
  */
 function readsFrom($table)
 {
-    $alias = \Cake\Utility\Inflector::camelize($table);
-    if (!is_file(APP . 'Model' . DS . 'Table' . DS . $alias . 'Table.php')) {
-        return null;
+    $byTable = classesByTable();
+    if (empty($byTable[$table])) {
+        return [];
     }
-    try {
-        return \Cake\ORM\TableRegistry::getTableLocator()->get($alias)->getConnection()->configName();
-    } catch (\Throwable $e) {
-        return '(could not be loaded)';
+
+    $reads = [];
+    foreach ($byTable[$table] as $alias) {
+        try {
+            $connection = \Cake\ORM\TableRegistry::getTableLocator()
+                ->get($alias)->getConnection()->configName();
+            $reads[$connection] = $alias;
+        } catch (\Throwable $e) {
+            // Unloadable: better to say nothing than to claim it reads nowhere.
+        }
     }
+
+    return $reads;
 }
 
 /**
@@ -172,14 +214,14 @@ $unknown = 0;
 foreach ($duplicates as $table => $copies) {
     $reads = readsFrom($table);
     printf("  %s\n", $table);
-    printf("      %-38s %-10s %s\n", 'database', 'rows', 'the Table class reads');
+    printf("      %-38s %-10s %s\n", 'database', 'rows', 'read by');
     foreach ($copies as $name => $rows) {
         printf("      %-38s %-10s %s\n", $name,
             $rows < 0 ? '(not counted)' : $rows,
-            $reads !== null && $name === $reads ? 'yes' : '');
+            isset($reads[$name]) ? $reads[$name] . 'Table' : '');
     }
 
-    if ($reads === null) {
+    if (!$reads) {
         // No class means no opinion. Saying "nothing reads this" here would be
         // a guess dressed as a finding.
         $mentions = mentionedIn($table);
@@ -195,11 +237,22 @@ foreach ($duplicates as $table => $copies) {
         continue;
     }
 
-    // The copy the class does not read, holding rows, is the dangerous shape:
-    // somebody wrote them expecting them to be seen.
+    if (count($reads) > 1) {
+        // Two classes, two connections, one table name: not a duplicate at all
+        // but two separate sets of data that happen to share a name.
+        printf("      ?  %d Table classes map this name, on different connections -\n",
+            count($reads));
+        printf("         these are two live tables, not one copied twice\n");
+        $unknown++;
+        echo "\n";
+        continue;
+    }
+
+    // The copy no class reads, holding rows, is the dangerous shape: somebody
+    // wrote them expecting them to be seen.
     foreach ($copies as $name => $rows) {
-        if ($name !== $reads && $rows > 0) {
-            printf("      <- %s holds %d row(s) the Table class does not read\n", $name, $rows);
+        if (!isset($reads[$name]) && $rows > 0) {
+            printf("      <- %s holds %d row(s) no Table class reads\n", $name, $rows);
             $serious++;
         }
     }
