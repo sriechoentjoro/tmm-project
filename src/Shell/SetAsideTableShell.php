@@ -235,12 +235,22 @@ class SetAsideTableShell extends Shell
      */
     protected function mentions($table)
     {
+        // The table's own Table class always names it, in setTable(). That
+        // tells us nothing the connection check above has not already settled,
+        // and listing it makes every table with a model look like it is in use
+        // - which is the shape of objection people stop reading.
+        $own = APP . 'Model' . DS . 'Table' . DS
+            . \Cake\Utility\Inflector::camelize($table) . 'Table.php';
+
         $found = [];
         $iterator = new \RecursiveIteratorIterator(
             new \RecursiveDirectoryIterator(APP, \FilesystemIterator::SKIP_DOTS));
         foreach ($iterator as $file) {
             if (!$file->isFile()
                 || !in_array(strtolower($file->getExtension()), ['php', 'ctp'], true)) {
+                continue;
+            }
+            if ($file->getPathname() === $own) {
                 continue;
             }
             if (strpos($this->code($file->getPathname()), $table) !== false) {
