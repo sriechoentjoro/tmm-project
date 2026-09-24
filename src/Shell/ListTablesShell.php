@@ -14,6 +14,45 @@ use Cake\Datasource\ConnectionManager;
 class ListTablesShell extends Shell
 {
     /**
+     * Where a Table class says this column points, if it says anything.
+     *
+     * A belongsTo names its foreignKey and, through className, the table it
+     * leads to - which is how admin_id reaches users without an `admins`
+     * table existing. Reading that is the difference between a warning worth
+     * acting on and one everybody learns to scroll past.
+     *
+     * @param string $table Physical table name.
+     * @param string $column The _id column.
+     * @param array $allTables Every table name seen across the databases.
+     * @return bool True when the column demonstrably points at a real table.
+     */
+    protected function declaredTarget($table, $column, array $allTables)
+    {
+        $alias = \Cake\Utility\Inflector::camelize($table);
+        if (!is_file(APP . 'Model' . DS . 'Table' . DS . $alias . 'Table.php')) {
+            return false;
+        }
+
+        try {
+            $model = \Cake\ORM\TableRegistry::getTableLocator()->get($alias);
+            foreach ($model->associations() as $association) {
+                if (strtolower($association->type()) !== 'manytoone') {
+                    continue;
+                }
+                if ((string)$association->getForeignKey() !== $column) {
+                    continue;
+                }
+
+                return in_array($association->getTarget()->getTable(), $allTables, true);
+            }
+        } catch (\Exception $e) {
+            // The model could not be loaded; fall back to the name guess.
+        }
+
+        return false;
+    }
+
+    /**
      * Get all configured database connections from config
      * 
      * @return array Key-value pairs of connection names and database names
@@ -307,6 +346,27 @@ class ListTablesShell extends Shell
                                     if (in_array($column, ['parent_id', 'reference_id', 'user_id'])) {
                                         continue; // These are often self-references or polymorphic
                                     }
+
+                                    // A column with a matching _type beside it is
+                                    // polymorphic: stakeholder_id points at one of
+                                    // four tables depending on stakeholder_type, so
+                                    // there is no `stakeholders` table to find and
+                                    // reporting its absence only teaches people to
+                                    // ignore this warning.
+                                    $typeColumn = preg_replace('/_id$/', '_type', $column);
+                                    if (in_array($typeColumn, $columns, true)) {
+                                        continue;
+                                    }
+
+                                    // The application's own associations know where
+                                    // a column points, including when the name does
+                                    // not say so: admin_id is declared as a belongsTo
+                                    // on Users, aliased Admins, and no `admins` table
+                                    // exists or needs to. Guessing from the column
+                                    // name cannot see that; asking the model can.
+                                    if ($this->declaredTarget($table, $column, $allTablesList)) {
+                                        continue;
+                                    }
                                     
                                     // Extract expected table name (remove _id suffix)
                                     $expectedTable = preg_replace('/_id$/', '', $column);
@@ -442,7 +502,10 @@ class ListTablesShell extends Shell
         
         if (!empty($orphanedForeignKeys)) {
             $this->out("  <error>WARNING: Orphaned Foreign Key Columns Detected:</error>");
-            $this->out("  (Columns ending in _id but referenced table doesn't exist in any database)");
+            $this->out("  (Guessed from the column name, not read from a constraint.");
+            $this->out("   Columns paired with a _type column, and columns a Table class");
+            $this->out("   declares a belongsTo for, are left out - those point somewhere");
+            $this->out("   the name alone does not say.)");
             $this->out("");
             
             foreach ($orphanedForeignKeys as $orphan) {
