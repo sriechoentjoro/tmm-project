@@ -18452,3 +18452,10 @@ msgstr "すでに記録されている入金のようです。何も保存して
 msgid "Rp {0} recorded on {1}"
 msgstr "{1} に Rp {0} を記録"
 
+
+msgid "It starts from the day the table was prepared. Almost nothing before that was recorded anywhere, and what was not is genuinely gone."
+msgstr "記録はテーブルを用意した日から始まります。それ以前のものはほとんどどこにも残っておらず、残っていないものは本当に失われています。"
+
+msgid "A few promotions made earlier were copied in from an older table that recorded them. Every such line says so in its detail, and names the record it came from. That marking matters: a line reconstructed afterwards is not worth the same as one written at the moment somebody decided, and a trail that blurs the difference loses what it is for."
+msgstr "それ以前に行われた昇格のいくつかは、それを記録していた古いテーブルから写し入れています。そうした行はいずれも詳細欄にその旨と出典の記録を記しています。この印は重要です。後から組み直した行は、誰かが決めたその瞬間に書かれた行と同じ重みを持たず、その違いを曖昧にする記録は存在意義を失います。"
+

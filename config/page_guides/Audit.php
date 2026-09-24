@@ -68,7 +68,8 @@ return [
 
     'cautions' => [
         __('The trail records decisions, not edits. Correcting a name, a date or an amount on an ordinary form leaves no line - only the twelve moments where somebody decides something do. A trail of every column change would bury the decisions it exists to surface.'),
-        __('It starts from the day the table was prepared. Nothing before that was recorded, and nothing can be recovered - the earlier decisions are genuinely gone.'),
+        __('It starts from the day the table was prepared. Almost nothing before that was recorded anywhere, and what was not is genuinely gone.'),
+        __('A few promotions made earlier were copied in from an older table that recorded them. Every such line says so in its detail, and names the record it came from. That marking matters: a line reconstructed afterwards is not worth the same as one written at the moment somebody decided, and a trail that blurs the difference loses what it is for.'),
         __('A line keeps the username and the subject\'s name as text, written at the moment of the decision. That is deliberate: the line still reads correctly after the account or the candidate is deleted, which is exactly when somebody asks.'),
         __('It shows which screens a role reaches, not which actions each assignment grants. A screen listed here can still refuse an add or a delete.'),
     ],

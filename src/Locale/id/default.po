@@ -18452,3 +18452,10 @@ msgstr "Ini tampak seperti pembayaran yang sudah tercatat. Tidak ada yang disimp
 msgid "Rp {0} recorded on {1}"
 msgstr "Rp {0} dicatat pada {1}"
 
+
+msgid "It starts from the day the table was prepared. Almost nothing before that was recorded anywhere, and what was not is genuinely gone."
+msgstr "Ia dimulai sejak hari tabelnya disiapkan. Hampir tidak ada yang sebelum itu tercatat di mana pun, dan yang memang tidak tercatat sungguh-sungguh hilang."
+
+msgid "A few promotions made earlier were copied in from an older table that recorded them. Every such line says so in its detail, and names the record it came from. That marking matters: a line reconstructed afterwards is not worth the same as one written at the moment somebody decided, and a trail that blurs the difference loses what it is for."
+msgstr "Beberapa promosi yang dilakukan lebih dahulu disalin masuk dari tabel lama yang mencatatnya. Setiap baris semacam itu menyatakannya pada kolom rinciannya, beserta catatan asalnya. Penandaan itu penting: baris yang disusun ulang belakangan tidak bernilai sama dengan baris yang ditulis pada saat seseorang memutuskan, dan jejak yang mengaburkan bedanya kehilangan gunanya."
+
