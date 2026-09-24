@@ -112,6 +112,10 @@ class SetAsideTableShell extends Shell
         $this->out(sprintf('would become <info>%s</info>', $target));
         $this->out('');
 
+        foreach ($this->notes($table, $connectionName) as $note) {
+            $this->out('  ' . $note);
+        }
+
         $objections = $this->objections($table, $connectionName);
         foreach ($objections as $objection) {
             $this->out('  <warning>' . $objection . '</warning>');
@@ -155,6 +159,39 @@ class SetAsideTableShell extends Shell
         $this->out('  <info>rm -rf tmp/cache/models/*</info>');
 
         return null;
+    }
+
+    /**
+     * What is worth knowing but is not a reason to stop.
+     *
+     * A Table class reading some OTHER connection is the useful case: it says
+     * the ORM is not looking at this copy, which is most of the question. The
+     * source scan below cannot tell which connection a raw query opens, so
+     * without this note its objection reads as though the whole feature might
+     * break, when the ORM path has already been accounted for.
+     *
+     * @return array
+     */
+    protected function notes($table, $connectionName)
+    {
+        $alias = \Cake\Utility\Inflector::camelize($table);
+        if (!is_file(APP . 'Model' . DS . 'Table' . DS . $alias . 'Table.php')) {
+            return [];
+        }
+
+        try {
+            $reads = \Cake\ORM\TableRegistry::getTableLocator()
+                ->get($alias)->getConnection()->configName();
+        } catch (\Exception $e) {
+            return [];
+        }
+
+        if ($reads === $connectionName) {
+            return []; // an objection says this, and says it louder
+        }
+
+        return [sprintf('%sTable reads %s, not this one - the ORM is not using this copy',
+            $alias, $reads)];
     }
 
     /**
