@@ -80,6 +80,7 @@ return [
         __('Nothing compares the times on two legs. Flights that overlap, or a connection of fifteen minutes, save without a word.'),
         __('The Departures entry in the menu does not open a page of its own - it sends you straight back to this list.'),
         __('A leg belongs to a ticket, not to a trainee. A leg on a ticket with no trainee on it is attached to nobody.'),
+        __('The purchase date is what accounting dates the cost by. Leave it empty and the price is held back on the auto-generated journal page rather than booked - a ticket bought in March for an August flight is money spent in March, and the day somebody presses Generate is not a date at all.'),
         __('The currency chosen here decides whether the price reaches the books. Accounting keeps its books in rupiah and nothing converts between currencies, so a ticket priced in yen is held back on the auto-generated journal page instead of being booked at its face value.'),
     ],
 ];

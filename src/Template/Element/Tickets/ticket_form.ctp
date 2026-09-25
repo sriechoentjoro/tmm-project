@@ -85,6 +85,12 @@ $formatDatetime = function ($value) {
                     <hr class="field-divider">
                     <div class="form-section-label"><i class="fa fa-money-bill"></i> <?= __('Cost') ?></div>
                     <div class="field-grid">
+                        <?= $this->Form->control('purchase_date', [
+                            'type' => 'date',
+                            'label' => __('Purchase Date'),
+                            'class' => 'form-control',
+                            'templateVars' => ['help' => __('The day the ticket was paid for. Accounting dates this cost by it - without it the cost is held back rather than booked under today.')],
+                        ]) ?>
                         <?= $this->Form->control('total_price', [
                             'label' => __('Total Price'),
                             'type' => 'number',

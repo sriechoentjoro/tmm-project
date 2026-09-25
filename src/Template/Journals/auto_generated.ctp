@@ -8,7 +8,8 @@
  * @var int $generatedCount
  * @var array $mappings        source type -> COA mapping meta
  * @var array $coa             [code => ['id','name','type']]
- * @var array $blocked         source records priced in another currency
+ * @var array $blocked         source records that cannot be posted, with reasons
+ * @var array $sourceErrors    sources that could not be read at all
  * @var array $bookCurrency    ['id','code','title','resolved']
  */
 $this->assign('title', 'Auto-Generated Journals');
@@ -36,6 +37,19 @@ foreach ($pendingByType as $items) {
                 ['action' => 'index'], ['escape' => false, 'class' => 'btn btn-sm btn-outline-secondary']) ?>
         </div>
     </div>
+
+    <?php if (!empty($sourceErrors)): ?>
+        <div class="source-error">
+            <strong><i class="fa fa-times-circle"></i>
+                <?= __('A source of entries could not be read') ?></strong>
+            <p><?= __('Records from it were not considered at all, so the counts below are incomplete. This is not the same as having nothing left to journalize - until it is fixed, this page cannot say what is outstanding.') ?></p>
+            <ul>
+                <?php foreach ($sourceErrors as $error): ?>
+                    <li><code><?= h($error) ?></code></li>
+                <?php endforeach; ?>
+            </ul>
+        </div>
+    <?php endif; ?>
 
     <!-- Summary strip -->
     <div class="summary-strip">
@@ -206,6 +220,17 @@ foreach ($pendingByType as $items) {
 .autogen-page .page-header h2 { margin: 0 0 5px 0; }
 .card-blocked { border-left: 4px solid #e65100; }
 .card-blocked .card-header h4 { color: #e65100; }
+.source-error {
+    margin-bottom: 20px;
+    padding: 14px 18px;
+    border-left: 4px solid #c62828;
+    border-radius: 6px;
+    background: #ffebee;
+    color: #4e342e;
+}
+.source-error strong { color: #c62828; display: block; margin-bottom: 6px; }
+.source-error p { margin: 0 0 8px; font-size: 13px; line-height: 1.6; }
+.source-error ul { margin: 0; padding-left: 20px; font-size: 12px; }
 .block-reason { font-size: 12px; color: #6d4c41; line-height: 1.5; max-width: 46ch; }
 .currency-chip {
     display: inline-block;

@@ -18488,3 +18488,31 @@ msgstr "Alasan ditahan"
 msgid "A source record whose mapping needs an account the Chart of Accounts does not have is held back the same way, and says which account is missing. It used to be passed over in silence: the record stayed on the pending list, counted in the pending total, and Generate All did nothing with it - so the page promised an entry the button never made."
 msgstr "Catatan sumber yang pemetaannya membutuhkan akun yang tidak ada di Bagan Akun ditahan dengan cara yang sama, dan menyebutkan akun mana yang hilang. Dulu ia dilewati tanpa sepatah kata pun: catatannya tetap ada di daftar tertunda, ikut dihitung dalam total tertunda, dan Buat Semua tidak melakukan apa pun terhadapnya - sehingga halamannya menjanjikan jurnal yang tidak pernah dibuat tombolnya."
 
+
+msgid "If a source of entries cannot be read at all, the page says so at the top rather than showing a smaller number. An unreadable source used to look exactly like having nothing left to journalize."
+msgstr "Bila salah satu sumber jurnal sama sekali tidak bisa dibaca, halamannya menyatakannya di bagian atas alih-alih menampilkan angka yang lebih kecil. Sumber yang tidak terbaca dulu tampak persis seperti tidak ada lagi yang perlu dijurnal."
+
+msgid "The purchase date is what accounting dates the cost by. Leave it empty and the price is held back on the auto-generated journal page rather than booked - a ticket bought in March for an August flight is money spent in March, and the day somebody presses Generate is not a date at all."
+msgstr "Tanggal pembelian adalah dasar akuntansi menanggali biaya ini. Bila dibiarkan kosong, harganya ditahan di halaman jurnal otomatis alih-alih dibukukan - tiket yang dibeli Maret untuk penerbangan Agustus adalah uang yang keluar pada Maret, dan hari seseorang menekan Buat bukan tanggal apa pun."
+
+msgid "One source of entries could not be read, so records from it were not considered: {0}"
+msgstr "Salah satu sumber jurnal tidak bisa dibaca, sehingga catatan darinya sama sekali tidak diperhitungkan: {0}"
+
+msgid "This ticket has no purchase date. A cost has to be dated the day it was incurred, so fill it in on the ticket and it can be posted."
+msgstr "Tiket ini tidak punya tanggal pembelian. Sebuah biaya harus ditanggali pada hari ia terjadi, jadi isikan pada tiketnya dan ia bisa diposkan."
+
+msgid "The tickets table has no purchase_date column yet, so there is no date to post this cost under. An administrator should run {0}."
+msgstr "Tabel tickets belum punya kolom purchase_date, jadi tidak ada tanggal untuk memposkan biaya ini. Administrator perlu menjalankan {0}."
+
+msgid "A source of entries could not be read"
+msgstr "Salah satu sumber jurnal tidak bisa dibaca"
+
+msgid "Records from it were not considered at all, so the counts below are incomplete. This is not the same as having nothing left to journalize - until it is fixed, this page cannot say what is outstanding."
+msgstr "Catatan darinya sama sekali tidak diperhitungkan, sehingga jumlah di bawah tidak lengkap. Ini tidak sama dengan tidak ada lagi yang perlu dijurnal - sampai dibetulkan, halaman ini tidak bisa menyatakan apa yang masih tertunda."
+
+msgid "Purchase Date"
+msgstr "Tanggal Pembelian"
+
+msgid "The day the ticket was paid for. Accounting dates this cost by it - without it the cost is held back rather than booked under today."
+msgstr "Hari tiket itu dibayar. Akuntansi menanggali biaya ini dengannya - tanpa itu biayanya ditahan alih-alih dibukukan bertanggal hari ini."
+

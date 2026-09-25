@@ -18488,3 +18488,31 @@ msgstr "保留の理由"
 msgid "A source record whose mapping needs an account the Chart of Accounts does not have is held back the same way, and says which account is missing. It used to be passed over in silence: the record stayed on the pending list, counted in the pending total, and Generate All did nothing with it - so the page promised an entry the button never made."
 msgstr "対応づけに必要な勘定科目が勘定科目表にない元データも、同じように保留され、どの科目が欠けているかを示します。以前はそれが黙って飛ばされていました。未処理の一覧に残り、未処理の合計にも数えられ、それでも「すべて作成」は何もしませんでした。つまり画面は、ボタンが決して作らない仕訳を約束していたのです。"
 
+
+msgid "If a source of entries cannot be read at all, the page says so at the top rather than showing a smaller number. An unreadable source used to look exactly like having nothing left to journalize."
+msgstr "元データのいずれかがまったく読めない場合、画面は小さい数字を見せるのではなく、その旨を上部に示します。以前は、読めない元データが「仕訳するものは残っていない」とまったく同じに見えていました。"
+
+msgid "The purchase date is what accounting dates the cost by. Leave it empty and the price is held back on the auto-generated journal page rather than booked - a ticket bought in March for an August flight is money spent in March, and the day somebody presses Generate is not a date at all."
+msgstr "購入日は、会計がこの費用をいつの日付で計上するかの根拠です。空のままなら、その金額は計上されず自動仕訳のページで保留されます。8月の便のために3月に買った航空券は3月に出た金であり、誰かが「作成」を押した日は日付とは言えません。"
+
+msgid "One source of entries could not be read, so records from it were not considered: {0}"
+msgstr "元データの一つが読めなかったため、そこからのデータは一切考慮されていません。{0}"
+
+msgid "This ticket has no purchase date. A cost has to be dated the day it was incurred, so fill it in on the ticket and it can be posted."
+msgstr "この航空券には購入日がありません。費用は発生した日付で計上する必要があるため、航空券に入力すれば計上できます。"
+
+msgid "The tickets table has no purchase_date column yet, so there is no date to post this cost under. An administrator should run {0}."
+msgstr "tickets テーブルにまだ purchase_date 列がないため、この費用を計上する日付がありません。管理者が {0} を実行してください。"
+
+msgid "A source of entries could not be read"
+msgstr "元データの一つが読めませんでした"
+
+msgid "Records from it were not considered at all, so the counts below are incomplete. This is not the same as having nothing left to journalize - until it is fixed, this page cannot say what is outstanding."
+msgstr "そこからのデータは一切考慮されていないため、以下の件数は不完全です。これは「仕訳するものが残っていない」こととは違います。解消されるまで、この画面は何が未処理かを示せません。"
+
+msgid "Purchase Date"
+msgstr "購入日"
+
+msgid "The day the ticket was paid for. Accounting dates this cost by it - without it the cost is held back rather than booked under today."
+msgstr "航空券を支払った日です。会計はこの費用をその日付で計上します。入力がなければ、本日付で計上するのではなく保留します。"
+
