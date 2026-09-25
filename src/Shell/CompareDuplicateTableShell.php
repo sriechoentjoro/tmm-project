@@ -91,9 +91,11 @@ class CompareDuplicateTableShell extends Shell
         $this->reportRows($rows, $shared, $sides, $key, $columns);
 
         if ($table === 'apprentice_orders') {
-            // The question that started this. Kept here rather than in a tool
-            // of its own because it is the only reason the comparison matters.
+            // The questions that started this. Kept here rather than in tools
+            // of their own because they are the only reason the comparison
+            // matters.
             $this->reportShares($rows, $key);
+            $this->reportApprentices($rows, $key);
         }
 
         $this->out('');
@@ -306,6 +308,73 @@ class CompareDuplicateTableShell extends Shell
                 $row['shares'],
                 isset($rows['left'][$id]) ? 'yes' : 'NO',
                 isset($rows['right'][$id]) ? 'yes' : 'NO'));
+        }
+    }
+
+    /**
+     * Which copy the apprentices themselves point at.
+     *
+     * apprentices.apprentice_order_id holds ids from the cms_tmm_trainees copy:
+     * every path that writes it reads its options from ApprenticeOrdersTable,
+     * and ApprenticesTable enforces that with an existsIn rule. That rule only
+     * guards new saves, though - a row written before it, or before the tables
+     * diverged, can still name an id that only the abandoned copy has. Those
+     * apprentices now show no order on the report, correctly, and this says
+     * which ones so the blank is explained rather than discovered.
+     *
+     * @param array $rows Both copies, keyed.
+     * @param string $key Primary key column.
+     * @return void
+     */
+    protected function reportApprentices(array $rows, $key)
+    {
+        $this->out('');
+        $this->out('  <info>what the apprentices point at</info>');
+
+        try {
+            $apprentices = ConnectionManager::get('cms_tmm_apprentices')->execute(
+                'SELECT apprentice_order_id, COUNT(*) AS people,
+                        GROUP_CONCAT(name) AS names
+                 FROM `apprentices`
+                 WHERE apprentice_order_id IS NOT NULL
+                 GROUP BY apprentice_order_id
+                 ORDER BY apprentice_order_id')->fetchAll('assoc');
+        } catch (\Exception $e) {
+            $this->out('    could not read apprentices: ' . $e->getMessage());
+
+            return;
+        }
+
+        if (!$apprentices) {
+            $this->out('    no apprentice names an order, so nothing depends on either copy');
+
+            return;
+        }
+
+        $this->out(sprintf('    %-12s %-8s %-16s %-14s %s',
+            'order id', 'people', 'in apprentices', 'in trainees', 'who'));
+        $orphans = 0;
+        foreach ($apprentices as $row) {
+            $id = (string)$row['apprentice_order_id'];
+            $inRight = isset($rows['right'][$id]);
+            if (!$inRight) {
+                $orphans += (int)$row['people'];
+            }
+            $this->out(sprintf('    %-12s %-8s %-16s %-14s %s',
+                $id,
+                $row['people'],
+                isset($rows['left'][$id]) ? 'yes' : 'NO',
+                $inRight ? 'yes' : '<warning>NO</warning>',
+                $this->short($row['names'])));
+        }
+
+        if ($orphans) {
+            $this->out('');
+            $this->out(sprintf('    <warning>%d apprentice(s) name an order the trainees copy '
+                . 'does not have</warning>', $orphans));
+            $this->out('    They show no order on the report. The id was written when that');
+            $this->out('    copy was the one being read, so the order they were placed under');
+            $this->out('    exists only in the copy nothing reads now.');
         }
     }
 
