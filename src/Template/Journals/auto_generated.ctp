@@ -157,13 +157,13 @@ foreach ($pendingByType as $items) {
         <div class="card card-blocked">
             <div class="card-header">
                 <h4><i class="fa fa-exclamation-triangle"></i>
-                    <?= __('Priced in another currency - not posted') ?>
+                    <?= __('Held back - not posted') ?>
                     <span class="count-chip"><?= count($blocked) ?></span>
                 </h4>
             </div>
             <div class="card-body">
                 <p class="text-muted">
-                    <?= __('The books are kept in {0} and nothing here converts between currencies - a journal entry carries no currency at all. These source records are priced in something else, so their amounts are not added to the figures above and no entry is generated from them. Decide what each one is worth in {0} and record that, or leave it out of the books deliberately.', h($bookCurrency['code'])) ?>
+                    <?= __('These source records are not counted in the figures above and Generate All passes over them. Each line says why. Until the reason is dealt with, nothing here reaches the books - which is the point of listing them rather than skipping them quietly.') ?>
                 </p>
                 <div class="table-scroll-wrapper" style="overflow-x:auto;">
                     <table class="pending-table">
@@ -172,8 +172,8 @@ foreach ($pendingByType as $items) {
                                 <th><?= __('Reference') ?></th>
                                 <th><?= __('Subject') ?></th>
                                 <th><?= __('Date') ?></th>
-                                <th><?= __('Currency') ?></th>
                                 <th class="text-right"><?= __('Amount as recorded') ?></th>
+                                <th><?= __('Why it is held back') ?></th>
                             </tr>
                         </thead>
                         <tbody>
@@ -182,8 +182,8 @@ foreach ($pendingByType as $items) {
                                 <td><code class="ref-code"><?= h($item['reference_no']) ?></code></td>
                                 <td><?= h($item['subject']) ?></td>
                                 <td class="text-muted"><?= h($item['date']) ?></td>
-                                <td><span class="currency-chip"><?= h($item['currency']) ?></span></td>
                                 <td class="text-right"><strong><?= h($item['currency']) ?> <?= number_format((float)$item['amount'], 0, ',', '.') ?></strong></td>
+                                <td class="block-reason"><?= h($item['block_reason']) ?></td>
                             </tr>
                             <?php endforeach; ?>
                         </tbody>
@@ -206,6 +206,7 @@ foreach ($pendingByType as $items) {
 .autogen-page .page-header h2 { margin: 0 0 5px 0; }
 .card-blocked { border-left: 4px solid #e65100; }
 .card-blocked .card-header h4 { color: #e65100; }
+.block-reason { font-size: 12px; color: #6d4c41; line-height: 1.5; max-width: 46ch; }
 .currency-chip {
     display: inline-block;
     padding: 2px 8px;
