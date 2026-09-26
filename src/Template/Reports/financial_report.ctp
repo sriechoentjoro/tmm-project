@@ -5,6 +5,7 @@
  * @var \App\View\AppView $this
  * @var array $rows        per-account debit/credit/balance
  * @var string $reportTitle
+ * @var array $period      ['from' => string|null, 'to' => string, 'swapped' => bool]
  */
 $this->assign('title', $reportTitle);
 
@@ -74,7 +75,7 @@ $typeBadge = [
 ?>
 
 <div class="finreport-page">
-    <?= $this->element('report_scope_note') ?>
+    <?= $this->element('report_scope_note', ['period' => $period]) ?>
     <div class="page-header">
         <div>
             <h2><i class="fa <?= $isIncome ? 'fa-chart-line' : 'fa-balance-scale' ?>"></i> <?= h($reportTitle) ?></h2>
@@ -88,6 +89,42 @@ $typeBadge = [
                 ['escape' => false, 'class' => 'btn btn-sm btn-outline-secondary']) ?>
         </div>
     </div>
+
+    <?php if (!empty($period['swapped'])): ?>
+        <div class="period-swapped">
+            <i class="fa fa-exchange-alt"></i>
+            <?= __('The two dates were the wrong way round, so they have been swapped. An empty report caused by a typo looks exactly like an empty report caused by having no entries, which is why this says so rather than simply showing nothing.') ?>
+        </div>
+    <?php endif; ?>
+
+    <!-- Period -->
+    <form class="period-bar" method="get">
+        <?php if (!empty($period['from'])): ?>
+            <label>
+                <span><?= __('From') ?></span>
+                <input type="date" name="from" value="<?= h($period['from']) ?>">
+            </label>
+            <label>
+                <span><?= __('To') ?></span>
+                <input type="date" name="to" value="<?= h($period['to']) ?>">
+            </label>
+        <?php else: ?>
+            <label>
+                <span><?= __('As at') ?></span>
+                <input type="date" name="to" value="<?= h($period['to']) ?>">
+            </label>
+            <span class="period-hint">
+                <?= __('A balance sheet is a position on one day, not a span - so it takes one date.') ?>
+            </span>
+        <?php endif; ?>
+        <button type="submit" class="btn btn-sm btn-primary">
+            <i class="fa fa-filter"></i> <?= __('Apply') ?>
+        </button>
+        <?php if (empty($period['default'])): ?>
+            <?= $this->Html->link(__('Back to the default'), ['action' => $this->request->getParam('action')],
+                ['class' => 'period-reset']) ?>
+        <?php endif; ?>
+    </form>
 
     <!-- Summary strip -->
     <div class="summary-strip">
@@ -149,6 +186,25 @@ $typeBadge = [
 </div>
 
 <style>
+.period-bar {
+    display: flex; align-items: flex-end; gap: 14px; flex-wrap: wrap;
+    padding: 12px 16px; margin: 0 0 18px; border-radius: 10px;
+    background: #f7f9fb; border: 1px solid #e3e9ee;
+}
+.period-bar label { display: flex; flex-direction: column; gap: 4px; margin: 0; }
+.period-bar label span { font-size: 11px; font-weight: 700; color: #62798a; text-transform: uppercase; }
+.period-bar input[type="date"] {
+    padding: 6px 10px; border: 1px solid #cfd8de; border-radius: 6px; font-size: 13px;
+}
+.period-bar .period-hint { font-size: 12px; color: #78909c; padding-bottom: 7px; max-width: 32ch; }
+.period-bar .period-reset { font-size: 12px; padding-bottom: 8px; }
+.period-swapped {
+    padding: 11px 16px; margin: 0 0 14px; border-radius: 10px;
+    background: #fff8e1; border-left: 4px solid #fb8c00;
+    font-size: 13px; color: #6d4c41; line-height: 1.5;
+}
+.period-swapped i { color: #e65100; margin-right: 6px; }
+@media print { .period-bar { background: none; border: 0; padding: 0 0 8px; } .period-bar button, .period-bar .period-reset { display: none; } }
 .finreport-page .page-header {
     display: flex;
     justify-content: space-between;

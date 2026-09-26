@@ -18516,3 +18516,34 @@ msgstr "購入日"
 msgid "The day the ticket was paid for. Accounting dates this cost by it - without it the cost is held back rather than booked under today."
 msgstr "航空券を支払った日です。会計はこの費用をその日付で計上します。入力がなければ、本日付で計上するのではなく保留します。"
 
+
+msgid "The income statement covers a period, shown at the top and changeable there. It defaults to the year so far. It used to sum every entry ever posted, which made revenue and profit grow for ever and belong to no month, quarter or year - and nothing on the page said which span it covered, so there was nothing to notice."
+msgstr "損益計算書は一つの期間を対象とし、その期間は上部に表示され、そこで変更できます。既定は年初から今日までです。以前はこれまでに計上されたすべての仕訳を合算していたため、収益も利益も際限なく増え続け、どの月・四半期・年度のものでもありませんでした。しかも画面はどの範囲を対象にしているか示さなかったため、気づく手がかりすらありませんでした。"
+
+msgid "The balance sheet takes one date, not a range: it is a position on a day, everything posted up to it. Capping it matters even so, because an entry dated next year would otherwise land in today figures."
+msgstr "貸借対照表は範囲ではなく一つの日付を取ります。ある日の残高、つまりその日までに計上されたすべてです。それでも上限は重要です。さもなければ翌年の日付の仕訳が今日の数字に入り込みます。"
+
+msgid "Dates the wrong way round are swapped rather than obeyed, and the page says so. An empty report caused by a typo looks exactly like an empty report caused by having no entries."
+msgstr "前後が逆の日付は、そのまま従うのではなく入れ替え、その旨を画面に示します。打ち間違いで空になった帳票は、仕訳がなくて空の帳票とまったく同じに見えるからです。"
+
+msgid "The two dates were the wrong way round, so they have been swapped. An empty report caused by a typo looks exactly like an empty report caused by having no entries, which is why this says so rather than simply showing nothing."
+msgstr "二つの日付が前後逆だったため、入れ替えました。打ち間違いで空になった帳票は、仕訳がなくて空の帳票とまったく同じに見えます。だから黙って空を見せるのではなく、こうして知らせています。"
+
+msgid "As at"
+msgstr "基準日"
+
+msgid "A balance sheet is a position on one day, not a span - so it takes one date."
+msgstr "貸借対照表は期間ではなく、ある一日の残高です。だから日付は一つです。"
+
+msgid "Apply"
+msgstr "適用"
+
+msgid "Back to the default"
+msgstr "既定に戻す"
+
+msgid "Counted: entries marked {0}, dated {1} to {2}."
+msgstr "集計対象: ステータス {0}、{1} から {2} までの仕訳。"
+
+msgid "Counted: entries marked {0}, everything up to {1}."
+msgstr "集計対象: ステータス {0}、{1} までのすべての仕訳。"
+

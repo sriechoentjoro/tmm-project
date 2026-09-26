@@ -18516,3 +18516,34 @@ msgstr "Tanggal Pembelian"
 msgid "The day the ticket was paid for. Accounting dates this cost by it - without it the cost is held back rather than booked under today."
 msgstr "Hari tiket itu dibayar. Akuntansi menanggali biaya ini dengannya - tanpa itu biayanya ditahan alih-alih dibukukan bertanggal hari ini."
 
+
+msgid "The income statement covers a period, shown at the top and changeable there. It defaults to the year so far. It used to sum every entry ever posted, which made revenue and profit grow for ever and belong to no month, quarter or year - and nothing on the page said which span it covered, so there was nothing to notice."
+msgstr "Laporan laba rugi mencakup satu periode, ditampilkan di bagian atas dan bisa diubah di situ. Bawaannya adalah tahun berjalan sampai hari ini. Dulu ia menjumlahkan setiap jurnal yang pernah diposkan, sehingga pendapatan dan labanya tumbuh selamanya dan tidak menjadi milik bulan, kuartal maupun tahun mana pun - dan tidak ada di halamannya yang menyebutkan rentang apa yang dicakup, jadi tidak ada yang bisa disadari."
+
+msgid "The balance sheet takes one date, not a range: it is a position on a day, everything posted up to it. Capping it matters even so, because an entry dated next year would otherwise land in today figures."
+msgstr "Neraca memakai satu tanggal, bukan rentang: ia adalah posisi pada suatu hari, yaitu semua yang diposkan sampai hari itu. Pembatasannya tetap penting, sebab tanpa itu jurnal bertanggal tahun depan akan masuk ke angka hari ini."
+
+msgid "Dates the wrong way round are swapped rather than obeyed, and the page says so. An empty report caused by a typo looks exactly like an empty report caused by having no entries."
+msgstr "Tanggal yang terbalik ditukar alih-alih dituruti, dan halamannya mengatakannya. Laporan kosong akibat salah ketik tampak persis seperti laporan kosong karena memang tidak ada jurnalnya."
+
+msgid "The two dates were the wrong way round, so they have been swapped. An empty report caused by a typo looks exactly like an empty report caused by having no entries, which is why this says so rather than simply showing nothing."
+msgstr "Kedua tanggalnya terbalik, jadi keduanya ditukar. Laporan kosong akibat salah ketik tampak persis seperti laporan kosong karena memang tidak ada jurnalnya - itulah sebabnya hal ini dinyatakan alih-alih sekadar menampilkan kosong."
+
+msgid "As at"
+msgstr "Per tanggal"
+
+msgid "A balance sheet is a position on one day, not a span - so it takes one date."
+msgstr "Neraca adalah posisi pada satu hari, bukan sebuah rentang - jadi ia memakai satu tanggal."
+
+msgid "Apply"
+msgstr "Terapkan"
+
+msgid "Back to the default"
+msgstr "Kembali ke bawaan"
+
+msgid "Counted: entries marked {0}, dated {1} to {2}."
+msgstr "Dihitung: jurnal berstatus {0}, bertanggal {1} sampai {2}."
+
+msgid "Counted: entries marked {0}, everything up to {1}."
+msgstr "Dihitung: jurnal berstatus {0}, seluruhnya sampai {1}."
+

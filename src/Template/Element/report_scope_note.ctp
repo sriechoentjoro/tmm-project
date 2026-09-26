@@ -12,15 +12,33 @@
  * @var \App\View\AppView $this
  * @var array $excluded [status => count] of entries not counted
  * @var string $countedStatus The status that is counted
+ * @var array|null $period ['from' => string|null, 'to' => string] where the
+ *                 report covers one. A statement of what was counted that
+ *                 leaves out WHEN is only half the scope.
  */
 $excluded = $excluded ?? [];
 $countedStatus = $countedStatus ?? 'Posted';
+$period = $period ?? null;
 $total = array_sum($excluded);
+
+$day = function ($date) {
+    return $date ? (new \DateTime($date))->format('d M Y') : null;
+};
 ?>
 <div class="report-scope-note">
     <i class="fas fa-info-circle"></i>
     <div>
-        <strong><?= __('Counted: entries marked {0}.', h($countedStatus)) ?></strong>
+        <strong>
+            <?php if ($period && !empty($period['from'])) : ?>
+                <?= __('Counted: entries marked {0}, dated {1} to {2}.',
+                    h($countedStatus), $day($period['from']), $day($period['to'])) ?>
+            <?php elseif ($period) : ?>
+                <?= __('Counted: entries marked {0}, everything up to {1}.',
+                    h($countedStatus), $day($period['to'])) ?>
+            <?php else : ?>
+                <?= __('Counted: entries marked {0}.', h($countedStatus)) ?>
+            <?php endif; ?>
+        </strong>
         <?php if ($total) : ?>
             <?php
             $parts = [];

@@ -86,6 +86,9 @@ return [
     ],
 
     'cautions' => [
+        __('The income statement covers a period, shown at the top and changeable there. It defaults to the year so far. It used to sum every entry ever posted, which made revenue and profit grow for ever and belong to no month, quarter or year - and nothing on the page said which span it covered, so there was nothing to notice.'),
+        __('The balance sheet takes one date, not a range: it is a position on a day, everything posted up to it. Capping it matters even so, because an entry dated next year would otherwise land in today figures.'),
+        __('Dates the wrong way round are swapped rather than obeyed, and the page says so. An empty report caused by a typo looks exactly like an empty report caused by having no entries.'),
         __('The financial reports count posted entries only. An entry still in Draft, or marked Void, is left out - and each report says at the top how many were left out and under what status, so a figure that looks low can be explained without opening the journal.'),
         __('An account whose only entries are voided still appears, at zero, rather than dropping off the report. An account that has quietly disappeared from a statement is much harder to notice than one showing nothing.'),
         __('The income statement has no period. It is everything since the books began, so it cannot be compared with last month or last year.'),

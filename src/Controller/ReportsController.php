@@ -259,9 +259,18 @@ class ReportsController extends AppController
      */
     public function incomeStatement()
     {
-        $rows = $this->accountBalances(['revenue', 'income', 'expense']);
-        $this->set(compact('rows'));
-        $this->set('excluded', $this->excludedEntries());
+        // An income statement is a flow, and a flow without a period is not a
+        // figure. Summing every entry ever posted gave a revenue and a profit
+        // that grew for ever and belonged to no month, quarter or year - and
+        // nothing on the page said which span it covered, so there was nothing
+        // to notice. It defaults to the year so far, which is what somebody
+        // opening it usually means.
+        $period = $this->reportPeriod(date('Y') . '-01-01', date('Y-m-d'));
+
+        $rows = $this->accountBalances(['revenue', 'income', 'expense'],
+            $period['from'], $period['to']);
+        $this->set(compact('rows', 'period'));
+        $this->set('excluded', $this->excludedEntries($period['from'], $period['to']));
         $this->set('countedStatus', self::COUNTED_STATUS);
         $this->set('reportTitle', 'Income Statement');
         $this->render('financial_report');
@@ -272,12 +281,61 @@ class ReportsController extends AppController
      */
     public function balanceSheet()
     {
-        $rows = $this->accountBalances(['asset', 'liability', 'equity']);
-        $this->set(compact('rows'));
-        $this->set('excluded', $this->excludedEntries());
+        // A balance sheet is a position, not a flow: it is everything posted up
+        // to a day, which is why it takes one date and not two. Capping it
+        // matters even so - without it an entry dated next year leaks into
+        // today's figures, and a balance sheet that includes the future is not
+        // a statement of anything.
+        $period = $this->reportPeriod(null, date('Y-m-d'));
+
+        $rows = $this->accountBalances(['asset', 'liability', 'equity'],
+            null, $period['to']);
+        $this->set(compact('rows', 'period'));
+        $this->set('excluded', $this->excludedEntries(null, $period['to']));
         $this->set('countedStatus', self::COUNTED_STATUS);
         $this->set('reportTitle', 'Balance Sheet');
         $this->render('financial_report');
+    }
+
+    /**
+     * The period a financial report covers, from the query string.
+     *
+     * A date that cannot be read falls back to the default rather than
+     * reaching the SQL, and a range the wrong way round is swapped instead of
+     * silently returning nothing - an empty report caused by a typo looks
+     * exactly like an empty report caused by having no entries.
+     *
+     * @param string|null $defaultFrom Default start, or null for no start.
+     * @param string $defaultTo Default end.
+     * @return array ['from' => string|null, 'to' => string, 'default' => bool]
+     */
+    protected function reportPeriod($defaultFrom, $defaultTo)
+    {
+        $read = function ($name, $fallback) {
+            $value = trim((string)$this->request->getQuery($name));
+            if ($value === '' || !preg_match('/^\d{4}-\d{2}-\d{2}$/', $value)) {
+                return $fallback;
+            }
+            [$y, $m, $d] = array_map('intval', explode('-', $value));
+
+            return checkdate($m, $d, $y) ? $value : $fallback;
+        };
+
+        $from = $defaultFrom === null ? null : $read('from', $defaultFrom);
+        $to = $read('to', $defaultTo);
+
+        $swapped = false;
+        if ($from !== null && $from > $to) {
+            [$from, $to] = [$to, $from];
+            $swapped = true;
+        }
+
+        return [
+            'from' => $from,
+            'to' => $to,
+            'default' => $from === $defaultFrom && $to === $defaultTo,
+            'swapped' => $swapped,
+        ];
     }
 
     /**
@@ -340,24 +398,50 @@ class ReportsController extends AppController
      * @param array $types Account types to include.
      * @return array
      */
-    protected function accountBalances(array $types)
+    protected function accountBalances(array $types, $from = null, $to = null)
     {
         $conn = ConnectionManager::get('cms_tmm_trainee_accountings');
         $placeholders = implode(',', array_fill(0, count($types), '?'));
 
+        // The period belongs inside the SUM, beside the status, for the same
+        // reason the status does: a WHERE on the journal would drop whole
+        // accounts from the list rather than showing them at zero, and an
+        // account missing from a report reads as an account that does not
+        // exist.
+        $window = '';
+        $windowParams = [];
+        if ($from !== null) {
+            $window .= ' AND j.transaction_date >= ?';
+            $windowParams[] = $from;
+        }
+        if ($to !== null) {
+            $window .= ' AND j.transaction_date <= ?';
+            $windowParams[] = $to;
+        }
+
+        $counted = function ($column) use ($window) {
+            return 'COALESCE(SUM(CASE WHEN j.status = ?' . $window
+                . ' THEN jd.' . $column . ' ELSE 0 END), 0)';
+        };
+
+        $params = [];
+        foreach (['debit', 'credit', 'debit', 'credit'] as $ignored) {
+            $params[] = self::COUNTED_STATUS;
+            $params = array_merge($params, $windowParams);
+        }
+
         return $conn->execute(
             "SELECT coa.code, coa.name, coa.type,
-                    COALESCE(SUM(CASE WHEN j.status = ? THEN jd.debit  ELSE 0 END), 0) AS total_debit,
-                    COALESCE(SUM(CASE WHEN j.status = ? THEN jd.credit ELSE 0 END), 0) AS total_credit,
-                    COALESCE(SUM(CASE WHEN j.status = ? THEN jd.debit  ELSE 0 END), 0)
-                  - COALESCE(SUM(CASE WHEN j.status = ? THEN jd.credit ELSE 0 END), 0) AS balance
+                    {$counted('debit')} AS total_debit,
+                    {$counted('credit')} AS total_credit,
+                    {$counted('debit')} - {$counted('credit')} AS balance
              FROM chart_of_accounts coa
              LEFT JOIN journal_details jd ON jd.chart_of_account_id = coa.id
              LEFT JOIN journals j ON j.id = jd.journal_id
              WHERE LOWER(coa.type) IN ($placeholders)
              GROUP BY coa.id, coa.code, coa.name, coa.type
              ORDER BY coa.code",
-            array_merge(array_fill(0, 4, self::COUNTED_STATUS), array_map('strtolower', $types))
+            array_merge($params, array_map('strtolower', $types))
         )->fetchAll('assoc');
     }
 
@@ -370,15 +454,30 @@ class ReportsController extends AppController
      *
      * @return array [status => count] for everything that is not counted.
      */
-    protected function excludedEntries()
+    protected function excludedEntries($from = null, $to = null)
     {
+        // Counted over the same period as the figures. Counting the whole file
+        // here would report entries left out for being in another year as
+        // though they had been left out for their status, which is a different
+        // thing and a different fix.
+        $where = 'status IS NULL OR status <> ?';
+        $params = [self::COUNTED_STATUS];
+        if ($from !== null) {
+            $where = '(' . $where . ') AND transaction_date >= ?';
+            $params[] = $from;
+        }
+        if ($to !== null) {
+            $where = '(' . $where . ') AND transaction_date <= ?';
+            $params[] = $to;
+        }
+
         try {
             $rows = ConnectionManager::get('cms_tmm_trainee_accountings')->execute(
                 'SELECT status, COUNT(*) AS total
                  FROM journals
-                 WHERE status IS NULL OR status <> ?
+                 WHERE ' . $where . '
                  GROUP BY status',
-                [self::COUNTED_STATUS]
+                $params
             )->fetchAll('assoc');
         } catch (\Exception $e) {
             return [];
