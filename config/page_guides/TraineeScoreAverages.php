@@ -47,6 +47,9 @@ return [
     ],
 
     'cautions' => [
+        __('The average and the grade are typed into the form, not calculated. They were right when somebody entered them and drift as soon as a test score is entered, corrected or deleted. The page now works both out from the scores and shows the real figure beside the stored one with an arrow, and says how many rows have drifted.'),
+        __('The grade is not a judgement to make here: the score bands decide it, so the band an average falls in is the grade. Where an average falls in no band at all, no grade is claimed and the row is not blamed - that is a gap in the bands, not a mistake in the row.'),
+        __('These figures are read by nothing else. The departure screen works out its own average straight from the test scores, pooling every competency, so the two can disagree without either being consulted about it.'),
         __('Nothing else in the application currently reads these figures: no dashboard, no report, and not the certificate. Typing an average here will not change any of them.'),
         __('Because it is typed rather than derived, an average here can drift out of step with the test scores it was meant to summarise. Re-check it when new tests are recorded.'),
     ],

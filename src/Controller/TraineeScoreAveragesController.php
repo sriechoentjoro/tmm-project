@@ -13,6 +13,70 @@ use App\Controller\AppController;
 class TraineeScoreAveragesController extends AppController
 {
     use \App\Controller\ExportTrait;
+
+    /**
+     * Who may recompute the averages.
+     *
+     * The tests are tmm-training's, so the figures drawn from them are too.
+     *
+     * @var array
+     */
+    const RECOUNT_ROLES = ['administrator', 'tmm-training'];
+
+    /**
+     * Let those roles reach an action the menu permissions cannot know about.
+     *
+     * granted_actions "*" expands only to the menu's own action plus index and
+     * view, so a brand-new action is in nobody's list and the refusal would
+     * look like a permissions bug rather than a missing row.
+     *
+     * @param array|null $user The authenticated user.
+     * @return bool
+     */
+    public function isAuthorized($user = null)
+    {
+        if ($this->request->getParam('action') !== 'refresh') {
+            return parent::isAuthorized($user);
+        }
+
+        foreach (self::RECOUNT_ROLES as $role) {
+            if ($this->hasRole($role)) {
+                return true;
+            }
+        }
+
+        return parent::isAuthorized($user);
+    }
+
+    /**
+     * Write the computed averages and grades onto the rows.
+     *
+     * @return \Cake\Http\Response
+     */
+    public function refresh()
+    {
+        $this->request->allowMethod(['post']);
+        $table = $this->TraineeScoreAverages;
+
+        $rows = $table->find()
+            ->select(['trainee_id', 'master_training_competency_id'])
+            ->enableHydration(false)->toArray();
+
+        $changed = 0;
+        foreach ($rows as $row) {
+            if ($table->refresh($row['trainee_id'], $row['master_training_competency_id']) !== null) {
+                $changed++;
+            }
+        }
+
+        if ($changed) {
+            $this->Flash->success(__('{0} row(s) now say what the test scores say.', $changed));
+        } else {
+            $this->Flash->error(__('Nothing could be recomputed. There may be no test scores to average yet.'));
+        }
+
+        return $this->redirect(['action' => 'index']);
+    }
     /**
      * Index method
      *
@@ -24,6 +88,25 @@ class TraineeScoreAveragesController extends AppController
             'contain' => ['Trainees', 'MasterTrainingCompetencies', 'MasterTrainingTestScoreGrades'],
         ];
         $traineeScoreAverages = $this->paginate($this->TraineeScoreAverages);
+
+        // Both figures on each row are typed and never recomputed. Working
+        // them out from the test scores here puts the real one beside the
+        // stored one, so a row that has drifted says so.
+        $ids = [];
+        foreach ($traineeScoreAverages as $row) {
+            $ids[] = (int)$row->trainee_id;
+        }
+        $standing = $this->TraineeScoreAverages->standingFor($ids);
+
+        $drifted = 0;
+        foreach ($traineeScoreAverages as $row) {
+            $key = (int)$row->trainee_id . ':' . (int)$row->master_training_competency_id;
+            if (isset($standing[$key])
+                && $this->TraineeScoreAverages->disagreements($row, $standing[$key])) {
+                $drifted++;
+            }
+        }
+        $this->set(compact('standing', 'drifted'));
 
         // Load dropdown data for filters
         $trainees = $this->TraineeScoreAverages->Trainees->find('list')->limit(200)->toArray();

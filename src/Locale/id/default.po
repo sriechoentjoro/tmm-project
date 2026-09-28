@@ -18588,3 +18588,43 @@ msgstr "Ada dua hal berbeda di sini dengan nama yang mirip. Daftar induk memuat 
 msgid "Both tables number their rows from one, so an id from the wrong one always found a row and nothing ever errored. A document handed in could be recorded against the wrong type, and the checklist would show it as still outstanding - a wrong tick that looks exactly like a right one. The submission screen now offers the master list, which is what its own help text always said it did."
 msgstr "Kedua tabel menomori barisnya dari satu, sehingga id dari tabel yang keliru selalu menemukan baris dan tidak pernah ada galat. Dokumen yang sudah diserahkan bisa tercatat pada jenis yang salah, dan daftar periksanya akan menampilkannya sebagai masih kurang - centang keliru yang tampak persis seperti centang benar. Layar penyerahan kini menawarkan daftar induk, sebagaimana teks bantuannya sendiri selama ini menyatakan."
 
+
+msgid "The average and the grade are typed into the form, not calculated. They were right when somebody entered them and drift as soon as a test score is entered, corrected or deleted. The page now works both out from the scores and shows the real figure beside the stored one with an arrow, and says how many rows have drifted."
+msgstr "Rata-rata dan huruf mutunya diketik di formulir, bukan dihitung. Keduanya benar pada saat seseorang memasukkannya, lalu menyimpang begitu ada nilai ujian yang dimasukkan, dikoreksi, atau dihapus. Sekarang halaman ini menghitung keduanya dari nilai ujian dan menampilkan angka sebenarnya di samping angka tersimpan dengan tanda panah, serta menyebutkan berapa baris yang sudah menyimpang."
+
+msgid "The grade is not a judgement to make here: the score bands decide it, so the band an average falls in is the grade. Where an average falls in no band at all, no grade is claimed and the row is not blamed - that is a gap in the bands, not a mistake in the row."
+msgstr "Huruf mutu bukan penilaian yang diputuskan di sini: rentang nilailah yang menentukannya, jadi rentang tempat suatu rata-rata jatuh itulah huruf mutunya. Bila suatu rata-rata tidak masuk rentang mana pun, tidak ada huruf mutu yang diklaim dan barisnya tidak disalahkan - itu celah pada rentangnya, bukan kesalahan pada barisnya."
+
+msgid "These figures are read by nothing else. The departure screen works out its own average straight from the test scores, pooling every competency, so the two can disagree without either being consulted about it."
+msgstr "Angka-angka ini tidak dibaca oleh layar mana pun selain ini. Layar keberangkatan menghitung rata-ratanya sendiri langsung dari nilai ujian, menggabungkan semua kompetensi, sehingga keduanya bisa berbeda tanpa ada yang menanyakannya."
+
+msgid "{0} row(s) now say what the test scores say."
+msgstr "{0} baris kini menyatakan apa yang dinyatakan nilai ujian."
+
+msgid "Nothing could be recomputed. There may be no test scores to average yet."
+msgstr "Tidak ada yang bisa dihitung ulang. Mungkin belum ada nilai ujian untuk dirata-ratakan."
+
+msgid "{0} row(s) no longer match the test scores"
+msgstr "{0} baris tidak lagi cocok dengan nilai ujian"
+
+msgid "The average and the grade here are typed into the form, not calculated, so they were right when somebody entered them and drift as soon as a test score is entered, corrected or deleted. Where a row disagrees, the computed figure is shown beside it with an arrow. The scores are the ones to believe."
+msgstr "Rata-rata dan huruf mutu di sini diketik di formulir, bukan dihitung, jadi keduanya benar pada saat seseorang memasukkannya dan menyimpang begitu ada nilai ujian yang dimasukkan, dikoreksi, atau dihapus. Pada baris yang berbeda, angka hasil hitungannya ditampilkan di sampingnya dengan tanda panah. Nilai ujianlah yang harus dipercaya."
+
+msgid "Recompute them all"
+msgstr "Hitung ulang semuanya"
+
+msgid "Replace the typed averages and grades with what the test scores give, on every row?"
+msgstr "Ganti rata-rata dan huruf mutu yang diketik dengan hasil hitungan dari nilai ujian, pada semua baris?"
+
+msgid "Every row matches the test scores"
+msgstr "Semua baris cocok dengan nilai ujian"
+
+msgid "These figures are typed rather than calculated, so this is true as of now rather than kept true. Check again after tests are marked."
+msgstr "Angka-angka ini diketik, bukan dihitung, jadi ini benar untuk saat ini saja, bukan terjaga benar seterusnya. Periksa lagi setelah ujian dinilai."
+
+msgid "What the test scores average to"
+msgstr "Rata-rata dari nilai ujiannya"
+
+msgid "The band that average falls in"
+msgstr "Rentang tempat rata-rata itu jatuh"
+

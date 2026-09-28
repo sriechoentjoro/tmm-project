@@ -18588,3 +18588,43 @@ msgstr "ここには名前の似た別物が二つあります。マスタ一覧
 msgid "Both tables number their rows from one, so an id from the wrong one always found a row and nothing ever errored. A document handed in could be recorded against the wrong type, and the checklist would show it as still outstanding - a wrong tick that looks exactly like a right one. The submission screen now offers the master list, which is what its own help text always said it did."
 msgstr "どちらの表も行番号を1から振るため、誤った表のIDでも必ず行が見つかり、エラーは一度も起きませんでした。提出済みの書類が誤った種類に記録され、チェックリストでは未提出のまま表示される——正しいチェックとまったく同じに見える誤ったチェックです。提出画面は、そのヘルプ文がずっと述べていたとおり、マスタ一覧を選ばせるようになりました。"
 
+
+msgid "The average and the grade are typed into the form, not calculated. They were right when somebody entered them and drift as soon as a test score is entered, corrected or deleted. The page now works both out from the scores and shows the real figure beside the stored one with an arrow, and says how many rows have drifted."
+msgstr "平均点と評価は計算されたものではなく、フォームに入力されたものです。入力した時点では正しくても、試験の点数が入力・訂正・削除された時点でずれます。この画面は両方を点数から計算し直し、保存されている値の横に矢印付きで実際の値を表示し、ずれている行が何件あるかを示します。"
+
+msgid "The grade is not a judgement to make here: the score bands decide it, so the band an average falls in is the grade. Where an average falls in no band at all, no grade is claimed and the row is not blamed - that is a gap in the bands, not a mistake in the row."
+msgstr "評価はここで判断するものではありません。点数の範囲が決めるため、平均点が入る範囲がそのまま評価になります。どの範囲にも入らない平均点については評価を示さず、その行を誤りとも扱いません。それは範囲側の抜けであって、行の間違いではないからです。"
+
+msgid "These figures are read by nothing else. The departure screen works out its own average straight from the test scores, pooling every competency, so the two can disagree without either being consulted about it."
+msgstr "これらの値を読むものは他にありません。出発の画面は全科目をまとめて、試験の点数から独自に平均を計算します。そのため両者は互いに照会されないまま食い違うことがあります。"
+
+msgid "{0} row(s) now say what the test scores say."
+msgstr "{0} 件の行が試験の点数どおりの内容になりました。"
+
+msgid "Nothing could be recomputed. There may be no test scores to average yet."
+msgstr "計算し直せるものがありませんでした。平均を出せる試験の点数がまだないのかもしれません。"
+
+msgid "{0} row(s) no longer match the test scores"
+msgstr "{0} 件の行が試験の点数と一致しなくなっています"
+
+msgid "The average and the grade here are typed into the form, not calculated, so they were right when somebody entered them and drift as soon as a test score is entered, corrected or deleted. Where a row disagrees, the computed figure is shown beside it with an arrow. The scores are the ones to believe."
+msgstr "ここの平均点と評価は計算されたものではなく、フォームに入力されたものです。入力した時点では正しくても、試験の点数が入力・訂正・削除された時点でずれます。食い違う行には、計算した値を矢印付きで横に表示します。信じるべきは試験の点数です。"
+
+msgid "Recompute them all"
+msgstr "すべて計算し直す"
+
+msgid "Replace the typed averages and grades with what the test scores give, on every row?"
+msgstr "すべての行で、入力された平均点と評価を試験の点数から計算した値に置き換えますか？"
+
+msgid "Every row matches the test scores"
+msgstr "すべての行が試験の点数と一致しています"
+
+msgid "These figures are typed rather than calculated, so this is true as of now rather than kept true. Check again after tests are marked."
+msgstr "これらの値は計算ではなく入力されたものなので、正しいのは今この時点であって、常に保たれるわけではありません。採点のあとにもう一度確認してください。"
+
+msgid "What the test scores average to"
+msgstr "試験の点数の平均"
+
+msgid "The band that average falls in"
+msgstr "その平均点が入る範囲"
+
