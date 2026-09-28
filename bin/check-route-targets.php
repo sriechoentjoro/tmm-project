@@ -136,19 +136,64 @@ foreach ($files as $path) {
         }
         $candidates = array_unique($names[1]);
 
-        // The prefix may sit on the same line or a neighbouring one, since
-        // these arrays are routinely written across several lines.
-        $window = implode('', array_slice($lines, max(0, $n - 6), 13));
-        if (preg_match("/'prefix'\s*=>\s*'([a-zA-Z]+)'/", $window, $pm)) {
-            $prefix = strtolower($pm[1]);
-        } elseif (preg_match("/'prefix'\s*=>\s*(false|null)/", $window)) {
-            $prefix = null;
-        } elseif (preg_match("/'prefix'\s*=>\s*\\\$/", $window)) {
+        // The prefix may sit on the same line as the controller or on a
+        // neighbouring one, since these arrays are routinely written across
+        // several lines. Only the array this controller key belongs to counts.
+        //
+        // Reading a fixed window of thirteen lines as one string did not do
+        // that. Two links can sit a few lines apart with different prefixes -
+        // a View button with 'prefix' => false beside a Resend button with
+        // 'prefix' => 'admin' - and the window then answered with whichever
+        // pattern was tested first rather than the one belonging to this
+        // link. It reported a correct link as pointing at a class that does
+        // not exist, and skipped a wrong one as computed at runtime, both by
+        // reading its neighbour. A checker that cries wolf spends the
+        // reader's trust on nothing.
+        //
+        // So the window stops at a closing bracket in either direction: that
+        // is where the neighbouring statement begins or ends.
+        $lookAt = [$n];
+        for ($i = $n - 1; $i >= max(0, $n - 6); $i--) {
+            if (strpos($lines[$i], ']') !== false) {
+                break;
+            }
+            $lookAt[] = $i;
+        }
+        if (strpos($line, ']') === false) {
+            for ($i = $n + 1; $i < min(count($lines), $n + 7); $i++) {
+                $lookAt[] = $i;
+                if (strpos($lines[$i], ']') !== false) {
+                    break;
+                }
+            }
+        }
+
+        $prefix = $default;
+        $best = null;
+        foreach ($lookAt as $i) {
+            if (!preg_match("/'prefix'\s*=>\s*('[a-zA-Z]+'|false|null|\\$)/", $lines[$i], $pm)) {
+                continue;
+            }
+            // Nearest wins, and a tie goes to the line above: the prefix key
+            // is written before the controller key far more often than after.
+            $distance = abs($i - $n) * 2 + ($i > $n ? 1 : 0);
+            if ($best !== null && $distance >= $best) {
+                continue;
+            }
+            $best = $distance;
+            if ($pm[1] === '$') {
+                $prefix = false;          // computed at runtime
+            } elseif ($pm[1] === 'false' || $pm[1] === 'null') {
+                $prefix = null;
+            } else {
+                $prefix = strtolower(trim($pm[1], "'"));
+            }
+        }
+
+        if ($prefix === false) {
             // Computed at runtime - nothing to check.
             $skipped++;
             continue;
-        } else {
-            $prefix = $default;
         }
 
         $rel = str_replace($root . '/', '', $path);

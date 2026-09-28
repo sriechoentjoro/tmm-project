@@ -18628,3 +18628,82 @@ msgstr "Rata-rata dari nilai ujiannya"
 msgid "The band that average falls in"
 msgstr "Rentang tempat rata-rata itu jatuh"
 
+
+msgid "approval request(s) are on file."
+msgstr "permintaan persetujuan tercatat."
+
+msgid "Registrations Not Finished"
+msgstr "Pendaftaran yang Belum Selesai"
+
+msgid "This list cannot be built here. The registration status column is not on this installation, so there is no way to tell which registrations are still waiting."
+msgstr "Daftar ini tidak bisa disusun di sini. Kolom status pendaftaran tidak ada pada pemasangan ini, jadi tidak ada cara untuk mengetahui pendaftaran mana yang masih menunggu."
+
+msgid "The verification links could not be read."
+msgstr "Tautan verifikasi tidak bisa dibaca."
+
+msgid "The institutions below are listed from their own records, but whether the link each one was sent is still live could not be established."
+msgstr "Lembaga di bawah ini didaftar dari catatannya sendiri, tetapi apakah tautan yang dikirimkan kepada masing-masingnya masih berlaku tidak bisa dipastikan."
+
+msgid "Waiting since"
+msgstr "Menunggu sejak"
+
+msgid "Link"
+msgstr "Tautan"
+
+msgid "Special Skill"
+msgstr "Tokutei Ginou"
+
+msgid "Live"
+msgstr "Berlaku"
+
+msgid "expires {0}"
+msgstr "berakhir {0}"
+
+msgid "Expired"
+msgstr "Kedaluwarsa"
+
+msgid "cannot finish without a new link"
+msgstr "tidak bisa diselesaikan tanpa tautan baru"
+
+msgid "Already used"
+msgstr "Sudah dipakai"
+
+msgid "the link was followed but a password was never set"
+msgstr "tautannya sudah dibuka tetapi kata sandinya tidak pernah dibuat"
+
+msgid "None sent"
+msgstr "Belum dikirim"
+
+msgid "not checked"
+msgstr "tidak diperiksa"
+
+msgid "Send the verification link again"
+msgstr "Kirim ulang tautan verifikasi"
+
+msgid "no resend screen"
+msgstr "belum ada layar kirim ulang"
+
+msgid "Every registration has been finished"
+msgstr "Semua pendaftaran sudah selesai"
+
+msgid "No institution is sitting at pending verification."
+msgstr "Tidak ada lembaga yang berhenti di tahap menunggu verifikasi."
+
+msgid "The approval queue could not be read."
+msgstr "Antrean persetujuan tidak bisa dibaca."
+
+msgid "Stakeholder"
+msgstr "Pemangku kepentingan"
+
+msgid "Nothing files into this queue."
+msgstr "Tidak ada yang masuk ke antrean ini."
+
+msgid "No registration in this system waits for an admin decision: an institution goes live by following the link it was emailed and choosing a password, with no approval step in between. So this panel being empty says nothing about the state of the system - the list above is the one that does."
+msgstr "Tidak ada pendaftaran di sistem ini yang menunggu keputusan admin: sebuah lembaga menjadi aktif dengan membuka tautan yang dikirim lewat surel lalu membuat kata sandi, tanpa langkah persetujuan di antaranya. Jadi panel ini yang kosong tidak mengatakan apa pun tentang keadaan sistem - daftar di atas itulah yang mengatakannya."
+
+msgid "Registrations not finished is the list to work from. It names each institution still sitting at pending verification and says whether the link it was emailed is still live, has run out, or has already been followed. A link that has run out is the one to act on: that institution cannot finish by itself, so send it again."
+msgstr "Pendaftaran yang belum selesai adalah daftar yang harus dikerjakan. Daftar itu menyebutkan setiap lembaga yang masih berhenti di tahap menunggu verifikasi dan menyatakan apakah tautan yang dikirimkan kepadanya masih berlaku, sudah habis masanya, atau sudah pernah dibuka. Tautan yang sudah habis masanya itulah yang perlu ditindaklanjuti: lembaga tersebut tidak bisa menyelesaikannya sendiri, jadi kirimkan lagi."
+
+msgid "Pending approvals will be empty. No registration in this system waits for an administrator to approve it - an institution goes live by following its link and choosing a password, with no decision in between. The panel is kept because the table is there, not because anything files into it."
+msgstr "Persetujuan yang tertunda akan selalu kosong. Tidak ada pendaftaran di sistem ini yang menunggu persetujuan administrator - sebuah lembaga menjadi aktif dengan membuka tautannya lalu membuat kata sandi, tanpa keputusan di antaranya. Panel itu dipertahankan karena tabelnya ada, bukan karena ada yang mengisinya."
+

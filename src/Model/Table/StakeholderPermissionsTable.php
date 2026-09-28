@@ -7,8 +7,24 @@ use Cake\Validation\Validator;
 /**
  * StakeholderPermissions Model
  *
- * Manages permission matrix for all stakeholder types
- * Controls access to specific features and data operations
+ * A permission matrix for stakeholder types that governs nothing.
+ *
+ * Nothing in this application calls hasPermission(), grantPermission() or
+ * getStakeholderPermissions(). No screen grants a permission and no screen
+ * consults one. Access is decided somewhere else entirely, by
+ * AppController::hasPermission(), which reads role_menus for the signed-in
+ * user's role - and which, unhappily, is spelt exactly the same. Anyone
+ * grepping for hasPermission() finds two, and only one of them is load-bearing.
+ *
+ * That matters because this one reads as a control and is not one.
+ * stakeholder_management_schema.sql seeds the table and notes beside the seed
+ * that "candidates.delete is NOT granted by default", which sounds like a
+ * standing restriction; deleting a candidate is in fact governed by role_menus
+ * and pays this table no attention. getDefaultPermission() below answers true
+ * for most keys with no row present, so wiring this up later on the assumption
+ * that an empty table means nothing is granted would grant nearly everything.
+ *
+ * Leave it unwired or retire it, but do not read it as the rule in force.
  *
  * @property \App\Model\Table\UsersTable&\Cake\ORM\Association\BelongsTo $GrantedByUsers
  */

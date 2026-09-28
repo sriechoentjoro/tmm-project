@@ -59,5 +59,7 @@ return [
 
     'cautions' => [
         __('A figure that looks wrong is usually a registration that bypassed the normal flow rather than a fault in the counting. Check the institution on the register before doubting the dashboard.'),
+        __('Registrations not finished is the list to work from. It names each institution still sitting at pending verification and says whether the link it was emailed is still live, has run out, or has already been followed. A link that has run out is the one to act on: that institution cannot finish by itself, so send it again.'),
+        __('Pending approvals will be empty. No registration in this system waits for an administrator to approve it - an institution goes live by following its link and choosing a password, with no decision in between. The panel is kept because the table is there, not because anything files into it.'),
     ],
 ];

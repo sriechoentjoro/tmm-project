@@ -2,6 +2,8 @@
 namespace App\Controller\Admin;
 
 use App\Controller\AppController;
+use Cake\I18n\Time;
+use Cake\Log\Log;
 use Cake\ORM\TableRegistry;
 
 /**
@@ -94,31 +96,204 @@ class StakeholderDashboardController extends AppController
         // Get recent activities (last 20)
         $recentActivities = $this->StakeholderActivities->find('recent', ['limit' => 20]);
         
-        // Get pending approvals
-        $pendingApprovals = $this->AdminApprovalQueue->find('pending')->limit(10);
-        
-        // Get pending verifications
-        $UsersTable = TableRegistry::getTableLocator()->get('Users');
-        $pendingVerifications = $UsersTable->find()
-            ->where([
-                'status' => 'pending_verification',
-                'verification_token IS NOT' => null,
-                'verification_token_expires >' => date('Y-m-d H:i:s')
-            ])
-            ->order(['created' => 'DESC'])
-            ->limit(10)
-            ->all();
-        
-        // Get chart data
-        $chartData = $this->_getChartData();
-        
+        // What is actually waiting, worked out from the registrations
+        // themselves. See _waitingRegistrations() for why the two tables this
+        // screen used to read could never answer that.
+        $waiting = $this->_waitingRegistrations();
+
+        // The approval queue, still read in case anything ever files into it.
+        // Nothing in this application does - _waitingRegistrations() says so at
+        // length - so this is all but certainly empty, and the screen now says
+        // that rather than showing an all-clear it did not earn.
+        // admin_approval_queue arrived with stakeholder_management_schema.sql
+        // and is absent where that was never run, so a missing table is a
+        // state to report, not a page that dies.
+        $approvalProblem = null;
+        try {
+            $pendingApprovals = $this->AdminApprovalQueue->find('pending')
+                ->limit(10)
+                ->toArray();
+        } catch (\Throwable $e) {
+            $pendingApprovals = array();
+            $approvalProblem = $e->getMessage();
+            Log::error(
+                'Stakeholder dashboard could not read admin_approval_queue: ' . $e->getMessage(),
+                ['scope' => 'stakeholder_dashboard']
+            );
+        }
+
+        // Get chart data. The statistics are handed over rather than counted a
+        // second time: _getChartData() used to call _getStatistics() again, so
+        // every count on this page ran twice.
+        $chartData = $this->_getChartData($statistics);
+
         $this->set(compact(
             'statistics',
             'recentActivities',
             'pendingApprovals',
-            'pendingVerifications',
+            'approvalProblem',
+            'waiting',
             'chartData'
         ));
+    }
+
+    /**
+     * The registrations that have started and not finished.
+     *
+     * This screen used to answer that question from two tables that nothing
+     * writes to, so both of its "waiting for you" panels were empty whatever
+     * the state of the system:
+     *
+     * - Pending email verifications read users.verification_token and
+     *   users.verification_token_expires. Nothing in this application ever
+     *   sets either column; the real tokens live in email_verification_tokens,
+     *   keyed by address. And there is no user row to carry them anyway: an
+     *   LPK registration creates the institution only, and the account is not
+     *   made until the director sets a password at the end of the flow.
+     * - Pending approvals read admin_approval_queue. Nothing writes to that
+     *   table either, and no registration flow has an approval step: an
+     *   institution goes live by following the emailed link and choosing a
+     *   password, with no admin decision anywhere in between.
+     *
+     * Meanwhile the alert at the top of the page counts institutions genuinely
+     * stuck at pending_verification, and linked to a panel that always said
+     * "No pending verifications" under a green tick. The count was right and
+     * the list was empty.
+     *
+     * So the list is built from the institutions instead, which is where the
+     * state actually lives, and each one is matched by address against
+     * email_verification_tokens to say whether the link it was sent is still
+     * live, has expired, or has already been used. An expired link is the row
+     * that matters most: that institution cannot finish on its own and needs
+     * the link sent again.
+     *
+     * @return array rows, and what could not be established
+     */
+    protected function _waitingRegistrations()
+    {
+        $out = array(
+            'rows' => array(),
+            'statusKnown' => true,
+            'tokenProblem' => null
+        );
+
+        $sources = array(
+            'lpk' => array(
+                'table' => $this->VocationalTrainingInstitutions,
+                'name' => 'name',
+                'contact' => 'director'
+            ),
+            'special_skill' => array(
+                'table' => $this->SpecialSkillSupportInstitutions,
+                'name' => 'company_name',
+                'contact' => 'contact_person'
+            )
+        );
+
+        $rows = array();
+        foreach ($sources as $type => $source) {
+            $schema = $source['table']->getSchema();
+
+            // The column arrived with stakeholder_management_schema.sql and is
+            // absent on an installation that never ran it. Asking for it there
+            // is an error, not an empty list, so say which it is.
+            if (!$schema->hasColumn('status')) {
+                $out['statusKnown'] = false;
+                continue;
+            }
+
+            $found = $source['table']->find()
+                ->where(['status' => 'pending_verification'])
+                ->order(['created' => 'ASC'])
+                ->limit(25)
+                ->all();
+
+            foreach ($found as $institution) {
+                $rows[] = array(
+                    'type' => $type,
+                    'id' => $institution->id,
+                    'name' => $institution->get($source['name']),
+                    'contact' => $institution->get($source['contact']),
+                    'email' => $institution->email,
+                    'since' => $institution->get('created'),
+                    'link' => 'unknown',
+                    'expires' => null
+                );
+            }
+        }
+
+        if (!$rows) {
+            $out['rows'] = array();
+
+            return $out;
+        }
+
+        $addresses = array();
+        foreach ($rows as $row) {
+            if ($row['email'] !== null && $row['email'] !== '') {
+                $addresses[strtolower($row['email'])] = true;
+            }
+        }
+
+        $latest = array();
+        if ($addresses) {
+            try {
+                $tokens = TableRegistry::getTableLocator()->get('EmailVerificationTokens');
+                $found = $tokens->find()
+                    ->where([
+                        'token_type' => 'email_verification',
+                        'user_email IN' => array_keys($addresses)
+                    ])
+                    ->order(['created' => 'ASC'])
+                    ->all();
+
+                // Ordered oldest first, so the last one seen for an address is
+                // the newest, which is the one the institution was sent.
+                foreach ($found as $token) {
+                    $latest[strtolower($token->user_email)] = $token;
+                }
+            } catch (\Throwable $e) {
+                // email_verification_tokens is created by
+                // phase_3_4_lpk_registration_migration.sql in
+                // cms_authentication_authorization, while its table class
+                // declares no connection and so is handed the default one.
+                // Where those are not the same database the read fails, and
+                // that is worth saying out loud: the same lookup failing
+                // silently inside generateToken() is why a registration can
+                // report that it could not make a token.
+                $out['tokenProblem'] = $e->getMessage();
+                Log::error(
+                    'Stakeholder dashboard could not read email_verification_tokens: ' . $e->getMessage(),
+                    ['scope' => 'stakeholder_dashboard']
+                );
+            }
+        }
+
+        if ($out['tokenProblem'] === null) {
+            $now = new Time();
+            foreach ($rows as $i => $row) {
+                $key = strtolower((string)$row['email']);
+                if (!isset($latest[$key])) {
+                    $rows[$i]['link'] = 'none';
+                    continue;
+                }
+
+                $token = $latest[$key];
+                $rows[$i]['expires'] = $token->expires_at;
+
+                if ($token->is_used) {
+                    $rows[$i]['link'] = 'used';
+                } elseif ($token->expires_at !== null && $token->expires_at < $now) {
+                    $rows[$i]['link'] = 'expired';
+                } else {
+                    $rows[$i]['link'] = 'live';
+                }
+            }
+        }
+
+        $out['rows'] = $rows;
+
+        return $out;
     }
 
     /**
@@ -198,14 +373,18 @@ class StakeholderDashboardController extends AppController
     /**
      * Get chart data for dashboard visualizations
      *
+     * @param array|null $stats Statistics already counted, to save counting
+     *  every stakeholder twice on one page load.
      * @return array Chart data
      */
-    protected function _getChartData()
+    protected function _getChartData(array $stats = null)
     {
         $chartData = array();
-        
+
         // Stakeholder type distribution (Pie Chart)
-        $stats = $this->_getStatistics();
+        if ($stats === null) {
+            $stats = $this->_getStatistics();
+        }
         $chartData['stakeholder_distribution'] = array(
             'labels' => array('LPK', 'Special Skill', 'Acceptance Org', 'Cooperative Assoc'),
             'data' => array(

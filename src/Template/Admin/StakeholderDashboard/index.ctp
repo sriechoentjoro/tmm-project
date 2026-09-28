@@ -3,8 +3,9 @@
  * @var \App\View\AppView $this
  * @var array $statistics
  * @var \Cake\ORM\ResultSet $recentActivities
- * @var \Cake\ORM\ResultSet $pendingApprovals
- * @var \Cake\ORM\ResultSet $pendingVerifications
+ * @var array $pendingApprovals
+ * @var string|null $approvalProblem
+ * @var array $waiting
  * @var array $chartData
  */
 $this->assign('title', 'Stakeholder Management Dashboard');
@@ -39,7 +40,7 @@ $this->assign('title', 'Stakeholder Management Dashboard');
     </div>
 
     <!-- Alert Cards for Pending Actions -->
-    <?php if ($statistics['overall']['total_pending_verifications'] > 0 || $pendingApprovals->count() > 0): ?>
+    <?php if ($statistics['overall']['total_pending_verifications'] > 0 || count($pendingApprovals) > 0): ?>
     <div class="row mb-4">
         <?php if ($statistics['overall']['total_pending_verifications'] > 0): ?>
         <div class="col-md-6">
@@ -59,12 +60,12 @@ $this->assign('title', 'Stakeholder Management Dashboard');
         </div>
         <?php endif; ?>
         
-        <?php if ($pendingApprovals->count() > 0): ?>
+        <?php if (count($pendingApprovals) > 0): ?>
         <div class="col-md-6">
             <div class="alert alert-info alert-dismissible fade show" role="alert">
                 <h5 class="alert-heading"><i class="fas fa-clock"></i> <?= __('Pending Approvals') ?></h5>
                 <p>
-                    <strong><?= $pendingApprovals->count() ?></strong> approval request(s) require your review.
+                    <strong><?= count($pendingApprovals) ?></strong> <?= __('approval request(s) are on file.') ?>
                 </p>
                 <hr>
                 <p class="mb-0">
@@ -349,53 +350,111 @@ $this->assign('title', 'Stakeholder Management Dashboard');
             <div class="card mb-3" id="pending-verifications">
                 <div class="card-header">
                     <h5 class="card-title mb-0">
-                        <i class="fas fa-envelope-open-text"></i> <?= __('Pending Email Verifications') ?>
-                        <span class="badge badge-warning ml-2"><?= $pendingVerifications->count() ?></span>
+                        <i class="fas fa-envelope-open-text"></i> <?= __('Registrations Not Finished') ?>
+                        <span class="badge badge-warning ml-2"><?= count($waiting['rows']) ?></span>
                     </h5>
                 </div>
                 <div class="card-body p-0">
-                    <?php if ($pendingVerifications->count() > 0): ?>
+                    <?php if (!$waiting['statusKnown']): ?>
+                        <div class="p-3 text-muted small">
+                            <i class="fas fa-database"></i>
+                            <?= __('This list cannot be built here. The registration status column is not on this installation, so there is no way to tell which registrations are still waiting.') ?>
+                        </div>
+                    <?php endif; ?>
+                    <?php if ($waiting['tokenProblem'] !== null): ?>
+                        <div class="p-3 small alert alert-danger mb-0">
+                            <strong><?= __('The verification links could not be read.') ?></strong><br>
+                            <?= __('The institutions below are listed from their own records, but whether the link each one was sent is still live could not be established.') ?><br>
+                            <span class="text-monospace"><?= h($waiting['tokenProblem']) ?></span>
+                        </div>
+                    <?php endif; ?>
+                    <?php if (count($waiting['rows']) > 0): ?>
                         <div class="table-responsive">
                             <table class="table table-sm table-hover mb-0">
                                 <thead>
                                     <tr>
-                                        <th>User</th>
-                                        <th>Type</th>
-                                        <th>Expires</th>
-                                        <th>Actions</th>
+                                        <th><?= __('Institution') ?></th>
+                                        <th><?= __('Type') ?></th>
+                                        <th><?= __('Waiting since') ?></th>
+                                        <th><?= __('Link') ?></th>
+                                        <th><?= __('Actions') ?></th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <?php foreach ($pendingVerifications as $verification): ?>
+                                    <?php foreach ($waiting['rows'] as $row): ?>
                                     <tr>
                                         <td>
-                                            <strong><?= h($verification->full_name) ?></strong><br>
-                                            <small class="text-muted"><?= h($verification->email) ?></small>
+                                            <strong><?= h($row['name']) ?></strong><br>
+                                            <small class="text-muted"><?= h($row['contact']) ?> &middot; <?= h($row['email']) ?></small>
                                         </td>
                                         <td>
                                             <span class="badge badge-info">
-                                                <?= h($verification->institution_type === 'vocational_training' ? 'LPK' : 'Special Skill') ?>
+                                                <?= $row['type'] === 'lpk' ? __('LPK') : __('Special Skill') ?>
                                             </span>
                                         </td>
                                         <td>
-                                            <small><?= $verification->verification_token_expires->timeAgoInWords() ?></small>
+                                            <small><?= $row['since'] ? h($row['since']->timeAgoInWords()) : __('unknown') ?></small>
                                         </td>
                                         <td>
-                                            <?= $this->Html->link(
-                                                '<i class="fas fa-eye"></i>',
-                                                ['prefix' => false, 'controller' => 'Users', 'action' => 'view', $verification->id],
-                                                ['class' => 'btn btn-sm btn-info', 'escape' => false, 'title' => 'View']
-                                            ) ?>
+                                            <?php if ($row['link'] === 'live'): ?>
+                                                <span class="badge badge-success"><?= __('Live') ?></span><br>
+                                                <small class="text-muted"><?= __('expires {0}', h($row['expires']->timeAgoInWords())) ?></small>
+                                            <?php elseif ($row['link'] === 'expired'): ?>
+                                                <span class="badge badge-danger"><?= __('Expired') ?></span><br>
+                                                <small class="text-muted"><?= __('cannot finish without a new link') ?></small>
+                                            <?php elseif ($row['link'] === 'used'): ?>
+                                                <span class="badge badge-secondary"><?= __('Already used') ?></span><br>
+                                                <small class="text-muted"><?= __('the link was followed but a password was never set') ?></small>
+                                            <?php elseif ($row['link'] === 'none'): ?>
+                                                <span class="badge badge-warning"><?= __('None sent') ?></span>
+                                            <?php else: ?>
+                                                <small class="text-muted"><?= __('not checked') ?></small>
+                                            <?php endif; ?>
+                                        </td>
+                                        <td>
+                                            <?php if ($row['type'] === 'lpk'): ?>
+                                                <?= $this->Html->link(
+                                                    '<i class="fas fa-eye"></i>',
+                                                    ['prefix' => false, 'controller' => 'VocationalTrainingInstitutions', 'action' => 'view', $row['id']],
+                                                    ['class' => 'btn btn-sm btn-info', 'escape' => false, 'title' => __('View')]
+                                                ) ?>
+                                                <?= $this->Html->link(
+                                                    '<i class="fas fa-paper-plane"></i>',
+                                                    ['prefix' => 'admin', 'controller' => 'LpkRegistration', 'action' => 'resendVerification', $row['id']],
+                                                    ['class' => 'btn btn-sm btn-warning', 'escape' => false, 'title' => __('Send the verification link again')]
+                                                ) ?>
+                                            <?php else: ?>
+                                                <?= $this->Html->link(
+                                                    '<i class="fas fa-eye"></i>',
+                                                    ['prefix' => false, 'controller' => 'SpecialSkillSupportInstitutions', 'action' => 'view', $row['id']],
+                                                    ['class' => 'btn btn-sm btn-info', 'escape' => false, 'title' => __('View')]
+                                                ) ?>
+                                                <?php
+                                                /**
+                                                 * No resend button for this type.
+                                                 *
+                                                 * LpkRegistration::resendVerification() loads
+                                                 * VocationalTrainingInstitutions and would fetch the
+                                                 * wrong institution if handed a special skill id -
+                                                 * both tables number from 1, so it would find one and
+                                                 * mail the wrong address rather than fail. There is no
+                                                 * resend action for this type; build one and its link
+                                                 * belongs here.
+                                                 */
+                                                ?>
+                                                <small class="text-muted"><?= __('no resend screen') ?></small>
+                                            <?php endif; ?>
                                         </td>
                                     </tr>
                                     <?php endforeach; ?>
                                 </tbody>
                             </table>
                         </div>
-                    <?php else: ?>
+                    <?php elseif ($waiting['statusKnown']): ?>
                         <div class="p-4 text-center text-muted">
                             <i class="fas fa-check-circle fa-2x mb-2 text-success"></i>
-                            <p><?= __('No pending verifications') ?></p>
+                            <p class="mb-1"><?= __('Every registration has been finished') ?></p>
+                            <small><?= __('No institution is sitting at pending verification.') ?></small>
                         </div>
                     <?php endif; ?>
                 </div>
@@ -406,19 +465,24 @@ $this->assign('title', 'Stakeholder Management Dashboard');
                 <div class="card-header">
                     <h5 class="card-title mb-0">
                         <i class="fas fa-clipboard-check"></i> <?= __('Pending Approvals') ?>
-                        <span class="badge badge-info ml-2"><?= $pendingApprovals->count() ?></span>
+                        <span class="badge badge-info ml-2"><?= count($pendingApprovals) ?></span>
                     </h5>
                 </div>
                 <div class="card-body p-0">
-                    <?php if ($pendingApprovals->count() > 0): ?>
+                    <?php if ($approvalProblem !== null): ?>
+                        <div class="p-3 small alert alert-danger mb-0">
+                            <strong><?= __('The approval queue could not be read.') ?></strong><br>
+                            <span class="text-monospace"><?= h($approvalProblem) ?></span>
+                        </div>
+                    <?php elseif (count($pendingApprovals) > 0): ?>
                         <div class="table-responsive">
                             <table class="table table-sm table-hover mb-0">
                                 <thead>
                                     <tr>
-                                        <th>Type</th>
-                                        <th>Stakeholder</th>
-                                        <th>Submitted</th>
-                                        <th>Actions</th>
+                                        <th><?= __('Type') ?></th>
+                                        <th><?= __('Stakeholder') ?></th>
+                                        <th><?= __('Submitted') ?></th>
+                                        <th><?= __('Actions') ?></th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -434,7 +498,7 @@ $this->assign('title', 'Stakeholder Management Dashboard');
                                             <small class="text-muted">ID: <?= h($approval->stakeholder_id) ?></small>
                                         </td>
                                         <td>
-                                            <small><?= $approval->submitted_at->timeAgoInWords() ?></small>
+                                            <small><?= $approval->submitted_at ? h($approval->submitted_at->timeAgoInWords()) : __('unknown') ?></small>
                                         </td>
                                         <td>
                                             <?php
@@ -447,11 +511,6 @@ $this->assign('title', 'Stakeholder Management Dashboard');
                                              * send anyone to, so the button went where nothing was;
                                              * inventing a destination would be worse than admitting
                                              * there isn't one.
-                                             *
-                                             * The row still carries what the queue knows: the approval
-                                             * type, the stakeholder and its id, and how long it has
-                                             * been waiting. Build the screen and this cell is where
-                                             * its link belongs.
                                              */
                                             ?>
                                             <small class="text-muted">
@@ -464,9 +523,10 @@ $this->assign('title', 'Stakeholder Management Dashboard');
                             </table>
                         </div>
                     <?php else: ?>
-                        <div class="p-4 text-center text-muted">
-                            <i class="fas fa-check-circle fa-2x mb-2 text-success"></i>
-                            <p><?= __('No pending approvals') ?></p>
+                        <div class="p-3 text-muted small">
+                            <i class="fas fa-info-circle"></i>
+                            <?= __('Nothing files into this queue.') ?>
+                            <?= __('No registration in this system waits for an admin decision: an institution goes live by following the link it was emailed and choosing a password, with no approval step in between. So this panel being empty says nothing about the state of the system - the list above is the one that does.') ?>
                         </div>
                     <?php endif; ?>
                 </div>

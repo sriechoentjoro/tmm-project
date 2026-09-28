@@ -18628,3 +18628,82 @@ msgstr "試験の点数の平均"
 msgid "The band that average falls in"
 msgstr "その平均点が入る範囲"
 
+
+msgid "approval request(s) are on file."
+msgstr "件の承認依頼が記録されています。"
+
+msgid "Registrations Not Finished"
+msgstr "未完了の登録"
+
+msgid "This list cannot be built here. The registration status column is not on this installation, so there is no way to tell which registrations are still waiting."
+msgstr "この一覧はここでは作れません。この環境には登録ステータスの列がないため、どの登録がまだ待機中なのかを知る手立てがありません。"
+
+msgid "The verification links could not be read."
+msgstr "確認リンクを読み取れませんでした。"
+
+msgid "The institutions below are listed from their own records, but whether the link each one was sent is still live could not be established."
+msgstr "以下の機関はそれぞれの記録から一覧にしていますが、各機関に送られたリンクがまだ有効かどうかは確認できませんでした。"
+
+msgid "Waiting since"
+msgstr "待機開始"
+
+msgid "Link"
+msgstr "リンク"
+
+msgid "Special Skill"
+msgstr "特定技能"
+
+msgid "Live"
+msgstr "有効"
+
+msgid "expires {0}"
+msgstr "有効期限 {0}"
+
+msgid "Expired"
+msgstr "期限切れ"
+
+msgid "cannot finish without a new link"
+msgstr "新しいリンクがなければ完了できません"
+
+msgid "Already used"
+msgstr "使用済み"
+
+msgid "the link was followed but a password was never set"
+msgstr "リンクは開かれましたが、パスワードが設定されていません"
+
+msgid "None sent"
+msgstr "未送信"
+
+msgid "not checked"
+msgstr "未確認"
+
+msgid "Send the verification link again"
+msgstr "確認リンクを再送する"
+
+msgid "no resend screen"
+msgstr "再送画面はありません"
+
+msgid "Every registration has been finished"
+msgstr "すべての登録が完了しています"
+
+msgid "No institution is sitting at pending verification."
+msgstr "確認待ちのまま止まっている機関はありません。"
+
+msgid "The approval queue could not be read."
+msgstr "承認待ちの一覧を読み取れませんでした。"
+
+msgid "Stakeholder"
+msgstr "関係機関"
+
+msgid "Nothing files into this queue."
+msgstr "この一覧に登録されるものはありません。"
+
+msgid "No registration in this system waits for an admin decision: an institution goes live by following the link it was emailed and choosing a password, with no approval step in between. So this panel being empty says nothing about the state of the system - the list above is the one that does."
+msgstr "このシステムでは、管理者の判断を待つ登録はありません。機関はメールで送られたリンクを開いてパスワードを設定した時点で有効になり、その間に承認の段階はありません。したがって、この欄が空であることはシステムの状態について何も語りません。それを語るのは上の一覧です。"
+
+msgid "Registrations not finished is the list to work from. It names each institution still sitting at pending verification and says whether the link it was emailed is still live, has run out, or has already been followed. A link that has run out is the one to act on: that institution cannot finish by itself, so send it again."
+msgstr "取り組むべき一覧は「未完了の登録」です。確認待ちのまま止まっている機関をすべて挙げ、その機関に送られたリンクがまだ有効か、期限が切れたか、すでに開かれたかを示します。手を打つべきは期限が切れたものです。その機関は自力で完了できないため、もう一度送ってください。"
+
+msgid "Pending approvals will be empty. No registration in this system waits for an administrator to approve it - an institution goes live by following its link and choosing a password, with no decision in between. The panel is kept because the table is there, not because anything files into it."
+msgstr "「承認待ち」は常に空です。このシステムでは、管理者の承認を待つ登録はありません。機関はリンクを開いてパスワードを設定した時点で有効になり、その間に判断の段階はないからです。この欄が残っているのはテーブルが存在するためであって、そこに何かが登録されるからではありません。"
+
