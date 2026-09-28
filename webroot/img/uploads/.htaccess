@@ -1,10 +1,20 @@
 # Nothing in here is code, and nothing in here is to be run.
 #
-# webroot/.htaccess rewrites to index.php only when the request does not name
-# a file that exists, so an uploaded file is served by the web server as it
-# stands. A .php one would not be served but run. The upload helpers hold the
-# extension to an allow list, and this is the second lock: if a file ever gets
-# in under a name that would be handled, it is still handed over as bytes.
+# THIS FILE DOES NOTHING ON THE SERVER THIS APPLICATION RUNS ON. That one is
+# nginx, and nginx does not read .htaccess - it has no such mechanism. The
+# rule that does this job there is nginx_configs/tmm_no_exec_uploads.conf,
+# which has to be pasted into the live site file by hand.
+#
+# It is kept because the same application behind Apache needs it, and because
+# a directory that is safe on one server and open on the next is worse than
+# one that is guarded on both.
+#
+# What it guards against: Apache's webroot/.htaccess rewrites to index.php
+# only when the request does not name a file that exists, so an uploaded file
+# is served by the web server as it stands. A .php one would not be served but
+# run. The upload helpers hold the extension to an allow list, and this is the
+# second lock: if a file ever gets in under a name that would be handled, it
+# is still handed over as bytes.
 
 # Any PHP handler, however this server is built.
 <IfModule mod_php.c>
