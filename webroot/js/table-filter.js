@@ -148,12 +148,152 @@
     /**
      * Adopt a filter row the template wrote, so its boxes actually filter.
      *
-     * The cells line up with the header, so a control's position in the row is
-     * the column it filters. Each may carry an operator select and, for a
-     * range, a second box; both are found from the cell at filter time rather
-     * than remembered here, so a row rebuilt by anything else still works.
+     * These rows name their columns - data-column on every box - so they can
+     * ask the server, which is the only way a filter can reach past the page
+     * you are looking at. Each box becomes filter_<column> in the query
+     * string, with filter_<column>_operator beside it and filter_<column>_to
+     * for the far end of a range, and AppController::paginate() applies them.
+     *
+     * Not every index screen paginates. A few build their rows by hand, in
+     * raw SQL, and hand the view a finished array; sending filters to one of
+     * those would put words in the address bar and change nothing on the
+     * page - the same silence this whole change is about. So the controller
+     * says whether it paginated, and where it did not the row is narrowed
+     * here in the browser instead, over the rows on the page, which is all
+     * that can honestly be offered.
+     *
+     * The rows this script builds itself have no column names to send, so
+     * they are always narrowed here.
      */
     function adoptFilterRow(table, filterRow) {
+        if (window.serverSideFilter !== true) {
+            adoptFilterRowLocally(table, filterRow);
+
+            return;
+        }
+
+        const params = new URLSearchParams(window.location.search);
+        let pending = null;
+
+        const submit = function() {
+            window.clearTimeout(pending);
+            pending = window.setTimeout(function() {
+                submitFilters(table, filterRow);
+            }, 400);
+        };
+        const submitNow = function() {
+            window.clearTimeout(pending);
+            submitFilters(table, filterRow);
+        };
+
+        Array.from(filterRow.children).forEach(function(cell, index) {
+            const input = cell.querySelector('.filter-input');
+            if (!input) {
+                return;
+            }
+
+            const column = input.dataset.column;
+            input.classList.add('table-filter-input');
+            input.dataset.columnIndex = index;
+
+            const range = cell.querySelector('.filter-input-range');
+            const operator = cell.querySelector('.filter-operator');
+
+            // Put back what was asked for, so the boxes still show it after
+            // the page has come back narrowed.
+            if (column) {
+                if (params.has('filter_' + column)) {
+                    input.value = params.get('filter_' + column);
+                }
+                if (operator && params.has('filter_' + column + '_operator')) {
+                    operator.value = params.get('filter_' + column + '_operator');
+                }
+                if (range && params.has('filter_' + column + '_to')) {
+                    range.value = params.get('filter_' + column + '_to');
+                }
+            }
+
+            if (range && operator) {
+                // The far end of a range is written into the page hidden, and
+                // nothing ever showed it.
+                range.style.display = operator.value === 'between' ? '' : 'none';
+            }
+
+            input.addEventListener(input.tagName === 'SELECT' ? 'change' : 'input',
+                input.tagName === 'SELECT' ? submitNow : submit);
+
+            if (range) {
+                range.addEventListener('input', submit);
+            }
+
+            if (operator) {
+                operator.addEventListener('change', function() {
+                    if (range) {
+                        range.style.display = operator.value === 'between' ? '' : 'none';
+                        if (operator.value !== 'between') {
+                            range.value = '';
+                        }
+                    }
+                    // An operator with an empty box changes nothing, so do not
+                    // reload the page to prove it.
+                    if (input.value.trim() !== '') {
+                        submitNow();
+                    }
+                });
+            }
+        });
+
+        const clear = filterRow.querySelector('.btn-clear-filter, .clear-filter');
+        if (clear) {
+            clear.addEventListener('click', function() {
+                clearServerFilters();
+            });
+        }
+    }
+
+    /** Ask the server for the rows that match, keeping sort and everything else. */
+    function submitFilters(table, filterRow) {
+        const url = new URL(window.location.href);
+        const params = new URLSearchParams();
+
+        url.searchParams.forEach(function(value, key) {
+            if (key.indexOf('filter_') !== 0 && key !== 'page') {
+                params.set(key, value);
+            }
+        });
+
+        filterRow.querySelectorAll('.filter-input').forEach(function(input) {
+            const column = input.dataset.column;
+            const value = input.value.trim();
+            if (!column || value === '') {
+                return;
+            }
+
+            params.set('filter_' + column, value);
+
+            const cell = input.closest('td, th');
+            const operator = cell ? cell.querySelector('.filter-operator') : null;
+            if (operator && operator.value !== '') {
+                params.set('filter_' + column + '_operator', operator.value);
+            }
+
+            const range = cell ? cell.querySelector('.filter-input-range') : null;
+            if (range && operator && operator.value === 'between' && range.value.trim() !== '') {
+                params.set('filter_' + column + '_to', range.value.trim());
+            }
+        });
+
+        // A narrowed list starts at its own first page, not at the page you
+        // happened to be on.
+        url.search = params.toString();
+        window.location.href = url.toString();
+    }
+
+    /**
+     * Narrow a template's filter row here, for a screen that does not
+     * paginate and so has nothing to ask the server for.
+     */
+    function adoptFilterRowLocally(table, filterRow) {
         Array.from(filterRow.children).forEach(function(cell, index) {
             const input = cell.querySelector('.filter-input');
             if (!input) {
@@ -176,8 +316,6 @@
             const operator = cell.querySelector('.filter-operator');
             if (operator) {
                 operator.addEventListener('change', function() {
-                    // The far end of a range is written into the page hidden,
-                    // and nothing ever showed it.
                     if (range) {
                         range.style.display = operator.value === 'between' ? '' : 'none';
                         if (operator.value !== 'between') {
@@ -189,13 +327,25 @@
             }
         });
 
-        // The template's own clear button, where it wrote one.
         const clear = filterRow.querySelector('.btn-clear-filter, .clear-filter');
         if (clear) {
             clear.addEventListener('click', function() {
                 clearAllFilters(table);
             });
         }
+    }
+
+    /** Drop every filter and come back to the whole list. */
+    function clearServerFilters() {
+        const url = new URL(window.location.href);
+        const params = new URLSearchParams();
+        url.searchParams.forEach(function(value, key) {
+            if (key.indexOf('filter_') !== 0 && key !== 'page') {
+                params.set(key, value);
+            }
+        });
+        url.search = params.toString();
+        window.location.href = url.toString();
     }
 
     /** Both sides read as numbers, so compare them as numbers. */

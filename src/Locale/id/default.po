@@ -18711,3 +18711,13 @@ msgstr "Persetujuan yang tertunda akan selalu kosong. Tidak ada pendaftaran di s
 msgid "The address dropdowns work downwards: choose the province and the kabupaten list fills, choose the kabupaten and the kecamatan list fills, and so on. That is the only way they can work - there are 84,305 kelurahan, and no list can hold them all. Changing the province empties everything below it, so set the address top down."
 msgstr "Pilihan alamat bekerja dari atas ke bawah: pilih propinsinya maka daftar kabupatennya terisi, pilih kabupatennya maka daftar kecamatannya terisi, dan seterusnya. Hanya begitu caranya bisa bekerja - ada 84.305 kelurahan, dan tidak ada daftar yang sanggup memuat semuanya. Mengganti propinsinya mengosongkan semua yang di bawahnya, jadi isilah alamatnya dari atas."
 
+
+msgid "This list is narrowed by what is in the filter row."
+msgstr "Daftar ini dipersempit oleh isi baris filter."
+
+msgid "Show the whole list"
+msgstr "Tampilkan seluruh daftar"
+
+msgid "These filters were not applied, because this table has no such column: {0}"
+msgstr "Filter berikut tidak diterapkan, karena tabel ini tidak punya kolom tersebut: {0}"
+

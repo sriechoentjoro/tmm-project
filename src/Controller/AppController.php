@@ -1703,6 +1703,186 @@ class AppController extends Controller
     }
 
     /**
+     * Paginate, honouring the filter row the index screens draw.
+     *
+     * The row posts its boxes back as filter_<column>, with
+     * filter_<column>_operator beside it and filter_<column>_to for the far
+     * end of a range. Nothing read them. Two files had been written for the
+     * job - FilterHandlerComponent and SearchableTrait - and neither was ever
+     * loaded by any controller, so the row was only narrowed in the browser,
+     * over the rows already on the page, which on a paginated list can hide
+     * what is in front of you and nothing else. Both are gone: leaving two
+     * near misses beside the one that works is how a wrong one gets wired in
+     * later.
+     *
+     * Hooking paginate() rather than each index action wires all ninety-nine
+     * of them at once, and leaves a screen that passes no filters exactly as
+     * it was: with nothing to apply, the argument is handed on untouched.
+     *
+     * @param \Cake\ORM\Table|\Cake\ORM\Query|string|null $object What to page.
+     * @param array $settings Pagination settings.
+     * @return \Cake\Datasource\ResultSetInterface
+     */
+    public function paginate($object = null, array $settings = [])
+    {
+        // Tell the page that its filter row has somewhere to send to. A few
+        // index actions build their rows by hand in raw SQL and never come
+        // through here; on those the row is narrowed in the browser instead,
+        // because sending filters to an action that cannot apply them would
+        // put words in the address bar and change nothing on the page.
+        $this->set('serverSideFilter', true);
+
+        return parent::paginate($this->applyIndexFilters($object), $settings);
+    }
+
+    /**
+     * Narrow what is about to be paginated by the filters in the query string.
+     *
+     * Only columns the table really has are used. An unknown one is dropped
+     * rather than pasted into the SQL. The implementation this replaces
+     * qualified whatever it was given as Alias.field and let the database
+     * object, which turns a typo in a template into a five hundred. What was
+     * dropped is set for the screen to say.
+     *
+     * A value that cannot be what the column holds - letters typed into a
+     * filter over an integer - is not dropped, because dropping it would show
+     * every row as though nothing had been asked. It matches nothing, which is
+     * the true answer.
+     *
+     * @param mixed $object What paginate() was handed.
+     * @return mixed The same, or a query with the filters applied.
+     */
+    protected function applyIndexFilters($object)
+    {
+        $params = $this->request->getQueryParams();
+        $wanted = [];
+        foreach ($params as $key => $value) {
+            if (strpos($key, 'filter_') !== 0 || is_array($value)) {
+                continue;
+            }
+            $field = substr($key, 7);
+            // The operator and the far end of a range travel beside the value
+            // they belong to, not as filters of their own.
+            if (substr($field, -9) === '_operator' || substr($field, -3) === '_to') {
+                continue;
+            }
+            if (trim((string)$value) !== '') {
+                $wanted[$field] = trim((string)$value);
+            }
+        }
+
+        if (!$wanted) {
+            return $object;
+        }
+
+        $query = $object;
+        if ($query instanceof \Cake\ORM\Table) {
+            $query = $query->find();
+        } elseif (is_string($query)) {
+            $query = $this->loadModel($query)->find();
+        }
+        if (!$query instanceof \Cake\ORM\Query) {
+            // A ResultSet, an array, something paginated by hand. Nothing to
+            // narrow, and guessing would be worse than leaving it alone.
+            return $object;
+        }
+
+        $repository = $query->getRepository();
+        $schema = $repository->getSchema();
+        $alias = $repository->getAlias();
+
+        $applied = [];
+        $ignored = [];
+        foreach ($wanted as $field => $value) {
+            if (!$schema->hasColumn($field)) {
+                $ignored[] = $field;
+                continue;
+            }
+
+            $operator = isset($params['filter_' . $field . '_operator'])
+                ? (string)$params['filter_' . $field . '_operator'] : '';
+            $rangeEnd = isset($params['filter_' . $field . '_to'])
+                ? trim((string)$params['filter_' . $field . '_to']) : '';
+
+            $this->addIndexFilter($query, $alias . '.' . $field,
+                $schema->getColumnType($field), $value, $operator, $rangeEnd);
+            $applied[$field] = $value;
+        }
+
+        $this->set('indexFilters', ['applied' => $applied, 'ignored' => $ignored]);
+
+        return $query;
+    }
+
+    /**
+     * One condition of the filter row.
+     *
+     * @param \Cake\ORM\Query $query The query to narrow.
+     * @param string $column Alias.column.
+     * @param string|null $type What the schema says the column holds.
+     * @param string $value What was typed or chosen.
+     * @param string $operator How to compare, '' meaning the column's default.
+     * @param string $rangeEnd The far end, for between.
+     * @return void
+     */
+    protected function addIndexFilter($query, $column, $type, $value, $operator, $rangeEnd)
+    {
+        $numeric = in_array($type, ['integer', 'biginteger', 'smallinteger', 'tinyinteger',
+            'float', 'decimal'], true);
+
+        // A text box with no operator means contains, which is what its
+        // operator list opens on; a select and a number mean equals.
+        if ($operator === '') {
+            $operator = $numeric || in_array($type, ['boolean'], true) ? '=' : 'like';
+        }
+
+        // Letters where the column holds a number. Not an error to swallow and
+        // not one to shout about either: nothing can match it, so say so by
+        // matching nothing.
+        if ($numeric && in_array($operator, ['=', '!=', '<', '>', '<=', '>=', 'between'], true)
+            && !is_numeric($value)) {
+            $query->where(['1 = 0']);
+
+            return;
+        }
+
+        switch ($operator) {
+            case 'like':
+                $query->where([$column . ' LIKE' => '%' . $value . '%']);
+                break;
+            case 'not_like':
+                $query->where([$column . ' NOT LIKE' => '%' . $value . '%']);
+                break;
+            case 'starts_with':
+                $query->where([$column . ' LIKE' => $value . '%']);
+                break;
+            case 'ends_with':
+                $query->where([$column . ' LIKE' => '%' . $value]);
+                break;
+            case 'between':
+                // The far end is optional, and without it between is a floor
+                // rather than a filter that hides everything.
+                $query->where([$column . ' >=' => $value]);
+                if ($rangeEnd !== '' && (!$numeric || is_numeric($rangeEnd))) {
+                    $query->where([$column . ' <=' => $rangeEnd]);
+                }
+                break;
+            case '!=':
+                $query->where([$column . ' !=' => $value]);
+                break;
+            case '>':
+            case '<':
+            case '>=':
+            case '<=':
+                $query->where([$column . ' ' . $operator => $value]);
+                break;
+            case '=':
+            default:
+                $query->where([$column => $value]);
+        }
+    }
+
+    /**
      * The four address dropdowns, holding what can actually be chosen.
      *
      * Every one of these lists used to be find('list', ['limit' => 200]) - the

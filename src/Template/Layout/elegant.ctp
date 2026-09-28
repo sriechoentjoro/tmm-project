@@ -611,6 +611,15 @@ $cacheBust = '?v=' . time();
     <!-- Main Content -->
     <div class="container">
         <div class="content-wrapper">
+            <?php
+            /**
+             * Says, once and at the top, that the list below has been narrowed
+             * and how to get the whole of it back. AppController sets the var
+             * only where filters were applied, so this is silent everywhere
+             * else.
+             */
+            ?>
+            <?= isset($indexFilters) ? $this->element('index_filter_notice') : '' ?>
             <?= $this->fetch('content') ?>
         </div>
     </div>
@@ -621,8 +630,14 @@ $cacheBust = '?v=' . time();
      * never honoured and the filter row appeared anyway. table-filter.js reads
      * it now, along with the no-auto-filter class, so the flag means what it
      * says and there is nothing left to do here.
+     *
+     * serverSideFilter says whether this page was paginated, and so whether
+     * its filter row has an action that can answer it. AppController::paginate()
+     * sets it; a screen that builds its rows by hand never calls that, and its
+     * filter row is narrowed in the browser instead.
      */
     ?>
+    <script>window.serverSideFilter = <?= !empty($serverSideFilter) ? 'true' : 'false' ?>;</script>
     <script src="<?= $staticAssetsUrl ?>/js/context-menu.js<?= $cacheBust ?>"></script>
     <script src="<?= $staticAssetsUrl ?>/js/submenu-position.js<?= $cacheBust ?>"></script>
     <script src="<?= $staticAssetsUrl ?>/js/table-drag-scroll.js<?= $cacheBust ?>"></script>

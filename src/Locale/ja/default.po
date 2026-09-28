@@ -18711,3 +18711,13 @@ msgstr "「承認待ち」は常に空です。このシステムでは、管理
 msgid "The address dropdowns work downwards: choose the province and the kabupaten list fills, choose the kabupaten and the kecamatan list fills, and so on. That is the only way they can work - there are 84,305 kelurahan, and no list can hold them all. Changing the province empties everything below it, so set the address top down."
 msgstr "住所の選択は上から順に働きます。県を選べば市郡の一覧が埋まり、市郡を選べば郡の一覧が埋まる、という具合です。そうするほかありません。村・町は84,305件あり、一度に載せきれる一覧は存在しないからです。県を変えるとその下はすべて空になるので、住所は上から順に入力してください。"
 
+
+msgid "This list is narrowed by what is in the filter row."
+msgstr "この一覧は、絞り込み行の内容によって絞られています。"
+
+msgid "Show the whole list"
+msgstr "一覧をすべて表示する"
+
+msgid "These filters were not applied, because this table has no such column: {0}"
+msgstr "次の絞り込みは適用されませんでした。この表にその列がないためです: {0}"
+
