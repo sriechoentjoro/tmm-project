@@ -18547,3 +18547,37 @@ msgstr "集計対象: ステータス {0}、{1} から {2} までの仕訳。"
 msgid "Counted: entries marked {0}, everything up to {1}."
 msgstr "集計対象: ステータス {0}、{1} までのすべての仕訳。"
 
+
+msgid "Because they are typed, the totals can contradict the register. Where they do, the page now counts the register and shows the real figure beside the stored one with an arrow, and says how many rows have drifted. The register is right."
+msgstr "手入力である以上、合計は登録簿と食い違うことがあります。食い違う場合、画面は登録簿を数え、保存された数字の隣に矢印付きで実際の数字を示し、何行がずれているかを伝えます。正しいのは登録簿です。"
+
+msgid "Recount them all replaces the typed figures with what the register holds, on every row at once. It writes only these four totals and the time; nothing in the register is touched. Somebody can still type whatever they like afterwards - this is for when they would rather the row said what is true."
+msgstr "「すべて数え直す」は、手入力の数字を登録簿の内容ですべての行について置き換えます。書き込むのはこの四つの合計と時刻だけで、登録簿には一切触れません。その後もう一度手で入力することはできます。これは、行に事実を語らせたいときのためのものです。"
+
+msgid "{0} row(s) now say what the register says."
+msgstr "{0} 行が登録簿と同じ内容になりました。"
+
+msgid "Nothing could be recounted. The register or the master list could not be read."
+msgstr "数え直せませんでした。登録簿またはマスタ一覧を読めません。"
+
+msgid "{0} row(s) no longer match the register"
+msgstr "{0} 行が登録簿と一致しなくなっています"
+
+msgid "These four totals are typed into the form and never recomputed, so they were right on the day somebody entered them and have been drifting since. Where a row disagrees, the counted figure is shown beside it with an arrow. The register is the one to believe."
+msgstr "この四つの合計はフォームから手で入力されるだけで、計算し直されることはありません。入力された日には正しく、その後ずれ続けます。行が食い違う場合は、数え直した数字が矢印付きで隣に表示されます。信じるべきは登録簿です。"
+
+msgid "Recount them all"
+msgstr "すべて数え直す"
+
+msgid "Replace the typed totals with what the register holds, on every row?"
+msgstr "手入力の合計を、すべての行について登録簿の内容に置き換えますか？"
+
+msgid "Every row matches the register"
+msgstr "すべての行が登録簿と一致しています"
+
+msgid "The totals here are typed rather than counted, so this is true as of now rather than kept true. Check again after documents change."
+msgstr "ここの合計は数えたものではなく手入力です。つまり今この時点で正しいだけで、正しさが保たれるわけではありません。書類が変わったら改めて確認してください。"
+
+msgid "What the register holds now"
+msgstr "現在の登録簿の内容"
+

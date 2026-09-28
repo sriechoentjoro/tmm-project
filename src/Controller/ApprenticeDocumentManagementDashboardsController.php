@@ -13,6 +13,44 @@ use App\Controller\AppController;
 class ApprenticeDocumentManagementDashboardsController extends AppController
 {
     use \App\Controller\ExportTrait;
+
+    /**
+     * Who may recount the figures.
+     *
+     * The documents themselves are tmm-documentation's work, so bringing the
+     * summary in line with them is too.
+     *
+     * @var array
+     */
+    const RECOUNT_ROLES = ['administrator', 'tmm-documentation'];
+
+    /**
+     * Let those roles reach an action the menu permissions cannot know about.
+     *
+     * AppController::isAuthorized() reads role_menus.granted_actions, and "*"
+     * there does not mean every action: it expands to the menu's own action
+     * plus index and view. A brand-new action is in nobody's granted list, so
+     * without this the button would refuse the roles it was built for, and the
+     * refusal would look like a permissions bug rather than a missing row.
+     *
+     * @param array|null $user The authenticated user.
+     * @return bool
+     */
+    public function isAuthorized($user = null)
+    {
+        if ($this->request->getParam('action') !== 'refresh') {
+            return parent::isAuthorized($user);
+        }
+
+        foreach (self::RECOUNT_ROLES as $role) {
+            if ($this->hasRole($role)) {
+                return true;
+            }
+        }
+
+        return parent::isAuthorized($user);
+    }
+
     /**
      * Index method
      *
@@ -25,9 +63,61 @@ class ApprenticeDocumentManagementDashboardsController extends AppController
         ];
         $apprenticeDocumentManagementDashboards = $this->paginate($this->ApprenticeDocumentManagementDashboards);
 
+        // The four totals on each row were typed in once and never recomputed.
+        // Counting the register here puts the real figure beside the stored one
+        // so a row that has drifted says so, instead of reading as a count.
+        $ids = [];
+        foreach ($apprenticeDocumentManagementDashboards as $row) {
+            $ids[] = (int)$row->candidate_id;
+        }
+        $standing = $this->ApprenticeDocumentManagementDashboards->standingFor($ids);
+
+        $drifted = 0;
+        foreach ($apprenticeDocumentManagementDashboards as $row) {
+            $id = (int)$row->candidate_id;
+            if (isset($standing[$id])
+                && $this->ApprenticeDocumentManagementDashboards->disagreements($row, $standing[$id])) {
+                $drifted++;
+            }
+        }
+
         // Load dropdown data for filters
         $candidates = $this->ApprenticeDocumentManagementDashboards->Candidates->find('list')->limit(200)->toArray();
-        $this->set(compact('apprenticeDocumentManagementDashboards', 'candidates'));
+        $this->set(compact('apprenticeDocumentManagementDashboards', 'candidates', 'standing', 'drifted'));
+    }
+
+    /**
+     * Write the counted figures onto the rows on this page.
+     *
+     * A person can still type whatever they like into the form; this is for
+     * when they would rather the row said what the register says.
+     *
+     * @return \Cake\Http\Response
+     */
+    public function refresh()
+    {
+        $this->request->allowMethod(['post']);
+        $table = $this->ApprenticeDocumentManagementDashboards;
+
+        $one = (int)$this->request->getData('candidate_id');
+        $ids = $one ? [$one] : array_map('intval', array_filter(
+            $table->find()->select(['candidate_id'])->distinct(['candidate_id'])
+                ->enableHydration(false)->extract('candidate_id')->toList()));
+
+        $changed = 0;
+        foreach ($ids as $id) {
+            if ($table->refresh($id) !== null) {
+                $changed++;
+            }
+        }
+
+        if ($changed) {
+            $this->Flash->success(__('{0} row(s) now say what the register says.', $changed));
+        } else {
+            $this->Flash->error(__('Nothing could be recounted. The register or the master list could not be read.'));
+        }
+
+        return $this->redirect(['action' => 'index']);
     }
 
 

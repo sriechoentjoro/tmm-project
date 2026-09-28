@@ -18547,3 +18547,37 @@ msgstr "Dihitung: jurnal berstatus {0}, bertanggal {1} sampai {2}."
 msgid "Counted: entries marked {0}, everything up to {1}."
 msgstr "Dihitung: jurnal berstatus {0}, seluruhnya sampai {1}."
 
+
+msgid "Because they are typed, the totals can contradict the register. Where they do, the page now counts the register and shows the real figure beside the stored one with an arrow, and says how many rows have drifted. The register is right."
+msgstr "Karena diketik, totalnya bisa bertentangan dengan register. Bila itu terjadi, halamannya kini menghitung registernya dan menampilkan angka sebenarnya di samping angka tersimpan dengan tanda panah, serta menyebutkan berapa baris yang sudah menyimpang. Registerlah yang benar."
+
+msgid "Recount them all replaces the typed figures with what the register holds, on every row at once. It writes only these four totals and the time; nothing in the register is touched. Somebody can still type whatever they like afterwards - this is for when they would rather the row said what is true."
+msgstr "Hitung Ulang Semua mengganti angka yang diketik dengan isi register, pada semua baris sekaligus. Yang ditulis hanya keempat total itu dan waktunya; tidak ada yang disentuh di registernya. Setelah itu orang tetap bisa mengetik apa pun - ini untuk saat mereka lebih suka barisnya menyatakan yang sebenarnya."
+
+msgid "{0} row(s) now say what the register says."
+msgstr "{0} baris kini menyatakan apa yang dinyatakan registernya."
+
+msgid "Nothing could be recounted. The register or the master list could not be read."
+msgstr "Tidak ada yang bisa dihitung ulang. Register atau daftar induknya tidak bisa dibaca."
+
+msgid "{0} row(s) no longer match the register"
+msgstr "{0} baris tidak lagi cocok dengan registernya"
+
+msgid "These four totals are typed into the form and never recomputed, so they were right on the day somebody entered them and have been drifting since. Where a row disagrees, the counted figure is shown beside it with an arrow. The register is the one to believe."
+msgstr "Keempat total ini diketik lewat formulir dan tidak pernah dihitung ulang, jadi benar pada hari seseorang memasukkannya dan terus menyimpang sejak itu. Bila sebuah baris tidak cocok, angka hasil hitungnya ditampilkan di sampingnya dengan tanda panah. Yang patut dipercaya adalah registernya."
+
+msgid "Recount them all"
+msgstr "Hitung Ulang Semua"
+
+msgid "Replace the typed totals with what the register holds, on every row?"
+msgstr "Ganti total yang diketik dengan isi register, pada semua baris?"
+
+msgid "Every row matches the register"
+msgstr "Semua baris cocok dengan registernya"
+
+msgid "The totals here are typed rather than counted, so this is true as of now rather than kept true. Check again after documents change."
+msgstr "Total di sini diketik, bukan dihitung, jadi ini benar per sekarang dan bukan dijaga tetap benar. Periksa lagi setelah dokumennya berubah."
+
+msgid "What the register holds now"
+msgstr "Isi register saat ini"
+

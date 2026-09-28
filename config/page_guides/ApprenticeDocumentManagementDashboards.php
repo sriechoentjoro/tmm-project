@@ -56,6 +56,7 @@ return [
     'cautions' => [
         __('The row is keyed to a candidate, not to an apprentice, and it lives in the candidate document database rather than the apprentice one. On a page named for apprentices that is easy to read past, so check you are choosing the person you mean.'),
         __('Nothing else in the application reads these figures. No report, no other dashboard, no export. They are here for a person to look at, and nowhere else.'),
-        __('Because they are typed, the totals can contradict the register. Where they do, the register is right.'),
+        __('Because they are typed, the totals can contradict the register. Where they do, the page now counts the register and shows the real figure beside the stored one with an arrow, and says how many rows have drifted. The register is right.'),
+        __('Recount them all replaces the typed figures with what the register holds, on every row at once. It writes only these four totals and the time; nothing in the register is touched. Somebody can still type whatever they like afterwards - this is for when they would rather the row said what is true.'),
     ],
 ];

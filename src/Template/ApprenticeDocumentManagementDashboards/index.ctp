@@ -68,6 +68,29 @@
     </div>
 </div>
 
+<?php if (!empty($drifted)): ?>
+    <div class="drift-note">
+        <div>
+            <strong><i class="fas fa-exclamation-triangle"></i>
+                <?= __('{0} row(s) no longer match the register', $drifted) ?></strong>
+            <p><?= __('These four totals are typed into the form and never recomputed, so they were right on the day somebody entered them and have been drifting since. Where a row disagrees, the counted figure is shown beside it with an arrow. The register is the one to believe.') ?></p>
+        </div>
+        <?= $this->Form->postLink(
+            '<i class="fas fa-sync"></i> ' . __('Recount them all'),
+            ['action' => 'refresh'],
+            ['escape' => false, 'class' => 'btn btn-sm btn-warning',
+             'confirm' => __('Replace the typed totals with what the register holds, on every row?')]
+        ) ?>
+    </div>
+<?php elseif (!empty($standing)): ?>
+    <div class="drift-note drift-ok">
+        <div>
+            <strong><i class="fas fa-check-circle"></i> <?= __('Every row matches the register') ?></strong>
+            <p><?= __('The totals here are typed rather than counted, so this is true as of now rather than kept true. Check again after documents change.') ?></p>
+        </div>
+    </div>
+<?php endif; ?>
+
 <!-- Table Container with Horizontal Scroll -->
 <div class="table-scroll-wrapper" style="overflow-x: auto; cursor: grab; -webkit-overflow-scrolling: touch; user-select: none;">
     <div class="apprenticeDocumentManagementDashboards index content">
@@ -197,10 +220,34 @@
                     </td>
                     <td style="padding: 8px; white-space: nowrap;"><?= $this->Number->format($apprenticeDocumentManagementDashboard->id) ?></td>
                     <td style="padding: 8px; white-space: nowrap;"><?= $apprenticeDocumentManagementDashboard->has('candidate') ? $this->Html->link($apprenticeDocumentManagementDashboard->candidate->name, ['controller' => 'Candidates', 'action' => 'view', $apprenticeDocumentManagementDashboard->candidate->id]) : '' ?></td>
-                    <td style="padding: 8px; white-space: nowrap;"><?= $this->Number->format($apprenticeDocumentManagementDashboard->total_documents) ?></td>
-                    <td style="padding: 8px; white-space: nowrap;"><?= $this->Number->format($apprenticeDocumentManagementDashboard->total_ready) ?></td>
-                    <td style="padding: 8px; white-space: nowrap;"><?= $this->Number->format($apprenticeDocumentManagementDashboard->total_pending) ?></td>
-                    <td style="padding: 8px; white-space: nowrap;"><?= $this->Number->format($apprenticeDocumentManagementDashboard->total_missing) ?></td>
+                    <td style="padding: 8px; white-space: nowrap;">
+                        <?= $this->Number->format($apprenticeDocumentManagementDashboard->total_documents) ?>
+                        <?php $real = $standing[(int)$apprenticeDocumentManagementDashboard->candidate_id]['documents'] ?? null; ?>
+                        <?php if ($real !== null && $real !== (int)$apprenticeDocumentManagementDashboard->total_documents): ?>
+                            <span class="counted" title="<?= h(__('What the register holds now')) ?>">→ <?= $this->Number->format($real) ?></span>
+                        <?php endif; ?>
+                    </td>
+                    <td style="padding: 8px; white-space: nowrap;">
+                        <?= $this->Number->format($apprenticeDocumentManagementDashboard->total_ready) ?>
+                        <?php $real = $standing[(int)$apprenticeDocumentManagementDashboard->candidate_id]['ready'] ?? null; ?>
+                        <?php if ($real !== null && $real !== (int)$apprenticeDocumentManagementDashboard->total_ready): ?>
+                            <span class="counted" title="<?= h(__('What the register holds now')) ?>">→ <?= $this->Number->format($real) ?></span>
+                        <?php endif; ?>
+                    </td>
+                    <td style="padding: 8px; white-space: nowrap;">
+                        <?= $this->Number->format($apprenticeDocumentManagementDashboard->total_pending) ?>
+                        <?php $real = $standing[(int)$apprenticeDocumentManagementDashboard->candidate_id]['pending'] ?? null; ?>
+                        <?php if ($real !== null && $real !== (int)$apprenticeDocumentManagementDashboard->total_pending): ?>
+                            <span class="counted" title="<?= h(__('What the register holds now')) ?>">→ <?= $this->Number->format($real) ?></span>
+                        <?php endif; ?>
+                    </td>
+                    <td style="padding: 8px; white-space: nowrap;">
+                        <?= $this->Number->format($apprenticeDocumentManagementDashboard->total_missing) ?>
+                        <?php $real = $standing[(int)$apprenticeDocumentManagementDashboard->candidate_id]['missing'] ?? null; ?>
+                        <?php if ($real !== null && $real !== (int)$apprenticeDocumentManagementDashboard->total_missing): ?>
+                            <span class="counted" title="<?= h(__('What the register holds now')) ?>">→ <?= $this->Number->format($real) ?></span>
+                        <?php endif; ?>
+                    </td>
                     <td style="padding: 8px; white-space: nowrap;"><?= h($apprenticeDocumentManagementDashboard->last_updated) ?></td>
                 </tr>
                 <?php endforeach; ?>
@@ -222,6 +269,22 @@
 </div>
 
 <style>
+.drift-note {
+    display: flex; align-items: center; justify-content: space-between; gap: 16px;
+    flex-wrap: wrap;
+    padding: 13px 18px; margin: 0 0 16px; border-radius: 10px;
+    background: #fff8e1; border-left: 4px solid #fb8c00;
+    color: #5d4037;
+}
+.drift-note.drift-ok { background: #e8f5e9; border-left-color: #43a047; color: #33691e; }
+.drift-note strong { display: block; margin-bottom: 4px; color: #e65100; }
+.drift-note.drift-ok strong { color: #2e7d32; }
+.drift-note p { margin: 0; font-size: 13px; line-height: 1.6; max-width: 76ch; }
+.counted {
+    display: inline-block; margin-left: 6px; padding: 1px 6px;
+    border-radius: 8px; background: #fff3e0; color: #e65100;
+    font-size: 11px; font-weight: 800;
+}
 /* Dropdown Menu Styles */
 .dropdown-menu {
     display: none;
