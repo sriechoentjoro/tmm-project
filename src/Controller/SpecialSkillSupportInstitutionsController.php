@@ -239,9 +239,17 @@ class SpecialSkillSupportInstitutionsController extends AppController
     {
         $query = $this->SpecialSkillSupportInstitutions->find('all');
         
-        // Define headers and fields for export
-        $headers = ['ID', 'Name', 'Created', 'Modified'];
-        $fields = ['id', 'name', 'created', 'modified'];
+        // The four these used to ask for were bake's placeholder and were
+        // never filled in: of the ninety-two tables here, four have all of
+        // name, created and modified and fifty-four have none, and a column
+        // that is not there exports as an empty cell. The table's own columns
+        // are taken instead, with foreign keys resolved to the names they
+        // point at. See AppController::exportColumns().
+        //
+        // And the same filters the list was narrowed by, so Export gives what
+        // the screen shows rather than the whole table.
+        $query = $this->applyIndexFilters($query);
+        list($headers, $fields) = $this->exportColumns($query);
         
         return $this->doExportCsv($query, 'SpecialSkillSupportInstitutions', $headers, $fields);
     }
@@ -254,9 +262,17 @@ class SpecialSkillSupportInstitutionsController extends AppController
     {
         $query = $this->SpecialSkillSupportInstitutions->find('all');
         
-        // Define headers and fields for export
-        $headers = ['ID', 'Name', 'Created', 'Modified'];
-        $fields = ['id', 'name', 'created', 'modified'];
+        // The four these used to ask for were bake's placeholder and were
+        // never filled in: of the ninety-two tables here, four have all of
+        // name, created and modified and fifty-four have none, and a column
+        // that is not there exports as an empty cell. The table's own columns
+        // are taken instead, with foreign keys resolved to the names they
+        // point at. See AppController::exportColumns().
+        //
+        // And the same filters the list was narrowed by, so Export gives what
+        // the screen shows rather than the whole table.
+        $query = $this->applyIndexFilters($query);
+        list($headers, $fields) = $this->exportColumns($query);
         
         return $this->doExportExcel($query, 'SpecialSkillSupportInstitutions', $headers, $fields);
     }
@@ -275,8 +291,17 @@ class SpecialSkillSupportInstitutionsController extends AppController
         
         // Define report configuration
         $title = 'SpecialSkillSupportInstitutions Report';
-        $headers = ['ID', 'Name', 'Created', 'Modified'];
-        $fields = ['id', 'name', 'created', 'modified'];
+        // The four these used to ask for were bake's placeholder and were
+        // never filled in: of the ninety-two tables here, four have all of
+        // name, created and modified and fifty-four have none, and a column
+        // that is not there exports as an empty cell. The table's own columns
+        // are taken instead, with foreign keys resolved to the names they
+        // point at. See AppController::exportColumns().
+        //
+        // And the same filters the list was narrowed by, so Export gives what
+        // the screen shows rather than the whole table.
+        $query = $this->applyIndexFilters($query);
+        list($headers, $fields) = $this->exportColumns($query);
         
         return $this->doExportPrint($query, $title, $headers, $fields);
     }

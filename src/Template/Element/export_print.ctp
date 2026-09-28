@@ -1,7 +1,17 @@
+<?php
+/**
+ * A list, laid out for printing.
+ *
+ * @var \App\View\AppView $this
+ * @var string $title
+ * @var array $headers Column headings.
+ * @var array $rows Cells, already laid out by ExportTrait::doExportPrint().
+ */
+?>
 <div class="print-header">
     <h1><?= h($title) ?></h1>
     <div class="print-info">
-        Total Records: <strong><?= is_array($data) ? count($data) : $data->count() ?></strong>
+        Total Records: <strong><?= count($rows) ?></strong>
     </div>
 </div>
 
@@ -14,31 +24,21 @@
         </tr>
     </thead>
     <tbody>
-        <?php foreach ($data as $row): ?>
+        <?php
+        /**
+         * The cells arrive already laid out by ExportTrait::doExportPrint(),
+         * so this page, the CSV and the spreadsheet say the same thing.
+         *
+         * They were worked out here before, and only FrozenTime was named: a
+         * date printed as the locale's short form - 5/10/26, which is either
+         * the tenth of May or the fifth of October - while the same column in
+         * the CSV read 2026-05-10. A value behind a dot was printed raw.
+         */
+        ?>
+        <?php foreach ($rows as $cells): ?>
             <tr>
-                <?php foreach ($fields as $field): ?>
-                    <td>
-                        <?php
-                        // Support nested fields (e.g., 'user.name')
-                        if (strpos($field, '.') !== false) {
-                            $parts = explode('.', $field);
-                            $value = $row;
-                            foreach ($parts as $part) {
-                                $value = isset($value->$part) ? $value->$part : '';
-                            }
-                            echo h($value);
-                        } else {
-                            $value = isset($row->$field) ? $row->$field : '';
-                            if ($value instanceof \Cake\I18n\FrozenTime) {
-                                echo h($value->format('Y-m-d H:i:s'));
-                            } elseif (is_bool($value)) {
-                                echo $value ? 'Yes' : 'No';
-                            } else {
-                                echo h($value);
-                            }
-                        }
-                        ?>
-                    </td>
+                <?php foreach ($cells as $cell): ?>
+                    <td><?= h($cell) ?></td>
                 <?php endforeach; ?>
             </tr>
         <?php endforeach; ?>

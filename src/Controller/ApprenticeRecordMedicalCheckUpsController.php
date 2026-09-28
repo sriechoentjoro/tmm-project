@@ -211,9 +211,17 @@ $this->set(compact('apprenticeRecordMedicalCheckUps', 'apprentices', 'mastermedi
         $query = $this->ApprenticeRecordMedicalCheckUps->find('all')
             ->contain(['Apprentices', 'MasterMedicalCheckUpResults']);
         
-        // Define headers and fields for export
-        $headers = ['ID', 'Name', 'Created', 'Modified'];
-        $fields = ['id', 'name', 'created', 'modified'];
+        // The four these used to ask for were bake's placeholder and were
+        // never filled in: of the ninety-two tables here, four have all of
+        // name, created and modified and fifty-four have none, and a column
+        // that is not there exports as an empty cell. The table's own columns
+        // are taken instead, with foreign keys resolved to the names they
+        // point at. See AppController::exportColumns().
+        //
+        // And the same filters the list was narrowed by, so Export gives what
+        // the screen shows rather than the whole table.
+        $query = $this->applyIndexFilters($query);
+        list($headers, $fields) = $this->exportColumns($query);
         
         return $this->doExportCsv($query, 'ApprenticeRecordMedicalCheckUps', $headers, $fields);
     }
@@ -227,9 +235,17 @@ $this->set(compact('apprenticeRecordMedicalCheckUps', 'apprentices', 'mastermedi
         $query = $this->ApprenticeRecordMedicalCheckUps->find('all')
             ->contain(['Apprentices', 'MasterMedicalCheckUpResults']);
         
-        // Define headers and fields for export
-        $headers = ['ID', 'Name', 'Created', 'Modified'];
-        $fields = ['id', 'name', 'created', 'modified'];
+        // The four these used to ask for were bake's placeholder and were
+        // never filled in: of the ninety-two tables here, four have all of
+        // name, created and modified and fifty-four have none, and a column
+        // that is not there exports as an empty cell. The table's own columns
+        // are taken instead, with foreign keys resolved to the names they
+        // point at. See AppController::exportColumns().
+        //
+        // And the same filters the list was narrowed by, so Export gives what
+        // the screen shows rather than the whole table.
+        $query = $this->applyIndexFilters($query);
+        list($headers, $fields) = $this->exportColumns($query);
         
         return $this->doExportExcel($query, 'ApprenticeRecordMedicalCheckUps', $headers, $fields);
     }
@@ -249,8 +265,17 @@ $this->set(compact('apprenticeRecordMedicalCheckUps', 'apprentices', 'mastermedi
         
         // Define report configuration
         $title = 'ApprenticeRecordMedicalCheckUps Report';
-        $headers = ['ID', 'Name', 'Created', 'Modified'];
-        $fields = ['id', 'name', 'created', 'modified'];
+        // The four these used to ask for were bake's placeholder and were
+        // never filled in: of the ninety-two tables here, four have all of
+        // name, created and modified and fifty-four have none, and a column
+        // that is not there exports as an empty cell. The table's own columns
+        // are taken instead, with foreign keys resolved to the names they
+        // point at. See AppController::exportColumns().
+        //
+        // And the same filters the list was narrowed by, so Export gives what
+        // the screen shows rather than the whole table.
+        $query = $this->applyIndexFilters($query);
+        list($headers, $fields) = $this->exportColumns($query);
         
         return $this->doExportPrint($query, $title, $headers, $fields);
     }

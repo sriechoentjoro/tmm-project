@@ -115,8 +115,19 @@ trait ExportTrait
                 $row++;
             }
             
-            // Enable auto-filter
-            $sheet->setAutoFilter('A1:' . chr(64 + count($headers)) . '1');
+            // Enable auto-filter.
+            //
+            // The last column used to be chr(64 + count($headers)), which is
+            // right up to Z and then walks off the alphabet: twenty-seven
+            // columns asks for '[' and PhpSpreadsheet throws. That was caught
+            // below and turned into a CSV named .xlsx, so a wide table's
+            // "Export Excel" quietly handed over something Excel would
+            // complain about. Now that the columns come from the table rather
+            // than being four every time, plenty of them are wide.
+            $lastColumn = \PhpOffice\PhpSpreadsheet\Cell\Coordinate::stringFromColumnIndex(
+                max(1, count($headers))
+            );
+            $sheet->setAutoFilter('A1:' . $lastColumn . '1');
             
             // Write to output
             $writer = new \PhpOffice\PhpSpreadsheet\Writer\Xlsx($spreadsheet);
@@ -155,6 +166,21 @@ trait ExportTrait
     public function doExportPrint($query, $title, array $headers, array $fields)
     {
         $data = $query->all()->toArray();
+
+        // The cells are laid out here rather than in the template, which used
+        // to reach into each row itself and name only FrozenTime - so a date
+        // printed as the locale's short form, 5/10/26, while the same column
+        // in the CSV read 2026-05-10, and a value behind a dot never went
+        // through any formatting at all. Three exports of one list should not
+        // disagree about what is in it.
+        $rows = [];
+        foreach ($data as $row) {
+            $cells = [];
+            foreach ($fields as $field) {
+                $cells[] = $this->formatCsvValue($this->getNestedValue($row, $field));
+            }
+            $rows[] = $cells;
+        }
         
         // Force print layout (override AppController default)
         $this->viewBuilder()
@@ -163,7 +189,7 @@ trait ExportTrait
             ->setTemplate('export_print')
             ->disableAutoLayout();
         
-        $this->set(compact('data', 'title', 'headers', 'fields'));
+        $this->set(compact('data', 'rows', 'title', 'headers', 'fields'));
         
         // Re-enable layout with print
         $this->viewBuilder()->enableAutoLayout();
@@ -213,11 +239,20 @@ trait ExportTrait
      */
     private function formatCsvValue($value)
     {
-        if ($value instanceof FrozenTime) {
-            return $value->format('Y-m-d H:i:s');
+        // Every date and time, however it is carried.
+        //
+        // FrozenTime was the only one named, and neither it nor FrozenDate is
+        // a \DateTime - both extend DateTimeImmutable - so a date column fell
+        // through to (string), which gives the locale's own short form:
+        // 5/10/26. Nobody can tell the tenth of May from the fifth of October
+        // in that, and no spreadsheet reads it as a date at all.
+        // Both the immutable date and the mutable one, since which of the two
+        // arrives depends on how the application was bootstrapped.
+        if ($value instanceof \Cake\Chronos\Date || $value instanceof \Cake\Chronos\MutableDate) {
+            return $value->format('Y-m-d');
         }
-        
-        if ($value instanceof \DateTime) {
+
+        if ($value instanceof \DateTimeInterface) {
             return $value->format('Y-m-d H:i:s');
         }
         

@@ -1703,6 +1703,130 @@ class AppController extends Controller
     }
 
     /**
+     * The columns an export should carry, taken from the table itself.
+     *
+     * Every export action in this application asked for the same four:
+     *
+     *     $headers = ['ID', 'Name', 'Created', 'Modified'];
+     *     $fields  = ['id', 'name', 'created', 'modified'];
+     *
+     * That is what bake writes, and not one of the two hundred and forty-five
+     * places it was written in was ever filled in. Of the ninety-two tables in
+     * this system four have all three of name, created and modified, and
+     * fifty-four have none of them - and ExportTrait::getNestedValue() answers
+     * '' for a column that is not there. So Export CSV, Export Excel, Export
+     * PDF and Print all handed over a file headed ID, Name, Created, Modified
+     * with an id and three empty cells on every line, and nothing said so.
+     *
+     * The table knows its own columns, so they are read from it. A foreign key
+     * is exported as the name it points at rather than as a number, which is
+     * the whole reason anybody opens the file.
+     *
+     * The association is only followed where it can be: a belongsTo whose
+     * target sits in another database cannot be joined - this system keeps
+     * twelve - so unless it is fetched separately the id is exported as an id.
+     * And a target whose display field is its own primary key has no name to
+     * give, so there too the id stands.
+     *
+     * @param \Cake\ORM\Query $query The query about to be exported; the
+     *  associations used are added to it.
+     * @return array [headers, fields] for ExportTrait.
+     */
+    protected function exportColumns($query)
+    {
+        $repository = $query->getRepository();
+        $schema = $repository->getSchema();
+
+        $byForeignKey = [];
+        foreach ($repository->associations() as $association) {
+            if (!$association instanceof \Cake\ORM\Association\BelongsTo) {
+                continue;
+            }
+            $foreignKey = $association->getForeignKey();
+            if (is_array($foreignKey) || isset($byForeignKey[$foreignKey])) {
+                continue;
+            }
+            $byForeignKey[$foreignKey] = $association;
+        }
+
+        $headers = [];
+        $fields = [];
+        $contain = [];
+
+        foreach ($schema->columns() as $column) {
+            $association = isset($byForeignKey[$column]) ? $byForeignKey[$column] : null;
+            $named = $association === null ? null : $this->exportNameFor($association);
+
+            if ($named === null) {
+                $headers[] = $this->exportHeaderFor($column);
+                $fields[] = $column;
+                continue;
+            }
+
+            $headers[] = $this->exportHeaderFor($column);
+            $fields[] = $association->getProperty() . '.' . $named;
+            $contain[] = $association->getName();
+        }
+
+        if ($contain) {
+            $query->contain($contain);
+        }
+
+        return [$headers, $fields];
+    }
+
+    /**
+     * The field on the other side of a belongsTo worth exporting, or null when
+     * the id is the better answer.
+     *
+     * @param \Cake\ORM\Association\BelongsTo $association The association.
+     * @return string|null
+     */
+    protected function exportNameFor($association)
+    {
+        try {
+            $target = $association->getTarget();
+            $display = $target->getDisplayField();
+
+            // Nothing to show but the number that is already there.
+            if ($display === $target->getPrimaryKey() || !$target->getSchema()->hasColumn($display)) {
+                return null;
+            }
+
+            // A join across two databases is not a join. Where the association
+            // does not already fetch separately, leave it alone rather than
+            // hand the export a query that cannot run.
+            if ($association->getStrategy() !== 'select'
+                && $target->getConnection()->configName() !== $association->getSource()->getConnection()->configName()) {
+                return null;
+            }
+
+            return $display;
+        } catch (\Throwable $e) {
+            // A table class pointing at something that is not there. The id is
+            // still worth exporting; the export is not the place to die.
+            return null;
+        }
+    }
+
+    /**
+     * A column name as a person would write it at the top of a column.
+     *
+     * @param string $column The column.
+     * @return string
+     */
+    protected function exportHeaderFor($column)
+    {
+        if ($column === 'id') {
+            return 'ID';
+        }
+
+        $name = preg_replace('/_id$/', '', $column);
+
+        return ucwords(str_replace('_', ' ', $name));
+    }
+
+    /**
      * Paginate, honouring the filter row the index screens draw.
      *
      * The row posts its boxes back as filter_<column>, with
