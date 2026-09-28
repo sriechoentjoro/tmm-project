@@ -39,8 +39,29 @@ class CandidateSubmissionDocumentsTable extends Table
             'foreignKey' => 'applicant_id',
             'strategy' => 'select',
         ]);
-        $this->belongsTo('CandidateDocuments', [
+        // document_id names a row of candidate_document_master_lists - the list
+        // of document TYPES a candidate has to hand in - not a row of
+        // candidate_documents, which is a file one candidate uploaded.
+        //
+        // The association used to point at the latter, and so did the rule
+        // below and the dropdown on the form, while the form's own help text
+        // said "From the master list of candidate documents" and
+        // CandidateDocumentsController::index() read these rows as master-list
+        // ids to build its checklist. The two tables number their rows
+        // independently and both start at 1, so a wrong id always found a row
+        // and nothing ever errored: a document handed in was simply recorded
+        // against the wrong type, and the checklist showed it as still
+        // outstanding.
+        //
+        // Aliased MasterDocuments rather than CandidateDocuments: a real table
+        // already carries that name, and calling this one by it is how the
+        // confusion started.
+        $this->belongsTo('MasterDocuments', [
+            'className' => 'CandidateDocumentsMasterList',
             'foreignKey' => 'document_id',
+            // Kept as $row->document, which is what the column is called and
+            // what the entity already declares accessible.
+            'propertyName' => 'document',
             'strategy' => 'select',
         ]);
     }
@@ -74,7 +95,7 @@ class CandidateSubmissionDocumentsTable extends Table
     public function buildRules(RulesChecker $rules)
     {
         $rules->add($rules->existsIn(['applicant_id'], 'Candidates'));
-        $rules->add($rules->existsIn(['document_id'], 'CandidateDocuments'));
+        $rules->add($rules->existsIn(['document_id'], 'MasterDocuments'));
 
         return $rules;
     }

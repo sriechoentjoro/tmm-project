@@ -18581,3 +18581,10 @@ msgstr "Total di sini diketik, bukan dihitung, jadi ini benar per sekarang dan b
 msgid "What the register holds now"
 msgstr "Isi register saat ini"
 
+
+msgid "There are two different things here with similar names. The master list holds the document TYPES every candidate has to hand in. The uploads hold the actual files one candidate sent. A submission row names a type, never a file."
+msgstr "Ada dua hal berbeda di sini dengan nama yang mirip. Daftar induk memuat JENIS dokumen yang harus diserahkan tiap kandidat. Unggahan memuat berkas sungguhan yang dikirim satu kandidat. Sebuah baris penyerahan menyebut jenisnya, tidak pernah berkasnya."
+
+msgid "Both tables number their rows from one, so an id from the wrong one always found a row and nothing ever errored. A document handed in could be recorded against the wrong type, and the checklist would show it as still outstanding - a wrong tick that looks exactly like a right one. The submission screen now offers the master list, which is what its own help text always said it did."
+msgstr "Kedua tabel menomori barisnya dari satu, sehingga id dari tabel yang keliru selalu menemukan baris dan tidak pernah ada galat. Dokumen yang sudah diserahkan bisa tercatat pada jenis yang salah, dan daftar periksanya akan menampilkannya sebagai masih kurang - centang keliru yang tampak persis seperti centang benar. Layar penyerahan kini menawarkan daftar induk, sebagaimana teks bantuannya sendiri selama ini menyatakan."
+

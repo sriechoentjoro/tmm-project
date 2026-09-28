@@ -18581,3 +18581,10 @@ msgstr "ここの合計は数えたものではなく手入力です。つまり
 msgid "What the register holds now"
 msgstr "現在の登録簿の内容"
 
+
+msgid "There are two different things here with similar names. The master list holds the document TYPES every candidate has to hand in. The uploads hold the actual files one candidate sent. A submission row names a type, never a file."
+msgstr "ここには名前の似た別物が二つあります。マスタ一覧は、どの候補者も提出すべき書類の「種類」を持ちます。アップロードは、ある候補者が実際に送ったファイルを持ちます。提出記録が指すのは種類であって、ファイルではありません。"
+
+msgid "Both tables number their rows from one, so an id from the wrong one always found a row and nothing ever errored. A document handed in could be recorded against the wrong type, and the checklist would show it as still outstanding - a wrong tick that looks exactly like a right one. The submission screen now offers the master list, which is what its own help text always said it did."
+msgstr "どちらの表も行番号を1から振るため、誤った表のIDでも必ず行が見つかり、エラーは一度も起きませんでした。提出済みの書類が誤った種類に記録され、チェックリストでは未提出のまま表示される——正しいチェックとまったく同じに見える誤ったチェックです。提出画面は、そのヘルプ文がずっと述べていたとおり、マスタ一覧を選ばせるようになりました。"
+

@@ -60,6 +60,8 @@ return [
     ],
 
     'cautions' => [
+        __('There are two different things here with similar names. The master list holds the document TYPES every candidate has to hand in. The uploads hold the actual files one candidate sent. A submission row names a type, never a file.'),
+        __('Both tables number their rows from one, so an id from the wrong one always found a row and nothing ever errored. A document handed in could be recorded against the wrong type, and the checklist would show it as still outstanding - a wrong tick that looks exactly like a right one. The submission screen now offers the master list, which is what its own help text always said it did.'),
         __('Completeness counts documents, not their quality. A blurred photograph of the right document counts as present.'),
         __('Re-uploading a document a candidate already submitted replaces the existing record rather than adding a second one.'),
     ],

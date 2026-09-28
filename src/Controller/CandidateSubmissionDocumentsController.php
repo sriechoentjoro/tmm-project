@@ -21,13 +21,13 @@ class CandidateSubmissionDocumentsController extends AppController
     public function index()
     {
         $this->paginate = [
-            'contain' => ['Candidates', 'CandidateDocuments'],
+            'contain' => ['Candidates', 'MasterDocuments'],
         ];
         $candidateSubmissionDocuments = $this->paginate($this->CandidateSubmissionDocuments);
 
         // Load dropdown data for filters
         $applicants = $this->CandidateSubmissionDocuments->Candidates->find('list')->limit(200)->toArray();
-        $documents = $this->CandidateSubmissionDocuments->CandidateDocuments->find('list')->limit(200)->toArray();
+        $documents = $this->CandidateSubmissionDocuments->MasterDocuments->find('list')->limit(200)->toArray();
         $this->set(compact('candidateSubmissionDocuments', 'applicants', 'documents'));
     }
 
@@ -47,7 +47,7 @@ class CandidateSubmissionDocumentsController extends AppController
         
         // Add simple associations
         $contain[] = 'Candidates';
-        $contain[] = 'CandidateDocuments';
+        $contain[] = 'MasterDocuments';
         
         // Add HasMany with nested BelongsTo for foreign key display
         $candidateSubmissionDocument = $this->CandidateSubmissionDocuments->get($id, [
@@ -106,7 +106,7 @@ class CandidateSubmissionDocumentsController extends AppController
             $this->Flash->error(__('The candidate submission document could not be saved. Please, try again.'));
         }
         $applicants = $this->CandidateSubmissionDocuments->Candidates->find('list', ['limit' => 200]);
-        $documents = $this->CandidateSubmissionDocuments->CandidateDocuments->find('list', ['limit' => 200]);
+        $documents = $this->CandidateSubmissionDocuments->MasterDocuments->find('list', ['limit' => 200]);
         $this->set(compact('candidateSubmissionDocument', 'applicants', 'documents'));
     }
 
@@ -170,7 +170,7 @@ class CandidateSubmissionDocumentsController extends AppController
             $this->Flash->error(__('The candidate submission document could not be saved. Please, try again.'));
         }
         $applicants = $this->CandidateSubmissionDocuments->Candidates->find('list', ['limit' => 200]);
-        $documents = $this->CandidateSubmissionDocuments->CandidateDocuments->find('list', ['limit' => 200]);
+        $documents = $this->CandidateSubmissionDocuments->MasterDocuments->find('list', ['limit' => 200]);
         $this->set(compact('candidateSubmissionDocument', 'applicants', 'documents'));
     }
 
@@ -201,7 +201,7 @@ class CandidateSubmissionDocumentsController extends AppController
     public function exportCsv()
     {
         $query = $this->CandidateSubmissionDocuments->find('all')
-            ->contain(['Candidates', 'CandidateDocuments']);
+            ->contain(['Candidates', 'MasterDocuments']);
         
         // Define headers and fields for export
         $headers = ['ID', 'Name', 'Created', 'Modified'];
@@ -217,7 +217,7 @@ class CandidateSubmissionDocumentsController extends AppController
     public function exportExcel()
     {
         $query = $this->CandidateSubmissionDocuments->find('all')
-            ->contain(['Candidates', 'CandidateDocuments']);
+            ->contain(['Candidates', 'MasterDocuments']);
         
         // Define headers and fields for export
         $headers = ['ID', 'Name', 'Created', 'Modified'];
@@ -237,7 +237,7 @@ class CandidateSubmissionDocumentsController extends AppController
         $this->viewBuilder()->setLayout('print');
         
         $query = $this->CandidateSubmissionDocuments->find('all')
-            ->contain(['Candidates', 'CandidateDocuments']);
+            ->contain(['Candidates', 'MasterDocuments']);
         
         // Define report configuration
         $title = 'CandidateSubmissionDocuments Report';

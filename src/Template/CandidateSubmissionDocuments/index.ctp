@@ -35,7 +35,9 @@
                     </td>
                     <td style="padding: 10px 12px;"><?= h($row['id']) ?></td>
                     <td style="padding: 10px 12px;"><?= h($row['applicant_id']) ?></td>
-                    <td style="padding: 10px 12px;"><?= h($row['document_id']) ?></td>
+                    <td style="padding: 10px 12px;">
+                        <?= h($row->has('document') ? $row->document->title : ('#' . $row['document_id'])) ?>
+                    </td>
                     <td style="padding: 10px 12px;"><?= h($row['submitted']) ?></td>
                     <td style="padding: 10px 12px;"><?= h($row['submission_date']) ?></td>
                 </tr>

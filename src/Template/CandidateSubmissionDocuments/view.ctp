@@ -20,7 +20,7 @@
         <tbody>
             <tr><th style="padding: 8px 12px; text-align: left; width: 220px;"><?= __('Id') ?></th><td style="padding: 8px 12px;"><?= h($candidateSubmissionDocument['id']) ?></td></tr>
             <tr><th style="padding: 8px 12px; text-align: left; width: 220px;"><?= __('Applicant Id') ?></th><td style="padding: 8px 12px;"><?= h($candidateSubmissionDocument['applicant_id']) ?></td></tr>
-            <tr><th style="padding: 8px 12px; text-align: left; width: 220px;"><?= __('Document Id') ?></th><td style="padding: 8px 12px;"><?= h($candidateSubmissionDocument['document_id']) ?></td></tr>
+            <tr><th style="padding: 8px 12px; text-align: left; width: 220px;"><?= __('Document') ?></th><td style="padding: 8px 12px;"><?= h($candidateSubmissionDocument->has('document') ? $candidateSubmissionDocument->document->title : ('#' . $candidateSubmissionDocument['document_id'])) ?></td></tr>
             <tr><th style="padding: 8px 12px; text-align: left; width: 220px;"><?= __('Submitted') ?></th><td style="padding: 8px 12px;"><?= h($candidateSubmissionDocument['submitted']) ?></td></tr>
             <tr><th style="padding: 8px 12px; text-align: left; width: 220px;"><?= __('Submission Date') ?></th><td style="padding: 8px 12px;"><?= h($candidateSubmissionDocument['submission_date']) ?></td></tr>
         </tbody>
