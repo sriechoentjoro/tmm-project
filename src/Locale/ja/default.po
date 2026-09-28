@@ -18707,3 +18707,7 @@ msgstr "取り組むべき一覧は「未完了の登録」です。確認待ち
 msgid "Pending approvals will be empty. No registration in this system waits for an administrator to approve it - an institution goes live by following its link and choosing a password, with no decision in between. The panel is kept because the table is there, not because anything files into it."
 msgstr "「承認待ち」は常に空です。このシステムでは、管理者の承認を待つ登録はありません。機関はリンクを開いてパスワードを設定した時点で有効になり、その間に判断の段階はないからです。この欄が残っているのはテーブルが存在するためであって、そこに何かが登録されるからではありません。"
 
+
+msgid "The address dropdowns work downwards: choose the province and the kabupaten list fills, choose the kabupaten and the kecamatan list fills, and so on. That is the only way they can work - there are 84,305 kelurahan, and no list can hold them all. Changing the province empties everything below it, so set the address top down."
+msgstr "住所の選択は上から順に働きます。県を選べば市郡の一覧が埋まり、市郡を選べば郡の一覧が埋まる、という具合です。そうするほかありません。村・町は84,305件あり、一度に載せきれる一覧は存在しないからです。県を変えるとその下はすべて空になるので、住所は上から順に入力してください。"
+

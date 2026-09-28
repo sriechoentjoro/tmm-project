@@ -350,10 +350,16 @@ class TraineesController extends AppController
         $masterGenders = $this->Trainees->MasterGenders->find('list', ['limit' => 200]);
         $masterReligions = $this->Trainees->MasterReligions->find('list', ['limit' => 200]);
         $masterMarriageStatuses = $this->Trainees->MasterMarriageStatuses->find('list', ['limit' => 200]);
-        $masterPropinsis = $this->Trainees->MasterPropinsis->find('list', ['limit' => 200]);
-        $masterKabupatens = $this->Trainees->MasterKabupatens->find('list', ['limit' => 200]);
-        $masterKecamatans = $this->Trainees->MasterKecamatans->find('list', ['limit' => 200]);
-        $masterKelurahans = $this->Trainees->MasterKelurahans->find('list', ['limit' => 200]);
+        // Every propinsi, and below it only what belongs to what is already
+        // chosen. These lists used to be find('list', ['limit' => 200]) - two
+        // hundred of 84,305 kelurahan - and an edit form whose saved region
+        // fell outside them posted an empty value and wiped it. See
+        // AppController::regionLists().
+        $regions = $this->regionLists($trainee);
+        $masterPropinsis = $regions['masterPropinsis'];
+        $masterKabupatens = $regions['masterKabupatens'];
+        $masterKecamatans = $regions['masterKecamatans'];
+        $masterKelurahans = $regions['masterKelurahans'];
         $masterBloodTypes = $this->Trainees->MasterBloodTypes->find('list', ['limit' => 200]);
         // REMOVED - Table 'master_interview_results' doesn't exist
         // $masterInterviewResults = $this->Trainees->MasterInterviewResults->find('list', ['limit' => 200]);
@@ -431,10 +437,16 @@ class TraineesController extends AppController
         $masterGenders = $this->Trainees->MasterGenders->find('list', ['limit' => 200]);
         $masterReligions = $this->Trainees->MasterReligions->find('list', ['limit' => 200]);
         $masterMarriageStatuses = $this->Trainees->MasterMarriageStatuses->find('list', ['limit' => 200]);
-        $masterPropinsis = $this->Trainees->MasterPropinsis->find('list', ['limit' => 200]);
-        $masterKabupatens = $this->Trainees->MasterKabupatens->find('list', ['limit' => 200]);
-        $masterKecamatans = $this->Trainees->MasterKecamatans->find('list', ['limit' => 200]);
-        $masterKelurahans = $this->Trainees->MasterKelurahans->find('list', ['limit' => 200]);
+        // Every propinsi, and below it only what belongs to what is already
+        // chosen. These lists used to be find('list', ['limit' => 200]) - two
+        // hundred of 84,305 kelurahan - and an edit form whose saved region
+        // fell outside them posted an empty value and wiped it. See
+        // AppController::regionLists().
+        $regions = $this->regionLists($trainee);
+        $masterPropinsis = $regions['masterPropinsis'];
+        $masterKabupatens = $regions['masterKabupatens'];
+        $masterKecamatans = $regions['masterKecamatans'];
+        $masterKelurahans = $regions['masterKelurahans'];
         $masterBloodTypes = $this->Trainees->MasterBloodTypes->find('list', ['limit' => 200]);
         // REMOVED - Table 'master_interview_results' doesn't exist
         // $masterInterviewResults = $this->Trainees->MasterInterviewResults->find('list', ['limit' => 200]);

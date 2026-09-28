@@ -114,8 +114,14 @@ $this->set(compact('apprenticeEducations', 'apprentices', 'masterstratas', 'mast
         }
         $apprentices = $this->ApprenticeEducations->Apprentices->find('list', ['limit' => 200]);
         $masterStratas = $this->ApprenticeEducations->MasterStratas->find('list', ['limit' => 200]);
-        $masterPropinsis = $this->ApprenticeEducations->MasterPropinsis->find('list', ['limit' => 200]);
-        $masterKabupatens = $this->ApprenticeEducations->MasterKabupatens->find('list', ['limit' => 200]);
+        // Every propinsi, and below it only what belongs to what is already
+        // chosen. These lists used to be find('list', ['limit' => 200]) - two
+        // hundred of 84,305 kelurahan - and an edit form whose saved region
+        // fell outside them posted an empty value and wiped it. See
+        // AppController::regionLists().
+        $regions = $this->regionLists($apprenticeEducation);
+        $masterPropinsis = $regions['masterPropinsis'];
+        $masterKabupatens = $regions['masterKabupatens'];
         $this->set(compact('apprenticeEducation', 'apprentices', 'masterStratas', 'masterPropinsis', 'masterKabupatens'));
     }
 
@@ -180,8 +186,14 @@ $this->set(compact('apprenticeEducations', 'apprentices', 'masterstratas', 'mast
         }
         $apprentices = $this->ApprenticeEducations->Apprentices->find('list', ['limit' => 200]);
         $masterStratas = $this->ApprenticeEducations->MasterStratas->find('list', ['limit' => 200]);
-        $masterPropinsis = $this->ApprenticeEducations->MasterPropinsis->find('list', ['limit' => 200]);
-        $masterKabupatens = $this->ApprenticeEducations->MasterKabupatens->find('list', ['limit' => 200]);
+        // Every propinsi, and below it only what belongs to what is already
+        // chosen. These lists used to be find('list', ['limit' => 200]) - two
+        // hundred of 84,305 kelurahan - and an edit form whose saved region
+        // fell outside them posted an empty value and wiped it. See
+        // AppController::regionLists().
+        $regions = $this->regionLists($apprenticeEducation);
+        $masterPropinsis = $regions['masterPropinsis'];
+        $masterKabupatens = $regions['masterKabupatens'];
         $this->set(compact('apprenticeEducation', 'apprentices', 'masterStratas', 'masterPropinsis', 'masterKabupatens'));
     }
 

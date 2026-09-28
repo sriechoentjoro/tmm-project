@@ -14,6 +14,36 @@ class MasterKabupatensController extends AppController
 {
     use \App\Controller\ExportTrait;
     /**
+     * The address cascade's lookup, open to anyone already signed in.
+     *
+     * getMenuRolePermissions() expands granted_actions = '*' to exactly
+     * [the menu's own action, index, view], so an action with no menu of its
+     * own is refused to every role but administrator. That is the right
+     * default for a screen. It is the wrong one here: this action is not a
+     * screen but the list of children behind a dropdown, asked for by
+     * webroot/js/address-cascade.js while somebody fills in an address on a
+     * form they are already allowed to use. Refused, it answers a redirect
+     * where the script expects JSON, and the dropdown reads
+     * "-- Error Loading --" with nothing to say why.
+     *
+     * What it returns is the id and name of Indonesian administrative regions
+     * - public reference data, the same on every installation, carrying
+     * nothing about any candidate, trainee or institution. So being signed in
+     * is enough.
+     *
+     * @param array|null $user The identity, unused here.
+     * @return bool
+     */
+    public function isAuthorized($user = null)
+    {
+        if ($this->request->getParam('action') === 'getByProvince') {
+            return (bool)$this->Auth->user('id');
+        }
+
+        return parent::isAuthorized($user);
+    }
+
+    /**
      * Index method
      *
      * @return \Cake\Http\Response|null
@@ -104,7 +134,13 @@ class MasterKabupatensController extends AppController
             }
             $this->Flash->error(__('The master kabupaten could not be saved. Please, try again.'));
         }
-        $masterPropinsis = $this->MasterKabupatens->MasterPropinsis->find('list', ['limit' => 200]);
+        // Every propinsi, and below it only what belongs to what is already
+        // chosen. These lists used to be find('list', ['limit' => 200]) - two
+        // hundred of 84,305 kelurahan - and an edit form whose saved region
+        // fell outside them posted an empty value and wiped it. See
+        // AppController::regionLists().
+        $regions = $this->regionLists($masterKabupaten);
+        $masterPropinsis = $regions['masterPropinsis'];
         $this->set(compact('masterKabupaten', 'masterPropinsis'));
     }
 
@@ -167,7 +203,13 @@ class MasterKabupatensController extends AppController
             }
             $this->Flash->error(__('The master kabupaten could not be saved. Please, try again.'));
         }
-        $masterPropinsis = $this->MasterKabupatens->MasterPropinsis->find('list', ['limit' => 200]);
+        // Every propinsi, and below it only what belongs to what is already
+        // chosen. These lists used to be find('list', ['limit' => 200]) - two
+        // hundred of 84,305 kelurahan - and an edit form whose saved region
+        // fell outside them posted an empty value and wiped it. See
+        // AppController::regionLists().
+        $regions = $this->regionLists($masterKabupaten);
+        $masterPropinsis = $regions['masterPropinsis'];
         $this->set(compact('masterKabupaten', 'masterPropinsis'));
     }
 

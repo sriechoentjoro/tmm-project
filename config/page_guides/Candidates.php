@@ -112,6 +112,7 @@ return [
     ],
 
     'cautions' => [
+        __('The address dropdowns work downwards: choose the province and the kabupaten list fills, choose the kabupaten and the kecamatan list fills, and so on. That is the only way they can work - there are 84,305 kelurahan, and no list can hold them all. Changing the province empties everything below it, so set the address top down.'),
         __('An empty promotion list usually means nobody has been put forward yet, not that something is broken. A candidate reaches recruitment only when their own institution declares them through selection.'),
         __('Promotion copies the profile as it stands. Anything corrected on the candidate afterwards does not follow the trainee across - correct it on the trainee instead.'),
         __('The medical column is worked out from the check-ups, not typed: a result marked not fit shows as failed and stops both the proposal and the promotion. If it is blank, either no check-up has been recorded or nobody has yet said what that result type means.'),

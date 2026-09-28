@@ -350,10 +350,16 @@ class CandidatesController extends AppController
         $masterGenders = $this->Candidates->MasterGenders->find('list', ['limit' => 200]);
         $masterReligions = $this->Candidates->MasterReligions->find('list', ['limit' => 200]);
         $masterMarriageStatuses = $this->Candidates->MasterMarriageStatuses->find('list', ['limit' => 200]);
-        $masterPropinsis = $this->Candidates->MasterPropinsis->find('list', ['limit' => 200]);
-        $masterKabupatens = $this->Candidates->MasterKabupatens->find('list', ['limit' => 200]);
-        $masterKecamatans = $this->Candidates->MasterKecamatans->find('list', ['limit' => 200]);
-        $masterKelurahans = $this->Candidates->MasterKelurahans->find('list', ['limit' => 200]);
+        // Every propinsi, and below it only what belongs to what is already
+        // chosen. These lists used to be find('list', ['limit' => 200]) - two
+        // hundred of 84,305 kelurahan - and an edit form whose saved region
+        // fell outside them posted an empty value and wiped it. See
+        // AppController::regionLists().
+        $regions = $this->regionLists($candidate);
+        $masterPropinsis = $regions['masterPropinsis'];
+        $masterKabupatens = $regions['masterKabupatens'];
+        $masterKecamatans = $regions['masterKecamatans'];
+        $masterKelurahans = $regions['masterKelurahans'];
         $masterBloodTypes = $this->Candidates->MasterBloodTypes->find('list', ['limit' => 200]);
         $masterCandidateInterviewResults = $this->Candidates->MasterCandidateInterviewResults->find('list', ['limit' => 200]);
         $masterRejectedReasons = $this->Candidates->MasterRejectedReasons->find('list', ['limit' => 200]);
@@ -436,10 +442,16 @@ class CandidatesController extends AppController
         $masterGenders = $this->Candidates->MasterGenders->find('list', ['limit' => 200]);
         $masterReligions = $this->Candidates->MasterReligions->find('list', ['limit' => 200]);
         $masterMarriageStatuses = $this->Candidates->MasterMarriageStatuses->find('list', ['limit' => 200]);
-        $masterPropinsis = $this->Candidates->MasterPropinsis->find('list', ['limit' => 200]);
-        $masterKabupatens = $this->Candidates->MasterKabupatens->find('list', ['limit' => 200]);
-        $masterKecamatans = $this->Candidates->MasterKecamatans->find('list', ['limit' => 200]);
-        $masterKelurahans = $this->Candidates->MasterKelurahans->find('list', ['limit' => 200]);
+        // Every propinsi, and below it only what belongs to what is already
+        // chosen. These lists used to be find('list', ['limit' => 200]) - two
+        // hundred of 84,305 kelurahan - and an edit form whose saved region
+        // fell outside them posted an empty value and wiped it. See
+        // AppController::regionLists().
+        $regions = $this->regionLists($candidate);
+        $masterPropinsis = $regions['masterPropinsis'];
+        $masterKabupatens = $regions['masterKabupatens'];
+        $masterKecamatans = $regions['masterKecamatans'];
+        $masterKelurahans = $regions['masterKelurahans'];
         $masterBloodTypes = $this->Candidates->MasterBloodTypes->find('list', ['limit' => 200]);
         $masterCandidateInterviewResults = $this->Candidates->MasterCandidateInterviewResults->find('list', ['limit' => 200]);
         $masterRejectedReasons = $this->Candidates->MasterRejectedReasons->find('list', ['limit' => 200]);
@@ -611,7 +623,14 @@ class CandidatesController extends AppController
                 $masterReligions = $this->MasterReligions->find('list');
                 $masterMarriageStatuses = $this->MasterMarriageStatuses->find('list');
                 $masterBloodTypes = $this->MasterBloodTypes->find('list');
-                $masterPropinsis = $this->MasterPropinsis->find('list');
+                // Every propinsi, rather than the first two hundred by id that
+                // find('list', ['limit' => 200]) gave - see
+                // AppController::regionLists(). Nothing is passed because this
+                // step has no record yet, only session data, and the three
+                // lists below the province are loaded by the wizard's own
+                // script, which also puts back whatever was chosen before.
+                $regions = $this->regionLists();
+                $masterPropinsis = $regions['masterPropinsis'];
                 
                 $this->set(compact('masterGenders', 'masterReligions', 'masterMarriageStatuses', 'masterBloodTypes', 'masterPropinsis'));
                 break;
@@ -1703,6 +1722,11 @@ class CandidatesController extends AppController
      *
      * @var array
      */
+    /**
+     * The address cascade behind the wizard. Reference data only.
+     */
+    const REGION_LOOKUPS = ['getKabupaten', 'getKecamatan', 'getKelurahan'];
+
     const SELECTION_ACTIONS = ['propose', 'withdrawProposal'];
 
     /**
@@ -1727,6 +1751,19 @@ class CandidatesController extends AppController
         $this->currentUser = $user;
 
         $action = $this->request->getParam('action');
+
+        // The wizard's address cascade. These three answer with the id and
+        // name of Indonesian administrative regions - public reference data,
+        // nothing about any candidate - and are asked for by a script while
+        // somebody fills in an address on a form they already reached.
+        // Without this they fall to getMenuRolePermissions(), which expands
+        // granted_actions = '*' to [the menu's own action, index, view], so
+        // they were refused to every role but administrator: the wizard got a
+        // redirect where it expected JSON and the dropdowns stayed empty.
+        if (in_array($action, self::REGION_LOOKUPS, true)) {
+            return (bool)$this->Auth->user('id');
+        }
+
         if (!in_array($action, self::SELECTION_ACTIONS, true)) {
             return parent::isAuthorized($user);
         }

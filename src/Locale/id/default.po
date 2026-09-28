@@ -18707,3 +18707,7 @@ msgstr "Pendaftaran yang belum selesai adalah daftar yang harus dikerjakan. Daft
 msgid "Pending approvals will be empty. No registration in this system waits for an administrator to approve it - an institution goes live by following its link and choosing a password, with no decision in between. The panel is kept because the table is there, not because anything files into it."
 msgstr "Persetujuan yang tertunda akan selalu kosong. Tidak ada pendaftaran di sistem ini yang menunggu persetujuan administrator - sebuah lembaga menjadi aktif dengan membuka tautannya lalu membuat kata sandi, tanpa keputusan di antaranya. Panel itu dipertahankan karena tabelnya ada, bukan karena ada yang mengisinya."
 
+
+msgid "The address dropdowns work downwards: choose the province and the kabupaten list fills, choose the kabupaten and the kecamatan list fills, and so on. That is the only way they can work - there are 84,305 kelurahan, and no list can hold them all. Changing the province empties everything below it, so set the address top down."
+msgstr "Pilihan alamat bekerja dari atas ke bawah: pilih propinsinya maka daftar kabupatennya terisi, pilih kabupatennya maka daftar kecamatannya terisi, dan seterusnya. Hanya begitu caranya bisa bekerja - ada 84.305 kelurahan, dan tidak ada daftar yang sanggup memuat semuanya. Mengganti propinsinya mengosongkan semua yang di bawahnya, jadi isilah alamatnya dari atas."
+

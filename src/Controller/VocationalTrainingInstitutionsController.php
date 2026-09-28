@@ -239,10 +239,16 @@ class VocationalTrainingInstitutionsController extends AppController
             }
             $this->Flash->error(__('The vocational training institution could not be saved. Please, try again.'));
         }
-        $masterPropinsis = $this->VocationalTrainingInstitutions->MasterPropinsis->find('list', ['limit' => 200]);
-        $masterKabupatens = $this->VocationalTrainingInstitutions->MasterKabupatens->find('list', ['limit' => 200]);
-        $masterKecamatans = $this->VocationalTrainingInstitutions->MasterKecamatans->find('list', ['limit' => 200]);
-        $masterKelurahans = $this->VocationalTrainingInstitutions->MasterKelurahans->find('list', ['limit' => 200]);
+        // Every propinsi, and below it only what belongs to what is already
+        // chosen. These lists used to be find('list', ['limit' => 200]) - two
+        // hundred of 84,305 kelurahan - and an edit form whose saved region
+        // fell outside them posted an empty value and wiped it. See
+        // AppController::regionLists().
+        $regions = $this->regionLists($vocationalTrainingInstitution);
+        $masterPropinsis = $regions['masterPropinsis'];
+        $masterKabupatens = $regions['masterKabupatens'];
+        $masterKecamatans = $regions['masterKecamatans'];
+        $masterKelurahans = $regions['masterKelurahans'];
         $this->set(compact('vocationalTrainingInstitution', 'masterPropinsis', 'masterKabupatens', 'masterKecamatans', 'masterKelurahans'));
     }
 
@@ -318,10 +324,16 @@ class VocationalTrainingInstitutionsController extends AppController
             }
             $this->Flash->error(__('The vocational training institution could not be saved. Please, try again.'));
         }
-        $masterPropinsis = $this->VocationalTrainingInstitutions->MasterPropinsis->find('list', ['limit' => 200]);
-        $masterKabupatens = $this->VocationalTrainingInstitutions->MasterKabupatens->find('list', ['limit' => 200]);
-        $masterKecamatans = $this->VocationalTrainingInstitutions->MasterKecamatans->find('list', ['limit' => 200]);
-        $masterKelurahans = $this->VocationalTrainingInstitutions->MasterKelurahans->find('list', ['limit' => 200]);
+        // Every propinsi, and below it only what belongs to what is already
+        // chosen. These lists used to be find('list', ['limit' => 200]) - two
+        // hundred of 84,305 kelurahan - and an edit form whose saved region
+        // fell outside them posted an empty value and wiped it. See
+        // AppController::regionLists().
+        $regions = $this->regionLists($vocationalTrainingInstitution);
+        $masterPropinsis = $regions['masterPropinsis'];
+        $masterKabupatens = $regions['masterKabupatens'];
+        $masterKecamatans = $regions['masterKecamatans'];
+        $masterKelurahans = $regions['masterKelurahans'];
         $this->set(compact('vocationalTrainingInstitution', 'masterPropinsis', 'masterKabupatens', 'masterKecamatans', 'masterKelurahans'));
     }
 

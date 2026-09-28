@@ -1,13 +1,19 @@
 /**
  * Address Cascading Logic
  * Handles dependency between Province, Kabupaten, Kecamatan, and Kelurahan dropdowns.
+ *
+ * The selectors used to be [id$="PropinsiId"] and friends, which is how
+ * CakePHP 2 named a field. This application runs 3.9, which emits
+ * id="master-propinsi-id", so none of them ever matched and the cascade had
+ * never run on any form. Both spellings are matched now, and the bare
+ * propinsi-id that the region tables' own forms use as well.
  */
 $(document).ready(function () {
     const selectors = {
-        province: '[id$="PropinsiId"]',
-        kabupaten: '[id$="KabupatenId"]',
-        kecamatan: '[id$="KecamatanId"]',
-        kelurahan: '[id$="KelurahanId"]'
+        province: '[id$="propinsi-id"], [id$="PropinsiId"]',
+        kabupaten: '[id$="kabupaten-id"], [id$="KabupatenId"]',
+        kecamatan: '[id$="kecamatan-id"], [id$="KecamatanId"]',
+        kelurahan: '[id$="kelurahan-id"], [id$="KelurahanId"]'
     };
 
     function loadRegion(sourceId, targetSelector, type, parentParam) {
@@ -60,13 +66,24 @@ $(document).ready(function () {
                 });
             },
             error: function (xhr, status, error) {
-                $target.empty().append('<option value="">-- Error Loading --</option>');
-                console.error('Failed to load region data');
+                // A refusal does not arrive as an error status. The permission
+                // check redirects to another page, so the response is a whole
+                // HTML document with a 200 on it and only the JSON parse
+                // fails. Saying "error loading" to that sends whoever reads it
+                // looking for a network fault that is not there.
+                var refused = xhr.status === 403 || xhr.status === 401
+                    || (xhr.responseText || '').slice(0, 200).indexOf('<') === 0;
+                $target.empty().append($('<option></option>').attr('value', '').text(
+                    refused ? '-- Not allowed to look this up --' : '-- Could not load --'
+                ));
+                console.error(refused
+                    ? 'Region lookup refused - the action is not granted to this role'
+                    : 'Failed to load region data');
                 console.error('URL:', url);
                 console.error('Status:', status);
                 console.error('Error:', error);
-                console.error('Response:', xhr.responseText);
                 console.error('HTTP Status:', xhr.status);
+                console.error('Response:', (xhr.responseText || '').slice(0, 500));
             }
         });
     }

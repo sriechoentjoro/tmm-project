@@ -1703,6 +1703,118 @@ class AppController extends Controller
     }
 
     /**
+     * The four address dropdowns, holding what can actually be chosen.
+     *
+     * Every one of these lists used to be find('list', ['limit' => 200]) - the
+     * shape bake writes, and harmless on a table of a dozen rows. These are not
+     * that. The project's own export of cms_masters holds 33 propinsi, 507
+     * kabupaten, 6,651 kecamatan and 84,305 kelurahan, so the kelurahan select
+     * offered two tenths of one per cent of Indonesia, always the same first
+     * two hundred by id.
+     *
+     * The damage is not only that most places could not be picked. Every one of
+     * these controls is rendered with an empty option, so on an edit form whose
+     * saved kelurahan is not among those two hundred the select falls back to
+     * "-- Select --" and the form posts nothing. Open a record to correct a
+     * date, save, and the address is gone, with no error and nothing to see.
+     *
+     * The cascade that was meant to make the cap unnecessary never ran:
+     * webroot/js/address-cascade.js binds on [id$="KabupatenId"], which is a
+     * CakePHP 2 field id, and 3.9 emits id="master-kabupaten-id". Nothing
+     * matched, so nothing was ever loaded.
+     *
+     * So the lists are built from the chain instead: every propinsi, and below
+     * it only the children of what is already chosen, which is both the right
+     * answer and a short one. Whatever the record already holds is added even
+     * when it falls outside its parent - a row saved before the parent was set,
+     * or set to something since renumbered, must still show what it says rather
+     * than be quietly dropped on the next save.
+     *
+     * @param \Cake\Datasource\EntityInterface|null $entity The record being
+     *  edited, or null on a blank form.
+     * @return array the four lists, keyed as the templates name them
+     */
+    protected function regionLists($entity = null)
+    {
+        $propinsiId = $this->regionValue($entity, 'propinsi');
+        $kabupatenId = $this->regionValue($entity, 'kabupaten');
+        $kecamatanId = $this->regionValue($entity, 'kecamatan');
+        $kelurahanId = $this->regionValue($entity, 'kelurahan');
+
+        return [
+            'masterPropinsis' => $this->regionOptions('MasterPropinsis', null, null, $propinsiId),
+            'masterKabupatens' => $this->regionOptions('MasterKabupatens', 'propinsi_id', $propinsiId, $kabupatenId),
+            'masterKecamatans' => $this->regionOptions('MasterKecamatans', 'kabupaten_id', $kabupatenId, $kecamatanId),
+            'masterKelurahans' => $this->regionOptions('MasterKelurahans', 'kecamatan_id', $kecamatanId, $kelurahanId),
+        ];
+    }
+
+    /**
+     * One address dropdown.
+     *
+     * @param string $modelName Region table, e.g. 'MasterKecamatans'.
+     * @param string|null $parentField Its parent column, or null for the top.
+     * @param int|null $parentId The parent chosen, or null when none is.
+     * @param int|null $chosenId What the record already holds, which is listed
+     *  whether or not it belongs to that parent.
+     * @return array id => title
+     */
+    protected function regionOptions($modelName, $parentField, $parentId, $chosenId)
+    {
+        $table = \Cake\ORM\TableRegistry::getTableLocator()->get($modelName);
+
+        $options = [];
+        if ($parentField === null) {
+            $options = $table->find('list')->order(['title' => 'ASC'])->toArray();
+        } elseif ($parentId) {
+            $options = $table->find('list')
+                ->where([$parentField => $parentId])
+                ->order(['title' => 'ASC'])
+                ->toArray();
+        }
+
+        if ($chosenId && !isset($options[$chosenId])) {
+            $row = $table->find('list')->where([$table->getAlias() . '.id' => $chosenId])->first();
+            if ($row !== null) {
+                $options[$chosenId] = $row;
+                asort($options);
+            }
+        }
+
+        return $options;
+    }
+
+    /**
+     * The region an entity holds, whichever way the column is spelt.
+     *
+     * The tables that refer to a region call the column master_propinsi_id;
+     * the region tables call their own parent propinsi_id. Both are asked for
+     * rather than picking one and being wrong on half the screens.
+     *
+     * @param \Cake\Datasource\EntityInterface|null $entity The record.
+     * @param string $kind propinsi, kabupaten, kecamatan or kelurahan.
+     * @return int|null
+     */
+    protected function regionValue($entity, $kind)
+    {
+        if (!$entity instanceof \Cake\Datasource\EntityInterface) {
+            return null;
+        }
+
+        foreach (['master_' . $kind . '_id', $kind . '_id'] as $field) {
+            if (!$entity->has($field)) {
+                continue;
+            }
+            $value = $entity->get($field);
+            if ($value !== null && $value !== '') {
+                return (int)$value;
+            }
+        }
+
+        return null;
+    }
+
+    /**
      * Generic method to get regions by parent ID for address cascading
      * 
      * @param string $modelName The model name (e.g., 'MasterKabupatens')
