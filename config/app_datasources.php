@@ -41,13 +41,36 @@ $dbHost = env('TMM_DB_HOST', isset($localDb['host']) ? $localDb['host'] : 'local
 $dbUser = env('TMM_DB_USERNAME', isset($localDb['username']) ? $localDb['username'] : null);
 $dbPass = env('TMM_DB_PASSWORD', isset($localDb['password']) ? $localDb['password'] : null);
 
-if ($dbUser === null || $dbPass === null) {
+// An empty string is not a configured credential either.
+//
+// The check used to be === null, and a config file written with an empty
+// password walked straight past it: the application booted, and then failed on
+// the first query with "Access denied for user", which sends whoever reads it
+// looking at MySQL grants rather than at the file that is actually wrong. One
+// recovery was spent on exactly that. Whitespace counts as empty too, since a
+// password read from a file usually arrives with a newline on it.
+$missing = [];
+if ($dbUser === null || trim((string)$dbUser) === '') {
+    $missing[] = 'TMM_DB_USERNAME';
+}
+if ($dbPass === null || trim((string)$dbPass) === '') {
+    $missing[] = 'TMM_DB_PASSWORD';
+}
+
+if ($missing) {
     // Fail loudly at boot rather than surfacing as a confusing connection
-    // error on the first query.
+    // error on the first query. Name which one is missing, and say whether the
+    // local file was even found, because "create app_local.php" is unhelpful
+    // advice when it is sitting right there and unreadable.
     trigger_error(
-        'Database credentials are not configured. Set TMM_DB_USERNAME and '
-        . 'TMM_DB_PASSWORD in the environment, or create config/app_local.php '
-        . 'from config/app_local.example.php.',
+        'Database credentials are not configured: ' . implode(' and ', $missing)
+        . ' ' . (count($missing) > 1 ? 'are' : 'is') . ' empty or unset. '
+        . 'config/app_local.php was ' . (is_readable($localFile)
+            ? 'read, so check the Datasources.default values in it'
+            : (file_exists($localFile)
+                ? 'found but could not be read - check its owner and mode against the php-fpm pool user'
+                : 'not found - create it from config/app_local.example.php'))
+        . '. Environment variables win over the file where both are set.',
         E_USER_ERROR
     );
 }
