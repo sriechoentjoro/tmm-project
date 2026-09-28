@@ -5,6 +5,22 @@ use Cake\Utility\Inflector;
 
 /**
  * Searchable Trait
+ *
+ * NOT IN USE. Nothing loads this, and nothing sends what it reads.
+ *
+ * It was written for the filter row the index templates draw, which posts its
+ * values back as filter_<column> in the query string. No controller ever
+ * loaded it, no controller reads those parameters, and the script that would
+ * have sent them - webroot/js/table-enhanced.js - is loaded by no page either.
+ * FilterHandlerComponent is a smaller, earlier go at the same job, equally
+ * unused.
+ *
+ * Filtering works today in webroot/js/table-filter.js, in the browser, over
+ * the rows already on the page. That is honest but narrow: on a paginated
+ * list it can only hide what is in front of you, which the count message now
+ * says. Wiring one of these two into the index actions is what would make a
+ * filter cover the whole list. Until then this file is a plan, not a part.
+ *
  * 
  * Provides method to apply search filters from request query parameters
  * Supports:

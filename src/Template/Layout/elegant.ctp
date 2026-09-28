@@ -614,18 +614,15 @@ $cacheBust = '?v=' . time();
             <?= $this->fetch('content') ?>
         </div>
     </div>
-    <script>
-        // Override table-filter.js if skipAutoFilter flag is set
-        if (window.skipAutoFilter === true) {
-            // Prevent table-filter.js from initializing by removing the class it looks for
-            document.addEventListener('DOMContentLoaded', function() {
-                console.log('skipAutoFilter enabled - preventing auto-filter initialization');
-                const tables = document.querySelectorAll('.table:not(.no-auto-filter)');
-                // Only remove auto-filter from tables WITHOUT no-auto-filter class
-                // Tables WITH no-auto-filter class should be left alone
-            });
-        }
-    </script>
+    <?php
+    /**
+     * window.skipAutoFilter used to be read here, by a handler that logged a
+     * line, selected some tables and then did nothing with them. The flag was
+     * never honoured and the filter row appeared anyway. table-filter.js reads
+     * it now, along with the no-auto-filter class, so the flag means what it
+     * says and there is nothing left to do here.
+     */
+    ?>
     <script src="<?= $staticAssetsUrl ?>/js/context-menu.js<?= $cacheBust ?>"></script>
     <script src="<?= $staticAssetsUrl ?>/js/submenu-position.js<?= $cacheBust ?>"></script>
     <script src="<?= $staticAssetsUrl ?>/js/table-drag-scroll.js<?= $cacheBust ?>"></script>
