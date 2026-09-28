@@ -1,0 +1,36 @@
+# Nothing in here is code, and nothing in here is to be run.
+#
+# webroot/.htaccess rewrites to index.php only when the request does not name
+# a file that exists, so an uploaded file is served by the web server as it
+# stands. A .php one would not be served but run. The upload helpers hold the
+# extension to an allow list, and this is the second lock: if a file ever gets
+# in under a name that would be handled, it is still handed over as bytes.
+
+# Any PHP handler, however this server is built.
+<IfModule mod_php.c>
+    php_flag engine off
+</IfModule>
+<IfModule mod_php7.c>
+    php_flag engine off
+</IfModule>
+<IfModule mod_php5.c>
+    php_flag engine off
+</IfModule>
+
+# php-fpm and anything else wired through a handler or a type.
+<IfModule mod_mime.c>
+    RemoveHandler .php .phtml .php3 .php4 .php5 .php7 .phps .phar .pht .cgi .pl .py .sh
+    RemoveType .php .phtml .php3 .php4 .php5 .php7 .phps .phar .pht
+    AddType text/plain .php .phtml .php3 .php4 .php5 .php7 .phps .phar .pht
+</IfModule>
+
+# Apache 2.4 runs handlers set by SetHandler regardless of the above.
+<FilesMatch "\.(php|phtml|php[3457]|phps|phar|pht|cgi|pl|py|sh|htaccess)$">
+    <IfModule mod_authz_core.c>
+        Require all denied
+    </IfModule>
+    <IfModule !mod_authz_core.c>
+        Order allow,deny
+        Deny from all
+    </IfModule>
+</FilesMatch>

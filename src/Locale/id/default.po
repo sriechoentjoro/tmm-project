@@ -18721,3 +18721,10 @@ msgstr "Tampilkan seluruh daftar"
 msgid "These filters were not applied, because this table has no such column: {0}"
 msgstr "Filter berikut tidak diterapkan, karena tabel ini tidak punya kolom tersebut: {0}"
 
+
+msgid "That file has no extension, so it was not saved. Please upload a file of a kind this screen accepts: {0}."
+msgstr "Berkas itu tidak punya ekstensi, jadi tidak disimpan. Unggahlah berkas berjenis yang diterima layar ini: {0}."
+
+msgid "Files of type .{0} are not accepted here. Please upload one of: {1}."
+msgstr "Berkas berjenis .{0} tidak diterima di sini. Unggahlah salah satu dari: {1}."
+

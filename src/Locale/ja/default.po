@@ -18721,3 +18721,10 @@ msgstr "一覧をすべて表示する"
 msgid "These filters were not applied, because this table has no such column: {0}"
 msgstr "次の絞り込みは適用されませんでした。この表にその列がないためです: {0}"
 
+
+msgid "That file has no extension, so it was not saved. Please upload a file of a kind this screen accepts: {0}."
+msgstr "そのファイルには拡張子がないため、保存しませんでした。この画面が受け付ける種類のファイルをアップロードしてください: {0}。"
+
+msgid "Files of type .{0} are not accepted here. Please upload one of: {1}."
+msgstr ".{0} 形式のファイルはここでは受け付けていません。次のいずれかをアップロードしてください: {1}。"
+

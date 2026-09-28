@@ -23,7 +23,32 @@ class CandidatesController extends AppController
     public function initialize()
     {
         parent::initialize();
-        $this->Auth->allow(['wizard', 'getKabupaten', 'getKecamatan', 'getKelurahan']);
+
+        /**
+         * Nothing here is public any more.
+         *
+         * Auth->allow() does not relax a permission, it removes the question:
+         * an allowed action is reachable by anyone who can reach the site,
+         * signed in or not. These four were on that list.
+         *
+         * The wizard is not a public form. The guide calls it one of the two
+         * ways an operator enters a candidate - "the plain form is there when
+         * you already know what you are doing" - and the action itself reads
+         * Auth.User to stamp the candidate with the operator's institution.
+         * Yet it saved a candidate, their educations, experiences, families,
+         * certifications and courses, and wrote a photo file, for a caller who
+         * had not signed in. Such a candidate got no institution, so it
+         * belonged to nobody; and the last step redirects to view, which was
+         * never public, so whoever submitted it was bounced to the login page
+         * the moment it saved. It was not a working public flow, it was an
+         * open door.
+         *
+         * The three region lookups were swept onto the list beside it. They
+         * carry nothing about anybody, but they have an isAuthorized() of
+         * their own now that grants them to any signed-in user - and while
+         * they sat here that check was never reached, because an allowed
+         * action is never authorized at all.
+         */
     }
     /**
      * Index method
@@ -1057,8 +1082,20 @@ class CandidatesController extends AppController
                 mkdir($uploadDir, 0755, true);
             }
             
-            // Generate filename
-            $filename = 'photo_' . $identityNumber . '_' . time() . '.' . $type;
+            // Generate filename.
+            //
+            // The identity number went in whole, and it is whatever was typed
+            // on step one. A value carrying ../ walked the photo out of the
+            // uploads directory and into anywhere the web user can write - the
+            // extension is held to an image, so no code could be planted, but
+            // an existing image could be written over. Only the characters an
+            // identity number is made of are kept, and the name is held to a
+            // sane length so a long one cannot push the rest off the end.
+            $safeIdentity = substr(preg_replace('/[^A-Za-z0-9_-]/', '', (string)$identityNumber), 0, 40);
+            if ($safeIdentity === '') {
+                $safeIdentity = 'unknown';
+            }
+            $filename = 'photo_' . $safeIdentity . '_' . time() . '.' . $type;
             $filepath = $uploadDir . $filename;
             
             // Save file
@@ -1787,6 +1824,16 @@ class CandidatesController extends AppController
         // redirect where it expected JSON and the dropdowns stayed empty.
         if (in_array($action, self::REGION_LOOKUPS, true)) {
             return (bool)$this->Auth->user('id');
+        }
+
+        // The wizard enters a candidate; so does add. Whoever may do it on the
+        // plain form may do it here, which is the only sensible reading and
+        // the only one that does not need a row of data somewhere to be right.
+        // Left to getMenuRolePermissions(), which expands granted_actions = '*'
+        // to [the menu's own action, index, view], the wizard would be refused
+        // to every role but administrator.
+        if ($action === 'wizard') {
+            return $this->hasPermission('Candidates', 'add');
         }
 
         if (!in_array($action, self::SELECTION_ACTIONS, true)) {

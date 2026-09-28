@@ -29,6 +29,11 @@
 # Keep directory structure
 !/webroot/img/uploads/.gitkeep
 !/webroot/files/uploads/.gitkeep
+# ...and the rule that stops anything in there being run. It is part of the
+# application, not part of the uploads, and a deployment that does not carry it
+# leaves the upload directories executable.
+!/webroot/img/uploads/.htaccess
+!/webroot/files/uploads/.htaccess
 
 # Database backups
 /backups/*.sql

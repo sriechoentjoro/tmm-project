@@ -1087,9 +1087,16 @@ class AppController extends Controller
                     }
                     
                     // Get file information
-                    $extension = pathinfo($fileName, PATHINFO_EXTENSION);
+                    $extension = strtolower(pathinfo($fileName, PATHINFO_EXTENSION));
                     $baseName = pathinfo($fileName, PATHINFO_FILENAME);
                     $timestamp = date('YmdHis');
+
+                    // Nothing calls this method today, which is the reason to
+                    // guard it rather than to leave it: it writes into the web
+                    // root, and whoever wires it up will not read this far.
+                    if (!$this->uploadExtensionAllowed($extension)) {
+                        return $data;
+                    }
                     
                     // Generate unique filename
                     $uniqueFileName = $baseName . '_' . $timestamp . '.' . $extension;
@@ -1169,6 +1176,67 @@ class AppController extends Controller
     }
 
     /**
+     * Extensions an upload may carry into the web root.
+     *
+     * uploadFile() and uploadImage() took the extension straight off the name
+     * the browser sent and moved the file into webroot/files/uploads/ or
+     * webroot/img/uploads/. Nothing checked it, at any of their three hundred
+     * and thirty call sites. webroot/.htaccess rewrites to index.php only when
+     * the request does not name a file that exists, so an uploaded file is
+     * served by the web server as it stands - and a .php one is not served,
+     * it is run. Anyone who could reach a form with a file field could put
+     * code on the machine and then ask for it.
+     *
+     * An allow list, not a deny list: php is also phtml, php5, php7, phps,
+     * phar, pht, and whatever the next handler is called on the day somebody
+     * adds one.
+     *
+     * @var array
+     */
+    const UPLOAD_ALLOWED_IMAGE = ['jpg', 'jpeg', 'png', 'gif', 'webp', 'bmp'];
+
+    /**
+     * Extensions a document upload may carry, beside the image ones.
+     *
+     * @var array
+     */
+    const UPLOAD_ALLOWED_DOCUMENT = ['pdf', 'doc', 'docx', 'xls', 'xlsx', 'ppt', 'pptx',
+        'csv', 'txt', 'rtf', 'odt', 'ods', 'zip', 'rar', '7z'];
+
+    /**
+     * May a file with this extension be written into the web root?
+     *
+     * @param string $extension The extension, lower case, without the dot.
+     * @param bool $imagesOnly True for uploadImage(), which has no business
+     *  with a spreadsheet.
+     * @return bool
+     */
+    protected function uploadExtensionAllowed($extension, $imagesOnly = false)
+    {
+        $extension = strtolower(ltrim((string)$extension, '.'));
+        $allowed = $imagesOnly
+            ? self::UPLOAD_ALLOWED_IMAGE
+            : array_merge(self::UPLOAD_ALLOWED_IMAGE, self::UPLOAD_ALLOWED_DOCUMENT);
+
+        if ($extension !== '' && in_array($extension, $allowed, true)) {
+            return true;
+        }
+
+        $this->Flash->error($extension === ''
+            ? __('That file has no extension, so it was not saved. Please upload a file of a kind this screen accepts: {0}.',
+                implode(', ', $allowed))
+            : __('Files of type .{0} are not accepted here. Please upload one of: {1}.',
+                $extension, implode(', ', $allowed)));
+        $this->log(sprintf('Refused upload of .%s by user %s on %s::%s',
+            $extension === '' ? '(none)' : $extension,
+            $this->Auth->user('id') ?: 'anonymous',
+            $this->request->getParam('controller'),
+            $this->request->getParam('action')), 'warning');
+
+        return false;
+    }
+
+    /**
      * Upload file to webroot/files/uploads/{folder}
      * 
      * @param string $model Model name
@@ -1179,6 +1247,10 @@ class AppController extends Controller
      */
     public function uploadFile($model, $field, $folder, $reqFilename = '')
     {
+        // Documents as well as pictures, but never anything the web server
+        // would run. See uploadExtensionAllowed().
+        $imagesOnly = false;
+
         $data = $this->request->getData();
         
         if (!isset($data[$field])) {
@@ -1193,7 +1265,11 @@ class AppController extends Controller
             $tmpName = $file['tmp_name'];
             $extension = strtolower(pathinfo($fileName, PATHINFO_EXTENSION));
             $baseName = pathinfo($fileName, PATHINFO_FILENAME);
-            
+
+            if (!$this->uploadExtensionAllowed($extension, $imagesOnly)) {
+                return false;
+            }
+
             // Generate filename
             if (empty($reqFilename)) {
                 $reqFilename = strtoupper(str_replace(' ', '_', $baseName)) . '_' . $this->getRandomCode();
@@ -1243,7 +1319,11 @@ class AppController extends Controller
             $fileName = $file->getClientFilename();
             $extension = strtolower(pathinfo($fileName, PATHINFO_EXTENSION));
             $baseName = pathinfo($fileName, PATHINFO_FILENAME);
-            
+
+            if (!$this->uploadExtensionAllowed($extension, $imagesOnly)) {
+                return false;
+            }
+
             // Generate filename
             if (empty($reqFilename)) {
                 $reqFilename = strtoupper(str_replace(' ', '_', $baseName)) . '_' . $this->getRandomCode();
@@ -1297,6 +1377,10 @@ class AppController extends Controller
      */
     public function uploadImage($model, $field, $folder, $reqFilename = '')
     {
+        // A picture, and nothing else: an image field has no business
+        // accepting a spreadsheet, let alone anything executable.
+        $imagesOnly = true;
+
         error_log("=== uploadImage called ===");
         error_log("Model: {$model}, Field: {$field}, Folder: {$folder}");
         
@@ -1324,7 +1408,11 @@ class AppController extends Controller
             $tmpPath = $file['tmp_name'];
             $extension = strtolower(pathinfo($fileName, PATHINFO_EXTENSION));
             $baseName = pathinfo($fileName, PATHINFO_FILENAME);
-            
+
+            if (!$this->uploadExtensionAllowed($extension, $imagesOnly)) {
+                return false;
+            }
+
             // Generate filename
             if (empty($reqFilename)) {
                 $baseName = strtoupper(str_replace(' ', '_', $baseName)) . '_' . $this->getRandomCode();
@@ -1420,7 +1508,11 @@ class AppController extends Controller
             $fileName = $file->getClientFilename();
             $extension = strtolower(pathinfo($fileName, PATHINFO_EXTENSION));
             $baseName = pathinfo($fileName, PATHINFO_FILENAME);
-            
+
+            if (!$this->uploadExtensionAllowed($extension, $imagesOnly)) {
+                return false;
+            }
+
             // Generate filename
             if (empty($reqFilename)) {
                 $baseName = strtoupper(str_replace(' ', '_', $baseName)) . '_' . $this->getRandomCode();
@@ -1485,8 +1577,16 @@ class AppController extends Controller
         try {
             // Extract base64 data (remove data:image/jpeg;base64, prefix)
             if (preg_match('/^data:image\/(\w+);base64,/', $base64Data, $matches)) {
-                $extension = $matches[1];
+                $extension = strtolower($matches[1]);
                 $base64Data = substr($base64Data, strpos($base64Data, ',') + 1);
+
+                // The word after data:image/ was taken as the extension and
+                // written into the web root. It is whatever the caller wrote:
+                // data:image/php;base64 gave a .php file, which the web server
+                // would not serve but run. See uploadExtensionAllowed().
+                if (!$this->uploadExtensionAllowed($extension, true)) {
+                    return false;
+                }
             } else {
                 $this->Flash->error(__('Invalid image data format'));
                 return false;
@@ -1658,8 +1758,15 @@ class AppController extends Controller
         
         // Extract base64 data (remove "data:image/jpeg;base64," prefix)
         if (preg_match('/^data:image\/(\w+);base64,/', $base64Image, $matches)) {
-            $imageType = $matches[1]; // jpeg, png, etc
+            $imageType = strtolower($matches[1]); // jpeg, png, etc
             $base64Image = substr($base64Image, strpos($base64Image, ',') + 1);
+
+            // Same door as the one above: the word after data:image/ became
+            // the extension of a file written into the web root, unchecked.
+            if (!$this->uploadExtensionAllowed($imageType, true)) {
+                return false;
+            }
+
             $imageData = base64_decode($base64Image);
             
             if ($imageData !== false) {
