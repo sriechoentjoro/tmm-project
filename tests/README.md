@@ -23,8 +23,34 @@ Each file also runs on its own:
 php tests/region_lists.php
 ```
 
-Exit code 0 means every check passed. `run.php` prints a count at the end and
-exits 1 if any harness failed.
+Exit code 0 means nothing failed. `run.php` prints a count at the end and exits 1
+if any harness failed.
+
+## What each harness needs
+
+Most of them only read the application's own source, and run anywhere PHP does.
+Seven stand the ORM up on a temporary SQLite file instead of touching a real
+database, and need **pdo_sqlite**:
+
+```
+export_columns  index_filters  region_lists  render_add_payment
+render_currency_notes  shell_backfill_lpk  shell_installment_chain
+```
+
+The demo server's PHP does not have it, so those seven report
+
+```
+  skipped: needs the pdo_sqlite extension, which this PHP does not have.
+           On Debian or Ubuntu: apt install php7.4-sqlite3
+```
+
+and `run.php` counts them apart from both passes and failures — `22 harness(es),
+15 ran` rather than a number that claims more was checked than was. Installing
+the package is the whole of the fix; nothing in the application needs it, only
+these tests.
+
+A skip is not a pass, so the summary line says `nothing failed` rather than
+`all good` whenever anything was skipped.
 
 ## What is here
 

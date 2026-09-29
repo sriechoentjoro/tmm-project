@@ -71,6 +71,7 @@ if (!is_dir($root . '/vendor')) {
 }
 
 $failed = [];
+$skipped = [];
 $checks = 0;
 
 foreach ($harnesses as $name => $file) {
@@ -83,6 +84,12 @@ foreach ($harnesses as $name => $file) {
         if (preg_match('/^\s*(\d+) checks,/', $line, $m)) {
             $checks += (int)$m[1];
         }
+    }
+    // 2 is a harness saying this machine cannot run it - a missing extension,
+    // not a fault in the application. Counted apart from both.
+    if ($code === 2) {
+        $skipped[] = $name;
+        continue;
     }
     if ($code !== 0) {
         $failed[] = $name;
@@ -100,6 +107,7 @@ foreach ($browser as $file) {
     if ($node === '' || !$havePlaywright) {
         echo "  skipped: needs node and a global playwright install\n";
         echo "           npm install -g playwright\n";
+        $skipped[] = $name;
         continue;
     }
     $output = [];
@@ -112,18 +120,29 @@ foreach ($browser as $file) {
             $checks += (int)$m[1];
         }
     }
+    if ($code === 2) {
+        $skipped[] = $name;
+        continue;
+    }
     if ($code !== 0) {
         $failed[] = $name;
     }
 }
 
 echo "\n", str_repeat('-', 72), "\n";
-printf("%d harness(es), %d checks\n", count($harnesses) + count($browser), $checks);
+$total = count($harnesses) + count($browser);
+printf("%d harness(es), %d ran, %d checks\n", $total, $total - count($skipped), $checks);
+
+if ($skipped) {
+    echo count($skipped), ' skipped, this machine cannot run them: ',
+        implode(', ', $skipped), "\n";
+}
 
 if ($failed) {
     echo count($failed), " failed: ", implode(', ', $failed), "\n";
     exit(1);
 }
 
-echo "all good\n";
+// A skip is not a pass, so the wording does not claim one.
+echo $skipped ? "nothing failed\n" : "all good\n";
 exit(0);

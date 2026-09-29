@@ -91,6 +91,47 @@ function tmm_show($value)
 }
 
 /**
+ * Leave without running, because this machine cannot run it.
+ *
+ * Not a pass and not a failure. A harness that skipped in silence would make
+ * the total say more was checked than was, and one that threw would bury the
+ * reason in a stack trace - which is what happened on the server, where PHP has
+ * no pdo_sqlite: six harnesses dumped forty lines of trace each and the run
+ * looked broken rather than partly unavailable.
+ *
+ * Exit code 2, which tests/run.php counts as skipped.
+ *
+ * @param string $why What is missing, in words somebody can act on.
+ * @return void
+ */
+function skip($why)
+{
+    printf("  skipped: %s\n", $why);
+    exit(2);
+}
+
+/**
+ * Whether this PHP can talk to SQLite at all.
+ *
+ * The harnesses stand the ORM up on a temporary file rather than touch a real
+ * database, so a PHP without the driver cannot run them. On Debian and Ubuntu
+ * it is one package.
+ *
+ * @return string|null Null when it works, or what to do about it.
+ */
+function sqliteUnavailable()
+{
+    if (!extension_loaded('pdo_sqlite')
+        || !in_array('sqlite', \PDO::getAvailableDrivers(), true)) {
+        return 'needs the pdo_sqlite extension, which this PHP does not have. '
+            . 'On Debian or Ubuntu: apt install php' . PHP_MAJOR_VERSION . '.'
+            . PHP_MINOR_VERSION . '-sqlite3';
+    }
+
+    return null;
+}
+
+/**
  * Point the named connections at one SQLite file and forget every table.
  *
  * The connections this application uses are real and separate - fifteen of
@@ -104,6 +145,13 @@ function tmm_show($value)
  */
 function sqliteConnections(array $names, $file)
 {
+    // Checked here rather than in each harness: every one that needs a database
+    // comes through this function, and none of them should have to remember.
+    $missing = sqliteUnavailable();
+    if ($missing !== null) {
+        skip($missing);
+    }
+
     @unlink($file);
     Cache::clear(false, '_cake_model_');
     foreach ($names as $name) {
