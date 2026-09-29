@@ -282,50 +282,42 @@ use Cake\Utility\Inflector;
                         <div class="card bg-light">
                             <div class="card-body">
                                 <h5 class="card-title"><i class="fas fa-map-marker-alt"></i> <?= __('Address Information') ?></h5>
-                                <p class="text-muted small mb-3"><?= __('Select Province first, then City, District, and Village will be populated automatically') ?></p>
+                                <p class="text-muted small mb-3"><?= __('Choose the province first. Each list below it holds only what belongs to the one above it.') ?></p>
                                 <div class="row">
                                     <div class="col-md-3 mb-2">
-                                        <label class="form-label required"><?= __('Province') ?> <span class="text-danger">*</span></label>
-                                        <?= $this->Form->control('propinsi_id', [
-                                            'options' => isset($propinsis) ? $propinsis : [],
+                                        <label class="form-label"><?= __('Province') ?></label>
+                                        <?= $this->Form->control('master_propinsi_id', [
+                                            'options' => $masterPropinsis,
                                             'class' => 'form-control address-select',
-                                            'id' => 'ApprenticePropinsiId',
                                             'label' => false,
-                                            'empty' => __('-- Select Province --'),
-                                            'required' => false
+                                            'empty' => __('-- Select Province --')
                                         ]) ?>
                                     </div>
                                     <div class="col-md-3 mb-2">
-                                        <label class="form-label required"><?= __('Kabupaten/City') ?> <span class="text-danger">*</span></label>
-                                        <?= $this->Form->control('kabupaten_id', [
-                                            'options' => isset($kabupatens) ? $kabupatens : [],
+                                        <label class="form-label"><?= __('Kabupaten/City') ?></label>
+                                        <?= $this->Form->control('master_kabupaten_id', [
+                                            'options' => $masterKabupatens,
                                             'class' => 'form-control address-select',
-                                            'id' => 'ApprenticeKabupatenId',
                                             'label' => false,
-                                            'empty' => __('-- Select Kabupaten --'),
-                                            'required' => false
+                                            'empty' => __('-- Select Kabupaten/City --')
                                         ]) ?>
                                     </div>
                                     <div class="col-md-3 mb-2">
-                                        <label class="form-label required"><?= __('Kecamatan/District') ?> <span class="text-danger">*</span></label>
-                                        <?= $this->Form->control('kecamatan_id', [
-                                            'options' => isset($kecamatans) ? $kecamatans : [],
+                                        <label class="form-label"><?= __('Kecamatan/District') ?></label>
+                                        <?= $this->Form->control('master_kecamatan_id', [
+                                            'options' => $masterKecamatans,
                                             'class' => 'form-control address-select',
-                                            'id' => 'ApprenticeKecamatanId',
                                             'label' => false,
-                                            'empty' => __('-- Select Kecamatan --'),
-                                            'required' => false
+                                            'empty' => __('-- Select Kecamatan/District --')
                                         ]) ?>
                                     </div>
                                     <div class="col-md-3 mb-2">
-                                        <label class="form-label required"><?= __('Kelurahan/Village') ?> <span class="text-danger">*</span></label>
-                                        <?= $this->Form->control('kelurahan_id', [
-                                            'options' => isset($kelurahans) ? $kelurahans : [],
+                                        <label class="form-label"><?= __('Kelurahan/Village') ?></label>
+                                        <?= $this->Form->control('master_kelurahan_id', [
+                                            'options' => $masterKelurahans,
                                             'class' => 'form-control address-select',
-                                            'id' => 'ApprenticeKelurahanId',
                                             'label' => false,
-                                            'empty' => __('-- Select Kelurahan --'),
-                                            'required' => false
+                                            'empty' => __('-- Select Kelurahan/Village --')
                                         ]) ?>
                                     </div>
                                 </div>
@@ -334,33 +326,6 @@ use Cake\Utility\Inflector;
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-12 mb-3">
-                        <label class="form-label"><?= __('Master Kabupaten Id') ?></label>
-                        <?= $this->Form->control('master_kabupaten_id', [
-                            'options' => $masterKabupatens,
-                            'class' => 'form-control',
-                            'label' => false,
-                            'empty' => __('-- Select Master Kabupaten Id --')
-                        ]) ?>
-                    </div>
-                    <div class="col-12 mb-3">
-                        <label class="form-label"><?= __('Master Kecamatan Id') ?></label>
-                        <?= $this->Form->control('master_kecamatan_id', [
-                            'options' => $masterKecamatans,
-                            'class' => 'form-control',
-                            'label' => false,
-                            'empty' => __('-- Select Master Kecamatan Id --')
-                        ]) ?>
-                    </div>
-                    <div class="col-12 mb-3">
-                        <label class="form-label"><?= __('Master Kelurahan Id') ?></label>
-                        <?= $this->Form->control('master_kelurahan_id', [
-                            'options' => $masterKelurahans,
-                            'class' => 'form-control',
-                            'label' => false,
-                            'empty' => __('-- Select Master Kelurahan Id --')
-                        ]) ?>
                     </div>
                     <div class="col-12 mb-3">
                         <label class="form-label"><?= __('Post Code') ?></label>

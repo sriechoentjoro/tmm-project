@@ -21,6 +21,8 @@ foreach ($fields as $field) {
     if (preg_match('/(file|image)/i', $field)) {
         $hasFileUpload = true;
         break;
+    }
+}
 $formOptions = $hasFileUpload ? ", ['type' => 'file']" : '';
 %>
 <?php

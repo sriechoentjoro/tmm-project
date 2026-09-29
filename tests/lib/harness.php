@@ -246,6 +246,13 @@ function renderView($what, array $vars, array $options = [])
     Cake\Core\Configure::write('App.jsBaseUrl', 'js/');
     Cake\Core\Configure::write('debug', true);
 
+    // Every form bake generated opens with $host = $_SERVER['HTTP_HOST'], with
+    // no guard, so a template will not render without one. A real request
+    // always carries it; a command line does not.
+    if (!isset($_SERVER['HTTP_HOST'])) {
+        $_SERVER['HTTP_HOST'] = 'localhost';
+    }
+
     $request = new Cake\Http\ServerRequest([
         'url' => $options['url'],
         'webroot' => '/',

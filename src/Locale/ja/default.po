@@ -18730,3 +18730,15 @@ msgstr ".{0} 形式のファイルはここでは受け付けていません。�
 
 msgid "The filter row above the list works the same way downwards: choose a province and the kabupaten filter fills, choose a kabupaten and the kecamatan filter fills. Until a province is chosen there is nothing below it to choose, which is the only honest way to offer 84,305 villages."
 msgstr "一覧の上にある絞り込み行も同じく上から順に働きます。県を選べば市郡の絞り込みが埋まり、市郡を選べば郡の絞り込みが埋まります。県を選ぶまで、その下に選べるものはありません。84,305件の村・町を扱う方法として、それ以外に正直なやり方はないからです。"
+
+msgid "Choose the province first. Each list below it holds only what belongs to the one above it."
+msgstr "最初に州を選んでください。その下の各一覧には、上で選んだものに属するものだけが入ります。"
+
+msgid "-- Select Kecamatan/District --"
+msgstr "-- 郡を選択 --"
+
+msgid "-- Select Kelurahan/Village --"
+msgstr "-- 村を選択 --"
+
+msgid "Enter Kode Propinsi"
+msgstr "州コードを入力"

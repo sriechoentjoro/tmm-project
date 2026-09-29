@@ -74,50 +74,24 @@ $staticAssetsUrl = $protocol . '://' . $host . '/static-assets';
                         <div class="card bg-light">
                             <div class="card-body">
                                 <h5 class="card-title"><i class="fas fa-map-marker-alt"></i> <?= __('Address Information') ?></h5>
-                                <p class="text-muted small mb-3"><?= __('Select Province first, then City, District, and Village will be populated automatically') ?></p>
+                                <p class="text-muted small mb-3"><?= __('Choose the province first. Each list below it holds only what belongs to the one above it.') ?></p>
                                 <div class="row">
-                                    <div class="col-md-3 mb-2">
-                                        <label class="form-label required"><?= __('Province') ?> <span class="text-danger">*</span></label>
-                                        <?= $this->Form->control('propinsi_id', [
-                                            'options' => isset($propinsis) ? $propinsis : [],
+                                    <div class="col-md-6 mb-2">
+                                        <label class="form-label"><?= __('Province') ?></label>
+                                        <?= $this->Form->control('master_propinsi_id', [
+                                            'options' => $masterPropinsis,
                                             'class' => 'form-control address-select',
-                                            'id' => 'ApprenticeEducationPropinsiId',
                                             'label' => false,
-                                            'empty' => __('-- Select Province --'),
-                                            'required' => false
+                                            'empty' => __('-- Select Province --')
                                         ]) ?>
                                     </div>
-                                    <div class="col-md-3 mb-2">
-                                        <label class="form-label required"><?= __('Kabupaten/City') ?> <span class="text-danger">*</span></label>
-                                        <?= $this->Form->control('kabupaten_id', [
-                                            'options' => isset($kabupatens) ? $kabupatens : [],
+                                    <div class="col-md-6 mb-2">
+                                        <label class="form-label"><?= __('Kabupaten/City') ?></label>
+                                        <?= $this->Form->control('master_kabupaten_id', [
+                                            'options' => $masterKabupatens,
                                             'class' => 'form-control address-select',
-                                            'id' => 'ApprenticeEducationKabupatenId',
                                             'label' => false,
-                                            'empty' => __('-- Select Kabupaten --'),
-                                            'required' => false
-                                        ]) ?>
-                                    </div>
-                                    <div class="col-md-3 mb-2">
-                                        <label class="form-label required"><?= __('Kecamatan/District') ?> <span class="text-danger">*</span></label>
-                                        <?= $this->Form->control('kecamatan_id', [
-                                            'options' => isset($kecamatans) ? $kecamatans : [],
-                                            'class' => 'form-control address-select',
-                                            'id' => 'ApprenticeEducationKecamatanId',
-                                            'label' => false,
-                                            'empty' => __('-- Select Kecamatan --'),
-                                            'required' => false
-                                        ]) ?>
-                                    </div>
-                                    <div class="col-md-3 mb-2">
-                                        <label class="form-label required"><?= __('Kelurahan/Village') ?> <span class="text-danger">*</span></label>
-                                        <?= $this->Form->control('kelurahan_id', [
-                                            'options' => isset($kelurahans) ? $kelurahans : [],
-                                            'class' => 'form-control address-select',
-                                            'id' => 'ApprenticeEducationKelurahanId',
-                                            'label' => false,
-                                            'empty' => __('-- Select Kelurahan --'),
-                                            'required' => false
+                                            'empty' => __('-- Select Kabupaten/City --')
                                         ]) ?>
                                     </div>
                                 </div>
@@ -126,15 +100,6 @@ $staticAssetsUrl = $protocol . '://' . $host . '/static-assets';
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-12 mb-3">
-                        <label class="form-label"><?= __('Master Kabupaten Id') ?></label>
-                        <?= $this->Form->control('master_kabupaten_id', [
-                            'options' => $masterKabupatens,
-                            'class' => 'form-control',
-                            'label' => false,
-                            'empty' => __('-- Select Master Kabupaten Id --')
-                        ]) ?>
                     </div>
                     <div class="col-12 mb-3">
                         <label class="form-label"><?= __('College Entry Date') ?></label>

@@ -22,6 +22,8 @@ $imageFields = [];
 foreach ($fields as $field) {
     if (preg_match('/(image|photo|foto|gambar|picture|img)/i', $field)) {
         $imageFields[] = $field;
+    }
+}
 $firstImageField = !empty($imageFields) ? $imageFields[0] : null;
 
 $fields = collection($fields)
@@ -29,9 +31,11 @@ $fields = collection($fields)
         // Exclude binary and text fields
         if (in_array($schema->getColumnType($field), ['binary', 'text'])) {
             return false;
+        }
         // If we have image thumbnail, exclude image URL fields from columns
         if (!empty($imageFields) && in_array($field, $imageFields)) {
             return false;
+        }
         return true;
     })
     ->take(10);
@@ -162,6 +166,7 @@ $fields = collection($fields)
         endif;
         if (isset($schema)) {
             $columnType = $schema->getColumnType($field);
+        }
         
         // Check if it's a foreign key and use association alias as label
         $headerLabel = $field;
@@ -170,6 +175,9 @@ $fields = collection($fields)
                 if ($field === $details['foreignKey']) {
                     $headerLabel = $alias;
                     break;
+                }
+            }
+        }
 %>
                     <th><?= $this->Paginator->sort('<%= $field %>', '<%= Inflector::humanize($headerLabel) %>') ?></th>
 <%
@@ -208,6 +216,9 @@ $fields = collection($fields)
                     $associationVarName = strtolower($alias); // e.g., 'personnels'
                     $fieldLabel = Inflector::humanize($alias);
                     break;
+                }
+            }
+        }
         
         // Method 2: Fallback - detect foreign keys by naming convention (*_id pattern)
         if (!$isForeignKey && preg_match('/^(.+)_id$/', $field, $matches)) {
@@ -219,12 +230,14 @@ $fields = collection($fields)
             $associationName = $pluralName;
             $associationVarName = strtolower($pluralName); // personnels, roles (for variable name)
             $fieldLabel = Inflector::humanize($pluralName); // Personnels, Roles
+        }
         
         // Different placeholder for foreign keys vs regular fields
         if ($isForeignKey) {
             $placeholder = $fieldLabel . ' name...';
         } else {
             $placeholder = $fieldLabel . '...';
+        }
         
         // Detect image/file fields - no filter
         $isFileField = (strpos($field, 'image') !== false || 
@@ -307,6 +320,8 @@ $fields = collection($fields)
                         <input type="<%= $filterType %>" class="filter-input form-control form-control-sm" placeholder="<%= $placeholder %>" data-column="<%= $filterColumn %>" data-type="<%= $filterType %>" style="font-size: 0.85rem;">
                     </th>
 <%
+                }
+            }
         endif;
     endforeach;
 %>
@@ -354,6 +369,9 @@ $fields = collection($fields)
                     <td><?= $<%= $singularVar %>->has('<%= $details['property'] %>') ? $this->Html->link($<%= $singularVar %>-><%= $details['property'] %>-><%= $details['displayField'] %>, ['controller' => '<%= $details['controller'] %>', 'action' => 'view', $<%= $singularVar %>-><%= $details['property'] %>-><%= $details['primaryKey'][0] %>]) : '' ?></td>
 <%
                     break;
+                }
+            }
+        }
         if ($isKey !== true) {
             // Check if it's a file/image field
             $isFileField = (strpos($field, 'image') !== false || 
@@ -412,6 +430,7 @@ $fields = collection($fields)
                     <td><?= $this->Number->format($<%= $singularVar %>-><%= $field %>) ?></td>
 <%
             endif;
+        }
     endforeach;
 %>
                 </tr>

@@ -21,7 +21,40 @@ foreach ($fields as $field) {
     if (preg_match('/(file|image)/i', $field)) {
         $hasFileUpload = true;
         break;
+    }
+}
 $formOptions = $hasFileUpload ? ", ['type' => 'file']" : '';
+
+// The fields as a plain array. $fields is a Collection after the filter above,
+// so in_array() cannot be asked about it directly.
+$fieldList = $fields->toList();
+
+// The region columns each address card will carry, worked out before the loop
+// so that a sibling listed ahead of the propinsi column does not get a plain
+// select of its own above the card.
+$addressGroups = [];
+$addressDone = [];
+$addressLabels = [
+    'propinsi' => 'Province',
+    'kabupaten' => 'Kabupaten/City',
+    'kecamatan' => 'Kecamatan/District',
+    'kelurahan' => 'Kelurahan/Village',
+];
+foreach ($fieldList as $addressKey) {
+    if (substr($addressKey, -11) !== 'propinsi_id' || !isset($keyFields[$addressKey])) {
+        continue;
+    }
+    $addressPrefix = substr($addressKey, 0, -11);
+    $addressGroup = [];
+    foreach (array_keys($addressLabels) as $addressLevel) {
+        $addressField = $addressPrefix . $addressLevel . '_id';
+        if (in_array($addressField, $fieldList, true) && isset($keyFields[$addressField])) {
+            $addressGroup[$addressLevel] = $addressField;
+        }
+    }
+    $addressGroups[$addressKey] = $addressGroup;
+    $addressDone = array_merge($addressDone, array_values($addressGroup));
+}
 %>
 <?php
 /**
@@ -87,7 +120,14 @@ $staticAssetsUrl = $protocol . '://' . $host . '/static-assets';
     foreach ($fields as $field):
         if (in_array($field, $primaryKey)) {
             continue;
-        
+        }
+        // A level some address card already carries. Emitting it again would
+        // put two controls for one column on the form. The field the card is
+        // keyed on is the exception: it is what draws the card below.
+        if (in_array($field, $addressDone, true) && !isset($addressGroups[$field])) {
+            continue;
+        }
+
         $fieldData = $schema->getColumn($field);
         $fieldType = $fieldData['type'];
         $humanize = Inflector::humanize($field);
@@ -206,62 +246,54 @@ $staticAssetsUrl = $protocol . '://' . $host . '/static-assets';
                         ]) ?>
                     </div>
 <%
-        // ADDRESS FIELD DETECTION (Propinsi/Province)
-        elseif (preg_match('/(propinsi|province)/i', $field)):
+        // ADDRESS FIELD DETECTION
+        //
+        // This branch used to fire on any field matching /propinsi|province/
+        // and then emit four controls named propinsi_id, kabupaten_id,
+        // kecamatan_id and kelurahan_id - throwing away the field it had just
+        // matched. Where the column is master_propinsi_id the real field got no
+        // control on the form at all; where it is kode_propinsi a text column
+        // was replaced by a dropdown, and on a table carrying both the card was
+        // emitted twice. The four controls it did emit read $propinsis,
+        // $kabupatens, $kecamatans and $kelurahans, which no controller sets,
+        // so their options were always empty, and the names they posted are not
+        // columns, so save() dropped them. Nothing ever errored: the province
+        // simply could not be set from the form, and the empty dropdowns looked
+        // like a list still loading.
+        //
+        // The card now carries this table's own region columns, in order, each
+        // with the options variable bake already knows for it. It only takes the
+        // branch for a foreign key ending in propinsi_id whose options variable
+        // is known, so kode_propinsi and friends fall through to the text
+        // branch where they belong.
+        elseif (isset($addressGroups[$field])):
+            $addressFields = $addressGroups[$field];
+            $addressWidth = count($addressFields) > 2 ? 3 : (count($addressFields) === 2 ? 6 : 12);
 %>
                     <div class="col-md-12 mb-3">
                         <div class="card bg-light">
                             <div class="card-body">
                                 <h5 class="card-title"><i class="fas fa-map-marker-alt"></i> <?= __('Address Information') ?></h5>
-                                <p class="text-muted small mb-3">Select Province first, then City, District, and Village will be populated automatically</p>
+                                <p class="text-muted small mb-3"><?= __('Choose the province first. Each list below it holds only what belongs to the one above it.') ?></p>
                                 <div class="row">
-                                    <div class="col-md-3 mb-2">
-                                        <label class="form-label required"><?= __('Province') ?> <span class="text-danger">*</span></label>
-                                        <?= $this->Form->control('propinsi_id', [
-                                            'options' => isset($propinsis) ? $propinsis : [],
+<%
+            foreach ($addressFields as $addressLevel => $addressField):
+%>
+                                    <div class="col-md-<%= $addressWidth %> mb-2">
+                                        <label class="form-label"><?= __('<%= $addressLabels[$addressLevel] %>') ?></label>
+                                        <?= $this->Form->control('<%= $addressField %>', [
+                                            'options' => $<%= $keyFields[$addressField] %>,
                                             'class' => 'form-control address-select',
-                                            'id' => '<%= Inflector::classify($singularVar) %>PropinsiId',
                                             'label' => false,
-                                            'empty' => __('-- Select Province --'),
-                                            'required' => false
+                                            'empty' => __('-- Select <%= $addressLabels[$addressLevel] %> --')
                                         ]) ?>
                                     </div>
-                                    <div class="col-md-3 mb-2">
-                                        <label class="form-label required"><?= __('Kabupaten/City') ?> <span class="text-danger">*</span></label>
-                                        <?= $this->Form->control('kabupaten_id', [
-                                            'options' => isset($kabupatens) ? $kabupatens : [],
-                                            'class' => 'form-control address-select',
-                                            'id' => '<%= Inflector::classify($singularVar) %>KabupatenId',
-                                            'label' => false,
-                                            'empty' => __('-- Select Kabupaten --'),
-                                            'required' => false
-                                        ]) ?>
-                                    </div>
-                                    <div class="col-md-3 mb-2">
-                                        <label class="form-label required"><?= __('Kecamatan/District') ?> <span class="text-danger">*</span></label>
-                                        <?= $this->Form->control('kecamatan_id', [
-                                            'options' => isset($kecamatans) ? $kecamatans : [],
-                                            'class' => 'form-control address-select',
-                                            'id' => '<%= Inflector::classify($singularVar) %>KecamatanId',
-                                            'label' => false,
-                                            'empty' => __('-- Select Kecamatan --'),
-                                            'required' => false
-                                        ]) ?>
-                                    </div>
-                                    <div class="col-md-3 mb-2">
-                                        <label class="form-label required"><?= __('Kelurahan/Village') ?> <span class="text-danger">*</span></label>
-                                        <?= $this->Form->control('kelurahan_id', [
-                                            'options' => isset($kelurahans) ? $kelurahans : [],
-                                            'class' => 'form-control address-select',
-                                            'id' => '<%= Inflector::classify($singularVar) %>KelurahanId',
-                                            'label' => false,
-                                            'empty' => __('-- Select Kelurahan --'),
-                                            'required' => false
-                                        ]) ?>
-                                    </div>
+<%
+            endforeach;
+%>
                                 </div>
                                 <div class="address-loading" style="display: none;">
-                                    <i class="fas fa-spinner fa-spin"></i> Loading options...
+                                    <i class="fas fa-spinner fa-spin"></i> <?= __('Loading options...') ?>
                                 </div>
                             </div>
                         </div>

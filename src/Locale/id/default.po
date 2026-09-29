@@ -18730,3 +18730,15 @@ msgstr "Berkas berjenis .{0} tidak diterima di sini. Unggahlah salah satu dari: 
 
 msgid "The filter row above the list works the same way downwards: choose a province and the kabupaten filter fills, choose a kabupaten and the kecamatan filter fills. Until a province is chosen there is nothing below it to choose, which is the only honest way to offer 84,305 villages."
 msgstr "Baris filter di atas daftar bekerja dengan cara yang sama dari atas ke bawah: pilih propinsinya maka filter kabupatennya terisi, pilih kabupatennya maka filter kecamatannya terisi. Sebelum propinsinya dipilih, tidak ada apa pun di bawahnya untuk dipilih - dan itulah satu-satunya cara yang jujur untuk menawarkan 84.305 kelurahan."
+
+msgid "Choose the province first. Each list below it holds only what belongs to the one above it."
+msgstr "Pilih propinsinya lebih dulu. Setiap daftar di bawahnya hanya memuat yang termasuk dalam pilihan di atasnya."
+
+msgid "-- Select Kecamatan/District --"
+msgstr "-- Pilih Kecamatan --"
+
+msgid "-- Select Kelurahan/Village --"
+msgstr "-- Pilih Kelurahan/Desa --"
+
+msgid "Enter Kode Propinsi"
+msgstr "Masukkan Kode Provinsi"

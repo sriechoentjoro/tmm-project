@@ -21,6 +21,8 @@ $associationFields = collection($fields)
         foreach ($immediateAssociations as $alias => $details) {
             if ($field === $details['foreignKey']) {
                 return [$field => $details];
+            }
+        }
     })
     ->filter()
     ->reduce(function($fields, $value) {
@@ -35,14 +37,19 @@ $groupedFields = collection($fields)
         $type = $schema->getColumnType($field);
         if (isset($associationFields[$field])) {
             return 'string';
+        }
         if (in_array($type, ['integer', 'float', 'decimal', 'biginteger', 'smallinteger', 'tinyinteger'])) {
             return 'number';
+        }
         if (in_array($type, ['date', 'time', 'datetime', 'timestamp'])) {
             return 'date';
+        }
         if (in_array($type, ['text', 'string'])) {
             return 'string';
+        }
         if ($type === 'boolean') {
             return 'boolean';
+        }
         return 'string';
     })
     ->toArray();
@@ -170,6 +177,7 @@ $pk = "\$${singularVar}->{$primaryKey[0]}";
             'type' => 'BelongsTo',
             'singular' => true
         ];
+    }
     
     // Add HasOne associations as tabs
     foreach ($associations['HasOne'] as $alias => $details) {
@@ -179,6 +187,7 @@ $pk = "\$${singularVar}->{$primaryKey[0]}";
             'type' => 'HasOne',
             'singular' => true
         ];
+    }
     
     // Add HasMany associations as tabs
     foreach ($associations['HasMany'] as $alias => $details) {
@@ -188,6 +197,7 @@ $pk = "\$${singularVar}->{$primaryKey[0]}";
             'type' => 'HasMany',
             'singular' => false
         ];
+    }
     
     // Add BelongsToMany associations as tabs
     foreach ($associations['BelongsToMany'] as $alias => $details) {
@@ -197,6 +207,7 @@ $pk = "\$${singularVar}->{$primaryKey[0]}";
             'type' => 'BelongsToMany',
             'singular' => false
         ];
+    }
     
     $tabIndex = 1;
     foreach ($allRelations as $relation):
@@ -215,6 +226,7 @@ $pk = "\$${singularVar}->{$primaryKey[0]}";
             $hasRecords = true; // Will be checked in PHP
         } else {
             $hasRecords = true; // BelongsTo/HasOne always show if associated
+        }
 %>
             <li class="view-tab-item">
                 <a href="#<%= $tabId %>" class="view-tab-link" data-tab="<%= $tabId %>">
@@ -267,6 +279,8 @@ $pk = "\$${singularVar}->{$primaryKey[0]}";
                   !preg_match('/(image|photo|picture)/i', $field) &&
                   !in_array($field, $primaryKey)) {
             $fileFields[] = $field;
+        }
+    }
     
     // Check for HasMany image/file associations
     $imageAssociations = [];
@@ -276,6 +290,8 @@ $pk = "\$${singularVar}->{$primaryKey[0]}";
             $imageAssociations[] = ['alias' => $alias, 'details' => $details];
         } elseif (preg_match('/(file|attachment|document)/i', $alias)) {
             $fileAssociations[] = ['alias' => $alias, 'details' => $details];
+        }
+    }
     
     if (!empty($imageFields) || !empty($fileFields) || !empty($imageAssociations) || !empty($fileAssociations)):
 %>

@@ -29,22 +29,23 @@ if any harness failed.
 ## What each harness needs
 
 Most of them only read the application's own source, and run anywhere PHP does.
-Seven stand the ORM up on a temporary SQLite file instead of touching a real
+Eight stand the ORM up on a temporary SQLite file instead of touching a real
 database, and need **pdo_sqlite**:
 
 ```
 export_columns  index_filters  region_lists  render_add_payment
-render_currency_notes  shell_backfill_lpk  shell_installment_chain
+render_address_forms  render_currency_notes  shell_backfill_lpk
+shell_installment_chain
 ```
 
-The demo server's PHP does not have it, so those seven report
+The demo server's PHP does not have it, so those eight report
 
 ```
   skipped: needs the pdo_sqlite extension, which this PHP does not have.
            On Debian or Ubuntu: apt install php7.4-sqlite3
 ```
 
-and `run.php` counts them apart from both passes and failures — `22 harness(es),
+and `run.php` counts them apart from both passes and failures — `23 harness(es),
 15 ran` rather than a number that claims more was checked than was. Installing
 the package is the whole of the fix; nothing in the application needs it, only
 these tests.
@@ -77,7 +78,24 @@ A skip is not a pass, so the summary line says `nothing failed` rather than
 | `shell_mcu_fitness.php` | Reading a medical result as pass or fail: the negative winning over a word it contains, a title it cannot read staying unread, and a person's own correction surviving. |
 | `shell_column_adders.php` | The five column-adding shells, held to what none of them may do: never drop, never modify, nothing without `--apply`, and say so when there is nothing to do. |
 | `shell_moves_and_creates.php` | The share table's creation skipping the canonical database rather than the connection name, and the template move refusing to overwrite a live template or to write anywhere but the copy the application reads. |
+| `render_address_forms.php` | The address controls on the forms bake stamped them onto: one card, one control per region column, the options the controller really sets, and an id the cascade script binds to. |
 | `shell_backfill_lpk.php` | Marking the LPKs that finished registering but were never recorded as having: where the date comes from, the earliest activation winning, and every value a date column here turns out to hold. |
+
+## The check scripts beside them
+
+`bin/` holds scripts that answer one question over the whole application at once,
+where a harness would have to name every case. They print what they found and
+exit non-zero when it is something:
+
+| script | what it answers |
+| --- | --- |
+| `check-view-vars.php` | Which view variables does a template read that nothing sets? This is the quietest fault here: the page renders, returns 200, and shows a blank or an empty dropdown. It found the address card on fourteen forms. |
+| `check-route-targets.php` | Does every link naming a controller point at a class that exists? |
+| `check-icons.php` | Does every icon name exist in the bundled Font Awesome? |
+| `check-role-names.php` | Do the role names the code expects match the roles table? |
+| `check-create-validation.php` | Does every table class reach its database, and do its rules match the columns? |
+| `check-duplicate-tables.php` | Does a table name appear in more than one database? |
+| `check-config.php` | What is configured on this machine — credentials, salt, mail, ImageResize — without printing a secret. |
 
 ## What `TestCase/` and `Fixture/` are
 

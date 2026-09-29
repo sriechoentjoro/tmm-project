@@ -42,61 +42,12 @@ $staticAssetsUrl = $protocol . '://' . $host . '/static-assets';
                 <legend><?= __('Enter Master Propinsi Information') ?></legend>
                 <div class="row">
                     <div class="col-md-12 mb-3">
-                        <div class="card bg-light">
-                            <div class="card-body">
-                                <h5 class="card-title"><i class="fas fa-map-marker-alt"></i> <?= __('Address Information') ?></h5>
-                                <p class="text-muted small mb-3"><?= __('Select Province first, then City, District, and Village will be populated automatically') ?></p>
-                                <div class="row">
-                                    <div class="col-md-3 mb-2">
-                                        <label class="form-label required"><?= __('Province') ?> <span class="text-danger">*</span></label>
-                                        <?= $this->Form->control('propinsi_id', [
-                                            'options' => isset($propinsis) ? $propinsis : [],
-                                            'class' => 'form-control address-select',
-                                            'id' => 'MasterPropinsiPropinsiId',
-                                            'label' => false,
-                                            'empty' => __('-- Select Province --'),
-                                            'required' => false
-                                        ]) ?>
-                                    </div>
-                                    <div class="col-md-3 mb-2">
-                                        <label class="form-label required"><?= __('Kabupaten/City') ?> <span class="text-danger">*</span></label>
-                                        <?= $this->Form->control('kabupaten_id', [
-                                            'options' => isset($kabupatens) ? $kabupatens : [],
-                                            'class' => 'form-control address-select',
-                                            'id' => 'MasterPropinsiKabupatenId',
-                                            'label' => false,
-                                            'empty' => __('-- Select Kabupaten --'),
-                                            'required' => false
-                                        ]) ?>
-                                    </div>
-                                    <div class="col-md-3 mb-2">
-                                        <label class="form-label required"><?= __('Kecamatan/District') ?> <span class="text-danger">*</span></label>
-                                        <?= $this->Form->control('kecamatan_id', [
-                                            'options' => isset($kecamatans) ? $kecamatans : [],
-                                            'class' => 'form-control address-select',
-                                            'id' => 'MasterPropinsiKecamatanId',
-                                            'label' => false,
-                                            'empty' => __('-- Select Kecamatan --'),
-                                            'required' => false
-                                        ]) ?>
-                                    </div>
-                                    <div class="col-md-3 mb-2">
-                                        <label class="form-label required"><?= __('Kelurahan/Village') ?> <span class="text-danger">*</span></label>
-                                        <?= $this->Form->control('kelurahan_id', [
-                                            'options' => isset($kelurahans) ? $kelurahans : [],
-                                            'class' => 'form-control address-select',
-                                            'id' => 'MasterPropinsiKelurahanId',
-                                            'label' => false,
-                                            'empty' => __('-- Select Kelurahan --'),
-                                            'required' => false
-                                        ]) ?>
-                                    </div>
-                                </div>
-                                <div class="address-loading" style="display: none;">
-                                    <i class="fas fa-spinner fa-spin"></i> <?= __('Loading options...') ?>
-                                </div>
-                            </div>
-                        </div>
+                        <label class="form-label"><?= __('Kode Propinsi') ?></label>
+                        <?= $this->Form->control('kode_propinsi', [
+                            'class' => 'form-control',
+                            'placeholder' => __('Enter Kode Propinsi'),
+                            'label' => false
+                        ]) ?>
                     </div>
                     <div class="col-12 mb-3">
                         <label class="form-label"><?= __('Title') ?></label>
