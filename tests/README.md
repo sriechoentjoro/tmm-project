@@ -100,8 +100,18 @@ ever run. It is scaffolding, not coverage, and `run.php` leaves it alone.
   sentence about the application, not about the test.
 - Say in the docblock what went wrong once. A harness whose reason is written
   down survives a rewrite of the code it guards; one that only asserts does not.
-- Keep to PHP 7.4 syntax. That is what the server runs, and these should run
-  there too.
+- Keep to PHP 7.4 syntax, and watch for PHP 7 vs 8 *behaviour*, not only syntax.
+  Two harnesses passed on 8.4 and failed on the server: `iterator_to_array()`
+  refuses an array on 7.4 and accepts one on 8, so a fixture that stood in for a
+  query was fine on one and a TypeError on the other. `run.php` prints the
+  version it is running on and says so when that is not a version the
+  application supports.
+- Make a fixture the shape the controller really passes. A query is Traversable;
+  an array is not, and the difference only shows on the older PHP.
+- Where the framework warns about a fixture - text in a DATETIME column, which
+  the hand-written schemas here really do contain - wrap the call in
+  `withoutVendorWarnings()`. It hides warnings from `vendor/` and hands back any
+  from `src/` or `config/`, which are never hidden.
 
 ## The browser harness
 

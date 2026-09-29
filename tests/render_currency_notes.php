@@ -62,8 +62,13 @@ function payment($id, $trainee, $amount, $currency)
  */
 function tracking($label, array $summary, array $rows = [])
 {
+    // A Collection, not an array. The template calls iterator_to_array() on it,
+    // which on PHP 7.4 - the version the server runs - refuses an array
+    // outright; PHP 8 accepts one, so an array here passed on a development
+    // machine and was a TypeError on the server. The controller hands over a
+    // query, so a Traversable is what the fixture has to be.
     return renderClean($label, 'tracking', [
-        'installments' => $rows,
+        'installments' => new Cake\Collection\Collection($rows),
         'traineeNames' => [1 => 'Budi Santoso (TMM-001)', 2 => 'Nur Aini (TMM-002)'],
         'categoryNames' => [3 => 'Biaya Pelatihan'],
         'currencyNames' => [66 => 'IDR', 12 => 'JPY'],

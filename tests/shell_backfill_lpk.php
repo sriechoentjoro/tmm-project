@@ -74,13 +74,32 @@ function activity(array $row)
         'description' => 'activated', 'created' => '2026-05-11 09:00:00']);
 }
 
-/** @return array stakeholder_id => FrozenTime */
+/**
+ * The dates the activation log offers.
+ *
+ * Wrapped because one fixture below stores text in a DATETIME column - which
+ * these hand-written schemas really do contain - and CakePHP's own type warns
+ * while hydrating it. That warning is about the fixture, and this harness
+ * exists to check that the shell survives exactly that state.
+ *
+ * @return array stakeholder_id => FrozenTime
+ */
 function activations()
 {
     global $shell, $activationTimes;
     TableRegistry::getTableLocator()->clear();
 
-    return $activationTimes->invoke($shell);
+    list($found, $ours) = withoutVendorWarnings(function () use ($shell, $activationTimes) {
+        return $activationTimes->invoke($shell);
+    });
+    if ($ours) {
+        // A warning from the application's own code is not noise and is not
+        // hidden.
+        printf("  our own code warned: %s\n", implode('; ', $ours));
+        $GLOBALS['tmm_failures']++;
+    }
+
+    return $found;
 }
 
 /** @param mixed $value Whatever a column held. @return \Cake\I18n\FrozenTime|null */

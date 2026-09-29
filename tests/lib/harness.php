@@ -321,6 +321,41 @@ function renderClean($label, $what, array $vars, array $options = [])
 }
 
 /**
+ * Run something, ignoring warnings the framework raises about our fixtures.
+ *
+ * A harness that stores a value a column could not really hold - text where a
+ * DATETIME is expected, which the hand-written schemas here do contain - makes
+ * CakePHP's own type raise a warning while hydrating the row. That warning is
+ * about the fixture, in vendor/, and printing it in the middle of the checks
+ * makes a passing run look like a failing one.
+ *
+ * Warnings from the application's own files are not swallowed: they are
+ * collected and handed back, so a harness can fail on them if it should.
+ *
+ * @param callable $work What to run.
+ * @return array [return value, warnings from src/ or config/]
+ */
+function withoutVendorWarnings(callable $work)
+{
+    $ours = [];
+    set_error_handler(function ($no, $message, $file, $line) use (&$ours) {
+        if (strpos($file, '/vendor/') === false) {
+            $ours[] = $message . '  (' . str_replace(TMM_ROOT . '/', '', $file)
+                . ':' . $line . ')';
+        }
+
+        return true;
+    });
+    try {
+        $value = $work();
+    } finally {
+        restore_error_handler();
+    }
+
+    return [$value, $ours];
+}
+
+/**
  * Print the count and leave with an exit code the runner can read.
  *
  * @param string|null $tidy A file to remove on the way out.

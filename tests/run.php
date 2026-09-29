@@ -70,6 +70,20 @@ if (!is_dir($root . '/vendor')) {
     exit("vendor/ is not there. Run composer install first.\n");
 }
 
+// A pass on a PHP the application does not support is weaker than a pass on the
+// server, and not in a way anybody would guess. Two harnesses passed on 8.4 and
+// failed on 7.4: iterator_to_array() refuses an array on 7.4 and accepts one on
+// 8, so a fixture that stood in for a query was fine here and a TypeError
+// there. Saying the version out loud is the cheapest guard against reading a
+// green run as more than it is.
+if (PHP_VERSION_ID >= 80000) {
+    printf("PHP %s. This application supports 5.6 to 7.4, so a pass here is not
+"
+        . "a pass on the server - run it there too before believing it.
+",
+        PHP_VERSION);
+}
+
 $failed = [];
 $skipped = [];
 $checks = 0;
