@@ -51,6 +51,7 @@ exits 1 if any harness failed.
 | `shell_mcu_fitness.php` | Reading a medical result as pass or fail: the negative winning over a word it contains, a title it cannot read staying unread, and a person's own correction surviving. |
 | `shell_column_adders.php` | The five column-adding shells, held to what none of them may do: never drop, never modify, nothing without `--apply`, and say so when there is nothing to do. |
 | `shell_moves_and_creates.php` | The share table's creation skipping the canonical database rather than the connection name, and the template move refusing to overwrite a live template or to write anywhere but the copy the application reads. |
+| `shell_backfill_lpk.php` | Marking the LPKs that finished registering but were never recorded as having: where the date comes from, the earliest activation winning, and every value a date column here turns out to hold. |
 
 ## What `TestCase/` and `Fixture/` are
 
@@ -129,6 +130,8 @@ rather than dressed up: it catches a shell that grows a `DROP`, or loses its
 `--apply` guard, or stops naming what it will change. It would not catch a
 `RENAME` with the wrong table in it.
 
-`BackfillLpkRegistrationShell` is the one shell still uncovered. It reads
-activation times out of several places and writes `is_registered` and
-`registered_at`; the reading is worth a harness and does not have one.
+Every shell that writes data now has one. What is still uncovered is the shells
+that only read and print: `ListTablesShell`, `ShowAssociationsShell`,
+`CheckDataShell`, `MenuPermissionsShell`, `GenerateMasterGuideShell`. A fault in
+one of those misleads a reader rather than changing a row, which is a real cost -
+the duplicate-table comparer misled one - but a smaller one than the rest.

@@ -216,8 +216,21 @@ class BackfillLpkRegistrationShell extends Shell
             return new \Cake\I18n\FrozenTime($value);
         }
 
+        $text = trim((string)$value);
+
+        // MySQL's zero date, which the hand-written schemas in this project use
+        // in places as a default. It is not empty, so the check above lets it
+        // through, and FrozenTime does not refuse it either: it turns
+        // 0000-00-00 into the 30th of November in the year minus one. Writing
+        // that into registered_at would put a date in the record that never
+        // happened - which is the one thing this shell exists not to do, since
+        // its whole job is to state when registration finished.
+        if (preg_match('/^0{4}-0{2}-0{2}( 0{2}:0{2}:0{2})?$/', $text)) {
+            return null;
+        }
+
         try {
-            return new \Cake\I18n\FrozenTime((string)$value);
+            return new \Cake\I18n\FrozenTime($text);
         } catch (\Exception $e) {
             return null;
         }

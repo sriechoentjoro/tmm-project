@@ -171,10 +171,29 @@ class EmailVerificationTokensTable extends Table
             return false;
         }
         
-        // Check expiry
+        // Check expiry.
+        //
+        // expires_at is read rather than trusted. The ORM hands back a time
+        // object where the column is a real DATETIME and a plain string where
+        // it is not - these tables were built by hand-written SQL - and
+        // new Time() on text that is not a date throws, which here would be a
+        // fatal in the middle of somebody verifying their address. A token
+        // whose expiry cannot be read is treated as expired: that refuses a
+        // link that might have been good, which is recoverable by resending,
+        // where the other way round accepts a link that may have been anyone's.
         $now = new Time();
-        $expiresAt = new Time($tokenRecord->expires_at);
-        
+        try {
+            $expiresAt = $tokenRecord->expires_at instanceof \DateTimeInterface
+                ? new Time($tokenRecord->expires_at)
+                : new Time(trim((string)$tokenRecord->expires_at));
+        } catch (\Exception $e) {
+            Log::warning(sprintf('Token %s has an expiry that cannot be read (%s), '
+                . 'so it is treated as expired', $token,
+                json_encode($tokenRecord->expires_at)), ['scope' => 'email_verification']);
+
+            return false;
+        }
+
         if ($now->greaterThan($expiresAt)) {
             Log::warning("Token expired: $token", ['scope' => 'email_verification']);
             return false;
