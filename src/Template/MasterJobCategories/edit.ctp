@@ -38,7 +38,7 @@ $staticAssetsUrl = $protocol . '://' . $host . '/static-assets';
 
         <div class="card-body">
             <?= $this->Form->create($masterJobCategory, ['data-confirm' => 'true', 'id' => 'masterJobCategoryForm']) ?>
-            <?php if (!empty($masterJobCategorie->id)): ?>
+            <?php if (!empty($masterJobCategory->id)): ?>
                 <?= $this->Form->hidden('id') ?>
             <?php endif; ?>
             <fieldset>

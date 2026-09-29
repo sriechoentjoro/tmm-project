@@ -38,7 +38,7 @@ $staticAssetsUrl = $protocol . '://' . $host . '/static-assets';
 
         <div class="card-body">
             <?= $this->Form->create($candidateDocumentCategory, ['data-confirm' => 'true', 'id' => 'candidateDocumentCategoryForm']) ?>
-            <?php if (!empty($candidateDocumentCategorie->id)): ?>
+            <?php if (!empty($candidateDocumentCategory->id)): ?>
                 <?= $this->Form->hidden('id') ?>
             <?php endif; ?>
             <fieldset>

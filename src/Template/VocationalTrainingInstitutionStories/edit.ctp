@@ -40,7 +40,7 @@ $staticAssetsUrl = $protocol . '://' . $host . '/static-assets';
 
         <div class="card-body">
             <?= $this->Form->create($vocationalTrainingInstitutionStory, ['type' => 'file', 'data-confirm' => 'true', 'id' => 'vocationalTrainingInstitutionStoryForm']) ?>
-            <?php if (!empty($vocationalTrainingInstitutionStorie->id)): ?>
+            <?php if (!empty($vocationalTrainingInstitutionStory->id)): ?>
                 <?= $this->Form->hidden('id') ?>
             <?php endif; ?>
             <fieldset>
