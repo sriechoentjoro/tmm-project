@@ -34,10 +34,14 @@ class ApprenticesController extends AppController
         $mastergenders = $this->Apprentices->MasterGenders->find('list')->limit(200)->toArray();
         $masterreligions = $this->Apprentices->MasterReligions->find('list')->limit(200)->toArray();
         $mastermarriagestatuses = $this->Apprentices->MasterMarriageStatuses->find('list')->limit(200)->toArray();
-        $masterpropinsis = $this->Apprentices->MasterPropinsis->find('list')->limit(200)->toArray();
-        $masterkabupatens = $this->Apprentices->MasterKabupatens->find('list')->limit(200)->toArray();
-        $masterkecamatans = $this->Apprentices->MasterKecamatans->find('list')->limit(200)->toArray();
-        $masterkelurahans = $this->Apprentices->MasterKelurahans->find('list')->limit(200)->toArray();
+        // Scoped by the filter already chosen rather than capped at two
+        // hundred by id: every province, and below one only what belongs
+        // to it. See AppController::regionListsForFilters().
+        $regions = $this->regionListsForFilters();
+        $masterpropinsis = $regions['masterPropinsis'];
+        $masterkabupatens = $regions['masterKabupatens'];
+        $masterkecamatans = $regions['masterKecamatans'];
+        $masterkelurahans = $regions['masterKelurahans'];
         $masterbloodtypes = $this->Apprentices->MasterBloodTypes->find('list')->limit(200)->toArray();
         $this->set(compact('apprentices', 'candidates', 'trainees', 'apprenticeorders', 'vocationaltraininginstitutions', 'acceptanceorganizations', 'mastergenders', 'masterreligions', 'mastermarriagestatuses', 'masterpropinsis', 'masterkabupatens', 'masterkecamatans', 'masterkelurahans', 'masterbloodtypes'));
 

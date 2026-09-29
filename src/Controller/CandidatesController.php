@@ -72,10 +72,14 @@ class CandidatesController extends AppController
         $master_genders = $this->Candidates->MasterGenders->find('list')->limit(200)->toArray();
         $master_religions = $this->Candidates->MasterReligions->find('list')->limit(200)->toArray();
         $master_marriage_statuss = $this->Candidates->MasterMarriageStatuses->find('list')->limit(200)->toArray();
-        $master_propinsis = $this->Candidates->MasterPropinsis->find('list')->limit(200)->toArray();
-        $master_kabupatens = $this->Candidates->MasterKabupatens->find('list')->limit(200)->toArray();
-        $master_kecamatans = $this->Candidates->MasterKecamatans->find('list')->limit(200)->toArray();
-        $master_kelurahans = $this->Candidates->MasterKelurahans->find('list')->limit(200)->toArray();
+        // Scoped by the filter already chosen rather than capped at two
+        // hundred by id: every province, and below one only what belongs
+        // to it. See AppController::regionListsForFilters().
+        $regions = $this->regionListsForFilters();
+        $master_propinsis = $regions['masterPropinsis'];
+        $master_kabupatens = $regions['masterKabupatens'];
+        $master_kecamatans = $regions['masterKecamatans'];
+        $master_kelurahans = $regions['masterKelurahans'];
         $master_blood_types = $this->Candidates->MasterBloodTypes->find('list')->limit(200)->toArray();
         $master_candidate_interview_results = $this->Candidates->MasterCandidateInterviewResults->find('list')->limit(200)->toArray();
         $master_rejected_reasons = $this->Candidates->MasterRejectedReasons->find('list')->limit(200)->toArray();

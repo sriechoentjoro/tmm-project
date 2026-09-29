@@ -28,8 +28,12 @@ class ApprenticeEducationsController extends AppController
         // Load dropdown data for filters
         $apprentices = $this->ApprenticeEducations->Apprentices->find('list')->limit(200)->toArray();
         $masterstratas = $this->ApprenticeEducations->MasterStratas->find('list')->limit(200)->toArray();
-        $masterpropinsis = $this->ApprenticeEducations->MasterPropinsis->find('list')->limit(200)->toArray();
-        $masterkabupatens = $this->ApprenticeEducations->MasterKabupatens->find('list')->limit(200)->toArray();
+        // Scoped by the filter already chosen rather than capped at two
+        // hundred by id: every province, and below one only what belongs
+        // to it. See AppController::regionListsForFilters().
+        $regions = $this->regionListsForFilters();
+        $masterpropinsis = $regions['masterPropinsis'];
+        $masterkabupatens = $regions['masterKabupatens'];
                 $master_stratas = $masterstratas;
         $master_propinsis = $masterpropinsis;
         $master_kabupatens = $masterkabupatens;

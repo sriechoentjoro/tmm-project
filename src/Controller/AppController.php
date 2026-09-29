@@ -17,8 +17,31 @@ namespace App\Controller;
 use Cake\Controller\Controller;
 use Cake\Event\Event;
 
-// Manual require for ImageResize class
-require_once ROOT . DS . 'vendor' . DS . 'ImageResize' . DS . 'ImageResize.php';
+/**
+ * ImageResize, if it is there.
+ *
+ * This used to be an unconditional require_once, and the file it names is not
+ * in this repository: vendor/ is ignored in full, composer does not provide
+ * this library, and it reached the server by hand - there is a PowerShell
+ * script in the root whose only job is to copy the folder over SCP, and
+ * IMAGERESIZE_FIX_SUMMARY.md records the day production fell over without it.
+ *
+ * So one missing file took down every page of the application, including the
+ * login screen, for a feature that shrinks an uploaded photo. It is one
+ * `git clean -fdx` from happening again - the same command that took
+ * config/app_local.php.
+ *
+ * Requiring it conditionally turns that into what it should always have been:
+ * the resize does not happen, the upload still does, and bin/check-config.php
+ * says the library is missing so nobody has to read a stack trace to find out.
+ *
+ * The real repair is to stop hand-carrying it. Move the file into src/ where
+ * the autoloader can find it and git can keep it; the hook below only makes
+ * its absence survivable.
+ */
+if (is_readable(ROOT . DS . 'vendor' . DS . 'ImageResize' . DS . 'ImageResize.php')) {
+    require_once ROOT . DS . 'vendor' . DS . 'ImageResize' . DS . 'ImageResize.php';
+}
 use ImageResize\ImageResize;
 
 /**
@@ -1462,6 +1485,15 @@ class AppController extends Controller
                 
                 // Create thumbnail and add watermark
                 try {
+                    if (!class_exists('ImageResize\\ImageResize')) {
+                        // The library is not installed. The photo is already
+                        // stored; it simply keeps the size it arrived at.
+                        throw new \RuntimeException(
+                            'ImageResize is not installed, so the image was '
+                            . 'stored at its original size. See '
+                            . 'bin/check-config.php.'
+                        );
+                    }
                     error_log("Creating thumbnail...");
                     $imageResize = new ImageResize($absolutePath);
                     $imageResize->resizeToBestFit(800, 800);
@@ -2157,6 +2189,52 @@ class AppController extends Controller
             'masterKabupatens' => $this->regionOptions('MasterKabupatens', 'propinsi_id', $propinsiId, $kabupatenId),
             'masterKecamatans' => $this->regionOptions('MasterKecamatans', 'kabupaten_id', $kabupatenId, $kecamatanId),
             'masterKelurahans' => $this->regionOptions('MasterKelurahans', 'kecamatan_id', $kecamatanId, $kelurahanId),
+        ];
+    }
+
+    /**
+     * The four address dropdowns on an index screen's filter row.
+     *
+     * The same cap the forms carried was here too, and here it could not be
+     * fixed the same way: a filter belongs to no record, so there is no saved
+     * chain to scope it by. What there is instead is the filter already
+     * chosen - the row posts filter_master_propinsi_id and friends back in the
+     * query string - so the province narrows the kabupaten list, the kabupaten
+     * narrows the kecamatan list, and so on down.
+     *
+     * That needs no script. The filter row already reloads the page when a box
+     * changes, keeping every other filter, so choosing a province is the round
+     * trip that fills the list below it.
+     *
+     * Every province is offered, because there are 33 of them. Nothing below
+     * one is offered until it is chosen, because there are 507 kabupaten, 6,651
+     * kecamatan and 84,305 kelurahan, and a select holding the first two
+     * hundred of those by id is not a filter - it is a list of places that
+     * happen to have low ids.
+     *
+     * @return array the four lists, keyed as the templates name them
+     */
+    protected function regionListsForFilters()
+    {
+        $chosen = function ($kind) {
+            $value = $this->request->getQuery('filter_master_' . $kind . '_id');
+            if ($value === null || $value === '') {
+                $value = $this->request->getQuery('filter_' . $kind . '_id');
+            }
+
+            return ($value === null || $value === '' || !is_numeric($value))
+                ? null : (int)$value;
+        };
+
+        $propinsiId = $chosen('propinsi');
+        $kabupatenId = $chosen('kabupaten');
+        $kecamatanId = $chosen('kecamatan');
+
+        return [
+            'masterPropinsis' => $this->regionOptions('MasterPropinsis', null, null, $propinsiId),
+            'masterKabupatens' => $this->regionOptions('MasterKabupatens', 'propinsi_id', $propinsiId, $kabupatenId),
+            'masterKecamatans' => $this->regionOptions('MasterKecamatans', 'kabupaten_id', $kabupatenId, $kecamatanId),
+            'masterKelurahans' => $this->regionOptions('MasterKelurahans', 'kecamatan_id', $kecamatanId, $chosen('kelurahan')),
         ];
     }
 

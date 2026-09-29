@@ -112,6 +112,7 @@ return [
     ],
 
     'cautions' => [
+        __('The filter row above the list works the same way downwards: choose a province and the kabupaten filter fills, choose a kabupaten and the kecamatan filter fills. Until a province is chosen there is nothing below it to choose, which is the only honest way to offer 84,305 villages.'),
         __('The address dropdowns work downwards: choose the province and the kabupaten list fills, choose the kabupaten and the kecamatan list fills, and so on. That is the only way they can work - there are 84,305 kelurahan, and no list can hold them all. Changing the province empties everything below it, so set the address top down.'),
         __('An empty promotion list usually means nobody has been put forward yet, not that something is broken. A candidate reaches recruitment only when their own institution declares them through selection.'),
         __('Promotion copies the profile as it stands. Anything corrected on the candidate afterwards does not follow the trainee across - correct it on the trainee instead.'),

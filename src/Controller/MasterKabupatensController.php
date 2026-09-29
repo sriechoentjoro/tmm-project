@@ -56,7 +56,11 @@ class MasterKabupatensController extends AppController
         $masterKabupatens = $this->paginate($this->MasterKabupatens);
 
         // Load dropdown data for filters
-        $masterpropinsis = $this->MasterKabupatens->MasterPropinsis->find('list')->limit(200)->toArray();
+        // Scoped by the filter already chosen rather than capped at two
+        // hundred by id: every province, and below one only what belongs
+        // to it. See AppController::regionListsForFilters().
+        $regions = $this->regionListsForFilters();
+        $masterpropinsis = $regions['masterPropinsis'];
         $propinsis = $masterpropinsis;
         $this->set(compact('masterKabupatens', 'masterpropinsis', 'propinsis'));
     }

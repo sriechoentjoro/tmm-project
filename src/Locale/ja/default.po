@@ -18728,3 +18728,5 @@ msgstr "そのファイルには拡張子がないため、保存しませんで
 msgid "Files of type .{0} are not accepted here. Please upload one of: {1}."
 msgstr ".{0} 形式のファイルはここでは受け付けていません。次のいずれかをアップロードしてください: {1}。"
 
+msgid "The filter row above the list works the same way downwards: choose a province and the kabupaten filter fills, choose a kabupaten and the kecamatan filter fills. Until a province is chosen there is nothing below it to choose, which is the only honest way to offer 84,305 villages."
+msgstr "一覧の上にある絞り込み行も同じく上から順に働きます。県を選べば市郡の絞り込みが埋まり、市郡を選べば郡の絞り込みが埋まります。県を選ぶまで、その下に選べるものはありません。84,305件の村・町を扱う方法として、それ以外に正直なやり方はないからです。"

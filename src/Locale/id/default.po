@@ -18728,3 +18728,5 @@ msgstr "Berkas itu tidak punya ekstensi, jadi tidak disimpan. Unggahlah berkas b
 msgid "Files of type .{0} are not accepted here. Please upload one of: {1}."
 msgstr "Berkas berjenis .{0} tidak diterima di sini. Unggahlah salah satu dari: {1}."
 
+msgid "The filter row above the list works the same way downwards: choose a province and the kabupaten filter fills, choose a kabupaten and the kecamatan filter fills. Until a province is chosen there is nothing below it to choose, which is the only honest way to offer 84,305 villages."
+msgstr "Baris filter di atas daftar bekerja dengan cara yang sama dari atas ke bawah: pilih propinsinya maka filter kabupatennya terisi, pilih kabupatennya maka filter kecamatannya terisi. Sebelum propinsinya dipilih, tidak ada apa pun di bawahnya untuk dipilih - dan itulah satu-satunya cara yang jujur untuk menawarkan 84.305 kelurahan."

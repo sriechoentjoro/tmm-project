@@ -37,9 +37,28 @@ $localDb = isset($local['Datasources']['default']) && is_array($local['Datasourc
     ? $local['Datasources']['default']
     : [];
 
-$dbHost = env('TMM_DB_HOST', isset($localDb['host']) ? $localDb['host'] : 'localhost');
-$dbUser = env('TMM_DB_USERNAME', isset($localDb['username']) ? $localDb['username'] : null);
-$dbPass = env('TMM_DB_PASSWORD', isset($localDb['password']) ? $localDb['password'] : null);
+/**
+ * An environment variable, or the fallback when it is absent OR blank.
+ *
+ * env() hands back whatever getenv() gives, and a variable exported empty -
+ * TMM_DB_PASSWORD= in a shell, or an env[] line in a pool config with nothing
+ * after the equals - gives an empty string, not false. That would shadow a
+ * perfectly good app_local.php with nothing, and the failure would point at
+ * the file rather than at the variable. Blank is treated as absent.
+ *
+ * @param string $key Variable name.
+ * @param mixed $fallback What to use when it is absent or blank.
+ * @return mixed
+ */
+$fromEnv = function ($key, $fallback) {
+    $value = env($key);
+
+    return ($value === null || trim((string)$value) === '') ? $fallback : $value;
+};
+
+$dbHost = $fromEnv('TMM_DB_HOST', isset($localDb['host']) ? $localDb['host'] : 'localhost');
+$dbUser = $fromEnv('TMM_DB_USERNAME', isset($localDb['username']) ? $localDb['username'] : null);
+$dbPass = $fromEnv('TMM_DB_PASSWORD', isset($localDb['password']) ? $localDb['password'] : null);
 
 // An empty string is not a configured credential either.
 //
