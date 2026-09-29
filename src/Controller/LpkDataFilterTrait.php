@@ -28,8 +28,14 @@ trait LpkDataFilterTrait
         $institutionId = $this->getUserInstitutionId();
         
         if (!$institutionId) {
-            // If LPK user has no institution_id, return empty query
-            return $query->where(['1' => 0]);
+            // No institution on the account, so nothing belongs to them.
+            //
+            // This read where(['1' => 0]). CakePHP treats a numeric array key
+            // as no condition at all and drops it, so the query went out with
+            // no WHERE clause and the user saw every record in the table
+            // instead of none - the exact opposite of what the line says. A
+            // string condition is a condition.
+            return $query->where(['1 = 0']);
         }
         
         // Filter by institution

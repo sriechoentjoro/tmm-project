@@ -2274,6 +2274,43 @@ class AppController extends Controller
     }
 
     /**
+     * A dropdown list that is guaranteed to contain the row it is set to.
+     *
+     * find('list', ['limit' => 200]) offers the first two hundred rows by id.
+     * A form arriving pre-set to a row outside them shows "-- Select --"
+     * instead, and then saves whatever is picked in its place - or nothing.
+     * The same trap that emptied a saved address on the next save.
+     *
+     * The chosen row is fetched through a clone of the query it was missing
+     * from, so every condition on it still applies: a row the query would not
+     * return - a candidate outside an LPK user's own institution, say - is
+     * still not offered.
+     *
+     * @param \Cake\ORM\Query $query A find('list') query.
+     * @param int|string|null $chosenId The row the form is set to, if any.
+     * @return array id => label
+     */
+    protected function listIncluding($query, $chosenId)
+    {
+        $lookup = clone $query;
+        $options = $query->toArray();
+        $chosenId = (int)$chosenId;
+        if ($chosenId <= 0 || isset($options[$chosenId])) {
+            return $options;
+        }
+
+        $row = $lookup
+            ->where([$query->getRepository()->getAlias() . '.id' => $chosenId])
+            ->limit(1)
+            ->first();
+        if ($row !== null) {
+            $options[$chosenId] = $row;
+        }
+
+        return $options;
+    }
+
+    /**
      * The region an entity holds, whichever way the column is spelt.
      *
      * The tables that refer to a region call the column master_propinsi_id;

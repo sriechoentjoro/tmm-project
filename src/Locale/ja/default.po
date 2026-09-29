@@ -18742,3 +18742,6 @@ msgstr "-- 村を選択 --"
 
 msgid "Enter Kode Propinsi"
 msgstr "州コードを入力"
+
+msgid "Add MCU Result"
+msgstr "健康診断結果を追加"

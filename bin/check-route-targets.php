@@ -102,8 +102,56 @@ function defaultPrefix($root, $path)
     return null;
 }
 
+/**
+ * Every method name a controller answers to, its traits and AppController
+ * included.
+ *
+ * Read from the files rather than by reflection, for the same reason the class
+ * itself is: loading a controller drags in the framework.
+ *
+ * @param string $root Application root.
+ * @param string $file Controller or trait file.
+ * @param array $cache Filled in as it goes, since AppController is asked for
+ *  once per link otherwise.
+ * @return array
+ */
+function actionsOf($root, $file, array &$cache)
+{
+    if (isset($cache[$file])) {
+        return $cache[$file];
+    }
+    $cache[$file] = [];
+    if (!is_file($file)) {
+        return [];
+    }
+
+    $php = file_get_contents($file);
+    preg_match_all('/function\s+([a-zA-Z_][A-Za-z0-9_]*)\s*\(/', $php, $m);
+    $names = $m[1];
+
+    // A trait brings its methods with it; ExportTrait and AjaxFilterTrait both
+    // carry actions that links point at.
+    preg_match_all('/^\s*use\s+([\\\\A-Za-z0-9_]+)\s*;/m', $php, $used);
+    foreach ($used[1] as $name) {
+        $short = ltrim(strrchr('\\' . $name, '\\'), '\\');
+        foreach (['/src/Controller/', '/src/Controller/Traits/'] as $dir) {
+            $candidate = $root . $dir . $short . '.php';
+            if (is_file($candidate)) {
+                $names = array_merge($names, actionsOf($root, $candidate, $cache));
+                break;
+            }
+        }
+    }
+
+    $cache[$file] = array_values(array_unique($names));
+
+    return $cache[$file];
+}
+
 $files = sources($root);
 $problems = [];
+$missingActions = [];
+$actionCache = [];
 $resolved = 0;
 $skipped = 0;
 
@@ -196,6 +244,23 @@ foreach ($files as $path) {
             continue;
         }
 
+        // The action belonging to this same array, by the same nearest-wins
+        // rule. A link whose action is computed gives no literal to match and
+        // is simply not checked; the controller still is.
+        $action = null;
+        $nearest = null;
+        foreach ($lookAt as $i) {
+            if (!preg_match("/'action'\s*=>\s*'([a-zA-Z_][A-Za-z0-9_]*)'/", $lines[$i], $am)) {
+                continue;
+            }
+            $distance = abs($i - $n) * 2 + ($i > $n ? 1 : 0);
+            if ($nearest !== null && $distance >= $nearest) {
+                continue;
+            }
+            $nearest = $distance;
+            $action = $am[1];
+        }
+
         $rel = str_replace($root . '/', '', $path);
         foreach ($candidates as $controller) {
             $file = controllerFile($root, $prefix, $controller);
@@ -207,6 +272,21 @@ foreach ($files as $path) {
                 $resolved++;
                 if ($showAll) {
                     printf("  ok   %s:%d  %s\n", $rel, $n + 1, $class);
+                }
+                // A class that exists is only half of it. Three buttons on
+                // every candidate's page pointed at addInterview, addMcu and
+                // uploadDocument, which have never existed, and four routes
+                // pointed at the same places: every click a
+                // MissingActionException, and this check said the links were
+                // fine because it only ever asked about the class.
+                if ($action !== null && count($candidates) === 1) {
+                    $known = array_merge(
+                        actionsOf($root, $file, $actionCache),
+                        actionsOf($root, $root . '/src/Controller/AppController.php', $actionCache)
+                    );
+                    if (!in_array($action, $known, true)) {
+                        $missingActions[] = [$rel, $n + 1, $class, $action];
+                    }
                 }
                 continue;
             }
@@ -228,14 +308,23 @@ foreach ($files as $path) {
 
 printf("%d link(s) resolved, %d skipped (prefix computed at runtime)\n", $resolved, $skipped);
 
-if (!$problems) {
-    echo "every link naming a controller points at a class that exists\n";
-    exit(0);
+if ($problems) {
+    printf("\n%d link(s) name a controller that does not exist:\n\n", count($problems));
+    foreach ($problems as list($rel, $line, $class, $alt)) {
+        printf("  %s:%d\n    %s\n", $rel, $line, $class);
+        printf("    %s\n\n", $alt ? 'use ' . implode(' or ', $alt) : 'no such controller under any prefix');
+    }
 }
 
-printf("\n%d link(s) name a controller that does not exist:\n\n", count($problems));
-foreach ($problems as list($rel, $line, $class, $alt)) {
-    printf("  %s:%d\n    %s\n", $rel, $line, $class);
-    printf("    %s\n\n", $alt ? 'use ' . implode(' or ', $alt) : 'no such controller under any prefix');
+if ($missingActions) {
+    printf("\n%d link(s) name an action the controller does not have:\n\n", count($missingActions));
+    foreach ($missingActions as list($rel, $line, $class, $action)) {
+        printf("  %s:%d\n    %s::%s\n\n", $rel, $line, $class, $action);
+    }
+}
+
+if (!$problems && !$missingActions) {
+    echo "every link naming a controller and an action points at one that exists\n";
+    exit(0);
 }
 exit(1);

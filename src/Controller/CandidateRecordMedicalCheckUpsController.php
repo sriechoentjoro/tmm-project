@@ -61,11 +61,21 @@ $this->set(compact('candidateRecordMedicalCheckUps', 'applicants', 'medicalCheck
     /**
      * Add method
      *
+     * @param string|null $candidateId The candidate this medical check-up is for,
+     *  when the form was opened from that candidate's own page.
      * @return \Cake\Http\Response|null Redirects on successful add, renders view otherwise.
      */
-    public function add()
+    public function add($candidateId = null)
     {
         $candidateRecordMedicalCheckUp = $this->CandidateRecordMedicalCheckUps->newEntity();
+        // Reached from a candidate's own page, which names the candidate in the
+        // URL. The record belongs to them, so the form says so rather than
+        // asking again - and asking again was not always answerable: the list
+        // below holds the first two hundred candidates by id, and nothing put
+        // a candidate outside them into it.
+        if ($candidateId !== null) {
+            $candidateRecordMedicalCheckUp->applicant_id = (int)$candidateId;
+        }
         if ($this->request->is('post')) {
             // Get request data
             $data = $this->request->getData();
@@ -103,11 +113,18 @@ $this->set(compact('candidateRecordMedicalCheckUps', 'applicants', 'medicalCheck
                 $this->_refreshCandidate($candidateRecordMedicalCheckUp->applicant_id);
                 $this->Flash->success(__('The candidate record medical check up has been saved.'));
 
-                return $this->redirect(['action' => 'index']);
+                // Back where the button was pressed, not to a list the person
+                // was never on.
+                return $this->redirect($candidateId !== null
+                    ? ['controller' => 'Candidates', 'action' => 'view', $candidateId]
+                    : ['action' => 'index']);
             }
             $this->Flash->error(__('The candidate record medical check up could not be saved. Please, try again.'));
         }
-        $applicants = $this->CandidateRecordMedicalCheckUps->Applicants->find('list', ['limit' => 200]);
+        $applicants = $this->listIncluding(
+            $this->CandidateRecordMedicalCheckUps->Applicants->find('list', ['limit' => 200]),
+            $candidateId
+        );
         $medicalCheckUpResults = $this->CandidateRecordMedicalCheckUps->MasterMedicalCheckUpResults->find('list', ['limit' => 200]);
         $this->set(compact('candidateRecordMedicalCheckUp', 'applicants', 'medicalCheckUpResults'));
     }

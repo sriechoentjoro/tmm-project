@@ -174,20 +174,28 @@
                 </div>
                 
                 <div class="github-header-actions">
+<?php
+                    // These three used to point at addInterview, addMcu and
+                    // uploadDocument on this controller, which have never
+                    // existed: every click was a MissingActionException. Each
+                    // record has a module of its own that already writes it, so
+                    // the buttons go there, carrying the candidate so the form
+                    // arrives filled in and comes back here when it is saved.
+                    ?>
                     <?= $this->Html->link(
                         '<i class="fas fa-calendar-check"></i> ' . __('Schedule Interview'),
-                        ['action' => 'addInterview', $candidate->id],
-                        ['class' => 'btn-export-light', 'escape' => false, 'title' => 'Schedule Interview']
+                        ['controller' => 'CandidateRecordInterviews', 'action' => 'add', $candidate->id],
+                        ['class' => 'btn-export-light', 'escape' => false, 'title' => __('Schedule Interview')]
                     ) ?>
                     <?= $this->Html->link(
                         '<i class="fas fa-heartbeat"></i> ' . __('Add MCU'),
-                        ['action' => 'addMcu', $candidate->id],
-                        ['class' => 'btn-export-light', 'escape' => false, 'title' => 'Add MCU Result']
+                        ['controller' => 'CandidateRecordMedicalCheckUps', 'action' => 'add', $candidate->id],
+                        ['class' => 'btn-export-light', 'escape' => false, 'title' => __('Add MCU Result')]
                     ) ?>
                     <?= $this->Html->link(
                         '<i class="fas fa-file-upload"></i> ' . __('Upload Doc'),
-                        ['action' => 'uploadDocument', $candidate->id],
-                        ['class' => 'btn-export-light', 'escape' => false, 'title' => 'Upload Document']
+                        ['controller' => 'CandidateDocuments', 'action' => 'add', $candidate->id],
+                        ['class' => 'btn-export-light', 'escape' => false, 'title' => __('Upload Document')]
                     ) ?>
                     <?= $this->Html->link(
                         '<i class="fas fa-file-csv"></i> ' . __('CSV'),

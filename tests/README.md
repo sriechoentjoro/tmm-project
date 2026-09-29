@@ -29,24 +29,24 @@ if any harness failed.
 ## What each harness needs
 
 Most of them only read the application's own source, and run anywhere PHP does.
-Nine stand the ORM up on a temporary SQLite file instead of touching a real
+Ten stand the ORM up on a temporary SQLite file instead of touching a real
 database, and need **pdo_sqlite**:
 
 ```
-export_columns  index_filters  region_lists  render_add_payment
-render_address_forms  render_currency_notes  render_edit_identity
-shell_backfill_lpk  shell_installment_chain
+candidate_record_buttons  export_columns  index_filters  region_lists
+render_add_payment  render_address_forms  render_currency_notes
+render_edit_identity  shell_backfill_lpk  shell_installment_chain
 ```
 
-The demo server's PHP does not have it, so those nine report
+The demo server's PHP does not have it, so those ten report
 
 ```
   skipped: needs the pdo_sqlite extension, which this PHP does not have.
            On Debian or Ubuntu: apt install php7.4-sqlite3
 ```
 
-and `run.php` counts them apart from both passes and failures — `25 harness(es),
-15 ran` rather than a number that claims more was checked than was. Installing
+and `run.php` counts them apart from both passes and failures — `26 harness(es),
+16 ran` rather than a number that claims more was checked than was. Installing
 the package is the whole of the fix; nothing in the application needs it, only
 these tests.
 
@@ -72,6 +72,7 @@ A skip is not a pass, so the summary line says `nothing failed` rather than
 | `render_add_payment.php` | The add-payment screen and the warning that stops a payment being recorded twice — that it names the payment already on file, links to it, and still offers to record anyway. |
 | `render_currency_notes.php` | Where a total says which currency it is written in and how many rows are not, and where a source record is held back rather than posted into books that cannot mean it. |
 | `render_financial_report.php` | The income statement and the balance sheet: the period in force, dates the wrong way round, the one date a balance sheet takes, and what was left out of the figures. |
+| `candidate_record_buttons.php` | The three buttons on a candidate's page: where they point now that the actions they named never existed, the candidate they carry, and a dropdown that contains the candidate it is set to without offering one the role may not see. |
 | `shell_installment_chain.php` | The running figures rebuilt from the payments: a deleted payment, an overpayment, a trainee with no payments, running it twice, and never touching what was paid. |
 | `shell_set_aside.php` | What stands between a duplicate table and a rename — what counts as "something still names this table", where three faults were found while it was written. |
 | `shell_compare_duplicate.php` | The comparison that decides which copy is live, and the partial view that once made a real promotion read as an empty row. |
@@ -92,7 +93,7 @@ exit non-zero when it is something:
 | script | what it answers |
 | --- | --- |
 | `check-view-vars.php` | Which view variables does a template read that nothing sets, and which templates does nothing render? The quietest fault here: the page returns 200 and shows a blank or an empty dropdown. It found the address card on fourteen forms and the seventeen mis-named edit guards. Ask the second question first - a template behind a redirect-only action reports every variable it reads, and none of it matters. |
-| `check-route-targets.php` | Does every link naming a controller point at a class that exists? |
+| `check-route-targets.php` | Does every link naming a controller point at a class that exists, and every link naming an action point at a method that exists? The second half is new: three buttons on every candidate's page named actions that had never been written. |
 | `check-icons.php` | Does every icon name exist in the bundled Font Awesome? |
 | `check-role-names.php` | Do the role names the code expects match the roles table? |
 | `check-create-validation.php` | Does every table class reach its database, and do its rules match the columns? |

@@ -93,29 +93,16 @@ Router::scope('/', function (RouteBuilder $routes) {
     );
     
     // Candidate management routes
-    $routes->connect(
-        '/candidates/add-interview/:id',
-        ['controller' => 'Candidates', 'action' => 'addInterview'],
-        ['pass' => ['id'], 'id' => '[0-9]+']
-    );
-    $routes->connect(
-        '/candidates/add-mcu/:id',
-        ['controller' => 'Candidates', 'action' => 'addMcu'],
-        ['pass' => ['id'], 'id' => '[0-9]+']
-    );
-    $routes->connect(
-        '/candidates/upload-document/:id',
-        ['controller' => 'Candidates', 'action' => 'uploadDocument'],
-        ['pass' => ['id'], 'id' => '[0-9]+']
-    );
+    //
+    // Four more stood here, for Candidates::addInterview, addMcu,
+    // uploadDocument and changeStatus. None of those actions has ever existed,
+    // so every one of those URLs was a MissingActionException. The first three
+    // are written by CandidateRecordInterviews, CandidateRecordMedicalCheckUps
+    // and CandidateDocuments, which the buttons on a candidate's page now point
+    // at; nothing at all referred to the fourth.
     $routes->connect(
         '/candidates/dashboard',
         ['controller' => 'Candidates', 'action' => 'dashboard']
-    );
-    $routes->connect(
-        '/candidates/change-status/:id/:statusId',
-        ['controller' => 'Candidates', 'action' => 'changeStatus'],
-        ['pass' => ['id', 'statusId'], 'id' => '[0-9]+', 'statusId' => '[0-9]+']
     );
     
     // The two links an institution receives by email.

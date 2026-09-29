@@ -18742,3 +18742,6 @@ msgstr "-- Pilih Kelurahan/Desa --"
 
 msgid "Enter Kode Propinsi"
 msgstr "Masukkan Kode Provinsi"
+
+msgid "Add MCU Result"
+msgstr "Tambah Hasil MCU"

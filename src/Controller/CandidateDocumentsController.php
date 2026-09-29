@@ -33,7 +33,9 @@ class CandidateDocumentsController extends AppController
                     return $q->where(['Candidates.vocational_training_institution_id' => $institutionId]);
                 });
             } else {
-                $query->where(['1' => 0]); // Empty result if no institution
+                // A string, not ['1' => 0]: a numeric key is dropped, and
+                // the query then returns everything. See LpkDataFilterTrait.
+                $query->where(['1 = 0']);
             }
         }
         
@@ -62,7 +64,7 @@ class CandidateDocumentsController extends AppController
             $institutionId = $this->getUserInstitutionId();
             $candidatesQuery->where($institutionId
                 ? ['vocational_training_institution_id' => $institutionId]
-                : ['1' => 0]);
+                : ['1 = 0']);
         }
         $candidates = $candidatesQuery->order(['name' => 'ASC'])->toArray();
 
@@ -123,11 +125,21 @@ class CandidateDocumentsController extends AppController
     /**
      * Add method
      *
+     * @param string|null $candidateId The candidate this document is for,
+     *  when the form was opened from that candidate's own page.
      * @return \Cake\Http\Response|null Redirects on successful add, renders view otherwise.
      */
-    public function add()
+    public function add($candidateId = null)
     {
         $candidateDocument = $this->CandidateDocuments->newEntity();
+        // Reached from a candidate's own page, which names the candidate in the
+        // URL. The record belongs to them, so the form says so rather than
+        // asking again - and asking again was not always answerable: the list
+        // below holds the first two hundred candidates by id, and nothing put
+        // a candidate outside them into it.
+        if ($candidateId !== null) {
+            $candidateDocument->candidate_id = (int)$candidateId;
+        }
         if ($this->request->is('post')) {
             // Get request data
             $data = $this->request->getData();
@@ -193,7 +205,11 @@ class CandidateDocumentsController extends AppController
             if ($this->CandidateDocuments->save($candidateDocument)) {
                 $this->log('Save SUCCESS - ID: ' . $candidateDocument->id, 'debug');
                 $this->Flash->success(__('The candidate document has been saved.'));
-                return $this->redirect(['action' => 'index']);
+                // Back where the button was pressed, not to a list the person
+                // was never on.
+                return $this->redirect($candidateId !== null
+                    ? ['controller' => 'Candidates', 'action' => 'view', $candidateId]
+                    : ['action' => 'index']);
             }
             
             $this->log('Save FAILED', 'error');
@@ -218,10 +234,10 @@ class CandidateDocumentsController extends AppController
             if ($institutionId) {
                 $candidatesQuery->where(['Candidates.vocational_training_institution_id' => $institutionId]);
             } else {
-                $candidatesQuery->where(['1' => 0]); // Empty result
+                $candidatesQuery->where(['1 = 0']);
             }
         }
-        $candidates = $candidatesQuery->toArray();
+        $candidates = $this->listIncluding($candidatesQuery, $candidateId);
         
         // Add warning if no candidates available
         if (empty($candidates)) {
@@ -311,7 +327,7 @@ class CandidateDocumentsController extends AppController
             if ($institutionId) {
                 $candidatesQuery->where(['Candidates.vocational_training_institution_id' => $institutionId]);
             } else {
-                $candidatesQuery->where(['1' => 0]); // Empty result
+                $candidatesQuery->where(['1 = 0']);
             }
         }
         $candidates = $candidatesQuery->toArray();
