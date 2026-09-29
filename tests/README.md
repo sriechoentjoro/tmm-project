@@ -44,6 +44,9 @@ exits 1 if any harness failed.
 | `render_add_payment.php` | The add-payment screen and the warning that stops a payment being recorded twice — that it names the payment already on file, links to it, and still offers to record anyway. |
 | `render_currency_notes.php` | Where a total says which currency it is written in and how many rows are not, and where a source record is held back rather than posted into books that cannot mean it. |
 | `render_financial_report.php` | The income statement and the balance sheet: the period in force, dates the wrong way round, the one date a balance sheet takes, and what was left out of the figures. |
+| `shell_installment_chain.php` | The running figures rebuilt from the payments: a deleted payment, an overpayment, a trainee with no payments, running it twice, and never touching what was paid. |
+| `shell_set_aside.php` | What stands between a duplicate table and a rename — what counts as "something still names this table", where three faults were found while it was written. |
+| `shell_compare_duplicate.php` | The comparison that decides which copy is live, and the partial view that once made a real promotion read as an empty row. |
 
 ## What `TestCase/` and `Fixture/` are
 
@@ -96,9 +99,22 @@ framework that are none of a template's business.
 `renderClean()` in the library does the whole of it: render, fail on a warning,
 return the html to make claims about.
 
+## The shell harnesses
+
+A shell that changes data is the worst place for a silent fault: it runs once,
+over everything, with nobody watching a screen. The three here cover the ones
+where a mistake is either irreversible or invisible.
+
+They test the judgement, not the console: `rebuildChain()` against rows written
+straight into SQLite, and the set-aside's "does anything still name this table"
+against a small tree of files the harness writes. Where the dangerous half is a
+single statement — the rename — the harness reads the source and holds it to
+what it must never do, rather than renaming something to find out.
+
 ## What is not here yet
 
-The shells (`src/Shell/`) have no harness: the installment chain rebuild, the
-duplicate-table comparer, the set-aside, the backfills. They were each verified
-when written, several of them caught real faults in themselves, and none of that
-is repeatable today. They are the largest gap left.
+The remaining shells: the backfills (`BackfillPromotionTrailShell`,
+`BackfillLpkRegistrationShell`), the share creator, the email-template move, the
+MCU fitness mark, and the column-adding shells. Each writes data. The three that
+are covered were chosen because a mistake in them is irreversible or invisible;
+the rest are only unwatched.

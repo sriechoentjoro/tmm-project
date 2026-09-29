@@ -233,18 +233,24 @@ class SetAsideTableShell extends Shell
     /**
      * @return array Paths, relative to src/, naming this table.
      */
-    protected function mentions($table)
+    protected function mentions($table, $root = null)
     {
+        // $root is for the harness, which points this at a tree it wrote so the
+        // word-boundary rule and the comment stripping are checked against
+        // known files rather than against whatever the application happens to
+        // contain today. Left alone it scans the application, as it always did.
+        $root = $root === null ? APP : rtrim($root, DS) . DS;
+
         // The table's own Table class always names it, in setTable(). That
         // tells us nothing the connection check above has not already settled,
         // and listing it makes every table with a model look like it is in use
         // - which is the shape of objection people stop reading.
-        $own = APP . 'Model' . DS . 'Table' . DS
+        $own = $root . 'Model' . DS . 'Table' . DS
             . \Cake\Utility\Inflector::camelize($table) . 'Table.php';
 
         $found = [];
         $iterator = new \RecursiveIteratorIterator(
-            new \RecursiveDirectoryIterator(APP, \FilesystemIterator::SKIP_DOTS));
+            new \RecursiveDirectoryIterator($root, \FilesystemIterator::SKIP_DOTS));
         foreach ($iterator as $file) {
             if (!$file->isFile()
                 || !in_array(strtolower($file->getExtension()), ['php', 'ctp'], true)) {
@@ -259,7 +265,7 @@ class SetAsideTableShell extends Shell
             // the boundary falls exactly where the name ends.
             if (preg_match('/\b' . preg_quote($table, '/') . '\b/',
                 $this->code($file->getPathname()))) {
-                $found[] = str_replace(APP, '', $file->getPathname());
+                $found[] = str_replace($root, '', $file->getPathname());
             }
         }
 
