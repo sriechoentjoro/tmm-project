@@ -22,12 +22,88 @@
  * parameter, a foreach target, a list() and a catch variable all count as
  * assignments rather than as missing variables.
  *
- * Usage: php bin/check-view-vars.php [--all]
- *   --all  also list the names that are read but assigned later in the file,
- *          which is legal and usually harmless.
+ * It also answers the question you have to ask before acting on any of that:
+ * is this template rendered at all? A template whose action does nothing but
+ * redirect, or which has no action and is rendered by nothing, reports every
+ * variable it reads as missing forever - and it is not a screen with a hole in
+ * it, it is a file nobody sees. Trainees/dashboard.ctp read nine names nobody
+ * set and looked like a whole empty dashboard; its action redirects to
+ * Dashboard::training, and the live template there is a superset of it.
+ *
+ * Usage: php bin/check-view-vars.php [--all] [--root=PATH]
+ *   --all   also list the names that are read but assigned later in the file,
+ *           which is legal and usually harmless.
+ *   --root  look at another tree than this one. tests/check_view_vars.php uses
+ *           it to hold this script to a small tree whose answers are known.
  */
 $root = dirname(__DIR__);
-$showAll = in_array('--all', array_slice($argv, 1), true);
+$showAll = false;
+foreach (array_slice($argv, 1) as $arg) {
+    if ($arg === '--all') {
+        $showAll = true;
+    } elseif (strpos($arg, '--root=') === 0) {
+        $root = rtrim(substr($arg, 7), '/');
+    }
+}
+if (!is_dir($root . '/src/Template')) {
+    fwrite(STDERR, "No src/Template under $root\n");
+    exit(2);
+}
+
+/**
+ * add_interview -> addInterview, the name its action would carry.
+ *
+ * Inflector would do this, but loading the framework would make this script
+ * need vendor/, and it is most useful on a machine where that is not certain.
+ *
+ * @param string $name Template file name.
+ * @return string
+ */
+function actionName($name)
+{
+    return lcfirst(str_replace(' ', '', ucwords(str_replace('_', ' ', $name))));
+}
+
+/**
+ * Why nothing renders this template, or null when something does.
+ *
+ * Only the start of the action's body is read. Whether it is a bare redirect is
+ * decided by its first statement, and looking for the method's closing brace
+ * instead would mean guessing at brace-counting through strings and heredocs.
+ *
+ * @param string $php The controller's source.
+ * @param string $action The template's name, without .ctp.
+ * @return string|null
+ */
+function whyUnrendered($php, $action)
+{
+    $names = array_unique([$action, actionName($action)]);
+    foreach ($names as $name) {
+        $quoted = preg_quote($name, '/');
+        if (preg_match('/(?:render|setTemplate)\(\s*[\'"]' . $quoted . '[\'"]/', $php)) {
+            return null;
+        }
+    }
+
+    $head = null;
+    foreach ($names as $name) {
+        if (preg_match('/public function ' . preg_quote($name, '/') . '\s*\([^)]*\)[^{;]*\{/s',
+            $php, $m, PREG_OFFSET_CAPTURE)) {
+            $head = substr($php, $m[0][1] + strlen($m[0][0]), 400);
+            break;
+        }
+    }
+    if ($head === null) {
+        return 'no action of that name, and no render() names it';
+    }
+    // An action whose first statement is a redirect never reaches its template.
+    if (preg_match('/^\s*(?:(?:\/\/|#)[^\n]*\n\s*)*return \$this->redirect\(([^;]*)\);/s',
+        $head, $m)) {
+        return 'its action only redirects: ' . trim(preg_replace('/\s+/', ' ', $m[1]));
+    }
+
+    return null;
+}
 
 // Names a template holds without anybody passing them in.
 $free = ['this', 'GLOBALS', '_SERVER', '_GET', '_POST', '_COOKIE', '_FILES',
@@ -264,6 +340,9 @@ foreach (array_merge(
     glob($root . '/src/View/*.php'),
     glob($root . '/src/View/Helper/*.php')
 ) as $file) {
+    if (!is_file($file)) {
+        continue;
+    }
     $shared = array_merge($shared, viewVarsSet(file_get_contents($file)));
 }
 
@@ -287,6 +366,7 @@ $skipDirs = ['Element', 'Layout', 'Error', 'Email', 'Bake', 'Plugin'];
 $templates = 0;
 $noController = [];
 $findings = [];
+$unrendered = [];
 foreach (glob($root . '/src/Template/*', GLOB_ONLYDIR) as $dir) {
     $name = basename($dir);
     if (in_array($name, $skipDirs, true)) {
@@ -296,9 +376,18 @@ foreach (glob($root . '/src/Template/*', GLOB_ONLYDIR) as $dir) {
         $noController[] = $name;
         continue;
     }
-    $sets = array_merge(viewVarsSet(file_get_contents($controllers[$name])), $shared);
+    $controllerSource = file_get_contents($controllers[$name]);
+    $sets = array_merge(viewVarsSet($controllerSource), $shared);
     foreach (glob($dir . '/*.ctp') as $file) {
         $templates++;
+        // Asked first: a template nothing renders is not a screen with a hole
+        // in it, and reporting its variables as missing sends somebody looking
+        // for a page that does not exist.
+        $why = whyUnrendered($controllerSource, basename($file, '.ctp'));
+        if ($why !== null) {
+            $unrendered[$name . '/' . basename($file)] = $why;
+            continue;
+        }
         $reads = readBeforeAssigned(file_get_contents($file));
         $missing = [];
         foreach ($reads as $variable => $line) {
@@ -323,15 +412,25 @@ foreach ($findings as $file => $missing) {
         $total++;
     }
 }
+if ($unrendered) {
+    echo $findings ? "\n" : '';
+    echo "Nothing renders these, so what they read was not checked:\n";
+    foreach ($unrendered as $file => $why) {
+        printf("  %-48s %s\n", $file, $why);
+    }
+}
 
 printf("\n%d template(s) checked in %d controller(s)\n", $templates, count($controllers));
 if ($noController) {
     printf("%d template folder(s) have no controller of that name: %s\n",
         count($noController), implode(', ', $noController));
 }
-if ($total === 0) {
-    echo "every variable a template reads is set by something\n";
-    exit(0);
+if ($total) {
+    printf("%d name(s) in %d template(s) that nothing sets\n", $total, count($findings));
+} else {
+    echo "every variable a rendered template reads is set by something\n";
 }
-printf("%d name(s) in %d template(s) that nothing sets\n", $total, count($findings));
-exit(1);
+if ($unrendered) {
+    printf("%d template(s) nothing renders\n", count($unrendered));
+}
+exit($total || $unrendered ? 1 : 0);

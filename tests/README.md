@@ -45,7 +45,7 @@ The demo server's PHP does not have it, so those nine report
            On Debian or Ubuntu: apt install php7.4-sqlite3
 ```
 
-and `run.php` counts them apart from both passes and failures — `24 harness(es),
+and `run.php` counts them apart from both passes and failures — `25 harness(es),
 15 ran` rather than a number that claims more was checked than was. Installing
 the package is the whole of the fix; nothing in the application needs it, only
 these tests.
@@ -62,6 +62,7 @@ A skip is not a pass, so the summary line says `nothing failed` rather than
 | `export_columns.php` | Exports carrying the table's real columns instead of bake's four placeholders, foreign keys resolved to names, dates a spreadsheet can read, and a table wider than the alphabet. |
 | `upload_guard.php` | What may be written into the web root. The extension allow list, the two base64 croppers, the second lock on disk, and the wizard no longer being open to anyone. |
 | `datasource_guard.php` | The credential check at boot, including the empty password that used to boot the application and then fail on the first query. |
+| `check_view_vars.php` | `bin/check-view-vars.php` over a tree whose answers are known: what counts as set, the five shapes that are assignments rather than missing variables, and the templates nothing renders. |
 | `check_config.php` | What `bin/check-config.php` reports in each state the server has actually been in — and that it never prints a secret. |
 | `browser/table_filter.js` | The filter row driven in Chromium: what it asks the server for, what it puts back in the boxes, and the fallback for a screen that does not paginate. |
 | `render_guides.php` | Every page guide rendered, and one read closely so the renderer is known to put the data on the page rather than merely not fall over. |
@@ -90,7 +91,7 @@ exit non-zero when it is something:
 
 | script | what it answers |
 | --- | --- |
-| `check-view-vars.php` | Which view variables does a template read that nothing sets? This is the quietest fault here: the page renders, returns 200, and shows a blank or an empty dropdown. It found the address card on fourteen forms. |
+| `check-view-vars.php` | Which view variables does a template read that nothing sets, and which templates does nothing render? The quietest fault here: the page returns 200 and shows a blank or an empty dropdown. It found the address card on fourteen forms and the seventeen mis-named edit guards. Ask the second question first - a template behind a redirect-only action reports every variable it reads, and none of it matters. |
 | `check-route-targets.php` | Does every link naming a controller point at a class that exists? |
 | `check-icons.php` | Does every icon name exist in the bundled Font Awesome? |
 | `check-role-names.php` | Do the role names the code expects match the roles table? |
