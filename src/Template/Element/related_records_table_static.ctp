@@ -15,9 +15,18 @@ $currentPage = isset($currentPage) ? $currentPage : 1;
 $totalRecords = isset($totalRecords) ? $totalRecords : count($records);
 $limit = isset($limit) ? $limit : 50;
 $totalPages = ceil($totalRecords / $limit);
-$ajaxSearchUrl = isset($ajaxSearchUrl) ? $ajaxSearchUrl : null; // URL for server-side search
-$foreignKey = isset($foreignKey) ? $foreignKey : null; // e.g., 'apprentice_order_id'
-$foreignValue = isset($foreignValue) ? $foreignValue : null; // e.g., $apprenticeOrder->id
+// Two sets of names reach here. ApprenticeOrders/view.ctp passes
+// ajaxSearchUrl, foreignKey and foreignValue; the other eight pages pass
+// ajaxUrl, filterField and filterValue. Only the first set was read, so on
+// those eight the whole server-side block below was compiled out - and they
+// pass no 'records' either, so every one of those tabs rendered an empty
+// table and nothing said why. Both sets are read now.
+$ajaxSearchUrl = isset($ajaxSearchUrl) ? $ajaxSearchUrl
+    : (isset($ajaxUrl) ? $ajaxUrl : null);          // URL for server-side search
+$foreignKey = isset($foreignKey) ? $foreignKey
+    : (isset($filterField) ? $filterField : null);  // e.g. 'apprentice_order_id'
+$foreignValue = isset($foreignValue) ? $foreignValue
+    : (isset($filterValue) ? $filterValue : null);  // e.g. $apprenticeOrder->id
 ?>
 
 <!-- Cache Buster: Generated at <?= date('Y-m-d H:i:s') ?> -->
@@ -277,213 +286,233 @@ $foreignValue = isset($foreignValue) ? $foreignValue : null; // e.g., $apprentic
     
     <?php if ($ajaxSearchUrl && $foreignKey && $foreignValue): ?>
     // SERVER-SIDE AJAX FILTERING
+    //
+    // What this used to send and read did not match the endpoint at either
+    // end: it sent a hardcoded apprentice_order_id whatever table the tab was
+    // for, never sent the column to filter on, read data.records where the
+    // endpoint wrote data.data, and read data.total where it wrote
+    // data.pagination.total. It then drew every row out of tmm_code,
+    // identity_number, birth_date and image_photo regardless of the columns
+    // the tab was given. It is driven by those columns now.
     var ajaxUrl = '<?= $this->Url->build($ajaxSearchUrl) ?>';
-    var foreignKey = '<?= h($foreignKey) ?>';
-    var foreignValue = '<?= h($foreignValue) ?>';
+    var filterField = '<?= h($foreignKey) ?>';
+    var filterValue = '<?= h($foreignValue) ?>';
+    var viewController = '<?= h($controller) ?>';
+    var columns = <?= json_encode(array_map(function ($col) {
+        return [
+            'name' => isset($col['name']) ? $col['name'] : (isset($col['field']) ? $col['field'] : ''),
+            'type' => isset($col['type']) ? $col['type'] : 'text',
+        ];
+    }, $columns)) ?>;
     var filterTimeout;
     var currentAjaxPage = 1;
-    var currentFilters = {};
-    var originalTableContent = tbody.innerHTML; // Store original data
-    
-    console.log('📦 Original table has ' + tbody.querySelectorAll('tr').length + ' rows');
-    
+
+    function esc(value) {
+        if (value === null || typeof value === 'undefined' || value === '') {
+            return '';
+        }
+        return String(value).replace(/[&<>"']/g, function (c) {
+            return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
+        });
+    }
+
+    function cellFor(record, column) {
+        var value = record[column.name];
+        if (column.type === 'image') {
+            if (!value) {
+                return '<td><span style="color:#999;font-size:11px;"><?= h(__('No Image')) ?></span></td>';
+            }
+            // The endpoint says whether the path is still a file on disk, so a
+            // replaced or deleted photo says "missing" rather than showing a
+            // broken image icon.
+            if (record[column.name + '_exists'] === false) {
+                return '<td><span style="color:#dc3545;font-size:11px;"><?= h(__('Missing')) ?></span></td>';
+            }
+            return '<td><a href="/' + esc(value) + '" target="_blank">'
+                + '<img src="/' + esc(value) + '" style="max-width:60px;max-height:60px;'
+                + 'object-fit:cover;border:1px solid #ddd;border-radius:3px;" /></a></td>';
+        }
+        if (column.type === 'file') {
+            if (!value) {
+                return '<td>-</td>';
+            }
+            if (record[column.name + '_exists'] === false) {
+                return '<td><span style="color:#dc3545;font-size:11px;"><?= h(__('Missing')) ?></span></td>';
+            }
+            return '<td><a href="/' + esc(value) + '" target="_blank"><?= h(__('Open')) ?></a></td>';
+        }
+        if (value === null || typeof value === 'undefined' || value === '') {
+            return '<td>-</td>';
+        }
+        // A date arrives as an ISO string; only the part anybody reads is kept.
+        if (column.type === 'date' && String(value).length >= 10) {
+            return '<td>' + esc(String(value).substring(0, 10)) + '</td>';
+        }
+        if (column.type === 'datetime' && String(value).length >= 10) {
+            return '<td>' + esc(String(value).substring(0, 19).replace('T', ' ')) + '</td>';
+        }
+        return '<td>' + esc(value) + '</td>';
+    }
+
+    function say(message, colour) {
+        tbody.innerHTML = '<tr><td colspan="100" style="text-align:center;padding:20px;'
+            + (colour ? 'color:' + colour + ';' : '') + '">' + esc(message) + '</td></tr>';
+    }
+
     function performAjaxSearch(page) {
         page = page || 1;
         currentAjaxPage = page;
-        
+
         clearTimeout(filterTimeout);
-        filterTimeout = setTimeout(function() {
-            // Check if ALL filter inputs are empty
-            var allEmpty = true;
-            filterInputs.forEach(function(input) {
-                if (input.value.trim() !== '') {
-                    allEmpty = false;
-                }
-            });
-            
-            console.log('🔍 All inputs empty?', allEmpty);
-            
-            // If all inputs are empty, restore original data
-            if (allEmpty) {
-                console.log('✅ Restoring original data (all filters cleared)');
-                tbody.innerHTML = originalTableContent;
-                var paginationDiv = container.querySelector('.static-pagination');
-                if (paginationDiv) paginationDiv.style.display = 'none';
-                
-                // Update info bar
-                var infoBar = container.querySelector('.filter-info-bar');
-                if (infoBar) {
-                    var totalRecords = tbody.querySelectorAll('tr').length;
-                    infoBar.innerHTML = 'Showing all ' + totalRecords + ' records';
-                }
-                return;
-            
-            // Collect filter values
-            }
+        filterTimeout = setTimeout(function () {
             var filters = {};
             var hasFilters = false;
-            
-            filterInputs.forEach(function(input, index) {
-                var field = input.getAttribute('data-field');
+            filterInputs.forEach(function (input) {
                 var value = input.value.trim();
-                var operator = filterOperators[index] ? filterOperators[index].value : 'contains';
-                
-                // Only add filter if value is not empty
-                // Empty value means "show all records" regardless of operator
-                if (value !== '') {
-                    filters[field] = { value: value, operator: operator };
-                    hasFilters = true;
+                if (value === '') {
+                    return;
                 }
+                var field = input.getAttribute('data-field');
+                var operatorBox = container.querySelector('.filter-operator[data-field="' + field + '"]');
+                filters[field] = {
+                    value: value,
+                    operator: operatorBox ? operatorBox.value : 'contains'
+                };
+                hasFilters = true;
             });
-            
-            currentFilters = filters;
-            
-            console.log('🔍 hasFilters:', hasFilters, 'filters:', filters);
-            
-            // Build query parameters
+
             var params = {
-                apprentice_order_id: foreignValue,
+                filter_field: filterField,
+                filter_value: filterValue,
                 page: page,
                 limit: 50
             };
-            
             if (hasFilters) {
-                params.filters = filters;
-            
-            // Show loading indicator
+                params.filters = JSON.stringify(filters);
             }
-            tbody.innerHTML = '<tr><td colspan="100" style="text-align:center;padding:40px;"><i class="fas fa-spinner fa-spin"></i> <?= __('Searching...') ?></td></tr>';
-            
-            // Hide pagination during load
-            var paginationDiv = container.querySelector('.static-pagination');
-            if (paginationDiv) paginationDiv.style.display = 'none';
-            
-            // Perform AJAX request
-            var queryString = Object.keys(params).map(function(key) {
-                if (key === 'filters') {
-                    return 'filters=' + encodeURIComponent(JSON.stringify(params[key]));
-                }
+
+            var queryString = Object.keys(params).map(function (key) {
                 return key + '=' + encodeURIComponent(params[key]);
             }).join('&');
-            
+
+            say('<?= h(__('Searching...')) ?>');
+            var paginationDiv = container.querySelector('.static-pagination');
+            if (paginationDiv) { paginationDiv.style.display = 'none'; }
+
             fetch(ajaxUrl + '?' + queryString, {
                 method: 'GET',
                 headers: { 'Accept': 'application/json' }
             })
-            .then(function(response) { 
-                if (!response.ok) {
-                    throw new Error('HTTP ' + response.status + ': ' + response.statusText);
-                }
-                return response.text(); // Get as text first
-            })
-            .then(function(text) {
-                console.log('AJAX Response:', text.substring(0, 200)); // Log first 200 chars
+            .then(function (response) { return response.text(); })
+            .then(function (text) {
+                var data;
                 try {
-                    var data = JSON.parse(text);
-                    if (data.success && data.records) {
-                        // Update table with new data
-                        tbody.innerHTML = '';
-                        
-                        if (data.records.length === 0) {
-                            tbody.innerHTML = '<tr><td colspan="100" style="text-align:center;padding:20px;"><?= __('No records found') ?></td></tr>';
-                        } else {
-                            data.records.forEach(function(record) {
-                                var row = '<tr>';
-                                row += '<td>' + (record.id || '-') + '</td>';
-                                row += '<td>' + (record.tmm_code || '-') + '</td>';
-                                row += '<td>' + (record.name || '-') + '</td>';
-                                row += '<td>' + (record.identity_number || '-') + '</td>';
-                                row += '<td>' + (record.birth_date || '-') + '</td>';
-                                
-                                // Image column
-                                if (record.image_photo) {
-                                    row += '<td><img src="/' + record.image_photo + '" style="max-width:60px;max-height:60px;object-fit:cover;border-radius:3px;" /></td>';
-                                } else {
-                                    row += '<td><svg width="60" height="60" viewBox="0 0 60 60" style="border:1px dashed #999;border-radius:3px;"><rect width="60" height="60" fill="#f8f9fa"/><text x="30" y="30" font-size="24" text-anchor="middle" fill="#999">📷</text></svg></td>';
-                                
-                                }
-                                row += '<td><a href="/apprentices/view/' + record.id + '" class="btn btn-xs btn-info">View</a></td>';
-                                row += '</tr>';
-                                tbody.innerHTML += row;
-                            });
-                        
-                        // Update info bar
-                        }
-                        var infoDiv = container.querySelector('.static-info');
-                        if (infoDiv) {
-                            var filterText = hasFilters ? '<strong style="color:#007bff;">Filtered Results:</strong> ' : '<strong><?= __('Total Records:') ?></strong> ';
-                            infoDiv.innerHTML = filterText + data.total + ' records | ' +
-                                              '<strong>Page:</strong> ' + data.page + ' of ' + data.pages + ' | ' +
-                                              '<strong>Showing:</strong> ' + ((data.page - 1) * 50 + 1) + '-' + 
-                                              Math.min(data.page * 50, data.total);
-                        
-                        // Update/create pagination
-                        }
-                        updateAjaxPagination(data.page, data.pages);
-                        
-                    } else {
-                        var errorMsg = data.error || 'Unknown error';
-                        tbody.innerHTML = '<tr><td colspan="100" style="text-align:center;padding:20px;color:red;"><?= h(__('Error:')) ?> ' + errorMsg + '</td></tr>';
-                    }
-                } catch(parseError) {
-                    console.error('JSON Parse Error:', parseError);
-                    console.error('Response was:', text);
-                    tbody.innerHTML = '<tr><td colspan="100" style="text-align:center;padding:20px;color:red;"><?= h(__('Invalid JSON response. Check console for details.')) ?></td></tr>';
+                    data = JSON.parse(text);
+                } catch (parseError) {
+                    // A refusal does not arrive as an error status. The
+                    // permission check redirects, so the answer is a whole HTML
+                    // page with a 200 on it and only the parse fails. Saying
+                    // "invalid response" to that sends the reader looking for a
+                    // fault that is not there.
+                    var refused = text.slice(0, 200).indexOf('<') === 0;
+                    say(refused
+                        ? '<?= h(__('You are not allowed to read these records.')) ?>'
+                        : '<?= h(__('The list could not be read.')) ?>', '#dc3545');
+                    return;
                 }
+
+                if (!data.success) {
+                    say(data.error || '<?= h(__('The list could not be read.')) ?>', '#dc3545');
+                    return;
+                }
+
+                var records = data.records || [];
+                var pagination = data.pagination || { page: page, pages: 1, total: records.length, limit: 50 };
+
+                if (records.length === 0) {
+                    say('<?= h(__('No records found')) ?>');
+                } else {
+                    var html = '';
+                    records.forEach(function (record) {
+                        html += '<tr>';
+                        columns.forEach(function (column) {
+                            html += cellFor(record, column);
+                        });
+                        html += '<td><a href="/' + esc(viewController.replace(/([a-z0-9])([A-Z])/g, '$1-$2').toLowerCase())
+                            + '/view/' + esc(record.id) + '" class="btn btn-xs btn-info"><?= h(__('View')) ?></a></td>';
+                        html += '</tr>';
+                    });
+                    tbody.innerHTML = html;
+                }
+
+                if (data.refused && data.refused.length) {
+                    console.warn('Ignored filter column(s) this table does not have:', data.refused);
+                }
+
+                var infoDiv = container.querySelector('.static-info');
+                if (infoDiv) {
+                    var shown = pagination.total === 0 ? 0 : ((pagination.page - 1) * pagination.limit + 1);
+                    infoDiv.innerHTML = (hasFilters
+                            ? '<strong style="color:#007bff;"><?= h(__('Filtered Results:')) ?></strong> '
+                            : '<strong><?= h(__('Total Records:')) ?></strong> ')
+                        + pagination.total + ' | <strong><?= h(__('Page:')) ?></strong> '
+                        + pagination.page + ' / ' + Math.max(1, pagination.pages)
+                        + ' | <strong><?= h(__('Showing:')) ?></strong> ' + shown + '-'
+                        + Math.min(pagination.page * pagination.limit, pagination.total);
+                }
+
+                updateAjaxPagination(pagination.page, Math.max(1, pagination.pages));
             })
-            .catch(function(error) {
-                console.error('Ajax error:', error);
-                tbody.innerHTML = '<tr><td colspan="100" style="text-align:center;padding:20px;color:red;"><?= h(__('Error:')) ?> ' + error.message + '</td></tr>';
+            .catch(function (error) {
+                console.error('Related records request failed:', error);
+                say('<?= h(__('The list could not be read.')) ?>', '#dc3545');
             });
-            
-        }, 500); // 500ms debounce for server requests
-    
+        }, 300);
     }
+
     function updateAjaxPagination(currentPage, totalPages) {
         var existingPagination = container.querySelector('.static-pagination');
-        
         if (totalPages <= 1) {
-            if (existingPagination) existingPagination.style.display = 'none';
+            if (existingPagination) { existingPagination.style.display = 'none'; }
             return;
-        
         }
-        var paginationHTML = '<div class="static-pagination">' +
-            '<div>' +
-            '<button onclick="performAjaxSearch_' + '<?= h($tabId) ?>' + '(1)" ' + (currentPage === 1 ? 'disabled' : '') + '>First</button>' +
-            '<button onclick="performAjaxSearch_' + '<?= h($tabId) ?>' + '(' + (currentPage - 1) + ')" ' + (currentPage === 1 ? 'disabled' : '') + '>Previous</button>' +
-            '</div>' +
-            '<div>Page ' + currentPage + ' of ' + totalPages + '</div>' +
-            '<div>' +
-            '<button onclick="performAjaxSearch_' + '<?= h($tabId) ?>' + '(' + (currentPage + 1) + ')" ' + (currentPage >= totalPages ? 'disabled' : '') + '>Next</button>' +
-            '<button onclick="performAjaxSearch_' + '<?= h($tabId) ?>' + '(' + totalPages + ')" ' + (currentPage >= totalPages ? 'disabled' : '') + '>Last</button>' +
-            '</div>' +
-            '</div>';
-        
+        var call = "performAjaxSearch_<?= h($tabId) ?>";
+        var paginationHTML = '<div class="static-pagination"><div>'
+            + '<button onclick="' + call + '(1)" ' + (currentPage === 1 ? 'disabled' : '') + '><?= h(__('First')) ?></button>'
+            + '<button onclick="' + call + '(' + (currentPage - 1) + ')" ' + (currentPage === 1 ? 'disabled' : '') + '><?= h(__('Previous')) ?></button>'
+            + '</div><div><?= h(__('Page')) ?> ' + currentPage + ' / ' + totalPages + '</div><div>'
+            + '<button onclick="' + call + '(' + (currentPage + 1) + ')" ' + (currentPage >= totalPages ? 'disabled' : '') + '><?= h(__('Next')) ?></button>'
+            + '<button onclick="' + call + '(' + totalPages + ')" ' + (currentPage >= totalPages ? 'disabled' : '') + '><?= h(__('Last')) ?></button>'
+            + '</div></div>';
+
         if (existingPagination) {
             existingPagination.outerHTML = paginationHTML;
-        } else {
-            var tableWrapper = container.querySelector('.static-table-wrapper');
-            if (tableWrapper) {
-                tableWrapper.insertAdjacentHTML('afterend', paginationHTML);
-    
-    // Make function globally accessible for pagination buttons
-            }
+            existingPagination = container.querySelector('.static-pagination');
+            if (existingPagination) { existingPagination.style.display = ''; }
+            return;
+        }
+        var tableWrapper = container.querySelector('.static-table-wrapper');
+        if (tableWrapper) {
+            tableWrapper.insertAdjacentHTML('afterend', paginationHTML);
         }
     }
-    window['performAjaxSearch_' + '<?= h($tabId) ?>'] = performAjaxSearch;
-    
-    // Attach AJAX event listeners
-    filterInputs.forEach(function(input) {
-        input.addEventListener('keyup', function() { performAjaxSearch(1); });
-        input.addEventListener('paste', function() { performAjaxSearch(1); });
+
+    window['performAjaxSearch_<?= h($tabId) ?>'] = performAjaxSearch;
+
+    filterInputs.forEach(function (input) {
+        input.addEventListener('keyup', function () { performAjaxSearch(1); });
+        input.addEventListener('paste', function () { performAjaxSearch(1); });
     });
-    
-    filterOperators.forEach(function(select) {
-        select.addEventListener('change', function() { performAjaxSearch(1); });
+    filterOperators.forEach(function (select) {
+        select.addEventListener('change', function () { performAjaxSearch(1); });
     });
-    
-    console.log('✅ Server-side AJAX search with pagination initialized for <?= h($tabId) ?>');
-    
+
+    // Eight of the nine pages pass no records at all, so the table they render
+    // is empty before anybody types anything. The first page is fetched on
+    // load, which is what makes the tab show its rows.
+    if (tbody.querySelectorAll('tr').length === 0) {
+        performAjaxSearch(1);
+    }
     <?php else: ?>
     // CLIENT-SIDE FILTERING (fallback if no AJAX URL provided)
     var allRows = Array.from(tbody.querySelectorAll('tr'));

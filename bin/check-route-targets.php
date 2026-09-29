@@ -244,20 +244,24 @@ foreach ($files as $path) {
             continue;
         }
 
-        // The action belonging to this same array, by the same nearest-wins
-        // rule. A link whose action is computed gives no literal to match and
-        // is simply not checked; the controller still is.
+        // The action, taken from this line only.
+        //
+        // The window the prefix uses is wrong for this. A view that passes an
+        // element several keys can carry 'controller' => 'Apprentices' on one
+        // line and, five lines down inside the same array,
+        // 'ajaxSearchUrl' => ['controller' => 'ApprenticeOrders', 'action' =>
+        // 'searchApprentices'] - two different links, no bracket between them.
+        // The window read the second action as belonging to the first
+        // controller and reported a link that is correct. That is the mistake
+        // the prefix window was already narrowed once to avoid, and a checker
+        // that cries wolf spends the reader's trust on nothing.
+        //
+        // On one line the pair is unambiguous, and ['controller' => 'X',
+        // 'action' => 'y'] on one line is how nearly every link here is
+        // written. A link split across lines is simply not action-checked; its
+        // controller still is.
         $action = null;
-        $nearest = null;
-        foreach ($lookAt as $i) {
-            if (!preg_match("/'action'\s*=>\s*'([a-zA-Z_][A-Za-z0-9_]*)'/", $lines[$i], $am)) {
-                continue;
-            }
-            $distance = abs($i - $n) * 2 + ($i > $n ? 1 : 0);
-            if ($nearest !== null && $distance >= $nearest) {
-                continue;
-            }
-            $nearest = $distance;
+        if (preg_match("/'action'\s*=>\s*'([a-zA-Z_][A-Za-z0-9_]*)'/", $line, $am)) {
             $action = $am[1];
         }
 

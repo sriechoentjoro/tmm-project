@@ -55,6 +55,11 @@ use ImageResize\ImageResize;
 class AppController extends Controller
 {
     use ExportTrait;
+    // Every controller answers getRelated(), because the related-records tabs
+    // on a detail page ask whichever controller owns the rows they list. It
+    // used to be copied into nine of them and missing from the seventeen the
+    // tabs actually named. See RelatedRecordsTrait.
+    use RelatedRecordsTrait;
 
     // NOTE: do not declare a public $layout property here. CakePHP's
     // createView() copies it into the ViewBuilder after the action runs,
@@ -193,6 +198,19 @@ class AppController extends Controller
         // does not have access" - and it did so after opening a new tab, which
         // looked like the page was broken rather than forbidden.
         if ($action === 'processFlow') {
+            return true;
+        }
+
+        // The related-records tabs on a detail page read their rows through
+        // getRelated. granted_actions = '*' expands to [menu action, index,
+        // view], so getRelated is in it only by accident and the tabs would be
+        // empty for every role but administrator.
+        //
+        // It is granted exactly where view is granted on the same controller,
+        // which makes it no more reachable than that module's own detail page:
+        // a role that may read these records may read them in a tab. It is
+        // never granted on its own.
+        if ($action === 'getRelated' && $this->hasPermission($controller, 'view')) {
             return true;
         }
         

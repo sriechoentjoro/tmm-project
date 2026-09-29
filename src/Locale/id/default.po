@@ -18745,3 +18745,39 @@ msgstr "Masukkan Kode Provinsi"
 
 msgid "Add MCU Result"
 msgstr "Tambah Hasil MCU"
+
+msgid "No Image"
+msgstr "Tidak Ada Gambar"
+
+msgid "Missing"
+msgstr "Hilang"
+
+msgid "You are not allowed to read these records."
+msgstr "Anda tidak diizinkan membaca catatan ini."
+
+msgid "The list could not be read."
+msgstr "Daftarnya tidak dapat dibaca."
+
+msgid "Filtered Results:"
+msgstr "Hasil Tersaring:"
+
+msgid "Page:"
+msgstr "Halaman:"
+
+msgid "Showing:"
+msgstr "Menampilkan:"
+
+msgid "First"
+msgstr "Pertama"
+
+msgid "Previous"
+msgstr "Sebelumnya"
+
+msgid "Page"
+msgstr "Halaman"
+
+msgid "Next"
+msgstr "Berikutnya"
+
+msgid "Last"
+msgstr "Terakhir"

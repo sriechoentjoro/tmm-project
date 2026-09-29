@@ -29,23 +29,24 @@ if any harness failed.
 ## What each harness needs
 
 Most of them only read the application's own source, and run anywhere PHP does.
-Ten stand the ORM up on a temporary SQLite file instead of touching a real
+Eleven stand the ORM up on a temporary SQLite file instead of touching a real
 database, and need **pdo_sqlite**:
 
 ```
 candidate_record_buttons  export_columns  index_filters  region_lists
 render_add_payment  render_address_forms  render_currency_notes
-render_edit_identity  shell_backfill_lpk  shell_installment_chain
+related_records  render_edit_identity  shell_backfill_lpk
+shell_installment_chain
 ```
 
-The demo server's PHP does not have it, so those ten report
+The demo server's PHP does not have it, so those eleven report
 
 ```
   skipped: needs the pdo_sqlite extension, which this PHP does not have.
            On Debian or Ubuntu: apt install php7.4-sqlite3
 ```
 
-and `run.php` counts them apart from both passes and failures — `26 harness(es),
+and `run.php` counts them apart from both passes and failures — `27 harness(es),
 16 ran` rather than a number that claims more was checked than was. Installing
 the package is the whole of the fix; nothing in the application needs it, only
 these tests.
@@ -81,6 +82,7 @@ A skip is not a pass, so the summary line says `nothing failed` rather than
 | `shell_column_adders.php` | The five column-adding shells, held to what none of them may do: never drop, never modify, nothing without `--apply`, and say so when there is nothing to do. |
 | `shell_moves_and_creates.php` | The share table's creation skipping the canonical database rather than the connection name, and the template move refusing to overwrite a live template or to write anywhere but the copy the application reads. |
 | `render_address_forms.php` | The address controls on the forms bake stamped them onto: one card, one control per region column, the options the controller really sets, and an id the cascade script binds to. |
+| `related_records.php` | The rows behind a related-records tab: that every controller answers for its own table, that a column name out of the query string has to be a column before it reaches a query, and that the element sends and reads what the endpoint sends and reads. |
 | `render_edit_identity.php` | The hidden id an edit form carries: written for a saved record, absent for a blank one, never able to move a primary key, and present on every form that replaces an uploaded file. |
 | `shell_backfill_lpk.php` | Marking the LPKs that finished registering but were never recorded as having: where the date comes from, the earliest activation winning, and every value a date column here turns out to hold. |
 

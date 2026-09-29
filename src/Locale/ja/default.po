@@ -18745,3 +18745,39 @@ msgstr "州コードを入力"
 
 msgid "Add MCU Result"
 msgstr "健康診断結果を追加"
+
+msgid "No Image"
+msgstr "画像なし"
+
+msgid "Missing"
+msgstr "見つかりません"
+
+msgid "You are not allowed to read these records."
+msgstr "これらの記録を閲覧する権限がありません。"
+
+msgid "The list could not be read."
+msgstr "一覧を読み込めませんでした。"
+
+msgid "Filtered Results:"
+msgstr "絞り込み結果:"
+
+msgid "Page:"
+msgstr "ページ:"
+
+msgid "Showing:"
+msgstr "表示中:"
+
+msgid "First"
+msgstr "最初"
+
+msgid "Previous"
+msgstr "前へ"
+
+msgid "Page"
+msgstr "ページ"
+
+msgid "Next"
+msgstr "次へ"
+
+msgid "Last"
+msgstr "最後"
