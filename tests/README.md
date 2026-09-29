@@ -47,6 +47,10 @@ exits 1 if any harness failed.
 | `shell_installment_chain.php` | The running figures rebuilt from the payments: a deleted payment, an overpayment, a trainee with no payments, running it twice, and never touching what was paid. |
 | `shell_set_aside.php` | What stands between a duplicate table and a rename — what counts as "something still names this table", where three faults were found while it was written. |
 | `shell_compare_duplicate.php` | The comparison that decides which copy is live, and the partial view that once made a real promotion read as an empty row. |
+| `shell_backfill_trail.php` | Copying an old promotion into the decision trail — and every case it refuses rather than guessing a date, a sequence or a subject. |
+| `shell_mcu_fitness.php` | Reading a medical result as pass or fail: the negative winning over a word it contains, a title it cannot read staying unread, and a person's own correction surviving. |
+| `shell_column_adders.php` | The five column-adding shells, held to what none of them may do: never drop, never modify, nothing without `--apply`, and say so when there is nothing to do. |
+| `shell_moves_and_creates.php` | The share table's creation skipping the canonical database rather than the connection name, and the template move refusing to overwrite a live template or to write anywhere but the copy the application reads. |
 
 ## What `TestCase/` and `Fixture/` are
 
@@ -111,10 +115,20 @@ against a small tree of files the harness writes. Where the dangerous half is a
 single statement — the rename — the harness reads the source and holds it to
 what it must never do, rather than renaming something to find out.
 
-## What is not here yet
+## What a shell harness can and cannot reach
 
-The remaining shells: the backfills (`BackfillPromotionTrailShell`,
-`BackfillLpkRegistrationShell`), the share creator, the email-template move, the
-MCU fitness mark, and the column-adding shells. Each writes data. The three that
-are covered were chosen because a mistake in them is irreversible or invisible;
-the rest are only unwatched.
+Where the judgement is a method, it is called: `rebuildChain()` against rows in
+SQLite, `readTitle()` against the words people actually type, `lineFor()` against
+an old promotion record, the set-aside's file scan against a tree the harness
+writes.
+
+Where the dangerous half is one statement — a `RENAME`, a `CREATE`, an `ALTER` —
+the harness reads the source and holds it to what it must never do, rather than
+renaming something to find out. That is weaker, and it is said plainly here
+rather than dressed up: it catches a shell that grows a `DROP`, or loses its
+`--apply` guard, or stops naming what it will change. It would not catch a
+`RENAME` with the wrong table in it.
+
+`BackfillLpkRegistrationShell` is the one shell still uncovered. It reads
+activation times out of several places and writes `is_registered` and
+`registered_at`; the reading is worth a harness and does not have one.
