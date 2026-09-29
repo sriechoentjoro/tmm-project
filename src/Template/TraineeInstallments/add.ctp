@@ -13,6 +13,17 @@
  * @var int $bookCurrencyId
  */
 $this->assign('title', 'Add Installment Payment');
+
+/**
+ * What was typed, where anything was.
+ *
+ * add() fills both keys on every path, so this defends against nothing it does
+ * today. It defends against the next action to render this template: reading
+ * $submitted['payment_amount'] when the key is absent emits a notice, and with
+ * debug off on the server the page renders anyway with an empty box - so the
+ * only sign would be a line in a log nobody reads.
+ */
+$submitted = (array)($submitted ?? []) + ['payment_amount' => '', 'payment_date' => ''];
 ?>
 
 <div class="installment-form-page">

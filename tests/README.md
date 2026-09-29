@@ -41,6 +41,9 @@ exits 1 if any harness failed.
 | `render_filter_notice.php` | The banner that says a list has been narrowed, in each of its four states, including the one where it must print nothing. |
 | `render_export_print.php` | The print view of an export: dates written the way the CSV writes them, a wide table, an empty list, and the template working no value out for itself. |
 | `render_stakeholder_dashboard.php` | The dashboard's waiting panels: the expired link that needs sending again, an earned all-clear, and the two states it cannot establish. |
+| `render_add_payment.php` | The add-payment screen and the warning that stops a payment being recorded twice — that it names the payment already on file, links to it, and still offers to record anyway. |
+| `render_currency_notes.php` | Where a total says which currency it is written in and how many rows are not, and where a source record is held back rather than posted into books that cannot mean it. |
+| `render_financial_report.php` | The income statement and the balance sheet: the period in force, dates the wrong way round, the one date a balance sheet takes, and what was left out of the figures. |
 
 ## What `TestCase/` and `Fixture/` are
 
@@ -95,7 +98,7 @@ return the html to make claims about.
 
 ## What is not here yet
 
-Renders of the add-payment screen, the currency notices and the financial
-report — three screens whose earlier harnesses were lost with the scratch files.
-The code they guarded is committed and was verified at the time; the harnesses
-are not back.
+The shells (`src/Shell/`) have no harness: the installment chain rebuild, the
+duplicate-table comparer, the set-aside, the backfills. They were each verified
+when written, several of them caught real faults in themselves, and none of that
+is repeatable today. They are the largest gap left.
