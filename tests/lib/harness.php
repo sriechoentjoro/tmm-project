@@ -160,6 +160,119 @@ function giveRequest($controller, $queryString, array $params = [])
 }
 
 /**
+ * Render a template or an element the way a request would, and collect every
+ * warning the application's own code emits while doing it.
+ *
+ * The point is the error handler. A template that reads an array key that is
+ * not there, or calls a method on null, renders anyway: PHP emits a notice,
+ * the page comes out with a gap in it, and on a production server with debug
+ * off nobody sees either. So a render that produces a warning from a file
+ * under src/ or config/ is a failure here, and the warning is quoted.
+ *
+ * Warnings from vendor/ are ignored. This application runs CakePHP 3.9 on
+ * whatever PHP the machine has, and a newer PHP deprecates things inside the
+ * framework that are none of the template's business.
+ *
+ * @param string $what Template name, or element name when $isElement.
+ * @param array $vars View variables.
+ * @param array $options controller, templatePath, isElement, url, params.
+ * @return array [html, problems] - problems is a list of strings.
+ */
+function renderView($what, array $vars, array $options = [])
+{
+    $options += [
+        'controller' => 'Pages',
+        'templatePath' => null,
+        'isElement' => false,
+        'url' => '/',
+        'params' => [],
+    ];
+
+    Cake\Core\Configure::write('App.base', false);
+    Cake\Core\Configure::write('App.dir', 'src');
+    Cake\Core\Configure::write('App.webroot', 'webroot');
+    Cake\Core\Configure::write('App.wwwRoot', TMM_ROOT . '/webroot');
+    Cake\Core\Configure::write('App.fullBaseUrl', 'http://localhost');
+    Cake\Core\Configure::write('App.imageBaseUrl', 'img/');
+    Cake\Core\Configure::write('App.cssBaseUrl', 'css/');
+    Cake\Core\Configure::write('App.jsBaseUrl', 'js/');
+    Cake\Core\Configure::write('debug', true);
+
+    $request = new Cake\Http\ServerRequest([
+        'url' => $options['url'],
+        'webroot' => '/',
+        'query' => isset($options['query']) ? $options['query'] : [],
+        'params' => $options['params'] + ['plugin' => null,
+            'controller' => $options['controller'], 'action' => 'index',
+            'pass' => [], '_ext' => null],
+    ]);
+
+    Cake\Routing\Router::reload();
+    Cake\Routing\Router::setRequestInfo($request);
+    Cake\Routing\Router::prefix('admin', function ($routes) {
+        $routes->connect('/:controller/:action/*', [],
+            ['routeClass' => 'Cake\Routing\Route\DashedRoute']);
+    });
+    Cake\Routing\Router::connect('/:controller/:action/*', [],
+        ['routeClass' => 'Cake\Routing\Route\DashedRoute']);
+
+    $viewOptions = ['name' => $options['controller']];
+    if ($options['templatePath'] !== null) {
+        $viewOptions['templatePath'] = $options['templatePath'];
+    }
+    $view = new Cake\View\View($request, null, null, $viewOptions);
+    $view->set($vars);
+
+    $problems = [];
+    set_error_handler(function ($no, $message, $file, $line) use (&$problems) {
+        if (strpos($file, '/vendor/') === false) {
+            $problems[] = $message . '  (' . str_replace(TMM_ROOT . '/', '', $file)
+                . ':' . $line . ')';
+        }
+
+        return true;
+    });
+    try {
+        $html = $options['isElement']
+            ? $view->element($what, $vars)
+            : $view->render($what, false);
+    } catch (\Throwable $e) {
+        $problems[] = get_class($e) . ': ' . $e->getMessage();
+        $html = '';
+    }
+    restore_error_handler();
+
+    return [$html, array_values(array_unique($problems))];
+}
+
+/**
+ * Render something and fail the check when the application warned.
+ *
+ * @param string $label What is being rendered, for the check line.
+ * @param string $what Template or element name.
+ * @param array $vars View variables.
+ * @param array $options As renderView().
+ * @return string The html, or '' when it did not render.
+ */
+function renderClean($label, $what, array $vars, array $options = [])
+{
+    list($html, $problems) = renderView($what, $vars, $options);
+    if ($problems) {
+        $GLOBALS['tmm_checks']++;
+        $GLOBALS['tmm_failures']++;
+        printf("  %-62s FAIL\n", $label);
+        foreach ($problems as $problem) {
+            echo '      ', $problem, "\n";
+        }
+
+        return '';
+    }
+    check($label . sprintf(' (%d bytes)', strlen($html)), $problems, []);
+
+    return $html;
+}
+
+/**
  * Print the count and leave with an exit code the runner can read.
  *
  * @param string|null $tidy A file to remove on the way out.

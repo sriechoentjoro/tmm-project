@@ -37,6 +37,10 @@ exits 1 if any harness failed.
 | `datasource_guard.php` | The credential check at boot, including the empty password that used to boot the application and then fail on the first query. |
 | `check_config.php` | What `bin/check-config.php` reports in each state the server has actually been in — and that it never prints a secret. |
 | `browser/table_filter.js` | The filter row driven in Chromium: what it asks the server for, what it puts back in the boxes, and the fallback for a screen that does not paginate. |
+| `render_guides.php` | Every page guide rendered, and one read closely so the renderer is known to put the data on the page rather than merely not fall over. |
+| `render_filter_notice.php` | The banner that says a list has been narrowed, in each of its four states, including the one where it must print nothing. |
+| `render_export_print.php` | The print view of an export: dates written the way the CSV writes them, a wide table, an empty list, and the template working no value out for itself. |
+| `render_stakeholder_dashboard.php` | The dashboard's waiting panels: the expired link that needs sending again, an earned all-clear, and the two states it cannot establish. |
 
 ## What `TestCase/` and `Fixture/` are
 
@@ -73,9 +77,25 @@ npm install -g playwright
 npx playwright install chromium
 ```
 
+## The render harnesses
+
+The four `render_*` files stand a `Cake\View\View` up on its own and render a
+template or an element with an error handler attached. The point is that handler:
+a template that reads a key which is not there renders anyway — PHP emits a
+notice, the page comes out with a gap in it, and with debug off on the server
+nobody sees either. So a render that warns from a file under `src/` or `config/`
+is a failure, and the warning is quoted.
+
+Warnings from `vendor/` are ignored on purpose. This application is CakePHP 3.9
+on whatever PHP the machine has, and a newer PHP deprecates things inside the
+framework that are none of a template's business.
+
+`renderClean()` in the library does the whole of it: render, fail on a warning,
+return the html to make claims about.
+
 ## What is not here yet
 
-The render harnesses — standalone `Cake\View\View` renders of the page guides,
-the filter notice and the print export, each with an error handler that fails on
-a warning from application code. They were lost with the scratch files and are
-worth rebuilding.
+Renders of the add-payment screen, the currency notices and the financial
+report — three screens whose earlier harnesses were lost with the scratch files.
+The code they guarded is committed and was verified at the time; the harnesses
+are not back.
