@@ -4160,98 +4160,106 @@ document.addEventListener('DOMContentLoaded', function() {
             <div class="tab-pane fade active show" id="apprenticecertifications-pane" role="tabpanel" 
                  aria-labelledby="apprenticecertifications-tab" tabindex="0">
                 <?= $this->element('related_records_table_static', [
-                    'tabId' => 'apprenticecertifications',
-                    'title' => __('ApprenticeCertifications'),
-                    'filterField' => 'apprentices_id',
-                    'filterValue' => $apprentice->id,
-                    'ajaxUrl' => $this->Url->build(['controller' => 'ApprenticeCertifications', 'action' => 'getRelated']),
-                    'controller' => 'ApprenticeCertifications',
-                    'columns' => [
-                        ['name' => 'id', 'label' => 'ID', 'type' => 'number', 'sortable' => true],
-                        ['name' => 'name', 'label' => 'Name', 'type' => 'text', 'sortable' => true],
-                        ['name' => 'created', 'label' => 'Created', 'type' => 'datetime', 'sortable' => true]
-                    ]
-                ]) ?>
+                        'tabId' => 'apprenticecertifications',
+                        'title' => __('ApprenticeCertifications'),
+                        'filterField' => 'apprentice_id',
+                        'filterValue' => $apprentice->id,
+                        'ajaxUrl' => $this->Url->build(['controller' => 'ApprenticeCertifications', 'action' => 'getRelated']),
+                        'controller' => 'ApprenticeCertifications',
+                        'columns' => [
+                            ['name' => 'id', 'label' => 'ID', 'type' => 'number', 'sortable' => true],
+                            ['name' => 'title', 'label' => 'Certificate', 'type' => 'text', 'sortable' => true],
+                            ['name' => 'institution_name', 'label' => 'Institution', 'type' => 'text', 'sortable' => true],
+                            ['name' => 'certification_date', 'label' => 'Date', 'type' => 'date', 'sortable' => true]
+                        ]
+                    ]) ?>
             </div>
             <div class="tab-pane fade  " id="apprenticecourses-pane" role="tabpanel" 
                  aria-labelledby="apprenticecourses-tab" tabindex="0">
                 <?= $this->element('related_records_table_static', [
-                    'tabId' => 'apprenticecourses',
-                    'title' => __('ApprenticeCourses'),
-                    'filterField' => 'apprentices_id',
-                    'filterValue' => $apprentice->id,
-                    'ajaxUrl' => $this->Url->build(['controller' => 'ApprenticeCourses', 'action' => 'getRelated']),
-                    'controller' => 'ApprenticeCourses',
-                    'columns' => [
-                        ['name' => 'id', 'label' => 'ID', 'type' => 'number', 'sortable' => true],
-                        ['name' => 'name', 'label' => 'Name', 'type' => 'text', 'sortable' => true],
-                        ['name' => 'created', 'label' => 'Created', 'type' => 'datetime', 'sortable' => true]
-                    ]
-                ]) ?>
+                        'tabId' => 'apprenticecourses',
+                        'title' => __('ApprenticeCourses'),
+                        'filterField' => 'apprentice_id',
+                        'filterValue' => $apprentice->id,
+                        'ajaxUrl' => $this->Url->build(['controller' => 'ApprenticeCourses', 'action' => 'getRelated']),
+                        'controller' => 'ApprenticeCourses',
+                        'columns' => [
+                            ['name' => 'id', 'label' => 'ID', 'type' => 'number', 'sortable' => true],
+                            ['name' => 'title', 'label' => 'Course', 'type' => 'text', 'sortable' => true],
+                            ['name' => 'course_year', 'label' => 'Year', 'type' => 'number', 'sortable' => true],
+                            ['name' => 'detail', 'label' => 'Detail', 'type' => 'text', 'sortable' => true]
+                        ]
+                    ]) ?>
             </div>
             <div class="tab-pane fade  " id="apprenticeeducations-pane" role="tabpanel" 
                  aria-labelledby="apprenticeeducations-tab" tabindex="0">
                 <?= $this->element('related_records_table_static', [
-                    'tabId' => 'apprenticeeducations',
-                    'title' => __('ApprenticeEducations'),
-                    'filterField' => 'apprentices_id',
-                    'filterValue' => $apprentice->id,
-                    'ajaxUrl' => $this->Url->build(['controller' => 'ApprenticeEducations', 'action' => 'getRelated']),
-                    'controller' => 'ApprenticeEducations',
-                    'columns' => [
-                        ['name' => 'id', 'label' => 'ID', 'type' => 'number', 'sortable' => true],
-                        ['name' => 'name', 'label' => 'Name', 'type' => 'text', 'sortable' => true],
-                        ['name' => 'created', 'label' => 'Created', 'type' => 'datetime', 'sortable' => true]
-                    ]
-                ]) ?>
+                        'tabId' => 'apprenticeeducations',
+                        'title' => __('ApprenticeEducations'),
+                        'filterField' => 'apprentice_id',
+                        'filterValue' => $apprentice->id,
+                        'ajaxUrl' => $this->Url->build(['controller' => 'ApprenticeEducations', 'action' => 'getRelated']),
+                        'controller' => 'ApprenticeEducations',
+                        'columns' => [
+                            ['name' => 'id', 'label' => 'ID', 'type' => 'number', 'sortable' => true],
+                            ['name' => 'college_name', 'label' => 'School', 'type' => 'text', 'sortable' => true],
+                            ['name' => 'college_major', 'label' => 'Major', 'type' => 'text', 'sortable' => true],
+                            ['name' => 'college_graduate_date', 'label' => 'Graduated', 'type' => 'date', 'sortable' => true]
+                        ]
+                    ]) ?>
             </div>
             <div class="tab-pane fade  " id="apprenticeexperiences-pane" role="tabpanel" 
                  aria-labelledby="apprenticeexperiences-tab" tabindex="0">
                 <?= $this->element('related_records_table_static', [
-                    'tabId' => 'apprenticeexperiences',
-                    'title' => __('ApprenticeExperiences'),
-                    'filterField' => 'apprentices_id',
-                    'filterValue' => $apprentice->id,
-                    'ajaxUrl' => $this->Url->build(['controller' => 'ApprenticeExperiences', 'action' => 'getRelated']),
-                    'controller' => 'ApprenticeExperiences',
-                    'columns' => [
-                        ['name' => 'id', 'label' => 'ID', 'type' => 'number', 'sortable' => true],
-                        ['name' => 'name', 'label' => 'Name', 'type' => 'text', 'sortable' => true],
-                        ['name' => 'created', 'label' => 'Created', 'type' => 'datetime', 'sortable' => true]
-                    ]
-                ]) ?>
+                        'tabId' => 'apprenticeexperiences',
+                        'title' => __('ApprenticeExperiences'),
+                        'filterField' => 'apprentice_id',
+                        'filterValue' => $apprentice->id,
+                        'ajaxUrl' => $this->Url->build(['controller' => 'ApprenticeExperiences', 'action' => 'getRelated']),
+                        'controller' => 'ApprenticeExperiences',
+                        'columns' => [
+                            ['name' => 'id', 'label' => 'ID', 'type' => 'number', 'sortable' => true],
+                            ['name' => 'company_name', 'label' => 'Company', 'type' => 'text', 'sortable' => true],
+                            ['name' => 'title', 'label' => 'Position', 'type' => 'text', 'sortable' => true],
+                            ['name' => 'employment_start_year', 'label' => 'From', 'type' => 'number', 'sortable' => true],
+                            ['name' => 'employment_end_year', 'label' => 'To', 'type' => 'number', 'sortable' => true]
+                        ]
+                    ]) ?>
             </div>
             <div class="tab-pane fade  " id="apprenticefamilies-pane" role="tabpanel" 
                  aria-labelledby="apprenticefamilies-tab" tabindex="0">
                 <?= $this->element('related_records_table_static', [
-                    'tabId' => 'apprenticefamilies',
-                    'title' => __('ApprenticeFamilies'),
-                    'filterField' => 'apprentices_id',
-                    'filterValue' => $apprentice->id,
-                    'ajaxUrl' => $this->Url->build(['controller' => 'ApprenticeFamilies', 'action' => 'getRelated']),
-                    'controller' => 'ApprenticeFamilies',
-                    'columns' => [
-                        ['name' => 'id', 'label' => 'ID', 'type' => 'number', 'sortable' => true],
-                        ['name' => 'name', 'label' => 'Name', 'type' => 'text', 'sortable' => true],
-                        ['name' => 'created', 'label' => 'Created', 'type' => 'datetime', 'sortable' => true]
-                    ]
-                ]) ?>
+                        'tabId' => 'apprenticefamilies',
+                        'title' => __('ApprenticeFamilies'),
+                        'filterField' => 'apprentice_id',
+                        'filterValue' => $apprentice->id,
+                        'ajaxUrl' => $this->Url->build(['controller' => 'ApprenticeFamilies', 'action' => 'getRelated']),
+                        'controller' => 'ApprenticeFamilies',
+                        'columns' => [
+                            ['name' => 'id', 'label' => 'ID', 'type' => 'number', 'sortable' => true],
+                            ['name' => 'name', 'label' => 'Name', 'type' => 'text', 'sortable' => true],
+                            ['name' => 'age', 'label' => 'Age', 'type' => 'number', 'sortable' => true],
+                            ['name' => 'detail', 'label' => 'Detail', 'type' => 'text', 'sortable' => true]
+                        ]
+                    ]) ?>
             </div>
             <div class="tab-pane fade  " id="apprenticefamilystories-pane" role="tabpanel" 
                  aria-labelledby="apprenticefamilystories-tab" tabindex="0">
                 <?= $this->element('related_records_table_static', [
-                    'tabId' => 'apprenticefamilystories',
-                    'title' => __('ApprenticeFamilyStories'),
-                    'filterField' => 'apprentices_id',
-                    'filterValue' => $apprentice->id,
-                    'ajaxUrl' => $this->Url->build(['controller' => 'ApprenticeFamilyStories', 'action' => 'getRelated']),
-                    'controller' => 'ApprenticeFamilyStories',
-                    'columns' => [
-                        ['name' => 'id', 'label' => 'ID', 'type' => 'number', 'sortable' => true],
-                        ['name' => 'name', 'label' => 'Name', 'type' => 'text', 'sortable' => true],
-                        ['name' => 'created', 'label' => 'Created', 'type' => 'datetime', 'sortable' => true]
-                    ]
-                ]) ?>
+                        'tabId' => 'apprenticefamilystories',
+                        'title' => __('ApprenticeFamilyStories'),
+                        'filterField' => 'apprentice_id',
+                        'filterValue' => $apprentice->id,
+                        'ajaxUrl' => $this->Url->build(['controller' => 'ApprenticeFamilyStories', 'action' => 'getRelated']),
+                        'controller' => 'ApprenticeFamilyStories',
+                        'columns' => [
+                            ['name' => 'id', 'label' => 'ID', 'type' => 'number', 'sortable' => true],
+                            ['name' => 'title', 'label' => 'Title', 'type' => 'text', 'sortable' => true],
+                            ['name' => 'date_occurrence', 'label' => 'Date', 'type' => 'date', 'sortable' => true],
+                            ['name' => 'problem_classification', 'label' => 'Classification', 'type' => 'text', 'sortable' => true],
+                            ['name' => 'image_path', 'label' => 'Image', 'type' => 'image', 'sortable' => true]
+                        ]
+                    ]) ?>
             </div>
         </div>
     </div>

@@ -1517,18 +1517,20 @@ document.addEventListener('DOMContentLoaded', function() {
             <div class="tab-pane fade active show" id="vocationaltraininginstitutionstories-pane" role="tabpanel" 
                  aria-labelledby="vocationaltraininginstitutionstories-tab" tabindex="0">
                 <?= $this->element('related_records_table_static', [
-                    'tabId' => 'vocationaltraininginstitutionstories',
-                    'title' => __('VocationalTrainingInstitutionStories'),
-                    'filterField' => 'vocationaltraininginstitutions_id',
-                    'filterValue' => $vocationalTrainingInstitution->id,
-                    'ajaxUrl' => $this->Url->build(['controller' => 'VocationalTrainingInstitutionStories', 'action' => 'getRelated']),
-                    'controller' => 'VocationalTrainingInstitutionStories',
-                    'columns' => [
-                        ['name' => 'id', 'label' => 'ID', 'type' => 'number', 'sortable' => true],
-                        ['name' => 'name', 'label' => 'Name', 'type' => 'text', 'sortable' => true],
-                        ['name' => 'created', 'label' => 'Created', 'type' => 'datetime', 'sortable' => true]
-                    ]
-                ]) ?>
+                        'tabId' => 'vocationaltraininginstitutionstories',
+                        'title' => __('VocationalTrainingInstitutionStories'),
+                        'filterField' => 'vocational_training_institution_id',
+                        'filterValue' => $vocationalTrainingInstitution->id,
+                        'ajaxUrl' => $this->Url->build(['controller' => 'VocationalTrainingInstitutionStories', 'action' => 'getRelated']),
+                        'controller' => 'VocationalTrainingInstitutionStories',
+                        'columns' => [
+                            ['name' => 'id', 'label' => 'ID', 'type' => 'number', 'sortable' => true],
+                            ['name' => 'date_occurrence', 'label' => 'Date', 'type' => 'date', 'sortable' => true],
+                            ['name' => 'problem_classification', 'label' => 'Classification', 'type' => 'text', 'sortable' => true],
+                            ['name' => 'problem_contents', 'label' => 'Problem', 'type' => 'text', 'sortable' => true],
+                            ['name' => 'image_path', 'label' => 'Image', 'type' => 'image', 'sortable' => true]
+                        ]
+                    ]) ?>
             </div>
         </div>
     </div>

@@ -1718,34 +1718,36 @@ document.addEventListener('DOMContentLoaded', function() {
             <div class="tab-pane fade active show" id="candidaterecordinterviews-pane" role="tabpanel" 
                  aria-labelledby="candidaterecordinterviews-tab" tabindex="0">
                 <?= $this->element('related_records_table_static', [
-                    'tabId' => 'candidaterecordinterviews',
-                    'title' => __('CandidateRecordInterviews'),
-                    'filterField' => 'mastercandidateinterviewresults_id',
-                    'filterValue' => $masterCandidateInterviewResult->id,
-                    'ajaxUrl' => $this->Url->build(['controller' => 'CandidateRecordInterviews', 'action' => 'getRelated']),
-                    'controller' => 'CandidateRecordInterviews',
-                    'columns' => [
-                        ['name' => 'id', 'label' => 'ID', 'type' => 'number', 'sortable' => true],
-                        ['name' => 'name', 'label' => 'Name', 'type' => 'text', 'sortable' => true],
-                        ['name' => 'created', 'label' => 'Created', 'type' => 'datetime', 'sortable' => true]
-                    ]
-                ]) ?>
+                        'tabId' => 'candidaterecordinterviews',
+                        'title' => __('CandidateRecordInterviews'),
+                        'filterField' => 'master_candidate_interview_result_id',
+                        'filterValue' => $masterCandidateInterviewResult->id,
+                        'ajaxUrl' => $this->Url->build(['controller' => 'CandidateRecordInterviews', 'action' => 'getRelated']),
+                        'controller' => 'CandidateRecordInterviews',
+                        'columns' => [
+                            ['name' => 'id', 'label' => 'ID', 'type' => 'number', 'sortable' => true],
+                            ['name' => 'title', 'label' => 'Title', 'type' => 'text', 'sortable' => true],
+                            ['name' => 'date_interview', 'label' => 'Interviewed', 'type' => 'date', 'sortable' => true],
+                            ['name' => 'comments', 'label' => 'Comments', 'type' => 'text', 'sortable' => true]
+                        ]
+                    ]) ?>
             </div>
             <div class="tab-pane fade  " id="candidates-pane" role="tabpanel" 
                  aria-labelledby="candidates-tab" tabindex="0">
                 <?= $this->element('related_records_table_static', [
-                    'tabId' => 'candidates',
-                    'title' => __('Candidates'),
-                    'filterField' => 'mastercandidateinterviewresults_id',
-                    'filterValue' => $masterCandidateInterviewResult->id,
-                    'ajaxUrl' => $this->Url->build(['controller' => 'Candidates', 'action' => 'getRelated']),
-                    'controller' => 'Candidates',
-                    'columns' => [
-                        ['name' => 'id', 'label' => 'ID', 'type' => 'number', 'sortable' => true],
-                        ['name' => 'name', 'label' => 'Name', 'type' => 'text', 'sortable' => true],
-                        ['name' => 'created', 'label' => 'Created', 'type' => 'datetime', 'sortable' => true]
-                    ]
-                ]) ?>
+                        'tabId' => 'candidates',
+                        'title' => __('Candidates'),
+                        'filterField' => 'master_candidate_interview_result_id',
+                        'filterValue' => $masterCandidateInterviewResult->id,
+                        'ajaxUrl' => $this->Url->build(['controller' => 'Candidates', 'action' => 'getRelated']),
+                        'controller' => 'Candidates',
+                        'columns' => [
+                            ['name' => 'id', 'label' => 'ID', 'type' => 'number', 'sortable' => true],
+                            ['name' => 'candidate_code', 'label' => 'Code', 'type' => 'text', 'sortable' => true],
+                            ['name' => 'name', 'label' => 'Name', 'type' => 'text', 'sortable' => true],
+                            ['name' => 'birth_date', 'label' => 'Born', 'type' => 'date', 'sortable' => true]
+                        ]
+                    ]) ?>
             </div>
         </div>
     </div>

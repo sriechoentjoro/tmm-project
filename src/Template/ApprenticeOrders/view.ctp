@@ -376,26 +376,25 @@
                     </div>
                     <div class="github-details-body">
                         <?= $this->element('related_records_table_static', [
-                            'tabId' => 'apprentices',
-                            'title' => __('Apprentices'),
-                            'records' => $apprenticeOrder->apprentices,
-                            'controller' => 'Apprentices',
-                            'currentPage' => isset($apprenticesPage) ? $apprenticesPage : 1,
-                            'totalRecords' => isset($apprenticesTotal) ? $apprenticesTotal : count($apprenticeOrder->apprentices),
-                            'limit' => 50,
-                            'ajaxSearchUrl' => ['controller' => 'ApprenticeOrders', 'action' => 'searchApprentices'],
-                            'foreignKey' => 'apprentice_order_id',
-                            'foreignValue' => $apprenticeOrder->id,
-                            'columns' => [
-                                ['name' => 'id', 'label' => 'ID', 'type' => 'number'],
-                                ['name' => 'tmm_code', 'label' => 'TMM Code', 'type' => 'text'],
-                                ['name' => 'name', 'label' => 'Name', 'type' => 'text'],
-                                ['name' => 'identity_number', 'label' => 'Identity Number', 'type' => 'text'],
-                                ['name' => 'birth_date', 'label' => 'Birth Date', 'type' => 'date'],
-                                ['name' => 'image_photo', 'label' => 'Photo', 'type' => 'image']
-                            ],
-                            'addUrl' => ['controller' => 'Apprentices', 'action' => 'add', '?' => ['apprentice_order_id' => $apprenticeOrder->id]]
-                        ]) ?>
+                                'tabId' => 'apprentices',
+                                'title' => __('Apprentices'),
+                                'records' => $apprenticeOrder->apprentices,
+                                'currentPage' => isset($apprenticesPage) ? $apprenticesPage : 1,
+                                'totalRecords' => isset($apprenticesTotal) ? $apprenticesTotal : count($apprenticeOrder->apprentices),
+                                'limit' => 50,
+                                'filterField' => 'apprentice_order_id',
+                                'filterValue' => $apprenticeOrder->id,
+                                'ajaxUrl' => $this->Url->build(['controller' => 'Apprentices', 'action' => 'getRelated']),
+                                'controller' => 'Apprentices',
+                                'columns' => [
+                                    ['name' => 'id', 'label' => 'ID', 'type' => 'number', 'sortable' => true],
+                                    ['name' => 'tmm_code', 'label' => 'TMM Code', 'type' => 'text', 'sortable' => true],
+                                    ['name' => 'name', 'label' => 'Name', 'type' => 'text', 'sortable' => true],
+                                    ['name' => 'identity_number', 'label' => 'Identity Number', 'type' => 'text', 'sortable' => true],
+                                    ['name' => 'birth_date', 'label' => 'Born', 'type' => 'date', 'sortable' => true],
+                                    ['name' => 'image_photo', 'label' => 'Photo', 'type' => 'image', 'sortable' => true]
+                                ]
+                            ]) ?>
                     </div>
                 </div>
             </div>

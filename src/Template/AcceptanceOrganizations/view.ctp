@@ -195,21 +195,21 @@
                     </div>
                     <div class="github-details-body">
                         <?= $this->element('related_records_table_static', [
-                            'tabId' => 'acceptanceorganizationstories',
-                            'title' => __('Stories'),
-                            'filterField' => 'acceptance_organization_id',
-                            'filterValue' => $acceptanceOrganization->id,
-                            'ajaxUrl' => $this->Url->build(['controller' => 'AcceptanceOrganizations', 'action' => 'getRelatedStories']),
-                            'controller' => 'acceptance-organization-stories',
-                            'columns' => [
-                                ['name' => 'id', 'label' => 'ID', 'type' => 'number', 'sortable' => true],
-                                ['name' => 'date_occurrence', 'label' => 'Date', 'type' => 'date', 'sortable' => true],
-                                ['name' => 'problem_classification', 'label' => 'Classification', 'type' => 'text', 'sortable' => true],
-                                ['name' => 'problem_contents', 'label' => 'Problem', 'type' => 'text', 'sortable' => true],
-                                ['name' => 'problem_solution', 'label' => 'Solution', 'type' => 'text', 'sortable' => true],
-                                ['name' => 'image_path', 'label' => 'Image', 'type' => 'image', 'sortable' => false]
-                            ]
-                        ]) ?>
+                                'tabId' => 'acceptanceorganizationstories',
+                                'title' => __('Stories'),
+                                'filterField' => 'acceptance_organization_id',
+                                'filterValue' => $acceptanceOrganization->id,
+                                'ajaxUrl' => $this->Url->build(['controller' => 'AcceptanceOrganizationStories', 'action' => 'getRelated']),
+                                'controller' => 'AcceptanceOrganizationStories',
+                                'columns' => [
+                                    ['name' => 'id', 'label' => 'ID', 'type' => 'number', 'sortable' => true],
+                                    ['name' => 'date_occurrence', 'label' => 'Date', 'type' => 'date', 'sortable' => true],
+                                    ['name' => 'problem_classification', 'label' => 'Classification', 'type' => 'text', 'sortable' => true],
+                                    ['name' => 'problem_contents', 'label' => 'Problem', 'type' => 'text', 'sortable' => true],
+                                    ['name' => 'problem_solution', 'label' => 'Solution', 'type' => 'text', 'sortable' => true],
+                                    ['name' => 'image_path', 'label' => 'Image', 'type' => 'image', 'sortable' => true]
+                                ]
+                            ]) ?>
                     </div>
                 </div>
                 </div><!-- Close acceptanceorganizationstories-pane -->

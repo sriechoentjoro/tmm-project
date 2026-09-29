@@ -143,4 +143,78 @@ checkTrue('fetches the first page, since the pages pass no rows',
 checkTrue('and says so when the lookup is refused',
     strpos($element, 'not allowed to read these records') !== false);
 
+echo "  how every tab on every page is configured\n";
+// A tab names the column that ties its rows to the record on screen, and the
+// columns to show. Every one of the twenty-one named a column that is not a
+// column: filterField was the lowercased plural of the parent -
+// trainees_id, apprentices_id, mastercandidateinterviewtypes_id - where the
+// real key is trainee_id, apprentice_id,
+// master_candidate_interview_type_id; and nearly all listed name and created,
+// which those tables do not have either. The endpoint refuses a column it does
+// not have, so the tabs would have said so instead of filling.
+$problems = [];
+foreach (glob(TMM_ROOT . '/src/Template/*/*.ctp') as $template) {
+    $body = file_get_contents($template);
+    if (strpos($body, 'related_records_table_static') === false) {
+        continue;
+    }
+    preg_match_all("/element\('related_records_table_static',\s*\[(.*?)\n\s*\]\)/s",
+        $body, $calls);
+    foreach ($calls[1] as $call) {
+        if (!preg_match("/'ajaxUrl'.*?'controller'\s*=>\s*'([A-Za-z0-9_]+)'/s", $call, $named)) {
+            continue;
+        }
+        $where = basename(dirname($template)) . '/' . basename($template)
+            . ' -> ' . $named[1];
+        $entity = TMM_ROOT . '/src/Model/Entity/'
+            . Cake\Utility\Inflector::singularize($named[1]) . '.php';
+        if (!is_file($entity)) {
+            $problems[] = $where . ': no entity';
+            continue;
+        }
+        preg_match_all('/@property\s+(\S+)\s+\$([a-z_]+)/',
+            file_get_contents($entity), $properties, PREG_SET_ORDER);
+        $columns = [];
+        foreach ($properties as $property) {
+            if (strpos($property[1], 'App\\Model\\Entity') === false) {
+                $columns[] = $property[2];
+            }
+        }
+        if (preg_match("/'(?:filterField|foreignKey)'\s*=>\s*'([a-z_0-9]+)'/", $call, $key)
+            && !in_array($key[1], $columns, true)) {
+            $problems[] = $where . ': no column ' . $key[1];
+        }
+        preg_match_all("/'name'\s*=>\s*'([a-z_0-9]+)'/", $call, $listed);
+        foreach (array_diff($listed[1], $columns) as $missing) {
+            $problems[] = $where . ': no column ' . $missing;
+        }
+    }
+}
+check('every tab names columns its table really has', $problems, []);
+
+// Two tabs with one tabId cannot both work: the element finds its container by
+// that id, so the second binds to the first one's table.
+$twice = [];
+foreach (glob(TMM_ROOT . '/src/Template/*/*.ctp') as $template) {
+    preg_match_all("/'tabId'\s*=>\s*'([a-z_0-9]+)'/", file_get_contents($template), $ids);
+    foreach (array_count_values($ids[1]) as $id => $times) {
+        if ($times > 1) {
+            $twice[] = basename(dirname($template)) . '/' . basename($template) . ': ' . $id;
+        }
+    }
+}
+check('and no page carries the same tab twice', $twice, []);
+
+// Three endpoints answered these tabs, each its own copy of the same hundred
+// lines and the same unchecked column name.
+$custom = [];
+foreach (['getRelatedStories', 'searchApprentices'] as $name) {
+    foreach (glob(TMM_ROOT . '/src/Controller/*.php') as $controller) {
+        if (strpos(file_get_contents($controller), 'function ' . $name . '(') !== false) {
+            $custom[] = basename($controller) . '::' . $name;
+        }
+    }
+}
+check('and one endpoint answers all of them', $custom, []);
+
 finish($db);

@@ -1478,18 +1478,19 @@ document.addEventListener('DOMContentLoaded', function() {
             <div class="tab-pane fade active show" id="acceptanceorganizations-pane" role="tabpanel" 
                  aria-labelledby="acceptanceorganizations-tab" tabindex="0">
                 <?= $this->element('related_records_table_static', [
-                    'tabId' => 'acceptanceorganizations',
-                    'title' => __('AcceptanceOrganizations'),
-                    'filterField' => 'masterjapanprefectures_id',
-                    'filterValue' => $masterJapanPrefecture->id,
-                    'ajaxUrl' => $this->Url->build(['controller' => 'AcceptanceOrganizations', 'action' => 'getRelated']),
-                    'controller' => 'AcceptanceOrganizations',
-                    'columns' => [
-                        ['name' => 'id', 'label' => 'ID', 'type' => 'number', 'sortable' => true],
-                        ['name' => 'name', 'label' => 'Name', 'type' => 'text', 'sortable' => true],
-                        ['name' => 'created', 'label' => 'Created', 'type' => 'datetime', 'sortable' => true]
-                    ]
-                ]) ?>
+                        'tabId' => 'acceptanceorganizations',
+                        'title' => __('AcceptanceOrganizations'),
+                        'filterField' => 'master_japan_prefecture_id',
+                        'filterValue' => $masterJapanPrefecture->id,
+                        'ajaxUrl' => $this->Url->build(['controller' => 'AcceptanceOrganizations', 'action' => 'getRelated']),
+                        'controller' => 'AcceptanceOrganizations',
+                        'columns' => [
+                            ['name' => 'id', 'label' => 'ID', 'type' => 'number', 'sortable' => true],
+                            ['name' => 'title', 'label' => 'Organization', 'type' => 'text', 'sortable' => true],
+                            ['name' => 'director', 'label' => 'Director', 'type' => 'text', 'sortable' => true],
+                            ['name' => 'post_code', 'label' => 'Post Code', 'type' => 'text', 'sortable' => true]
+                        ]
+                    ]) ?>
             </div>
         </div>
     </div>

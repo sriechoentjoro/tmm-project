@@ -192,18 +192,18 @@
                     <div class="github-details-body">
                         <?= $this->element('related_records_table_static', [
                             'tabId' => 'cooperativeassociationstories',
-                            'title' => __('Stories'),
+                            'title' => __('CooperativeAssociationStories'),
                             'filterField' => 'cooperative_association_id',
                             'filterValue' => $cooperativeAssociation->id,
-                            'ajaxUrl' => $this->Url->build(['controller' => 'CooperativeAssociations', 'action' => 'getRelated']),
-                            'controller' => 'cooperative-association-stories',
+                            'ajaxUrl' => $this->Url->build(['controller' => 'CooperativeAssociationStories', 'action' => 'getRelated']),
+                            'controller' => 'CooperativeAssociationStories',
                             'columns' => [
                                 ['name' => 'id', 'label' => 'ID', 'type' => 'number', 'sortable' => true],
                                 ['name' => 'date_occurrence', 'label' => 'Date', 'type' => 'date', 'sortable' => true],
                                 ['name' => 'problem_classification', 'label' => 'Classification', 'type' => 'text', 'sortable' => true],
                                 ['name' => 'problem_contents', 'label' => 'Problem', 'type' => 'text', 'sortable' => true],
                                 ['name' => 'problem_solution', 'label' => 'Solution', 'type' => 'text', 'sortable' => true],
-                                ['name' => 'image_path', 'label' => 'Image', 'type' => 'image', 'sortable' => false]
+                                ['name' => 'image_path', 'label' => 'Image', 'type' => 'image', 'sortable' => true]
                             ]
                         ]) ?>
                     </div>
@@ -1327,39 +1327,6 @@ document.addEventListener('DOMContentLoaded', function() {
 }</style>
 
 
-    <!-- Related Records Tabs with AJAX Lazy Loading -->
-    <div class="related-section mt-4">
-        <h3><i class="fas fa-link"></i> <?= __('Related Records') ?></h3>
-        
-        <ul class="nav nav-tabs" id="relatedTabs" role="tablist">
-            <li class="nav-item" role="presentation">
-                <button class="nav-link active" id="cooperativeassociationstories-tab" data-bs-toggle="tab" 
-                        data-bs-target="#cooperativeassociationstories-pane" type="button" role="tab" 
-                        aria-controls="cooperativeassociationstories-pane" aria-selected="true">
-                    <?= __('CooperativeAssociationStories') ?>
-                </button>
-            </li>
-        </ul>
-        
-        <div class="tab-content" id="relatedTabsContent">
-            <div class="tab-pane fade active show" id="cooperativeassociationstories-pane" role="tabpanel" 
-                 aria-labelledby="cooperativeassociationstories-tab" tabindex="0">
-                <?= $this->element('related_records_table_static', [
-                    'tabId' => 'cooperativeassociationstories',
-                    'title' => __('CooperativeAssociationStories'),
-                    'filterField' => 'cooperativeassociations_id',
-                    'filterValue' => $cooperativeAssociation->id,
-                    'ajaxUrl' => $this->Url->build(['controller' => 'CooperativeAssociationStories', 'action' => 'getRelated']),
-                    'controller' => 'CooperativeAssociationStories',
-                    'columns' => [
-                        ['name' => 'id', 'label' => 'ID', 'type' => 'number', 'sortable' => true],
-                        ['name' => 'name', 'label' => 'Name', 'type' => 'text', 'sortable' => true],
-                        ['name' => 'created', 'label' => 'Created', 'type' => 'datetime', 'sortable' => true]
-                    ]
-                ]) ?>
-            </div>
-        </div>
-    </div>
 
 </div><!-- .view-content-wrapper -->
 
