@@ -25,6 +25,36 @@ class UsersController extends AppController
     }
 
     /**
+     * Who may reset somebody else's password.
+     *
+     * Only an administrator, and said here rather than left to the menu
+     * permissions. getMenuRolePermissions() expands granted_actions = '*' to
+     * [menu action, index, view], so resetPassword would be refused by default
+     * - but a menu row whose granted_actions names it would grant it to any
+     * role holding that menu, and handing one account's password to the holder
+     * of another is not something a menu row should be able to decide.
+     *
+     * Everything else on this controller is governed as before.
+     *
+     * @param array|\ArrayAccess|null $user The logged-in user.
+     * @return bool
+     */
+    public function isAuthorized($user = null)
+    {
+        if ($this->request->getParam('action') === 'resetPassword') {
+            $roles = isset($user['role_names']) ? (array)$user['role_names'] : [];
+            if (in_array('administrator', $roles, true)) {
+                return true;
+            }
+            $this->Flash->error(__('Only an administrator can reset a password.'));
+
+            return false;
+        }
+
+        return parent::isAuthorized($user);
+    }
+
+    /**
      * Help method - User guidance page
      */
     public function help()
@@ -162,6 +192,11 @@ class UsersController extends AppController
         } catch (\Exception $e) {
         }
 
+        // Only an administrator may reset a password, so only an administrator
+        // is shown the button. isAuthorized() is what actually refuses it; this
+        // is so the other roles are not offered something they cannot do.
+        $this->set('isAdministrator', $this->hasRole('administrator'));
+
         $this->set(compact('users', 'roleList', 'summary', 'byRole',
             'filterRole', 'filterStatus', 'search'));
     }
@@ -277,6 +312,92 @@ class UsersController extends AppController
         }
 
         return $this->redirect(['action' => 'index']);
+    }
+
+    /**
+     * Reset one account's password, as an administrator.
+     *
+     * Before this, an administrator could change somebody's password only by
+     * opening the whole edit form: no confirmation field, none of the rules the
+     * account holder had to meet when they set it themselves, and no record
+     * that it happened. An account can be locked out at any hour, and the
+     * person who fixes it should not have to walk past every other field on the
+     * record to do it.
+     *
+     * The rules are the ones in PasswordPolicyTrait, which is also what the
+     * LPK's own set-password screen enforces, so an administrator cannot set a
+     * password the holder could not have set.
+     *
+     * The new password is never mailed and never put in a Flash message. Mail
+     * is not a private channel and a Flash message is read by whoever is
+     * standing at the screen; an administrator who typed it already knows it,
+     * and a generated one is on the form in front of them. What is recorded is
+     * that it happened, to whom, and by whom - not the password.
+     *
+     * @param string|null $id The account to reset.
+     * @return \Cake\Http\Response|null Redirects on success, renders otherwise.
+     * @throws \Cake\Datasource\Exception\RecordNotFoundException When no such account.
+     */
+    public function resetPassword($id = null)
+    {
+        $user = $this->Users->get($id, ['contain' => ['Roles']]);
+
+        // Which institution this account belongs to, so the screen can say
+        // whose password is about to change rather than only an id. An LPK
+        // account and a head-office account look alike on a bare form.
+        $institution = null;
+        if ($user->institution_id) {
+            $model = $user->institution_type === 'special_skill_support'
+                ? 'SpecialSkillSupportInstitutions'
+                : 'VocationalTrainingInstitutions';
+            try {
+                $institution = $this->loadModel($model)->get($user->institution_id);
+            } catch (\Exception $e) {
+                // The account names an institution that is not there any more.
+                // That is worth seeing on the screen, not worth refusing over.
+                $institution = null;
+            }
+        }
+
+        if ($this->request->is(['post', 'put'])) {
+            $password = (string)$this->request->getData('password');
+            $problem = $this->passwordProblem($password,
+                $this->request->getData('confirm_password'));
+
+            if ($problem !== null) {
+                $this->Flash->error($problem);
+            } else {
+                // Assigned, not patched: 'password' is accessible, but going
+                // through patchEntity would also take anything else that
+                // arrived in the post. This screen changes one thing.
+                $user->password = $password;
+                $user->setDirty('password', true);
+
+                if ($this->Users->save($user)) {
+                    $this->recordDecision('user.resetPassword', [
+                        'type' => 'User',
+                        'id' => $user->id,
+                        'label' => $user->username,
+                    ], [
+                        'email' => $user->email,
+                        'institution_id' => $user->institution_id,
+                        'institution_type' => $user->institution_type,
+                    ]);
+
+                    $this->Flash->success(__(
+                        'The password for {0} has been reset. Give it to them yourself - it is not sent by email.',
+                        $user->username
+                    ));
+
+                    return $this->redirect(['action' => 'index']);
+                }
+
+                $this->Flash->error(__('The password could not be saved. Please, try again.'));
+            }
+        }
+
+        $this->set(compact('user', 'institution'));
+        $this->set('rules', $this->passwordRules());
     }
 
     /**

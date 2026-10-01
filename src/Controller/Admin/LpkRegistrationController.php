@@ -64,7 +64,31 @@ class LpkRegistrationController extends AppController
         ];
 
         $institutions = $this->paginate($this->VocationalTrainingInstitutions);
-        $this->set(compact('institutions'));
+
+        // The login account each LPK on this page holds, so a password can be
+        // reset from the row rather than by finding the same name again in the
+        // user list. An LPK that has not set a password yet has no account, and
+        // the row says so instead of offering a button that cannot work.
+        $accounts = [];
+        $shown = array_filter(array_map(function ($institution) {
+            return $institution->id;
+        }, $institutions->toArray()));
+        if ($shown) {
+            $this->loadModel('Users');
+            foreach ($this->Users->find()
+                ->select(['id', 'username', 'institution_id'])
+                ->where([
+                    'institution_type' => 'vocational_training',
+                    'institution_id IN' => $shown,
+                ]) as $account) {
+                $accounts[(int)$account->institution_id] = $account;
+            }
+        }
+
+        // Only an administrator may reset a password - UsersController says so
+        // and refuses it - so only an administrator is offered the button.
+        $this->set('isAdministrator', $this->hasRole('administrator'));
+        $this->set(compact('institutions', 'accounts'));
     }
 
     /**
@@ -388,28 +412,14 @@ class LpkRegistrationController extends AppController
             $password = $this->request->getData('password');
             $confirmPassword = $this->request->getData('confirm_password');
             
-            // Validate passwords match
-            if ($password !== $confirmPassword) {
-                $this->Flash->error(__('Passwords do not match. Please try again.'));
-            }
-            // Validate password length
-            elseif (strlen($password) < 8) {
-                $this->Flash->error(__('Password must be at least 8 characters long.'));
-            }
-            // Validate password complexity
-            elseif (!preg_match('/[A-Z]/', $password)) {
-                $this->Flash->error(__('Password must contain at least one uppercase letter.'));
-            }
-            elseif (!preg_match('/[a-z]/', $password)) {
-                $this->Flash->error(__('Password must contain at least one lowercase letter.'));
-            }
-            elseif (!preg_match('/[0-9]/', $password)) {
-                $this->Flash->error(__('Password must contain at least one number.'));
-            }
-            elseif (!preg_match('/[!@#$%^&*(),.?":{}|<>]/', $password)) {
-                $this->Flash->error(__('Password must contain at least one special character (!@#$%^&* etc).'));
-            }
-            else {
+            // The rules used to be six elseif branches here. They are stated
+            // once now, in PasswordPolicyTrait, because the admin reset screen
+            // has to enforce exactly the same ones - and the form prints them
+            // from the same place.
+            $problem = $this->passwordProblem($password, $confirmPassword);
+            if ($problem !== null) {
+                $this->Flash->error($problem);
+            } else {
                 // Password is valid - create or update user account
                 $user = $this->Users->find()
                     ->where(['email' => $institution->email])

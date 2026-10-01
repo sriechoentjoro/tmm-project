@@ -18781,3 +18781,60 @@ msgstr "次へ"
 
 msgid "Last"
 msgstr "最後"
+
+msgid "Reset Password"
+msgstr "パスワードをリセット"
+
+msgid "New Password"
+msgstr "新しいパスワード"
+
+msgid "Confirm New Password"
+msgstr "新しいパスワードの確認"
+
+msgid "Show or hide"
+msgstr "表示・非表示"
+
+msgid "Generate one"
+msgstr "自動生成"
+
+msgid "Reset the password for {0}?"
+msgstr "{0} のパスワードをリセットしますか？"
+
+msgid "Reset the password for {0}"
+msgstr "{0} のパスワードをリセット"
+
+msgid "Institution #{0} is not on file any more."
+msgstr "施設 #{0} はもう登録されていません。"
+
+msgid "A new password will not let them in until the account is enabled."
+msgstr "アカウントが有効になるまで、新しいパスワードでもログインできません。"
+
+msgid "The new password is not sent by email. Hand it over yourself, and ask them to change it after they log in."
+msgstr "新しいパスワードはメールで送信されません。直接お渡しし、ログイン後に変更するよう伝えてください。"
+
+msgid "Please enter a new password."
+msgstr "新しいパスワードを入力してください。"
+
+msgid "At least one uppercase letter"
+msgstr "大文字を1文字以上"
+
+msgid "At least one lowercase letter"
+msgstr "小文字を1文字以上"
+
+msgid "At least one number"
+msgstr "数字を1文字以上"
+
+msgid "At least one special character (!@#$%^&* etc)"
+msgstr "記号を1文字以上 (!@#$%^&* など)"
+
+msgid "Only an administrator can reset a password."
+msgstr "パスワードをリセットできるのは管理者のみです。"
+
+msgid "The password for {0} has been reset. Give it to them yourself - it is not sent by email."
+msgstr "{0} のパスワードをリセットしました。メールでは送信されないため、直接お渡しください。"
+
+msgid "The password could not be saved. Please, try again."
+msgstr "パスワードを保存できませんでした。もう一度お試しください。"
+
+msgid "No login account yet - this LPK has not set a password"
+msgstr "ログインアカウントがまだありません - この LPK はパスワードを設定していません"

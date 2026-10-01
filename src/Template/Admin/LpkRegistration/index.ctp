@@ -145,6 +145,32 @@
                                                         ]
                                                     ) ?>
                                                 <?php endif; ?>
+
+                                                <?php
+                                                // The login account this LPK holds, if it has set a
+                                                // password. Resetting it is an administrator's job, and
+                                                // it happens on the account rather than on the
+                                                // institution: that is where the password lives.
+                                                $account = isset($accounts[$institution->id])
+                                                    ? $accounts[$institution->id] : null;
+                                                ?>
+                                                <?php if ($isAdministrator && $account !== null): ?>
+                                                    <?= $this->Html->link(
+                                                        '<i class="fas fa-user-lock"></i>',
+                                                        ['prefix' => false, 'controller' => 'Users',
+                                                         'action' => 'resetPassword', $account->id],
+                                                        [
+                                                            'class' => 'btn btn-warning btn-sm',
+                                                            'escape' => false,
+                                                            'title' => __('Reset the password for {0}', $account->username)
+                                                        ]
+                                                    ) ?>
+                                                <?php elseif ($isAdministrator): ?>
+                                                    <span class="btn btn-secondary btn-sm disabled"
+                                                          title="<?= h(__('No login account yet - this LPK has not set a password')) ?>">
+                                                        <i class="fas fa-user-lock"></i>
+                                                    </span>
+                                                <?php endif; ?>
                                             </div>
                                         </td>
                                     </tr>

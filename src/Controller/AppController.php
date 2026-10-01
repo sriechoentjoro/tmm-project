@@ -60,6 +60,9 @@ class AppController extends Controller
     // used to be copied into nine of them and missing from the seventeen the
     // tabs actually named. See RelatedRecordsTrait.
     use RelatedRecordsTrait;
+    // What counts as an acceptable password, stated once. Both the LPK's own
+    // set-password screen and the administrator's reset screen ask here.
+    use PasswordPolicyTrait;
 
     // NOTE: do not declare a public $layout property here. CakePHP's
     // createView() copies it into the ViewBuilder after the action runs,

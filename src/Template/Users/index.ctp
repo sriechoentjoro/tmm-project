@@ -138,6 +138,11 @@ $hasFilter = $filterRole || $filterStatus !== '' || $search !== '';
                                     ['escape' => false, 'class' => 'btn btn-sm btn-outline-info', 'title' => __('View')]) ?>
                                 <?= $this->Html->link('<i class="fa fa-edit"></i>', ['action' => 'edit', $user->id],
                                     ['escape' => false, 'class' => 'btn btn-sm btn-outline-primary', 'title' => __('Edit')]) ?>
+                                <?php if ($isAdministrator): ?>
+                                    <?= $this->Html->link('<i class="fa fa-key"></i>', ['action' => 'resetPassword', $user->id],
+                                        ['escape' => false, 'class' => 'btn btn-sm btn-outline-warning',
+                                         'title' => __('Reset Password')]) ?>
+                                <?php endif; ?>
                                 <?= $this->Form->postLink('<i class="fa fa-trash"></i>', ['action' => 'delete', $user->id],
                                     ['escape' => false, 'class' => 'btn btn-sm btn-outline-danger', 'title' => __('Delete'),
                                      'confirm' => __('Delete user {0}? This cannot be undone.', $user->username)]) ?>

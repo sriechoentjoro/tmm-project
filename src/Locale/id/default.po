@@ -18781,3 +18781,60 @@ msgstr "Berikutnya"
 
 msgid "Last"
 msgstr "Terakhir"
+
+msgid "Reset Password"
+msgstr "Reset Kata Sandi"
+
+msgid "New Password"
+msgstr "Kata Sandi Baru"
+
+msgid "Confirm New Password"
+msgstr "Konfirmasi Kata Sandi Baru"
+
+msgid "Show or hide"
+msgstr "Tampilkan atau sembunyikan"
+
+msgid "Generate one"
+msgstr "Buatkan satu"
+
+msgid "Reset the password for {0}?"
+msgstr "Reset kata sandi untuk {0}?"
+
+msgid "Reset the password for {0}"
+msgstr "Reset kata sandi untuk {0}"
+
+msgid "Institution #{0} is not on file any more."
+msgstr "Institusi #{0} sudah tidak ada dalam data."
+
+msgid "A new password will not let them in until the account is enabled."
+msgstr "Kata sandi baru tidak akan bisa dipakai masuk sebelum akunnya diaktifkan."
+
+msgid "The new password is not sent by email. Hand it over yourself, and ask them to change it after they log in."
+msgstr "Kata sandi baru tidak dikirim lewat surel. Serahkan sendiri, dan mintalah mereka menggantinya setelah masuk."
+
+msgid "Please enter a new password."
+msgstr "Masukkan kata sandi baru."
+
+msgid "At least one uppercase letter"
+msgstr "Sedikitnya satu huruf besar"
+
+msgid "At least one lowercase letter"
+msgstr "Sedikitnya satu huruf kecil"
+
+msgid "At least one number"
+msgstr "Sedikitnya satu angka"
+
+msgid "At least one special character (!@#$%^&* etc)"
+msgstr "Sedikitnya satu karakter khusus (!@#$%^&* dsb)"
+
+msgid "Only an administrator can reset a password."
+msgstr "Hanya administrator yang dapat mereset kata sandi."
+
+msgid "The password for {0} has been reset. Give it to them yourself - it is not sent by email."
+msgstr "Kata sandi untuk {0} sudah direset. Serahkan sendiri kepadanya - tidak dikirim lewat surel."
+
+msgid "The password could not be saved. Please, try again."
+msgstr "Kata sandinya tidak dapat disimpan. Silakan coba lagi."
+
+msgid "No login account yet - this LPK has not set a password"
+msgstr "Belum ada akun masuk - LPK ini belum menetapkan kata sandi"
