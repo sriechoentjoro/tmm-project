@@ -463,7 +463,7 @@ class UsersController extends AppController
                 $user->id, $why ?: 'no reason given'), ['scope' => 'email_verification']);
 
             if ($why !== null && strpos($why, 'token_type') !== false) {
-                $this->Flash->error(__('The database does not accept this kind of verification token yet. Apply {0} and press this again.', 'database/migrations/add_user_verification_token_type.sql'));
+                $this->Flash->error(__('The database does not accept this kind of verification token yet. Apply {0} and press this again. It said: {1}', 'database/migrations/add_user_verification_token_type.sql', $why));
             } else {
                 $this->Flash->error(__('A verification link could not be created: {0}',
                     $why ?: __('no reason was given')));

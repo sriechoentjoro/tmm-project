@@ -18875,8 +18875,8 @@ msgstr "{0} sudah aktif."
 msgid "{0} has no email address to send to."
 msgstr "{0} tidak punya alamat surel untuk dikirimi."
 
-msgid "The database does not accept this kind of verification token yet. Apply {0} and press this again."
-msgstr "Basis datanya belum menerima jenis token verifikasi ini. Jalankan {0} lalu tekan ini lagi."
+msgid "The database does not accept this kind of verification token yet. Apply {0} and press this again. It said: {1}"
+msgstr "Basis datanya belum menerima jenis token verifikasi ini. Jalankan {0} lalu tekan ini lagi. Katanya: {1}"
 
 msgid "A verification link could not be created: {0}"
 msgstr "Tautan verifikasinya tidak dapat dibuat: {0}"
