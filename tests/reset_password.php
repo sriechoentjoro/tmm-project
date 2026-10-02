@@ -202,6 +202,23 @@ checkTrue('with Reset Password spelt out, not only an icon',
 checkTrue('and a link to it',
     preg_match('#href="[^"]*/users/reset-password/5"#', $viewHtml) === 1);
 
+echo "  the reset screen itself\n";
+// Bootstrap 5 dropped badge-success and friends. A bare .badge is white text,
+// so badge-success rendered white on white: the Enabled row looked empty on the
+// screen even though it had been written.
+$resetHtml = renderClean('renders', 'reset_password', [
+    'user' => $users->get(5, ['contain' => ['Roles']]),
+    'institution' => null,
+    'rules' => $printed->invoke($policy2),
+], ['controller' => 'Users', 'templatePath' => 'Users',
+    'url' => '/users/reset-password/5',
+    'params' => ['controller' => 'Users', 'action' => 'resetPassword', 'pass' => ['5']]]);
+check('no badge is left on a Bootstrap 4 class this layout does not define',
+    preg_match('/badge badge-(success|warning|info|primary|secondary|danger)\b/', $resetHtml), 0);
+checkTrue('the enabled row says something', strpos($resetHtml, 'badge bg-success') !== false);
+checkTrue('and the rules are all printed',
+    substr_count($resetHtml, '<li>') >= 5);
+
 echo "  where it is reachable from\n";
 $list = file_get_contents(TMM_ROOT . '/src/Template/Users/index.ctp');
 checkTrue('the user list offers it', strpos($list, "'action' => 'resetPassword'") !== false);

@@ -48,7 +48,7 @@
                                     <span class="text-muted"><?= __('None') ?></span>
                                 <?php else: ?>
                                     <?php foreach ($user->roles as $role): ?>
-                                        <span class="badge badge-secondary"><?= h($role->name) ?></span>
+                                        <span class="badge bg-secondary"><?= h($role->name) ?></span>
                                     <?php endforeach; ?>
                                 <?php endif; ?>
                             </td>
@@ -71,9 +71,9 @@
                             <th><?= __('Enabled') ?></th>
                             <td>
                                 <?php if ($user->is_active): ?>
-                                    <span class="badge badge-success"><?= __('Yes') ?></span>
+                                    <span class="badge bg-success"><?= __('Yes') ?></span>
                                 <?php else: ?>
-                                    <span class="badge badge-warning"><?= __('No') ?></span>
+                                    <span class="badge bg-warning text-dark"><?= __('No') ?></span>
                                     <span class="text-muted small">
                                         <?= __('A new password will not let them in until the account is enabled.') ?>
                                     </span>
