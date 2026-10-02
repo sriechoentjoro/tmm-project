@@ -214,6 +214,10 @@ class UsersController extends AppController
             'contain' => ['Roles']
         ]);
 
+        // Reset Password is offered here as a named button, not only as an icon
+        // in the list: an icon among four others is not something anybody finds
+        // when they are looking for it.
+        $this->set('isAdministrator', $this->hasRole('administrator'));
         $this->set('user', $user);
     }
 

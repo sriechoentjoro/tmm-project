@@ -43,6 +43,11 @@ $fmt = function ($value) {
         <div class="page-header-actions">
             <?= $this->Html->link('<i class="fa fa-edit"></i> ' . __('Edit'),
                 ['action' => 'edit', $user->id], ['escape' => false, 'class' => 'btn btn-sm btn-primary']) ?>
+            <?php if ($isAdministrator): ?>
+                <?= $this->Html->link('<i class="fa fa-key"></i> ' . __('Reset Password'),
+                    ['action' => 'resetPassword', $user->id],
+                    ['escape' => false, 'class' => 'btn btn-sm btn-warning']) ?>
+            <?php endif; ?>
             <?= $this->Form->postLink('<i class="fa fa-trash"></i> ' . __('Delete'),
                 ['action' => 'delete', $user->id],
                 ['escape' => false, 'class' => 'btn btn-sm btn-outline-danger',

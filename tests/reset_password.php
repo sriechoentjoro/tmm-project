@@ -160,6 +160,48 @@ check('nor an LPK',
 check('nor somebody with no role at all',
     $controller->isAuthorized(['id' => 4]), false);
 
+echo "  the button on the user list, rendered\n";
+// Read rather than assumed. "I cannot find it" is answered by rendering the
+// page, not by pointing at the line of source that should put it there.
+$rows = $users->find()->where(['Users.id' => 5]);
+$listHtml = renderClean('the list renders for an administrator', 'index', [
+    'users' => $rows,
+    'roleList' => [1 => 'administrator'],
+    'summary' => ['total' => 1, 'active' => 1, 'pending' => 0, 'inactive' => 0],
+    'byRole' => [1 => 1],
+    'filterRole' => null, 'filterStatus' => null, 'search' => null,
+    'isAdministrator' => true,
+], ['controller' => 'Users', 'templatePath' => 'Users', 'url' => '/users',
+    'params' => ['controller' => 'Users', 'action' => 'index']]);
+checkTrue('and carries a reset-password link for the account',
+    preg_match('#href="[^"]*/users/reset-password/5"#', $listHtml) === 1);
+checkTrue('with something to click on it',
+    strpos($listHtml, 'fa-key') !== false);
+
+$plainHtml = renderClean('the list renders for everyone else', 'index', [
+    'users' => $users->find()->where(['Users.id' => 5]),
+    'roleList' => [1 => 'administrator'],
+    'summary' => ['total' => 1, 'active' => 1, 'pending' => 0, 'inactive' => 0],
+    'byRole' => [1 => 1],
+    'filterRole' => null, 'filterStatus' => null, 'search' => null,
+    'isAdministrator' => false,
+], ['controller' => 'Users', 'templatePath' => 'Users', 'url' => '/users',
+    'params' => ['controller' => 'Users', 'action' => 'index']]);
+check('without offering the reset to them',
+    preg_match('#/users/reset-password/#', $plainHtml), 0);
+
+echo "  and the button on the user's own page\n";
+$viewHtml = renderClean('the detail page renders for an administrator', 'view', [
+    'user' => $users->get(5, ['contain' => ['Roles']]),
+    'isAdministrator' => true,
+], ['controller' => 'Users', 'templatePath' => 'Users', 'url' => '/users/view/5',
+    'params' => ['controller' => 'Users', 'action' => 'view', 'pass' => ['5']]]);
+checkTrue('with Reset Password spelt out, not only an icon',
+    strpos($viewHtml, 'Reset Password') !== false
+    || strpos($viewHtml, 'Reset Kata Sandi') !== false);
+checkTrue('and a link to it',
+    preg_match('#href="[^"]*/users/reset-password/5"#', $viewHtml) === 1);
+
 echo "  where it is reachable from\n";
 $list = file_get_contents(TMM_ROOT . '/src/Template/Users/index.ctp');
 checkTrue('the user list offers it', strpos($list, "'action' => 'resetPassword'") !== false);
