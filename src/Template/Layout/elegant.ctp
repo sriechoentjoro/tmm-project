@@ -26,6 +26,12 @@ $cacheBust = '?v=' . time();
     
     <!-- Bootstrap 5 CSS for Dropdown -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootstrap 4 badge colours, which Bootstrap 5 removed and the templates
+         still use in 115 places. Without this a .badge is white on white.
+         Loaded here so a page's own <style> block, which renders later, still
+         wins where one exists. -->
+    <?= $this->Html->css('badge-compat') ?>
     
     <!-- Mobile Responsive CSS - Global -->
     <link rel="stylesheet" href="<?= $staticAssetsUrl ?>/css/mobile-responsive.css<?= $cacheBust ?>">
