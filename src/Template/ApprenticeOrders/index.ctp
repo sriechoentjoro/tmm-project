@@ -109,7 +109,7 @@
                     <th style="padding: 12px; border-bottom: 2px solid #667eea; white-space: nowrap;" scope="col"><?= $this->Paginator->sort('title') ?></th>
                     <th style="padding: 12px; border-bottom: 2px solid #667eea; white-space: nowrap;" scope="col"><?= $this->Paginator->sort('male_trainee_number') ?></th>
                     <th style="padding: 12px; border-bottom: 2px solid #667eea; white-space: nowrap;" scope="col"><?= $this->Paginator->sort('female_trainee_number') ?></th>
-                    <th style="padding: 12px; border-bottom: 2px solid #667eea; white-space: nowrap;" scope="col"><?= $this->Paginator->sort('job_category_id') ?></th>
+                    <th style="padding: 12px; border-bottom: 2px solid #667eea; white-space: nowrap;" scope="col"><?= $this->Paginator->sort('master_job_category_id') ?></th>
                     <th style="padding: 12px; border-bottom: 2px solid #667eea; white-space: nowrap;" scope="col"><?= $this->Paginator->sort('departure_year') ?></th>
                     <th style="padding: 12px; border-bottom: 2px solid #667eea; white-space: nowrap;" scope="col"><?= $this->Paginator->sort('departure_month') ?></th>
                     <th style="padding: 12px; border-bottom: 2px solid #667eea; white-space: nowrap;" scope="col"><?= $this->Paginator->sort('is_practical_test_required') ?></th>
@@ -197,7 +197,7 @@
                     <input type="number" class="filter-input-range form-control form-control-sm" placeholder="To..." data-column="female_trainee_number" style="display:none; margin-top: 2px; font-size: 0.85rem;">
                 </td>
                 <td style="padding: 5px;">
-                    <select class="filter-input form-control form-control-sm" data-column="job_category_id" data-type="select" style="font-size: 0.85rem; padding: 4px;">
+                    <select class="filter-input form-control form-control-sm" data-column="master_job_category_id" data-type="select" style="font-size: 0.85rem; padding: 4px;">
                         <option value="">All Job_categorys</option>
                         <?php foreach ($job_categorys as $id => $name): ?>
                             <option value="<?= $id ?>"><?= h($name) ?></option>

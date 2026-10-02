@@ -13,7 +13,7 @@ use Cake\ORM\Entity;
  * @property string $title
  * @property int|null $male_trainee_number
  * @property int|null $female_trainee_number
- * @property int $job_category_id
+ * @property int $master_job_category_id
  * @property string $departure_year
  * @property string $departure_month
  * @property bool $is_practical_test_required
