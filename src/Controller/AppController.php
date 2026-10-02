@@ -186,7 +186,7 @@ class AppController extends Controller
         $action = $this->request->getParam('action');
         
         // Allow profile, settings, changeLanguage, help, logout for ALL authenticated users
-        if ($controller === 'Users' && in_array($action, ['profile', 'settings', 'changeLanguage', 'help', 'logout'])) {
+        if ($controller === 'Users' && in_array($action, ['profile', 'settings', 'changeLanguage', 'help', 'logout', 'changePassword'])) {
             return true; // All authenticated users can access their own profile and logout
         }
 

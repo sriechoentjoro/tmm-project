@@ -111,10 +111,14 @@
                             
                             <div class="mt-4">
                                 <h5><?= __('Account Security') ?></h5>
-                                <div class="alert alert-info">
-                                    <i class="fas fa-info-circle"></i>
-                                    <?= __('To change your password, please contact the system administrator.') ?>
-                                </div>
+                                <p class="text-muted">
+                                    <?= __('Change your password from time to time, and whenever somebody else has set one for you.') ?>
+                                </p>
+                                <?= $this->Html->link(
+                                    '<i class="fas fa-lock"></i> ' . __('Change Password'),
+                                    ['action' => 'changePassword'],
+                                    ['class' => 'btn btn-sm btn-primary', 'escape' => false]
+                                ) ?>
                             </div>
                         </div>
                     </div>

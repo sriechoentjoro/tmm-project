@@ -18838,3 +18838,27 @@ msgstr "Kata sandinya tidak dapat disimpan. Silakan coba lagi."
 
 msgid "No login account yet - this LPK has not set a password"
 msgstr "Belum ada akun masuk - LPK ini belum menetapkan kata sandi"
+
+msgid "Change Password"
+msgstr "Ganti Kata Sandi"
+
+msgid "Current Password"
+msgstr "Kata Sandi Saat Ini"
+
+msgid "Signed in as"
+msgstr "Masuk sebagai"
+
+msgid "Change your password from time to time, and whenever somebody else has set one for you."
+msgstr "Gantilah kata sandi Anda sesekali, dan setiap kali ada orang lain yang menetapkannya untuk Anda."
+
+msgid "You must be logged in to change your password."
+msgstr "Anda harus masuk dulu untuk mengganti kata sandi."
+
+msgid "Your current password is not correct."
+msgstr "Kata sandi Anda saat ini tidak benar."
+
+msgid "The new password is the same as the current one."
+msgstr "Kata sandi barunya sama dengan yang sekarang."
+
+msgid "Your password has been changed."
+msgstr "Kata sandi Anda sudah diganti."

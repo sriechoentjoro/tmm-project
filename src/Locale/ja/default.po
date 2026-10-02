@@ -18838,3 +18838,27 @@ msgstr "パスワードを保存できませんでした。もう一度お試し
 
 msgid "No login account yet - this LPK has not set a password"
 msgstr "ログインアカウントがまだありません - この LPK はパスワードを設定していません"
+
+msgid "Change Password"
+msgstr "パスワードを変更"
+
+msgid "Current Password"
+msgstr "現在のパスワード"
+
+msgid "Signed in as"
+msgstr "ログイン中:"
+
+msgid "Change your password from time to time, and whenever somebody else has set one for you."
+msgstr "パスワードは時々変更してください。特に、他の人が設定したパスワードは必ず変更してください。"
+
+msgid "You must be logged in to change your password."
+msgstr "パスワードを変更するにはログインが必要です。"
+
+msgid "Your current password is not correct."
+msgstr "現在のパスワードが正しくありません。"
+
+msgid "The new password is the same as the current one."
+msgstr "新しいパスワードが現在のものと同じです。"
+
+msgid "Your password has been changed."
+msgstr "パスワードを変更しました。"

@@ -405,6 +405,81 @@ class UsersController extends AppController
     }
 
     /**
+     * Change your own password.
+     *
+     * Until now the profile page said "to change your password, please contact
+     * the system administrator", and it was telling the truth: there was no
+     * screen for it. Every forgotten or shared password was an administrator's
+     * errand, and a password somebody else chose for you is one you do not
+     * change afterwards.
+     *
+     * It takes no id. The account is always the one in the session, so there is
+     * no parameter to tamper with and no case where this screen touches
+     * somebody else's account.
+     *
+     * The current password has to be given. A session left open on a shared
+     * machine is the common case, and without this anybody passing that machine
+     * could lock its owner out of their own account.
+     *
+     * The rules are the ones in PasswordPolicyTrait, the same ones the LPK's own
+     * registration screen and the administrator's reset enforce.
+     *
+     * @return \Cake\Http\Response|null Redirects on success, renders otherwise.
+     */
+    public function changePassword()
+    {
+        $userId = $this->Auth->user('id');
+        if (!$userId) {
+            $this->Flash->error(__('You must be logged in to change your password.'));
+
+            return $this->redirect(['action' => 'login']);
+        }
+
+        $user = $this->Users->get($userId);
+
+        if ($this->request->is(['patch', 'post', 'put'])) {
+            $current = (string)$this->request->getData('current_password');
+            $password = (string)$this->request->getData('password');
+            $hasher = new \Cake\Auth\DefaultPasswordHasher();
+
+            if (!$hasher->check($current, $user->password)) {
+                $this->Flash->error(__('Your current password is not correct.'));
+            } elseif ($password === $current) {
+                $this->Flash->error(__('The new password is the same as the current one.'));
+            } else {
+                $problem = $this->passwordProblem($password,
+                    $this->request->getData('confirm_password'));
+
+                if ($problem !== null) {
+                    $this->Flash->error($problem);
+                } else {
+                    // Assigned rather than patched: a post can carry anything,
+                    // and this screen changes one thing.
+                    $user->password = $password;
+                    $user->setDirty('password', true);
+
+                    if ($this->Users->save($user)) {
+                        $this->recordDecision('user.changePassword', [
+                            'type' => 'User',
+                            'id' => $user->id,
+                            'label' => $user->username,
+                        ]);
+
+                        $this->Flash->success(__('Your password has been changed.'));
+
+                        return $this->redirect(['action' => 'profile']);
+                    }
+
+                    $this->Flash->error(__('The password could not be saved. Please, try again.'));
+                }
+            }
+        }
+
+        $this->set(compact('user'));
+        $this->set('rules', $this->passwordRules());
+    }
+
+    /**
      * Profile method
      * 
      * Display current logged-in user's profile information
@@ -448,16 +523,31 @@ class UsersController extends AppController
         ]);
         
         if ($this->request->is(['patch', 'post', 'put'])) {
-            $user = $this->Users->patchEntity($user, $this->request->getData());
-            
-            // Don't allow changing roles or vocational_training_institution_id
-            unset($user->roles);
-            unset($user->vocational_training_institution_id);
-            
+            // Named fields, not everything that arrives.
+            //
+            // This read patchEntity($user, $this->request->getData()) and then
+            // tried to protect itself with unset($user->roles) and
+            // unset($user->vocational_training_institution_id). The second one
+            // names a column that does not exist - the column is
+            // institution_id - so it protected nothing, and institution_id,
+            // is_active and password are all accessible on the entity. Since
+            // LpkDataFilterTrait scopes what an LPK user may read by their
+            // institution_id, anybody logged in could post one to this screen
+            // and read another institution's candidates. It is their own
+            // account, so nothing stopped them.
+            //
+            // This screen edits three things. A password is changed on its own
+            // screen, where the current one has to be given.
+            $user = $this->Users->patchEntity($user, $this->request->getData(), [
+                'fields' => ['full_name', 'username', 'email'],
+            ]);
+
             if ($this->Users->save($user)) {
-                // Update session data
+                // Update session data. The column is full_name; this wrote
+                // 'fullname', which is not a column and was always null, so the
+                // name in the session was emptied on every save.
                 $sessionUser = $this->Auth->user();
-                $sessionUser['fullname'] = $user->fullname;
+                $sessionUser['full_name'] = $user->full_name;
                 $sessionUser['email'] = $user->email;
                 $this->Auth->setUser($sessionUser);
                 

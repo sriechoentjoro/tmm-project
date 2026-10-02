@@ -30,7 +30,7 @@
                                 <span class="text-danger">*</span>
                                 <small class="text-muted">(Max 256 characters)</small>
                             </label>
-                            <?= $this->Form->control('fullname', [
+                            <?= $this->Form->control('full_name', [
                                 'class' => 'form-control',
                                 'label' => false,
                                 'required' => true,
@@ -112,6 +112,12 @@
                             ['class' => 'btn btn-primary', 'escape' => false]
                         ) ?>
                         
+                        <?= $this->Html->link(
+                            '<i class="fas fa-lock"></i> ' . __('Change Password'),
+                            ['action' => 'changePassword'],
+                            ['class' => 'btn btn-outline-primary', 'escape' => false]
+                        ) ?>
+
                         <?= $this->Html->link(
                             '<i class="fas fa-times"></i> ' . __('Cancel'),
                             ['action' => 'profile'],
