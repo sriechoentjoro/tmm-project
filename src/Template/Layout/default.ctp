@@ -403,7 +403,11 @@ $cakeDescription = 'TMM: Apprentice Management Modules';
                                     $userName = 'Guest';
                                     $displayName = 'Guest';
                                 } else {
-                                    $userName = isset($user['fullname']) ? $user['fullname'] : (isset($user['username']) ? $user['username'] : 'User');
+                                    // The column is full_name. This read 'fullname', which the session
+                                    // has never held, so the header greeted everybody
+                                    // by their login name instead of their own.
+                                    $userName = !empty($user['full_name']) ? $user['full_name']
+                                        : (isset($user['username']) ? $user['username'] : 'User');
                                     // Humanize username - capitalize each word properly
                                     $displayName = ucwords(strtolower(str_replace('_', ' ', $userName)));
                                 }

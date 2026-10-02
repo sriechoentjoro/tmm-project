@@ -158,7 +158,12 @@ class LpkRegistrationController extends AppController
                                 // so this is the one place it can be handed
                                 // over before the account exists.
                                 'username' => $institution->username,
-                                'registeredByAdmin' => $this->Auth->user('fullname'),
+                                // full_name, not fullname: the session has never held that key, so
+                                // the verification mail printed "Registered By:" and
+                                // then nothing. The login name is a poor answer but a
+                                // better one than a blank.
+                                'registeredByAdmin' => $this->Auth->user('full_name')
+                                    ?: $this->Auth->user('username'),
                                 'registrationDate' => ($institution->created ?: Time::now())->format('d F Y, H:i'),
                                 'verificationUrl' => $verificationUrl
                             ]
@@ -566,7 +571,12 @@ class LpkRegistrationController extends AppController
                     'registrationNumber' => $institution->abbreviation,
                     'email' => $institution->email,
                     'username' => $institution->username,
-                    'registeredByAdmin' => $this->Auth->user('fullname'),
+                    // full_name, not fullname: the session has never held that key, so
+                                // the verification mail printed "Registered By:" and
+                                // then nothing. The login name is a poor answer but a
+                                // better one than a blank.
+                                'registeredByAdmin' => $this->Auth->user('full_name')
+                                    ?: $this->Auth->user('username'),
                     'registrationDate' => ($institution->created ?: Time::now())->format('d F Y, H:i'),
                     'verificationUrl' => $verificationUrl
                 ]

@@ -345,7 +345,7 @@ class ApprenticeOrdersController extends AppController
             $share->status = 'shared';
             $share->cancelled_at = null;
             $share->shared_by_user_id = $this->Auth->user('id');
-            $share->shared_by_name = $this->Auth->user('fullname') ?: $this->Auth->user('username');
+            $share->shared_by_name = $this->Auth->user('full_name') ?: $this->Auth->user('username');
             $share->created = new \Cake\I18n\FrozenTime();
 
             // 0 and 1, not false and true. The integer marshaller rejects a
