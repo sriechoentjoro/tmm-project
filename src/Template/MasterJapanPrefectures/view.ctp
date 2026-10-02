@@ -306,11 +306,11 @@
                                         <td><?= h($acceptanceOrganizations->id) ?></td>
                                         <td><?= h($acceptanceOrganizations->title) ?></td>
                                         <td>
-                                            <?php if ($acceptanceOrganizations->has('masterJapanPrefecture')): ?>
+                                            <?php if ($acceptanceOrganizations->has('master_japan_prefecture')): ?>
                                                 <?php
-                                                    $displayValue = $acceptanceOrganizations->masterJapanPrefecture->title;
+                                                    $displayValue = $acceptanceOrganizations->master_japan_prefecture->title;
                                                     if (empty($displayValue)) {
-                                                        $displayValue = $acceptanceOrganizations->masterJapanPrefecture->name;
+                                                        $displayValue = $acceptanceOrganizations->master_japan_prefecture->name;
                                                 }
                                                     if (empty($displayValue)) {
                                                         $displayValue = $acceptanceOrganizations->master_japan_prefecture_id;

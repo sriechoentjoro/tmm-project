@@ -1222,11 +1222,11 @@ $viewerRoles = (array)$this->request->getSession()->read('Auth.User.role_names')
                                             <?php endif; ?>
                                         </td>
                                         <td>
-                                            <?php if ($apprenticeCourses->has('vocationalTrainingInstitution')): ?>
+                                            <?php if ($apprenticeCourses->has('vocational_training_institution')): ?>
                                                 <?php
-                                                    $displayValue = $apprenticeCourses->vocationalTrainingInstitution->title;
+                                                    $displayValue = $apprenticeCourses->vocational_training_institution->title;
                                                     if (empty($displayValue)) {
-                                                        $displayValue = $apprenticeCourses->vocationalTrainingInstitution->name;
+                                                        $displayValue = $apprenticeCourses->vocational_training_institution->name;
                                                 }
                                                     if (empty($displayValue)) {
                                                         $displayValue = $apprenticeCourses->vocational_training_institution_id;
@@ -1238,11 +1238,11 @@ $viewerRoles = (array)$this->request->getSession()->read('Auth.User.role_names')
                                             <?php endif; ?>
                                         </td>
                                         <td>
-                                            <?php if ($apprenticeCourses->has('courseMajor')): ?>
+                                            <?php if ($apprenticeCourses->has('course_major')): ?>
                                                 <?php
-                                                    $displayValue = $apprenticeCourses->courseMajor->title;
+                                                    $displayValue = $apprenticeCourses->course_major->title;
                                                     if (empty($displayValue)) {
-                                                        $displayValue = $apprenticeCourses->courseMajor->name;
+                                                        $displayValue = $apprenticeCourses->course_major->name;
                                                 }
                                                     if (empty($displayValue)) {
                                                         $displayValue = $apprenticeCourses->course_major_id;
@@ -1451,11 +1451,11 @@ $viewerRoles = (array)$this->request->getSession()->read('Auth.User.role_names')
                                             <?php endif; ?>
                                         </td>
                                         <td>
-                                            <?php if ($apprenticeEducations->has('masterStrata')): ?>
+                                            <?php if ($apprenticeEducations->has('master_strata')): ?>
                                                 <?php
-                                                    $displayValue = $apprenticeEducations->masterStrata->title;
+                                                    $displayValue = $apprenticeEducations->master_strata->title;
                                                     if (empty($displayValue)) {
-                                                        $displayValue = $apprenticeEducations->masterStrata->name;
+                                                        $displayValue = $apprenticeEducations->master_strata->name;
                                                 }
                                                     if (empty($displayValue)) {
                                                         $displayValue = $apprenticeEducations->master_strata_id;
@@ -1467,11 +1467,11 @@ $viewerRoles = (array)$this->request->getSession()->read('Auth.User.role_names')
                                             <?php endif; ?>
                                         </td>
                                         <td>
-                                            <?php if ($apprenticeEducations->has('masterPropinsi')): ?>
+                                            <?php if ($apprenticeEducations->has('master_propinsi')): ?>
                                                 <?php
-                                                    $displayValue = $apprenticeEducations->masterPropinsi->title;
+                                                    $displayValue = $apprenticeEducations->master_propinsi->title;
                                                     if (empty($displayValue)) {
-                                                        $displayValue = $apprenticeEducations->masterPropinsi->name;
+                                                        $displayValue = $apprenticeEducations->master_propinsi->name;
                                                 }
                                                     if (empty($displayValue)) {
                                                         $displayValue = $apprenticeEducations->master_propinsi_id;
@@ -1483,11 +1483,11 @@ $viewerRoles = (array)$this->request->getSession()->read('Auth.User.role_names')
                                             <?php endif; ?>
                                         </td>
                                         <td>
-                                            <?php if ($apprenticeEducations->has('masterKabupaten')): ?>
+                                            <?php if ($apprenticeEducations->has('master_kabupaten')): ?>
                                                 <?php
-                                                    $displayValue = $apprenticeEducations->masterKabupaten->title;
+                                                    $displayValue = $apprenticeEducations->master_kabupaten->title;
                                                     if (empty($displayValue)) {
-                                                        $displayValue = $apprenticeEducations->masterKabupaten->name;
+                                                        $displayValue = $apprenticeEducations->master_kabupaten->name;
                                                 }
                                                     if (empty($displayValue)) {
                                                         $displayValue = $apprenticeEducations->master_kabupaten_id;
@@ -1894,11 +1894,11 @@ $viewerRoles = (array)$this->request->getSession()->read('Auth.User.role_names')
                                             <?php endif; ?>
                                         </td>
                                         <td>
-                                            <?php if ($apprenticeFamilies->has('masterFamilyConnection')): ?>
+                                            <?php if ($apprenticeFamilies->has('master_family_connection')): ?>
                                                 <?php
-                                                    $displayValue = $apprenticeFamilies->masterFamilyConnection->title;
+                                                    $displayValue = $apprenticeFamilies->master_family_connection->title;
                                                     if (empty($displayValue)) {
-                                                        $displayValue = $apprenticeFamilies->masterFamilyConnection->name;
+                                                        $displayValue = $apprenticeFamilies->master_family_connection->name;
                                                 }
                                                     if (empty($displayValue)) {
                                                         $displayValue = $apprenticeFamilies->master_family_connection_id;

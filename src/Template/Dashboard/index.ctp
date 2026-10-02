@@ -71,7 +71,7 @@ $this->assign('title', 'Dashboard');
                             <td><?= h($candidate->id) ?></td>
                             <td>
                                 <?= $this->Html->link(
-                                    h($candidate->fullname),
+                                    h($candidate->name),
                                     ['controller' => 'Candidates', 'action' => 'view', $candidate->id]
                                 ) ?>
                             </td>
@@ -111,7 +111,7 @@ $this->assign('title', 'Dashboard');
                             <td><?= h($trainee->id) ?></td>
                             <td>
                                 <?= $this->Html->link(
-                                    h($trainee->fullname),
+                                    h($trainee->name),
                                     ['controller' => 'Trainees', 'action' => 'view', $trainee->id]
                                 ) ?>
                             </td>

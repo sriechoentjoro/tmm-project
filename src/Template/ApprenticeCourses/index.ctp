@@ -171,8 +171,8 @@
                     </td>
                     <td style="padding: 8px; white-space: nowrap;"><?= $this->Number->format($apprenticeCourse->id) ?></td>
                     <td style="padding: 8px; white-space: nowrap;"><?= $apprenticeCourse->has('apprentice') ? $this->Html->link($apprenticeCourse->apprentice->name, ['controller' => 'Apprentices', 'action' => 'view', $apprenticeCourse->apprentice->id]) : '' ?></td>
-                    <td style="padding: 8px; white-space: nowrap;"><?= $apprenticeCourse->has('vocationalTrainingInstitutions') ? 
-            h($apprenticeCourse->vocationalTrainingInstitutions->name) : '' ?></td>
+                    <td style="padding: 8px; white-space: nowrap;"><?= $apprenticeCourse->has('vocational_training_institution') ? 
+            h($apprenticeCourse->vocational_training_institution->name) : '' ?></td>
                     <td style="padding: 8px; white-space: nowrap;"><?= $this->Number->format($apprenticeCourse->course_major_id) ?></td>
                     <td style="padding: 8px; white-space: nowrap;"><?= $this->Number->format($apprenticeCourse->course_year) ?></td>
                     <td style="padding: 8px; white-space: nowrap;"><?= h($apprenticeCourse->title) ?></td>

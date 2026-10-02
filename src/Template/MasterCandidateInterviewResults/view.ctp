@@ -304,28 +304,15 @@
                                         </td>
                                         <td><?= h($candidateRecordInterviews->id) ?></td>
                                         <td>
-                                            <?php if ($candidateRecordInterviews->has('applicant')): ?>
-                                                <?php
-                                                    $displayValue = $candidateRecordInterviews->applicant->title;
-                                                    if (empty($displayValue)) {
-                                                        $displayValue = $candidateRecordInterviews->applicant->name;
-                                                }
-                                                    if (empty($displayValue)) {
-                                                        $displayValue = $candidateRecordInterviews->applicant_id;
-                                                }
-                                                ?>
-                                                <?= h($displayValue) ?>
-                                            <?php else: ?>
-                                                <?= $candidateRecordInterviews->has('candidate') ? $this->Html->link($candidateRecordInterviews->candidate->fullname, ['controller' => 'Candidates', 'action' => 'view', $candidateRecordInterviews->candidate->id]) : '' ?>
-                                            <?php endif; ?>
+                                            <?= $candidateRecordInterviews->has('candidate') ? $this->Html->link($candidateRecordInterviews->candidate->name, ['controller' => 'Candidates', 'action' => 'view', $candidateRecordInterviews->candidate->id]) : '' ?>
                                         </td>
                                         <td><?= h($candidateRecordInterviews->title) ?></td>
                                         <td>
-                                            <?php if ($candidateRecordInterviews->has('masterCandidateInterviewType')): ?>
+                                            <?php if ($candidateRecordInterviews->has('master_candidate_interview_type')): ?>
                                                 <?php
-                                                    $displayValue = $candidateRecordInterviews->masterCandidateInterviewType->title;
+                                                    $displayValue = $candidateRecordInterviews->master_candidate_interview_type->title;
                                                     if (empty($displayValue)) {
-                                                        $displayValue = $candidateRecordInterviews->masterCandidateInterviewType->name;
+                                                        $displayValue = $candidateRecordInterviews->master_candidate_interview_type->name;
                                                 }
                                                     if (empty($displayValue)) {
                                                         $displayValue = $candidateRecordInterviews->master_candidate_interview_type_id;
@@ -535,9 +522,9 @@
                                         </td>
                                         <td><?= h($candidates->candidate_code) ?></td>
                                         <td>
-                                            <?php if ($candidates->has('vocationalTrainingInstitution')): ?>
+                                            <?php if ($candidates->has('vocational_training_institution')): ?>
                                                 <?php
-                                                    $displayValue = $candidates->vocationalTrainingInstitution->name;
+                                                    $displayValue = $candidates->vocational_training_institution->name;
                                                     if (empty($displayValue)) { $displayValue = $candidates->vocational_training_institution_id; }
                                                 ?>
                                                 <?= $this->Html->link(h($displayValue), ['controller' => 'VocationalTrainingInstitutions', 'action' => 'view', $candidates->vocational_training_institution_id]) ?>
@@ -546,9 +533,9 @@
                                             <?php endif; ?>
                                         </td>
                                         <td>
-                                            <?php if ($candidates->has('acceptanceOrganization')): ?>
+                                            <?php if ($candidates->has('acceptance_organization')): ?>
                                                 <?php
-                                                    $displayValue = $candidates->acceptanceOrganization->name;
+                                                    $displayValue = $candidates->acceptance_organization->name;
                                                     if (empty($displayValue)) { $displayValue = $candidates->acceptance_organization_id; }
                                                 ?>
                                                 <?= $this->Html->link(h($displayValue), ['controller' => 'AcceptanceOrganizations', 'action' => 'view', $candidates->acceptance_organization_id]) ?>

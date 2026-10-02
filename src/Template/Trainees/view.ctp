@@ -1206,11 +1206,11 @@
                                             <?php endif; ?>
                                         </td>
                                         <td>
-                                            <?php if ($traineeCourses->has('vocationalTrainingInstitution')): ?>
+                                            <?php if ($traineeCourses->has('vocational_training_institution')): ?>
                                                 <?php
-                                                    $displayValue = $traineeCourses->vocationalTrainingInstitution->title;
+                                                    $displayValue = $traineeCourses->vocational_training_institution->title;
                                                     if (empty($displayValue)) {
-                                                        $displayValue = $traineeCourses->vocationalTrainingInstitution->name;
+                                                        $displayValue = $traineeCourses->vocational_training_institution->name;
                                                 }
                                                     if (empty($displayValue)) {
                                                         $displayValue = $traineeCourses->vocational_training_institution_id;
@@ -1222,11 +1222,11 @@
                                             <?php endif; ?>
                                         </td>
                                         <td>
-                                            <?php if ($traineeCourses->has('courseMajor')): ?>
+                                            <?php if ($traineeCourses->has('course_major')): ?>
                                                 <?php
-                                                    $displayValue = $traineeCourses->courseMajor->title;
+                                                    $displayValue = $traineeCourses->course_major->title;
                                                     if (empty($displayValue)) {
-                                                        $displayValue = $traineeCourses->courseMajor->name;
+                                                        $displayValue = $traineeCourses->course_major->name;
                                                 }
                                                     if (empty($displayValue)) {
                                                         $displayValue = $traineeCourses->course_major_id;
@@ -1435,11 +1435,11 @@
                                             <?php endif; ?>
                                         </td>
                                         <td>
-                                            <?php if ($traineeEducations->has('masterStrata')): ?>
+                                            <?php if ($traineeEducations->has('master_strata')): ?>
                                                 <?php
-                                                    $displayValue = $traineeEducations->masterStrata->title;
+                                                    $displayValue = $traineeEducations->master_strata->title;
                                                     if (empty($displayValue)) {
-                                                        $displayValue = $traineeEducations->masterStrata->name;
+                                                        $displayValue = $traineeEducations->master_strata->name;
                                                 }
                                                     if (empty($displayValue)) {
                                                         $displayValue = $traineeEducations->master_strata_id;
@@ -1451,11 +1451,11 @@
                                             <?php endif; ?>
                                         </td>
                                         <td>
-                                            <?php if ($traineeEducations->has('masterPropinsi')): ?>
+                                            <?php if ($traineeEducations->has('master_propinsi')): ?>
                                                 <?php
-                                                    $displayValue = $traineeEducations->masterPropinsi->title;
+                                                    $displayValue = $traineeEducations->master_propinsi->title;
                                                     if (empty($displayValue)) {
-                                                        $displayValue = $traineeEducations->masterPropinsi->name;
+                                                        $displayValue = $traineeEducations->master_propinsi->name;
                                                 }
                                                     if (empty($displayValue)) {
                                                         $displayValue = $traineeEducations->master_propinsi_id;
@@ -1467,11 +1467,11 @@
                                             <?php endif; ?>
                                         </td>
                                         <td>
-                                            <?php if ($traineeEducations->has('masterKabupaten')): ?>
+                                            <?php if ($traineeEducations->has('master_kabupaten')): ?>
                                                 <?php
-                                                    $displayValue = $traineeEducations->masterKabupaten->title;
+                                                    $displayValue = $traineeEducations->master_kabupaten->title;
                                                     if (empty($displayValue)) {
-                                                        $displayValue = $traineeEducations->masterKabupaten->name;
+                                                        $displayValue = $traineeEducations->master_kabupaten->name;
                                                 }
                                                     if (empty($displayValue)) {
                                                         $displayValue = $traineeEducations->master_kabupaten_id;
@@ -1878,11 +1878,11 @@
                                             <?php endif; ?>
                                         </td>
                                         <td>
-                                            <?php if ($traineeFamilies->has('masterFamilyConnection')): ?>
+                                            <?php if ($traineeFamilies->has('master_family_connection')): ?>
                                                 <?php
-                                                    $displayValue = $traineeFamilies->masterFamilyConnection->title;
+                                                    $displayValue = $traineeFamilies->master_family_connection->title;
                                                     if (empty($displayValue)) {
-                                                        $displayValue = $traineeFamilies->masterFamilyConnection->name;
+                                                        $displayValue = $traineeFamilies->master_family_connection->name;
                                                 }
                                                     if (empty($displayValue)) {
                                                         $displayValue = $traineeFamilies->master_family_connection_id;

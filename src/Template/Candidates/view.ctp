@@ -1241,11 +1241,11 @@ $viewerRoles = (array)$this->request->getSession()->read('Auth.User.role_names')
                                             <?php endif; ?>
                                         </td>
                                         <td>
-                                            <?php if ($candidateCourses->has('vocationalTrainingInstitution')): ?>
+                                            <?php if ($candidateCourses->has('vocational_training_institution')): ?>
                                                 <?php
-                                                    $displayValue = $candidateCourses->vocationalTrainingInstitution->title;
+                                                    $displayValue = $candidateCourses->vocational_training_institution->title;
                                                     if (empty($displayValue)) {
-                                                        $displayValue = $candidateCourses->vocationalTrainingInstitution->name;
+                                                        $displayValue = $candidateCourses->vocational_training_institution->name;
                                                     }
                                                     if (empty($displayValue)) {
                                                         $displayValue = $candidateCourses->vocational_training_institution_id;
@@ -1257,11 +1257,11 @@ $viewerRoles = (array)$this->request->getSession()->read('Auth.User.role_names')
                                             <?php endif; ?>
                                         </td>
                                         <td>
-                                            <?php if ($candidateCourses->has('masterCourseMajor')): ?>
+                                            <?php if ($candidateCourses->has('master_course_major')): ?>
                                                 <?php
-                                                    $displayValue = $candidateCourses->masterCourseMajor->title;
+                                                    $displayValue = $candidateCourses->master_course_major->title;
                                                     if (empty($displayValue)) {
-                                                        $displayValue = $candidateCourses->masterCourseMajor->name;
+                                                        $displayValue = $candidateCourses->master_course_major->name;
                                                     }
                                                     if (empty($displayValue)) {
                                                         $displayValue = $candidateCourses->master_course_major_id;
@@ -1669,11 +1669,11 @@ $viewerRoles = (array)$this->request->getSession()->read('Auth.User.role_names')
                                             <?php endif; ?>
                                         </td>
                                         <td>
-                                            <?php if ($candidateEducations->has('masterStrata')): ?>
+                                            <?php if ($candidateEducations->has('master_strata')): ?>
                                                 <?php
-                                                    $displayValue = $candidateEducations->masterStrata->title;
+                                                    $displayValue = $candidateEducations->master_strata->title;
                                                     if (empty($displayValue)) {
-                                                        $displayValue = $candidateEducations->masterStrata->name;
+                                                        $displayValue = $candidateEducations->master_strata->name;
                                                     }
                                                     if (empty($displayValue)) {
                                                         $displayValue = $candidateEducations->master_strata_id;
@@ -1685,11 +1685,11 @@ $viewerRoles = (array)$this->request->getSession()->read('Auth.User.role_names')
                                             <?php endif; ?>
                                         </td>
                                         <td>
-                                            <?php if ($candidateEducations->has('masterPropinsi')): ?>
+                                            <?php if ($candidateEducations->has('master_propinsi')): ?>
                                                 <?php
-                                                    $displayValue = $candidateEducations->masterPropinsi->title;
+                                                    $displayValue = $candidateEducations->master_propinsi->title;
                                                     if (empty($displayValue)) {
-                                                        $displayValue = $candidateEducations->masterPropinsi->name;
+                                                        $displayValue = $candidateEducations->master_propinsi->name;
                                                     }
                                                     if (empty($displayValue)) {
                                                         $displayValue = $candidateEducations->master_propinsi_id;
@@ -1701,11 +1701,11 @@ $viewerRoles = (array)$this->request->getSession()->read('Auth.User.role_names')
                                             <?php endif; ?>
                                         </td>
                                         <td>
-                                            <?php if ($candidateEducations->has('masterKabupaten')): ?>
+                                            <?php if ($candidateEducations->has('master_kabupaten')): ?>
                                                 <?php
-                                                    $displayValue = $candidateEducations->masterKabupaten->title;
+                                                    $displayValue = $candidateEducations->master_kabupaten->title;
                                                     if (empty($displayValue)) {
-                                                        $displayValue = $candidateEducations->masterKabupaten->name;
+                                                        $displayValue = $candidateEducations->master_kabupaten->name;
                                                     }
                                                     if (empty($displayValue)) {
                                                         $displayValue = $candidateEducations->master_kabupaten_id;
@@ -2112,11 +2112,11 @@ $viewerRoles = (array)$this->request->getSession()->read('Auth.User.role_names')
                                             <?php endif; ?>
                                         </td>
                                         <td>
-                                            <?php if ($candidateFamilies->has('masterFamilyConnection')): ?>
+                                            <?php if ($candidateFamilies->has('master_family_connection')): ?>
                                                 <?php
-                                                    $displayValue = $candidateFamilies->masterFamilyConnection->title;
+                                                    $displayValue = $candidateFamilies->master_family_connection->title;
                                                     if (empty($displayValue)) {
-                                                        $displayValue = $candidateFamilies->masterFamilyConnection->name;
+                                                        $displayValue = $candidateFamilies->master_family_connection->name;
                                                     }
                                                     if (empty($displayValue)) {
                                                         $displayValue = $candidateFamilies->master_family_connection_id;

@@ -21,7 +21,7 @@
                                 <img src="<?= h($user->photo) ?>" alt="Profile Photo" class="img-thumbnail mb-3" style="max-width: 200px; border-radius: 10px;">
                             <?php else: ?>
                                 <?php 
-                                $userName = !empty($user->fullname) ? $user->fullname : $user->username;
+                                $userName = !empty($user->full_name) ? $user->full_name : $user->username;
                                 $nameParts = explode(' ', trim($userName));
                                 if (count($nameParts) >= 2) {
                                     $initials = strtoupper(substr($nameParts[0], 0, 1) . substr($nameParts[count($nameParts) - 1], 0, 1));
@@ -37,7 +37,7 @@
                                 </div>
                             <?php endif; ?>
                             
-                            <h4><?= h($user->fullname) ?></h4>
+                            <h4><?= h($user->full_name) ?></h4>
                             <p class="text-muted">@<?= h($user->username) ?></p>
                             
                             <div class="mt-3">
@@ -56,7 +56,7 @@
                             <table class="table table-bordered">
                                 <tr>
                                     <th style="width: 30%;"><?= __('Full Name') ?></th>
-                                    <td><?= h($user->fullname) ?></td>
+                                    <td><?= h($user->full_name) ?></td>
                                 </tr>
                                 <tr>
                                     <th><?= __('Username') ?></th>

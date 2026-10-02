@@ -293,28 +293,15 @@
                                         </td>
                                         <td><?= h($candidateRecordInterviews->id) ?></td>
                                         <td>
-                                            <?php if ($candidateRecordInterviews->has('applicant')): ?>
-                                                <?php
-                                                    $displayValue = $candidateRecordInterviews->applicant->title;
-                                                    if (empty($displayValue)) {
-                                                        $displayValue = $candidateRecordInterviews->applicant->name;
-                                                }
-                                                    if (empty($displayValue)) {
-                                                        $displayValue = $candidateRecordInterviews->applicant_id;
-                                                }
-                                                ?>
-                                                <?= h($displayValue) ?>
-                                            <?php else: ?>
-                                                <?= $candidateRecordInterviews->has('candidate') ? $this->Html->link($candidateRecordInterviews->candidate->fullname, ['controller' => 'Candidates', 'action' => 'view', $candidateRecordInterviews->candidate->id]) : '' ?>
-                                            <?php endif; ?>
+                                            <?= $candidateRecordInterviews->has('candidate') ? $this->Html->link($candidateRecordInterviews->candidate->name, ['controller' => 'Candidates', 'action' => 'view', $candidateRecordInterviews->candidate->id]) : '' ?>
                                         </td>
                                         <td><?= h($candidateRecordInterviews->title) ?></td>
                                         <td>
-                                            <?php if ($candidateRecordInterviews->has('masterCandidateInterviewType')): ?>
+                                            <?php if ($candidateRecordInterviews->has('master_candidate_interview_type')): ?>
                                                 <?php
-                                                    $displayValue = $candidateRecordInterviews->masterCandidateInterviewType->title;
+                                                    $displayValue = $candidateRecordInterviews->master_candidate_interview_type->title;
                                                     if (empty($displayValue)) {
-                                                        $displayValue = $candidateRecordInterviews->masterCandidateInterviewType->name;
+                                                        $displayValue = $candidateRecordInterviews->master_candidate_interview_type->name;
                                                 }
                                                     if (empty($displayValue)) {
                                                         $displayValue = $candidateRecordInterviews->master_candidate_interview_type_id;
