@@ -18875,8 +18875,14 @@ msgstr "{0} はすでに有効です。"
 msgid "{0} has no email address to send to."
 msgstr "{0} には送信先のメールアドレスがありません。"
 
-msgid "A verification link could not be created. Please, try again."
-msgstr "確認リンクを作成できませんでした。もう一度お試しください。"
+msgid "The database does not accept this kind of verification token yet. Apply {0} and press this again."
+msgstr "データベースはまだこの種類の確認トークンを受け付けません。{0} を適用してから、もう一度押してください。"
+
+msgid "A verification link could not be created: {0}"
+msgstr "確認リンクを作成できませんでした: {0}"
+
+msgid "no reason was given"
+msgstr "理由は示されませんでした"
 
 msgid "A verification email has been sent to {0}."
 msgstr "{0} に確認メールを送信しました。"

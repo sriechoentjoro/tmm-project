@@ -31,8 +31,27 @@ $conn->execute('CREATE TABLE users (id INTEGER PRIMARY KEY, username VARCHAR(100
     institution_type VARCHAR(50), created DATETIME, modified DATETIME)');
 $conn->execute('CREATE TABLE roles (id INTEGER PRIMARY KEY, name VARCHAR(100))');
 $conn->execute('CREATE TABLE user_roles (id INTEGER PRIMARY KEY, user_id INTEGER, role_id INTEGER)');
+
+// token_type is an ENUM in MySQL, and the first version of this fixture wrote
+// it as VARCHAR(50). sqlite has no ENUM and stores whatever it is given, so the
+// fixture accepted 'user_verification' while the real column - ENUM of two
+// values, neither of them that one - refused it, and the harness passed a
+// feature that could not work anywhere but here. A fixture that does not carry
+// the database's constraint tests the application's assumption instead.
+//
+// So the values are read from the migration that owns them rather than copied,
+// and the column carries them as a CHECK. Allow a type in the validator without
+// the migration and the first token written here fails, which is what MySQL
+// would have done.
+$migration = TMM_ROOT . '/database/migrations/add_user_verification_token_type.sql';
+preg_match('/token_type\s+ENUM\s*\((.*?)\)/is', file_get_contents($migration), $m);
+preg_match_all("/'([^']+)'/", $m[1], $found);
+$tokenTypes = $found[1];
+checkTrue('the migration defines the token types',
+    in_array('user_verification', $tokenTypes, true));
 $conn->execute('CREATE TABLE email_verification_tokens (id INTEGER PRIMARY KEY,
-    user_email VARCHAR(255), token VARCHAR(255), token_type VARCHAR(50),
+    user_email VARCHAR(255), token VARCHAR(255),
+    token_type VARCHAR(50) CHECK (token_type IN (\'' . implode("', '", $tokenTypes) . '\')),
     is_used INTEGER DEFAULT 0, used_at DATETIME, expires_at DATETIME,
     created DATETIME)');
 
@@ -167,5 +186,27 @@ checkTrue('the mail says whether it actually left',
     strpos($source, 'could not be sent') !== false);
 checkTrue('and the attempt is recorded either way',
     strpos($source, "recordDecision('user.resendVerification'") !== false);
+
+echo "  what the validator allows and what the column can hold\n"
+    . "  (the fault that stopped the button: the validator was given a value\n"
+    . "   the ENUM had never been given, so every press failed at MySQL)\n";
+$table = file_get_contents(TMM_ROOT . '/src/Model/Table/EmailVerificationTokensTable.php');
+preg_match('/->inList\(\s*\'token_type\'\s*,\s*\[(.*?)\]/s', $table, $m);
+preg_match_all("/'([^']+)'/", $m[1], $found);
+sort($found[1]);
+$want = $tokenTypes;
+sort($want);
+check('the validator allows exactly what the column holds',
+    implode(', ', $found[1]), implode(', ', $want));
+
+echo "  a token the database refuses\n";
+$refused = $tokens->generateToken('budi@example.test', 'not_a_token_type');
+check('is not written', $refused, false);
+checkTrue('and it says why, rather than asking for another try',
+    (bool)$tokens->lastError());
+checkTrue('the screen passes that reason on',
+    strpos($source, 'lastError()') !== false);
+check('and no longer tells anybody to try again',
+    strpos($source, 'could not be created. Please, try again'), false);
 
 finish($db);

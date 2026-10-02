@@ -18,6 +18,19 @@ use Cake\Log\Log;
 class EmailVerificationTokensTable extends Table
 {
     /**
+     * Why the last token could not be written, or null.
+     *
+     * generateToken() returns false for a refused save and for a database that
+     * throws, and the two need different answers from whoever called it: one is
+     * worth trying again, the other never will be. The resend button told
+     * everybody to "try again" while MySQL was refusing a token_type its ENUM
+     * had never been given, which is a loop with no way out of it.
+     *
+     * @var string|null
+     */
+    protected $lastError = null;
+
+    /**
      * Initialize method
      *
      * @param array $config The configuration for the Table.
@@ -131,17 +144,50 @@ class EmailVerificationTokensTable extends Table
             ]);
             
             if ($this->save($tokenRecord)) {
+                $this->lastError = null;
                 Log::info("Token generated for email: $email, type: $tokenType", ['scope' => 'email_verification']);
                 return $token;
             }
-            
-            Log::error("Failed to save token for email: $email", ['scope' => 'email_verification']);
+
+            $this->lastError = $this->describeErrors($tokenRecord->getErrors())
+                ?: 'the record was refused without saying why';
+            Log::error("Failed to save token for email: $email ({$this->lastError})", ['scope' => 'email_verification']);
             return false;
-            
+
         } catch (\Exception $e) {
+            $this->lastError = $e->getMessage();
             Log::error("Error generating token: " . $e->getMessage(), ['scope' => 'email_verification']);
             return false;
         }
+    }
+
+    /**
+     * Why the last token could not be written, or null if the last one was.
+     *
+     * @return string|null
+     */
+    public function lastError()
+    {
+        return $this->lastError;
+    }
+
+    /**
+     * Flatten a set of validation errors into one readable line.
+     *
+     * @param array $errors As getErrors() returns them.
+     * @return string Empty when there were none.
+     */
+    protected function describeErrors(array $errors)
+    {
+        $said = [];
+        foreach ($errors as $field => $rules) {
+            foreach ((array)$rules as $message) {
+                $said[] = $field . ': ' . (is_array($message)
+                    ? implode(', ', $message) : $message);
+            }
+        }
+
+        return implode('; ', $said);
     }
 
     /**
@@ -344,10 +390,12 @@ class EmailVerificationTokensTable extends Table
                 Log::info("Verification email resent for: $email", ['scope' => 'email_verification']);
                 return $newToken;
             }
-            
+
+            // lastError is generateToken's and is left as it set it.
             return false;
-            
+
         } catch (\Exception $e) {
+            $this->lastError = $e->getMessage();
             Log::error("Error resending verification: " . $e->getMessage(), ['scope' => 'email_verification']);
             return false;
         }

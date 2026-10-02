@@ -453,7 +453,21 @@ class UsersController extends AppController
             ->resendVerification($user->email, 'user_verification');
 
         if (!$token) {
-            $this->Flash->error(__('A verification link could not be created. Please, try again.'));
+            // Not "please try again": the first version of this said that, and
+            // the reason was an ENUM that had never been given the value, so
+            // trying again was going to fail for as long as anybody pressed it.
+            // Whatever the database or the validator objected to is said here,
+            // on a screen only an administrator can reach.
+            $why = $this->EmailVerificationTokens->lastError();
+            \Cake\Log\Log::error(sprintf('resendVerification: no token for user %d (%s)',
+                $user->id, $why ?: 'no reason given'), ['scope' => 'email_verification']);
+
+            if ($why !== null && strpos($why, 'token_type') !== false) {
+                $this->Flash->error(__('The database does not accept this kind of verification token yet. Apply {0} and press this again.', 'database/migrations/add_user_verification_token_type.sql'));
+            } else {
+                $this->Flash->error(__('A verification link could not be created: {0}',
+                    $why ?: __('no reason was given')));
+            }
 
             return $this->redirect(['action' => 'index']);
         }
