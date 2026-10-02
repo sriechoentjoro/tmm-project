@@ -69,7 +69,15 @@ class EmailVerificationTokensTable extends Table
             ->scalar('token_type')
             ->requirePresence('token_type', 'create')
             ->notEmptyString('token_type')
-            ->inList('token_type', ['email_verification', 'password_reset'], 'Invalid token type');
+            // user_verification is a login account confirming its own address,
+            // which is not the same thing as email_verification - that one
+            // belongs to an institution's registration. Both are keyed on an
+            // email address and nothing else, and for an LPK the two are the
+            // same address, so they are kept apart by type: resending one must
+            // not spend the other's live token.
+            ->inList('token_type',
+                ['email_verification', 'user_verification', 'password_reset'],
+                'Invalid token type');
 
         $validator
             ->boolean('is_used')
@@ -310,21 +318,27 @@ class EmailVerificationTokensTable extends Table
      * @param string $email Email address
      * @return string|false New token on success, false on failure
      */
-    public function resendVerification($email)
+    public function resendVerification($email, $tokenType = 'email_verification')
     {
         try {
-            // Invalidate all existing tokens for this email
+            // Invalidate all existing tokens for this email, of this kind only.
+            //
+            // The kind matters: an institution's verification and a login
+            // account's are both keyed on an email address and nothing else, so
+            // where the two share one - which is the ordinary case for an LPK -
+            // resending either would otherwise spend the other's live token and
+            // break a link somebody is about to click.
             $this->updateAll(
                 ['is_used' => 1, 'used_at' => new Time()],
                 [
                     'user_email' => $email,
-                    'token_type' => 'email_verification',
+                    'token_type' => $tokenType,
                     'is_used' => 0
                 ]
             );
             
             // Generate new token
-            $newToken = $this->generateToken($email, 'email_verification');
+            $newToken = $this->generateToken($email, $tokenType);
             
             if ($newToken) {
                 Log::info("Verification email resent for: $email", ['scope' => 'email_verification']);

@@ -142,6 +142,20 @@ $hasFilter = $filterRole || $filterStatus !== '' || $search !== '';
                                     <?= $this->Html->link('<i class="fa fa-key"></i>', ['action' => 'resetPassword', $user->id],
                                         ['escape' => false, 'class' => 'btn btn-sm btn-outline-warning',
                                          'title' => __('Reset Password')]) ?>
+                                    <?php if ($user->status !== 'active'): ?>
+                                        <?php
+                                        // An account an administrator created lands on
+                                        // pending_verification and nothing moved it off,
+                                        // so these rows sat at "Pending" with nothing to
+                                        // press. A post, not a link: it sends mail.
+                                        ?>
+                                        <?= $this->Form->postLink('<i class="fa fa-paper-plane"></i>',
+                                            ['action' => 'resendVerification', $user->id],
+                                            ['escape' => false, 'class' => 'btn btn-sm btn-outline-info',
+                                             'title' => __('Send the verification email again'),
+                                             'confirm' => __('Send a verification email to {0}?',
+                                                 $user->email ?: $user->username)]) ?>
+                                    <?php endif; ?>
                                 <?php endif; ?>
                                 <?= $this->Form->postLink('<i class="fa fa-trash"></i>', ['action' => 'delete', $user->id],
                                     ['escape' => false, 'class' => 'btn btn-sm btn-outline-danger', 'title' => __('Delete'),

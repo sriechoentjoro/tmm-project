@@ -18865,3 +18865,69 @@ msgstr "パスワードを変更しました。"
 
 msgid "#{0} is not on file any more."
 msgstr "#{0} はもう登録されていません。"
+
+msgid "Only an administrator can do that."
+msgstr "これを行えるのは管理者のみです。"
+
+msgid "{0} is already active."
+msgstr "{0} はすでに有効です。"
+
+msgid "{0} has no email address to send to."
+msgstr "{0} には送信先のメールアドレスがありません。"
+
+msgid "A verification link could not be created. Please, try again."
+msgstr "確認リンクを作成できませんでした。もう一度お試しください。"
+
+msgid "A verification email has been sent to {0}."
+msgstr "{0} に確認メールを送信しました。"
+
+msgid "The verification email to {0} could not be sent. The link was created, so try again once mail is working."
+msgstr "{0} への確認メールを送信できませんでした。リンクは作成済みなので、メールが使えるようになってから再度お試しください。"
+
+msgid "That verification link is not valid. Please check the email and try again."
+msgstr "その確認リンクは無効です。メールを確認してもう一度お試しください。"
+
+msgid "This account is already verified. You can log in."
+msgstr "このアカウントは確認済みです。ログインできます。"
+
+msgid "That verification link has expired. Ask an administrator to send a new one."
+msgstr "その確認リンクは期限切れです。管理者に新しいものを送ってもらってください。"
+
+msgid "Your email is verified and your account is active. You can log in."
+msgstr "メールアドレスが確認され、アカウントが有効になりました。ログインできます。"
+
+msgid "Your account could not be activated. Please contact an administrator."
+msgstr "アカウントを有効にできませんでした。管理者にご連絡ください。"
+
+msgid "Verify your TMM account"
+msgstr "TMM アカウントの確認"
+
+msgid "Hello {0},"
+msgstr "{0} 様"
+
+msgid "An account has been created for you on the TMM system. Confirm this address to activate it."
+msgstr "TMM システムにあなたのアカウントが作成されました。このアドレスを確認して有効にしてください。"
+
+msgid "Activate my account"
+msgstr "アカウントを有効にする"
+
+msgid "If the button does not work, copy this address into your browser:"
+msgstr "ボタンが動作しない場合は、このアドレスをブラウザーに貼り付けてください:"
+
+msgid "This link is good for 24 hours. If it expires, ask an administrator to send another."
+msgstr "このリンクの有効期限は 24 時間です。期限が切れた場合は、管理者に再送を依頼してください。"
+
+msgid "If you were not expecting this, you can ignore it - nothing happens until the link is opened."
+msgstr "心当たりがない場合は無視してください。リンクを開かないかぎり何も起こりません。"
+
+msgid "TMM System"
+msgstr "TMM システム"
+
+msgid "Open this address to activate your account:"
+msgstr "このアドレスを開いてアカウントを有効にしてください:"
+
+msgid "Send the verification email again"
+msgstr "確認メールを再送"
+
+msgid "Send a verification email to {0}?"
+msgstr "{0} に確認メールを送信しますか？"

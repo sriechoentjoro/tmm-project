@@ -21,11 +21,14 @@ class UsersController extends AppController
     {
         parent::beforeFilter($event);
         // Allow login, logout and changeLanguage to be accessed without being logged in
-        $this->Auth->allow(['login', 'logout', 'changeLanguage', 'help', 'guide']);
+        // verifyEmail is open because whoever opens it is not logged in -
+        // that is the point of it. The token is what authorises it.
+        $this->Auth->allow(['login', 'logout', 'changeLanguage', 'help', 'guide',
+            'verifyEmail']);
     }
 
     /**
-     * Who may reset somebody else's password.
+     * Who may reset somebody else's password, or send their verification again.
      *
      * Only an administrator, and said here rather than left to the menu
      * permissions. getMenuRolePermissions() expands granted_actions = '*' to
@@ -41,12 +44,13 @@ class UsersController extends AppController
      */
     public function isAuthorized($user = null)
     {
-        if ($this->request->getParam('action') === 'resetPassword') {
+        if (in_array($this->request->getParam('action'),
+            ['resetPassword', 'resendVerification'], true)) {
             $roles = isset($user['role_names']) ? (array)$user['role_names'] : [];
             if (in_array('administrator', $roles, true)) {
                 return true;
             }
-            $this->Flash->error(__('Only an administrator can reset a password.'));
+            $this->Flash->error(__('Only an administrator can do that.'));
 
             return false;
         }
@@ -402,6 +406,161 @@ class UsersController extends AppController
 
         $this->set(compact('user', 'institution'));
         $this->set('rules', $this->passwordRules());
+    }
+
+    /**
+     * Send this account's verification email again.
+     *
+     * An administrator creating an account on /users/add sets no status, so the
+     * row takes the column's default and lands on pending_verification - and
+     * nothing in this application has ever moved a login account off it. The
+     * only verification flow there was belongs to the LPK registration and
+     * verifies an institution, keyed on the institution. So these accounts sat
+     * at "Menunggu" with nothing anybody could press.
+     *
+     * The token is of its own kind. An institution's verification and an
+     * account's are both keyed on an email address and nothing else, and for an
+     * LPK the two are the same address; resending one must not spend the
+     * other's live token.
+     *
+     * It reports whether the mail actually left. sendEmail() returns false and
+     * logs rather than throwing, and a button that says "sent" when nothing was
+     * sent is worse than no button - somebody then waits for a mail that is not
+     * coming.
+     *
+     * @param string|null $id The account to send to.
+     * @return \Cake\Http\Response Always redirects to the list.
+     * @throws \Cake\Datasource\Exception\RecordNotFoundException When no such account.
+     */
+    public function resendVerification($id = null)
+    {
+        $this->request->allowMethod(['post']);
+        $user = $this->Users->get($id);
+
+        if ($user->status === 'active') {
+            $this->Flash->error(__('{0} is already active.', $user->username));
+
+            return $this->redirect(['action' => 'index']);
+        }
+        if (empty($user->email)) {
+            $this->Flash->error(__('{0} has no email address to send to.', $user->username));
+
+            return $this->redirect(['action' => 'index']);
+        }
+
+        $this->loadModel('EmailVerificationTokens');
+        $token = $this->EmailVerificationTokens
+            ->resendVerification($user->email, 'user_verification');
+
+        if (!$token) {
+            $this->Flash->error(__('A verification link could not be created. Please, try again.'));
+
+            return $this->redirect(['action' => 'index']);
+        }
+
+        $this->loadComponent('EmailService');
+        $sent = $this->EmailService->sendEmail(
+            $user->email,
+            $user->full_name ?: $user->username,
+            'user_verification',
+            [
+                'fullName' => $user->full_name ?: $user->username,
+                'username' => $user->username,
+                'email' => $user->email,
+                'verificationUrl' => \Cake\Routing\Router::url([
+                    'prefix' => false,
+                    'controller' => 'Users',
+                    'action' => 'verifyEmail',
+                    $token,
+                ], true),
+            ]
+        );
+
+        $this->recordDecision('user.resendVerification', [
+            'type' => 'User',
+            'id' => $user->id,
+            'label' => $user->username,
+        ], ['email' => $user->email, 'sent' => $sent]);
+
+        if ($sent) {
+            $this->Flash->success(__('A verification email has been sent to {0}.', $user->email));
+        } else {
+            $this->Flash->error(__('The verification email to {0} could not be sent. The link was created, so try again once mail is working.', $user->email));
+        }
+
+        return $this->redirect(['action' => 'index']);
+    }
+
+    /**
+     * Verify an account from the link in that email.
+     *
+     * Open to anybody, because whoever opens it is not logged in - that is the
+     * point of it.
+     *
+     * A second click on the same link is the ordinary case, not an attack:
+     * validateToken() only matches an unused token, and the first click spent
+     * it. Before calling the link invalid, the account is checked - if it is
+     * already active, the link did its job and says so.
+     *
+     * @param string|null $token The 64-character token from the email.
+     * @return \Cake\Http\Response Always redirects to the login page.
+     */
+    public function verifyEmail($token = null)
+    {
+        $login = ['prefix' => false, 'controller' => 'Users', 'action' => 'login'];
+
+        if (!$token || strlen($token) !== 64) {
+            $this->Flash->error(__('That verification link is not valid. Please check the email and try again.'));
+
+            return $this->redirect($login);
+        }
+
+        $this->loadModel('EmailVerificationTokens');
+        $record = $this->EmailVerificationTokens->validateToken($token, 'user_verification');
+
+        $email = null;
+        if ($record) {
+            $email = $record->user_email;
+        } else {
+            $spent = $this->EmailVerificationTokens->find()
+                ->where(['token' => $token, 'token_type' => 'user_verification'])
+                ->first();
+            if ($spent) {
+                $already = $this->Users->find()
+                    ->where(['email' => $spent->user_email, 'status' => 'active'])
+                    ->first();
+                if ($already) {
+                    $this->Flash->success(__('This account is already verified. You can log in.'));
+
+                    return $this->redirect($login);
+                }
+                $email = $spent->user_email;
+            }
+        }
+
+        if ($email === null) {
+            $this->Flash->error(__('That verification link has expired. Ask an administrator to send a new one.'));
+
+            return $this->redirect($login);
+        }
+
+        $user = $this->Users->find()->where(['email' => $email])->first();
+        if (!$user) {
+            $this->Flash->error(__('That verification link is not valid. Please check the email and try again.'));
+
+            return $this->redirect($login);
+        }
+
+        $user->status = 'active';
+        $user->is_active = 1;
+        if ($this->Users->save($user)) {
+            $this->EmailVerificationTokens->markAsUsed($token);
+            $this->Flash->success(__('Your email is verified and your account is active. You can log in.'));
+        } else {
+            $this->Flash->error(__('Your account could not be activated. Please contact an administrator.'));
+        }
+
+        return $this->redirect($login);
     }
 
     /**

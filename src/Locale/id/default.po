@@ -18865,3 +18865,69 @@ msgstr "Kata sandi Anda sudah diganti."
 
 msgid "#{0} is not on file any more."
 msgstr "#{0} sudah tidak ada dalam data."
+
+msgid "Only an administrator can do that."
+msgstr "Hanya administrator yang dapat melakukannya."
+
+msgid "{0} is already active."
+msgstr "{0} sudah aktif."
+
+msgid "{0} has no email address to send to."
+msgstr "{0} tidak punya alamat surel untuk dikirimi."
+
+msgid "A verification link could not be created. Please, try again."
+msgstr "Tautan verifikasinya tidak dapat dibuat. Silakan coba lagi."
+
+msgid "A verification email has been sent to {0}."
+msgstr "Surel verifikasi sudah dikirim ke {0}."
+
+msgid "The verification email to {0} could not be sent. The link was created, so try again once mail is working."
+msgstr "Surel verifikasi ke {0} tidak dapat dikirim. Tautannya sudah dibuat, jadi coba lagi setelah surelnya berfungsi."
+
+msgid "That verification link is not valid. Please check the email and try again."
+msgstr "Tautan verifikasi itu tidak sah. Silakan periksa surelnya dan coba lagi."
+
+msgid "This account is already verified. You can log in."
+msgstr "Akun ini sudah terverifikasi. Anda bisa masuk."
+
+msgid "That verification link has expired. Ask an administrator to send a new one."
+msgstr "Tautan verifikasi itu sudah kedaluwarsa. Mintalah administrator mengirim yang baru."
+
+msgid "Your email is verified and your account is active. You can log in."
+msgstr "Surel Anda terverifikasi dan akun Anda aktif. Anda bisa masuk."
+
+msgid "Your account could not be activated. Please contact an administrator."
+msgstr "Akun Anda tidak dapat diaktifkan. Silakan hubungi administrator."
+
+msgid "Verify your TMM account"
+msgstr "Verifikasi akun TMM Anda"
+
+msgid "Hello {0},"
+msgstr "Halo {0},"
+
+msgid "An account has been created for you on the TMM system. Confirm this address to activate it."
+msgstr "Sebuah akun telah dibuatkan untuk Anda di sistem TMM. Konfirmasikan alamat ini untuk mengaktifkannya."
+
+msgid "Activate my account"
+msgstr "Aktifkan akun saya"
+
+msgid "If the button does not work, copy this address into your browser:"
+msgstr "Kalau tombolnya tidak berfungsi, salin alamat ini ke peramban Anda:"
+
+msgid "This link is good for 24 hours. If it expires, ask an administrator to send another."
+msgstr "Tautan ini berlaku 24 jam. Kalau kedaluwarsa, mintalah administrator mengirim yang lain."
+
+msgid "If you were not expecting this, you can ignore it - nothing happens until the link is opened."
+msgstr "Kalau Anda tidak menduganya, abaikan saja - tidak terjadi apa-apa sampai tautannya dibuka."
+
+msgid "TMM System"
+msgstr "Sistem TMM"
+
+msgid "Open this address to activate your account:"
+msgstr "Buka alamat ini untuk mengaktifkan akun Anda:"
+
+msgid "Send the verification email again"
+msgstr "Kirim ulang surel verifikasi"
+
+msgid "Send a verification email to {0}?"
+msgstr "Kirim surel verifikasi ke {0}?"

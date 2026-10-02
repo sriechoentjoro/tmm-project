@@ -29,25 +29,26 @@ if any harness failed.
 ## What each harness needs
 
 Most of them only read the application's own source, and run anywhere PHP does.
-Sixteen stand the ORM up on a temporary SQLite file instead of touching a real
+Seventeen stand the ORM up on a temporary SQLite file instead of touching a real
 database, and need **pdo_sqlite**:
 
 ```
 association_names  candidate_record_buttons  change_password  export_columns
 index_filters  institution_names  region_lists  session_user_keys
+user_verification
 render_add_payment  render_address_forms  render_currency_notes
 related_records  render_edit_identity  reset_password
 shell_backfill_lpk  shell_installment_chain
 ```
 
-The demo server's PHP does not have it, so those sixteen report
+The demo server's PHP does not have it, so those seventeen report
 
 ```
   skipped: needs the pdo_sqlite extension, which this PHP does not have.
            On Debian or Ubuntu: apt install php7.4-sqlite3
 ```
 
-and `run.php` counts them apart from both passes and failures — `34 harness(es),
+and `run.php` counts them apart from both passes and failures — `35 harness(es),
 16 ran` rather than a number that claims more was checked than was. Installing
 the package is the whole of the fix; nothing in the application needs it, only
 these tests.
@@ -84,6 +85,7 @@ A skip is not a pass, so the summary line says `nothing failed` rather than
 | `shell_moves_and_creates.php` | The share table's creation skipping the canonical database rather than the connection name, and the template move refusing to overwrite a live template or to write anywhere but the copy the application reads. |
 | `render_address_forms.php` | The address controls on the forms bake stamped them onto: one card, one control per region column, the options the controller really sets, and an id the cascade script binds to. |
 | `related_records.php` | The rows behind a related-records tab: that every controller answers for its own table, that a column name out of the query string has to be a column before it reaches a query, and that the element sends and reads what the endpoint sends and reads. |
+| `user_verification.php` | Sending an account's verification email again, and the link it carries: that it does not spend the institution's token, that it does spend the account's previous one, that the link activates and a second click is not an error, and that only an administrator can press it. |
 | `session_user_keys.php` | The keys the signed-in user is read by against the keys the session holds — the header on every page greeted people by their login name — and that the two mails that are sent are handed every variable they read, which `check-view-vars` cannot see. |
 | `institution_names.php` | Which institution a login account belongs to, by name: it cannot be a belongsTo, since institution_id points at one of two tables, and those two do not even name their institutions in the same column. All four user screens ask one resolver. |
 | `association_names.php` | The names templates use for associated records against the names the ORM gives them: proved by standing the ORM up and asking, not by pattern. The camelCase guards that were never true, and the ->fullname reads on entities with no such column. |

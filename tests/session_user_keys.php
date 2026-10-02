@@ -100,13 +100,15 @@ foreach (array_merge(
     glob(TMM_ROOT . '/src/Controller/Component/*.php')
 ) as $file) {
     $body = file_get_contents($file);
+    // ->sendEmail(, not sendEmail(: the latter also matches the component's own
+    // declaration, whose window then picks up whatever string follows it.
     $at = 0;
-    while (($at = strpos($body, 'sendEmail(', $at)) !== false) {
+    while (($at = strpos($body, '->sendEmail(', $at)) !== false) {
         $window = substr($body, $at, 1600);
         if (preg_match("/sendEmail\\([^;]*?'([a-z_]+)'/s", $window, $named)) {
             $calls[$named[1]][] = $window;
         }
-        $at += 10;
+        $at += 12;
     }
 }
 

@@ -89,6 +89,7 @@ class EmailServiceComponent extends Component
             'special_skill_verification' => 'Verify Your Institution Account - TMM System',
             'verification_confirmation' => 'Email Verified - TMM System',
             'admin_lpk_notification' => 'New LPK Registration - TMM System',
+            'user_verification' => 'Verify Your TMM Account',
         ];
         if ($subject === null) {
             $subject = isset($subjects[$template]) ? $subjects[$template] : 'TMM System Notification';
