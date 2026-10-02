@@ -86,14 +86,21 @@
                                         <?php endif; ?>
                                     </td>
                                 </tr>
-                                <?php if ($user->has('vocational_training_institution')): ?>
+                                <?php if ($user->institution_id): ?>
                                 <tr>
-                                    <th><?= __('Vocational Training Institution') ?></th>
+                                    <th><?= __('Institution') ?></th>
                                     <td>
-                                        <?= $this->Html->link(
-                                            h($user->vocational_training_institution->name),
-                                            ['controller' => 'VocationalTrainingInstitutions', 'action' => 'view', $user->vocational_training_institution->id]
-                                        ) ?>
+                                        <?php if ($institution !== null): ?>
+                                            <?= $this->Html->link(
+                                                h($institution['name']),
+                                                ['controller' => $institution['controller'],
+                                                 'action' => 'view', $institution['id']]
+                                            ) ?>
+                                        <?php else: ?>
+                                            <span class="text-muted">
+                                                <?= __('#{0} is not on file any more.', $user->institution_id) ?>
+                                            </span>
+                                        <?php endif; ?>
                                     </td>
                                 </tr>
                                 <?php endif; ?>

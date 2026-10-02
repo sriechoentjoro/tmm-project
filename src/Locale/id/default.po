@@ -18862,3 +18862,6 @@ msgstr "Kata sandi barunya sama dengan yang sekarang."
 
 msgid "Your password has been changed."
 msgstr "Kata sandi Anda sudah diganti."
+
+msgid "#{0} is not on file any more."
+msgstr "#{0} sudah tidak ada dalam data."

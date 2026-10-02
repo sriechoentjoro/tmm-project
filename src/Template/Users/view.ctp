@@ -108,7 +108,21 @@ $fmt = function ($value) {
                         <tr><th><?= __('Institution Type') ?></th>
                             <td><?= $user->institution_type ? h(ucwords(str_replace('_', ' ', $user->institution_type))) : '—' ?></td>
                         </tr>
-                        <tr><th><?= __('Institution ID') ?></th><td><?= $user->institution_id ? '#' . h($user->institution_id) : '—' ?></td></tr>
+                        <tr><th><?= __('Institution') ?></th>
+                            <td>
+                                <?php if (!$user->institution_id): ?>
+                                    —
+                                <?php elseif ($institution !== null): ?>
+                                    <?= $this->Html->link(h($institution['name']),
+                                        ['controller' => $institution['controller'],
+                                         'action' => 'view', $institution['id']]) ?>
+                                <?php else: ?>
+                                    <span class="text-muted">
+                                        <?= __('#{0} is not on file any more.', $user->institution_id) ?>
+                                    </span>
+                                <?php endif; ?>
+                            </td>
+                        </tr>
                         <tr><th><?= __('Created') ?></th><td><?= h($fmt($user->created)) ?></td></tr>
                         <tr><th><?= __('Last Modified') ?></th><td><?= h($fmt($user->modified)) ?></td></tr>
                     </table>

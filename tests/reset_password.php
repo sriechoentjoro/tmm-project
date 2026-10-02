@@ -194,6 +194,8 @@ echo "  and the button on the user's own page\n";
 $viewHtml = renderClean('the detail page renders for an administrator', 'view', [
     'user' => $users->get(5, ['contain' => ['Roles']]),
     'isAdministrator' => true,
+    // view() sets this now: an account's institution, resolved by name.
+    'institution' => null,
 ], ['controller' => 'Users', 'templatePath' => 'Users', 'url' => '/users/view/5',
     'params' => ['controller' => 'Users', 'action' => 'view', 'pass' => ['5']]]);
 checkTrue('with Reset Password spelt out, not only an icon',

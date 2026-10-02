@@ -18862,3 +18862,6 @@ msgstr "新しいパスワードが現在のものと同じです。"
 
 msgid "Your password has been changed."
 msgstr "パスワードを変更しました。"
+
+msgid "#{0} is not on file any more."
+msgstr "#{0} はもう登録されていません。"

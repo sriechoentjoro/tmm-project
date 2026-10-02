@@ -197,6 +197,11 @@ class UsersController extends AppController
         // is so the other roles are not offered something they cannot do.
         $this->set('isAdministrator', $this->hasRole('administrator'));
 
+        // The institutions these accounts belong to, by name. The column shows
+        // "LPK #12" without this, which is an id to go and look up rather than
+        // an answer. One query per kind, not one per row.
+        $this->set('institutionNames', $this->institutionNamesFor($users));
+
         $this->set(compact('users', 'roleList', 'summary', 'byRole',
             'filterRole', 'filterStatus', 'search'));
     }
@@ -218,6 +223,7 @@ class UsersController extends AppController
         // in the list: an icon among four others is not something anybody finds
         // when they are looking for it.
         $this->set('isAdministrator', $this->hasRole('administrator'));
+        $this->set('institution', $this->institutionFor($user));
         $this->set('user', $user);
     }
 
@@ -349,19 +355,13 @@ class UsersController extends AppController
         // Which institution this account belongs to, so the screen can say
         // whose password is about to change rather than only an id. An LPK
         // account and a head-office account look alike on a bare form.
-        $institution = null;
-        if ($user->institution_id) {
-            $model = $user->institution_type === 'special_skill_support'
-                ? 'SpecialSkillSupportInstitutions'
-                : 'VocationalTrainingInstitutions';
-            try {
-                $institution = $this->loadModel($model)->get($user->institution_id);
-            } catch (\Exception $e) {
-                // The account names an institution that is not there any more.
-                // That is worth seeing on the screen, not worth refusing over.
-                $institution = null;
-            }
-        }
+        //
+        // This had its own copy of the lookup. It compared institution_type
+        // with 'special_skill_support', which nothing in this application
+        // writes, and then read ->name off whichever table it got - and the
+        // special-skill table names its institutions company_name. Resolved in
+        // one place now; see InstitutionNameTrait.
+        $institution = $this->institutionFor($user);
 
         if ($this->request->is(['post', 'put'])) {
             $password = (string)$this->request->getData('password');
@@ -498,7 +498,12 @@ class UsersController extends AppController
         $user = $this->Users->get($userId, [
             'contain' => ['Roles']
         ]);
-        
+
+        // The profile had a row for this guarded on
+        // $user->has('vocational_training_institution'), which UsersTable does
+        // not declare and cannot - institution_id points at one of two tables -
+        // so the row has never rendered on anybody's profile.
+        $this->set('institution', $this->institutionFor($user));
         $this->set('user', $user);
     }
 

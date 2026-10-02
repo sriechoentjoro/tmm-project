@@ -168,8 +168,19 @@ $hasFilter = $filterRole || $filterStatus !== '' || $search !== '';
                             </td>
                             <td>
                                 <?php if ($user->institution_id): ?>
+                                    <?php
+                                    // The name, not "LPK #12". An id is something
+                                    // to go and look up, not an answer.
+                                    $inst = $user->institution_type . ':' . $user->institution_id;
+                                    $inst = isset($institutionNames[$inst]) ? $institutionNames[$inst] : null;
+                                    ?>
                                     <span class="inst-chip"><i class="fa fa-building"></i>
-                                        <?= h($user->institution_type === 'vocational_training' ? 'LPK' : 'SO') ?> #<?= h($user->institution_id) ?>
+                                        <?php if ($inst !== null): ?>
+                                            <?= $this->Html->link(h($inst['name']),
+                                                ['controller' => $inst['controller'], 'action' => 'view', $inst['id']]) ?>
+                                        <?php else: ?>
+                                            #<?= h($user->institution_id) ?>
+                                        <?php endif; ?>
                                     </span>
                                 <?php else: ?>
                                     <span class="text-muted">—</span>

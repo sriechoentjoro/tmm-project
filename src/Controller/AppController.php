@@ -63,6 +63,10 @@ class AppController extends Controller
     // What counts as an acceptable password, stated once. Both the LPK's own
     // set-password screen and the administrator's reset screen ask here.
     use PasswordPolicyTrait;
+    // Which institution a login account belongs to, by name. It cannot be a
+    // belongsTo: institution_id points at one of two tables depending on
+    // institution_type. See InstitutionNameTrait.
+    use InstitutionNameTrait;
 
     // NOTE: do not declare a public $layout property here. CakePHP's
     // createView() copies it into the ViewBuilder after the action runs,

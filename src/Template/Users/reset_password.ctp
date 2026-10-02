@@ -62,7 +62,7 @@
                                             <?= __('Institution #{0} is not on file any more.', $user->institution_id) ?>
                                         </span>
                                     <?php else: ?>
-                                        <?= h($institution->has('name') ? $institution->name : $institution->title) ?>
+                                        <?= h($institution['name']) ?>
                                     <?php endif; ?>
                                 </td>
                             </tr>
