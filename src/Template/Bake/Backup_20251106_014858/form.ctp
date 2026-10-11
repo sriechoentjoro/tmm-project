@@ -31,7 +31,6 @@ $formOptions = $hasFileUpload ? ", ['type' => 'file']" : '';
 ?>
 <!-- Load CSS/JS from static location (workaround for .htaccess issue) -->
 <script src="http://localhost/static-assets/js/form-confirm.js?v=2.0"></script>
-<?= $this->Html->css('datepicker-fix.css') ?>
 
 <!-- Mobile CSS now loaded globally from layout - mobile-responsive.css -->
 

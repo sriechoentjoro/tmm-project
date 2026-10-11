@@ -39,7 +39,6 @@ $staticAssetsUrl = $protocol . '://' . $host . '/static-assets';
 ?>
 <!-- Load CSS/JS from static location (workaround for .htaccess issue) -->
 <?= $this->Html->script('form-confirm.js?v=2.0') ?>
-<?= $this->Html->css('datepicker-fix.css') ?>
 
 <!-- Mobile CSS now loaded globally from layout - mobile-responsive.css -->
 

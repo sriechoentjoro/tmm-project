@@ -18964,3 +18964,42 @@ msgstr "Akun Anda sudah dibuat, tetapi peran {0} tidak ada, jadi akunnya belum p
 
 msgid "Your account was created, but its role could not be assigned. Please contact an administrator."
 msgstr "Akun Anda sudah dibuat, tetapi perannya tidak dapat diberikan. Silakan hubungi administrator."
+
+msgid "-- Select Interview Type --"
+msgstr "-- Pilih Jenis Wawancara --"
+
+msgid "-- Select Interview Result --"
+msgstr "-- Pilih Hasil Wawancara --"
+
+msgid "Progress Chart"
+msgstr "Grafik Progres"
+
+msgid "Back to Scores"
+msgstr "Kembali ke Nilai"
+
+msgid "tests"
+msgstr "ujian"
+
+msgid "Show"
+msgstr "Tampilkan"
+
+msgid "This trainee has no scores recorded yet."
+msgstr "Peserta ini belum punya nilai tercatat."
+
+msgid "No scores have been recorded for anybody yet."
+msgstr "Belum ada nilai tercatat untuk siapa pun."
+
+msgid "Lowest"
+msgstr "Terendah"
+
+msgid "Highest"
+msgstr "Tertinggi"
+
+msgid "First to latest"
+msgstr "Pertama ke terakhir"
+
+msgid "Every test, in the order it was taken"
+msgstr "Setiap ujian, menurut urutan pengambilannya"
+
+msgid "Uncategorised"
+msgstr "Tanpa kategori"

@@ -511,7 +511,6 @@ var _unenrollUrl   = '<?= $this->Url->build(['action'=>'unenrollFromAdditionalTr
 </script>
 
 <?php $this->append('script'); ?>
-<?= $this->Html->css('datepicker-fix.css') ?>
 <script>
 function switchTab(id,btn){
   document.querySelectorAll('.at-tab-panel').forEach(function(p){p.classList.remove('active');});

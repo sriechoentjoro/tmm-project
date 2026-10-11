@@ -310,9 +310,12 @@ $gradeStyle = [
                 <div class="panel-header-icon" style="background:#f3f0ff;color:#6949BC;"><i class="fas fa-history"></i></div>
                 <h4><?= __('Score History') ?> <span style="font-size:12px;font-weight:400;color:#94a3b8;">(<?= count($scoreRows) ?>)</span></h4>
                 <?php if (!empty($scoreRows)): ?>
+                <?= $this->Html->link('<i class="fas fa-chart-line"></i> ' . __('Progress Chart'),
+                    ['controller' => 'TraineeTrainingTestScores', 'action' => 'progress', $row['trainee_id']],
+                    ['style' => 'margin-left:auto;display:inline-flex;align-items:center;gap:5px;padding:4px 12px;border:1.5px solid #0288D1;color:#0288D1;border-radius:7px;font-size:12px;font-weight:600;text-decoration:none;', 'escape' => false]) ?>
                 <?= $this->Html->link('<i class="fas fa-calendar-day"></i> ' . __('Daily Entry'),
                     ['controller' => 'TraineeTrainingTestScores', 'action' => 'daily'],
-                    ['style' => 'margin-left:auto;display:inline-flex;align-items:center;gap:5px;padding:4px 12px;border:1.5px solid #00897B;color:#00897B;border-radius:7px;font-size:12px;font-weight:600;text-decoration:none;', 'escape' => false]) ?>
+                    ['style' => 'display:inline-flex;align-items:center;gap:5px;padding:4px 12px;border:1.5px solid #00897B;color:#00897B;border-radius:7px;font-size:12px;font-weight:600;text-decoration:none;', 'escape' => false]) ?>
                 <?php endif; ?>
             </div>
             <div class="panel-body" style="padding:0;">

@@ -18964,3 +18964,42 @@ msgstr "アカウントは作成されましたが、{0} という役割が存�
 
 msgid "Your account was created, but its role could not be assigned. Please contact an administrator."
 msgstr "アカウントは作成されましたが、役割を割り当てられませんでした。管理者にご連絡ください。"
+
+msgid "-- Select Interview Type --"
+msgstr "-- 面接の種類を選択 --"
+
+msgid "-- Select Interview Result --"
+msgstr "-- 面接結果を選択 --"
+
+msgid "Progress Chart"
+msgstr "進捗グラフ"
+
+msgid "Back to Scores"
+msgstr "成績一覧へ戻る"
+
+msgid "tests"
+msgstr "件の試験"
+
+msgid "Show"
+msgstr "表示"
+
+msgid "This trainee has no scores recorded yet."
+msgstr "この実習生の成績はまだ記録されていません。"
+
+msgid "No scores have been recorded for anybody yet."
+msgstr "まだ誰の成績も記録されていません。"
+
+msgid "Lowest"
+msgstr "最低"
+
+msgid "Highest"
+msgstr "最高"
+
+msgid "First to latest"
+msgstr "最初から最新まで"
+
+msgid "Every test, in the order it was taken"
+msgstr "受験した順のすべての試験"
+
+msgid "Uncategorised"
+msgstr "分類なし"

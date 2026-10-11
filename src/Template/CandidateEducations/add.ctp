@@ -11,7 +11,6 @@ $staticAssetsUrl = $protocol . '://' . $host . '/static-assets';
 ?>
 <!-- Load CSS/JS from static location (workaround for .htaccess issue) -->
 <?= $this->Html->script('form-confirm.js?v=2.0') ?>
-<?= $this->Html->css('datepicker-fix.css') ?>
 
 <!-- Mobile CSS now loaded globally from layout - mobile-responsive.css -->
 
@@ -52,11 +51,10 @@ $staticAssetsUrl = $protocol . '://' . $host . '/static-assets';
                     <div class="col-12 mb-3">
                         <label class="form-label"><?= __('Candidate Id') ?></label>
                         <?= $this->Form->control('candidate_id', [
-                            'type' => 'text',
-                            'class' => 'form-control datepicker',
-                            'placeholder' => __('Select Candidate Id'),
-                            'label' => false,
-                            'autocomplete' => 'off'
+                            'options' => isset($candidates) ? $candidates : [],
+                            'class' => 'form-control',
+                            'empty' => __('-- Select Candidate --'),
+                            'label' => false
                         ]) ?>
                     </div>
                     <div class="col-12 mb-3">

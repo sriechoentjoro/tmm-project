@@ -66,23 +66,39 @@ $(document).ready(function () {
                 });
             },
             error: function (xhr, status, error) {
-                // A refusal does not arrive as an error status. The permission
-                // check redirects to another page, so the response is a whole
-                // HTML document with a 200 on it and only the JSON parse
-                // fails. Saying "error loading" to that sends whoever reads it
-                // looking for a network fault that is not there.
-                var refused = xhr.status === 403 || xhr.status === 401
-                    || (xhr.responseText || '').slice(0, 200).indexOf('<') === 0;
-                $target.empty().append($('<option></option>').attr('value', '').text(
-                    refused ? '-- Not allowed to look this up --' : '-- Could not load --'
-                ));
-                console.error(refused
-                    ? 'Region lookup refused - the action is not granted to this role'
-                    : 'Failed to load region data');
+                // Say what the server said, not what we guess it meant.
+                //
+                // This used to decide between "not allowed" and "could not
+                // load" by whether the body started with a '<', because a
+                // refusal arrived as a 302 to an HTML page with 200 on it.
+                // AppController now turns off unauthorizedRedirect for AJAX,
+                // so a refusal is a 403 and an exception is a 500, and both
+                // carry a message. Guessing put "Not allowed to look this up"
+                // on a screen where the role was allowed, and sent everybody
+                // looking at permissions for an hour.
+                var said = (xhr.responseJSON && xhr.responseJSON.message) || '';
+                var html = (xhr.responseText || '').slice(0, 200).indexOf('<') === 0;
+                var label;
+                if (xhr.status === 403 || xhr.status === 401) {
+                    label = '-- Not allowed to look this up --';
+                } else if (xhr.status >= 500) {
+                    label = '-- The lookup failed on the server --';
+                } else if (xhr.status === 0) {
+                    label = '-- No answer from the server --';
+                } else if (html) {
+                    label = '-- The server sent a page, not a list --';
+                } else {
+                    label = '-- Could not load --';
+                }
+                $target.empty().append(
+                    $('<option></option>').attr('value', '')
+                        .attr('title', said || (label + ' (HTTP ' + xhr.status + ')'))
+                        .text(label)
+                );
+                console.error('Region lookup failed:', label);
                 console.error('URL:', url);
-                console.error('Status:', status);
-                console.error('Error:', error);
-                console.error('HTTP Status:', xhr.status);
+                console.error('HTTP status:', xhr.status, status, error);
+                console.error('Server said:', said || '(no message)');
                 console.error('Response:', (xhr.responseText || '').slice(0, 500));
             }
         });

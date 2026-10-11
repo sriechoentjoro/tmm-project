@@ -59,6 +59,14 @@ $cacheBust = '?v=' . time();
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
 
+    <!-- Sizes the popup to its content. Loaded here, after the CDN stylesheet
+         it refines and on every page, because the widget is bound on every
+         page: 152 templates linked this file themselves and the rest did not,
+         so the same calendar was compact on one screen and the width of the
+         window on the next. Served from the same place as the scripts above,
+         which is the directory this deployment actually serves. -->
+    <link rel="stylesheet" href="<?= $staticAssetsUrl ?>/css/datepicker-fix.css<?= $cacheBust ?>">
+
     <!-- Binds every input.datepicker app-wide, so a template only needs the class -->
     <script src="<?= $staticAssetsUrl ?>/js/datepicker-init.js<?= $cacheBust ?>"></script>
 

@@ -7,7 +7,6 @@ use Cake\Utility\Inflector;
 ?>
 <!-- Load CSS/JS -->
 <?= $this->Html->script('form-confirm.js?v=2.0') ?>
-<?= $this->Html->css('datepicker-fix.css') ?>
 
 <!-- Mobile CSS now loaded globally from layout - mobile-responsive.css -->
 
@@ -617,11 +616,10 @@ use Cake\Utility\Inflector;
                     <div class="col-12 mb-3">
                         <label class="form-label"><?= __('Master Candidate Interview Result Id') ?></label>
                         <?= $this->Form->control('master_candidate_interview_result_id', [
-                            'type' => 'text',
-                            'class' => 'form-control datepicker',
-                            'placeholder' => __('Select Master Candidate Interview Result Id'),
-                            'label' => false,
-                            'autocomplete' => 'off'
+                            'options' => isset($masterCandidateInterviewResults) ? $masterCandidateInterviewResults : [],
+                            'class' => 'form-control',
+                            'empty' => __('-- Select Interview Result --'),
+                            'label' => false
                         ]) ?>
                     </div>
                     <div class="col-12 mb-3">

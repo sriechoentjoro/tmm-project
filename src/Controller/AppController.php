@@ -161,6 +161,19 @@ class AppController extends Controller
         // Allow public access to login
         $this->Auth->allow(['login']);
 
+        // A refused AJAX request should be refused, not redirected.
+        //
+        // unauthorizedRedirect sends a 302 to the referer, so jQuery follows
+        // it and receives a whole HTML page with 200 on it; the only thing
+        // that fails is the JSON parse. That is why the address cascade could
+        // not tell "your role may not do this" from "the action crashed" and
+        // had to guess from whether the body started with a '<'. With this off
+        // the refusal arrives as a 403 the caller can read.
+        if ($this->request->is('ajax')
+            || $this->request->accepts('application/json')) {
+            $this->Auth->setConfig('unauthorizedRedirect', false);
+        }
+
         // Allow public access to Institution Registration.
         //
         // By name, not a blanket allow(). The two actions below are the whole
@@ -1366,6 +1379,16 @@ class AppController extends Controller
         }
         // Check if it's UploadedFile object (alternative format)
         elseif (is_object($file) && method_exists($file, 'getClientFilename')) {
+            // An empty file input is not a failure. A form carrying an
+            // optional photo posts UPLOAD_ERR_NO_FILE for it every time
+            // nobody attached one, and reporting that put a red
+            // "Upload failed with error code: 4" on the screen beside
+            // whatever else the save had to say - most memorably next to
+            // "the candidate could not be saved", where it looked like the
+            // cause and was not.
+            if ($file->getError() === UPLOAD_ERR_NO_FILE) {
+                return false;
+            }
             if ($file->getError() !== UPLOAD_ERR_OK) {
                 $this->Flash->error(__('Upload failed with error code: {0}', $file->getError()));
                 return false;
@@ -1453,6 +1476,16 @@ class AppController extends Controller
         if (is_array($file) && isset($file['tmp_name'])) {
             error_log("File is array (traditional upload)");
             
+            // An empty file input is not a failure. A form carrying an
+            // optional photo posts UPLOAD_ERR_NO_FILE for it every time
+            // nobody attached one, and reporting that put a red
+            // "Upload failed with error code: 4" on the screen beside
+            // whatever else the save had to say - most memorably next to
+            // "the candidate could not be saved", where it looked like the
+            // cause and was not.
+            if ($file['error'] === UPLOAD_ERR_NO_FILE) {
+                return false;
+            }
             if ($file['error'] !== UPLOAD_ERR_OK) {
                 error_log("Upload error code: " . $file['error']);
                 $this->Flash->error(__('Upload failed with error code: {0}', $file['error']));
@@ -1563,6 +1596,16 @@ class AppController extends Controller
         if (is_object($file) && method_exists($file, 'getClientFilename')) {
             error_log("File is UploadedFile object");
             
+            // An empty file input is not a failure. A form carrying an
+            // optional photo posts UPLOAD_ERR_NO_FILE for it every time
+            // nobody attached one, and reporting that put a red
+            // "Upload failed with error code: 4" on the screen beside
+            // whatever else the save had to say - most memorably next to
+            // "the candidate could not be saved", where it looked like the
+            // cause and was not.
+            if ($file->getError() === UPLOAD_ERR_NO_FILE) {
+                return false;
+            }
             if ($file->getError() !== UPLOAD_ERR_OK) {
                 error_log("Upload error code: " . $file->getError());
                 $this->Flash->error(__('Upload failed with error code: {0}', $file->getError()));

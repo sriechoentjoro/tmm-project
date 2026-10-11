@@ -67,7 +67,6 @@ $domId = function ($field) {
     return strtolower(str_replace(['.', '_', '[', ']'], ['-', '-', '-', ''], $field));
 };
 ?>
-<?= $this->Html->css('datepicker-fix.css') ?>
 
 <div class="cand-form">
 

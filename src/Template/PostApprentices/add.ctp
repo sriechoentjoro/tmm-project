@@ -6,7 +6,6 @@
  * @var array $statusOptions
  */
 ?>
-<?= $this->Html->css('datepicker-fix.css') ?>
 <?= $this->Html->script('form-confirm.js?v=2.0') ?>
 
 <style>

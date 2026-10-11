@@ -10,7 +10,6 @@ $host = $_SERVER['HTTP_HOST'];
 $staticAssetsUrl = $protocol . '://' . $host . '/static-assets';
 ?>
 <!-- Load CSS/JS from static location (workaround for .htaccess issue) -->
-<?= $this->Html->css('datepicker-fix.css') ?>
 
 <!-- Mobile CSS now loaded globally from layout - mobile-responsive.css -->
 

@@ -70,7 +70,6 @@ $staticAssetsUrl = $protocol . '://' . $host . '/static-assets';
 ?>
 <!-- Load CSS/JS from static location (workaround for .htaccess issue) -->
 <?= $this->Html->script('form-confirm.js?v=2.0') ?>
-<?= $this->Html->css('datepicker-fix.css') ?>
 
 <!-- Mobile CSS now loaded globally from layout - mobile-responsive.css -->
 
@@ -133,7 +132,23 @@ $staticAssetsUrl = $protocol . '://' . $host . '/static-assets';
         $humanize = Inflector::humanize($field);
         
         // DATE FIELD DETECTION
-        if (preg_match('/(date|tanggal)/i', $field)):
+        //
+        // A foreign key is decided by $keyFields, never by its name. The test
+        // here used to be a bare /date/ substring, and "candidate_id" contains
+        // it - so every candidate selector this generator produced was a text
+        // box with a calendar bound to it, in twenty-two places across eleven
+        // screens, each one asking a person to type a numeric id while the
+        // list the controller had already fetched went unused.
+        // master_candidate_interview_type_id and _result_id went the same way.
+        //
+        // The column's own type decides it now, with the name only as a
+        // fallback for the date columns these hand-written tables keep as
+        // varchar. That also keeps "updated" and "last_updated" - which match
+        // /date/ by accident too, and happen to be real date columns - on the
+        // branch they belong to.
+        if (!isset($keyFields[$field]) && !isset($addressGroups[$field])
+            && (in_array($fieldType, ['date', 'datetime', 'timestamp'], true)
+                || preg_match('/(^|_)(date|tanggal|tgl)(_|$)/i', $field))):
 %>
                     <div class="col-md-12 mb-3">
                         <label class="form-label"><?= __('<%= $humanize %>') ?></label>

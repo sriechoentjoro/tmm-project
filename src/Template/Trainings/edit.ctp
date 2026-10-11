@@ -4,7 +4,6 @@
  * @var \App\Model\Entity\App\Model\Entity\Training|null $training */
 use Cake\Utility\Inflector;
 ?>
-<?= $this->Html->css('datepicker-fix.css') ?>
 <?= $this->Html->script('form-confirm.js') ?>
 
 <!-- Mobile CSS now loaded globally from layout - mobile-responsive.css -->

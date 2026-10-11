@@ -376,4 +376,133 @@ class TraineeTrainingTestScoresController extends AppController
         $certifiedIds = $this->_certifiedTraineeIds();
         $this->set(compact('rows', 'certifiedIds'));
     }
+
+    /**
+     * One trainee's scores over time, as a chart per competency.
+     *
+     * The list screen holds every score of every trainee, one row each, so a
+     * trainee with thirty tests is thirty rows among hundreds and whether they
+     * are getting better is not a question the table can answer. The grade
+     * column says A or B per row and nothing across rows.
+     *
+     * This takes one trainee and plots what they sat, in the order they sat
+     * it: a line for every competency, the grade bands behind it, and the
+     * first-to-latest difference stated rather than left to be eyeballed.
+     *
+     * Read-only, and it reads exactly what index already shows.
+     *
+     * @param string|null $id The trainee, or null to use the one in the query.
+     * @return void
+     */
+    public function progress($id = null)
+    {
+        $conn = $this->TraineeTrainingTestScores->getConnection();
+
+        // Only trainees who have sat something. A picker full of names with no
+        // scores behind them is a list of dead ends.
+        $trainees = $conn->execute(
+            'SELECT tts.trainee_id AS id, t.name, t.tmm_code, COUNT(*) AS tests
+             FROM trainee_training_test_scores tts
+             LEFT JOIN cms_tmm_trainees.trainees t ON t.id = tts.trainee_id
+             GROUP BY tts.trainee_id, t.name, t.tmm_code
+             ORDER BY t.name'
+        )->fetchAll('assoc');
+
+        $traineeId = $id !== null ? $id : $this->request->getQuery('trainee_id');
+        if ($traineeId === null || $traineeId === '') {
+            $traineeId = $trainees ? $trainees[0]['id'] : null;
+        }
+        $traineeId = $traineeId === null ? null : (int)$traineeId;
+
+        $rows = [];
+        $trainee = null;
+        if ($traineeId) {
+            foreach ($trainees as $one) {
+                if ((int)$one['id'] === $traineeId) {
+                    $trainee = $one;
+                    break;
+                }
+            }
+            $rows = $conn->execute(
+                'SELECT tts.id, tts.score, tts.test_date,
+                        mc.title AS competency,
+                        g.title AS grade, g.description AS grade_desc
+                 FROM trainee_training_test_scores tts
+                 LEFT JOIN master_training_competencies mc
+                   ON mc.id = tts.master_training_competency_id
+                 LEFT JOIN master_training_test_score_grades g
+                   ON g.id = tts.master_training_test_score_grade_id
+                 WHERE tts.trainee_id = ?
+                 ORDER BY tts.test_date, mc.title',
+                [$traineeId]
+            )->fetchAll('assoc');
+        }
+
+        // The grade bands, so the chart can say what a score means rather than
+        // only how high it is.
+        $bands = $conn->execute(
+            'SELECT title, min_score, max_score, description
+             FROM master_training_test_score_grades
+             ORDER BY min_score'
+        )->fetchAll('assoc');
+
+        // One series per competency, in the order the tests were taken.
+        $series = [];
+        foreach ($rows as $row) {
+            $name = $row['competency'] !== null && $row['competency'] !== ''
+                ? $row['competency'] : __('Uncategorised');
+            if (!isset($series[$name])) {
+                $series[$name] = [];
+            }
+            $series[$name][] = [
+                'date' => $row['test_date'],
+                'score' => (int)$row['score'],
+                'grade' => $row['grade'],
+            ];
+        }
+
+        $summary = null;
+        if ($rows) {
+            $scores = array_map(function ($row) {
+                return (int)$row['score'];
+            }, $rows);
+            $summary = [
+                'tests' => count($scores),
+                'competencies' => count($series),
+                'average' => round(array_sum($scores) / count($scores), 1),
+                'lowest' => min($scores),
+                'highest' => max($scores),
+                'first' => $scores[0],
+                'latest' => $scores[count($scores) - 1],
+                'change' => $scores[count($scores) - 1] - $scores[0],
+                'from' => $rows[0]['test_date'],
+                'to' => $rows[count($rows) - 1]['test_date'],
+            ];
+        }
+
+        $this->set(compact('trainees', 'trainee', 'traineeId', 'rows', 'series',
+            'summary', 'bands'));
+    }
+
+    /**
+     * Who may open the read-only views of this module.
+     *
+     * daily, report and progress show the same rows index shows, grouped
+     * differently. granted_actions = '*' expands to [menu action, index,
+     * view], so a role that may read this module could open the list and then
+     * be refused by the three links printed at the top of it.
+     *
+     * @param array|null $user The identity.
+     * @return bool
+     */
+    public function isAuthorized($user = null)
+    {
+        $action = $this->request->getParam('action');
+        if (in_array($action, ['daily', 'report', 'progress'], true)
+            && $this->hasPermission($this->request->getParam('controller'), 'index')) {
+            return true;
+        }
+
+        return parent::isAuthorized($user);
+    }
 }
