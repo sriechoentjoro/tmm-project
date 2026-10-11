@@ -174,6 +174,34 @@ class AppController extends Controller
             $this->Auth->setConfig('unauthorizedRedirect', false);
         }
 
+        // A session that has ended is not the same as a role that may not.
+        //
+        // AuthComponent answers 403 to an AJAX request in both cases, with an
+        // empty body, so the address cascade printed "Not allowed to look this
+        // up" at somebody whose role was allowed and whose session had simply
+        // run out - and sent us looking at permissions. The two now differ:
+        // 401 and a sentence saying to sign in again.
+        //
+        // Only for a request the page made itself (X-Requested-With), and only
+        // when there is no identity at all and the action is not one of the
+        // public ones. A page load that needs signing in still goes to the
+        // login screen, as it should.
+        if ($this->request->is('ajax')
+            && !$this->Auth->user('id')
+            && !in_array($this->request->getParam('action'),
+                (array)$this->Auth->allowedActions, true)) {
+            // Stopped here, or AuthComponent's own check runs next on this
+            // same event and replaces this answer with its empty 403.
+            $event->stopPropagation();
+
+            return $this->response
+                ->withStatus(401)
+                ->withType('application/json')
+                ->withStringBody(json_encode([
+                    'message' => __('Your session has ended. Please sign in again.'),
+                ]));
+        }
+
         // Allow public access to Institution Registration.
         //
         // By name, not a blanket allow(). The two actions below are the whole

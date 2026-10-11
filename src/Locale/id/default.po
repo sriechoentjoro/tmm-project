@@ -19003,3 +19003,6 @@ msgstr "Setiap ujian, menurut urutan pengambilannya"
 
 msgid "Uncategorised"
 msgstr "Tanpa kategori"
+
+msgid "Your session has ended. Please sign in again."
+msgstr "Sesi Anda sudah berakhir. Silakan masuk lagi."

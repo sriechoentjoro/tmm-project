@@ -79,7 +79,9 @@ $(document).ready(function () {
                 var said = (xhr.responseJSON && xhr.responseJSON.message) || '';
                 var html = (xhr.responseText || '').slice(0, 200).indexOf('<') === 0;
                 var label;
-                if (xhr.status === 403 || xhr.status === 401) {
+                if (xhr.status === 401) {
+                    label = '-- Signed out. Sign in again. --';
+                } else if (xhr.status === 403) {
                     label = '-- Not allowed to look this up --';
                 } else if (xhr.status >= 500) {
                     label = '-- The lookup failed on the server --';

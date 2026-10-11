@@ -19003,3 +19003,6 @@ msgstr "受験した順のすべての試験"
 
 msgid "Uncategorised"
 msgstr "分類なし"
+
+msgid "Your session has ended. Please sign in again."
+msgstr "セッションが終了しました。もう一度サインインしてください。"
