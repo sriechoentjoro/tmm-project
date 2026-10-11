@@ -3,6 +3,7 @@ namespace App\Controller;
 
 use App\Controller\AppController;
 use Cake\Event\Event;
+use Cake\I18n\Time;
 use Cake\ORM\TableRegistry;
 
 /**
@@ -13,6 +14,18 @@ use Cake\ORM\TableRegistry;
  */
 class InstitutionRegistrationController extends AppController
 {
+    /**
+     * Why the login account could not be made, or null.
+     *
+     * The screen used to say "failed to create user account, please contact
+     * administrator" and stop. By then the institution is registered and the
+     * link will not open again, so that message left somebody locked out with
+     * nothing to quote to the administrator they were being sent to.
+     *
+     * @var string|null
+     */
+    protected $accountProblem = null;
+
     /**
      * Initialize method
      */
@@ -81,31 +94,50 @@ class InstitutionRegistrationController extends AppController
         // Handle form submission
         if ($this->request->is('post')) {
             $data = $this->request->getData();
-            
-            // Validate password
-            if (empty($data['password']) || strlen($data['password']) < 8) {
-                $this->Flash->error(__('Password must be at least 8 characters long.'));
-            } elseif ($data['password'] !== $data['password_confirm']) {
-                $this->Flash->error(__('Passwords do not match.'));
+
+            // The same five rules the administrator's reset and the LPK's own
+            // registration screen enforce. This screen asked for eight
+            // characters and nothing else, so the weakest password in the
+            // application was the one an institution chose for itself.
+            $problem = $this->passwordProblem(
+                isset($data['password']) ? $data['password'] : '',
+                isset($data['password_confirm']) ? $data['password_confirm'] : ''
+            );
+
+            if ($problem !== null) {
+                $this->Flash->error($problem);
             } else {
-                // Set password and complete registration
-                $institution->password = $data['password'];
+                // The plain password is kept. Assigning it to the institution
+                // hashes it there, and handing that hash to the account would
+                // hash it a second time - see createUserAccount().
+                $plain = $data['password'];
+
+                $institution->password = $plain;
                 $institution->completeRegistration();
-                
+
                 // Save institution
                 $table = $this->getInstitutionTable($institution);
                 if ($table->save($institution)) {
                     // Create user account in authentication system
-                    if ($this->createUserAccount($institution)) {
+                    $user = $this->createUserAccount($institution, $plain);
+                    if ($user) {
                         $this->Flash->success(__('Registration completed successfully! You can now login.'));
-                        
+                        if ($this->accountProblem !== null) {
+                            $this->Flash->error($this->accountProblem);
+                        }
+
                         // Auto-login the user
-                        $this->autoLogin($institution);
-                        
+                        $this->autoLogin($user);
+
                         return $this->redirect(['controller' => 'Dashboard', 'action' => 'index']);
-                    } else {
-                        $this->Flash->error(__('Registration completed but failed to create user account. Please contact administrator.'));
                     }
+
+                    // Not "please contact administrator" and nothing else: the
+                    // institution is registered by now and the link will not
+                    // open again, so a message with no reason in it leaves
+                    // somebody locked out with nothing to quote.
+                    $this->Flash->error($this->accountProblem
+                        ?: __('Registration completed but failed to create user account. Please contact administrator.'));
                 } else {
                     $this->log('Registration failed. Validation errors: ' . json_encode($institution->getErrors()), 'error');
                     $this->Flash->error(__('Failed to complete registration. Please check your input and try again.'));
@@ -114,6 +146,7 @@ class InstitutionRegistrationController extends AppController
         }
 
         $this->set(compact('institution', 'token'));
+        $this->set('rules', $this->passwordRules());
     }
 
     /**
@@ -165,70 +198,156 @@ class InstitutionRegistrationController extends AppController
     }
 
     /**
-     * Create user account in authentication system
+     * Create the login account this institution will use.
      *
-     * @param object $institution Institution entity
-     * @return bool Success status
+     * Three separate things stopped this working, and the first one hid the
+     * other two:
+     *
+     * 1. institution_type was written as 'vocational' or 'special_skill'. The
+     *    column is ENUM('vocational_training', 'special_skill_support'), which
+     *    is what every other part of the application writes and compares. MySQL
+     *    refuses a value an ENUM does not list, so the save threw, the catch
+     *    below turned it into false, and the screen said "failed to create user
+     *    account, please contact administrator" - every single time, for both
+     *    kinds of institution. Nobody who followed a registration link has ever
+     *    ended up with an account.
+     *
+     * 2. The password was passed already hashed, with a comment saying so. The
+     *    User entity hashes whatever it is given, so the stored value was the
+     *    hash of a hash and the password the institution had just chosen could
+     *    never log in.
+     *
+     * 3. The role was the literal 6. It is lpk-penyangga in this database and
+     *    lpk-so in config/sql/seed_roles.sql, so a reinstall from that file
+     *    would have handed every institution somebody else's permissions.
+     *
+     * The account is matched on email, not username. The token proved the
+     * email address and nothing else; a username that happens to collide
+     * belongs to somebody else, and quietly overwriting their password would
+     * be an account takeover rather than a registration.
+     *
+     * @param object $institution Institution entity.
+     * @param string $plain The password as the institution typed it.
+     * @return \Cake\Datasource\EntityInterface|null The account, or null.
      */
-    protected function createUserAccount($institution)
+    protected function createUserAccount($institution, $plain)
     {
+        $this->accountProblem = null;
+
         try {
             $Users = TableRegistry::getTableLocator()->get('Users');
-            
-            // Check if user already exists
-            $existingUser = $Users->find()
-                ->where(['username' => $institution->username])
-                ->first();
-            
-            if ($existingUser) {
-                return true; // User already exists, consider it success
+            $type = $this->canonicalInstitutionType($institution->institution_type);
+            $name = isset($institution->name) && $institution->name
+                ? $institution->name
+                : (isset($institution->company_name) ? $institution->company_name : null);
+
+            $user = $Users->find()->where(['email' => $institution->email])->first();
+
+            if ($user) {
+                // The same person, proved by the token. Give them the password
+                // they have just chosen rather than leaving the old one in
+                // place and reporting success.
+                $user->password = $plain;
+                $user->institution_id = $institution->id;
+                $user->institution_type = $type;
+                $user->is_active = 1;
+                $user->status = 'active';
+                $user->email_verified_at = new Time();
+            } else {
+                $taken = $Users->find()
+                    ->where(['username' => $institution->username])
+                    ->first();
+                if ($taken) {
+                    $this->accountProblem = __('The login name {0} already belongs to another account. '
+                        . 'An administrator has to change it before this institution can sign in.',
+                        $institution->username);
+                    $this->log(sprintf('Registration for institution %d: username %s is taken by user %d',
+                        $institution->id, $institution->username, $taken->id), 'error');
+
+                    return null;
+                }
+
+                $user = $Users->newEntity([
+                    'username' => $institution->username,
+                    'email' => $institution->email,
+                    'password' => $plain,
+                    'full_name' => $name,
+                    'is_active' => 1,
+                    'institution_id' => $institution->id,
+                    'institution_type' => $type,
+                ]);
+
+                // Not through newEntity(): status and email_verified_at are
+                // not in User::$_accessible, and mass assignment drops what is
+                // not accessible without a word. They are deliberately not
+                // accessible - a form must never be able to post status=active
+                // - so they are set here, where the token has just proved the
+                // address.
+                $user->status = 'active';
+                $user->email_verified_at = new Time();
             }
 
-            // Create new user
-            $user = $Users->newEntity([
-                'username' => $institution->username,
-                'email' => $institution->email,
-                'password' => $institution->password, // Already hashed by entity
-                'full_name' => $institution->name ?? $institution->company_name,
-                'is_active' => true,
-                'institution_id' => $institution->id,
-                'institution_type' => $institution->institution_type,
-            ]);
+            if (!$Users->save($user)) {
+                $said = [];
+                foreach ($user->getErrors() as $field => $rules) {
+                    foreach ((array)$rules as $message) {
+                        $said[] = $field . ': ' . (is_array($message) ? implode(', ', $message) : $message);
+                    }
+                }
+                $this->accountProblem = __('The account could not be created: {0}',
+                    $said ? implode('; ', $said) : __('no reason was given'));
+                $this->log('Registration: saving the account failed. ' . json_encode($user->getErrors()), 'error');
 
-            if ($Users->save($user)) {
-                // Assign role (role_id = 6 for institutions)
-                $UserRoles = TableRegistry::getTableLocator()->get('UserRoles');
+                return null;
+            }
+
+            // The role by name. Which id lpk-penyangga has is this database's
+            // business, not this file's.
+            $Roles = TableRegistry::getTableLocator()->get('Roles');
+            $role = $Roles->find()->where(['name' => 'lpk-penyangga'])->first();
+            if (!$role) {
+                $this->accountProblem = __('Your account was created, but the {0} role does not exist, '
+                    . 'so it has no permissions yet. Please contact an administrator.', 'lpk-penyangga');
+
+                return $user;
+            }
+
+            $UserRoles = TableRegistry::getTableLocator()->get('UserRoles');
+            $already = $UserRoles->find()
+                ->where(['user_id' => $user->id, 'role_id' => $role->id])
+                ->first();
+            if (!$already) {
                 $userRole = $UserRoles->newEntity([
                     'user_id' => $user->id,
-                    'role_id' => 6, // Institution role
+                    'role_id' => $role->id,
                 ]);
-                
-                return $UserRoles->save($userRole) !== false;
+                if (!$UserRoles->save($userRole)) {
+                    // The account exists, so this is not a failed registration -
+                    // saying it was would send somebody to register again with
+                    // a link that no longer opens.
+                    $this->accountProblem = __('Your account was created, but its role could not be '
+                        . 'assigned. Please contact an administrator.');
+                }
             }
 
-            return false;
+            return $user;
         } catch (\Exception $e) {
+            $this->accountProblem = __('The account could not be created: {0}', $e->getMessage());
             $this->log('Failed to create user account: ' . $e->getMessage(), 'error');
-            return false;
+
+            return null;
         }
     }
 
     /**
      * Auto-login user after registration
      *
-     * @param object $institution Institution entity
+     * @param \Cake\Datasource\EntityInterface $user The account just created.
      * @return void
      */
-    protected function autoLogin($institution)
+    protected function autoLogin($user)
     {
-        $Users = TableRegistry::getTableLocator()->get('Users');
-        $user = $Users->find()
-            ->where(['username' => $institution->username])
-            ->first();
-        
-        if ($user) {
-            $this->Auth->setUser($user->toArray());
-        }
+        $this->Auth->setUser($user->toArray());
     }
 
     /**

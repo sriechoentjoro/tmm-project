@@ -18937,3 +18937,30 @@ msgstr "Kirim ulang surel verifikasi"
 
 msgid "Send a verification email to {0}?"
 msgstr "Kirim surel verifikasi ke {0}?"
+
+msgid "Your password must be at least 8 characters long and should include uppercase, lowercase, numbers, and symbols."
+msgstr "Sandi Anda harus sedikitnya 8 karakter dan sebaiknya memuat huruf besar, huruf kecil, angka, dan simbol."
+
+msgid "Contains uppercase letter (A-Z)"
+msgstr "Memuat huruf besar (A-Z)"
+
+msgid "Contains lowercase letter (a-z)"
+msgstr "Memuat huruf kecil (a-z)"
+
+msgid "Contains number (0-9)"
+msgstr "Memuat angka (0-9)"
+
+msgid "Contains special character (!@#$%^&*)"
+msgstr "Memuat karakter khusus (!@#$%^&*)"
+
+msgid "The login name {0} already belongs to another account. An administrator has to change it before this institution can sign in."
+msgstr "Nama masuk {0} sudah dimiliki akun lain. Seorang administrator harus menggantinya sebelum lembaga ini dapat masuk."
+
+msgid "The account could not be created: {0}"
+msgstr "Akunnya tidak dapat dibuat: {0}"
+
+msgid "Your account was created, but the {0} role does not exist, so it has no permissions yet. Please contact an administrator."
+msgstr "Akun Anda sudah dibuat, tetapi peran {0} tidak ada, jadi akunnya belum punya izin apa pun. Silakan hubungi administrator."
+
+msgid "Your account was created, but its role could not be assigned. Please contact an administrator."
+msgstr "Akun Anda sudah dibuat, tetapi perannya tidak dapat diberikan. Silakan hubungi administrator."

@@ -98,18 +98,18 @@
                     <div class="alert alert-info">
                         <i class="fas fa-shield-alt"></i>
                         <strong><?= __('Create a secure password') ?></strong><br>
-                        Your password must be at least 8 characters long and should include uppercase, lowercase, numbers, and symbols.
+                        <?= __('Your password must be at least 8 characters long and should include uppercase, lowercase, numbers, and symbols.') ?>
                     </div>
 
                     <div class="form-group mb-3">
                         <label class="form-label">
                             <i class="fas fa-lock"></i>
-                            Password <span class="text-danger">*</span>
+                            <?= __('Password') ?> <span class="text-danger">*</span>
                         </label>
                         <?= $this->Form->control('password', [
                             'type' => 'password',
                             'class' => 'form-control form-control-lg',
-                            'placeholder' => 'Enter your password',
+                            'placeholder' => __('Enter your password'),
                             'label' => false,
                             'required' => true,
                             'id' => 'password',
@@ -121,12 +121,12 @@
                     <div class="form-group mb-4">
                         <label class="form-label">
                             <i class="fas fa-lock"></i>
-                            Confirm Password <span class="text-danger">*</span>
+                            <?= __('Confirm Password') ?> <span class="text-danger">*</span>
                         </label>
                         <?= $this->Form->control('password_confirm', [
                             'type' => 'password',
                             'class' => 'form-control form-control-lg',
-                            'placeholder' => 'Re-enter your password',
+                            'placeholder' => __('Re-enter your password'),
                             'label' => false,
                             'required' => true,
                             'id' => 'password-confirm',
@@ -141,23 +141,23 @@
                         <ul class="list-unstyled mb-0">
                             <li id="req-length">
                                 <i class="fas fa-circle text-muted"></i>
-                                At least 8 characters
+                                <?= __('At least 8 characters') ?>
                             </li>
                             <li id="req-uppercase">
                                 <i class="fas fa-circle text-muted"></i>
-                                Contains uppercase letter (A-Z)
+                                <?= __('Contains uppercase letter (A-Z)') ?>
                             </li>
                             <li id="req-lowercase">
                                 <i class="fas fa-circle text-muted"></i>
-                                Contains lowercase letter (a-z)
+                                <?= __('Contains lowercase letter (a-z)') ?>
                             </li>
                             <li id="req-number">
                                 <i class="fas fa-circle text-muted"></i>
-                                Contains number (0-9)
+                                <?= __('Contains number (0-9)') ?>
                             </li>
                             <li id="req-special">
                                 <i class="fas fa-circle text-muted"></i>
-                                Contains special character (!@#$%^&*)
+                                <?= __('Contains special character (!@#$%^&*)') ?>
                             </li>
                         </ul>
                     </div>

@@ -447,9 +447,19 @@ class LpkRegistrationController extends AppController
                         'institution_id' => $institution->id,
                         'institution_type' => 'vocational_training',
                         'is_active' => 1,
-                        'status' => 'active',
-                        'email_verified_at' => new Time()
                     ]);
+
+                    // status and email_verified_at are not in
+                    // User::$_accessible, and mass assignment drops what is
+                    // not accessible silently. Written this way the account
+                    // took the column default - pending_verification - while
+                    // the line above said 'active', so a new LPK account was
+                    // created already waiting for a verification this flow had
+                    // just done. The update branch below sets them directly
+                    // and was never affected, which is why it only ever showed
+                    // on an LPK registering for the first time.
+                    $user->status = 'active';
+                    $user->email_verified_at = new Time();
                 } else {
                     // Update existing user
                     $user->password = $password;

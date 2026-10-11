@@ -232,10 +232,20 @@ class VocationalTrainingInstitutionsController extends AppController
                         $vocationalTrainingInstitution->email
                     ));
                 } else {
+                    // The URL this message hands over is the one the link in
+                    // the email would have carried. It used to be a hard-coded
+                    // http://localhost/tmm/... - and this branch is the one
+                    // that runs whenever mail is not working, so the address
+                    // an administrator was given to pass on by hand was the
+                    // one address that could not work for anybody else.
                     $this->Flash->success(__(
                         'Institution saved! Registration token: {0}. Use this URL: {1}',
                         $vocationalTrainingInstitution->registration_token,
-                        'http://localhost/tmm/institution-registration/complete/' . $vocationalTrainingInstitution->registration_token
+                        isset($registrationUrl) ? $registrationUrl : \Cake\Routing\Router::url([
+                            'controller' => 'InstitutionRegistration',
+                            'action' => 'complete',
+                            $vocationalTrainingInstitution->registration_token,
+                        ], true)
                     ));
                 }
 

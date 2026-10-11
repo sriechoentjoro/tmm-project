@@ -197,9 +197,16 @@ function branchLines(array $lines)
 function msgids($text)
 {
     $out = [];
-    if (preg_match_all("/__\(\s*'((?:[^'\\\\]|\\\\.)*)'/s", $text, $m)) {
-        foreach ($m[1] as $id) {
-            $out[] = stripcslashes($id);
+    // A msgid written as several literals joined with . is one string by the
+    // time __() sees it, because PHP joins them first. Reading only the first
+    // piece reports a string nobody uses as untranslated, and says nothing
+    // about the one that is really there - which happened twice in a row, each
+    // time to a message long enough to be worth wrapping.
+    $one = "'(?:[^'\\\\]|\\\\.)*'";
+    if (preg_match_all("/__\\(\\s*({$one}(?:\\s*\\.\\s*{$one})*)/s", $text, $m)) {
+        foreach ($m[1] as $joined) {
+            preg_match_all("/'((?:[^'\\\\]|\\\\.)*)'/s", $joined, $parts);
+            $out[] = stripcslashes(implode('', $parts[1]));
         }
     }
 

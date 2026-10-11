@@ -52,6 +52,28 @@ trait InstitutionNameTrait
     }
 
     /**
+     * The spelling users.institution_type can actually hold.
+     *
+     * That column is ENUM('vocational_training', 'special_skill_support'), and
+     * the synonyms above exist because one controller invented its own
+     * shorthand - 'vocational' and 'special_skill' - and wrote it into the
+     * column. MySQL refuses a value an ENUM does not list, so the account was
+     * never created at all; reading the synonyms was only ever half the
+     * problem. Anything writing that column goes through here.
+     *
+     * @param string|null $type Any of the spellings above.
+     * @return string One of the two values the column lists.
+     */
+    protected function canonicalInstitutionType($type)
+    {
+        list($model) = $this->institutionKind($type);
+
+        return $model === 'SpecialSkillSupportInstitutions'
+            ? 'special_skill_support'
+            : 'vocational_training';
+    }
+
+    /**
      * One account's institution.
      *
      * @param \Cake\Datasource\EntityInterface|array|null $user The account.

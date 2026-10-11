@@ -18937,3 +18937,30 @@ msgstr "確認メールを再送"
 
 msgid "Send a verification email to {0}?"
 msgstr "{0} に確認メールを送信しますか？"
+
+msgid "Your password must be at least 8 characters long and should include uppercase, lowercase, numbers, and symbols."
+msgstr "パスワードは8文字以上で、大文字・小文字・数字・記号を含めてください。"
+
+msgid "Contains uppercase letter (A-Z)"
+msgstr "大文字 (A-Z) を含む"
+
+msgid "Contains lowercase letter (a-z)"
+msgstr "小文字 (a-z) を含む"
+
+msgid "Contains number (0-9)"
+msgstr "数字 (0-9) を含む"
+
+msgid "Contains special character (!@#$%^&*)"
+msgstr "記号 (!@#$%^&*) を含む"
+
+msgid "The login name {0} already belongs to another account. An administrator has to change it before this institution can sign in."
+msgstr "ログイン名 {0} は既に別のアカウントのものです。この機関がサインインする前に、管理者が変更する必要があります。"
+
+msgid "The account could not be created: {0}"
+msgstr "アカウントを作成できませんでした: {0}"
+
+msgid "Your account was created, but the {0} role does not exist, so it has no permissions yet. Please contact an administrator."
+msgstr "アカウントは作成されましたが、{0} という役割が存在しないため、まだ権限がありません。管理者にご連絡ください。"
+
+msgid "Your account was created, but its role could not be assigned. Please contact an administrator."
+msgstr "アカウントは作成されましたが、役割を割り当てられませんでした。管理者にご連絡ください。"

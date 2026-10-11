@@ -161,11 +161,18 @@ class AppController extends Controller
         // Allow public access to login
         $this->Auth->allow(['login']);
 
-        // Allow public access to Institution Registration
+        // Allow public access to Institution Registration.
+        //
+        // By name, not a blanket allow(). The two actions below are the whole
+        // of what that controller offers the public: the registration link
+        // somebody follows out of an email, and the process-flow page. An
+        // allow() with no arguments opens every action a controller has,
+        // including the ones it does not have yet, and nothing would mark the
+        // moment one of them stopped being safe to open.
         $controller = $this->request->getParam('controller');
-        
+
         if ($controller === 'InstitutionRegistration' || $controller === 'institution-registration') {
-            $this->Auth->allow();
+            $this->Auth->allow(['complete', 'processFlow']);
         }
     }
 
