@@ -86,14 +86,14 @@ use Cake\Utility\Inflector;
                     <div class="col-12 mb-3">
                         <label class="form-label">
                             <?= __('Candidate Code') ?>
-                            <small class="text-muted">(Optional - Max 256 characters)</small>
+                            <small class="text-muted">(Optional - Max 10 characters)</small>
                         </label>
                         <?= $this->Form->control('candidate_code', [
                             'type' => 'text',
                             'class' => 'form-control',
                             'placeholder' => __('Enter Candidate Code'),
                             'label' => false,
-                            'maxlength' => 256
+                            'maxlength' => 10
                         ]) ?>
                         <small class="form-text text-muted">
                             <i class="fas fa-info-circle"></i> <?= __('Unique identifier code for this candidate.') ?>
@@ -138,14 +138,14 @@ use Cake\Utility\Inflector;
                         <label class="form-label">
                             <?= __('Name') ?> 
                             <span class="text-danger">*</span>
-                            <small class="text-muted">(Max 256 characters)</small>
+                            <small class="text-muted">(Max 100 characters)</small>
                         </label>
                         <?= $this->Form->control('name', [
                             'class' => 'form-control',
                             'placeholder' => __('Enter Full Name'),
                             'label' => false,
                             'required' => true,
-                            'maxlength' => 256
+                            'maxlength' => 100
                         ]) ?>
                         <small class="form-text text-muted">
                             <i class="fas fa-info-circle"></i> <?= __('Enter your full name as it appears on your identity card.') ?>

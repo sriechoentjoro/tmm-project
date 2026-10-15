@@ -28,13 +28,13 @@
                             <label class="form-label">
                                 <?= __('Full Name') ?> 
                                 <span class="text-danger">*</span>
-                                <small class="text-muted">(Max 256 characters)</small>
+                                <small class="text-muted">(Max 100 characters)</small>
                             </label>
                             <?= $this->Form->control('full_name', [
                                 'class' => 'form-control',
                                 'label' => false,
                                 'required' => true,
-                                'maxlength' => 256,
+                                'maxlength' => 100,
                                 'placeholder' => __('Enter your full name')
                             ]) ?>
                             <small class="form-text text-muted">

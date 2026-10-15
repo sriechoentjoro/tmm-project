@@ -1,8 +1,23 @@
 <?php
 // Use CakePHP's request base path for static assets
 $staticAssetsUrl = rtrim($this->request->getAttribute('webroot'), '/');
-// Cache busting
-$cacheBust = '?v=' . time();
+// Cache busting, from each file's own modification time.
+//
+// This was '?v=' . time(), so every asset below carried a value no browser
+// had ever seen, on every request: the whole stylesheet and script set was
+// re-downloaded on every page load, and nothing could ever be served from
+// cache. The files linked through Html->css() carried no version at all and
+// were the only ones that could be cached - which is the other half of it,
+// because a stylesheet fixed on the server then went on being served from
+// the visitor's cache until they happened to reload it by hand.
+//
+// A modification time changes when the file does, and not otherwise, so a
+// changed asset is fetched once and an unchanged one is not fetched again.
+$assetVersion = function ($path) {
+    $file = WWW_ROOT . ltrim($path, '/');
+
+    return is_file($file) ? '?v=' . filemtime($file) : '';
+};
 ?>
 <!DOCTYPE html>
 <html>
@@ -15,14 +30,14 @@ $cacheBust = '?v=' . time();
     <title>
         <?= $this->fetch('title') ?> - TMM Apprentice Management
     </title>
-    <link rel="icon" type="image/svg+xml" href="<?= $staticAssetsUrl ?>/favicon.svg<?= $cacheBust ?>">
+    <link rel="icon" type="image/svg+xml" href="<?= $staticAssetsUrl ?>/favicon.svg<?= $assetVersion('/favicon.svg') ?>">
 
     <!-- Google Fonts - Nunito & Mulish -->
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i&subset=latin-ext,vietnamese" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
 
     <!-- Font Awesome - Local to avoid tracking prevention -->
-    <link rel="stylesheet" href="<?= $staticAssetsUrl ?>/css/fontawesome-all.min.css<?= $cacheBust ?>">
+    <link rel="stylesheet" href="<?= $staticAssetsUrl ?>/css/fontawesome-all.min.css<?= $assetVersion('/css/fontawesome-all.min.css') ?>">
     
     <!-- Bootstrap 5 CSS for Dropdown -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -31,24 +46,28 @@ $cacheBust = '?v=' . time();
          still use in 115 places. Without this a .badge is white on white.
          Loaded here so a page's own <style> block, which renders later, still
          wins where one exists. -->
-    <?= $this->Html->css('badge-compat') ?>
+    <link rel="stylesheet" href="<?= $staticAssetsUrl ?>/css/badge-compat.css<?= $assetVersion('/css/badge-compat.css') ?>">
+
+    <!-- Gives CakePHP's own error classes the look Bootstrap's carry. Without
+         it the reason a save was refused rendered as plain body text. -->
+    <link rel="stylesheet" href="<?= $staticAssetsUrl ?>/css/form-errors.css<?= $assetVersion('/css/form-errors.css') ?>">
     
     <!-- Mobile Responsive CSS - Global -->
-    <link rel="stylesheet" href="<?= $staticAssetsUrl ?>/css/mobile-responsive.css<?= $cacheBust ?>">
+    <link rel="stylesheet" href="<?= $staticAssetsUrl ?>/css/mobile-responsive.css<?= $assetVersion('/css/mobile-responsive.css') ?>">
     
     <!-- Actions Sidebar & Table Enhancements - Global -->
-    <link rel="stylesheet" href="<?= $staticAssetsUrl ?>/css/actions-table.css<?= $cacheBust ?>">
+    <link rel="stylesheet" href="<?= $staticAssetsUrl ?>/css/actions-table.css<?= $assetVersion('/css/actions-table.css') ?>">
     
     <!-- Table Enhanced CSS - Hover Action Buttons -->
-    <link rel="stylesheet" href="<?= $staticAssetsUrl ?>/css/table-enhanced.css<?= $cacheBust ?>">
+    <link rel="stylesheet" href="<?= $staticAssetsUrl ?>/css/table-enhanced.css<?= $assetVersion('/css/table-enhanced.css') ?>">
     
     <!-- Form Styles - Actions Sidebar & Modern Form UI -->
-    <link rel="stylesheet" href="<?= $staticAssetsUrl ?>/css/form-styles.css<?= $cacheBust ?>">
+    <link rel="stylesheet" href="<?= $staticAssetsUrl ?>/css/form-styles.css<?= $assetVersion('/css/form-styles.css') ?>">
 
     <!-- Pretty Form - the styles for the markup pretty-form.js builds and
          Element/entity_form.ctp writes by hand. Loaded after form-styles.css
          because it refines what that file sets. -->
-    <link rel="stylesheet" href="<?= $staticAssetsUrl ?>/css/pretty-form.css<?= $cacheBust ?>">
+    <link rel="stylesheet" href="<?= $staticAssetsUrl ?>/css/pretty-form.css<?= $assetVersion('/css/pretty-form.css') ?>">
 
     <!-- jQuery & Bootstrap for Forms -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -65,24 +84,24 @@ $cacheBust = '?v=' . time();
          so the same calendar was compact on one screen and the width of the
          window on the next. Served from the same place as the scripts above,
          which is the directory this deployment actually serves. -->
-    <link rel="stylesheet" href="<?= $staticAssetsUrl ?>/css/datepicker-fix.css<?= $cacheBust ?>">
+    <link rel="stylesheet" href="<?= $staticAssetsUrl ?>/css/datepicker-fix.css<?= $assetVersion('/css/datepicker-fix.css') ?>">
 
     <!-- Binds every input.datepicker app-wide, so a template only needs the class -->
-    <script src="<?= $staticAssetsUrl ?>/js/datepicker-init.js<?= $cacheBust ?>"></script>
+    <script src="<?= $staticAssetsUrl ?>/js/datepicker-init.js<?= $assetVersion('/js/datepicker-init.js') ?>"></script>
 
     <!-- Pretty Form - sectioned two-column layout for scaffolded add/edit forms -->
-    <script src="<?= $staticAssetsUrl ?>/js/pretty-form.js<?= $cacheBust ?>"></script>
+    <script src="<?= $staticAssetsUrl ?>/js/pretty-form.js<?= $assetVersion('/js/pretty-form.js') ?>"></script>
 
     <!-- File Preview - universal preview for all file/image upload inputs -->
-    <script src="<?= $staticAssetsUrl ?>/js/file-preview.js<?= $cacheBust ?>"></script>
+    <script src="<?= $staticAssetsUrl ?>/js/file-preview.js<?= $assetVersion('/js/file-preview.js') ?>"></script>
 
     <!-- Address Cascade - Province/Kabupaten/Kecamatan/Kelurahan dependent dropdowns -->
     <script>var APP_BASE_URL = '<?= $this->Url->build('/') ?>';</script>
-    <script src="<?= $staticAssetsUrl ?>/js/address-cascade.js<?= $cacheBust ?>"></script>
+    <script src="<?= $staticAssetsUrl ?>/js/address-cascade.js<?= $assetVersion('/js/address-cascade.js') ?>"></script>
     
     <!-- CSS files commented out - using inline styles below -->
     <!-- <?= $this->Html->css('base') ?> -->
-    <?= $this->Html->css('japan-theme') ?>
+    <link rel="stylesheet" href="<?= $staticAssetsUrl ?>/css/japan-theme.css<?= $assetVersion('/css/japan-theme.css') ?>">
 
     <?= $this->fetch('meta') ?>
     <?= $this->fetch('css') ?>
@@ -656,13 +675,13 @@ $cacheBust = '?v=' . time();
      */
     ?>
     <script>window.serverSideFilter = <?= !empty($serverSideFilter) ? 'true' : 'false' ?>;</script>
-    <script src="<?= $staticAssetsUrl ?>/js/context-menu.js<?= $cacheBust ?>"></script>
-    <script src="<?= $staticAssetsUrl ?>/js/submenu-position.js<?= $cacheBust ?>"></script>
-    <script src="<?= $staticAssetsUrl ?>/js/table-drag-scroll.js<?= $cacheBust ?>"></script>
-    <script src="<?= $staticAssetsUrl ?>/js/table-filter.js<?= $cacheBust ?>"></script>
+    <script src="<?= $staticAssetsUrl ?>/js/context-menu.js<?= $assetVersion('/js/context-menu.js') ?>"></script>
+    <script src="<?= $staticAssetsUrl ?>/js/submenu-position.js<?= $assetVersion('/js/submenu-position.js') ?>"></script>
+    <script src="<?= $staticAssetsUrl ?>/js/table-drag-scroll.js<?= $assetVersion('/js/table-drag-scroll.js') ?>"></script>
+    <script src="<?= $staticAssetsUrl ?>/js/table-filter.js<?= $assetVersion('/js/table-filter.js') ?>"></script>
     
     <!-- Romaji to Katakana Converter for Japanese name input -->
-    <script src="<?= $staticAssetsUrl ?>/js/romaji-to-katakana.js<?= $cacheBust ?>"></script>
+    <script src="<?= $staticAssetsUrl ?>/js/romaji-to-katakana.js<?= $assetVersion('/js/romaji-to-katakana.js') ?>"></script>
 
     <!-- Association Link Modal -->
     <div id="associationModal" class="modal fade" tabindex="-1" role="dialog" style="display: none;">

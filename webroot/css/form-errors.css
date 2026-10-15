@@ -1,0 +1,67 @@
+/* ============================================
+   VALIDATION ERRORS
+   ============================================
+   CakePHP renders a refused field as
+
+       <div class="input text error">
+         <input class="form-control form-error" ...>
+         <div class="error-message">Why it was refused</div>
+       </div>
+
+   and nothing this application loads had a rule for any of those three
+   classes. base.css and style.css do, but the layout links neither - base.css
+   is commented out and style.css is not linked at all. pretty-form.css styles
+   .cand-form .error-message, and three templates use .cand-form.
+
+   So on nearly every form the reason a save was refused rendered as plain
+   black body text under the field, the same size and weight as the hint above
+   it, with nothing marking the field itself. "The candidate could not be
+   saved. Please, try again." sat at the top of the page in red, and the
+   sentence that actually said which field and why sat a thousand pixels down
+   looking like prose.
+
+   Bootstrap 5 ships .invalid-feedback and .is-invalid for this, which Cake
+   does not emit. Rather than reconfigure every form helper in the
+   application, this gives Cake's own class names the appearance Bootstrap's
+   carry. No !important: .form-control.form-error:focus is more specific than
+   .form-control:focus, so it wins on its own.
+   ============================================ */
+
+.error-message {
+    display: block;
+    width: 100%;
+    margin-top: 0.3rem;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: #dc3545;
+}
+
+/* The field itself, so the eye lands on it rather than hunting for the
+   sentence. */
+.form-control.form-error,
+.form-select.form-error,
+select.form-error,
+textarea.form-error,
+.input.error .form-control,
+.input.error select,
+.input.error textarea {
+    border-color: #dc3545;
+}
+
+.form-control.form-error:focus,
+.form-select.form-error:focus,
+select.form-error:focus,
+textarea.form-error:focus,
+.input.error .form-control:focus {
+    border-color: #dc3545;
+    box-shadow: 0 0 0 0.25rem rgba(220, 53, 69, 0.25);
+}
+
+/* A refused checkbox or radio: the box is small, so the label carries it. */
+.input.error .form-check-label,
+.input.error legend {
+    color: #dc3545;
+}
+
+/* Inside the two screens that already had their own rule, theirs still
+   applies - this only fills in what it does not set. */

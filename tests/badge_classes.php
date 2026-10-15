@@ -69,10 +69,14 @@ check('nothing is forced with !important, so a page can still override it',
 
 echo "  the layout loads it\n";
 $layout = file_get_contents(TMM_ROOT . '/src/Template/Layout/elegant.ctp');
+// By the URL, not by the helper call: the layout links its stylesheets
+// directly now so each can carry its own file's modification time, and
+// Html->css() emits no version at all - which is what let a fixed stylesheet
+// go on being served from the visitor's cache.
 checkTrue('elegant.ctp links badge-compat',
-    strpos($layout, "Html->css('badge-compat')") !== false);
+    strpos($layout, '/css/badge-compat.css') !== false);
 checkTrue('after Bootstrap, which has nothing to say about these names',
-    strpos($layout, "Html->css('badge-compat')") > strpos($layout, 'bootstrap@5.1.3'));
+    strpos($layout, '/css/badge-compat.css') > strpos($layout, 'bootstrap@5.1.3'));
 
 echo "  every badge the templates write\n";
 // Written as Bootstrap 4, resolved by the stylesheet above or by the page's own

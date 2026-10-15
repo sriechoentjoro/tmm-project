@@ -63,13 +63,13 @@ $staticAssetsUrl = $protocol . '://' . $host . '/static-assets';
                     <div class="col-12 mb-3">
                         <label class="form-label">
                             <?= __('Abbreviation') ?>
-                            <small class="text-muted">(Max 50 characters)</small>
+                            <small class="text-muted">(Max 11 characters)</small>
                         </label>
                         <?= $this->Form->control('abbreviation', [
                             'class' => 'form-control',
                             'placeholder' => __('Enter Abbreviation'),
                             'label' => false,
-                            'maxlength' => 50
+                            'maxlength' => 11
                         ]) ?>
                         <small class="form-text text-muted">
                             <i class="fas fa-info-circle"></i> <?= __('Short code or abbreviation for the institution.') ?>
@@ -168,13 +168,13 @@ $staticAssetsUrl = $protocol . '://' . $host . '/static-assets';
                     <div class="col-12 mb-3">
                         <label class="form-label">
                             <?= __('Post Code') ?>
-                            <small class="text-muted">(Max 10 characters)</small>
+                            <small class="text-muted">(Max 6 characters)</small>
                         </label>
                         <?= $this->Form->control('post_code', [
                             'class' => 'form-control',
                             'placeholder' => __('Enter Post Code'),
                             'label' => false,
-                            'maxlength' => 10
+                            'maxlength' => 6
                         ]) ?>
                         <small class="form-text text-muted">
                             <i class="fas fa-mail-bulk"></i> <?= __('Postal code for the address.') ?>
