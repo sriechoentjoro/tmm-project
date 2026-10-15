@@ -636,26 +636,22 @@ use Cake\Utility\Inflector;
                         ]) ?>
                     </div>
                     <div class="col-12 mb-3">
-                        <label class="form-label"><?= __('Is Training Pass') ?></label>
-                        <?= $this->Form->control('is_training_pass', [
-                            'type' => 'password',
-                            'class' => 'form-control',
-                            'placeholder' => __('Enter Is Training Pass'),
-                            'label' => false,
-                            'autocomplete' => 'new-password'
-                        ]) ?>
-                        <small class="text-muted"><?= __('Minimum 8 characters, include uppercase, lowercase, number & symbol') ?></small>
+                        <div class="form-check">
+                            <?= $this->Form->control('is_training_pass', [
+                                'type' => 'checkbox',
+                                'class' => 'form-check-input',
+                                'label' => ['text' => __('Is Training Pass'), 'class' => 'form-check-label']
+                            ]) ?>
+                        </div>
                     </div>
                     <div class="col-12 mb-3">
-                        <label class="form-label"><?= __('Is Apprenticeship Pass') ?></label>
-                        <?= $this->Form->control('is_apprenticeship_pass', [
-                            'type' => 'password',
-                            'class' => 'form-control',
-                            'placeholder' => __('Enter Is Apprenticeship Pass'),
-                            'label' => false,
-                            'autocomplete' => 'new-password'
-                        ]) ?>
-                        <small class="text-muted"><?= __('Minimum 8 characters, include uppercase, lowercase, number & symbol') ?></small>
+                        <div class="form-check">
+                            <?= $this->Form->control('is_apprenticeship_pass', [
+                                'type' => 'checkbox',
+                                'class' => 'form-check-input',
+                                'label' => ['text' => __('Is Apprenticeship Pass'), 'class' => 'form-check-label']
+                            ]) ?>
+                        </div>
                     </div>
                     <div class="col-12 mb-3">
                         <label class="form-label"><?= __('Master Rejected Reason Id') ?></label>

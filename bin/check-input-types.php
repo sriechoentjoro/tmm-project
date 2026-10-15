@@ -34,6 +34,19 @@ $root = dirname(__DIR__);
 $showAll = in_array('--all', $argv, true);
 
 /**
+ * Words that make a column name a password.
+ *
+ * Whole words. The generator tested /(password|pass|pwd)/i as a substring,
+ * and "pass" is inside passport, passed, bypass and every is_..._pass flag in
+ * this schema - so the two flags the whole programme turns on, is_training_pass
+ * and is_apprenticeship_pass, were masked boxes advising eight characters with
+ * a symbol in them.
+ */
+const PASSWORD_WORDS = [
+    'password', 'passwd', 'pwd', 'sandi', 'kata',
+];
+
+/**
  * Words that make a column name a date.
  *
  * Whole words only. "candidate" is not a date and "updated" is, and a
@@ -104,6 +117,8 @@ function namesADate($field)
 
 $calendars = [];
 $freeText = [];
+$masked = [];
+$booleans = [];
 $checked = 0;
 
 foreach (controls($root) as list($rel, $line, $field, $body)) {
@@ -112,11 +127,21 @@ foreach (controls($root) as list($rel, $line, $field, $body)) {
     $hasDatepicker = (bool)preg_match('/(?<![-\w])datepicker(?![-\w])/', $body);
     $hasOptions = strpos($body, "'options'") !== false;
 
+    $type = preg_match("/'type'\s*=>\s*'(\w+)'/", $body, $m) ? $m[1] : null;
+    // A yes/no column, by the only naming rule this schema keeps to.
+    $isFlag = strpos($field, 'is_') === 0;
+    $words = preg_split('/[_.]/', strtolower($field));
+
     if ($hasDatepicker && $isKey && !namesADate($field)) {
         $calendars[] = [$rel, $line, $field];
     } elseif ($isKey && !$hasOptions
         && preg_match("/'type'\s*=>\s*'text'/", $body)) {
         $freeText[] = [$rel, $line, $field];
+    } elseif ($type === 'password' && !array_intersect($words, PASSWORD_WORDS)) {
+        $masked[] = [$rel, $line, $field];
+    } elseif ($isFlag && $type !== null && $type !== 'checkbox' && $type !== 'select'
+        && !$hasOptions) {
+        $booleans[] = [$rel, $line, $field, $type];
     } elseif ($showAll) {
         printf("  %s:%d  %s\n", $rel, $line, $field);
     }
@@ -124,7 +149,7 @@ foreach (controls($root) as list($rel, $line, $field, $body)) {
 
 printf("%d form control(s) read\n", $checked);
 
-if (!$calendars && !$freeText) {
+if (!$calendars && !$freeText && !$masked && !$booleans) {
     echo "every control matches the kind of value its field holds\n";
     exit(0);
 }
@@ -141,6 +166,21 @@ if ($freeText) {
         count($freeText));
     foreach ($freeText as list($rel, $line, $field)) {
         printf("  %s:%d\n    %s\n", $rel, $line, $field);
+    }
+}
+
+if ($masked) {
+    printf("\n%d field(s) masked as a password that are not one:\n\n", count($masked));
+    foreach ($masked as list($rel, $line, $field)) {
+        printf("  %s:%d\n    %s\n", $rel, $line, $field);
+    }
+}
+
+if ($booleans) {
+    printf("\n%d yes/no field(s) asked as something other than a checkbox:\n\n",
+        count($booleans));
+    foreach ($booleans as list($rel, $line, $field, $type)) {
+        printf("  %s:%d\n    %s  as type=%s\n", $rel, $line, $field, $type);
     }
 }
 

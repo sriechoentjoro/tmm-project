@@ -131,6 +131,29 @@ $staticAssetsUrl = $protocol . '://' . $host . '/static-assets';
         $fieldType = $fieldData['type'];
         $humanize = Inflector::humanize($field);
         
+        // BOOLEAN/CHECKBOX DETECTION
+        //
+        // First, because every branch below it decides by searching the
+        // field's name, and a yes/no column whose name happens to contain
+        // another branch's keyword loses to that branch. is_training_pass and
+        // is_apprenticeship_pass - the two flags the whole programme turns on
+        // - contain "pass", so they came out as masked password boxes with
+        // "Minimum 8 characters, include uppercase, lowercase, number &
+        // symbol" written under them, in seventeen places. is_holding_passport
+        // went the same way. The column's type is not a guess, so it is asked
+        // first.
+        if ($fieldType === 'boolean'):
+%>
+                    <div class="col-md-12 mb-3">
+                        <div class="form-check">
+                            <?= $this->Form->control('<%= $field %>', [
+                                'type' => 'checkbox',
+                                'class' => 'form-check-input',
+                                'label' => ['text' => __('<%= $humanize %>'), 'class' => 'form-check-label']
+                            ]) ?>
+                        </div>
+                    </div>
+<%
         // DATE FIELD DETECTION
         //
         // A foreign key is decided by $keyFields, never by its name. The test
@@ -146,7 +169,7 @@ $staticAssetsUrl = $protocol . '://' . $host . '/static-assets';
         // varchar. That also keeps "updated" and "last_updated" - which match
         // /date/ by accident too, and happen to be real date columns - on the
         // branch they belong to.
-        if (!isset($keyFields[$field]) && !isset($addressGroups[$field])
+        elseif (!isset($keyFields[$field]) && !isset($addressGroups[$field])
             && (in_array($fieldType, ['date', 'datetime', 'timestamp'], true)
                 || preg_match('/(^|_)(date|tanggal|tgl)(_|$)/i', $field))):
 %>
@@ -223,7 +246,10 @@ $staticAssetsUrl = $protocol . '://' . $host . '/static-assets';
                     </script>
 <%
         // PASSWORD FIELD DETECTION
-        elseif (preg_match('/(password|pass|pwd|kata_sandi)/i', $field)):
+        //
+        // Whole words. "pass" as a substring also matches passport, passed,
+        // bypass and every is_..._pass flag in this schema.
+        elseif (preg_match('/(^|_)(password|passwd|pwd|kata_sandi|sandi)(_|$)/i', $field)):
 %>
                     <div class="col-md-12 mb-3">
                         <label class="form-label"><?= __('<%= $humanize %>') ?></label>
@@ -339,19 +365,6 @@ $staticAssetsUrl = $protocol . '://' . $host . '/static-assets';
                             'placeholder' => __('Enter <%= $humanize %>'),
                             'label' => false
                         ]) ?>
-                    </div>
-<%
-        // BOOLEAN/CHECKBOX DETECTION
-        elseif ($fieldType === 'boolean'):
-%>
-                    <div class="col-md-12 mb-3">
-                        <div class="form-check">
-                            <?= $this->Form->control('<%= $field %>', [
-                                'type' => 'checkbox',
-                                'class' => 'form-check-input',
-                                'label' => ['text' => __('<%= $humanize %>'), 'class' => 'form-check-label']
-                            ]) ?>
-                        </div>
                     </div>
 <%
         // SKIP created, modified, updated
