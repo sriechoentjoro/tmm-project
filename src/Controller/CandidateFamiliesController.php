@@ -12,6 +12,19 @@ use App\Controller\AppController;
  */
 class CandidateFamiliesController extends AppController
 {
+    use \App\Controller\LpkDataFilterTrait;
+
+    /**
+     * These records carry no institution of their own; the candidate they
+     * belong to does.
+     *
+     * @var array
+     */
+    protected $institutionOwnership = [
+        'through' => 'Candidates',
+        'foreignKey' => 'candidate_id',
+    ];
+
     use \App\Controller\ExportTrait;
     /**
      * Index method
@@ -23,10 +36,10 @@ class CandidateFamiliesController extends AppController
         $this->paginate = [
             'contain' => ['Candidates', 'MasterFamilyConnections', 'MasterOccupations'],
         ];
-        $candidateFamilies = $this->paginate($this->CandidateFamilies);
+        $candidateFamilies = $this->paginate($this->scopeToInstitution($this->CandidateFamilies->find()));
 
         // Load dropdown data for filters
-        $candidates = $this->CandidateFamilies->Candidates->find('list')->limit(200)->toArray();
+        $candidates = $this->scopeCandidates($this->CandidateFamilies->Candidates->find('list'))->limit(200)->toArray();
         $masterfamilyconnections = $this->CandidateFamilies->MasterFamilyConnections->find('list')->limit(200)->toArray();
         $masteroccupations = $this->CandidateFamilies->MasterOccupations->find('list')->limit(200)->toArray();
                 $master_family_connections = $masterfamilyconnections;
@@ -57,6 +70,9 @@ $this->set(compact('candidateFamilies', 'candidates', 'masterfamilyconnections',
         $candidateFamily = $this->CandidateFamilies->get($id, [
             'contain' => $contain,
         ]);
+        if ($refusal = $this->refuseOtherInstitution($candidateFamily)) {
+            return $refusal;
+        }
 
         $this->set('candidateFamily', $candidateFamily);
     }
@@ -109,7 +125,7 @@ $this->set(compact('candidateFamilies', 'candidates', 'masterfamilyconnections',
             }
             $this->Flash->error(__('The candidate family could not be saved. Please, try again.'));
         }
-        $candidates = $this->CandidateFamilies->Candidates->find('list', ['limit' => 200]);
+        $candidates = $this->scopeCandidates($this->CandidateFamilies->Candidates->find('list', ['limit' => 200]));
         $masterFamilyConnections = $this->CandidateFamilies->MasterFamilyConnections->find('list', ['limit' => 200]);
         $masterOccupations = $this->CandidateFamilies->MasterOccupations->find('list', ['limit' => 200]);
         $this->set(compact('candidateFamily', 'candidates', 'masterFamilyConnections', 'masterOccupations'));
@@ -127,6 +143,9 @@ $this->set(compact('candidateFamilies', 'candidates', 'masterfamilyconnections',
         $candidateFamily = $this->CandidateFamilies->get($id, [
             'contain' => [],
         ]);
+        if ($refusal = $this->refuseOtherInstitution($candidateFamily)) {
+            return $refusal;
+        }
         if ($this->request->is(['patch', 'post', 'put'])) {
             // Get POST data
             $data = $this->request->getData();
@@ -174,7 +193,7 @@ $this->set(compact('candidateFamilies', 'candidates', 'masterfamilyconnections',
             }
             $this->Flash->error(__('The candidate family could not be saved. Please, try again.'));
         }
-        $candidates = $this->CandidateFamilies->Candidates->find('list', ['limit' => 200]);
+        $candidates = $this->scopeCandidates($this->CandidateFamilies->Candidates->find('list', ['limit' => 200]));
         $masterFamilyConnections = $this->CandidateFamilies->MasterFamilyConnections->find('list', ['limit' => 200]);
         $masterOccupations = $this->CandidateFamilies->MasterOccupations->find('list', ['limit' => 200]);
         $this->set(compact('candidateFamily', 'candidates', 'masterFamilyConnections', 'masterOccupations'));
@@ -191,6 +210,9 @@ $this->set(compact('candidateFamilies', 'candidates', 'masterfamilyconnections',
     {
         $this->request->allowMethod(['post', 'delete']);
         $candidateFamily = $this->CandidateFamilies->get($id);
+        if ($refusal = $this->refuseOtherInstitution($candidateFamily)) {
+            return $refusal;
+        }
         if ($this->CandidateFamilies->delete($candidateFamily)) {
             $this->Flash->success(__('The candidate family has been deleted.'));
         } else {

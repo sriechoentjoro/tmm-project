@@ -16,6 +16,17 @@ class CandidateRecordInterviewsController extends AppController
     use \App\Controller\LpkDataFilterTrait;
 
     /**
+     * These records carry no institution of their own; the candidate they
+     * belong to does.
+     *
+     * @var array
+     */
+    protected $institutionOwnership = [
+        'through' => 'Candidates',
+        'foreignKey' => 'candidate_id',
+    ];
+
+    /**
      * Record AO interview scoring for a candidate (LPK role entry point)
      */
     public function aoScore($candidateId = null)
@@ -117,10 +128,10 @@ class CandidateRecordInterviewsController extends AppController
         $this->paginate = [
             'contain' => ['Candidates', 'MasterCandidateInterviewTypes', 'MasterCandidateInterviewResults'],
         ];
-        $candidateRecordInterviews = $this->paginate($this->CandidateRecordInterviews);
+        $candidateRecordInterviews = $this->paginate($this->scopeToInstitution($this->CandidateRecordInterviews->find()));
 
         // Load dropdown data for filters
-        $applicants = $this->CandidateRecordInterviews->Candidates->find('list')->limit(200)->toArray();
+        $applicants = $this->scopeCandidates($this->CandidateRecordInterviews->Candidates->find('list'))->limit(200)->toArray();
         $master_candidate_interview_types = $this->CandidateRecordInterviews->MasterCandidateInterviewTypes->find('list')->limit(200)->toArray();
         $master_candidate_interview_results = $this->CandidateRecordInterviews->MasterCandidateInterviewResults->find('list')->limit(200)->toArray();
         $this->set(compact('candidateRecordInterviews', 'applicants', 'master_candidate_interview_types', 'master_candidate_interview_results'));
@@ -140,6 +151,9 @@ class CandidateRecordInterviewsController extends AppController
         $candidateRecordInterview = $this->CandidateRecordInterviews->get($id, [
             'contain' => ['Candidates', 'MasterCandidateInterviewTypes', 'MasterCandidateInterviewResults'],
         ]);
+        if ($refusal = $this->refuseOtherInstitution($candidateRecordInterview)) {
+            return $refusal;
+        }
 
         // Other interview records for the same candidate (history)
         $otherInterviews = $this->CandidateRecordInterviews->find()
@@ -217,7 +231,7 @@ class CandidateRecordInterviewsController extends AppController
             $this->Flash->error(__('The candidate record interview could not be saved. Please, try again.'));
         }
         $applicants = $this->listIncluding(
-            $this->CandidateRecordInterviews->Candidates->find('list', ['limit' => 200]),
+            $this->scopeCandidates($this->CandidateRecordInterviews->Candidates->find('list', ['limit' => 200])),
             $candidateId
         );
         $masterCandidateInterviewTypes = $this->CandidateRecordInterviews->MasterCandidateInterviewTypes->find('list', ['limit' => 200]);
@@ -242,6 +256,9 @@ class CandidateRecordInterviewsController extends AppController
         $candidateRecordInterview = $this->CandidateRecordInterviews->get($id, [
             'contain' => [],
         ]);
+        if ($refusal = $this->refuseOtherInstitution($candidateRecordInterview)) {
+            return $refusal;
+        }
         if ($this->request->is(['patch', 'post', 'put'])) {
             // Get POST data
             $data = $this->request->getData();
@@ -289,7 +306,7 @@ class CandidateRecordInterviewsController extends AppController
             }
             $this->Flash->error(__('The candidate record interview could not be saved. Please, try again.'));
         }
-        $applicants = $this->CandidateRecordInterviews->Candidates->find('list', ['limit' => 200]);
+        $applicants = $this->scopeCandidates($this->CandidateRecordInterviews->Candidates->find('list', ['limit' => 200]));
         $masterCandidateInterviewTypes = $this->CandidateRecordInterviews->MasterCandidateInterviewTypes->find('list', ['limit' => 200]);
         $masterCandidateInterviewResults = $this->CandidateRecordInterviews->MasterCandidateInterviewResults->find('list', ['limit' => 200]);
         $this->set(compact('candidateRecordInterview', 'applicants', 'masterCandidateInterviewTypes', 'masterCandidateInterviewResults'));
@@ -312,6 +329,9 @@ class CandidateRecordInterviewsController extends AppController
         }
 
         $candidateRecordInterview = $this->CandidateRecordInterviews->get($id);
+        if ($refusal = $this->refuseOtherInstitution($candidateRecordInterview)) {
+            return $refusal;
+        }
         if ($this->CandidateRecordInterviews->delete($candidateRecordInterview)) {
             $this->Flash->success(__('The candidate record interview has been deleted.'));
         } else {

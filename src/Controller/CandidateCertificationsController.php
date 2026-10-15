@@ -12,6 +12,19 @@ use App\Controller\AppController;
  */
 class CandidateCertificationsController extends AppController
 {
+    use \App\Controller\LpkDataFilterTrait;
+
+    /**
+     * These records carry no institution of their own; the candidate they
+     * belong to does.
+     *
+     * @var array
+     */
+    protected $institutionOwnership = [
+        'through' => 'Candidates',
+        'foreignKey' => 'candidate_id',
+    ];
+
     use \App\Controller\ExportTrait;
     /**
      * Index method
@@ -23,10 +36,10 @@ class CandidateCertificationsController extends AppController
         $this->paginate = [
             'contain' => ['Candidates'],
         ];
-        $candidateCertifications = $this->paginate($this->CandidateCertifications);
+        $candidateCertifications = $this->paginate($this->scopeToInstitution($this->CandidateCertifications->find()));
 
         // Load dropdown data for filters
-        $candidates = $this->CandidateCertifications->Candidates->find('list')->limit(200)->toArray();
+        $candidates = $this->scopeCandidates($this->CandidateCertifications->Candidates->find('list'))->limit(200)->toArray();
         $this->set(compact('candidateCertifications', 'candidates'));
     }
 
@@ -51,6 +64,9 @@ class CandidateCertificationsController extends AppController
         $candidateCertification = $this->CandidateCertifications->get($id, [
             'contain' => $contain,
         ]);
+        if ($refusal = $this->refuseOtherInstitution($candidateCertification)) {
+            return $refusal;
+        }
 
         $this->set('candidateCertification', $candidateCertification);
     }
@@ -103,7 +119,7 @@ class CandidateCertificationsController extends AppController
             }
             $this->Flash->error(__('The candidate certification could not be saved. Please, try again.'));
         }
-        $candidates = $this->CandidateCertifications->Candidates->find('list', ['limit' => 200]);
+        $candidates = $this->scopeCandidates($this->CandidateCertifications->Candidates->find('list', ['limit' => 200]));
         $this->set(compact('candidateCertification', 'candidates'));
     }
 
@@ -119,6 +135,9 @@ class CandidateCertificationsController extends AppController
         $candidateCertification = $this->CandidateCertifications->get($id, [
             'contain' => [],
         ]);
+        if ($refusal = $this->refuseOtherInstitution($candidateCertification)) {
+            return $refusal;
+        }
         if ($this->request->is(['patch', 'post', 'put'])) {
             // Get POST data
             $data = $this->request->getData();
@@ -166,7 +185,7 @@ class CandidateCertificationsController extends AppController
             }
             $this->Flash->error(__('The candidate certification could not be saved. Please, try again.'));
         }
-        $candidates = $this->CandidateCertifications->Candidates->find('list', ['limit' => 200]);
+        $candidates = $this->scopeCandidates($this->CandidateCertifications->Candidates->find('list', ['limit' => 200]));
         $this->set(compact('candidateCertification', 'candidates'));
     }
 
@@ -181,6 +200,9 @@ class CandidateCertificationsController extends AppController
     {
         $this->request->allowMethod(['post', 'delete']);
         $candidateCertification = $this->CandidateCertifications->get($id);
+        if ($refusal = $this->refuseOtherInstitution($candidateCertification)) {
+            return $refusal;
+        }
         if ($this->CandidateCertifications->delete($candidateCertification)) {
             $this->Flash->success(__('The candidate certification has been deleted.'));
         } else {

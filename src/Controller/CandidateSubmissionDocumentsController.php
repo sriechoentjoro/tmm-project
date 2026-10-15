@@ -12,6 +12,8 @@ use App\Controller\AppController;
  */
 class CandidateSubmissionDocumentsController extends AppController
 {
+    use \App\Controller\LpkDataFilterTrait;
+
     use \App\Controller\ExportTrait;
     /**
      * Index method
@@ -26,7 +28,7 @@ class CandidateSubmissionDocumentsController extends AppController
         $candidateSubmissionDocuments = $this->paginate($this->CandidateSubmissionDocuments);
 
         // Load dropdown data for filters
-        $applicants = $this->CandidateSubmissionDocuments->Candidates->find('list')->limit(200)->toArray();
+        $applicants = $this->scopeCandidates($this->CandidateSubmissionDocuments->Candidates->find('list'))->limit(200)->toArray();
         $documents = $this->CandidateSubmissionDocuments->MasterDocuments->find('list')->limit(200)->toArray();
         $this->set(compact('candidateSubmissionDocuments', 'applicants', 'documents'));
     }
@@ -105,7 +107,7 @@ class CandidateSubmissionDocumentsController extends AppController
             }
             $this->Flash->error(__('The candidate submission document could not be saved. Please, try again.'));
         }
-        $applicants = $this->CandidateSubmissionDocuments->Candidates->find('list', ['limit' => 200]);
+        $applicants = $this->scopeCandidates($this->CandidateSubmissionDocuments->Candidates->find('list', ['limit' => 200]));
         $documents = $this->CandidateSubmissionDocuments->MasterDocuments->find('list', ['limit' => 200]);
         $this->set(compact('candidateSubmissionDocument', 'applicants', 'documents'));
     }
@@ -169,7 +171,7 @@ class CandidateSubmissionDocumentsController extends AppController
             }
             $this->Flash->error(__('The candidate submission document could not be saved. Please, try again.'));
         }
-        $applicants = $this->CandidateSubmissionDocuments->Candidates->find('list', ['limit' => 200]);
+        $applicants = $this->scopeCandidates($this->CandidateSubmissionDocuments->Candidates->find('list', ['limit' => 200]));
         $documents = $this->CandidateSubmissionDocuments->MasterDocuments->find('list', ['limit' => 200]);
         $this->set(compact('candidateSubmissionDocument', 'applicants', 'documents'));
     }

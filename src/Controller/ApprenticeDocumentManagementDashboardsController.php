@@ -12,6 +12,8 @@ use App\Controller\AppController;
  */
 class ApprenticeDocumentManagementDashboardsController extends AppController
 {
+    use \App\Controller\LpkDataFilterTrait;
+
     use \App\Controller\ExportTrait;
 
     /**
@@ -82,7 +84,7 @@ class ApprenticeDocumentManagementDashboardsController extends AppController
         }
 
         // Load dropdown data for filters
-        $candidates = $this->ApprenticeDocumentManagementDashboards->Candidates->find('list')->limit(200)->toArray();
+        $candidates = $this->scopeCandidates($this->ApprenticeDocumentManagementDashboards->Candidates->find('list'))->limit(200)->toArray();
         $this->set(compact('apprenticeDocumentManagementDashboards', 'candidates', 'standing', 'drifted'));
     }
 
@@ -193,7 +195,7 @@ class ApprenticeDocumentManagementDashboardsController extends AppController
             }
             $this->Flash->error(__('The apprentice document management dashboard could not be saved. Please, try again.'));
         }
-        $candidates = $this->ApprenticeDocumentManagementDashboards->Candidates->find('list', ['limit' => 200]);
+        $candidates = $this->scopeCandidates($this->ApprenticeDocumentManagementDashboards->Candidates->find('list', ['limit' => 200]));
         $this->set(compact('apprenticeDocumentManagementDashboard', 'candidates'));
     }
 
@@ -256,7 +258,7 @@ class ApprenticeDocumentManagementDashboardsController extends AppController
             }
             $this->Flash->error(__('The apprentice document management dashboard could not be saved. Please, try again.'));
         }
-        $candidates = $this->ApprenticeDocumentManagementDashboards->Candidates->find('list', ['limit' => 200]);
+        $candidates = $this->scopeCandidates($this->ApprenticeDocumentManagementDashboards->Candidates->find('list', ['limit' => 200]));
         $this->set(compact('apprenticeDocumentManagementDashboard', 'candidates'));
     }
 

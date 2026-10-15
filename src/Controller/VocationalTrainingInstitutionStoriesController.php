@@ -12,6 +12,8 @@ use App\Controller\AppController;
  */
 class VocationalTrainingInstitutionStoriesController extends AppController
 {
+    use \App\Controller\LpkDataFilterTrait;
+
     use \App\Controller\ExportTrait;
     /**
      * Index method
@@ -41,7 +43,7 @@ class VocationalTrainingInstitutionStoriesController extends AppController
         }
 
         $this->paginate = ['order' => ['VocationalTrainingInstitutionStories.date_occurrence' => 'DESC']];
-        $vocationalTrainingInstitutionStories = $this->paginate($query);
+        $vocationalTrainingInstitutionStories = $this->paginate($this->scopeToInstitution($query));
 
         $vocationaltraininginstitutions = $this->VocationalTrainingInstitutionStories->VocationalTrainingInstitutions->find('list')->limit(200)->toArray();
 
@@ -97,6 +99,9 @@ class VocationalTrainingInstitutionStoriesController extends AppController
         $vocationalTrainingInstitutionStory = $this->VocationalTrainingInstitutionStories->get($id, [
             'contain' => $contain,
         ]);
+        if ($refusal = $this->refuseOtherInstitution($vocationalTrainingInstitutionStory)) {
+            return $refusal;
+        }
 
         $this->set('vocationalTrainingInstitutionStory', $vocationalTrainingInstitutionStory);
     }
@@ -142,6 +147,10 @@ class VocationalTrainingInstitutionStoriesController extends AppController
             }
             
             $vocationalTrainingInstitutionStory = $this->VocationalTrainingInstitutionStories->patchEntity($vocationalTrainingInstitutionStory, $data);
+            // A record an LPK user creates belongs to their institution. Without
+            // this it is saved with none, and the listing - which now only shows
+            // their own - would never show it to them again.
+            $vocationalTrainingInstitutionStory = $this->setInstitutionId($vocationalTrainingInstitutionStory);
             if ($this->VocationalTrainingInstitutionStories->save($vocationalTrainingInstitutionStory)) {
                 $this->Flash->success(__('The vocational training institution story has been saved.'));
 
@@ -165,6 +174,9 @@ class VocationalTrainingInstitutionStoriesController extends AppController
         $vocationalTrainingInstitutionStory = $this->VocationalTrainingInstitutionStories->get($id, [
             'contain' => [],
         ]);
+        if ($refusal = $this->refuseOtherInstitution($vocationalTrainingInstitutionStory)) {
+            return $refusal;
+        }
         if ($this->request->is(['patch', 'post', 'put'])) {
             // Get POST data
             $data = $this->request->getData();
@@ -227,6 +239,9 @@ class VocationalTrainingInstitutionStoriesController extends AppController
     {
         $this->request->allowMethod(['post', 'delete']);
         $vocationalTrainingInstitutionStory = $this->VocationalTrainingInstitutionStories->get($id);
+        if ($refusal = $this->refuseOtherInstitution($vocationalTrainingInstitutionStory)) {
+            return $refusal;
+        }
         if ($this->VocationalTrainingInstitutionStories->delete($vocationalTrainingInstitutionStory)) {
             $this->Flash->success(__('The vocational training institution story has been deleted.'));
         } else {

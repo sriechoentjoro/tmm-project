@@ -595,18 +595,23 @@ class AppController extends Controller
      */
     protected function canAccessRecord($entity, $institutionField = 'vocational_training_institution_id')
     {
+        // This said something different from the copy in LpkDataFilterTrait,
+        // which is the one that actually runs: it asked only whether the
+        // record's institution matched the viewer's, with no role test at all,
+        // so an administrator - who has no institution_id - was refused every
+        // record in the application. It never showed, because every caller
+        // imports the trait and a trait method takes precedence over an
+        // inherited one. A second definition that quietly disagrees is worth
+        // less than no second definition, so this one now says the same thing.
+        if ($this->hasRole('administrator') || !$this->hasRole('lpk-penyangga')) {
+            return true;
+        }
+
         $userInstitutionId = $this->getUserInstitutionId();
-        
-        if (!$userInstitutionId) {
-            return false; // No institution assigned
-        }
-        
-        // Check if entity has the institution field
-        if (!isset($entity->$institutionField)) {
-            return false;
-        }
-        
-        return $entity->$institutionField == $userInstitutionId;
+        $recordInstitutionId = $entity->get($institutionField);
+
+        return $userInstitutionId && $recordInstitutionId
+            && $userInstitutionId == $recordInstitutionId;
     }
     
     /**

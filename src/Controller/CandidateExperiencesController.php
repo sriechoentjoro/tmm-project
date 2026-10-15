@@ -12,6 +12,19 @@ use App\Controller\AppController;
  */
 class CandidateExperiencesController extends AppController
 {
+    use \App\Controller\LpkDataFilterTrait;
+
+    /**
+     * These records carry no institution of their own; the candidate they
+     * belong to does.
+     *
+     * @var array
+     */
+    protected $institutionOwnership = [
+        'through' => 'Candidates',
+        'foreignKey' => 'candidate_id',
+    ];
+
     use \App\Controller\ExportTrait;
     /**
      * Index method
@@ -23,10 +36,10 @@ class CandidateExperiencesController extends AppController
         $this->paginate = [
             'contain' => ['Candidates', 'MasterEmployeeStatuses'],
         ];
-        $candidateExperiences = $this->paginate($this->CandidateExperiences);
+        $candidateExperiences = $this->paginate($this->scopeToInstitution($this->CandidateExperiences->find()));
 
         // Load dropdown data for filters
-        $candidates = $this->CandidateExperiences->Candidates->find('list')->limit(200)->toArray();
+        $candidates = $this->scopeCandidates($this->CandidateExperiences->Candidates->find('list'))->limit(200)->toArray();
         $masteremployeestatuses = $this->CandidateExperiences->MasterEmployeeStatuses->find('list')->limit(200)->toArray();
                 $master_employee_statuss = $masteremployeestatuses;
 $this->set(compact('candidateExperiences', 'candidates', 'masteremployeestatuses', 'master_employee_statuss'));
@@ -54,6 +67,9 @@ $this->set(compact('candidateExperiences', 'candidates', 'masteremployeestatuses
         $candidateExperience = $this->CandidateExperiences->get($id, [
             'contain' => $contain,
         ]);
+        if ($refusal = $this->refuseOtherInstitution($candidateExperience)) {
+            return $refusal;
+        }
 
         $this->set('candidateExperience', $candidateExperience);
     }
@@ -106,7 +122,7 @@ $this->set(compact('candidateExperiences', 'candidates', 'masteremployeestatuses
             }
             $this->Flash->error(__('The candidate experience could not be saved. Please, try again.'));
         }
-        $candidates = $this->CandidateExperiences->Candidates->find('list', ['limit' => 200]);
+        $candidates = $this->scopeCandidates($this->CandidateExperiences->Candidates->find('list', ['limit' => 200]));
         $masterEmployeeStatuses = $this->CandidateExperiences->MasterEmployeeStatuses->find('list', ['limit' => 200]);
         $this->set(compact('candidateExperience', 'candidates', 'masterEmployeeStatuses'));
     }
@@ -123,6 +139,9 @@ $this->set(compact('candidateExperiences', 'candidates', 'masteremployeestatuses
         $candidateExperience = $this->CandidateExperiences->get($id, [
             'contain' => [],
         ]);
+        if ($refusal = $this->refuseOtherInstitution($candidateExperience)) {
+            return $refusal;
+        }
         if ($this->request->is(['patch', 'post', 'put'])) {
             // Get POST data
             $data = $this->request->getData();
@@ -170,7 +189,7 @@ $this->set(compact('candidateExperiences', 'candidates', 'masteremployeestatuses
             }
             $this->Flash->error(__('The candidate experience could not be saved. Please, try again.'));
         }
-        $candidates = $this->CandidateExperiences->Candidates->find('list', ['limit' => 200]);
+        $candidates = $this->scopeCandidates($this->CandidateExperiences->Candidates->find('list', ['limit' => 200]));
         $masterEmployeeStatuses = $this->CandidateExperiences->MasterEmployeeStatuses->find('list', ['limit' => 200]);
         $this->set(compact('candidateExperience', 'candidates', 'masterEmployeeStatuses'));
     }
@@ -186,6 +205,9 @@ $this->set(compact('candidateExperiences', 'candidates', 'masteremployeestatuses
     {
         $this->request->allowMethod(['post', 'delete']);
         $candidateExperience = $this->CandidateExperiences->get($id);
+        if ($refusal = $this->refuseOtherInstitution($candidateExperience)) {
+            return $refusal;
+        }
         if ($this->CandidateExperiences->delete($candidateExperience)) {
             $this->Flash->success(__('The candidate experience has been deleted.'));
         } else {

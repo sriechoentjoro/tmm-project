@@ -12,6 +12,8 @@ use App\Controller\AppController;
  */
 class CandidateCoursesController extends AppController
 {
+    use \App\Controller\LpkDataFilterTrait;
+
     use \App\Controller\ExportTrait;
     /**
      * Index method
@@ -23,10 +25,10 @@ class CandidateCoursesController extends AppController
         $this->paginate = [
             'contain' => ['Candidates', 'VocationalTrainingInstitutions'],
         ];
-        $candidateCourses = $this->paginate($this->CandidateCourses);
+        $candidateCourses = $this->paginate($this->scopeToInstitution($this->CandidateCourses->find()));
 
         // Load dropdown data for filters
-        $candidates = $this->CandidateCourses->Candidates->find('list')->limit(200)->toArray();
+        $candidates = $this->scopeCandidates($this->CandidateCourses->Candidates->find('list'))->limit(200)->toArray();
         $vocationaltraininginstitutions = $this->CandidateCourses->VocationalTrainingInstitutions->find('list')->limit(200)->toArray();
                 $master_course_majors = $this->CandidateCourses->find('list', ['keyField' => 'master_course_major_id', 'valueField' => 'master_course_major_id'])->where(['master_course_major_id IS NOT' => null])->distinct(['master_course_major_id'])->toArray();
         $vocational_training_institutions = $vocationaltraininginstitutions;
@@ -55,6 +57,9 @@ $this->set(compact('candidateCourses', 'candidates', 'vocationaltraininginstitut
         $candidateCourse = $this->CandidateCourses->get($id, [
             'contain' => $contain,
         ]);
+        if ($refusal = $this->refuseOtherInstitution($candidateCourse)) {
+            return $refusal;
+        }
 
         $this->set('candidateCourse', $candidateCourse);
     }
@@ -100,6 +105,10 @@ $this->set(compact('candidateCourses', 'candidates', 'vocationaltraininginstitut
             }
             
             $candidateCourse = $this->CandidateCourses->patchEntity($candidateCourse, $data);
+            // A record an LPK user creates belongs to their institution. Without
+            // this it is saved with none, and the listing - which now only shows
+            // their own - would never show it to them again.
+            $candidateCourse = $this->setInstitutionId($candidateCourse);
             if ($this->CandidateCourses->save($candidateCourse)) {
                 $this->Flash->success(__('The candidate course has been saved.'));
 
@@ -107,7 +116,7 @@ $this->set(compact('candidateCourses', 'candidates', 'vocationaltraininginstitut
             }
             $this->Flash->error(__('The candidate course could not be saved. Please, try again.'));
         }
-        $candidates = $this->CandidateCourses->Candidates->find('list', ['limit' => 200]);
+        $candidates = $this->scopeCandidates($this->CandidateCourses->Candidates->find('list', ['limit' => 200]));
         $vocationalTrainingInstitutions = $this->CandidateCourses->VocationalTrainingInstitutions->find('list', ['limit' => 200]);
         $this->set(compact('candidateCourse', 'candidates', 'vocationalTrainingInstitutions'));
     }
@@ -124,6 +133,9 @@ $this->set(compact('candidateCourses', 'candidates', 'vocationaltraininginstitut
         $candidateCourse = $this->CandidateCourses->get($id, [
             'contain' => [],
         ]);
+        if ($refusal = $this->refuseOtherInstitution($candidateCourse)) {
+            return $refusal;
+        }
         if ($this->request->is(['patch', 'post', 'put'])) {
             // Get POST data
             $data = $this->request->getData();
@@ -171,7 +183,7 @@ $this->set(compact('candidateCourses', 'candidates', 'vocationaltraininginstitut
             }
             $this->Flash->error(__('The candidate course could not be saved. Please, try again.'));
         }
-        $candidates = $this->CandidateCourses->Candidates->find('list', ['limit' => 200]);
+        $candidates = $this->scopeCandidates($this->CandidateCourses->Candidates->find('list', ['limit' => 200]));
         $vocationalTrainingInstitutions = $this->CandidateCourses->VocationalTrainingInstitutions->find('list', ['limit' => 200]);
         $this->set(compact('candidateCourse', 'candidates', 'vocationalTrainingInstitutions'));
     }
@@ -187,6 +199,9 @@ $this->set(compact('candidateCourses', 'candidates', 'vocationaltraininginstitut
     {
         $this->request->allowMethod(['post', 'delete']);
         $candidateCourse = $this->CandidateCourses->get($id);
+        if ($refusal = $this->refuseOtherInstitution($candidateCourse)) {
+            return $refusal;
+        }
         if ($this->CandidateCourses->delete($candidateCourse)) {
             $this->Flash->success(__('The candidate course has been deleted.'));
         } else {

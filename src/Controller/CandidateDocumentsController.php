@@ -45,7 +45,7 @@ class CandidateDocumentsController extends AppController
         $candidateDocuments = $this->paginate($query);
 
         // Load dropdown data for filters
-        $candidates = $this->CandidateDocuments->Candidates->find('list')->limit(200)->toArray();
+        $candidates = $this->scopeCandidates($this->CandidateDocuments->Candidates->find('list'))->limit(200)->toArray();
         $this->set(compact('candidateDocuments', 'candidates'));
     }
 
@@ -59,7 +59,7 @@ class CandidateDocumentsController extends AppController
     {
         $candidateId = (int)$this->request->getQuery('candidate_id');
 
-        $candidatesQuery = $this->CandidateDocuments->Candidates->find('list');
+        $candidatesQuery = $this->scopeCandidates($this->CandidateDocuments->Candidates->find('list'));
         if ($this->hasRole('lpk-penyangga')) {
             $institutionId = $this->getUserInstitutionId();
             $candidatesQuery->where($institutionId
@@ -228,7 +228,7 @@ class CandidateDocumentsController extends AppController
         }
         
         // Filter candidates by institution for LPK users
-        $candidatesQuery = $this->CandidateDocuments->Candidates->find('list', ['limit' => 200]);
+        $candidatesQuery = $this->scopeCandidates($this->CandidateDocuments->Candidates->find('list', ['limit' => 200]));
         if ($this->hasRole('lpk-penyangga')) {
             $institutionId = $this->getUserInstitutionId();
             if ($institutionId) {
@@ -321,7 +321,7 @@ class CandidateDocumentsController extends AppController
         }
         
         // Filter candidates by institution for LPK users
-        $candidatesQuery = $this->CandidateDocuments->Candidates->find('list', ['limit' => 200]);
+        $candidatesQuery = $this->scopeCandidates($this->CandidateDocuments->Candidates->find('list', ['limit' => 200]));
         if ($this->hasRole('lpk-penyangga')) {
             $institutionId = $this->getUserInstitutionId();
             if ($institutionId) {

@@ -19006,3 +19006,6 @@ msgstr "分類なし"
 
 msgid "Your session has ended. Please sign in again."
 msgstr "セッションが終了しました。もう一度サインインしてください。"
+
+msgid "That record belongs to another institution."
+msgstr "その記録は別の機関のものです。"

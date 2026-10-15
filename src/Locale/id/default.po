@@ -19006,3 +19006,6 @@ msgstr "Tanpa kategori"
 
 msgid "Your session has ended. Please sign in again."
 msgstr "Sesi Anda sudah berakhir. Silakan masuk lagi."
+
+msgid "That record belongs to another institution."
+msgstr "Rekaman itu milik lembaga lain."

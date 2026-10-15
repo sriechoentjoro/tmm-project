@@ -12,6 +12,19 @@ use App\Controller\AppController;
  */
 class CandidateRecordMedicalCheckUpsController extends AppController
 {
+    use \App\Controller\LpkDataFilterTrait;
+
+    /**
+     * These records carry no institution of their own; the candidate they
+     * belong to does.
+     *
+     * @var array
+     */
+    protected $institutionOwnership = [
+        'through' => 'Candidates',
+        'foreignKey' => 'candidate_id',
+    ];
+
     use \App\Controller\ExportTrait;
     /**
      * Index method
@@ -23,7 +36,7 @@ class CandidateRecordMedicalCheckUpsController extends AppController
         $this->paginate = [
             'contain' => ['Applicants', 'MasterMedicalCheckUpResults'],
         ];
-        $candidateRecordMedicalCheckUps = $this->paginate($this->CandidateRecordMedicalCheckUps);
+        $candidateRecordMedicalCheckUps = $this->paginate($this->scopeToInstitution($this->CandidateRecordMedicalCheckUps->find()));
 
         // Load dropdown data for filters
         $applicants = $this->CandidateRecordMedicalCheckUps->Applicants->find('list')->limit(200)->toArray();
@@ -54,6 +67,9 @@ $this->set(compact('candidateRecordMedicalCheckUps', 'applicants', 'medicalCheck
         $candidateRecordMedicalCheckUp = $this->CandidateRecordMedicalCheckUps->get($id, [
             'contain' => $contain,
         ]);
+        if ($refusal = $this->refuseOtherInstitution($candidateRecordMedicalCheckUp)) {
+            return $refusal;
+        }
 
         $this->set('candidateRecordMedicalCheckUp', $candidateRecordMedicalCheckUp);
     }
@@ -141,6 +157,9 @@ $this->set(compact('candidateRecordMedicalCheckUps', 'applicants', 'medicalCheck
         $candidateRecordMedicalCheckUp = $this->CandidateRecordMedicalCheckUps->get($id, [
             'contain' => [],
         ]);
+        if ($refusal = $this->refuseOtherInstitution($candidateRecordMedicalCheckUp)) {
+            return $refusal;
+        }
         if ($this->request->is(['patch', 'post', 'put'])) {
             // Get POST data
             $data = $this->request->getData();
@@ -205,6 +224,9 @@ $this->set(compact('candidateRecordMedicalCheckUps', 'applicants', 'medicalCheck
     {
         $this->request->allowMethod(['post', 'delete']);
         $candidateRecordMedicalCheckUp = $this->CandidateRecordMedicalCheckUps->get($id);
+        if ($refusal = $this->refuseOtherInstitution($candidateRecordMedicalCheckUp)) {
+            return $refusal;
+        }
         // Read before the delete: afterwards the entity is gone and with it the
         // only way of knowing whose standing has to be worked out again.
         $applicantId = $candidateRecordMedicalCheckUp->applicant_id;

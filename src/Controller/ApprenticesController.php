@@ -12,6 +12,8 @@ use App\Controller\AppController;
  */
 class ApprenticesController extends AppController
 {
+    use \App\Controller\LpkDataFilterTrait;
+
     use \App\Controller\ExportTrait;
     /**
      * Index method
@@ -23,10 +25,10 @@ class ApprenticesController extends AppController
         $this->paginate = [
             'contain' => ['Candidates', 'Trainees', 'ApprenticeOrders', 'VocationalTrainingInstitutions', 'AcceptanceOrganizations', 'MasterGenders', 'MasterReligions', 'MasterMarriageStatuses', 'MasterPropinsis', 'MasterKabupatens', 'MasterKecamatans', 'MasterKelurahans', 'MasterBloodTypes'],
         ];
-        $apprentices = $this->paginate($this->Apprentices);
+        $apprentices = $this->paginate($this->scopeToInstitution($this->Apprentices->find()));
 
         // Load dropdown data for filters
-        $candidates = $this->Apprentices->Candidates->find('list')->limit(200)->toArray();
+        $candidates = $this->scopeCandidates($this->Apprentices->Candidates->find('list'))->limit(200)->toArray();
         $trainees = $this->Apprentices->Trainees->find('list')->limit(200)->toArray();
         $apprenticeorders = $this->Apprentices->ApprenticeOrders->find('list')->limit(200)->toArray();
         $vocationaltraininginstitutions = $this->Apprentices->VocationalTrainingInstitutions->find('list')->limit(200)->toArray();
@@ -218,6 +220,9 @@ class ApprenticesController extends AppController
         $apprentice = $this->Apprentices->get($id, [
             'contain' => $contain,
         ]);
+        if ($refusal = $this->refuseOtherInstitution($apprentice)) {
+            return $refusal;
+        }
 
         $this->set('apprentice', $apprentice);
     }
@@ -263,6 +268,10 @@ class ApprenticesController extends AppController
             }
             
             $apprentice = $this->Apprentices->patchEntity($apprentice, $data);
+            // A record an LPK user creates belongs to their institution. Without
+            // this it is saved with none, and the listing - which now only shows
+            // their own - would never show it to them again.
+            $apprentice = $this->setInstitutionId($apprentice);
             if ($this->Apprentices->save($apprentice)) {
                 $this->Flash->success(__('The apprentice has been saved.'));
 
@@ -270,7 +279,7 @@ class ApprenticesController extends AppController
             }
             $this->Flash->error(__('The apprentice could not be saved. Please, try again.'));
         }
-        $candidates = $this->Apprentices->Candidates->find('list', ['limit' => 200]);
+        $candidates = $this->scopeCandidates($this->Apprentices->Candidates->find('list', ['limit' => 200]));
         $trainees = $this->Apprentices->Trainees->find('list', ['limit' => 200]);
         $apprenticeOrders = $this->Apprentices->ApprenticeOrders->find('list', ['limit' => 200]);
         $vocationalTrainingInstitutions = $this->Apprentices->VocationalTrainingInstitutions->find('list', ['limit' => 200]);
@@ -304,6 +313,9 @@ class ApprenticesController extends AppController
         $apprentice = $this->Apprentices->get($id, [
             'contain' => [],
         ]);
+        if ($refusal = $this->refuseOtherInstitution($apprentice)) {
+            return $refusal;
+        }
         if ($this->request->is(['patch', 'post', 'put'])) {
             // Get POST data
             $data = $this->request->getData();
@@ -351,7 +363,7 @@ class ApprenticesController extends AppController
             }
             $this->Flash->error(__('The apprentice could not be saved. Please, try again.'));
         }
-        $candidates = $this->Apprentices->Candidates->find('list', ['limit' => 200]);
+        $candidates = $this->scopeCandidates($this->Apprentices->Candidates->find('list', ['limit' => 200]));
         $trainees = $this->Apprentices->Trainees->find('list', ['limit' => 200]);
         $apprenticeOrders = $this->Apprentices->ApprenticeOrders->find('list', ['limit' => 200]);
         $vocationalTrainingInstitutions = $this->Apprentices->VocationalTrainingInstitutions->find('list', ['limit' => 200]);
@@ -384,6 +396,9 @@ class ApprenticesController extends AppController
     {
         $this->request->allowMethod(['post', 'delete']);
         $apprentice = $this->Apprentices->get($id);
+        if ($refusal = $this->refuseOtherInstitution($apprentice)) {
+            return $refusal;
+        }
         if ($this->Apprentices->delete($apprentice)) {
             $this->Flash->success(__('The apprentice has been deleted.'));
         } else {

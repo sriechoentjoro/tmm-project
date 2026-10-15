@@ -12,6 +12,8 @@ use App\Controller\AppController;
  */
 class ApprenticeCoursesController extends AppController
 {
+    use \App\Controller\LpkDataFilterTrait;
+
     use \App\Controller\ExportTrait;
     /**
      * Index method
@@ -23,7 +25,7 @@ class ApprenticeCoursesController extends AppController
         $this->paginate = [
             'contain' => ['Apprentices', 'VocationalTrainingInstitutions'],
         ];
-        $apprenticeCourses = $this->paginate($this->ApprenticeCourses);
+        $apprenticeCourses = $this->paginate($this->scopeToInstitution($this->ApprenticeCourses->find()));
 
         // Load dropdown data for filters
         $apprentices = $this->ApprenticeCourses->Apprentices->find('list')->limit(200)->toArray();
@@ -54,6 +56,9 @@ $this->set(compact('apprenticeCourses', 'apprentices', 'vocationaltraininginstit
         $apprenticeCourse = $this->ApprenticeCourses->get($id, [
             'contain' => $contain,
         ]);
+        if ($refusal = $this->refuseOtherInstitution($apprenticeCourse)) {
+            return $refusal;
+        }
 
         $this->set('apprenticeCourse', $apprenticeCourse);
     }
@@ -99,6 +104,10 @@ $this->set(compact('apprenticeCourses', 'apprentices', 'vocationaltraininginstit
             }
             
             $apprenticeCourse = $this->ApprenticeCourses->patchEntity($apprenticeCourse, $data);
+            // A record an LPK user creates belongs to their institution. Without
+            // this it is saved with none, and the listing - which now only shows
+            // their own - would never show it to them again.
+            $apprenticeCourse = $this->setInstitutionId($apprenticeCourse);
             if ($this->ApprenticeCourses->save($apprenticeCourse)) {
                 $this->Flash->success(__('The apprentice course has been saved.'));
 
@@ -122,6 +131,9 @@ $this->set(compact('apprenticeCourses', 'apprentices', 'vocationaltraininginstit
         $apprenticeCourse = $this->ApprenticeCourses->get($id, [
             'contain' => [],
         ]);
+        if ($refusal = $this->refuseOtherInstitution($apprenticeCourse)) {
+            return $refusal;
+        }
         if ($this->request->is(['patch', 'post', 'put'])) {
             // Get POST data
             $data = $this->request->getData();
@@ -184,6 +196,9 @@ $this->set(compact('apprenticeCourses', 'apprentices', 'vocationaltraininginstit
     {
         $this->request->allowMethod(['post', 'delete']);
         $apprenticeCourse = $this->ApprenticeCourses->get($id);
+        if ($refusal = $this->refuseOtherInstitution($apprenticeCourse)) {
+            return $refusal;
+        }
         if ($this->ApprenticeCourses->delete($apprenticeCourse)) {
             $this->Flash->success(__('The apprentice course has been deleted.'));
         } else {

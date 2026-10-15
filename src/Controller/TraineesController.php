@@ -12,6 +12,8 @@ use App\Controller\AppController;
  */
 class TraineesController extends AppController
 {
+    use \App\Controller\LpkDataFilterTrait;
+
     use \App\Controller\ExportTrait;
 
     /**
@@ -35,7 +37,7 @@ class TraineesController extends AppController
             'contain' => ['VocationalTrainingInstitutions', 'AcceptanceOrganizations', 'MasterGenders'],
             'limit'   => 50,
         ];
-        $trainees = $this->paginate($this->Trainees);
+        $trainees = $this->paginate($this->scopeToInstitution($this->Trainees->find()));
 
         $traineeIds = array_column($trainees->toArray(), 'id');
 
@@ -77,7 +79,7 @@ class TraineesController extends AppController
         $this->set([
             'acceptance_organizations' => $acceptanceOrgs,
             'vocational_training_institutions' => $lpks,
-            'candidates' => $this->Trainees->Candidates->find('list')->limit(200)->toArray(),
+            'candidates' => $this->scopeCandidates($this->Trainees->Candidates->find('list'))->limit(200)->toArray(),
             'apprenticeship_orders' => $this->Trainees->ApprenticeOrders->find('list')->limit(200)->toArray(),
             'master_genders' => $this->Trainees->MasterGenders->find('list')->limit(200)->toArray(),
             'master_religions' => $this->Trainees->MasterReligions->find('list')->limit(200)->toArray(),
@@ -250,6 +252,9 @@ class TraineesController extends AppController
         $trainee = $this->Trainees->get($id, [
             'contain' => $contain,
         ]);
+        if ($refusal = $this->refuseOtherInstitution($trainee)) {
+            return $refusal;
+        }
 
         // Score summary from scoring DB
         $scoreRows = \Cake\Datasource\ConnectionManager::get('cms_tmm_trainee_training_scorings')->execute(
@@ -340,6 +345,10 @@ class TraineesController extends AppController
             }
             
             $trainee = $this->Trainees->patchEntity($trainee, $data);
+            // A record an LPK user creates belongs to their institution. Without
+            // this it is saved with none, and the listing - which now only shows
+            // their own - would never show it to them again.
+            $trainee = $this->setInstitutionId($trainee);
             if ($this->Trainees->save($trainee)) {
                 $this->Flash->success(__('The trainee has been saved.'));
 
@@ -347,7 +356,7 @@ class TraineesController extends AppController
             }
             $this->Flash->error(__('The trainee could not be saved. Please, try again.'));
         }
-        $candidates = $this->Trainees->Candidates->find('list', ['limit' => 200]);
+        $candidates = $this->scopeCandidates($this->Trainees->Candidates->find('list', ['limit' => 200]));
         $apprenticeOrders = $this->Trainees->ApprenticeOrders->find('list', ['limit' => 200]);
         // REMOVED - Table 'trainings' doesn't exist
         // $trainings = $this->Trainees->Trainings->find('list', ['limit' => 200]);
@@ -387,6 +396,9 @@ class TraineesController extends AppController
         $trainee = $this->Trainees->get($id, [
             'contain' => [],
         ]);
+        if ($refusal = $this->refuseOtherInstitution($trainee)) {
+            return $refusal;
+        }
         if ($this->request->is(['patch', 'post', 'put'])) {
             // Get POST data
             $data = $this->request->getData();
@@ -434,7 +446,7 @@ class TraineesController extends AppController
             }
             $this->Flash->error(__('The trainee could not be saved. Please, try again.'));
         }
-        $candidates = $this->Trainees->Candidates->find('list', ['limit' => 200]);
+        $candidates = $this->scopeCandidates($this->Trainees->Candidates->find('list', ['limit' => 200]));
         $apprenticeOrders = $this->Trainees->ApprenticeOrders->find('list', ['limit' => 200]);
         // REMOVED - Table 'trainings' doesn't exist
         // $trainings = $this->Trainees->Trainings->find('list', ['limit' => 200]);
@@ -473,6 +485,9 @@ class TraineesController extends AppController
     {
         $this->request->allowMethod(['post', 'delete']);
         $trainee = $this->Trainees->get($id);
+        if ($refusal = $this->refuseOtherInstitution($trainee)) {
+            return $refusal;
+        }
         if ($this->Trainees->delete($trainee)) {
             $this->Flash->success(__('The trainee has been deleted.'));
         } else {
@@ -1142,7 +1157,7 @@ class TraineesController extends AppController
     public function promotionChecklist()
     {
         $this->paginate = ['order' => ['Trainees.id' => 'DESC']];
-        $trainees = $this->paginate($this->Trainees);
+        $trainees = $this->paginate($this->scopeToInstitution($this->Trainees->find()));
 
         // Ringkasan kesiapan promosi
         $cstats = \Cake\Datasource\ConnectionManager::get('cms_tmm_trainees')->execute(

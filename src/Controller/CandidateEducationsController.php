@@ -12,6 +12,19 @@ use App\Controller\AppController;
  */
 class CandidateEducationsController extends AppController
 {
+    use \App\Controller\LpkDataFilterTrait;
+
+    /**
+     * These records carry no institution of their own; the candidate they
+     * belong to does.
+     *
+     * @var array
+     */
+    protected $institutionOwnership = [
+        'through' => 'Candidates',
+        'foreignKey' => 'candidate_id',
+    ];
+
     use \App\Controller\ExportTrait;
     /**
      * Index method
@@ -23,10 +36,10 @@ class CandidateEducationsController extends AppController
         $this->paginate = [
             'contain' => ['Candidates', 'MasterStratas', 'MasterPropinsis', 'MasterKabupatens'],
         ];
-        $candidateEducations = $this->paginate($this->CandidateEducations);
+        $candidateEducations = $this->paginate($this->scopeToInstitution($this->CandidateEducations->find()));
 
         // Load dropdown data for filters
-        $candidates = $this->CandidateEducations->Candidates->find('list')->limit(200)->toArray();
+        $candidates = $this->scopeCandidates($this->CandidateEducations->Candidates->find('list'))->limit(200)->toArray();
         $masterstratas = $this->CandidateEducations->MasterStratas->find('list')->limit(200)->toArray();
         // Scoped by the filter already chosen rather than capped at two
         // hundred by id: every province, and below one only what belongs
@@ -64,6 +77,9 @@ $this->set(compact('candidateEducations', 'candidates', 'masterstratas', 'master
         $candidateEducation = $this->CandidateEducations->get($id, [
             'contain' => $contain,
         ]);
+        if ($refusal = $this->refuseOtherInstitution($candidateEducation)) {
+            return $refusal;
+        }
 
         $this->set('candidateEducation', $candidateEducation);
     }
@@ -116,7 +132,7 @@ $this->set(compact('candidateEducations', 'candidates', 'masterstratas', 'master
             }
             $this->Flash->error(__('The candidate education could not be saved. Please, try again.'));
         }
-        $candidates = $this->CandidateEducations->Candidates->find('list', ['limit' => 200]);
+        $candidates = $this->scopeCandidates($this->CandidateEducations->Candidates->find('list', ['limit' => 200]));
         $masterStratas = $this->CandidateEducations->MasterStratas->find('list', ['limit' => 200]);
         // Every propinsi, and below it only what belongs to what is already
         // chosen. These lists used to be find('list', ['limit' => 200]) - two
@@ -141,6 +157,9 @@ $this->set(compact('candidateEducations', 'candidates', 'masterstratas', 'master
         $candidateEducation = $this->CandidateEducations->get($id, [
             'contain' => [],
         ]);
+        if ($refusal = $this->refuseOtherInstitution($candidateEducation)) {
+            return $refusal;
+        }
         if ($this->request->is(['patch', 'post', 'put'])) {
             // Get POST data
             $data = $this->request->getData();
@@ -188,7 +207,7 @@ $this->set(compact('candidateEducations', 'candidates', 'masterstratas', 'master
             }
             $this->Flash->error(__('The candidate education could not be saved. Please, try again.'));
         }
-        $candidates = $this->CandidateEducations->Candidates->find('list', ['limit' => 200]);
+        $candidates = $this->scopeCandidates($this->CandidateEducations->Candidates->find('list', ['limit' => 200]));
         $masterStratas = $this->CandidateEducations->MasterStratas->find('list', ['limit' => 200]);
         // Every propinsi, and below it only what belongs to what is already
         // chosen. These lists used to be find('list', ['limit' => 200]) - two
@@ -212,6 +231,9 @@ $this->set(compact('candidateEducations', 'candidates', 'masterstratas', 'master
     {
         $this->request->allowMethod(['post', 'delete']);
         $candidateEducation = $this->CandidateEducations->get($id);
+        if ($refusal = $this->refuseOtherInstitution($candidateEducation)) {
+            return $refusal;
+        }
         if ($this->CandidateEducations->delete($candidateEducation)) {
             $this->Flash->success(__('The candidate education has been deleted.'));
         } else {
