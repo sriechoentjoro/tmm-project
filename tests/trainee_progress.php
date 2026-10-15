@@ -177,6 +177,44 @@ checkTrue('the three read-only views are granted together',
 checkTrue('where index is granted, and only there',
     strpos($source, "hasPermission(\$this->request->getParam('controller'), 'index')") !== false);
 
+echo "  the page the chart is drawn on\n";
+// Rendered with the real view variables the action sets, so a template that
+// cannot cope with one competency, or with a grade nobody earned, fails here
+// rather than on somebody's screen.
+$vars = progress(1);
+$html = renderClean('it renders for a trainee with several competencies',
+    'progress', $vars, [
+        'controller' => 'TraineeTrainingTestScores',
+        'templatePath' => 'TraineeTrainingTestScores',
+        'url' => '/trainee-training-test-scores/progress',
+        'params' => ['controller' => 'TraineeTrainingTestScores',
+            'action' => 'progress'],
+    ]);
+checkTrue('naming the trainee', strpos($html, 'MUHAMAD QOWIYADI') !== false);
+checkTrue('and every competency they sat',
+    strpos($html, 'Test bab 1 ~ 8') !== false && strpos($html, 'Test N5 ke 1') !== false);
+checkTrue('with a card per competency', substr_count($html, 'progressSeries') >= 2);
+checkTrue('each carrying its own average', strpos($html, 'Average') !== false);
+
+echo "  the predicate, drawn rather than listed\n";
+// "predikat nilai itu yang menjadi grafik chart nya" - the bands are the
+// chart's background, and they come from the grades table, not from numbers
+// written into the template.
+checkTrue('the bands are handed to the chart', strpos($html, 'var BANDS') !== false);
+checkTrue('from the grades table',
+    strpos($html, '"title":"A"') !== false && strpos($html, '"min":81') !== false);
+checkTrue('and painted behind the plot', strpos($html, 'gradeBands') !== false);
+checkTrue('with each point coloured by the grade it earned',
+    strpos($html, 'pointBackgroundColor') !== false);
+
+$empty = progress(2);
+renderClean('a trainee with nothing on record renders too', 'progress', $empty, [
+    'controller' => 'TraineeTrainingTestScores',
+    'templatePath' => 'TraineeTrainingTestScores',
+    'url' => '/trainee-training-test-scores/progress',
+    'params' => ['controller' => 'TraineeTrainingTestScores', 'action' => 'progress'],
+]);
+
 echo "  how it is reached\n";
 $index = file_get_contents(TMM_ROOT . '/src/Template/TraineeTrainingTestScores/index.ctp');
 checkTrue('from the list screen', strpos($index, "'action' => 'progress'") !== false);

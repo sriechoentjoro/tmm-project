@@ -189,11 +189,28 @@ $lineColours = ['#0288D1', '#6949BC', '#00897B', '#E65100', '#C2185B',
 <?php if (count($series) > 1): ?>
 <div class="progress-grid">
     <?php $n = 0; foreach ($series as $name => $points): ?>
+        <?php
+        // Each competency's own figures, from the points already in hand: the
+        // card says how this one went without anybody reading the line.
+        $theseScores = array_map(function ($point) {
+            return $point['score'];
+        }, $points);
+        $thisAverage = round(array_sum($theseScores) / count($theseScores), 1);
+        $latestGrade = $points[count($points) - 1]['grade'];
+        $latestColour = isset($gradeStyle[$latestGrade])
+            ? $gradeStyle[$latestGrade] : '#64748b';
+        ?>
         <div class="progress-card">
             <div class="progress-sub">
                 <span><?= h($name) ?></span>
                 <span class="sub-note">
                     <?= count($points) ?> <?= __('tests') ?>
+                    &middot; <?= __('Average') ?> <?= h($thisAverage) ?>
+                    <?php if ($latestGrade): ?>
+                        <span style="display:inline-block;margin-left:4px;padding:1px 7px;border-radius:999px;border:1.5px solid <?= h($latestColour) ?>;color:<?= h($latestColour) ?>;">
+                            <?= h($latestGrade) ?>
+                        </span>
+                    <?php endif; ?>
                 </span>
             </div>
             <div class="progress-small">
@@ -212,6 +229,77 @@ $lineColours = ['#0288D1', '#6949BC', '#00897B', '#E65100', '#C2185B',
         return $points;
     }, $series), JSON_UNESCAPED_UNICODE) ?>;
     var NAMES = <?= json_encode(array_keys($series), JSON_UNESCAPED_UNICODE) ?>;
+    var BANDS = <?= json_encode(array_map(function ($band) use ($gradeStyle) {
+        return [
+            'title' => $band['title'],
+            'min' => (int)$band['min_score'],
+            'max' => (int)$band['max_score'],
+            'colour' => isset($gradeStyle[$band['title']])
+                ? $gradeStyle[$band['title']] : '#64748b',
+        ];
+    }, $bands), JSON_UNESCAPED_UNICODE) ?>;
+
+    /**
+     * The grade behind a score, so a point can be coloured by what it means.
+     *
+     * The bands come from master_training_test_score_grades, not from numbers
+     * written here: this application already decides A at 81 and B at 61 in
+     * one place, and a chart that disagrees with the table beside it is worse
+     * than no chart.
+     */
+    function bandOf(score) {
+        for (var i = 0; i < BANDS.length; i++) {
+            if (score >= BANDS[i].min && score <= BANDS[i].max) {
+                return BANDS[i];
+            }
+        }
+        return null;
+    }
+
+    function colourOf(score) {
+        var band = bandOf(score);
+        return band ? band.colour : '#64748b';
+    }
+
+    /**
+     * Paint the grade bands behind the plot.
+     *
+     * The request was that the predicate be the chart, not a column beside it.
+     * A line at 78 says little; a line sitting in the band marked B, just
+     * under the one marked A, says what everybody actually wants to know.
+     *
+     * Drawn as a plugin rather than with chartjs-plugin-annotation, which
+     * would be a second library from a second CDN for fifteen lines of work.
+     */
+    var gradeBands = {
+        id: 'gradeBands',
+        beforeDatasetsDraw: function (chart) {
+            var y = chart.scales.y;
+            var area = chart.chartArea;
+            if (!y || !area) {
+                return;
+            }
+            var ctx = chart.ctx;
+            ctx.save();
+            BANDS.forEach(function (band) {
+                var top = y.getPixelForValue(Math.min(band.max, y.max));
+                var bottom = y.getPixelForValue(Math.max(band.min, y.min));
+                if (bottom <= top) {
+                    return;
+                }
+                ctx.fillStyle = band.colour;
+                ctx.globalAlpha = 0.07;
+                ctx.fillRect(area.left, top, area.right - area.left, bottom - top);
+                ctx.globalAlpha = 1;
+                ctx.fillStyle = band.colour;
+                ctx.font = '600 11px sans-serif';
+                ctx.textAlign = 'left';
+                ctx.textBaseline = 'top';
+                ctx.fillText(band.title, area.left + 4, top + 2);
+            });
+            ctx.restore();
+        }
+    };
 
     // The y axis is fixed to 0-100 on every chart. Letting Chart.js choose it
     // per competency makes a 78 and an 82 look like a cliff on one card and a
@@ -254,6 +342,12 @@ $lineColours = ['#0288D1', '#6949BC', '#00897B', '#E65100', '#C2185B',
                         }),
                         borderColor: COLOURS[i % COLOURS.length],
                         backgroundColor: COLOURS[i % COLOURS.length],
+                        pointBackgroundColor: points.map(function (p) {
+                            return colourOf(p.score);
+                        }),
+                        pointBorderColor: points.map(function (p) {
+                            return colourOf(p.score);
+                        }),
                         tension: 0.25,
                         pointRadius: 4
                     };
@@ -270,7 +364,8 @@ $lineColours = ['#0288D1', '#6949BC', '#00897B', '#E65100', '#C2185B',
                     }, $rows)))) ?> }
                 },
                 plugins: { legend: { position: 'bottom' } }
-            }
+            },
+            plugins: [gradeBands]
         });
     }
 
@@ -289,8 +384,14 @@ $lineColours = ['#0288D1', '#6949BC', '#00897B', '#E65100', '#C2185B',
                     data: valuesOf(points),
                     borderColor: COLOURS[i % COLOURS.length],
                     backgroundColor: COLOURS[i % COLOURS.length],
-                    tension: 0.25,
-                    pointRadius: 4
+                    pointBackgroundColor: points.map(function (p) {
+                        return colourOf(p.score);
+                    }),
+                    pointBorderColor: points.map(function (p) {
+                        return colourOf(p.score);
+                    }),
+                    pointRadius: 5,
+                    tension: 0.25
                 }]
             },
             options: {
@@ -301,7 +402,8 @@ $lineColours = ['#0288D1', '#6949BC', '#00897B', '#E65100', '#C2185B',
                     legend: { display: false },
                     tooltip: tooltipGrade(points)
                 }
-            }
+            },
+            plugins: [gradeBands]
         });
     });
 })();
