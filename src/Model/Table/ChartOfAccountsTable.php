@@ -16,7 +16,10 @@ class ChartOfAccountsTable extends Table
         parent::initialize($config);
 
         $this->setTable('chart_of_accounts');
-        $this->setDisplayField('name');
+        // account_name, which is what the column is called. find('list') on this
+        // table would have selected a column that is not there; nothing lists
+        // these accounts yet, so it had not been noticed.
+        $this->setDisplayField('account_name');
         $this->setPrimaryKey('id');
 
         $this->addBehavior('Timestamp');

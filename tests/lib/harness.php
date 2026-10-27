@@ -363,6 +363,92 @@ function withoutVendorWarnings(callable $work)
 }
 
 /**
+ * The columns a table really has, from the dumps of the real databases.
+ *
+ * A fixture is a claim about the schema, and a claim nobody checks is just
+ * the application's own assumption written out a second time. This harness
+ * suite has made that mistake three times: a sqlite column spelled
+ * VARCHAR where MySQL has an ENUM, so it accepted a value the real column
+ * refuses; a form offering more characters than the column holds; and a
+ * fixture creating special_skill_support_institutions with a company_name
+ * column because the whole application said that was its name, when the
+ * column has always been called name.
+ *
+ * database_exports holds dumps written by the database rather than by the
+ * code, which makes them the one account here that cannot agree with a
+ * mistake in the application by sharing it.
+ *
+ * @param string $table The table name.
+ * @return array The column names, lowercased; empty when no dump describes it.
+ */
+function schemaColumns($table)
+{
+    static $columns = null;
+
+    if ($columns === null) {
+        $columns = [];
+        $types = 'int|integer|varchar|char|text|date|datetime|timestamp|tinyint'
+            . '|decimal|float|double|enum|bigint|smallint|longtext|mediumtext'
+            . '|blob|time|year|bool|boolean|json|set|binary|varbinary';
+        foreach (glob(TMM_ROOT . '/database_exports/*/*.sql') as $path) {
+            $sql = file_get_contents($path);
+            if (!preg_match_all('/CREATE TABLE\s+`(\w+)`\s*\((.*?)\n\)\s*ENGINE/s',
+                $sql, $tables, PREG_SET_ORDER)) {
+                continue;
+            }
+            foreach ($tables as $one) {
+                $found = [];
+                if (preg_match_all('/^\s*`(\w+)`\s+(?:' . $types . ')\b/im',
+                    $one[2], $cols)) {
+                    foreach ($cols[1] as $column) {
+                        $found[] = strtolower($column);
+                    }
+                }
+                if ($found) {
+                    $columns[strtolower($one[1])] = $found;
+                }
+            }
+        }
+    }
+
+    $table = strtolower($table);
+
+    return isset($columns[$table]) ? $columns[$table] : [];
+}
+
+/**
+ * Hold a fixture's column names to the dump of the real table.
+ *
+ * Says so plainly when no dump describes the table, rather than passing: a
+ * check that cannot check anything is worth less than one that admits it.
+ *
+ * @param string $table The table the fixture creates.
+ * @param array $columns The column names it gives it.
+ * @return void
+ */
+function checkFixtureColumns($table, array $columns)
+{
+    $real = schemaColumns($table);
+    if (!$real) {
+        // Said, not skipped: skip() ends the whole harness, and one table
+        // with no dump is no reason to stop checking the rest.
+        printf("  %-62s %s\n", 'no dump of ' . $table . ' to check against', 'noted');
+
+        return;
+    }
+
+    $invented = [];
+    foreach ($columns as $column) {
+        if (!in_array(strtolower($column), $real, true)) {
+            $invented[] = $column;
+        }
+    }
+
+    check('the ' . $table . ' fixture uses columns the real table has',
+        implode(', ', $invented), '');
+}
+
+/**
  * Print the count and leave with an exit code the runner can read.
  *
  * @param string|null $tidy A file to remove on the way out.

@@ -9,7 +9,7 @@ use Cake\Utility\Security;
  * SpecialSkillSupportInstitution Entity
  *
  * @property int $id
- * @property string|null $company_name
+ * @property string|null $name
  * @property string|null $address
  * @property string|null $contact_person
  * @property string $email
@@ -32,7 +32,7 @@ class SpecialSkillSupportInstitution extends Entity
      * @var array
      */
     protected $_accessible = [
-        'company_name' => true,
+        'name' => true,
         'address' => true,
         'contact_person' => true,
         'email' => true,

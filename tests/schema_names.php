@@ -2,10 +2,18 @@
 /**
  * Column names written into templates, against the names the model uses.
  *
- * There is no migration set and no schema dump in this repository, so the only
- * machine-readable description of the schema is the @property list on each
- * entity - and three checks already lean on it: the related-record tabs, the
- * form fields, and the sort and filter columns on index screens.
+ * This leans on the @property list on each entity, as three checks do: the
+ * related-record tabs, the form fields, and the sort and filter columns on
+ * index screens.
+ *
+ * That was once the only machine-readable description of the schema here, and
+ * this file used to say so. It is not: database_exports holds dumps written by
+ * the databases themselves. The difference matters, because every check that
+ * reads only the application's own account of the schema agrees with the
+ * application - including where it is wrong. The whole application called
+ * special_skill_support_institutions.name "company_name" and nothing could
+ * see it, because every source anybody read said company_name.
+ * bin/check-schema-names.php reads the dumps instead.
  *
  * ApprenticeOrders is what happens when it drifts. The entity documented
  * job_category_id. The table's own belongsTo names master_job_category_id as

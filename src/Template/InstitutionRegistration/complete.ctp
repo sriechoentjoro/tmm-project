@@ -20,7 +20,7 @@
                     <p class="lead"><?= __('This registration link has expired.') ?></p>
                     <p><?= __('Please contact the system administrator to request a new registration link.') ?></p>
                     <div class="mt-4">
-                        <p><strong><?= __('Institution:') ?></strong> <?= h($institution->name ?? $institution->company_name) ?></p>
+                        <p><strong><?= __('Institution:') ?></strong> <?= h($institution->name) ?></p>
                         <p><strong>Email:</strong> <?= h($institution->email) ?></p>
                     </div>
                 </div>
@@ -73,7 +73,7 @@
                         <div class="row">
                             <div class="col-md-6 mb-2">
                                 <strong>Name:</strong><br>
-                                <?= h($institution->name ?? $institution->company_name) ?>
+                                <?= h($institution->name) ?>
                             </div>
                             <div class="col-md-6 mb-2">
                                 <strong>Email:</strong><br>

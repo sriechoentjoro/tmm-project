@@ -66,7 +66,7 @@
                 <tr>
                     <th style="padding: 12px; border-bottom: 2px solid #667eea; white-space: nowrap;" class="actions"><?= __('Actions') ?></th>
                     <th style="padding: 12px; border-bottom: 2px solid #667eea; white-space: nowrap;" scope="col"><?= $this->Paginator->sort('id') ?></th>
-                    <th style="padding: 12px; border-bottom: 2px solid #667eea; white-space: nowrap;" scope="col"><?= $this->Paginator->sort('company_name') ?></th>
+                    <th style="padding: 12px; border-bottom: 2px solid #667eea; white-space: nowrap;" scope="col"><?= $this->Paginator->sort('name') ?></th>
                     <th style="padding: 12px; border-bottom: 2px solid #667eea; white-space: nowrap;" scope="col"><?= $this->Paginator->sort('contact_person') ?></th>
                 </tr>
             
@@ -87,7 +87,7 @@
                     <input type="number" class="filter-input-range form-control form-control-sm" placeholder="To..." data-column="id" style="display:none; margin-top: 2px; font-size: 0.85rem;">
                 </td>
                 <td style="padding: 5px;">
-                    <select class="filter-operator form-control form-control-sm" data-column="company_name" style="font-size: 0.75rem; padding: 2px 4px; margin-bottom: 2px;">
+                    <select class="filter-operator form-control form-control-sm" data-column="name" style="font-size: 0.75rem; padding: 2px 4px; margin-bottom: 2px;">
                         <option value="like">LIKE</option>
                         <option value="not_like">NOT LIKE</option>
                         <option value="=">=</option>
@@ -95,7 +95,7 @@
                         <option value="starts_with">Starts With</option>
                         <option value="ends_with">Ends With</option>
                     </select>
-                    <input type="text" class="filter-input form-control form-control-sm" placeholder="Filter..." data-column="company_name" style="font-size: 0.85rem; padding: 4px;">
+                    <input type="text" class="filter-input form-control form-control-sm" placeholder="Filter..." data-column="name" style="font-size: 0.85rem; padding: 4px;">
                 </td>
                 <td style="padding: 5px;">
                     <select class="filter-operator form-control form-control-sm" data-column="contact_person" style="font-size: 0.75rem; padding: 2px 4px; margin-bottom: 2px;">
@@ -130,7 +130,7 @@
                         </div>
                     </td>
                     <td style="padding: 8px; white-space: nowrap;"><?= $this->Number->format($specialSkillSupportInstitution->id) ?></td>
-                    <td style="padding: 8px; white-space: nowrap;"><?= h($specialSkillSupportInstitution->company_name) ?></td>
+                    <td style="padding: 8px; white-space: nowrap;"><?= h($specialSkillSupportInstitution->name) ?></td>
                     <td style="padding: 8px; white-space: nowrap;"><?= h($specialSkillSupportInstitution->contact_person) ?></td>
                 </tr>
                 <?php endforeach; ?>

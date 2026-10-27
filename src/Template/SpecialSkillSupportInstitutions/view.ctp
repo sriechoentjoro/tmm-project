@@ -114,7 +114,7 @@
                         </tr>
                         <tr>
                             <th class="github-detail-label"><?= __('Company Name') ?></th>
-                            <td class="github-detail-value"><?= h($specialSkillSupportInstitution->company_name) ?></td>
+                            <td class="github-detail-value"><?= h($specialSkillSupportInstitution->name) ?></td>
                         </tr>
                         <tr>
                             <th class="github-detail-label"><?= __('Address') ?></th>

@@ -31,7 +31,7 @@ class SpecialSkillSupportInstitutionsTable extends Table
         parent::initialize($config);
 
         $this->setTable('special_skill_support_institutions');
-        $this->setDisplayField('company_name');
+        $this->setDisplayField('name');
         $this->setPrimaryKey('id');
         
         $this->setEntityClass('App\Model\Entity\SpecialSkillSupportInstitution');
@@ -51,10 +51,10 @@ class SpecialSkillSupportInstitutionsTable extends Table
             ->allowEmptyString('id', null, 'create');
 
         $validator
-            ->scalar('company_name')
-            ->maxLength('company_name', 255)
-            ->requirePresence('company_name', 'create')
-            ->notEmptyString('company_name');
+            ->scalar('name')
+            ->maxLength('name', 255)
+            ->requirePresence('name', 'create')
+            ->notEmptyString('name');
 
         $validator
             ->scalar('address')

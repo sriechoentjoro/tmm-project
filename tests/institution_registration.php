@@ -83,7 +83,7 @@ $conn->execute('CREATE TABLE vocational_training_institution_stories (id INTEGER
     vocational_training_institution_id INTEGER)');
 
 $conn->execute('CREATE TABLE special_skill_support_institutions (id INTEGER PRIMARY KEY,
-    company_name VARCHAR(256), email VARCHAR(100), username VARCHAR(50),
+    name VARCHAR(256), email VARCHAR(100), username VARCHAR(50),
     password VARCHAR(255), registration_token VARCHAR(255), token_expires_at DATETIME,
     is_registered BOOLEAN DEFAULT 0, registered_at DATETIME,
     created DATETIME, modified DATETIME)');
@@ -91,6 +91,15 @@ $conn->execute('CREATE TABLE special_skill_support_institutions (id INTEGER PRIM
 // The role ids are deliberately not 1..n: nothing may assume lpk-penyangga is 6.
 $conn->insert('roles', ['id' => 11, 'name' => 'administrator']);
 $conn->insert('roles', ['id' => 17, 'name' => 'lpk-penyangga']);
+
+// The fixtures above are claims about the schema; these hold them to the dump.
+checkFixtureColumns('special_skill_support_institutions',
+    ['id', 'name', 'email', 'username', 'password', 'registration_token',
+        'token_expires_at', 'is_registered', 'registered_at']);
+checkFixtureColumns('vocational_training_institutions',
+    ['id', 'name', 'email', 'username', 'director', 'address']);
+checkFixtureColumns('users', ['id', 'username', 'email', 'password', 'full_name',
+    'is_active', 'institution_id', 'institution_type']);
 
 $users = TableRegistry::getTableLocator()->get('Users');
 $userRoles = TableRegistry::getTableLocator()->get('UserRoles');
@@ -123,7 +132,7 @@ function invited($kind = 'vocational')
     } else {
         $conn->delete('special_skill_support_institutions', ['1 = 1']);
         $conn->insert('special_skill_support_institutions', ['id' => 4,
-            'company_name' => 'PT Penyangga Mandiri', 'email' => 'ssw@example.test',
+            'name' => 'PT Penyangga Mandiri', 'email' => 'ssw@example.test',
             'username' => 'ssw_mandiri', 'registration_token' => $token,
             'token_expires_at' => $expires, 'is_registered' => 0]);
     }

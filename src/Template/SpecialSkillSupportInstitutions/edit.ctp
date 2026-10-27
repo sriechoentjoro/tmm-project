@@ -45,7 +45,7 @@ $staticAssetsUrl = $protocol . '://' . $host . '/static-assets';
                 <div class="row">
                     <div class="col-12 mb-3">
                         <label class="form-label"><?= __('Company Name') ?></label>
-                        <?= $this->Form->control('company_name', [
+                        <?= $this->Form->control('name', [
                             'class' => 'form-control',
                             'placeholder' => __('Enter Company Name'),
                             'label' => false

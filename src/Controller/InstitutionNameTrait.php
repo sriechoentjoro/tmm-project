@@ -26,10 +26,15 @@ namespace App\Controller;
  * institution's own type column, and an account made from that side would
  * reasonably carry the same word.
  *
- * The two tables do not even name their institutions in the same column:
- * vocational_training_institutions has name, special_skill_support_institutions
- * has company_name. A caller that reads ->name off whichever it got is wrong
- * half the time, which is why this returns the label already chosen.
+ * Both tables name their institution in a column called name. This file used
+ * to say special_skill_support_institutions used company_name, because the
+ * whole application said so - the table class, the entity, five validation
+ * rules, both forms and the listing. The column has always been called name:
+ * UsersController passes 'valueField' => 'name' for that table explicitly,
+ * which is somebody having run into it and worked around it. The display
+ * column is still returned rather than assumed, because the two tables could
+ * drift apart again and a caller reading ->name off whichever it was handed
+ * would be wrong half the time without anything saying so.
  */
 trait InstitutionNameTrait
 {
@@ -43,7 +48,7 @@ trait InstitutionNameTrait
     {
         $special = ['special_skill_support', 'special_skill', 'special'];
         if (in_array((string)$type, $special, true)) {
-            return ['SpecialSkillSupportInstitutions', 'company_name',
+            return ['SpecialSkillSupportInstitutions', 'name',
                 'SpecialSkillSupportInstitutions'];
         }
 

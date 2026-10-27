@@ -13,8 +13,15 @@
  * The password reset screen had the only lookup, written inline, and it was
  * wrong twice over: it compared institution_type with 'special_skill_support',
  * a spelling nothing in this application writes, and then read ->name off
- * whichever table it got - special_skill_support_institutions names its
- * institutions company_name.
+ * whichever table it got.
+ *
+ * The fixture below used to create special_skill_support_institutions with a
+ * company_name column, because the whole application said that was its name -
+ * the table class, the entity, five validation rules, both forms and the
+ * listing. The column has always been called name. A fixture that invents the
+ * schema it is testing against proves only that the code agrees with itself,
+ * which is exactly what went wrong here, so the column names are now checked
+ * against the database dump before anything else runs.
  */
 require __DIR__ . '/lib/harness.php';
 
@@ -36,10 +43,14 @@ $conn->execute('CREATE TABLE user_roles (id INTEGER PRIMARY KEY, user_id INTEGER
 $conn->execute('CREATE TABLE vocational_training_institutions (id INTEGER PRIMARY KEY,
     name VARCHAR(255))');
 $conn->execute('CREATE TABLE special_skill_support_institutions (id INTEGER PRIMARY KEY,
-    company_name VARCHAR(255))');
+    name VARCHAR(255))');
 $conn->insert('vocational_training_institutions', ['id' => 12, 'name' => 'LPK Wonogiri']);
 $conn->insert('vocational_training_institutions', ['id' => 13, 'name' => 'LPK Bekasi']);
-$conn->insert('special_skill_support_institutions', ['id' => 4, 'company_name' => 'SO Asahi']);
+$conn->insert('special_skill_support_institutions', ['id' => 4, 'name' => 'SO Asahi']);
+
+// Against the dump, not against what the application believes.
+checkFixtureColumns('special_skill_support_institutions', ['id', 'name']);
+checkFixtureColumns('vocational_training_institutions', ['id', 'name']);
 
 /**
  * A controller that can be asked, with the session of somebody signed in.
@@ -90,7 +101,7 @@ check('by its own id', $found['id'], 12);
 echo "  a special-skill account\n";
 // The point of the trait: this table has no name column at all.
 $found = resolve(['institution_id' => 4, 'institution_type' => 'special_skill']);
-check('is named from company_name, not name', $found['name'], 'SO Asahi');
+check('is named', $found['name'], 'SO Asahi');
 check('and links to its own module', $found['controller'],
     'SpecialSkillSupportInstitutions');
 check('the spelling the reset screen used to test for works too',
@@ -163,7 +174,9 @@ checkTrue('index, view, profile and the reset all ask the same place',
     substr_count($source, 'institutionFor($user)') === 3
     && strpos($source, 'institutionNamesFor($users)') !== false);
 $trait = file_get_contents(TMM_ROOT . '/src/Controller/InstitutionNameTrait.php');
-checkTrue('and the trait knows the two tables name their institutions differently',
-    strpos($trait, 'company_name') !== false && strpos($trait, "'name'") !== false);
+check('and the trait no longer looks for a column that is not there',
+    strpos($trait, "'SpecialSkillSupportInstitutions', 'company_name'"), false);
+checkTrue('it reads the display column from one place rather than assuming it',
+    strpos($trait, 'institutionKind($type)') !== false);
 
 finish($db);

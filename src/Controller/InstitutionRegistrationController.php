@@ -239,7 +239,7 @@ class InstitutionRegistrationController extends AppController
             $type = $this->canonicalInstitutionType($institution->institution_type);
             $name = isset($institution->name) && $institution->name
                 ? $institution->name
-                : (isset($institution->company_name) ? $institution->company_name : null);
+                : null;
 
             $user = $Users->find()->where(['email' => $institution->email])->first();
 
