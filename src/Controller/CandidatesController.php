@@ -1916,8 +1916,15 @@ class CandidatesController extends AppController
         // Left to getMenuRolePermissions(), which expands granted_actions = '*'
         // to [the menu's own action, index, view], the wizard would be refused
         // to every role but administrator.
+        //
+        // Either grant opens it, and the second one is not redundant: a menu
+        // pointing at /candidates/wizard expands to [wizard, index, view],
+        // which does not contain add. Read against add alone, the wizard would
+        // refuse itself to the one role whose menu is the wizard - which is
+        // what database/migrations/add_candidate_wizard_menu.sql creates.
         if ($action === 'wizard' || $action === 'cvPreview') {
-            return $this->hasPermission('Candidates', 'add');
+            return $this->hasPermission('Candidates', 'add')
+                || $this->hasPermission('Candidates', 'wizard');
         }
 
         // The CV, and the form preview beside it, are this candidate's own

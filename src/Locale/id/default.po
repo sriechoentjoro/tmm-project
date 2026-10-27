@@ -8952,6 +8952,9 @@ msgstr "Lihat Semua Kandidat"
 msgid "Register New Candidate"
 msgstr "Daftarkan Kandidat Baru"
 
+msgid "Register Candidate with CV Preview"
+msgstr "Daftarkan Kandidat (Preview CV)"
+
 msgid "Document Submission"
 msgstr "Pengajuan Dokumen"
 

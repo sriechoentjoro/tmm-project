@@ -8952,6 +8952,9 @@ msgstr "すべての候補者を表示"
 msgid "Register New Candidate"
 msgstr "新しい候補者を登録"
 
+msgid "Register Candidate with CV Preview"
+msgstr "履歴書プレビュー付きで候補者を登録"
+
 msgid "Document Submission"
 msgstr "書類の提出"
 

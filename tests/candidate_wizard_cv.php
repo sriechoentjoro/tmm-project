@@ -247,4 +247,88 @@ checkTrue('the preview writes nothing',
     strpos($source, "public function cvPreview()") !== false
     && strpos($source, "allowMethod(['post'])") !== false);
 
+echo "  the way in\n";
+// The wizard had none. Menu 24, "Register New Candidate", goes to
+// /candidates/add - the plain form, no preview - and the only links to the
+// wizard were a button on the candidates dashboard and one on the help page.
+// The screen was reachable by typing the address and no other way.
+$migration = TMM_ROOT . '/database/migrations/add_candidate_wizard_menu.sql';
+checkTrue('there is a migration that puts it in the menu', is_file($migration));
+$sql = is_file($migration) ? file_get_contents($migration) : '';
+checkTrue('pointing at the wizard', strpos($sql, "'/candidates/wizard'") !== false);
+checkTrue('under the same Recruitment parent as the plain form',
+    strpos($sql, 'parent_id = 23') !== false && strpos($sql, 'SELECT 23,') !== false);
+checkTrue('and it leaves the plain form where it is',
+    strpos($sql, 'UPDATE menus') !== false && strpos($sql, 'DELETE') === false);
+checkTrue('every role that has the plain form gets this one too',
+    strpos($sql, 'WHERE rm.menu_id = 24') !== false);
+checkTrue('running it twice changes nothing the second time',
+    strpos($sql, '@already') !== false && substr_count($sql, '@already = 0') >= 2);
+
+echo "  and the title it will show\n";
+foreach (['id', 'ja'] as $locale) {
+    $po = file_get_contents(TMM_ROOT . '/src/Locale/' . $locale . '/default.po');
+    // elegant_menu.ctp renders __($menu->title), so a menu title with no
+    // translation shows in English on an Indonesian screen.
+    checkTrue($locale . ' translates the new menu title',
+        strpos($po, 'msgid "Register Candidate with CV Preview"') !== false);
+}
+
+echo "  what that menu grants, and what it does not\n";
+// granted_actions = '*' expands to [the menu's own action, index, view]. For
+// this row that is [wizard, index, view] - which does not contain add. Read
+// against add alone, the wizard would have refused itself to the one role
+// whose menu is the wizard.
+class WizardGate extends \App\Controller\CandidatesController
+{
+    public $permissions = [];
+
+    protected function getMenuRolePermissions()
+    {
+        return $this->permissions;
+    }
+
+    protected function handleUnauthorizedAccess($action = 'access', $reason = null)
+    {
+        return null;
+    }
+}
+
+/**
+ * Ask the gate about one action for a role holding the given permissions.
+ *
+ * @param string $action The action attempted.
+ * @param array $permissions controller => granted actions.
+ * @return bool
+ */
+function wizardGate($action, array $permissions)
+{
+    $user = ['id' => 5, 'username' => 'lpk', 'role_names' => ['lpk-penyangga']];
+    $session = new \Cake\Http\Session();
+    $session->write('Auth.User', $user);
+    $request = new \Cake\Http\ServerRequest([
+        'url' => '/candidates/' . $action,
+        'session' => $session,
+        'params' => ['controller' => 'Candidates', 'action' => $action,
+            'plugin' => null, 'pass' => []],
+    ]);
+    $controller = new WizardGate($request, new \Cake\Http\Response());
+    $controller->permissions = $permissions;
+
+    return (bool)$controller->isAuthorized($user);
+}
+
+$fromPlainForm = ['Candidates' => ['add', 'index', 'view']];
+$fromWizardMenu = ['Candidates' => ['wizard', 'index', 'view']];
+foreach (['wizard', 'cvPreview'] as $action) {
+    checkTrue('a role that may use the plain form may ' . $action,
+        wizardGate($action, $fromPlainForm));
+    checkTrue('and so may one whose own menu is the wizard: ' . $action,
+        wizardGate($action, $fromWizardMenu));
+    checkTrue('a role granted neither may not ' . $action,
+        !wizardGate($action, ['Candidates' => ['index', 'view']]));
+}
+checkTrue('the wizard menu does not quietly grant the plain form as well',
+    !wizardGate('add', $fromWizardMenu));
+
 finish($db);

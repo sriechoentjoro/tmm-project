@@ -143,8 +143,14 @@ echo "  and nothing is public that should not be\n";
 $candidates = file_get_contents(TMM_ROOT . '/src/Controller/CandidatesController.php');
 checkTrue('the candidate wizard is not on the allow list',
     preg_match('/Auth->allow\(\[[^\]]*wizard/', $candidates) === 0);
+// Either grant opens it. The second is not a widening: a menu pointing at
+// /candidates/wizard expands to [wizard, index, view], which does not contain
+// add, so read against add alone the wizard refused itself to the one role
+// whose menu is the wizard. tests/candidate_wizard_cv.php asks the real gate.
 checkTrue('and it is granted to whoever may add a candidate',
-    strpos($candidates, "return \$this->hasPermission('Candidates', 'add');") !== false);
+    strpos($candidates, "\$this->hasPermission('Candidates', 'add')") !== false);
+checkTrue('or whose own menu is the wizard, and to nobody else',
+    strpos($candidates, "|| \$this->hasPermission('Candidates', 'wizard');") !== false);
 checkTrue('the wizard photo name cannot walk out of its directory',
     strpos($candidates, "preg_replace('/[^A-Za-z0-9_-]/', '', (string)\$identityNumber)") !== false);
 
