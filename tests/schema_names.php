@@ -140,4 +140,71 @@ foreach (glob(TMM_ROOT . '/src/Model/Entity/*.php') as $file) {
 checkTrue('there are ' . count($blank) . ' of them, and no more than there were',
     count($blank) <= 15);
 
+echo "  a column header that looks sortable and is not\n";
+// Thirteen index screens sorted on Candidates.fullname / Trainees.fullname.
+// Neither table has a fullname column - it is name, and the cell underneath
+// the header rendered $x->candidate->name all along. CakePHP drops a sort on
+// a field it cannot place without saying anything, so the header was
+// clickable and did nothing. The same ghost as the six session reads of
+// 'fullname' fixed earlier; it came back by copy-paste, so this is the guard
+// against the next copy.
+$screens = glob(TMM_ROOT . '/src/Template/*/index.ctp');
+checkTrue('there are index screens to read', count($screens) > 50);
+
+$ghosts = [];
+$named = [];
+foreach ($screens as $path) {
+    $body = file_get_contents($path);
+    if (preg_match_all('/(?:Paginator->sort\(|data-column=")\s*.([\w.]*fullname)/', $body, $hit)) {
+        foreach ($hit[1] as $one) {
+            $ghosts[] = basename(dirname($path)) . ' -> ' . $one;
+        }
+    }
+    if (strpos($body, "Paginator->sort('Candidates.name', 'Candidate')") !== false
+        || strpos($body, "Paginator->sort('Trainees.name', 'Trainee')") !== false) {
+        $named[] = basename(dirname($path));
+    }
+}
+check('no index screen sorts or filters on fullname: ' . implode(', ', $ghosts),
+    count($ghosts), 0);
+checkTrue('the thirteen that did now name the real column, and all 13 are there: '
+    . count($named), count($named) === 13);
+
+// And the real column is real, read from the dumps the databases wrote - not
+// from the application's own account of itself, which is how fullname lived
+// this long.
+foreach (['candidates', 'trainees'] as $table) {
+    $columns = schemaColumns($table);
+    checkTrue($table . ' has a name column', in_array('name', $columns, true));
+    checkTrue('and no fullname column for the header to have meant',
+        !in_array('fullname', $columns, true));
+}
+
+echo "  one table name, several databases\n";
+// There are fourteen databases here and seven table names that appear in more
+// than one of them with different columns. chart_of_accounts is code/title in
+// asahi_accountings and account_code/account_name/account_type in
+// asahi_inventories, and the model opens a third database that no SQL here
+// describes. Merged into one list, that is the union of two different tables
+// that happen to share a name: it accused the screen of sorting on a column
+// it may well have, and it passed ChartOfAccounts.code because the other
+// database has a code. A checker that cannot tell must say so.
+$lines = [];
+$status = 0;
+exec(escapeshellarg(PHP_BINARY) . ' '
+    . escapeshellarg(TMM_ROOT . '/bin/check-schema-names.php') . ' 2>&1', $lines, $status);
+$out = implode("\n", $lines);
+
+checkTrue('the schema checker runs', $out !== '');
+check('and it passes, with its exceptions written down', $status, 0);
+checkTrue('it says it cannot judge chart_of_accounts rather than judging it',
+    strpos($out, 'chart_of_accounts is declared differently in 2 databases') !== false);
+checkTrue('and it names the database the model actually opens',
+    strpos($out, 'none of them cms_tmm_trainee_accountings') !== false);
+check('so that screen is not reported as wrong',
+    (int)(strpos($out, 'ChartOfAccounts/index.ctp
+    sort:name') !== false), 0);
+checkTrue('the one it still cannot settle is recorded with its reason',
+    strpos($out, 'candidate_submission_documents.id') !== false);
+
 finish();
