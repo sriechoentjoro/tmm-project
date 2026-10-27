@@ -192,4 +192,95 @@ foreach (glob(TMM_ROOT . '/src/Controller/*Controller.php') as $path) {
 }
 check('no candidate pick-list is left unscoped', implode(', ', $unscoped), '');
 
+echo "  Export and Print, which no role but administrator could press\n";
+// granted_actions = '*' expands to [menu action, index, view], so the four
+// export actions were in it only for a menu pointing straight at one - and no
+// menu does. 292 buttons across 73 modules answered "your role does not have
+// access". grant_accounting_role_full_access.sql is somebody having typed all
+// four into granted_actions for one role rather than fixing the gate.
+class ExportGate extends \App\Controller\AppController
+{
+    public $permissions = [];
+
+    protected function getMenuRolePermissions()
+    {
+        return $this->permissions;
+    }
+
+    // The real one writes a flash and a log line; neither is the question here.
+    protected function handleUnauthorizedAccess($action = 'access', $reason = null)
+    {
+        return null;
+    }
+}
+
+/**
+ * Ask the gate about one action, for a role holding the given permissions.
+ *
+ * @param array $user The identity.
+ * @param string $action The action attempted.
+ * @param array $permissions controller => granted actions.
+ * @return bool
+ */
+function gate(array $user, $action, array $permissions)
+{
+    $session = new Session();
+    $session->write('Auth.User', $user);
+    $request = new ServerRequest([
+        'url' => '/trainees/' . $action,
+        'session' => $session,
+        'params' => ['controller' => 'Trainees', 'action' => $action,
+            'plugin' => null, 'pass' => []],
+    ]);
+    $controller = new ExportGate($request, new Response());
+    $controller->permissions = $permissions;
+
+    return (bool)$controller->isAuthorized($user);
+}
+
+$mayList = ['Trainees' => ['index', 'view']];
+foreach (['exportCsv', 'exportExcel', 'exportPdf', 'printReport'] as $action) {
+    checkTrue('a role that may read the list may ' . $action,
+        gate($lpk, $action, $mayList));
+}
+checkTrue('a role with no permission on the controller still may not export',
+    !gate($lpk, 'exportCsv', []));
+checkTrue('nor one granted view alone, without the list',
+    !gate($lpk, 'exportCsv', ['Trainees' => ['view']]));
+checkTrue('and this grants nothing else: promoteToApprentice is still refused',
+    !gate($lpk, 'promoteToApprentice', $mayList));
+checkTrue('an administrator was never the one being stopped',
+    gate($admin, 'exportCsv', []));
+
+echo "  and what those buttons now answer with\n";
+// Granting them is only safe because the export queries narrow the way
+// index() does. They did not: the screen showed one institution's rows and
+// the download held every institution's.
+$lines = [];
+$status = 0;
+exec(escapeshellarg(PHP_BINARY) . ' '
+    . escapeshellarg(TMM_ROOT . '/bin/check-export-scope.php') . ' 2>&1', $lines, $status);
+$out = implode("\n", $lines);
+checkTrue('the export scope checker runs', $out !== '');
+check('and every export narrows to its own screen\'s rows', $status, 0);
+checkTrue('it looked at the thirteen that narrow their listing',
+    strpos($out, '39 export action(s) checked') !== false);
+
+// Read in the controllers themselves, so the checker being wrong about what
+// it reads cannot make this pass.
+foreach (array_merge($direct, $throughCandidate) as $name) {
+    $source = file_get_contents(TMM_ROOT . '/src/Controller/' . $name . 'Controller.php');
+    $bodies = preg_split('/\n    public function /', $source);
+    $unscoped = [];
+    foreach ($bodies as $body) {
+        if (!preg_match('/^(exportCsv|exportExcel|printReport)\(/', $body)) {
+            continue;
+        }
+        if (strpos($body, 'scopeToInstitution($query)') === false) {
+            $unscoped[] = strtok($body, '(');
+        }
+    }
+    check($name . ' exports what its screen shows', implode(', ', $unscoped), '');
+}
+
 finish($db);

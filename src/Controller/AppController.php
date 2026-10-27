@@ -268,6 +268,29 @@ class AppController extends Controller
         if ($action === 'getRelated' && $this->hasPermission($controller, 'view')) {
             return true;
         }
+
+        // Export and Print on the index toolbar, 292 buttons across 73
+        // modules, none of which any role but administrator could press.
+        // granted_actions = '*' expands to [menu action, index, view], so the
+        // four of them were in it only for a menu pointing straight at one -
+        // which no menu does. The only way to reach them was to type all four
+        // into granted_actions by hand, and grant_accounting_role_full_access
+        // .sql is somebody having done exactly that for one role on three
+        // menus rather than fixing it here.
+        //
+        // Granted where index is granted on the same controller: these three
+        // actions run the index query and write it out as CSV, a spreadsheet
+        // or a print page. They read no more than the list does, so a role
+        // that may read the list may take it with them. exportPdf is
+        // printReport with a print layout.
+        //
+        // This is safe only because the export queries now narrow by
+        // institution the way index() does. Until that was fixed, granting
+        // these would have handed an LPK user every other institution's rows.
+        if (in_array($action, ['exportCsv', 'exportExcel', 'exportPdf', 'printReport'], true)
+            && $this->hasPermission($controller, 'index')) {
+            return true;
+        }
         
         // Single gate: DB-driven permission check via role_menus → menus.granted_actions
         if ($this->hasPermission($controller, $action)) {

@@ -986,6 +986,13 @@ class CandidatesController extends AppController
         //
         // And the same filters the list was narrowed by, so Export gives what
         // the screen shows rather than the whole table.
+        //
+        // The filters were only half of that. index() also narrows to the
+        // user's own institution, and this did not, so Export and Print
+        // answered with every institution's rows while the screen above them
+        // showed one institution's - the line about giving what the screen
+        // shows being the only thing that said otherwise.
+        $query = $this->scopeToInstitution($query);
         $query = $this->applyIndexFilters($query);
         list($headers, $fields) = $this->exportColumns($query);
         
@@ -1010,6 +1017,7 @@ class CandidatesController extends AppController
         //
         // And the same filters the list was narrowed by, so Export gives what
         // the screen shows rather than the whole table.
+        $query = $this->scopeToInstitution($query);
         $query = $this->applyIndexFilters($query);
         list($headers, $fields) = $this->exportColumns($query);
         
@@ -1040,6 +1048,7 @@ class CandidatesController extends AppController
         //
         // And the same filters the list was narrowed by, so Export gives what
         // the screen shows rather than the whole table.
+        $query = $this->scopeToInstitution($query);
         $query = $this->applyIndexFilters($query);
         list($headers, $fields) = $this->exportColumns($query);
         
