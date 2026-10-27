@@ -218,6 +218,11 @@
                         ['class' => 'btn-export-light', 'escape' => false, 'title' => 'Print this page']
                     ) ?>
                     <?= $this->Html->link(
+                        '<i class="fas fa-id-card"></i> ' . __('Curriculum Vitae'),
+                        ['action' => 'cv', $candidate->id],
+                        ['class' => 'btn-export-light', 'escape' => false]
+                    ) ?>
+                    <?= $this->Html->link(
                         '<i class="fas fa-edit"></i> ' . __('Edit'),
                         ['action' => 'edit', $candidate->id],
                         ['class' => 'btn-export-light', 'escape' => false]

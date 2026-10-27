@@ -3,8 +3,58 @@
  * @var \App\View\AppView $this
  * @var int $step
  * @var array $wizardData
+ * @var \App\Model\Entity\Candidate $cvCandidate The candidate so far, for
+ *  the CV beside the form. Built from the session by
+ *  CandidateWizardTrait::wizardCandidateEntity(), so it is the same document
+ *  /candidates/cv/{id} shows once the registration is finished.
  */
 ?>
+<style>
+/* Form on the left, the CV it is building on the right. On a narrow screen
+   the CV drops below the form rather than squeezing it: filling the form in
+   is the job, and reading the CV is the check afterwards. */
+.wizard-split { display: flex; gap: 20px; align-items: flex-start; }
+.wizard-form-column { flex: 1 1 0; min-width: 0; }
+.wizard-cv-column {
+    flex: 0 0 420px;
+    position: sticky;
+    top: 16px;
+    max-height: calc(100vh - 32px);
+    overflow-y: auto;
+    background: #fff;
+    border: 1px solid #dee2e6;
+    border-radius: 10px;
+    padding: 12px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+}
+.wizard-cv-heading {
+    font-weight: 700; color: #00838f; font-size: 13px;
+    border-bottom: 1px solid #e0e0e0; padding-bottom: 8px; margin-bottom: 10px;
+}
+.wizard-cv-heading small { display: block; font-weight: 500; color: #90a4ae; }
+/* The CV is written for a page; in the panel it is read at a glance. */
+.wizard-cv-column .cvdoc { font-size: 8.5pt; max-width: none; }
+.wizard-cv-column .cvdoc-header img,
+.wizard-cv-column .cvdoc-photo-placeholder { width: 70px; height: 88px; }
+.wizard-cv-column .cvdoc h1 { font-size: 13pt; }
+/* Said plainly when the last refresh did not arrive, so nobody reads a CV
+   that is older than the form beside it. */
+#cv-live-panel.is-stale { opacity: 0.55; }
+#cv-live-panel.is-stale::before {
+    content: "<?= __('Preview could not be refreshed') ?>";
+    display: block; color: #dc3545; font-size: 11px; font-weight: 700;
+    margin-bottom: 6px;
+}
+@media (max-width: 1199px) {
+    .wizard-split { display: block; }
+    .wizard-cv-column { position: static; max-height: none; margin-top: 18px; }
+}
+@media print {
+    .wizard-cv-column { display: none; }
+}
+</style>
+<script src="<?= $this->Url->build('/js/candidate-cv-live.js') ?>"></script>
+
 <div class="candidates wizard content">
     <div class="row">
         <div class="col-md-12">
@@ -50,6 +100,12 @@
                     </div>
                 </div>
             </div>
+
+            <!-- Form on the left, the CV it is building on the right. The
+                 panel arrives filled, rendered from the session, and
+                 candidate-cv-live.js refreshes it as the form is typed in. -->
+            <div class="wizard-split">
+            <div class="wizard-form-column">
 
             <!-- Step Content -->
             <?php if ($step == 1): ?>
@@ -894,6 +950,22 @@
                                 </ul>
                             </div>
                         <?php endif; ?>
+            </div><!-- /wizard-form-column -->
+
+            <aside class="wizard-cv-column">
+                <div class="wizard-cv-heading">
+                    <i class="fa fa-id-card"></i> <?= __('Curriculum Vitae') ?>
+                    <small><?= __('Updates as you type') ?></small>
+                </div>
+                <div id="cv-live-panel"
+                     data-preview-url="<?= $this->Url->build(['action' => 'cvPreview']) ?>">
+                    <?= $this->element('Candidates/cv_body', [
+                        'candidate' => $cvCandidate,
+                        'showToolbar' => false,
+                    ]) ?>
+                </div>
+            </aside>
+            </div><!-- /wizard-split -->
 
                         <!-- Photo Preview -->
                         <?php if (!empty($wizardData['image_photo_cropped'])): ?>

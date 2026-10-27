@@ -19009,3 +19009,12 @@ msgstr "セッションが終了しました。もう一度サインインして
 
 msgid "That record belongs to another institution."
 msgstr "その記録は別の機関のものです。"
+
+msgid "Preview could not be refreshed"
+msgstr "プレビューを更新できませんでした"
+
+msgid "Updates as you type"
+msgstr "入力に合わせて更新されます"
+
+msgid "Contact"
+msgstr "連絡先"

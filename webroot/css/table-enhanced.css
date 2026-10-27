@@ -156,6 +156,56 @@
     background: linear-gradient(135deg, #0097A7 0%, #00BCD4 100%);
 }
 
+/* ===== STICKY HORIZONTAL SCROLLBAR =====
+   A second bar along the bottom of the window, for when the table's own one
+   is several screens down. table-sticky-scrollbar.js puts it there, keeps it
+   in step with the table, and only shows it while it is needed. */
+.table-sticky-scrollbar {
+    position: fixed;
+    bottom: 0;
+    z-index: 1030;
+    height: 14px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    background: rgba(255, 255, 255, 0.92);
+    border-top: 1px solid #dee2e6;
+    box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.08);
+    display: none;
+}
+
+.table-sticky-scrollbar.is-visible {
+    display: block;
+}
+
+/* Nothing to see: it exists only to give the bar something to scroll. */
+.table-sticky-scrollbar-inner {
+    height: 1px;
+}
+
+.table-sticky-scrollbar::-webkit-scrollbar {
+    height: 12px;
+}
+
+.table-sticky-scrollbar::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+.table-sticky-scrollbar::-webkit-scrollbar-thumb {
+    background: linear-gradient(135deg, #00BCD4 0%, #0097A7 100%);
+    border-radius: 10px;
+}
+
+.table-sticky-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(135deg, #0097A7 0%, #00BCD4 100%);
+}
+
+/* Printing a listing should not print a scrollbar. */
+@media print {
+    .table-sticky-scrollbar {
+        display: none !important;
+    }
+}
+
 /* Scroll indicators */
 .scroll-indicator {
     position: absolute;

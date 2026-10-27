@@ -855,6 +855,14 @@
                                 ['action' => 'edit', $candidate->id],
                                 ['class' => 'btn-action-icon btn-edit-icon', 'escape' => false, 'title' => 'Edit']
                             ) ?>
+                            <?php // The CV, and the Excel and PDF beside it, have existed
+                                  // all along with nothing anywhere linking to them. ?>
+                            <?= $this->Html->link(
+                                '<i class="fas fa-id-card"></i>',
+                                ['action' => 'cv', $candidate->id],
+                                ['class' => 'btn-action-icon btn-view-icon', 'escape' => false,
+                                    'title' => __('Curriculum Vitae')]
+                            ) ?>
                         </div>
                     </td>
                     <td style="padding: 8px; white-space: nowrap;"><?= $this->Number->format($candidate->id) ?></td>

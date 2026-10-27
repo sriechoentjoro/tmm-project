@@ -19009,3 +19009,12 @@ msgstr "Sesi Anda sudah berakhir. Silakan masuk lagi."
 
 msgid "That record belongs to another institution."
 msgstr "Rekaman itu milik lembaga lain."
+
+msgid "Preview could not be refreshed"
+msgstr "Pratinjau tidak dapat disegarkan"
+
+msgid "Updates as you type"
+msgstr "Ikut berubah saat Anda mengetik"
+
+msgid "Contact"
+msgstr "Kontak"

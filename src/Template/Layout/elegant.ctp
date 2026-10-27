@@ -95,6 +95,11 @@ $assetVersion = function ($path) {
     <!-- File Preview - universal preview for all file/image upload inputs -->
     <script src="<?= $staticAssetsUrl ?>/js/file-preview.js<?= $assetVersion('/js/file-preview.js') ?>"></script>
 
+    <!-- A horizontal scrollbar along the bottom of the window for wide
+         listings, because the table's own one sits on the table's bottom
+         edge - several screens down on a long one. -->
+    <script src="<?= $staticAssetsUrl ?>/js/table-sticky-scrollbar.js<?= $assetVersion('/js/table-sticky-scrollbar.js') ?>"></script>
+
     <!-- Address Cascade - Province/Kabupaten/Kecamatan/Kelurahan dependent dropdowns -->
     <script>var APP_BASE_URL = '<?= $this->Url->build('/') ?>';</script>
     <script src="<?= $staticAssetsUrl ?>/js/address-cascade.js<?= $assetVersion('/js/address-cascade.js') ?>"></script>

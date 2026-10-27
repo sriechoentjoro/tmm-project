@@ -12,6 +12,8 @@ use App\Controller\AppController;
  */
 class CandidatesController extends AppController
 {
+    use \App\Controller\CandidateWizardTrait;
+
     use \App\Controller\ExportTrait;
     use \App\Controller\LpkDataFilterTrait;
     
@@ -885,6 +887,11 @@ class CandidatesController extends AppController
         
         $this->set('step', $step);
         $this->set('wizardData', $wizardData);
+
+        // The candidate as they stand, for the CV beside the form. Rebuilt
+        // from the session on every step, so the preview is never behind what
+        // has been typed; candidate-cv-live.js keeps it in step between steps.
+        $this->set('cvCandidate', $this->wizardCandidateEntity($wizardData));
     }
 
     /**
@@ -1130,9 +1137,15 @@ class CandidatesController extends AppController
         
         $this->loadModel('CandidateEducations');
         
-        foreach ($educations as $education) {
-            $education['candidate_id'] = $candidateId;
-            $entity = $this->CandidateEducations->newEntity($education);
+        // Through the map: the form's own names are not columns, and an
+        // entity drops what is not a column without a word. See
+        // CandidateWizardTrait.
+        foreach ($this->wizardRows('educations', $educations) as $row) {
+            $row['candidate_id'] = $candidateId;
+            $entity = $this->CandidateEducations->newEntity([], ['validate' => false]);
+            foreach ($row as $column => $value) {
+                $entity->set($column, $value);
+            }
             $this->CandidateEducations->save($entity);
         }
     }
@@ -1152,9 +1165,15 @@ class CandidatesController extends AppController
         
         $this->loadModel('CandidateExperiences');
         
-        foreach ($experiences as $experience) {
-            $experience['candidate_id'] = $candidateId;
-            $entity = $this->CandidateExperiences->newEntity($experience);
+        // Through the map: the form's own names are not columns, and an
+        // entity drops what is not a column without a word. See
+        // CandidateWizardTrait.
+        foreach ($this->wizardRows('experiences', $experiences) as $row) {
+            $row['candidate_id'] = $candidateId;
+            $entity = $this->CandidateExperiences->newEntity([], ['validate' => false]);
+            foreach ($row as $column => $value) {
+                $entity->set($column, $value);
+            }
             $this->CandidateExperiences->save($entity);
         }
     }
@@ -1174,9 +1193,15 @@ class CandidatesController extends AppController
         
         $this->loadModel('CandidateFamilies');
         
-        foreach ($families as $family) {
-            $family['candidate_id'] = $candidateId;
-            $entity = $this->CandidateFamilies->newEntity($family);
+        // Through the map: the form's own names are not columns, and an
+        // entity drops what is not a column without a word. See
+        // CandidateWizardTrait.
+        foreach ($this->wizardRows('families', $families) as $row) {
+            $row['candidate_id'] = $candidateId;
+            $entity = $this->CandidateFamilies->newEntity([], ['validate' => false]);
+            foreach ($row as $column => $value) {
+                $entity->set($column, $value);
+            }
             $this->CandidateFamilies->save($entity);
         }
     }
@@ -1196,9 +1221,15 @@ class CandidatesController extends AppController
         
         $this->loadModel('CandidateCertifications');
         
-        foreach ($certifications as $certification) {
-            $certification['candidate_id'] = $candidateId;
-            $entity = $this->CandidateCertifications->newEntity($certification);
+        // Through the map: the form's own names are not columns, and an
+        // entity drops what is not a column without a word. See
+        // CandidateWizardTrait.
+        foreach ($this->wizardRows('certifications', $certifications) as $row) {
+            $row['candidate_id'] = $candidateId;
+            $entity = $this->CandidateCertifications->newEntity([], ['validate' => false]);
+            foreach ($row as $column => $value) {
+                $entity->set($column, $value);
+            }
             $this->CandidateCertifications->save($entity);
         }
     }
@@ -1218,9 +1249,15 @@ class CandidatesController extends AppController
         
         $this->loadModel('CandidateCourses');
         
-        foreach ($courses as $course) {
-            $course['candidate_id'] = $candidateId;
-            $entity = $this->CandidateCourses->newEntity($course);
+        // Through the map: the form's own names are not columns, and an
+        // entity drops what is not a column without a word. See
+        // CandidateWizardTrait.
+        foreach ($this->wizardRows('courses', $courses) as $row) {
+            $row['candidate_id'] = $candidateId;
+            $entity = $this->CandidateCourses->newEntity([], ['validate' => false]);
+            foreach ($row as $column => $value) {
+                $entity->set($column, $value);
+            }
             $this->CandidateCourses->save($entity);
         }
     }
@@ -1249,6 +1286,40 @@ class CandidatesController extends AppController
         ]);
 
         $this->set('candidate', $candidate);
+    }
+
+    /**
+     * The CV as it stands, from what is on the form right now.
+     *
+     * The preview beside the registration wizard asks for this on a pause in
+     * typing and swaps in what comes back. Rendering it on the server rather
+     * than redrawing it in JavaScript means the preview is the same document
+     * the candidate ends up with - the same element, through the same field
+     * map as the save - instead of a second CV drawn to look like the first
+     * and free to drift from it.
+     *
+     * Nothing is written. It builds an entity, renders it, and throws it away.
+     *
+     * @return void
+     */
+    public function cvPreview()
+    {
+        $this->request->allowMethod(['post']);
+        $this->viewBuilder()->setLayout('ajax');
+
+        $session = $this->request->getSession()->read('Wizard.Candidate');
+        $wizardData = is_array($session) ? $session : [];
+
+        // What the form holds now wins over what the session remembers: the
+        // point of the preview is to show what has just been typed.
+        foreach ($this->request->getData() as $field => $value) {
+            if ($field === '_csrfToken' || $field === '_Token') {
+                continue;
+            }
+            $wizardData[$field] = $value;
+        }
+
+        $this->set('cvCandidate', $this->wizardCandidateEntity($wizardData));
     }
 
     /**
@@ -1836,8 +1907,18 @@ class CandidatesController extends AppController
         // Left to getMenuRolePermissions(), which expands granted_actions = '*'
         // to [the menu's own action, index, view], the wizard would be refused
         // to every role but administrator.
-        if ($action === 'wizard') {
+        if ($action === 'wizard' || $action === 'cvPreview') {
             return $this->hasPermission('Candidates', 'add');
+        }
+
+        // The CV, and the form preview beside it, are this candidate's own
+        // record read back. Whoever may open the candidate may read it; the
+        // same expansion applies as above, so without this the buttons would
+        // answer "your role does not have access" to the role the screens
+        // were built for.
+        if ($action === 'cv' || $action === 'preview'
+            || $action === 'exportCvExcel' || $action === 'exportCvPdf') {
+            return $this->hasPermission('Candidates', 'view');
         }
 
         if (!in_array($action, self::SELECTION_ACTIONS, true)) {
