@@ -158,10 +158,19 @@ trait CandidateWizardTrait
                         'master_family_connection_id' => $this->referenceIdByTitle(
                             'MasterFamilyConnections',
                             isset($row['relationship']) ? $row['relationship'] : null),
+                        // Tried as a reference row first: the CV prints the
+                        // occupation in its own column, and a row that
+                        // matches prints as "Petani" rather than as the whole
+                        // detail line.
+                        'master_occupation_id' => $this->referenceIdByTitle(
+                            'MasterOccupations',
+                            isset($row['occupation']) ? $row['occupation'] : null),
                         'detail' => $this->wizardDetail([
-                            // Kept as text: the column for an occupation is a
-                            // foreign key, and the form asks for free text.
-                            (string)__('Relationship') => isset($row['relationship']) ? $row['relationship'] : '',
+                            // The relationship is a column of its own above,
+                            // so it is not repeated here. What is left is the
+                            // free text no column holds - and the occupation
+                            // again, for the reference tables that do not
+                            // carry what was typed.
                             (string)__('Occupation') => isset($row['occupation']) ? $row['occupation'] : '',
                             (string)__('Contact') => isset($row['contact_number']) ? $row['contact_number'] : '',
                         ]),
@@ -209,6 +218,30 @@ trait CandidateWizardTrait
         }
 
         return $out;
+    }
+
+    /**
+     * One reference row by id, or null.
+     *
+     * A reference table this installation does not carry, or an id that
+     * matches nothing, is not a reason to lose the preview.
+     *
+     * @param string $model The table class name.
+     * @param mixed $id The foreign key.
+     * @return \Cake\Datasource\EntityInterface|null
+     */
+    protected function wizardReferenceRow($model, $id)
+    {
+        if (!$id) {
+            return null;
+        }
+
+        try {
+            return TableRegistry::getTableLocator()->get($model)->find()
+                ->where(['id' => $id])->first();
+        } catch (\Exception $e) {
+            return null;
+        }
     }
 
     /**
@@ -262,27 +295,55 @@ trait CandidateWizardTrait
             $candidate->set($property, $entities);
         }
 
-        // The reference rows the CV prints by name.
+        // The reference rows the CV prints by name. The form prints the
+        // Japanese spelling of each of these, which lives on the master row:
+        // the foreign key alone prints nothing.
+        //
+        // The blood type was keyed 'blood_type_id' here, and the column is
+        // master_blood_type_id, so the preview never resolved it and the
+        // blood type was blank on the preview and filled on the saved CV -
+        // the one thing this shared element exists to prevent.
         $byId = [
             'master_gender_id' => ['MasterGenders', 'master_gender'],
             'master_religion_id' => ['MasterReligions', 'master_religion'],
             'master_marriage_status_id' => ['MasterMarriageStatuses', 'master_marriage_status'],
-            'blood_type_id' => ['MasterBloodTypes', 'master_blood_type'],
+            'master_blood_type_id' => ['MasterBloodTypes', 'master_blood_type'],
+            // The four that make up the one address line the form prints.
+            'master_propinsi_id' => ['MasterPropinsis', 'master_propinsi'],
+            'master_kabupaten_id' => ['MasterKabupatens', 'master_kabupaten'],
+            'master_kecamatan_id' => ['MasterKecamatans', 'master_kecamatan'],
+            'master_kelurahan_id' => ['MasterKelurahans', 'master_kelurahan'],
+            'acceptance_organization_id' => ['AcceptanceOrganizations', 'acceptance_organization'],
         ];
         foreach ($byId as $field => $where) {
             list($model, $property) = $where;
-            $id = $candidate->get($field);
-            if (!$id) {
-                continue;
-            }
-            try {
-                $row = TableRegistry::getTableLocator()->get($model)->find()
-                    ->where(['id' => $id])->first();
-            } catch (\Exception $e) {
-                $row = null;
-            }
+            $row = $this->wizardReferenceRow($model, $candidate->get($field));
             if ($row) {
                 $candidate->set($property, $row);
+            }
+        }
+
+        // And the same for the rows hanging off the candidate: the CV prints
+        // 続柄 from master_family_connections and the school level from
+        // master_stratas, both of which this builds ids for above.
+        $rowReferences = [
+            'candidate_families' => [
+                'master_family_connection_id' => ['MasterFamilyConnections', 'master_family_connection'],
+                'master_occupation_id' => ['MasterOccupations', 'master_occupation'],
+            ],
+            'candidate_educations' => [
+                'master_strata_id' => ['MasterStratas', 'master_strata'],
+            ],
+        ];
+        foreach ($rowReferences as $property => $fields) {
+            foreach ((array)$candidate->get($property) as $row) {
+                foreach ($fields as $field => $where) {
+                    list($model, $target) = $where;
+                    $reference = $this->wizardReferenceRow($model, $row->get($field));
+                    if ($reference) {
+                        $row->set($target, $reference);
+                    }
+                }
             }
         }
 

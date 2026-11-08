@@ -1279,18 +1279,26 @@ class CandidatesController extends AppController
      */
     public function cv($id = null)
     {
+        // Everything the printed form shows. The four region tables make up
+        // the one address line it prints; the nested ones carry the Japanese
+        // spelling of a school level, a family tie and an occupation, which
+        // the form prints and a bare foreign key cannot.
         $candidate = $this->Candidates->get($id, [
             'contain' => [
-                'CandidateEducations',
+                'CandidateEducations' => ['MasterStratas'],
                 'CandidateExperiences',
-                'CandidateFamilies',
+                'CandidateFamilies' => ['MasterFamilyConnections', 'MasterOccupations'],
                 'CandidateCertifications',
                 'CandidateCourses',
                 'MasterGenders',
                 'MasterReligions',
                 'MasterMarriageStatuses',
                 'MasterBloodTypes',
-                'MasterPropinsis'
+                'MasterPropinsis',
+                'MasterKabupatens',
+                'MasterKecamatans',
+                'MasterKelurahans',
+                'AcceptanceOrganizations',
             ]
         ]);
 

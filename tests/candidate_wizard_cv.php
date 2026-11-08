@@ -30,15 +30,41 @@ use Cake\ORM\TableRegistry;
 
 $db = sys_get_temp_dir() . '/tmm_candidate_wizard.sqlite';
 @unlink($db);
-$conn = sqliteConnections(['cms_lpk_candidates', 'cms_masters', 'default'], $db);
+$conn = sqliteConnections(['cms_lpk_candidates', 'cms_masters', 'cms_tmm_stakeholders', 'default'], $db);
+// Spelled as the real table spells it. It used to say blood_type_id, which
+// is not a column anywhere - and CandidateWizardTrait looked the blood type
+// up under that same wrong name, so the fixture agreed with the bug and the
+// preview printed a blank blood type that nothing could see. checkFixtureColumns
+// below holds every one of these to the dump the database wrote.
+$candidateColumns = ['id', 'name', 'name_katakana', 'identity_number', 'candidate_code',
+    'birth_place', 'birth_place_katakana', 'birth_date', 'master_gender_id',
+    'master_religion_id', 'master_marriage_status_id', 'master_blood_type_id',
+    'body_height', 'body_weight', 'telephone_mobile', 'telephone_emergency', 'email',
+    'address', 'post_code', 'image_photo', 'strengths', 'weaknesses', 'hobby',
+    'application_reasons', 'last_salary_amount', 'saving_goal_amount',
+    'is_ever_went_to_japan', 'is_holding_passport', 'is_wear_eye_glasses',
+    'explain_eye_condition', 'is_color_blind', 'explain_color_blind', 'is_right_handed',
+    'is_smoking', 'is_drinking_alcohol', 'is_tattooed', 'will_go_to_japan_after_finished',
+    'expected_work_upon_returning_to_japan', 'acceptance_organization_id',
+    'master_propinsi_id', 'master_kabupaten_id', 'master_kecamatan_id',
+    'master_kelurahan_id', 'vocational_training_institution_id'];
 $conn->execute('CREATE TABLE candidates (id INTEGER PRIMARY KEY, name VARCHAR(100),
     name_katakana VARCHAR(255), identity_number VARCHAR(50), candidate_code VARCHAR(10),
-    birth_place VARCHAR(100), birth_date DATE, master_gender_id INTEGER,
-    master_religion_id INTEGER, master_marriage_status_id INTEGER, blood_type_id INTEGER,
-    body_height INTEGER, body_weight INTEGER, telephone_mobile VARCHAR(20),
-    telephone_emergency VARCHAR(256), email VARCHAR(100), address VARCHAR(256),
-    post_code VARCHAR(6), image_photo VARCHAR(255), strengths TEXT, weaknesses TEXT,
-    hobby TEXT, application_reasons TEXT, master_propinsi_id INTEGER,
+    birth_place VARCHAR(100), birth_place_katakana VARCHAR(100), birth_date DATE,
+    master_gender_id INTEGER, master_religion_id INTEGER, master_marriage_status_id INTEGER,
+    master_blood_type_id INTEGER, body_height DECIMAL, body_weight DECIMAL,
+    telephone_mobile VARCHAR(20), telephone_emergency VARCHAR(256), email VARCHAR(100),
+    address VARCHAR(256), post_code VARCHAR(6), image_photo VARCHAR(255),
+    strengths TEXT, weaknesses TEXT, hobby TEXT, application_reasons TEXT,
+    last_salary_amount INTEGER, saving_goal_amount INTEGER,
+    is_ever_went_to_japan INTEGER, is_holding_passport INTEGER,
+    is_wear_eye_glasses INTEGER, explain_eye_condition VARCHAR(255),
+    is_color_blind INTEGER, explain_color_blind VARCHAR(255), is_right_handed INTEGER,
+    is_smoking INTEGER, is_drinking_alcohol INTEGER, is_tattooed INTEGER,
+    will_go_to_japan_after_finished INTEGER,
+    expected_work_upon_returning_to_japan VARCHAR(255),
+    acceptance_organization_id INTEGER, master_propinsi_id INTEGER,
+    master_kabupaten_id INTEGER, master_kecamatan_id INTEGER, master_kelurahan_id INTEGER,
     vocational_training_institution_id INTEGER, created DATETIME, modified DATETIME)');
 $conn->execute('CREATE TABLE candidate_educations (id INTEGER PRIMARY KEY, candidate_id INTEGER,
     master_strata_id INTEGER, master_propinsi_id INTEGER, master_kabupaten_id INTEGER,
@@ -56,14 +82,39 @@ $conn->execute('CREATE TABLE candidate_certifications (id INTEGER PRIMARY KEY, c
 $conn->execute('CREATE TABLE candidate_courses (id INTEGER PRIMARY KEY, candidate_id INTEGER,
     vocational_training_institution_id INTEGER, master_course_major_id INTEGER,
     course_year INTEGER, title VARCHAR(255), detail TEXT)');
-foreach (['master_genders', 'master_religions', 'master_marriage_statuses',
-    'master_blood_types', 'master_propinsis', 'master_stratas',
-    'master_family_connections', 'master_occupations'] as $table) {
+// The Japanese spelling is a column of its own on each of these, and the CV
+// prints it in preference to the Indonesian: master_genders.title_jpg,
+// master_family_connections.title_kanji, master_stratas.title_hiragana. A
+// fixture carrying only `title` cannot tell a CV that prints the wrong one
+// from a CV that prints the right one.
+foreach (['master_genders', 'master_religions', 'master_marriage_statuses'] as $table) {
+    $conn->execute("CREATE TABLE $table (id INTEGER PRIMARY KEY, title VARCHAR(100),
+        title_jpg VARCHAR(100))");
+}
+foreach (['master_blood_types', 'master_propinsis', 'master_kabupatens',
+    'master_kecamatans', 'master_kelurahans', 'master_occupations'] as $table) {
     $conn->execute("CREATE TABLE $table (id INTEGER PRIMARY KEY, title VARCHAR(100))");
 }
-$conn->insert('master_genders', ['id' => 1, 'title' => 'Male']);
-$conn->insert('master_stratas', ['id' => 3, 'title' => 'SMA']);
-$conn->insert('master_family_connections', ['id' => 2, 'title' => 'Father']);
+$conn->execute('CREATE TABLE master_stratas (id INTEGER PRIMARY KEY, title VARCHAR(100),
+    title_hiragana VARCHAR(100))');
+$conn->execute('CREATE TABLE master_family_connections (id INTEGER PRIMARY KEY,
+    title VARCHAR(100), title_eng VARCHAR(100), title_kanji VARCHAR(100))');
+$conn->execute('CREATE TABLE acceptance_organizations (id INTEGER PRIMARY KEY,
+    title VARCHAR(255))');
+
+$conn->insert('master_genders', ['id' => 1, 'title' => 'Male', 'title_jpg' => '男']);
+$conn->insert('master_religions', ['id' => 2, 'title' => 'Islam', 'title_jpg' => 'イスラム']);
+$conn->insert('master_marriage_statuses', ['id' => 1, 'title' => 'Single', 'title_jpg' => '未婚']);
+$conn->insert('master_blood_types', ['id' => 2, 'title' => 'B']);
+$conn->insert('master_propinsis', ['id' => 9, 'title' => 'JAWA BARAT']);
+$conn->insert('master_kabupatens', ['id' => 7, 'title' => 'KOTA BEKASI']);
+$conn->insert('master_kecamatans', ['id' => 5, 'title' => 'BEKASI TIMUR']);
+$conn->insert('master_kelurahans', ['id' => 4, 'title' => 'BEKASI JAYA']);
+$conn->insert('master_stratas', ['id' => 3, 'title' => 'SMA', 'title_hiragana' => '高等学校']);
+$conn->insert('master_family_connections',
+    ['id' => 2, 'title' => 'Father', 'title_eng' => 'Father', 'title_kanji' => '父']);
+$conn->insert('acceptance_organizations', ['id' => 6, 'title' => 'サン工業株式会社']);
+$conn->insert('master_occupations', ['id' => 11, 'title' => 'Petani']);
 
 // What the wizard's own forms post, spelled exactly as
 // webroot/js/wizard-dynamic-forms.js spells them.
@@ -74,7 +125,40 @@ $wizardData = [
     'birth_date' => '1998-02-23',
     'master_gender_id' => 1,
     'telephone_emergency' => '085624277298',
+    'telephone_mobile' => '0857 1452 4064',
     'address' => 'Jalan Satu',
+    // The rest of what the printed form asks for, so the render below is the
+    // whole document and not the half of it the wizard used to carry.
+    'candidate_code' => '001',
+    'name_katakana' => 'ビンタン ラマダン',
+    'birth_place_katakana' => 'ベカシ',
+    'master_religion_id' => 2,
+    'master_marriage_status_id' => 1,
+    'master_blood_type_id' => 2,
+    'acceptance_organization_id' => 6,
+    'master_propinsi_id' => 9,
+    'master_kabupaten_id' => 7,
+    'master_kecamatan_id' => 5,
+    'master_kelurahan_id' => 4,
+    'post_code' => '17112',
+    'body_height' => 171,
+    'body_weight' => 60,
+    'strengths' => '責任感がある',
+    'weaknesses' => '緊張しやすい',
+    'hobby' => '水泳',
+    'last_salary_amount' => 700000,
+    'saving_goal_amount' => 280000000,
+    'application_reasons' => 'ビジネス資本を増やします',
+    'expected_work_upon_returning_to_japan' => '3号（SANGO）/ 特定技能（TOKUTEI GINOU）',
+    'is_ever_went_to_japan' => 0,
+    'is_holding_passport' => 0,
+    'is_wear_eye_glasses' => 1,
+    'is_color_blind' => 0,
+    'is_right_handed' => 1,
+    'is_smoking' => 0,
+    'is_drinking_alcohol' => 0,
+    'is_tattooed' => 0,
+    'will_go_to_japan_after_finished' => 1,
     'educations' => [[
         'institution_name' => 'SMA Negeri 1 Karawang',
         'level' => 'SMA',
@@ -218,6 +302,77 @@ checkTrue('and the certificate', strpos($html, 'Las Dasar') !== false);
 // the styling rather than the buttons.
 check('with no toolbar, there being nothing yet to export',
     strpos($html, 'class="cvdoc-toolbar no-print"'), false);
+
+echo "  the form it is, block by block\n";
+// The LPK's own printed form, reproduced rather than reinvented: the paper in
+// the interviewer's hand and the page on the screen are the same document.
+foreach ([
+    'the letterhead' => 'LPK TRIMITRA MATAHARI MANDIRI',
+    'its logo' => 'lpk-trimitra-logo.png',
+    'the company it is written for' => '企業名',
+    'the address block' => '現住所',
+    'the confirmation points' => '確認事項',
+    'education' => '学歴',
+    'work history' => '職歴',
+    'the family' => '家族構成',
+] as $what => $needle) {
+    checkTrue($what . ' is on it', strpos($html, $needle) !== false);
+}
+
+echo "  and the values the form prints in Japanese\n";
+// Each of these is a reference row's Japanese column, not its Indonesian one.
+// A CV that printed Male, Islam and Single would pass every structural check
+// above and be the wrong document.
+foreach ([
+    'the gender' => '男',
+    'the religion' => 'イスラム',
+    'the marriage status' => '未婚',
+    'the family tie' => '父',
+] as $what => $needle) {
+    checkTrue($what . ' is printed in Japanese', strpos($html, $needle) !== false);
+}
+checkTrue('the blood type the preview used to lose', strpos($html, '>B<') !== false);
+checkTrue('the date the Japanese way', strpos($html, '1998年2月23日') !== false);
+checkTrue('the address, assembled from its four region rows',
+    strpos($html, 'BEKASI JAYA BEKASI TIMUR KOTA BEKASI JAWA BARAT 〒17112') !== false);
+checkTrue('money with its separators', strpos($html, 'Rp280,000,000') !== false);
+checkTrue('the receiving company, read across a connection boundary',
+    strpos($html, 'サン工業株式会社') !== false);
+// The occupation is a column. It used to reach the CV only inside the
+// detail line the wizard folds together, so the 職業 column of a document
+// going to Japan read "Relationship: Father | Occupation: Petani | Contact: ...".
+// In the cell itself, not only inside the detail line below it: the detail
+// sits in a span, so a match on the bare <td> is the column and nothing else.
+checkTrue('the occupation in its own column',
+    (bool)preg_match('/<td>\s*Petani\b/', $html));
+check('and the relationship not repeated into the detail beside it',
+    strpos($html, 'Relationship: Father'), false);
+check('nor the occupation repeated under itself',
+    substr_count($html, 'Petani'), 1);
+checkTrue('height and weight', strpos($html, '>171<') !== false && strpos($html, '>60<') !== false);
+// 有/無 and not 1/0, and a flag nobody answered stays blank rather than
+// printing as a "no" the candidate never gave.
+checkTrue('a yes is 有', strpos($html, '>有<') !== false);
+checkTrue('a no is 無', strpos($html, '>無<') !== false);
+
+echo "  a flag nobody answered\n";
+$unanswered = clone $candidate;
+$unanswered->set('is_holding_passport', null);
+$blank = renderClean('the CV still renders', 'cv_preview',
+    ['cvCandidate' => $unanswered], [
+        'controller' => 'Candidates', 'templatePath' => 'Candidates',
+        'url' => '/candidates/cv-preview',
+        'params' => ['controller' => 'Candidates', 'action' => 'cvPreview'],
+    ]);
+check('and one 無 fewer is printed, not one more',
+    substr_count($blank, '>無<'), substr_count($html, '>無<') - 1);
+
+echo "  the fixture against the real tables\n";
+checkFixtureColumns('candidates', $candidateColumns);
+checkFixtureColumns('master_genders', ['title', 'title_jpg']);
+checkFixtureColumns('master_family_connections', ['title', 'title_eng', 'title_kanji']);
+checkFixtureColumns('master_stratas', ['title', 'title_hiragana']);
+checkFixtureColumns('acceptance_organizations', ['title']);
 
 echo "  one CV, not two\n";
 $cv = file_get_contents(TMM_ROOT . '/src/Template/Candidates/cv.ctp');

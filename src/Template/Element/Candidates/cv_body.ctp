@@ -1,15 +1,23 @@
 <?php
 /**
- * The curriculum vitae itself: the layout a Japanese interviewer reads.
+ * The curriculum vitae itself: the form a Japanese interviewer reads.
  *
- * Lifted out of Candidates/cv.ctp unchanged so that the live preview beside
- * the registration wizard is the same document, not a second one drawn to
- * look like it. Two copies of a bilingual CV would be two copies to keep in
- * step, and this application has paid for that mistake several times over.
+ * This is the LPK's own printed form, reproduced rather than reinvented - the
+ * same blocks in the same order, each label in Japanese with the Indonesian
+ * underneath, because the two sides read it together across a table. The
+ * document that came before it was a generic bilingual CV of our own design,
+ * which meant the paper in the interviewer's hand and the page on the screen
+ * were two different documents.
+ *
+ * Every field on the form exists on the candidates table; nothing here is
+ * invented and nothing on the form is missing. Where a value is a reference
+ * row the Japanese spelling is preferred - master_genders.title_jpg,
+ * master_family_connections.title_kanji - and the Indonesian is shown when
+ * there is no Japanese.
  *
  * It renders an entity, saved or not: the wizard builds one in memory from
- * what is in the session, so nothing here needs to know where the candidate
- * came from.
+ * what is in the session, so nothing here may assume an association was
+ * loaded. Every one is reached through has().
  *
  * @var \App\View\AppView $this
  * @var \App\Model\Entity\Candidate $candidate
@@ -17,152 +25,199 @@
  *  preview has no record to export yet, so it leaves them off.
  */
 $showToolbar = isset($showToolbar) ? $showToolbar : false;
-$fmtDate = function ($value, $format = 'Y-m-d') {
+
+/**
+ * A date as a DateTime, whatever shape it arrives in. The wizard's entity
+ * carries whatever was typed into the form; a saved record carries a date
+ * object.
+ */
+$asDate = function ($value) {
     if (empty($value)) {
-        return '';
+        return null;
     }
-    return is_object($value) ? $value->format($format) : (string)$value;
+    if (is_object($value) && method_exists($value, 'format')) {
+        return $value;
+    }
+    try {
+        return new DateTime((string)$value);
+    } catch (Exception $e) {
+        return null;
+    }
+};
+
+// 2007年9月29日 - the form writes dates the Japanese way and nothing else.
+$jpDate = function ($value) use ($asDate) {
+    $date = $asDate($value);
+
+    return $date ? $date->format('Y') . '年' . $date->format('n') . '月' . $date->format('j') . '日' : '';
+};
+$jpMonth = function ($value) use ($asDate) {
+    $date = $asDate($value);
+
+    return $date ? $date->format('Y') . '年' . $date->format('n') . '月' : '';
 };
 
 $age = '';
-if (!empty($candidate->birth_date)) {
-    try {
-        $birth = new DateTime($fmtDate($candidate->birth_date));
-        $age = $birth->diff(new DateTime())->y;
-    } catch (Exception $e) {
-        $age = '';
-    }
+$birth = $asDate($candidate->birth_date);
+if ($birth) {
+    $age = $birth->diff(new DateTime())->y;
 }
 
-// Bilingual label helper: English (or current locale) on top, Japanese underneath,
-// so a Japanese interviewer can read the CV without a translator.
-$ja = [
-    'Curriculum Vitae'      => '履歴書',
-    'Basic Information'     => '基本情報',
-    'Identity Number'       => '身分証明書番号',
-    'Candidate Code'        => '候補者コード',
-    'Place / Date of Birth' => '出生地・生年月日',
-    'years'                 => '歳',
-    'Gender'                => '性別',
-    'Religion'               => '宗教',
-    'Marriage Status'       => '婚姻状況',
-    'Blood Type'            => '血液型',
-    'Height / Weight'       => '身長・体重',
-    'Contact Information'   => '連絡先情報',
-    'Mobile Phone'          => '携帯電話番号',
-    'Emergency Contact'     => '緊急連絡先',
-    'Email'                 => 'メールアドレス',
-    'Address'                => '住所',
-    'Education History'     => '学歴',
-    'No.'                   => '番号',
-    'School / College'      => '学校名',
-    'Major'                  => '専攻',
-    'Entry'                  => '入学',
-    'Graduated'              => '卒業',
-    'Work Experience'       => '職歴',
-    'Company'                => '会社名',
-    'Position'               => '役職',
-    'Period'                 => '期間',
-    'Job Detail'             => '業務内容',
-    'Certifications'        => '資格',
-    'Certification'         => '資格名',
-    'Institution'            => '取得機関',
-    'Date'                   => '取得日',
-    'Detail'                 => '詳細',
-    'Courses & Training'    => '研修・コース',
-    'Course'                 => 'コース名',
-    'Year'                   => '年',
-    'Family Information'    => '家族構成',
-    'Name'                   => '氏名',
-    'Age'                    => '年齢',
-    'Additional Information' => 'その他の情報',
-    'Strengths'              => '長所',
-    'Weaknesses'             => '短所',
-    'Hobby'                  => '趣味',
-    'Application Reasons'   => '志望動機',
-];
-$bl = function ($label) use ($ja) {
-    $jaText = $ja[$label] ?? '';
-    $en = __($label);
-    if ($jaText === '') {
-        return h($en);
+/**
+ * 有 / 無, and a blank for a flag nobody has answered yet.
+ *
+ * null is not "no". A candidate whose passport question was never asked must
+ * not print as a candidate who has no passport.
+ */
+$yesNo = function ($flag, $yes = '有', $no = '無') {
+    if ($flag === null || $flag === '') {
+        return '';
     }
-    return h($en) . '<br><span class="cvdoc-ja">' . h($jaText) . '</span>';
+
+    return $flag ? $yes : $no;
 };
+
+$money = function ($amount) {
+    if ($amount === null || $amount === '') {
+        return '';
+    }
+
+    return 'Rp' . number_format((float)$amount, 0, ',', ',');
+};
+
+// 171, not 171.00; 60, not 6. body_height and body_weight are decimal
+// columns holding whole numbers, and trimming trailing zeros off a string
+// that has no decimal point eats the last digit of every round number.
+$number = function ($value) {
+    if ($value === null || $value === '') {
+        return '';
+    }
+    $float = (float)$value;
+    if ($float == (int)$float) {
+        return (string)(int)$float;
+    }
+
+    return rtrim(rtrim(number_format($float, 2, '.', ''), '0'), '.');
+};
+
+/**
+ * A reference row's label, Japanese first.
+ *
+ * @param \Cake\Datasource\EntityInterface|null $row The master row.
+ * @param array $fields The columns to try, in order.
+ * @return string
+ */
+$refLabel = function ($row, array $fields = ['title_jpg', 'title']) {
+    if (!$row) {
+        return '';
+    }
+    foreach ($fields as $field) {
+        $value = $row->get($field);
+        if ($value !== null && $value !== '') {
+            return (string)$value;
+        }
+    }
+
+    return '';
+};
+
+// An association the wizard's unsaved entity may simply not have.
+$assoc = function ($entity, $property) {
+    if (!$entity || !$entity->has($property)) {
+        return null;
+    }
+
+    return $entity->get($property);
+};
+
+// Japanese label above, Indonesian below, as the form prints them.
+$label = function ($ja, $id) {
+    $out = '';
+    if ($ja !== '') {
+        $out .= '<span class="cvdoc-ja">' . h($ja) . '</span>';
+    }
+    if ($id !== '') {
+        $out .= '<span class="cvdoc-id">' . h(__($id)) . '</span>';
+    }
+
+    return $out;
+};
+
+$rows = function ($value) {
+    return is_array($value) ? $value : [];
+};
+$educations = $rows($assoc($candidate, 'candidate_educations'));
+$experiences = $rows($assoc($candidate, 'candidate_experiences'));
+$families = $rows($assoc($candidate, 'candidate_families'));
+// The printed form has no row for these two, and the wizard collects them.
+// Printed after the form rather than dropped, and only when there is
+// something to print, so a candidate with neither gets exactly the form.
+$certifications = $rows($assoc($candidate, 'candidate_certifications'));
+$courses = $rows($assoc($candidate, 'candidate_courses'));
+
+// JL.KH. AGUS SALIM NO.34 ... KOTA BEKASI JAWA BARAT 〒17112
+$addressParts = [];
+foreach (['address'] as $field) {
+    if (!empty($candidate->get($field))) {
+        $addressParts[] = $candidate->get($field);
+    }
+}
+foreach (['master_kelurahan', 'master_kecamatan', 'master_kabupaten', 'master_propinsi'] as $property) {
+    $region = $assoc($candidate, $property);
+    if ($region && $region->get('title')) {
+        $addressParts[] = $region->get('title');
+    }
+}
+$address = implode(' ', $addressParts);
+if (!empty($candidate->post_code)) {
+    $address = trim($address . ' 〒' . $candidate->post_code);
+}
+
+$company = $assoc($candidate, 'acceptance_organization');
 ?>
 <style>
-.cvdoc { max-width: 900px; margin: 0 auto; background: #fff; color: #2c3e50; font-size: 11pt; }
+.cvdoc { max-width: 900px; margin: 0 auto; background: #fff; color: #000; font-size: 9.5pt;
+    font-family: "Noto Sans JP", "Yu Gothic", "Meiryo", Arial, sans-serif; }
 .cvdoc-toolbar { text-align: right; margin-bottom: 14px; }
 .cvdoc-toolbar a {
-    display: inline-block;
-    background: #00BCD4;
-    color: #fff;
-    border-radius: 6px;
-    padding: 8px 18px;
-    margin-left: 8px;
-    font-size: 10.5pt;
-    font-weight: 700;
-    text-decoration: none;
+    display: inline-block; background: #0071bc; color: #fff; border-radius: 6px;
+    padding: 8px 18px; margin-left: 8px; font-size: 10pt; font-weight: 700; text-decoration: none;
 }
 .cvdoc-toolbar a.cvdoc-btn-light { background: #6c757d; }
-.cvdoc-toolbar a.cvdoc-btn-update { background: #fb8c00; }
+.cvdoc-toolbar a.cvdoc-btn-update { background: #f58220; }
 .cvdoc-toolbar a.cvdoc-btn-update i { margin-right: 4px; }
-.cvdoc-header {
-    display: flex;
-    gap: 24px;
-    align-items: center;
-    border-bottom: 3px solid #00BCD4;
-    padding-bottom: 18px;
-    margin-bottom: 20px;
-}
-.cvdoc-header img, .cvdoc-photo-placeholder {
-    width: 120px;
-    height: 150px;
-    object-fit: cover;
-    border: 1px solid #cfd8dc;
-}
-.cvdoc-photo-placeholder {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #b0bec5;
-    font-size: 36pt;
-    background: #f5f7f8;
-}
-.cvdoc-header h1 { margin: 0; font-size: 20pt; letter-spacing: .5px; }
-.cvdoc-header .cvdoc-katakana { font-size: 12pt; color: #607d8b; margin-top: 2px; }
-.cvdoc-header .cvdoc-subtitle { font-size: 10pt; color: #90a4ae; margin-top: 8px; text-transform: uppercase; letter-spacing: 1.5px; }
-.cvdoc h2 {
-    font-size: 12.5pt;
-    color: #0097A7;
-    border-bottom: 2px solid #e0f2f4;
-    padding-bottom: 5px;
-    margin: 22px 0 10px 0;
-}
-.cvdoc table.cvdoc-table { width: 100%; border-collapse: collapse; table-layout: fixed; margin: 0; }
-.cvdoc table.cvdoc-table th {
-    background: #f1fafb;
-    color: #455a64;
-    border: 1px solid #dde7ea;
-    padding: 7px 10px;
-    text-align: left;
-    font-size: 9.5pt;
-    font-weight: 700;
-}
-.cvdoc table.cvdoc-table td {
-    border: 1px solid #e4ecef;
-    padding: 7px 10px;
-    font-size: 10pt;
-    background: #fff;
-    word-wrap: break-word;
-}
-.cvdoc table.cvdoc-kv th { width: 30%; }
-.cvdoc-ja { display: block; font-size: 8.5pt; color: #78909c; font-weight: 500; margin-top: 1px; }
-.cvdoc h2 .cvdoc-ja { display: inline; font-size: 10pt; color: #4dd0e1; margin: 0 0 0 8px; }
+
+.cvdoc-letterhead { display: flex; align-items: center; gap: 18px; padding: 4px 0 10px 0; }
+.cvdoc-letterhead-logo { width: 110px; height: auto; flex: 0 0 auto; }
+.cvdoc-letterhead-text { flex: 1 1 auto; text-align: center; line-height: 1.35; font-size: 9pt; }
+.cvdoc-letterhead-name { font-size: 15pt; font-weight: 700; letter-spacing: .5px; }
+.cvdoc-rule { height: 3px; background: #f58220; border-bottom: 2px solid #0071bc; margin-bottom: 10px; }
+
+.cvdoc-company { margin: 6px 0 10px 0; line-height: 1.4; }
+.cvdoc-company .cvdoc-company-ja { font-weight: 700; }
+
+.cvdoc table { width: 100%; border-collapse: collapse; table-layout: fixed; margin-bottom: 10px; }
+.cvdoc th, .cvdoc td { border: 1px solid #000; padding: 3px 5px; vertical-align: middle;
+    word-wrap: break-word; }
+.cvdoc th { background: #fff; font-weight: 400; text-align: left; }
+.cvdoc .cvdoc-ja { display: block; font-size: 9pt; }
+.cvdoc .cvdoc-id { display: block; font-size: 7.5pt; color: #333; }
+.cvdoc .cvdoc-value { font-weight: 700; }
+.cvdoc .cvdoc-sub { display: block; font-weight: 400; font-size: 8.5pt; }
+.cvdoc .cvdoc-section { background: #efefef; text-align: center; font-weight: 700; font-size: 10pt; }
+.cvdoc .cvdoc-unit { width: 34px; text-align: center; }
+.cvdoc .cvdoc-centre { text-align: center; }
+.cvdoc-photo { width: 118px; text-align: center; padding: 4px; }
+.cvdoc-photo img { width: 108px; height: 140px; object-fit: cover; }
+.cvdoc-photo-empty { width: 108px; height: 140px; background: #f2f2f2; display: inline-block; }
+.cvdoc-no { font-size: 15pt; font-weight: 700; text-align: center; }
+.cvdoc-empty-row td { height: 20px; }
+
 @media print {
-    .cvdoc-toolbar { display: none !important; }
-    .cvdoc h2 { page-break-after: avoid; }
+    .cvdoc-toolbar, .no-print { display: none !important; }
+    .cvdoc { max-width: none; font-size: 9pt; }
     .cvdoc table { page-break-inside: auto; }
+    .cvdoc tr { page-break-inside: avoid; }
 }
 </style>
 
@@ -176,206 +231,305 @@ $bl = function ($label) use ($ja) {
     </div>
 <?php endif; ?>
 
-    <!-- Header -->
-    <div class="cvdoc-header">
-        <?php
-        // Only render the photo when the file really exists (some records
-        // reference photos that were never uploaded to this server)
-        $photoExists = !empty($candidate->image_photo) && file_exists(WWW_ROOT . $candidate->image_photo);
-        ?>
-        <?php if ($photoExists): ?>
-            <img src="<?= $this->Url->build('/' . h($candidate->image_photo)) ?>" alt="<?= h($candidate->name) ?>">
-        <?php else: ?>
-            <div class="cvdoc-photo-placeholder">&#9786;</div>
-        <?php endif; ?>
-        <div>
-            <div class="cvdoc-subtitle"><?= __('Curriculum Vitae') ?> / <?= $ja['Curriculum Vitae'] ?></div>
-            <h1><?= h($candidate->name) ?></h1>
-            <?php if (!empty($candidate->name_katakana)): ?>
-                <div class="cvdoc-katakana"><?= h($candidate->name_katakana) ?></div>
-            <?php endif; ?>
-        </div>
+    <?= $this->element('Candidates/cv_letterhead') ?>
+
+    <div class="cvdoc-company">
+        <span class="cvdoc-company-ja">企業名：<?= h($refLabel($company, ['title'])) ?></span><br>
+        <?= __('Nama Calon Perusahaan') ?>: <?= h($refLabel($company, ['title'])) ?>
     </div>
 
-    <!-- Basic Information -->
-    <h2><?= __('Basic Information') ?> <span class="cvdoc-ja">/ <?php echo $ja["Basic Information"]; ?></span></h2>
-    <table class="cvdoc-table cvdoc-kv">
-        <tr><th><?= $bl('Identity Number') ?></th><td><?= h($candidate->identity_number) ?></td></tr>
-        <?php if (!empty($candidate->candidate_code)): ?>
-        <tr><th><?= $bl('Candidate Code') ?></th><td><?= h($candidate->candidate_code) ?></td></tr>
-        <?php endif; ?>
-        <tr><th><?= $bl('Place / Date of Birth') ?></th><td><?= h($candidate->birth_place) ?>, <?= h($fmtDate($candidate->birth_date)) ?><?= $age !== '' ? ' (' . $age . ' ' . __('years') . ')' : '' ?></td></tr>
-        <tr><th><?= $bl('Gender') ?></th><td><?= !empty($candidate->master_gender) ? h($candidate->master_gender->title) : '' ?></td></tr>
-        <tr><th><?= $bl('Religion') ?></th><td><?= !empty($candidate->master_religion) ? h($candidate->master_religion->title) : '' ?></td></tr>
-        <tr><th><?= $bl('Marriage Status') ?></th><td><?= !empty($candidate->master_marriage_status) ? h($candidate->master_marriage_status->title) : '' ?></td></tr>
-        <?php if (!empty($candidate->master_blood_type)): ?>
-        <tr><th><?= $bl('Blood Type') ?></th><td><?= h($candidate->master_blood_type->title) ?></td></tr>
-        <?php endif; ?>
-        <?php if (!empty($candidate->body_height) || !empty($candidate->body_weight)): ?>
-        <tr><th><?= $bl('Height / Weight') ?></th><td><?= !empty($candidate->body_height) ? h($candidate->body_height) . ' cm' : '-' ?> / <?= !empty($candidate->body_weight) ? h($candidate->body_weight) . ' kg' : '-' ?></td></tr>
-        <?php endif; ?>
+    <!-- Identity: photo, and the two columns of the form's head block -->
+    <table class="cvdoc-identity">
+        <colgroup>
+            <col style="width: 124px"><col style="width: 15%"><col><col style="width: 21%"><col style="width: 16%"><col style="width: 34px">
+        </colgroup>
+        <tr>
+            <td class="cvdoc-photo" rowspan="9">
+                <?php
+                // Only when the file is really on this server: several records
+                // name a photo that was never uploaded.
+                $photo = !empty($candidate->image_photo) && file_exists(WWW_ROOT . $candidate->image_photo)
+                    ? $candidate->image_photo : null;
+                ?>
+                <?php if ($photo): ?>
+                    <img src="<?= $this->Url->build('/' . h($photo)) ?>" alt="<?= h($candidate->name) ?>">
+                <?php else: ?>
+                    <span class="cvdoc-photo-empty"></span>
+                <?php endif; ?>
+            </td>
+            <th><?= $label('研修生No.', '') ?></th>
+            <td class="cvdoc-no"><?= h($candidate->candidate_code) ?></td>
+            <th><?= $label('性別', 'Jenis Kelamin') ?></th>
+            <td class="cvdoc-centre cvdoc-value" colspan="2"><?= h($refLabel($assoc($candidate, 'master_gender'))) ?></td>
+        </tr>
+        <tr>
+            <th rowspan="3"><?= $label('名前', 'Nama') ?></th>
+            <td rowspan="3" class="cvdoc-value">
+                <?= h($candidate->name) ?>
+                <?php if (!empty($candidate->name_katakana)): ?>
+                    <span class="cvdoc-sub"><?= h($candidate->name_katakana) ?></span>
+                <?php endif; ?>
+            </td>
+            <th><?= $label('年齢', 'Usia') ?></th>
+            <td class="cvdoc-centre cvdoc-value"><?= h($age) ?></td>
+            <td class="cvdoc-unit">歳</td>
+        </tr>
+        <tr>
+            <th><?= $label('身長', 'Tinggi Badan') ?></th>
+            <td class="cvdoc-centre cvdoc-value"><?= h($number($candidate->body_height)) ?></td>
+            <td class="cvdoc-unit">CM</td>
+        </tr>
+        <tr>
+            <th><?= $label('体重', 'Berat Badan') ?></th>
+            <td class="cvdoc-centre cvdoc-value"><?= h($number($candidate->body_weight)) ?></td>
+            <td class="cvdoc-unit">KG</td>
+        </tr>
+        <tr>
+            <th rowspan="2"><?= $label('生年月日', 'Tanggal Lahir') ?></th>
+            <td rowspan="2" class="cvdoc-value"><?= h($jpDate($candidate->birth_date)) ?></td>
+            <th><?= $label('血液型', 'Golongan Darah') ?></th>
+            <td class="cvdoc-centre cvdoc-value"><?= h($refLabel($assoc($candidate, 'master_blood_type'))) ?></td>
+            <td class="cvdoc-unit">型</td>
+        </tr>
+        <tr>
+            <th><?= $label('配偶者', 'Status Pernikahan') ?></th>
+            <td class="cvdoc-centre cvdoc-value" colspan="2"><?= h($refLabel($assoc($candidate, 'master_marriage_status'))) ?></td>
+        </tr>
+        <tr>
+            <th rowspan="3"><?= $label('出身地', 'Tempat Lahir') ?></th>
+            <td rowspan="3" class="cvdoc-value">
+                <?= h($candidate->birth_place) ?>
+                <?php if (!empty($candidate->birth_place_katakana)): ?>
+                    <span class="cvdoc-sub"><?= h($candidate->birth_place_katakana) ?></span>
+                <?php endif; ?>
+            </td>
+            <th><?= $label('宗教', 'Agama') ?></th>
+            <td class="cvdoc-centre cvdoc-value" colspan="2"><?= h($refLabel($assoc($candidate, 'master_religion'))) ?></td>
+        </tr>
+        <tr>
+            <th><?= $label('訪日経験', 'Pernah ke Jepang') ?></th>
+            <td class="cvdoc-centre cvdoc-value" colspan="2"><?= h($yesNo($candidate->is_ever_went_to_japan)) ?></td>
+        </tr>
+        <tr>
+            <th><?= $label('旅券の有無', 'Pernah Memiliki Paspor') ?></th>
+            <td class="cvdoc-centre cvdoc-value" colspan="2"><?= h($yesNo($candidate->is_holding_passport)) ?></td>
+        </tr>
     </table>
 
-    <!-- Contact Information -->
-    <h2><?= __('Contact Information') ?> <span class="cvdoc-ja">/ <?php echo $ja["Contact Information"]; ?></span></h2>
-    <table class="cvdoc-table cvdoc-kv">
-        <?php if (!empty($candidate->telephone_mobile)): ?>
-        <tr><th><?= $bl('Mobile Phone') ?></th><td><?= h($candidate->telephone_mobile) ?></td></tr>
-        <?php endif; ?>
-        <tr><th><?= $bl('Emergency Contact') ?></th><td><?= h($candidate->telephone_emergency) ?></td></tr>
-        <?php if (!empty($candidate->email)): ?>
-        <tr><th><?= $bl('Email') ?></th><td><?= h($candidate->email) ?></td></tr>
-        <?php endif; ?>
-        <tr><th><?= $bl('Address') ?></th><td><?= h($candidate->address) ?><?= !empty($candidate->post_code) ? ' (' . h($candidate->post_code) . ')' : '' ?></td></tr>
+    <table>
+        <tr><td class="cvdoc-section"><?= $label('現住所', 'Alamat Rumah') ?></td></tr>
+        <tr><td class="cvdoc-centre"><?= h($address) ?></td></tr>
+        <tr>
+            <td class="cvdoc-centre">
+                <strong>No.HP（携帯電話番号）</strong>&nbsp;&nbsp;<?= h($candidate->telephone_mobile) ?>
+            </td>
+        </tr>
     </table>
 
-    <!-- Education History -->
-    <?php if (!empty($candidate->candidate_educations)): ?>
-    <h2><?= __('Education History') ?> <span class="cvdoc-ja">/ <?php echo $ja["Education History"]; ?></span></h2>
-    <table class="cvdoc-table">
-        <thead>
-            <tr>
-                <th style="width: 5%;"><?= $bl('No.') ?></th>
-                <th style="width: 35%;"><?= $bl('School / College') ?></th>
-                <th style="width: 25%;"><?= $bl('Major') ?></th>
-                <th style="width: 17%;"><?= $bl('Entry') ?></th>
-                <th style="width: 18%;"><?= $bl('Graduated') ?></th>
-            </tr>
-        </thead>
-        <tbody>
-            <?php foreach ($candidate->candidate_educations as $index => $edu): ?>
-            <tr>
-                <td><?= $index + 1 ?></td>
-                <td><?= h($edu->college_name) ?></td>
-                <td><?= h($edu->college_major) ?></td>
-                <td><?= h($fmtDate($edu->college_entry_date)) ?></td>
-                <td><?= h($fmtDate($edu->college_graduate_date)) ?></td>
-            </tr>
-            <?php endforeach; ?>
-        </tbody>
+    <!-- 確認事項 -->
+    <table>
+        <colgroup><col style="width: 22%"><col style="width: 28%"><col style="width: 22%"><col></colgroup>
+        <tr><td class="cvdoc-section" colspan="4"><?= $label('確認事項', 'Poin konfirmasi') ?></td></tr>
+        <tr>
+            <th><?= $label('長所', 'Kelebihan') ?></th>
+            <td class="cvdoc-centre"><?= h($candidate->strengths) ?></td>
+            <th><?= $label('短所', 'Kekurangan') ?></th>
+            <td class="cvdoc-centre"><?= h($candidate->weaknesses) ?></td>
+        </tr>
+        <tr>
+            <th><?= $label('趣味', 'Hobi') ?></th>
+            <td class="cvdoc-centre"><?= h($candidate->hobby) ?></td>
+            <th><?= $label('視力', 'Penglihatan (minus di)') ?></th>
+            <td class="cvdoc-centre">
+                <?= h($yesNo($candidate->is_wear_eye_glasses)) ?>
+                <?php if (!empty($candidate->explain_eye_condition)): ?>
+                    <span class="cvdoc-sub"><?= h($candidate->explain_eye_condition) ?></span>
+                <?php endif; ?>
+            </td>
+        </tr>
+        <tr>
+            <th><?= $label('色覚異常', 'Buta warna/tidak') ?></th>
+            <td class="cvdoc-centre">
+                <?= h($yesNo($candidate->is_color_blind)) ?>
+                <?php if (!empty($candidate->explain_color_blind)): ?>
+                    <span class="cvdoc-sub"><?= h($candidate->explain_color_blind) ?></span>
+                <?php endif; ?>
+            </td>
+            <th><?= $label('利き手', 'Tangan yang dominan') ?></th>
+            <td class="cvdoc-centre"><?= h($yesNo($candidate->is_right_handed, '右', '左')) ?></td>
+        </tr>
+        <tr>
+            <th><?= $label('喫煙', 'Merokok/tidak') ?></th>
+            <td class="cvdoc-centre"><?= h($yesNo($candidate->is_smoking, '喫煙', '禁煙')) ?></td>
+            <th><?= $label('刺青', 'Bertato/tidak') ?></th>
+            <td class="cvdoc-centre"><?= h($yesNo($candidate->is_tattooed)) ?></td>
+        </tr>
+        <tr>
+            <th><?= $label('飲酒', 'Minum alkohol/tidak') ?></th>
+            <td class="cvdoc-centre"><?= h($yesNo($candidate->is_drinking_alcohol)) ?></td>
+            <th><?= $label('現在の収入', 'Jumlah pendapatan terakhir') ?></th>
+            <td class="cvdoc-centre"><?= h($money($candidate->last_salary_amount)) ?></td>
+        </tr>
+        <tr>
+            <th colspan="2"><?= $label('3年間日本での貯金目標', 'Target tabungan 3 thn di Jepang') ?></th>
+            <td class="cvdoc-centre" colspan="2"><?= h($money($candidate->saving_goal_amount)) ?></td>
+        </tr>
+        <tr>
+            <th colspan="2"><?= $label('技能実習に行く目的', 'Tujuan magang ke Jepang') ?></th>
+            <td colspan="2"><?= h($candidate->application_reasons) ?></td>
+        </tr>
+        <tr>
+            <th><?= $label('実習3年間終了後日本に戻って、働く希望', 'Selesai 3 tahun magang, ada/tidak keinginan kembali bekerja ke Jepang') ?></th>
+            <td class="cvdoc-centre"><?= h($yesNo($candidate->will_go_to_japan_after_finished)) ?></td>
+            <th><?= $label('「有」の場合、何をしたい？', 'Jika jawab "Ya", sebagai apa?') ?></th>
+            <td class="cvdoc-centre"><?= h($candidate->expected_work_upon_returning_to_japan) ?></td>
+        </tr>
     </table>
-    <?php endif; ?>
 
-    <!-- Work Experience -->
-    <?php if (!empty($candidate->candidate_experiences)): ?>
-    <h2><?= __('Work Experience') ?> <span class="cvdoc-ja">/ <?php echo $ja["Work Experience"]; ?></span></h2>
-    <table class="cvdoc-table">
-        <thead>
+    <!-- 学歴 -->
+    <table>
+        <colgroup><col style="width: 30%"><col style="width: 35%"><col></colgroup>
+        <tr><td class="cvdoc-section" colspan="3"><?= $label('学歴', 'Pendidikan') ?></td></tr>
+        <tr>
+            <th class="cvdoc-centre"><?= $label('期間年', 'Tahun') ?></th>
+            <th class="cvdoc-centre"><?= $label('学校名', 'Nama Sekolah') ?></th>
+            <th class="cvdoc-centre"><?= $label('専攻', 'Jurusan') ?></th>
+        </tr>
+        <?php foreach ($educations as $education): ?>
             <tr>
-                <th style="width: 5%;"><?= $bl('No.') ?></th>
-                <th style="width: 30%;"><?= $bl('Company') ?></th>
-                <th style="width: 22%;"><?= $bl('Position') ?></th>
-                <th style="width: 15%;"><?= $bl('Period') ?></th>
-                <th style="width: 28%;"><?= $bl('Job Detail') ?></th>
+                <td class="cvdoc-centre">
+                    <?php
+                    // The wizard asks only when they finished, so half of
+                    // these have one end. A lone dash in front of a year
+                    // reads as a mistake rather than as an unknown.
+                    $period = array_filter([
+                        $jpMonth($education->college_entry_date),
+                        $jpMonth($education->college_graduate_date),
+                    ]);
+                    ?>
+                    <?= h(implode(' - ', $period)) ?>
+                </td>
+                <td><?= h($education->college_name) ?></td>
+                <td>
+                    <?= h($education->college_major) ?>
+                    <?php $strata = $assoc($education, 'master_strata'); ?>
+                    <?php if ($strata): ?>
+                        <span class="cvdoc-sub"><?= h($refLabel($strata, ['title_hiragana', 'title'])) ?></span>
+                    <?php endif; ?>
+                </td>
             </tr>
-        </thead>
-        <tbody>
-            <?php foreach ($candidate->candidate_experiences as $index => $exp): ?>
-            <tr>
-                <td><?= $index + 1 ?></td>
-                <td><?= h($exp->company_name) ?></td>
-                <td><?= h($exp->title) ?></td>
-                <td><?= h($exp->employment_start_year) ?><?= ($exp->employment_start_year || $exp->employment_end_year) ? ' - ' : '' ?><?= h($exp->employment_end_year) ?></td>
-                <td><?= h($exp->job_detail) ?></td>
-            </tr>
-            <?php endforeach; ?>
-        </tbody>
+        <?php endforeach; ?>
+        <?php for ($i = count($educations); $i < 3; $i++): ?>
+            <tr class="cvdoc-empty-row"><td></td><td></td><td></td></tr>
+        <?php endfor; ?>
     </table>
-    <?php endif; ?>
 
-    <!-- Certifications -->
-    <?php if (!empty($candidate->candidate_certifications)): ?>
-    <h2><?= __('Certifications') ?> <span class="cvdoc-ja">/ <?php echo $ja["Certifications"]; ?></span></h2>
-    <table class="cvdoc-table">
-        <thead>
+    <!-- 職歴 -->
+    <table>
+        <colgroup><col style="width: 30%"><col style="width: 35%"><col></colgroup>
+        <tr><td class="cvdoc-section" colspan="3"><?= $label('職歴', 'Pengalaman kerja') ?></td></tr>
+        <tr>
+            <th class="cvdoc-centre"><?= $label('期間', 'Tahun') ?></th>
+            <th class="cvdoc-centre"><?= $label('会社名', 'Nama Perusahaan') ?></th>
+            <th class="cvdoc-centre"><?= $label('職種', 'Jenis kerja') ?></th>
+        </tr>
+        <?php foreach ($experiences as $experience): ?>
             <tr>
-                <th style="width: 5%;"><?= $bl('No.') ?></th>
-                <th style="width: 35%;"><?= $bl('Certification') ?></th>
-                <th style="width: 30%;"><?= $bl('Institution') ?></th>
-                <th style="width: 15%;"><?= $bl('Date') ?></th>
-                <th style="width: 15%;"><?= $bl('Detail') ?></th>
+                <td class="cvdoc-centre">
+                    <?php
+                    // year(4) columns: the table keeps the year and not the
+                    // month, so the month the printed form shows is not ours
+                    // to write.
+                    $period = array_filter([
+                        $experience->employment_start_year ? $experience->employment_start_year . '年' : '',
+                        $experience->employment_end_year ? $experience->employment_end_year . '年' : '',
+                    ]);
+                    ?>
+                    <?= h(implode(' - ', $period)) ?>
+                </td>
+                <td><?= h($experience->company_name) ?></td>
+                <td>
+                    <?= h($experience->title) ?>
+                    <?php if (!empty($experience->job_detail)): ?>
+                        <span class="cvdoc-sub"><?= h($experience->job_detail) ?></span>
+                    <?php endif; ?>
+                </td>
             </tr>
-        </thead>
-        <tbody>
-            <?php foreach ($candidate->candidate_certifications as $index => $cert): ?>
-            <tr>
-                <td><?= $index + 1 ?></td>
-                <td><?= h($cert->title) ?></td>
-                <td><?= h($cert->institution_name) ?></td>
-                <td><?= h($fmtDate($cert->certification_date)) ?></td>
-                <td><?= h($cert->detail) ?></td>
-            </tr>
-            <?php endforeach; ?>
-        </tbody>
+        <?php endforeach; ?>
+        <?php for ($i = count($experiences); $i < 2; $i++): ?>
+            <tr class="cvdoc-empty-row"><td></td><td></td><td></td></tr>
+        <?php endfor; ?>
     </table>
-    <?php endif; ?>
 
-    <!-- Courses & Training -->
-    <?php if (!empty($candidate->candidate_courses)): ?>
-    <h2><?= __('Courses & Training') ?> <span class="cvdoc-ja">/ <?php echo $ja["Courses & Training"]; ?></span></h2>
-    <table class="cvdoc-table">
-        <thead>
+    <!-- 家族構成 -->
+    <table>
+        <colgroup><col style="width: 18%"><col style="width: 32%"><col style="width: 12%"><col></colgroup>
+        <tr><td class="cvdoc-section" colspan="4"><?= $label('家族構成', 'Susunan Keluarga Kandung') ?></td></tr>
+        <tr>
+            <th class="cvdoc-centre"><?= $label('続柄', 'Urutan Keluarga') ?></th>
+            <th class="cvdoc-centre"><?= $label('氏名', 'Nama Anggota Keluarga') ?></th>
+            <th class="cvdoc-centre"><?= $label('年齢', 'Usia') ?></th>
+            <th class="cvdoc-centre"><?= $label('職業', 'Pekerjaan') ?></th>
+        </tr>
+        <?php foreach ($families as $family): ?>
             <tr>
-                <th style="width: 5%;"><?= $bl('No.') ?></th>
-                <th style="width: 40%;"><?= $bl('Course') ?></th>
-                <th style="width: 15%;"><?= $bl('Year') ?></th>
-                <th style="width: 40%;"><?= $bl('Detail') ?></th>
+                <td class="cvdoc-centre cvdoc-value">
+                    <?= h($refLabel($assoc($family, 'master_family_connection'), ['title_kanji', 'title'])) ?>
+                </td>
+                <td><?= h($family->name) ?></td>
+                <td class="cvdoc-centre"><?= h($family->age !== null && $family->age !== '' ? $family->age . '歳' : '') ?></td>
+                <td>
+                    <?php
+                    // The occupation row when it resolved, and the free text
+                    // only when it did not. Printing both repeats the
+                    // occupation, because the wizard writes it into the
+                    // detail line as well for the installations whose
+                    // master_occupations does not carry what was typed.
+                    $occupation = $refLabel($assoc($family, 'master_occupation'), ['title']);
+                    ?>
+                    <?= h($occupation !== '' ? $occupation : (string)$family->detail) ?>
+                </td>
             </tr>
-        </thead>
-        <tbody>
-            <?php foreach ($candidate->candidate_courses as $index => $course): ?>
-            <tr>
-                <td><?= $index + 1 ?></td>
-                <td><?= h($course->title) ?></td>
-                <td><?= h($course->course_year) ?></td>
-                <td><?= h($course->detail) ?></td>
-            </tr>
-            <?php endforeach; ?>
-        </tbody>
+        <?php endforeach; ?>
+        <?php for ($i = count($families); $i < 3; $i++): ?>
+            <tr class="cvdoc-empty-row"><td></td><td></td><td></td><td></td></tr>
+        <?php endfor; ?>
     </table>
-    <?php endif; ?>
 
-    <!-- Family Information -->
-    <?php if (!empty($candidate->candidate_families)): ?>
-    <h2><?= __('Family Information') ?> <span class="cvdoc-ja">/ <?php echo $ja["Family Information"]; ?></span></h2>
-    <table class="cvdoc-table">
-        <thead>
+<?php if ($certifications || $courses): ?>
+    <!-- 資格・研修: not on the printed form, and not thrown away either -->
+    <table>
+        <colgroup><col style="width: 18%"><col style="width: 32%"><col></colgroup>
+        <tr><td class="cvdoc-section" colspan="3"><?= $label('資格・研修', 'Sertifikat & Pelatihan') ?></td></tr>
+        <tr>
+            <th class="cvdoc-centre"><?= $label('取得日', 'Tanggal') ?></th>
+            <th class="cvdoc-centre"><?= $label('資格名・コース名', 'Nama Sertifikat / Kursus') ?></th>
+            <th class="cvdoc-centre"><?= $label('取得機関', 'Lembaga') ?></th>
+        </tr>
+        <?php foreach ($certifications as $certification): ?>
             <tr>
-                <th style="width: 5%;"><?= $bl('No.') ?></th>
-                <th style="width: 35%;"><?= $bl('Name') ?></th>
-                <th style="width: 10%;"><?= $bl('Age') ?></th>
-                <th style="width: 50%;"><?= $bl('Detail') ?></th>
+                <td class="cvdoc-centre"><?= h($jpMonth($certification->certification_date)) ?></td>
+                <td>
+                    <?= h($certification->title) ?>
+                    <?php if (!empty($certification->detail)): ?>
+                        <span class="cvdoc-sub"><?= h($certification->detail) ?></span>
+                    <?php endif; ?>
+                </td>
+                <td><?= h($certification->institution_name) ?></td>
             </tr>
-        </thead>
-        <tbody>
-            <?php foreach ($candidate->candidate_families as $index => $fam): ?>
+        <?php endforeach; ?>
+        <?php foreach ($courses as $course): ?>
             <tr>
-                <td><?= $index + 1 ?></td>
-                <td><?= h($fam->name) ?></td>
-                <td><?= h($fam->age) ?></td>
-                <td><?= h($fam->detail) ?></td>
+                <td class="cvdoc-centre"><?= h($course->course_year ? $course->course_year . '年' : '') ?></td>
+                <td>
+                    <?= h($course->title) ?>
+                    <?php if (!empty($course->detail)): ?>
+                        <span class="cvdoc-sub"><?= h($course->detail) ?></span>
+                    <?php endif; ?>
+                </td>
+                <td></td>
             </tr>
-            <?php endforeach; ?>
-        </tbody>
+        <?php endforeach; ?>
     </table>
-    <?php endif; ?>
-
-    <!-- Additional Information -->
-    <?php if (!empty($candidate->strengths) || !empty($candidate->weaknesses) || !empty($candidate->hobby) || !empty($candidate->application_reasons)): ?>
-    <h2><?= __('Additional Information') ?> <span class="cvdoc-ja">/ <?php echo $ja["Additional Information"]; ?></span></h2>
-    <table class="cvdoc-table cvdoc-kv">
-        <?php if (!empty($candidate->strengths)): ?>
-        <tr><th><?= $bl('Strengths') ?></th><td><?= h($candidate->strengths) ?></td></tr>
-        <?php endif; ?>
-        <?php if (!empty($candidate->weaknesses)): ?>
-        <tr><th><?= $bl('Weaknesses') ?></th><td><?= h($candidate->weaknesses) ?></td></tr>
-        <?php endif; ?>
-        <?php if (!empty($candidate->hobby)): ?>
-        <tr><th><?= $bl('Hobby') ?></th><td><?= h($candidate->hobby) ?></td></tr>
-        <?php endif; ?>
-        <?php if (!empty($candidate->application_reasons)): ?>
-        <tr><th><?= $bl('Application Reasons') ?></th><td><?= h($candidate->application_reasons) ?></td></tr>
-        <?php endif; ?>
-    </table>
-    <?php endif; ?>
+<?php endif; ?>
 </div>
