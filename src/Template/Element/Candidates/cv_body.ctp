@@ -199,12 +199,15 @@ $company = $assoc($candidate, 'acceptance_organization');
 .cvdoc table { width: 100%; border-collapse: collapse; table-layout: fixed; margin-bottom: 10px; }
 .cvdoc th, .cvdoc td { border: 1px solid #000; padding: 3px 5px; vertical-align: middle;
     word-wrap: break-word; }
-.cvdoc th { background: #fff; font-weight: 400; text-align: left; }
+/* The label cells carry the form's own shading, so a reader's eye runs down
+   the questions and across to the answers. Without it every cell is white
+   and the page is a grid rather than a form. */
+.cvdoc th { background: #ebebeb; font-weight: 400; text-align: left; }
 .cvdoc .cvdoc-ja { display: block; font-size: 9pt; }
 .cvdoc .cvdoc-id { display: block; font-size: 7.5pt; color: #333; }
 .cvdoc .cvdoc-value { font-weight: 700; }
 .cvdoc .cvdoc-sub { display: block; font-weight: 400; font-size: 8.5pt; }
-.cvdoc .cvdoc-section { background: #efefef; text-align: center; font-weight: 700; font-size: 10pt; }
+.cvdoc .cvdoc-section { background: #d9d9d9; text-align: center; font-weight: 700; font-size: 10pt; }
 .cvdoc .cvdoc-unit { width: 34px; text-align: center; }
 .cvdoc .cvdoc-centre { text-align: center; }
 .cvdoc-photo { width: 118px; text-align: center; padding: 4px; }
@@ -213,11 +216,45 @@ $company = $assoc($candidate, 'acceptance_organization');
 .cvdoc-no { font-size: 15pt; font-weight: 700; text-align: center; }
 .cvdoc-empty-row td { height: 20px; }
 
+@page { size: A4 portrait; margin: 8mm; }
+
 @media print {
     .cvdoc-toolbar, .no-print { display: none !important; }
-    .cvdoc { max-width: none; font-size: 9pt; }
-    .cvdoc table { page-break-inside: auto; }
+
+    /* Browsers drop background colours when printing unless told otherwise,
+       and the shading on the labels is the form, not decoration. */
+    .cvdoc, .cvdoc * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+
+    /* The form is one A4 page on paper, so it is one A4 page here. Everything
+       below is the amount of tightening that takes and no more. */
+    .cvdoc { max-width: none; font-size: 7.4pt; }
+    .cvdoc th, .cvdoc td { padding: 1px 4px; }
+    .cvdoc .cvdoc-ja { font-size: 7.2pt; }
+    .cvdoc .cvdoc-id { font-size: 6pt; }
+    .cvdoc .cvdoc-sub { font-size: 6.5pt; }
+    .cvdoc .cvdoc-section { font-size: 8pt; }
+    .cvdoc table { margin-bottom: 5px; }
+    .cvdoc-letterhead { padding: 0 0 5px 0; gap: 12px; }
+    .cvdoc-letterhead-logo { width: 78px; }
+    .cvdoc-letterhead-text { font-size: 7pt; line-height: 1.2; }
+    .cvdoc-letterhead-name { font-size: 12pt; }
+    .cvdoc-rule { margin-bottom: 5px; }
+    .cvdoc-company { margin: 3px 0 5px 0; font-size: 7.4pt; }
+    .cvdoc-photo img, .cvdoc-photo-empty { width: 86px; height: 112px; }
+    .cvdoc-no { font-size: 12pt; }
+    /* The blank lines are there so a paper form can be written on. Printed
+       from a record that is already filled they are only pushing the page
+       count up, so one is kept to show the block can take more and the rest
+       go. That is what lifts a short appendix back onto the first page. */
+    .cvdoc-empty-row td { height: 13px; }
+    .cvdoc-empty-row ~ .cvdoc-empty-row { display: none; }
+
+    /* A block that will not fit moves whole to the next page rather than
+       leaving its heading at the foot of this one. The heading travels with
+       the table it heads. */
+    .cvdoc table { page-break-inside: avoid; }
     .cvdoc tr { page-break-inside: avoid; }
+    .cvdoc-letterhead, .cvdoc-rule, .cvdoc-company { page-break-after: avoid; }
 }
 </style>
 

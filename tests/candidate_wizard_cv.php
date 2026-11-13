@@ -319,6 +319,27 @@ foreach ([
     checkTrue($what . ' is on it', strpos($html, $needle) !== false);
 }
 
+echo "  how it comes out of a printer\n";
+// The form's labels are shaded; without it the page is a grid rather than a
+// form, and the eye has nothing to run down.
+checkTrue('the label cells are shaded, not white',
+    (bool)preg_match('/\.cvdoc th \{[^}]*background:\s*#(?!fff\b)[0-9a-f]{3,6}/i', $html));
+// And browsers throw background colours away when printing unless told not
+// to, so without this the shading is on the screen and never on the paper.
+checkTrue('and the shading is told to survive printing',
+    strpos($html, 'print-color-adjust: exact') !== false);
+checkTrue('the page is A4', (bool)preg_match('/@page\s*\{[^}]*A4/', $html));
+// A block that will not fit moves whole rather than splitting, so no table
+// ever starts at the foot of one page and finishes on the next.
+checkTrue('a block is not split across two pages',
+    (bool)preg_match('/@media print\s*\{.*\.cvdoc table \{[^}]*page-break-inside:\s*avoid/s', $html));
+checkTrue('and a heading is not left behind by its table',
+    (bool)preg_match('/page-break-after:\s*avoid/', $html));
+// The blank lines are for writing on by hand. Printed from a filled record
+// they only push the page count up, and one spare line says enough.
+checkTrue('the surplus blank lines are dropped when printing',
+    strpos($html, '.cvdoc-empty-row ~ .cvdoc-empty-row { display: none; }') !== false);
+
 echo "  and the values the form prints in Japanese\n";
 // Each of these is a reference row's Japanese column, not its Indonesian one.
 // A CV that printed Male, Islam and Single would pass every structural check
