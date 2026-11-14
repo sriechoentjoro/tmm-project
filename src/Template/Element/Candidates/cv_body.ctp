@@ -251,7 +251,7 @@ $companyName = $refLabel($company, ['title']);
 .cvdoc .cvdoc-join-above { border-top: 0; }
 .cvdoc .cvdoc-join-right { border-right: 0; }
 .cvdoc .cvdoc-join-right + .cvdoc-unit { border-left: 0; }
-.cvdoc .cvdoc-phone { text-align: left; }
+.cvdoc .cvdoc-phone { text-align: center; }
 .cvdoc .cvdoc-centre { text-align: center; }
 .cvdoc-photo { width: 118px; text-align: center; padding: 4px; }
 .cvdoc-photo img { width: 108px; height: 140px; object-fit: cover; }

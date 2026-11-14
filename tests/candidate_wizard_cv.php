@@ -354,9 +354,9 @@ check('the four figures are joined to their units',
     preg_match_all('/class="[^"]*cvdoc-join-right/', $html), 4);
 checkTrue('and the unit gives up the border on its side too',
     strpos($html, '.cvdoc-join-right + .cvdoc-unit { border-left: 0; }') !== false);
-checkTrue('the telephone number reads from the left',
+checkTrue('the telephone number sits in the middle of its cell',
     strpos($html, '<td class="cvdoc-phone">') !== false
-    && strpos($html, '.cvdoc-phone { text-align: left; }') !== false);
+    && strpos($html, '.cvdoc-phone { text-align: center; }') !== false);
 // The trainee number is the receiving side's to give once they accept. Ours
 // in their box would be somebody else's number.
 checkTrue('the trainee number box is left empty',
