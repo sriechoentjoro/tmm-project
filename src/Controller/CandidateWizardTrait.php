@@ -230,15 +230,20 @@ trait CandidateWizardTrait
      * @param mixed $id The foreign key.
      * @return \Cake\Datasource\EntityInterface|null
      */
-    protected function wizardReferenceRow($model, $id)
+    protected function wizardReferenceRow($model, $id, array $contain = [])
     {
         if (!$id) {
             return null;
         }
 
         try {
-            return TableRegistry::getTableLocator()->get($model)->find()
-                ->where(['id' => $id])->first();
+            $query = TableRegistry::getTableLocator()->get($model)->find()
+                ->where(['id' => $id]);
+            if ($contain) {
+                $query->contain($contain);
+            }
+
+            return $query->first();
         } catch (\Exception $e) {
             return null;
         }
@@ -315,6 +320,13 @@ trait CandidateWizardTrait
             'master_kelurahan_id' => ['MasterKelurahans', 'master_kelurahan'],
             'acceptance_organization_id' => ['AcceptanceOrganizations', 'acceptance_organization'],
         ];
+        // The order carries the employer too, and the CV reads it when the
+        // candidate has none of their own.
+        $order = $this->wizardReferenceRow('ApprenticeOrders',
+            $candidate->get('apprentice_order_id'), ['AcceptanceOrganizations']);
+        if ($order) {
+            $candidate->set('apprentice_order', $order);
+        }
         foreach ($byId as $field => $where) {
             list($model, $property) = $where;
             $row = $this->wizardReferenceRow($model, $candidate->get($field));

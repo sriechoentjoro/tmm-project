@@ -338,8 +338,25 @@ foreach (['氏名', '生年月日', '出身地'] as $ja) {
     checkTrue($ja . ' has its Indonesian on the same line, not stacked under it',
         (bool)preg_match('/cvdoc-ja-inline">' . $ja . '<\/span>\s*<span class="cvdoc-id-inline">/u', $html));
 }
-checkTrue('the three values are centred under their labels',
-    substr_count($html, 'class="cvdoc-block-value"') === 5);
+check('the five value lines are centred under their labels',
+    preg_match_all('/class="cvdoc-block-value[^"]*"/', $html), 5);
+// A name and the katakana under it are one box on the paper, and so is a
+// figure and its unit. Both sides of a join have to drop their border:
+// under border-collapse the line survives if either cell still asks for it.
+checkTrue('the katakana line joins the name above it',
+    strpos($html, 'cvdoc-block-value cvdoc-join-below') !== false
+    && strpos($html, 'cvdoc-block-value cvdoc-join-above') !== false);
+// Counted in the markup only: the names appear in the <style> block too,
+// and counting those made four joins look like six.
+check('both the name and the birth place are joined to their katakana',
+    preg_match_all('/class="[^"]*cvdoc-join-above/', $html), 2);
+check('the four figures are joined to their units',
+    preg_match_all('/class="[^"]*cvdoc-join-right/', $html), 4);
+checkTrue('and the unit gives up the border on its side too',
+    strpos($html, '.cvdoc-join-right + .cvdoc-unit { border-left: 0; }') !== false);
+checkTrue('the telephone number reads from the left',
+    strpos($html, '<td class="cvdoc-phone">') !== false
+    && strpos($html, '.cvdoc-phone { text-align: left; }') !== false);
 // The trainee number is the receiving side's to give once they accept. Ours
 // in their box would be somebody else's number.
 checkTrue('the trainee number box is left empty',
@@ -388,8 +405,14 @@ checkTrue('the date the Japanese way', strpos($html, '1998年2月23日') !== fal
 checkTrue('the address, assembled from its four region rows',
     strpos($html, 'BEKASI JAYA BEKASI TIMUR KOTA BEKASI JAWA BARAT 〒17112') !== false);
 checkTrue('money with its separators', strpos($html, 'Rp280,000,000') !== false);
-checkTrue('the receiving company, read across a connection boundary',
+// 企業名 is the employer, read from the record. Nothing about it is written
+// into the template: the fixture puts サン工業株式会社 in the database and
+// that is the only reason it appears here.
+checkTrue('the employer, read across a connection boundary',
     strpos($html, 'サン工業株式会社') !== false);
+$element = file_get_contents(TMM_ROOT . '/src/Template/Element/Candidates/cv_body.ctp');
+check('and no company name is written into the document itself',
+    preg_match('/サン工業|Sun Kogyo/u', $element), 0);
 // The occupation is a column. It used to reach the CV only inside the
 // detail line the wizard folds together, so the 職業 column of a document
 // going to Japan read "Relationship: Father | Occupation: Petani | Contact: ...".

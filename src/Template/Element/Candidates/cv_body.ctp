@@ -192,7 +192,16 @@ if (!empty($candidate->post_code)) {
     $address = trim($address . ' 〒' . $candidate->post_code);
 }
 
+// 企業名 is the employer the candidate is being put forward to - read from
+// the record, never written in here. It is on the candidate when one has
+// been chosen for them, and otherwise on the order they were entered
+// against, which names the same kind of row.
 $company = $assoc($candidate, 'acceptance_organization');
+if (!$company) {
+    $order = $assoc($candidate, 'apprentice_order');
+    $company = $order ? $assoc($order, 'acceptance_organization') : null;
+}
+$companyName = $refLabel($company, ['title']);
 ?>
 <style>
 .cvdoc { max-width: 900px; margin: 0 auto; background: #fff; color: #000; font-size: 9.5pt;
@@ -234,6 +243,15 @@ $company = $assoc($candidate, 'acceptance_organization');
 .cvdoc .cvdoc-block-label { text-align: left; }
 .cvdoc .cvdoc-block-value { text-align: center; font-weight: 700; background: #fff; }
 .cvdoc .cvdoc-unit { width: 34px; text-align: center; }
+/* A figure and its unit are one box on the paper, and so is a name with its
+   katakana under it. Both sides of each join have to give up their border:
+   with border-collapse the surviving one is drawn by whichever cell still
+   asks for it. */
+.cvdoc .cvdoc-join-below { border-bottom: 0; }
+.cvdoc .cvdoc-join-above { border-top: 0; }
+.cvdoc .cvdoc-join-right { border-right: 0; }
+.cvdoc .cvdoc-join-right + .cvdoc-unit { border-left: 0; }
+.cvdoc .cvdoc-phone { text-align: left; }
 .cvdoc .cvdoc-centre { text-align: center; }
 .cvdoc-photo { width: 118px; text-align: center; padding: 4px; }
 .cvdoc-photo img { width: 108px; height: 140px; object-fit: cover; }
@@ -297,8 +315,8 @@ $company = $assoc($candidate, 'acceptance_organization');
     <?= $this->element('Candidates/cv_letterhead') ?>
 
     <div class="cvdoc-company">
-        <span class="cvdoc-company-ja">企業名：<?= h($refLabel($company, ['title'])) ?></span><br>
-        <?= __('Nama Calon Perusahaan') ?>: <?= h($refLabel($company, ['title'])) ?>
+        <span class="cvdoc-company-ja">企業名：<?= h($companyName) ?></span><br>
+        <?= __('Nama Calon Perusahaan') ?>: <?= h($companyName) ?>
     </div>
 
     <!-- Identity: photo, and the two columns of the form's head block -->
@@ -336,28 +354,28 @@ $company = $assoc($candidate, 'acceptance_organization');
             <th class="cvdoc-block-label" colspan="2"><?= $labelInline('氏名', 'Nama') ?></th>
             <th><?= $labelInline('年齢', '') ?></th>
             <th><?= $labelInline('', 'Usia') ?></th>
-            <td class="cvdoc-centre cvdoc-value"><?= h($age) ?></td>
+            <td class="cvdoc-centre cvdoc-value cvdoc-join-right"><?= h($age) ?></td>
             <td class="cvdoc-unit">歳</td>
         </tr>
         <tr>
-            <td class="cvdoc-block-value" colspan="2"><?= h($candidate->name) ?></td>
+            <td class="cvdoc-block-value cvdoc-join-below" colspan="2"><?= h($candidate->name) ?></td>
             <th><?= $labelInline('身長', '') ?></th>
             <th><?= $labelInline('', 'Tinggi Badan') ?></th>
-            <td class="cvdoc-centre cvdoc-value"><?= h($number($candidate->body_height)) ?></td>
+            <td class="cvdoc-centre cvdoc-value cvdoc-join-right"><?= h($number($candidate->body_height)) ?></td>
             <td class="cvdoc-unit">CM</td>
         </tr>
         <tr>
-            <td class="cvdoc-block-value" colspan="2"><?= h($candidate->name_katakana) ?></td>
+            <td class="cvdoc-block-value cvdoc-join-above" colspan="2"><?= h($candidate->name_katakana) ?></td>
             <th><?= $labelInline('体重', '') ?></th>
             <th><?= $labelInline('', 'Berat Badan') ?></th>
-            <td class="cvdoc-centre cvdoc-value"><?= h($number($candidate->body_weight)) ?></td>
+            <td class="cvdoc-centre cvdoc-value cvdoc-join-right"><?= h($number($candidate->body_weight)) ?></td>
             <td class="cvdoc-unit">KG</td>
         </tr>
         <tr>
             <th class="cvdoc-block-label" colspan="2"><?= $labelInline('生年月日', 'Tanggal Lahir') ?></th>
             <th><?= $labelInline('血液型', '') ?></th>
             <th><?= $labelInline('', 'Golongan Darah') ?></th>
-            <td class="cvdoc-centre cvdoc-value"><?= h($refLabel($assoc($candidate, 'master_blood_type'))) ?></td>
+            <td class="cvdoc-centre cvdoc-value cvdoc-join-right"><?= h($refLabel($assoc($candidate, 'master_blood_type'))) ?></td>
             <td class="cvdoc-unit">型</td>
         </tr>
         <tr>
@@ -373,13 +391,13 @@ $company = $assoc($candidate, 'acceptance_organization');
             <td class="cvdoc-centre cvdoc-value" colspan="2"><?= h($refLabel($assoc($candidate, 'master_religion'))) ?></td>
         </tr>
         <tr>
-            <td class="cvdoc-block-value" colspan="2"><?= h($candidate->birth_place) ?></td>
+            <td class="cvdoc-block-value cvdoc-join-below" colspan="2"><?= h($candidate->birth_place) ?></td>
             <th><?= $labelInline('訪日経験', '') ?></th>
             <th><?= $labelInline('', 'Pernah ke Jepang') ?></th>
             <td class="cvdoc-centre cvdoc-value" colspan="2"><?= h($yesNo($candidate->is_ever_went_to_japan)) ?></td>
         </tr>
         <tr>
-            <td class="cvdoc-block-value" colspan="2"><?= h($candidate->birth_place_katakana) ?></td>
+            <td class="cvdoc-block-value cvdoc-join-above" colspan="2"><?= h($candidate->birth_place_katakana) ?></td>
             <th><?= $labelInline('旅券の有無', '') ?></th>
             <th><?= $labelInline('', 'Pernah Memiliki Paspor') ?></th>
             <td class="cvdoc-centre cvdoc-value" colspan="2"><?= h($yesNo($candidate->is_holding_passport)) ?></td>
@@ -392,7 +410,7 @@ $company = $assoc($candidate, 'acceptance_organization');
         <tr><td class="cvdoc-centre" colspan="2"><?= h($address) ?></td></tr>
         <tr>
             <th><?= $labelInline('No.HP（携帯電話番号）', '') ?></th>
-            <td class="cvdoc-centre"><?= h($candidate->telephone_mobile) ?></td>
+            <td class="cvdoc-phone"><?= h($candidate->telephone_mobile) ?></td>
         </tr>
     </table>
 

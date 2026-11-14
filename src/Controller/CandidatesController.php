@@ -1299,6 +1299,9 @@ class CandidatesController extends AppController
                 'MasterKecamatans',
                 'MasterKelurahans',
                 'AcceptanceOrganizations',
+                // 企業名 falls back to the order's employer when the
+                // candidate has not been put forward to one of their own.
+                'ApprenticeOrders' => ['AcceptanceOrganizations'],
             ]
         ]);
 
