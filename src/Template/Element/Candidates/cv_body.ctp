@@ -130,6 +130,25 @@ $assoc = function ($entity, $property) {
     return $entity->get($property);
 };
 
+/**
+ * Japanese and Indonesian on one line, as the form's own head block prints
+ * them: 氏名 Nama, 生年月日 Tanggal Lahir, 出身地 Tempat Lahir.
+ *
+ * The stacked version below is for the blocks further down, where the label
+ * column is narrow and two lines are what fits.
+ */
+$labelInline = function ($ja, $id) {
+    $out = [];
+    if ($ja !== '') {
+        $out[] = '<span class="cvdoc-ja-inline">' . h($ja) . '</span>';
+    }
+    if ($id !== '') {
+        $out[] = '<span class="cvdoc-id-inline">' . h(__($id)) . '</span>';
+    }
+
+    return implode(' ', $out);
+};
+
 // Japanese label above, Indonesian below, as the form prints them.
 $label = function ($ja, $id) {
     $out = '';
@@ -208,6 +227,12 @@ $company = $assoc($candidate, 'acceptance_organization');
 .cvdoc .cvdoc-value { font-weight: 700; }
 .cvdoc .cvdoc-sub { display: block; font-weight: 400; font-size: 8.5pt; }
 .cvdoc .cvdoc-section { background: #d9d9d9; text-align: center; font-weight: 700; font-size: 10pt; }
+/* The head block's left column: the label on its own line to the left, the
+   value on the line under it, centred - as the form has it. */
+.cvdoc .cvdoc-ja-inline { font-size: 9pt; }
+.cvdoc .cvdoc-id-inline { font-size: 9pt; font-weight: 700; }
+.cvdoc .cvdoc-block-label { text-align: left; }
+.cvdoc .cvdoc-block-value { text-align: center; font-weight: 700; background: #fff; }
 .cvdoc .cvdoc-unit { width: 34px; text-align: center; }
 .cvdoc .cvdoc-centre { text-align: center; }
 .cvdoc-photo { width: 118px; text-align: center; padding: 4px; }
@@ -230,6 +255,7 @@ $company = $assoc($candidate, 'acceptance_organization');
     .cvdoc { max-width: none; font-size: 7.4pt; }
     .cvdoc th, .cvdoc td { padding: 1px 4px; }
     .cvdoc .cvdoc-ja { font-size: 7.2pt; }
+    .cvdoc .cvdoc-ja-inline, .cvdoc .cvdoc-id-inline { font-size: 7.2pt; }
     .cvdoc .cvdoc-id { font-size: 6pt; }
     .cvdoc .cvdoc-sub { font-size: 6.5pt; }
     .cvdoc .cvdoc-section { font-size: 8pt; }
@@ -278,7 +304,8 @@ $company = $assoc($candidate, 'acceptance_organization');
     <!-- Identity: photo, and the two columns of the form's head block -->
     <table class="cvdoc-identity">
         <colgroup>
-            <col style="width: 124px"><col style="width: 15%"><col><col style="width: 21%"><col style="width: 16%"><col style="width: 34px">
+            <col style="width: 118px"><col style="width: 13%"><col>
+            <col style="width: 11%"><col style="width: 18%"><col style="width: 14%"><col style="width: 30px">
         </colgroup>
         <tr>
             <td class="cvdoc-photo" rowspan="9">
@@ -294,72 +321,78 @@ $company = $assoc($candidate, 'acceptance_organization');
                     <span class="cvdoc-photo-empty"></span>
                 <?php endif; ?>
             </td>
-            <th><?= $label('研修生No.', '') ?></th>
-            <td class="cvdoc-no"><?= h($candidate->candidate_code) ?></td>
-            <th><?= $label('性別', 'Jenis Kelamin') ?></th>
+            <th><?= $labelInline('研修生No.', '') ?></th>
+            <?php
+            // Left empty on purpose. The trainee number is given by the
+            // receiving side once the candidate is accepted, so printing our
+            // own candidate_code here would put our number in their box.
+            ?>
+            <td class="cvdoc-no"></td>
+            <th><?= $labelInline('性別', '') ?></th>
+            <th><?= $labelInline('', 'Jenis Kelamin') ?></th>
             <td class="cvdoc-centre cvdoc-value" colspan="2"><?= h($refLabel($assoc($candidate, 'master_gender'))) ?></td>
         </tr>
         <tr>
-            <th rowspan="3"><?= $label('名前', 'Nama') ?></th>
-            <td rowspan="3" class="cvdoc-value">
-                <?= h($candidate->name) ?>
-                <?php if (!empty($candidate->name_katakana)): ?>
-                    <span class="cvdoc-sub"><?= h($candidate->name_katakana) ?></span>
-                <?php endif; ?>
-            </td>
-            <th><?= $label('年齢', 'Usia') ?></th>
+            <th class="cvdoc-block-label" colspan="2"><?= $labelInline('氏名', 'Nama') ?></th>
+            <th><?= $labelInline('年齢', '') ?></th>
+            <th><?= $labelInline('', 'Usia') ?></th>
             <td class="cvdoc-centre cvdoc-value"><?= h($age) ?></td>
             <td class="cvdoc-unit">歳</td>
         </tr>
         <tr>
-            <th><?= $label('身長', 'Tinggi Badan') ?></th>
+            <td class="cvdoc-block-value" colspan="2"><?= h($candidate->name) ?></td>
+            <th><?= $labelInline('身長', '') ?></th>
+            <th><?= $labelInline('', 'Tinggi Badan') ?></th>
             <td class="cvdoc-centre cvdoc-value"><?= h($number($candidate->body_height)) ?></td>
             <td class="cvdoc-unit">CM</td>
         </tr>
         <tr>
-            <th><?= $label('体重', 'Berat Badan') ?></th>
+            <td class="cvdoc-block-value" colspan="2"><?= h($candidate->name_katakana) ?></td>
+            <th><?= $labelInline('体重', '') ?></th>
+            <th><?= $labelInline('', 'Berat Badan') ?></th>
             <td class="cvdoc-centre cvdoc-value"><?= h($number($candidate->body_weight)) ?></td>
             <td class="cvdoc-unit">KG</td>
         </tr>
         <tr>
-            <th rowspan="2"><?= $label('生年月日', 'Tanggal Lahir') ?></th>
-            <td rowspan="2" class="cvdoc-value"><?= h($jpDate($candidate->birth_date)) ?></td>
-            <th><?= $label('血液型', 'Golongan Darah') ?></th>
+            <th class="cvdoc-block-label" colspan="2"><?= $labelInline('生年月日', 'Tanggal Lahir') ?></th>
+            <th><?= $labelInline('血液型', '') ?></th>
+            <th><?= $labelInline('', 'Golongan Darah') ?></th>
             <td class="cvdoc-centre cvdoc-value"><?= h($refLabel($assoc($candidate, 'master_blood_type'))) ?></td>
             <td class="cvdoc-unit">型</td>
         </tr>
         <tr>
-            <th><?= $label('配偶者', 'Status Pernikahan') ?></th>
+            <td class="cvdoc-block-value" colspan="2"><?= h($jpDate($candidate->birth_date)) ?></td>
+            <th><?= $labelInline('配偶者', '') ?></th>
+            <th><?= $labelInline('', 'Status Pernikahan') ?></th>
             <td class="cvdoc-centre cvdoc-value" colspan="2"><?= h($refLabel($assoc($candidate, 'master_marriage_status'))) ?></td>
         </tr>
         <tr>
-            <th rowspan="3"><?= $label('出身地', 'Tempat Lahir') ?></th>
-            <td rowspan="3" class="cvdoc-value">
-                <?= h($candidate->birth_place) ?>
-                <?php if (!empty($candidate->birth_place_katakana)): ?>
-                    <span class="cvdoc-sub"><?= h($candidate->birth_place_katakana) ?></span>
-                <?php endif; ?>
-            </td>
-            <th><?= $label('宗教', 'Agama') ?></th>
+            <th class="cvdoc-block-label" colspan="2"><?= $labelInline('出身地', 'Tempat Lahir') ?></th>
+            <th><?= $labelInline('宗教', '') ?></th>
+            <th><?= $labelInline('', 'Agama') ?></th>
             <td class="cvdoc-centre cvdoc-value" colspan="2"><?= h($refLabel($assoc($candidate, 'master_religion'))) ?></td>
         </tr>
         <tr>
-            <th><?= $label('訪日経験', 'Pernah ke Jepang') ?></th>
+            <td class="cvdoc-block-value" colspan="2"><?= h($candidate->birth_place) ?></td>
+            <th><?= $labelInline('訪日経験', '') ?></th>
+            <th><?= $labelInline('', 'Pernah ke Jepang') ?></th>
             <td class="cvdoc-centre cvdoc-value" colspan="2"><?= h($yesNo($candidate->is_ever_went_to_japan)) ?></td>
         </tr>
         <tr>
-            <th><?= $label('旅券の有無', 'Pernah Memiliki Paspor') ?></th>
+            <td class="cvdoc-block-value" colspan="2"><?= h($candidate->birth_place_katakana) ?></td>
+            <th><?= $labelInline('旅券の有無', '') ?></th>
+            <th><?= $labelInline('', 'Pernah Memiliki Paspor') ?></th>
             <td class="cvdoc-centre cvdoc-value" colspan="2"><?= h($yesNo($candidate->is_holding_passport)) ?></td>
         </tr>
     </table>
 
     <table>
-        <tr><td class="cvdoc-section"><?= $label('現住所', 'Alamat Rumah') ?></td></tr>
-        <tr><td class="cvdoc-centre"><?= h($address) ?></td></tr>
+        <colgroup><col style="width: 20%"><col></colgroup>
+        <tr><td class="cvdoc-section" colspan="2"><?= $labelInline('現住所', 'Alamat Rumah') ?></td></tr>
+        <tr><td class="cvdoc-centre" colspan="2"><?= h($address) ?></td></tr>
         <tr>
-            <td class="cvdoc-centre">
-                <strong>No.HP（携帯電話番号）</strong>&nbsp;&nbsp;<?= h($candidate->telephone_mobile) ?>
-            </td>
+            <th><?= $labelInline('No.HP（携帯電話番号）', '') ?></th>
+            <td class="cvdoc-centre"><?= h($candidate->telephone_mobile) ?></td>
         </tr>
     </table>
 

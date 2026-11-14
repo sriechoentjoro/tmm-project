@@ -319,6 +319,37 @@ foreach ([
     checkTrue($what . ' is on it', strpos($html, $needle) !== false);
 }
 
+echo "  the head block, laid out as the form lays it out\n";
+// Label on its own line to the left, value on the line beneath it, centred -
+// not label and value side by side. The three labels read exactly as the
+// paper reads them, Japanese and Indonesian on one line.
+// Listed as pairs rather than as a map: written as a map, three of the six
+// keys were the same string and PHP kept only the last, so half of them were
+// never checked at all.
+foreach ([
+    ['the name', '氏名'], ['the name in Indonesian', 'Nama'],
+    ['the birth date', '生年月日'], ['the birth date in Indonesian', 'Tanggal Lahir'],
+    ['the birth place', '出身地'], ['the birth place in Indonesian', 'Tempat Lahir'],
+] as $pair) {
+    list($what, $needle) = $pair;
+    checkTrue($what . ' is labelled ' . $needle, strpos($html, $needle) !== false);
+}
+foreach (['氏名', '生年月日', '出身地'] as $ja) {
+    checkTrue($ja . ' has its Indonesian on the same line, not stacked under it',
+        (bool)preg_match('/cvdoc-ja-inline">' . $ja . '<\/span>\s*<span class="cvdoc-id-inline">/u', $html));
+}
+checkTrue('the three values are centred under their labels',
+    substr_count($html, 'class="cvdoc-block-value"') === 5);
+// The trainee number is the receiving side's to give once they accept. Ours
+// in their box would be somebody else's number.
+checkTrue('the trainee number box is left empty',
+    (bool)preg_match('/<td class="cvdoc-no"><\/td>/', $html)
+    && strpos($html, '>001<') === false);
+// Japanese and Indonesian in columns of their own on the right of the head
+// block, as the form has them.
+checkTrue('性別 and Jenis Kelamin are in separate cells',
+    (bool)preg_match('/性別<\/span><\/th>\s*<th>.*?Jenis Kelamin/su', $html));
+
 echo "  how it comes out of a printer\n";
 // The form's labels are shaded; without it the page is a grid rather than a
 // form, and the eye has nothing to run down.
