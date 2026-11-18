@@ -355,8 +355,31 @@ check('the four figures are joined to their units',
 checkTrue('and the unit gives up the border on its side too',
     strpos($html, '.cvdoc-join-right + .cvdoc-unit { border-left: 0; }') !== false);
 checkTrue('the telephone number sits in the middle of its cell',
-    strpos($html, '<td class="cvdoc-phone">') !== false
+    strpos($html, 'class="cvdoc-phone"') !== false
     && strpos($html, '.cvdoc-phone { text-align: center; }') !== false);
+
+// The room the narrower name block and the narrower figure column leave is
+// not left as slack: it is a column of its own, running from the top of the
+// head block down to just above 確認事項, for what gets written on the sheet
+// by hand.
+checkTrue('there is a Catatan column', strpos($html, 'class="cvdoc-notes"') !== false);
+// Given a width of its own the photo overran the narrowed column and was
+// drawn over the border on both sides. It is sized by the cell now.
+checkTrue('the photo is sized by its cell, not by a fixed width',
+    strpos($html, 'display: block; width: 100%; max-width: 108px;') !== false);
+checkTrue('and it runs down to the address block',
+    (bool)preg_match('/class="cvdoc-notes" rowspan="12"/', $html));
+// The address block had to join the head block's table for the column to be
+// able to span it; counting tables would say the same thing more loosely.
+preg_match('/<table class="cvdoc-identity">.*?<\/table>/s', $html, $identity);
+checkTrue('the address block is inside that same table',
+    !empty($identity) && strpos($identity[0], '現住所') !== false
+    && strpos($identity[0], 'cvdoc-phone') !== false);
+// 28 to the right of its cell, 歳 to the left of the next: together, not
+// floating apart with the border between them already gone.
+checkTrue('the figure is set against its unit',
+    strpos($html, '.cvdoc-join-right { border-right: 0; text-align: right;') !== false
+    && strpos($html, '.cvdoc-join-right + .cvdoc-unit { text-align: left;') !== false);
 // The trainee number is the receiving side's to give once they accept. Ours
 // in their box would be somebody else's number.
 checkTrue('the trainee number box is left empty',

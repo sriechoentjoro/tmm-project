@@ -301,6 +301,27 @@ foreach (['Basic Information', 'Contact Information', 'Additional Information'] 
     check('"' . $old . '" is not a heading on this form', strpos($workbook, $old), false);
 }
 
+echo "  the interviewer's own column\n";
+// Blank on purpose: it is where whoever runs the interview writes on the
+// sheet. What is checked is that it is there, headed, on the right of the
+// head block, and that it stops above 確認事項 rather than running on.
+checkTrue('Catatan is on the download', strpos($workbook, 'Catatan') !== false);
+$merged = array_keys($sheet->getMergeCells());
+$notes = array_values(array_filter($merged, function ($range) {
+    return strpos($range, 'H') === 0;
+}));
+check('as one tall cell in the last column', count($notes), 1);
+if ($notes) {
+    list($top, $foot) = explode(':', $notes[0]);
+    $topRow = (int)preg_replace('/\D/', '', $top);
+    $footRow = (int)preg_replace('/\D/', '', $foot);
+    // Nine rows of head block and three of address: the same twelve the page
+    // spans.
+    check('spanning the head block and the address under it', $footRow - $topRow + 1, 12);
+    checkTrue('and the confirmation points start below it',
+        strpos($sheet->getCell('A' . ($footRow + 2))->getValue(), '確認事項') === 0);
+}
+
 echo "  the rows that hang off the candidate\n";
 checkTrue('the school', strpos($workbook, 'SMKS KARYA GUNA 2 BEKASI') !== false);
 checkTrue('the employer worked for', strpos($workbook, 'CV JAYA ABADI TEKNICAL') !== false);

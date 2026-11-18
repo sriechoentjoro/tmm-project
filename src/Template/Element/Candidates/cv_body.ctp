@@ -249,13 +249,28 @@ $companyName = $refLabel($company, ['title']);
    asks for it. */
 .cvdoc .cvdoc-join-below { border-bottom: 0; }
 .cvdoc .cvdoc-join-above { border-top: 0; }
-.cvdoc .cvdoc-join-right { border-right: 0; }
+/* 28 歳, 171 CM: the figure to the right of its own cell and the unit to the
+   left of the next, so the two sit together instead of floating apart with
+   the border between them already gone. */
+.cvdoc .cvdoc-join-right { border-right: 0; text-align: right; padding-right: 2px; }
+.cvdoc .cvdoc-join-right + .cvdoc-unit { text-align: left; padding-left: 2px; }
 .cvdoc .cvdoc-join-right + .cvdoc-unit { border-left: 0; }
 .cvdoc .cvdoc-phone { text-align: center; }
+/* The room the narrower blocks leave on the right, kept for whatever is
+   written on the sheet by hand. It runs from the top of the head block down
+   to just above 確認事項. */
+.cvdoc .cvdoc-notes { vertical-align: top; text-align: left; background: #fff; }
 .cvdoc .cvdoc-centre { text-align: center; }
-.cvdoc-photo { width: 118px; text-align: center; padding: 4px; }
-.cvdoc-photo img { width: 108px; height: 140px; object-fit: cover; }
-.cvdoc-photo-empty { width: 108px; height: 140px; background: #f2f2f2; display: inline-block; }
+/* The photo is sized by the cell it sits in, not by a fixed number of pixels.
+   Given a width of its own it overran the narrowed column and was drawn over
+   the border on both sides; width:100% inside the padding keeps it inside the
+   box whatever the column is. */
+.cvdoc-photo { text-align: center; padding: 4px; }
+.cvdoc-photo img, .cvdoc-photo-empty {
+    display: block; width: 100%; max-width: 108px; height: 140px;
+    margin: 0 auto; object-fit: cover;
+}
+.cvdoc-photo-empty { background: #f2f2f2; }
 .cvdoc-no { font-size: 15pt; font-weight: 700; text-align: center; }
 .cvdoc-empty-row td { height: 20px; }
 
@@ -284,7 +299,7 @@ $companyName = $refLabel($company, ['title']);
     .cvdoc-letterhead-name { font-size: 12pt; }
     .cvdoc-rule { margin-bottom: 5px; }
     .cvdoc-company { margin: 3px 0 5px 0; font-size: 7.4pt; }
-    .cvdoc-photo img, .cvdoc-photo-empty { width: 86px; height: 112px; }
+    .cvdoc-photo img, .cvdoc-photo-empty { max-width: 86px; height: 112px; }
     .cvdoc-no { font-size: 12pt; }
     /* The blank lines are there so a paper form can be written on. Printed
        from a record that is already filled they are only pushing the page
@@ -322,8 +337,9 @@ $companyName = $refLabel($company, ['title']);
     <!-- Identity: photo, and the two columns of the form's head block -->
     <table class="cvdoc-identity">
         <colgroup>
-            <col style="width: 118px"><col style="width: 13%"><col>
-            <col style="width: 11%"><col style="width: 18%"><col style="width: 14%"><col style="width: 30px">
+            <col style="width: 12%"><col style="width: 9%"><col style="width: 18%">
+            <col style="width: 8%"><col style="width: 18%">
+            <col style="width: 6%"><col style="width: 4%"><col style="width: 25%">
         </colgroup>
         <tr>
             <td class="cvdoc-photo" rowspan="9">
@@ -349,6 +365,7 @@ $companyName = $refLabel($company, ['title']);
             <th><?= $labelInline('性別', '') ?></th>
             <th><?= $labelInline('', 'Jenis Kelamin') ?></th>
             <td class="cvdoc-centre cvdoc-value" colspan="2"><?= h($refLabel($assoc($candidate, 'master_gender'))) ?></td>
+            <td class="cvdoc-notes" rowspan="12"><?= $labelInline('備考', 'Catatan') ?></td>
         </tr>
         <tr>
             <th class="cvdoc-block-label" colspan="2"><?= $labelInline('氏名', 'Nama') ?></th>
@@ -402,15 +419,11 @@ $companyName = $refLabel($company, ['title']);
             <th><?= $labelInline('', 'Pernah Memiliki Paspor') ?></th>
             <td class="cvdoc-centre cvdoc-value" colspan="2"><?= h($yesNo($candidate->is_holding_passport)) ?></td>
         </tr>
-    </table>
-
-    <table>
-        <colgroup><col style="width: 20%"><col></colgroup>
-        <tr><td class="cvdoc-section" colspan="2"><?= $labelInline('現住所', 'Alamat Rumah') ?></td></tr>
-        <tr><td class="cvdoc-centre" colspan="2"><?= h($address) ?></td></tr>
+        <tr><td class="cvdoc-section" colspan="7"><?= $labelInline('現住所', 'Alamat Rumah') ?></td></tr>
+        <tr><td class="cvdoc-centre" colspan="7"><?= h($address) ?></td></tr>
         <tr>
-            <th><?= $labelInline('No.HP（携帯電話番号）', '') ?></th>
-            <td class="cvdoc-phone"><?= h($candidate->telephone_mobile) ?></td>
+            <th colspan="3"><?= $labelInline('No.HP（携帯電話番号）', '') ?></th>
+            <td class="cvdoc-phone" colspan="4"><?= h($candidate->telephone_mobile) ?></td>
         </tr>
     </table>
 

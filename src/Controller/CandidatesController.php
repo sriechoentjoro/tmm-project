@@ -1413,7 +1413,10 @@ class CandidatesController extends AppController
         $sheet = $spreadsheet->getActiveSheet();
         $sheet->setTitle('CV');
 
-        $widths = ['A' => 16, 'B' => 13, 'C' => 20, 'D' => 12, 'E' => 22, 'F' => 14, 'G' => 6];
+        // The same proportions the page uses: a narrower name block and a
+        // narrower figure, and what that frees becomes the Catatan column.
+        $widths = ['A' => 15, 'B' => 11, 'C' => 20, 'D' => 10, 'E' => 21,
+            'F' => 7, 'G' => 5, 'H' => 28];
         foreach ($widths as $column => $width) {
             $sheet->getColumnDimension($column)->setWidth($width);
         }
@@ -1455,6 +1458,13 @@ class CandidatesController extends AppController
 
         $label = array_merge($thin, $middle, $shade('EBEBEB'));
         $value = array_merge($thin, $middle, $centre);
+        $right = array_merge($thin, $middle, ['alignment' => [
+            'horizontal' => \PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_RIGHT,
+        ]]);
+        $left = array_merge($thin, $middle, ['alignment' => [
+            'horizontal' => \PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_LEFT,
+            'vertical' => \PhpOffice\PhpSpreadsheet\Style\Alignment::VERTICAL_TOP,
+        ]]);
         $valueLeft = array_merge($thin, $middle);
         $section = array_merge($thin, $middle, $centre, $shade('D9D9D9'),
             ['font' => ['bold' => true]]);
@@ -1472,14 +1482,14 @@ class CandidatesController extends AppController
             $drawing->setWorksheet($sheet);
         }
         foreach ($form->letterhead() as $index => $line) {
-            $put('B' . $row . ':G' . $row, $line, array_merge($centre,
+            $put('B' . $row . ':H' . $row, $line, array_merge($centre,
                 $index === 0 ? ['font' => ['bold' => true, 'size' => 14]] : ['font' => ['size' => 9]]));
             $row++;
         }
         $row++;
 
         foreach ($form->company() as $line) {
-            $put('A' . $row . ':G' . $row, $line);
+            $put('A' . $row . ':H' . $row, $line);
             $row++;
         }
         $row++;
@@ -1494,10 +1504,13 @@ class CandidatesController extends AppController
         if ($photo) {
             $drawing = new \PhpOffice\PhpSpreadsheet\Worksheet\Drawing();
             $drawing->setPath($photo);
-            $drawing->setHeight(132);
+            // A drawing floats over the grid rather than sitting in a cell,
+            // so it is sized to stay inside column A's width (15 characters,
+            // about 110px): 120 tall is about 90 wide at a portrait's ratio.
+            $drawing->setHeight(120);
             $drawing->setCoordinates('A' . $first);
-            $drawing->setOffsetX(10);
-            $drawing->setOffsetY(4);
+            $drawing->setOffsetX(8);
+            $drawing->setOffsetY(6);
             $drawing->setWorksheet($sheet);
         }
         foreach ($head as $line) {
@@ -1519,27 +1532,42 @@ class CandidatesController extends AppController
                 $put('F' . $row . ':G' . $row, $line['value'],
                     array_merge($value, ['font' => ['bold' => true]]));
             } else {
-                $put('F' . $row, $line['value'], array_merge($value, ['font' => ['bold' => true]]));
-                $put('G' . $row, $line['unit'], $value);
+                $put('F' . $row, $line['value'], array_merge($right, ['font' => ['bold' => true]]));
+                $put('G' . $row, $line['unit'], $left);
             }
             $row++;
         }
-        $row++;
+        // No blank row here: on the page the address block carries straight on
+        // from the head block inside the same table, which is what lets one
+        // cell span both.
 
+        // The Catatan column is the interviewer's, and it runs beside the head
+        // block and the address under it, stopping above 確認事項 - which is
+        // the first gap the blocks give us. Everything after that spans the
+        // full width.
+        $notesFrom = $first;
+        $edge = 'G';
         foreach ($form->blocks() as $block) {
+            if ($block['type'] === 'gap' && $edge === 'G') {
+                $sheet->mergeCells('H' . $notesFrom . ':H' . ($row - 1));
+                $put('H' . $notesFrom . ':H' . ($row - 1), $form->label('notes'), $left);
+                $edge = 'H';
+                $row++;
+                continue;
+            }
             if ($block['type'] === 'section') {
-                $put('A' . $row . ':G' . $row, $block['text'], $section);
+                $put('A' . $row . ':' . $edge . $row, $block['text'], $section);
                 $row++;
                 continue;
             }
             if ($block['type'] === 'wide') {
-                $put('A' . $row . ':G' . $row, $block['text'], $value);
+                $put('A' . $row . ':' . $edge . $row, $block['text'], $value);
                 $row++;
                 continue;
             }
             if ($block['type'] === 'pair') {
                 $put('A' . $row . ':B' . $row, $block['label'], $label);
-                $put('C' . $row . ':G' . $row, $block['value'], $value);
+                $put('C' . $row . ':' . $edge . $row, $block['value'], $value);
                 $row++;
                 continue;
             }
@@ -1547,13 +1575,13 @@ class CandidatesController extends AppController
                 $put('A' . $row . ':B' . $row, $block['cells'][0], $label);
                 $put('C' . $row . ':D' . $row, $block['cells'][1], $value);
                 $put('E' . $row, $block['cells'][2], $label);
-                $put('F' . $row . ':G' . $row, $block['cells'][3], $value);
+                $put('F' . $row . ':' . $edge . $row, $block['cells'][3], $value);
                 $row++;
                 continue;
             }
             if ($block['type'] === 'two') {
                 $put('A' . $row . ':B' . $row, $block['cells'][0], $label);
-                $put('C' . $row . ':G' . $row, $block['cells'][1], $value);
+                $put('C' . $row . ':' . $edge . $row, $block['cells'][1], $value);
                 $row++;
                 continue;
             }
@@ -1562,7 +1590,7 @@ class CandidatesController extends AppController
                 $put('A' . $row . ':B' . $row, $block['cells'][0], $style);
                 $put('C' . $row . ':D' . $row, $block['cells'][1],
                     !empty($block['head']) ? $label : $valueLeft);
-                $put('E' . $row . ':G' . $row, $block['cells'][2],
+                $put('E' . $row . ':' . $edge . $row, $block['cells'][2],
                     !empty($block['head']) ? $label : $valueLeft);
                 $row++;
                 continue;
@@ -1573,7 +1601,7 @@ class CandidatesController extends AppController
                 $put('B' . $row . ':C' . $row, $block['cells'][1],
                     !empty($block['head']) ? $label : $valueLeft);
                 $put('D' . $row, $block['cells'][2], $style);
-                $put('E' . $row . ':G' . $row, $block['cells'][3],
+                $put('E' . $row . ':' . $edge . $row, $block['cells'][3],
                     !empty($block['head']) ? $label : $valueLeft);
                 $row++;
                 continue;

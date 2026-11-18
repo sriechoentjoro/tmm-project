@@ -68,6 +68,7 @@ class CandidateCvForm
             'religion' => ['宗教', 'Agama'],
             'been_to_japan' => ['訪日経験', 'Pernah ke Jepang'],
             'passport' => ['旅券の有無', 'Pernah Memiliki Paspor'],
+            'notes' => ['備考', 'Catatan'],
             'address' => ['現住所', 'Alamat Rumah'],
             'phone' => ['No.HP（携帯電話番号）', ''],
             'confirmation' => ['確認事項', 'Poin konfirmasi'],
