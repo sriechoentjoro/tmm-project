@@ -1343,236 +1343,61 @@ class CandidatesController extends AppController
     }
 
     /**
-     * Export CV to Excel format
+     * The CV as a spreadsheet, laid out as the form.
+     *
+     * The same document Element/Candidates/cv_body.ctp prints: the letterhead,
+     * 企業名, the head block with its photo, 現住所 and No.HP, 確認事項, 学歴,
+     * 職歴, 家族構成 and the certificates after them. It used to be a workbook
+     * of its own design - "Basic Information", "Contact Information",
+     * "Additional Information" - which was the CV this application drew before
+     * the LPK's own form replaced it, and it carried none of 確認事項 at all.
+     * So Export Excel handed over a different document from the one on the
+     * screen and on the paper.
+     *
+     * A spreadsheet cannot render a template, so this builds its own grid. What
+     * keeps the two from drifting is tests/candidate_cv_excel.php, which reads
+     * the labels and the values out of the rendered page and finds every one of
+     * them in the workbook.
      *
      * @param int|null $id Candidate ID
      * @return \Cake\Http\Response
      */
     public function exportCvExcel($id = null)
     {
+        // The same associations the CV element reads. A missing one here is a
+        // blank cell in the download and nothing else, which is why it is the
+        // same list and not a shorter one.
         $candidate = $this->Candidates->get($id, [
             'contain' => [
-                'CandidateEducations',
+                'CandidateEducations' => ['MasterStratas'],
                 'CandidateExperiences',
-                'CandidateFamilies',
+                'CandidateFamilies' => ['MasterFamilyConnections', 'MasterOccupations'],
                 'CandidateCertifications',
                 'CandidateCourses',
                 'MasterGenders',
                 'MasterReligions',
                 'MasterMarriageStatuses',
-                'MasterBloodTypes'
+                'MasterBloodTypes',
+                'MasterPropinsis',
+                'MasterKabupatens',
+                'MasterKecamatans',
+                'MasterKelurahans',
+                'AcceptanceOrganizations',
+                'ApprenticeOrders' => ['AcceptanceOrganizations'],
             ]
         ]);
 
-        $fmtDate = function ($value) {
-            if (empty($value)) {
-                return '';
-            }
-            return is_object($value) ? $value->format('Y-m-d') : (string)$value;
-        };
-
-        // Same English -> Japanese label map used on the printed CV (cv.ctp),
-        // so the Excel export mirrors what the Japanese interviewer sees on paper.
-        $ja = [
-            'Candidate Curriculum Vitae' => '候補者履歴書',
-            'Basic Information'     => '基本情報',
-            'Identity Number'       => '身分証明書番号',
-            'Candidate Code'        => '候補者コード',
-            'Full Name'             => '氏名',
-            'Place / Date of Birth' => '出生地・生年月日',
-            'years'                 => '歳',
-            'Gender'                => '性別',
-            'Religion'               => '宗教',
-            'Marriage Status'       => '婚姻状況',
-            'Blood Type'            => '血液型',
-            'Height / Weight'       => '身長・体重',
-            'Contact Information'   => '連絡先情報',
-            'Mobile Phone'          => '携帯電話番号',
-            'Emergency Contact'     => '緊急連絡先',
-            'Email'                 => 'メールアドレス',
-            'Address'                => '住所',
-            'Education History'     => '学歴',
-            'No.'                   => '番号',
-            'School / College'      => '学校名',
-            'Major'                  => '専攻',
-            'Entry Date'             => '入学',
-            'Graduate Date'          => '卒業',
-            'Work Experience'       => '職歴',
-            'Company'                => '会社名',
-            'Position'               => '役職',
-            'Start Year'             => '開始年',
-            'End Year'               => '終了年',
-            'Job Detail'             => '業務内容',
-            'Certifications'        => '資格',
-            'Certification'         => '資格名',
-            'Institution'            => '取得機関',
-            'Date'                   => '取得日',
-            'Detail'                 => '詳細',
-            'Courses & Training'    => '研修・コース',
-            'Course'                 => 'コース名',
-            'Year'                   => '年',
-            'Family Information'    => '家族構成',
-            'Name'                   => '氏名',
-            'Age'                    => '年齢',
-            'Additional Information' => 'その他の情報',
-            'Strengths'              => '長所',
-            'Weaknesses'             => '短所',
-            'Hobby'                  => '趣味',
-            'Application Reasons'   => '志望動機',
-        ];
-        $bl = function ($label) use ($ja) {
-            return isset($ja[$label]) ? $label . ' / ' . $ja[$label] : $label;
-        };
-
-        $age = '';
-        if (!empty($candidate->birth_date)) {
-            try {
-                $birth = new \DateTime($fmtDate($candidate->birth_date));
-                $age = $birth->diff(new \DateTime())->y;
-            } catch (\Exception $e) {
-                $age = '';
-            }
-        }
-
-        // Build a list of layout "blocks" (mirrors the sections on the printed
-        // CV / cv.ctp) which the renderer below turns into a styled .xlsx —
-        // colored section bars, bold table headers, borders — matching the PDF look.
-        $blocks = [];
-
-        // Photo path (mirrors cv.ctp's existence check — some records reference
-        // photos that were never actually uploaded to this server)
-        $photoPath = (!empty($candidate->image_photo) && file_exists(WWW_ROOT . $candidate->image_photo))
-            ? WWW_ROOT . $candidate->image_photo
-            : null;
-
-        $blocks[] = [
-            'type' => 'header',
-            'subtitle' => $bl('Candidate Curriculum Vitae'),
-            'name' => $candidate->name,
-            'katakana' => $candidate->name_katakana,
-            'photo' => $photoPath,
-        ];
-
-        $kv = [];
-        $kv[] = [$bl('Identity Number'), $candidate->identity_number];
-        if (!empty($candidate->candidate_code)) {
-            $kv[] = [$bl('Candidate Code'), $candidate->candidate_code];
-        }
-        $kv[] = [$bl('Full Name'), $candidate->name];
-        $kv[] = [$bl('Place / Date of Birth'), trim($candidate->birth_place . ', ' . $fmtDate($candidate->birth_date) . ($age !== '' ? ' (' . $age . ' ' . $ja['years'] . ')' : ''), ', ')];
-        $kv[] = [$bl('Gender'), $candidate->master_gender ? $candidate->master_gender->title : ''];
-        $kv[] = [$bl('Religion'), $candidate->master_religion ? $candidate->master_religion->title : ''];
-        $kv[] = [$bl('Marriage Status'), $candidate->master_marriage_status ? $candidate->master_marriage_status->title : ''];
-        if (!empty($candidate->master_blood_type)) {
-            $kv[] = [$bl('Blood Type'), $candidate->master_blood_type->title];
-        }
-        if (!empty($candidate->body_height) || !empty($candidate->body_weight)) {
-            $kv[] = [$bl('Height / Weight'), (!empty($candidate->body_height) ? $candidate->body_height . ' cm' : '-') . ' / ' . (!empty($candidate->body_weight) ? $candidate->body_weight . ' kg' : '-')];
-        }
-        $blocks[] = ['type' => 'section', 'text' => $bl('Basic Information')];
-        $blocks[] = ['type' => 'kv', 'rows' => $kv];
-
-        $kv = [];
-        if (!empty($candidate->telephone_mobile)) {
-            $kv[] = [$bl('Mobile Phone'), $candidate->telephone_mobile];
-        }
-        $kv[] = [$bl('Emergency Contact'), $candidate->telephone_emergency];
-        if (!empty($candidate->email)) {
-            $kv[] = [$bl('Email'), $candidate->email];
-        }
-        $kv[] = [$bl('Address'), trim($candidate->address . (!empty($candidate->post_code) ? ' (' . $candidate->post_code . ')' : ''))];
-        $blocks[] = ['type' => 'section', 'text' => $bl('Contact Information')];
-        $blocks[] = ['type' => 'kv', 'rows' => $kv];
-
-        if (!empty($candidate->candidate_educations)) {
-            $rows = [];
-            foreach ($candidate->candidate_educations as $i => $edu) {
-                $rows[] = [$i + 1, $edu->college_name, $edu->college_major, $fmtDate($edu->college_entry_date), $fmtDate($edu->college_graduate_date)];
-            }
-            $blocks[] = ['type' => 'section', 'text' => $bl('Education History')];
-            $blocks[] = ['type' => 'table', 'headers' => [$bl('No.'), $bl('School / College'), $bl('Major'), $bl('Entry Date'), $bl('Graduate Date')], 'rows' => $rows, 'widths' => [6, 34, 24, 16, 16]];
-        }
-
-        if (!empty($candidate->candidate_experiences)) {
-            $rows = [];
-            foreach ($candidate->candidate_experiences as $i => $exp) {
-                $rows[] = [$i + 1, $exp->company_name, $exp->title, $exp->employment_start_year, $exp->employment_end_year, $exp->job_detail];
-            }
-            $blocks[] = ['type' => 'section', 'text' => $bl('Work Experience')];
-            $blocks[] = ['type' => 'table', 'headers' => [$bl('No.'), $bl('Company'), $bl('Position'), $bl('Start Year'), $bl('End Year'), $bl('Job Detail')], 'rows' => $rows, 'widths' => [6, 28, 20, 13, 13, 30]];
-        }
-
-        if (!empty($candidate->candidate_certifications)) {
-            $rows = [];
-            foreach ($candidate->candidate_certifications as $i => $cert) {
-                $rows[] = [$i + 1, $cert->title, $cert->institution_name, $fmtDate($cert->certification_date), $cert->detail];
-            }
-            $blocks[] = ['type' => 'section', 'text' => $bl('Certifications')];
-            $blocks[] = ['type' => 'table', 'headers' => [$bl('No.'), $bl('Certification'), $bl('Institution'), $bl('Date'), $bl('Detail')], 'rows' => $rows, 'widths' => [6, 30, 26, 16, 22]];
-        }
-
-        if (!empty($candidate->candidate_courses)) {
-            $rows = [];
-            foreach ($candidate->candidate_courses as $i => $course) {
-                $rows[] = [$i + 1, $course->title, $course->course_year, $course->detail];
-            }
-            $blocks[] = ['type' => 'section', 'text' => $bl('Courses & Training')];
-            $blocks[] = ['type' => 'table', 'headers' => [$bl('No.'), $bl('Course'), $bl('Year'), $bl('Detail')], 'rows' => $rows, 'widths' => [6, 36, 14, 44]];
-        }
-
-        if (!empty($candidate->candidate_families)) {
-            $rows = [];
-            foreach ($candidate->candidate_families as $i => $fam) {
-                $rows[] = [$i + 1, $fam->name, $fam->age, $fam->detail];
-            }
-            $blocks[] = ['type' => 'section', 'text' => $bl('Family Information')];
-            $blocks[] = ['type' => 'table', 'headers' => [$bl('No.'), $bl('Name'), $bl('Age'), $bl('Detail')], 'rows' => $rows, 'widths' => [6, 30, 10, 54]];
-        }
-
-        if (!empty($candidate->strengths) || !empty($candidate->weaknesses) || !empty($candidate->hobby) || !empty($candidate->application_reasons)) {
-            $kv = [];
-            if (!empty($candidate->strengths)) {
-                $kv[] = [$bl('Strengths'), $candidate->strengths];
-            }
-            if (!empty($candidate->weaknesses)) {
-                $kv[] = [$bl('Weaknesses'), $candidate->weaknesses];
-            }
-            if (!empty($candidate->hobby)) {
-                $kv[] = [$bl('Hobby'), $candidate->hobby];
-            }
-            if (!empty($candidate->application_reasons)) {
-                $kv[] = [$bl('Application Reasons'), $candidate->application_reasons];
-            }
-            $blocks[] = ['type' => 'section', 'text' => $bl('Additional Information')];
-            $blocks[] = ['type' => 'kv', 'rows' => $kv];
-        }
-
-        $filename = 'CV_' . $candidate->identity_number . '_' . date('Ymd') . '.xlsx';
+        $form = new \App\View\CandidateCvForm($candidate);
+        $filename = 'CV_' . ($candidate->identity_number ?: $candidate->id)
+            . '_' . date('Ymd') . '.xlsx';
 
         if (!class_exists('\PhpOffice\PhpSpreadsheet\Spreadsheet')) {
-            // Fallback: flatten blocks to plain CSV if PhpSpreadsheet isn't installed
-            $csv = [];
-            foreach ($blocks as $block) {
-                if ($block['type'] === 'header') {
-                    $csv[] = [$block['subtitle']];
-                    $csv[] = [$block['name'], $block['katakana'] ?? ''];
-                } elseif ($block['type'] === 'section') {
-                    $csv[] = [$block['text']];
-                } elseif ($block['type'] === 'kv') {
-                    foreach ($block['rows'] as $row) {
-                        $csv[] = $row;
-                    }
-                } elseif ($block['type'] === 'table') {
-                    $csv[] = $block['headers'];
-                    foreach ($block['rows'] as $row) {
-                        $csv[] = $row;
-                    }
-                }
-                $csv[] = [];
-            }
+            // Without the library the form cannot be drawn, so what goes out is
+            // the same content as a readable two-column list rather than a
+            // spreadsheet named .xlsx that is not one.
             $stream = fopen('php://temp', 'r+');
-            foreach ($csv as $row) {
-                fputcsv($stream, $row);
+            foreach ($form->flat() as $line) {
+                fputcsv($stream, $line);
             }
             rewind($stream);
             $body = stream_get_contents($stream);
@@ -1588,164 +1413,188 @@ class CandidatesController extends AppController
         $sheet = $spreadsheet->getActiveSheet();
         $sheet->setTitle('CV');
 
-        $maxCols = 6;
-        $colLetters = ['A', 'B', 'C', 'D', 'E', 'F'];
-        $sheet->getColumnDimension('A')->setWidth(46);
-        foreach (range('B', 'F') as $col) {
-            $sheet->getColumnDimension($col)->setWidth(20);
+        $widths = ['A' => 16, 'B' => 13, 'C' => 20, 'D' => 12, 'E' => 22, 'F' => 14, 'G' => 6];
+        foreach ($widths as $column => $width) {
+            $sheet->getColumnDimension($column)->setWidth($width);
         }
-        $sheet->getDefaultRowDimension()->setRowHeight(18);
 
-        $sectionFill = '00BCD4';
-        $tableHeaderFill = 'F1FAFB';
-        $borderColor = 'DDE7EA';
+        $thin = [
+            'borders' => ['allBorders' => [
+                'borderStyle' => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN,
+                'color' => ['rgb' => '000000'],
+            ]],
+        ];
+        $middle = ['alignment' => [
+            'vertical' => \PhpOffice\PhpSpreadsheet\Style\Alignment::VERTICAL_CENTER,
+            'wrapText' => true,
+        ]];
+        $centre = ['alignment' => [
+            'horizontal' => \PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER,
+        ]];
+        $shade = function ($rgb) {
+            return ['fill' => [
+                'fillType' => \PhpOffice\PhpSpreadsheet\Style\Fill::FILL_SOLID,
+                'startColor' => ['rgb' => $rgb],
+            ]];
+        };
+
+        /**
+         * Write one cell, merging it across a range when it spans more than one.
+         */
+        $put = function ($range, $text, array $style = []) use ($sheet) {
+            $cell = strpos($range, ':') === false ? $range : substr($range, 0, strpos($range, ':'));
+            if (strpos($range, ':') !== false) {
+                $sheet->mergeCells($range);
+            }
+            $sheet->setCellValueExplicit($cell, (string)$text,
+                \PhpOffice\PhpSpreadsheet\Cell\DataType::TYPE_STRING);
+            if ($style) {
+                $sheet->getStyle($range)->applyFromArray($style);
+            }
+        };
+
+        $label = array_merge($thin, $middle, $shade('EBEBEB'));
+        $value = array_merge($thin, $middle, $centre);
+        $valueLeft = array_merge($thin, $middle);
+        $section = array_merge($thin, $middle, $centre, $shade('D9D9D9'),
+            ['font' => ['bold' => true]]);
 
         $row = 1;
-        foreach ($blocks as $block) {
-            if ($block['type'] === 'header') {
-                // Photo column (A) spans 6 rows, ~150px tall — matches the PDF header photo
-                $headerRows = 6;
-                $photoCell = "A{$row}";
-                $sheet->mergeCells($photoCell . ':A' . ($row + $headerRows - 1));
-                for ($r = $row; $r < $row + $headerRows; $r++) {
-                    $sheet->getRowDimension($r)->setRowHeight(20);
-                }
-                $sheet->getStyle($photoCell)->applyFromArray([
-                    'borders' => ['allBorders' => ['borderStyle' => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN, 'color' => ['rgb' => 'CFD8DC']]],
-                    'alignment' => ['horizontal' => \PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER, 'vertical' => \PhpOffice\PhpSpreadsheet\Style\Alignment::VERTICAL_CENTER],
-                ]);
 
-                if (!empty($block['photo'])) {
-                    $drawing = new \PhpOffice\PhpSpreadsheet\Worksheet\Drawing();
-                    $drawing->setPath($block['photo']);
-                    $drawing->setHeight(110);
-                    $drawing->setOffsetX(8);
-                    $drawing->setOffsetY(6);
-                    $drawing->setCoordinates($photoCell);
-                    $drawing->setWorksheet($sheet);
-                } else {
-                    $sheet->setCellValue($photoCell, '(no photo)');
-                    $sheet->getStyle($photoCell)->applyFromArray(['font' => ['italic' => true, 'size' => 9, 'color' => ['rgb' => 'B0BEC5']]]);
-                }
+        // The letterhead, as on the paper.
+        $logo = WWW_ROOT . 'img' . DS . 'lpk-trimitra-logo.png';
+        if (file_exists($logo)) {
+            $drawing = new \PhpOffice\PhpSpreadsheet\Worksheet\Drawing();
+            $drawing->setPath($logo);
+            $drawing->setHeight(62);
+            $drawing->setCoordinates('A' . $row);
+            $drawing->setOffsetX(6);
+            $drawing->setWorksheet($sheet);
+        }
+        foreach ($form->letterhead() as $index => $line) {
+            $put('B' . $row . ':G' . $row, $line, array_merge($centre,
+                $index === 0 ? ['font' => ['bold' => true, 'size' => 14]] : ['font' => ['size' => 9]]));
+            $row++;
+        }
+        $row++;
 
-                // Subtitle / Name / Katakana stacked in columns B:F
-                $sheet->mergeCells("B{$row}:F{$row}");
-                $sheet->setCellValue("B{$row}", $block['subtitle']);
-                $sheet->getStyle("B{$row}")->applyFromArray([
-                    'font' => ['size' => 9, 'color' => ['rgb' => '90A4AE'], 'bold' => true],
-                ]);
+        foreach ($form->company() as $line) {
+            $put('A' . $row . ':G' . $row, $line);
+            $row++;
+        }
+        $row++;
 
-                $nameRow = $row + 1;
-                $sheet->mergeCells("B{$nameRow}:F" . ($nameRow + 1));
-                $sheet->setCellValue("B{$nameRow}", $block['name']);
-                $sheet->getStyle("B{$nameRow}")->applyFromArray([
-                    'font' => ['bold' => true, 'size' => 20, 'color' => ['rgb' => '2C3E50']],
-                    'alignment' => ['vertical' => \PhpOffice\PhpSpreadsheet\Style\Alignment::VERTICAL_CENTER],
-                ]);
-
-                if (!empty($block['katakana'])) {
-                    $kanaRow = $nameRow + 2;
-                    $sheet->mergeCells("B{$kanaRow}:F{$kanaRow}");
-                    $sheet->setCellValue("B{$kanaRow}", $block['katakana']);
-                    $sheet->getStyle("B{$kanaRow}")->applyFromArray([
-                        'font' => ['size' => 13, 'color' => ['rgb' => '607D8B']],
-                    ]);
-                }
-
-                // Bottom border under the whole header band — matches the PDF's
-                // 3px solid cyan rule separating header from body
-                $sheet->getStyle('A' . ($row + $headerRows - 1) . ':F' . ($row + $headerRows - 1))->applyFromArray([
-                    'borders' => ['bottom' => ['borderStyle' => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THICK, 'color' => ['rgb' => $sectionFill]]],
-                ]);
-
-                $row += $headerRows + 1;
-                continue;
+        // The head block: photo down the left, nine rows beside it.
+        $head = $form->head();
+        $first = $row;
+        $last = $row + count($head) - 1;
+        $sheet->mergeCells('A' . $first . ':A' . $last);
+        $sheet->getStyle('A' . $first . ':A' . $last)->applyFromArray($thin);
+        $photo = $form->photoPath();
+        if ($photo) {
+            $drawing = new \PhpOffice\PhpSpreadsheet\Worksheet\Drawing();
+            $drawing->setPath($photo);
+            $drawing->setHeight(132);
+            $drawing->setCoordinates('A' . $first);
+            $drawing->setOffsetX(10);
+            $drawing->setOffsetY(4);
+            $drawing->setWorksheet($sheet);
+        }
+        foreach ($head as $line) {
+            $sheet->getRowDimension($row)->setRowHeight(17);
+            // Left of the block: a label on its own line, or a value centred
+            // under it.
+            if ($line['left_kind'] === 'label') {
+                $put('B' . $row . ':C' . $row, $line['left'], $label);
+            } elseif ($line['left_kind'] === 'split') {
+                $put('B' . $row, $line['left'], $label);
+                $put('C' . $row, '', $value);
+            } else {
+                $put('B' . $row . ':C' . $row, $line['left'],
+                    array_merge($value, ['font' => ['bold' => true]]));
             }
+            $put('D' . $row, $line['ja'], $label);
+            $put('E' . $row, $line['id'], $label);
+            if ($line['unit'] === '') {
+                $put('F' . $row . ':G' . $row, $line['value'],
+                    array_merge($value, ['font' => ['bold' => true]]));
+            } else {
+                $put('F' . $row, $line['value'], array_merge($value, ['font' => ['bold' => true]]));
+                $put('G' . $row, $line['unit'], $value);
+            }
+            $row++;
+        }
+        $row++;
 
+        foreach ($form->blocks() as $block) {
             if ($block['type'] === 'section') {
-                $sheet->mergeCells("A{$row}:F{$row}");
-                $sheet->setCellValue("A{$row}", $block['text']);
-                $sheet->getStyle("A{$row}")->applyFromArray([
-                    'font' => ['bold' => true, 'size' => 11, 'color' => ['rgb' => 'FFFFFF']],
-                    'fill' => ['fillType' => \PhpOffice\PhpSpreadsheet\Style\Fill::FILL_SOLID, 'startColor' => ['rgb' => $sectionFill]],
-                    'alignment' => ['vertical' => \PhpOffice\PhpSpreadsheet\Style\Alignment::VERTICAL_CENTER, 'indent' => 1],
-                ]);
-                $sheet->getRowDimension($row)->setRowHeight(20);
+                $put('A' . $row . ':G' . $row, $block['text'], $section);
                 $row++;
                 continue;
             }
-
-            if ($block['type'] === 'kv') {
-                foreach ($block['rows'] as $kvRow) {
-                    $sheet->setCellValueExplicit("A{$row}", $kvRow[0], \PhpOffice\PhpSpreadsheet\Cell\DataType::TYPE_STRING);
-                    $sheet->mergeCells("B{$row}:F{$row}");
-                    // Force text type so long numeric strings (NIK, phone numbers) never
-                    // get auto-converted to scientific notation by Excel.
-                    $sheet->setCellValueExplicit("B{$row}", (string)$kvRow[1], \PhpOffice\PhpSpreadsheet\Cell\DataType::TYPE_STRING);
-                    $sheet->getStyle("A{$row}")->applyFromArray([
-                        'font' => ['bold' => true, 'color' => ['rgb' => '455A64']],
-                        'fill' => ['fillType' => \PhpOffice\PhpSpreadsheet\Style\Fill::FILL_SOLID, 'startColor' => ['rgb' => $tableHeaderFill]],
-                        'borders' => ['allBorders' => ['borderStyle' => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN, 'color' => ['rgb' => $borderColor]]],
-                        'alignment' => ['wrapText' => false, 'vertical' => \PhpOffice\PhpSpreadsheet\Style\Alignment::VERTICAL_CENTER],
-                    ]);
-                    $sheet->getStyle("B{$row}:F{$row}")->applyFromArray([
-                        'borders' => ['allBorders' => ['borderStyle' => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN, 'color' => ['rgb' => $borderColor]]],
-                        'alignment' => ['wrapText' => true, 'vertical' => \PhpOffice\PhpSpreadsheet\Style\Alignment::VERTICAL_CENTER],
-                    ]);
-                    $row++;
-                }
+            if ($block['type'] === 'wide') {
+                $put('A' . $row . ':G' . $row, $block['text'], $value);
                 $row++;
                 continue;
             }
-
-            if ($block['type'] === 'table') {
-                $colCount = count($block['headers']);
-                if (!empty($block['widths'])) {
-                    foreach ($block['widths'] as $i => $w) {
-                        // Column A is shared with the photo box and the kv label column
-                        // above/below — keep it fixed at the header-text width instead of
-                        // letting each table shrink it down to its own "No." column width.
-                        if ($i === 0) {
-                            continue;
-                        }
-                        if (isset($colLetters[$i])) {
-                            $sheet->getColumnDimension($colLetters[$i])->setWidth($w);
-                        }
-                    }
-                }
-                foreach ($block['headers'] as $i => $h) {
-                    $cell = $colLetters[$i] . $row;
-                    $sheet->setCellValue($cell, $h);
-                }
-                $sheet->getStyle($colLetters[0] . $row . ':' . $colLetters[$colCount - 1] . $row)->applyFromArray([
-                    'font' => ['bold' => true, 'color' => ['rgb' => '455A64']],
-                    'fill' => ['fillType' => \PhpOffice\PhpSpreadsheet\Style\Fill::FILL_SOLID, 'startColor' => ['rgb' => $tableHeaderFill]],
-                    'borders' => ['allBorders' => ['borderStyle' => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN, 'color' => ['rgb' => $borderColor]]],
-                    'alignment' => ['wrapText' => true],
-                ]);
+            if ($block['type'] === 'pair') {
+                $put('A' . $row . ':B' . $row, $block['label'], $label);
+                $put('C' . $row . ':G' . $row, $block['value'], $value);
                 $row++;
-
-                foreach ($block['rows'] as $dataRow) {
-                    foreach ($dataRow as $i => $val) {
-                        $sheet->setCellValue($colLetters[$i] . $row, $val);
-                    }
-                    $sheet->getStyle($colLetters[0] . $row . ':' . $colLetters[$colCount - 1] . $row)->applyFromArray([
-                        'borders' => ['allBorders' => ['borderStyle' => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN, 'color' => ['rgb' => $borderColor]]],
-                        'alignment' => ['wrapText' => true, 'vertical' => \PhpOffice\PhpSpreadsheet\Style\Alignment::VERTICAL_TOP],
-                    ]);
-                    $row++;
-                }
+                continue;
+            }
+            if ($block['type'] === 'four') {
+                $put('A' . $row . ':B' . $row, $block['cells'][0], $label);
+                $put('C' . $row . ':D' . $row, $block['cells'][1], $value);
+                $put('E' . $row, $block['cells'][2], $label);
+                $put('F' . $row . ':G' . $row, $block['cells'][3], $value);
+                $row++;
+                continue;
+            }
+            if ($block['type'] === 'two') {
+                $put('A' . $row . ':B' . $row, $block['cells'][0], $label);
+                $put('C' . $row . ':G' . $row, $block['cells'][1], $value);
+                $row++;
+                continue;
+            }
+            if ($block['type'] === 'three') {
+                $style = !empty($block['head']) ? $label : $value;
+                $put('A' . $row . ':B' . $row, $block['cells'][0], $style);
+                $put('C' . $row . ':D' . $row, $block['cells'][1],
+                    !empty($block['head']) ? $label : $valueLeft);
+                $put('E' . $row . ':G' . $row, $block['cells'][2],
+                    !empty($block['head']) ? $label : $valueLeft);
+                $row++;
+                continue;
+            }
+            if ($block['type'] === 'family') {
+                $style = !empty($block['head']) ? $label : $value;
+                $put('A' . $row, $block['cells'][0], $style);
+                $put('B' . $row . ':C' . $row, $block['cells'][1],
+                    !empty($block['head']) ? $label : $valueLeft);
+                $put('D' . $row, $block['cells'][2], $style);
+                $put('E' . $row . ':G' . $row, $block['cells'][3],
+                    !empty($block['head']) ? $label : $valueLeft);
+                $row++;
+                continue;
+            }
+            if ($block['type'] === 'gap') {
                 $row++;
             }
         }
 
-        $sheet->setSelectedCell('A1');
+        $sheet->getPageSetup()
+            ->setOrientation(\PhpOffice\PhpSpreadsheet\Worksheet\PageSetup::ORIENTATION_PORTRAIT)
+            ->setPaperSize(\PhpOffice\PhpSpreadsheet\Worksheet\PageSetup::PAPERSIZE_A4)
+            ->setFitToWidth(1)
+            ->setFitToHeight(0);
+        $sheet->getPageMargins()->setTop(0.3)->setBottom(0.3)->setLeft(0.3)->setRight(0.3);
 
         $writer = new \PhpOffice\PhpSpreadsheet\Writer\Xlsx($spreadsheet);
-        $tmpFile = tempnam(sys_get_temp_dir(), 'cv_xlsx_');
-        $writer->save($tmpFile);
-        $body = file_get_contents($tmpFile);
-        unlink($tmpFile);
+        ob_start();
+        $writer->save('php://output');
+        $body = ob_get_clean();
+        $spreadsheet->disconnectWorksheets();
 
         return $this->response
             ->withStringBody($body)
